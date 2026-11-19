@@ -96,6 +96,20 @@ $\alpha:F(\OO)\simeq\OO'$ の組を、$\alpha$ を保つ自然同型で割った
 $\mathfrak A^{\OO}_{n,d}$ と書く。必要なら固定した宇宙で小さい模型を取る。
 stack化は降下データを有効にする操作であり、有限型atlasの存在を意味しない。
 
+\begin{lemma}[標識と自然自己同型]
+\label{lem:marking-removes-two-aut}
+許容表示を持つ圏では
+$\operatorname{Nat}(\operatorname{Id}_{\mathcal Q},\operatorname{Id}_{\mathcal Q})=R$ である。
+従って $\OO$ の標識を保つ同値の自然自己同型は恒等だけである。
+\end{lemma}
+\begin{proof}
+自然変換は $\End(E_i)=R$ 上でスカラー $\lambda_i$ として作用する。
+$\Hom(E_{i+1},E_i)$ は正階数局所自由なので自然性から
+$\lambda_i=\lambda_{i+1}$ となる。豊富列からの全射と、
+各対象がnoetherian部分対象のfiltered colimitであることを用いて、
+圏全体で同じスカラーとなる。標識を保つなら $E_0=\OO$ 上で1である。
+\end{proof}
+
 \begin{definition}[非可換del Pezzo多様体のモジュライ問題]
 \label{def:nc-dp-stack}
 $\mathfrak M^{\OO}_{n,d}$ は、$\mathfrak A^{\OO}_{n,d}$ の対象で、
@@ -111,6 +125,10 @@ fullな部分問題をstack化したものとする。
       その導来関手の相対perfect部分圏への制限が $\mathsf S^{-1}[n]$ と同型である。
       $(\OO,\mathsf H)$ は相対的に豊富である。
 \item 基底変更は上のcompact部分圏を保ち、相対Serre双対と両立する。
+\item $r=n-1$ とする。上記と同じ許容豊富列を、
+      $\mathsf H(E_i)\simeq E_{i-r}$ を整合的に満たすようにfppf局所的に取れる。
+      さらに $i\le j$ に対して $R\Hom(E_j,E_i)$ は
+      次数零に集中する階数 $h_{n,d}(j-i)$ の局所自由複体である。
 \end{enumerate}
 これらの性質は許される基底変更後にも要求する。
 これらの構造の選択を追加の標識にはせず、その存在と保存を要求する。
@@ -118,23 +136,30 @@ fullな部分問題をstack化したものとする。
 完全Grothendieck圏同値は全余極限とcompact対象を保ち、複体への項別適用から
 このenhancementの同値を誘導する。Serre構造は双対の表現として一意なので、
 これらの条件は全 $\OO$ 保存同値に対して不変である。
+最後の条件を\emph{Serre周期 $n-1$ と有向ACM条件}と呼ぶ。
+周期の同型、豊富列、基本的な次数1自己同値を標識に加えていない。
+これは有限長のfull例外集合の存在を要求する条件でもない。
+相対的な基底線束の捻りはfppf局所で自明化してこの条件を検査する。
 \end{definition}
 
-さらに、fppf局所的に $\mathcal Q\simeq\QGr(A/(\Omega))$ と書ける部分問題を考える。
+さらに、$\mathfrak M^{\OO}_{n,d}$ の対象のうち、
+fppf局所的に $\mathcal Q\simeq\QGr(A/(\Omega))$ と書ける部分問題を考える。
 $A$ は各次数が有限局所自由な連結次数付き代数で、幾何学的ファイバー上で
 生成重み $(1^n,2,3)$ または $(1^{n+1},2)$、大域次元 $n+2$、
 Gorensteinパラメータ $n+5$ または $n+3$ のAS正則代数とし、
-$\Omega$ は次数6または4の正規な正則元で、商のHilbert級数を $h_{n,d}$ とする。
+$\Omega$ は次数6または4の正規元で、任意の許される基底変更後にも左右正則とし、
+商の各次数は平坦でHilbert級数を $h_{n,d}$ とする。
 この\emph{重み付き超曲面による部分問題}を $\mathfrak M^{\OO,\mathrm{hyp}}_{n,d}$ と書く。
 中心的な $\Omega$ はその特別な場合である。AS包絡の選択は忘れ、射はやはり全 $\OO$ 保存同値とする。
 
 \begin{remark}[定義と証明すべき性質]
 以上でモジュライ問題は定まるが、代数スタック性、有限型性、
-重み付き超曲面による部分問題との一致、次数の異なる部分問題の互いの素性は
-定義からは従わない。次数の内在性については
-命題\ref{prop:ncdp-intrinsic-degree}の反標準Euler多項式による十分条件を用いる。
+重み付き超曲面による部分問題との一致は定義からは従わない。
+一方、Serre周期と有向ACM条件により、$\mathfrak M^{\OO}_{n,d}$ では
+命題\ref{prop:ncdp-intrinsic-degree}を使って次数の内在性を証明できる。
+広い $\mathfrak A^{\OO}_{n,d}$ について同じ結論は主張しない。
 第\ref{sec:formal-abel}節で計算するのは全Abel Artin変形の同型類であり、
-追加の相対Serre条件や通常の次数付き周期化の持上げを証明するまでは、
+追加のcompact性・相対Serre条件・反標準豊富性の持上げを証明するまでは、
 それを $\mathfrak M^{\OO}_{n,d}$ や
 $\mathfrak M^{\OO,\mathrm{hyp}}_{n,d}$ の完成と無条件に同定しない。
 この区別が、次数付き表示だけを分類する商と、構造対象のみを標識する分類を比較する際に必要である。

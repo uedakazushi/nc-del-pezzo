@@ -1,0 +1,156 @@
+% !TeX root = ../nc-del-pezzo.tex
+% 2026-11-20 JST / v0.1
+\subsection{具体的量子化による全 Artin 変形の表示}
+\label{subsec:quantization-formal-universal}
+
+滑らかな可換点 $X$ を固定し，グラフ formality 写像を一つ選ぶ．
+定理\ref{thm:quantization-descent}の構成を特殊ファイバーの同一視を保つ
+変形に制限すると，全ての局所 Artin $\mathbb C$-代数の射に自然な写像
+\[
+ Q_X:\mathrm{PoisDef}_X\longrightarrow\mathrm{Def}^{\mathcal O}_X
+\]
+を得る．これは stack 化後だけの写像ではない．Artin 局所基底上では
+基本線束の持上げと重み付き生成元を大域的に選べ，その選択を変える
+正規形の座標変換は実際の次数付き代数同型を与える．
+次数スカラーは構造対象を保つ自然同型で恒等化されるから，
+$Q_X$ は定義\ref{def:framed-o-abel}の同型類に値を取る．
+ここで標準形の選択を与える滑らかな座標変換群の torsor は，
+特殊ファイバーの $\mathbb C$-点を冪零厚化へ持ち上げることで自明化できる．
+
+\begin{lemma}[完備局所環の自己写像]
+\label{lem:formal-endomorphism-inverse}
+$(C,\mathfrak m)$ を剰余体 $k$ を持つ完備 Noether 局所 $k$-代数とする．
+連続局所 $k$-代数自己準同型 $\varphi:C\to C$ が
+$\mathfrak m/\mathfrak m^2$ 上で同型を誘導するなら，$\varphi$ は同型である．
+\end{lemma}
+\begin{proof}
+$\operatorname{gr}_{\mathfrak m}C$ は次数1部分で生成されるため，
+$\varphi$ は各 $\mathfrak m^r/\mathfrak m^{r+1}$ 上で全射を誘導する．
+これらは有限次元 $k$-ベクトル空間だからその写像は同型である．
+帰納的に $C/\mathfrak m^r$ 上の写像も同型となり，逆極限を取ればよい．
+この議論は $C$ の正則性を仮定しない．
+\end{proof}
+
+\begin{proposition}[具体的量子化の接写像]
+\label{prop:quantization-tangent-isomorphism}
+$V_X=H^0(X,\bigwedge^2T_X)$ と置く．一次 commutator は完全列
+\[
+ 0\longrightarrow H^1(X,T_X)
+ \longrightarrow T\mathrm{Def}^{\mathcal O}_X
+ \xrightarrow{\,\beta\,}V_X\longrightarrow0
+\]
+を与える．$TQ_X$ は同型であり，左辺の可換方向と右辺の初括弧の双方で
+恒等写像を誘導する．
+\end{proposition}
+\begin{proof}
+$R_\epsilon=\mathbb C[\epsilon]/(\epsilon^2)$ とする．
+命題\ref{prop:abel-poisson-formal-comparison}の証明で用いた
+Lowen の比較と $H^1(\mathcal O_X)=H^2(\mathcal O_X)=0$ による untwisting により，
+Abel 一次変形の同型類は普通の結合代数層変形の gauge 同値類に一致する
+\cite[Theorems~3.14,3.26]{Lowen2008}
+\cite[Corollary~7.5]{Yekutieli2015}．
+その代表 $\mathcal A_\epsilon$ に対して
+\[
+ \epsilon\,\beta(a,b)
+   =[\widetilde a,\widetilde b]_{\mathcal A_\epsilon}
+\]
+と定める．平坦性による $\epsilon\mathcal A_\epsilon\simeq\mathcal O_X$ を用いており，
+局所的な持上げの選択によらない．結合性から $\beta$ は二重導分で，
+gauge 同値によって変化しないため，$V_X$ の元を与える．
+この構成は任意の平方零係数空間に関して自然であり，接空間上で線型である．
+$\beta=0$ は $\mathcal A_\epsilon$ が可換であることと同値なので，
+その核は通常のスキーム一次変形 $H^1(X,T_X)$ である．
+可換代数層間の結合代数同型は可換代数同型でもあるから，左の写像は単射である．
+
+一方，零 Poisson 構造における接空間は
+$T\mathrm{PoisDef}_X=H^1(X,T_X)\oplus V_X$ である．
+純粋な $\epsilon\pi$ に対する具体的量子化は
+\[
+ a\star b=ab+\frac\epsilon2\widetilde\pi(\mathrm da,\mathrm db),
+ \qquad\Omega=F.
+\]
+$F$ は Casimir なので $F\star a=Fa$ であり，中心商の一次積は
+$B_0\oplus\epsilon B_0$ 上の同じ式である．
+$B_0$ の非零斉次元の持上げ $f$ を invert する際，
+平坦性と $B_0$ の整域性から $f$ は左右正則である．
+また二重 commutator が零なので
+$b f^{k+1}=f^k(fb+(k+1)[b,f])$ であり，
+$f$ の冪は左右の Ore 条件を満たす．その局所化の一次積は，
+二重導分を通常の商則で延長した式になる．従って標準アフィン開
+$D_+(f)$ の重み零部分では初括弧は $\pi|_{D_+(f)}$ に等しい．
+次数2では $D_+(x_i)$，次数1ではこれらと $D_+(yz)$ が $X$ を被覆する．
+前者の $x_i$，後者の $z\star y^{-1}$ は局所化後の次数1の可逆元であり，
+この可逆性は冪零変形でも保たれる．従って局所化は強次数付きとなり，
+その次数零加群圏が tails の対応する局所化に一致する．
+よって $\beta(TQ_X(0,\pi))=\pi$ である．
+とくに $\beta$ は全射である．
+
+Poisson 構造が零なら積も中心元も可換のものに一致し，
+$Q_X$ は通常の $X_R$ を文字通り
+$(\operatorname{Qcoh}(X_R),\mathcal O_{X_R})$ に送る．
+よって $TQ_X$ は完全列の核と商の双方で恒等写像を誘導する．
+二つの短完全列の比較から $TQ_X$ は同型である．
+\end{proof}
+
+\begin{remark}[Hochschild 接空間との一致]
+一次 Abel 変形の接空間は Hochschild コホモロジーの二次群であり
+\cite[Theorem~3.1]{LowenVdBHochschild}，
+準連接層の Hochschild コホモロジーはスキームのものに一致する
+\cite[Corollaries~7.7.2,7.8.2]{LowenVdBHochschild}．
+HKR 分解\cite[Corollary~0.6]{YekutieliHKR2002}と $H^2(X,\mathcal O_X)=0$ により
+\[
+ T\mathrm{Def}^{\mathcal O}_X
+ \simeq\operatorname{HH}^2(X)
+ \simeq H^1(X,T_X)\oplus H^0(X,\bigwedge^2T_X).
+\]
+上の証明は，この分解の積構造や Gerstenhaber 括弧との両立を必要としない．
+初 commutator によって右側を正規化すれば，$TQ_X$ は対角成分が恒等の
+上三角行列となる．
+\end{remark}
+
+\begin{theorem}[具体的量子化の全 Artin 普遍性]
+\label{thm:concrete-quantization-all-artin}
+固定したグラフ formality 写像に対する $Q_X$ は自然な全単射である．
+従って全ての framed な $\mathcal O$-marked 平坦 Abel Artin 変形は，
+本節の重み付き多項式環の量子化の中心超曲面商の tails として実現できる．
+\end{theorem}
+\begin{proof}
+命題\ref{prop:abel-poisson-formal-comparison}の既知の自然な全単射の逆を
+$\chi:\mathrm{Def}^{\mathcal O}_X\xrightarrow{\sim}\mathrm{PoisDef}_X$ とする．
+定理\ref{thm:abel-formal-ring}の証明により後者は表示された完備 Noether 局所環
+$R_X$ で prorepresent される．従って自然変換 $\chi Q_X$ は
+連続局所 $\mathbb C$-代数自己準同型 $\varphi:R_X\to R_X$ に対応する．
+命題\ref{prop:quantization-tangent-isomorphism}と $T\chi$ の可逆性から
+$\varphi$ の余接写像は同型である．
+補題\ref{lem:formal-endomorphism-inverse}により $\varphi$ は同型となり，
+$Q_X$ は全ての Artin 環上で全単射である．
+$Q_X$ の構成は，まさに主張した中心商の tails を与える．
+\end{proof}
+
+\begin{corollary}[通常の次数付き中心超曲面表示]
+\label{cor:all-artin-weighted-hypersurface-presentation}
+任意の局所 Artin $R$ と任意の
+$[\mathcal D,\mathcal O_R]\in\mathrm{Def}^{\mathcal O}_X(R)$ に対して，
+通常の非負次数付き $R$-代数 $A_R$ と正則中心元 $\Omega\in(A_R)_m$ が存在し，
+\[
+ (\mathcal D,\mathcal O_R)
+ \simeq(\operatorname{QGr}(A_R/(\Omega)),\pi(A_R/(\Omega)))
+\]
+である．$A_R$ は可換点の重み付き多項式環の平坦変形であり，
+命題\ref{prop:nilpotent-weighted-as}と
+命題\ref{prop:flat-central-hypersurface-ext}の相対的結論を満たす．
+特に，中心商 $B_R=A_R/(\Omega)$ について左右とも
+$\underline{\operatorname{Ext}}_{B_R}^{n+1}(R,B_R)=R(n-1)$ で，
+他の augmentation Ext は零である．
+\end{corollary}
+\begin{proof}
+定理\ref{thm:concrete-quantization-all-artin}によって量子化表示を取り，
+定理\ref{thm:nilpotent-universal-quantization}の次数別自由性と
+普遍的中心正則性を用いる．これらは上記二命題の仮定を満たし，
+$N=n+2$，$W-m=n-1$ を代入すると主張の Ext 公式を得る．
+\end{proof}
+
+この結論は中心超曲面表示の存在をいうもので，その表示の一意性をいうものではない．
+$Q_X$ が既知の比較 $\chi^{-1}$ と一致することも必要ない．
+また，同型類関手の自然な全単射から full groupoid の同値，
+相対 Serre 性，大域 nc モジュライの代数性，またはその全既約成分の個数は結論しない．

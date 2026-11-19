@@ -21,9 +21,9 @@
 
 一般のn≥2に対して、次数1・2の非可換del Pezzo多様体を構造対象Oだけを標識したAbel圏として扱い、全O保存同値によるモジュライと既約成分を研究する。偏極・豊富列・AS包絡は存在条件と選択データを区別する。
 
-主原稿 `def:ample-model` はHilbert関数を持つ豊富列型の問題A、`def:nc-dp-stack` は標準compact圏の相対Serre・反標準豊富性等を備えたnc多様体の問題Mを定義する。重み付きAS超曲面の表示を持つ部分問題は別に記号化する。fppf stack化によるモジュライ問題の定義と、代数スタック・有限型atlasの構成は別である。
+主原稿 `def:ample-model` はHilbert関数を持つ豊富列型の問題A、`def:nc-dp-stack` は標準compact圏の相対Serre・反標準豊富性・Serre周期n−1・有向ACM条件を備えたnc多様体の問題Mを定義する。重み付きAS超曲面の表示を持つ部分問題は別に記号化する。fppf stack化によるモジュライ問題の定義と、代数スタック・有限型atlasの構成は別である。
 
-元の成分数決定という目標のうち、可換点における全Abel変形の形式分枝数は解決した。全体の成分数には一般nc点と代数化が残る。このため、現在は全Artin比較・同変な形式族・全O同値の認識を、公表価値のある一つの論理単位として先に完成させる。
+元の成分数決定という目標のうち、可換点における全Abel変形の形式分枝数と、全Artin変形の具体的な中心超曲面表示の存在は解決した。全体の成分数には一般nc点と代数化が残る。現在は全Artin比較・同変な形式族・具体量子化の完全性を中心結果とし、相対Serre条件と全O同値の認識を通じて大域分類へ進む。
 
 ## C. 主要到達点と確実性
 
@@ -32,10 +32,12 @@
 | 全O-marked Abel Artin変形の同型類関手は、d1で滑らかな形式円板、d2で通常の形式円板×Plücker錐の完備化 | 証明を記述し、一次比較定理の適用条件を点検。通常の局所Artin環全体。有限Aut(X)は未商 | `thm:abel-formal-ring` |
 | 各可換点は一形式分枝、d2・n≥3で特異、二次障害Q∧Q | 上の形式環から証明。全ncスタックの成分定理ではない | `cor:abel-quadratic-obstruction` |
 | 任意の冪零係数上の中心商は次数ごとに自由、任意基底変更と両立 | monic分裂で証明、DVRのtorsion-free判定を一般化していない | `thm:nilpotent-universal-quantization` |
-| Poisson零切断の形式完備化にO-marked tailsの族が降下 | 固定formality、正規形の線型群、次数スカラーのcoherent trivializationで証明。全Abel比較の逆とは未証明 | `thm:quantization-descent` |
+| Poisson零切断の形式完備化にO-marked tailsの族が降下 | 固定formality、正規形の線型群、次数スカラーのcoherent trivializationで証明 | `thm:quantization-descent` |
+| 構成した量子化自体が全framed Abel Artin変形の同型類を自然に分類する | 初commutatorによる接写像の同型と、同じ完備局所環の自己写像の逆写像補題で証明。全groupoid同値ではない | `thm:concrete-quantization-all-artin` |
+| 全Abel Artin変形は通常の次数付き中心超曲面表示を持つ | 表示の存在を証明。相対augmentation Ext条件付き。表示の一意性・絶対AS正則性は主張しない | `cor:all-artin-weighted-hypersurface-presentation` |
 | 全O同値は反標準軌道環から認識可能 | 相対perfect/Serre、反標準豊富性、section復元等の追加仮定付き | `prop:ncdp-relative-anticanonical-hom` |
 | 任意指数rのVeronese同型の持上げはμr-torsor | 二つ以上の中心一次変数、中心多項式環上平坦、普遍的低次中心条件の下で証明 | `thm:ncdp-veronese-lift` |
-| dは反標準Euler多項式から内在的に復元でき、族で局所定数 | 反標準saturation・高次Ext消滅・相対perfect条件付き | `prop:ncdp-intrinsic-degree` |
+| dは反標準Euler多項式から内在的に復元でき、族で局所定数 | 一般には反標準ACM・相対perfect条件付き。定義したMでは条件を満たし次数1・2が開閉分解 | `prop:ncdp-intrinsic-degree`, `cor:defined-moduli-degree-separation` |
 | 冪零段階の中心商は左右で唯一のaugmentation Ext `R(n−1)` を次数n+1に持つ | R分裂Koszul持上げと平坦中心商のchange of ringsで証明。通常の絶対AS正則性やSerre公式ではない | `prop:nilpotent-weighted-as`, `prop:flat-central-hypersurface-ext` |
 | 固定した全ての非零Poisson方向の形式一般ファイバーはCasimir多項式環を普遍中心に持つ | 古典generic active fiberの幾何学的整性とh係数帰納で証明。Artin商・有限複素hへの特殊化には適用しない | `thm:formal-generic-center`, `cor:formal-generic-veronese` |
 
@@ -43,8 +45,8 @@
 
 ## D. 未解決の核心と次の一手
 
-1. **相対Serreと通常の周期化。** 全Abel変形のZ-代数から反標準軌道へ進み、canonical bimodule、Nakayama自己同型、基底線束、豊富性、section saturationを確認する。AS指標n−1だけを根拠に無捩れを仮定しない。
-2. **構成した量子化の全変形に対する完全性。** 全Artin同型類の比較は得たが、固定したambient graph量子化がその逆となることは別問題。アフィン局所化・sheafification・section化でのformalityの比較から着手する。
+1. **相対Serreと反標準列。** 得られた通常の次数付き中心超曲面表示から、canonical bimodule、Nakayama自己同型、基底線束、反標準豊富性、section saturationを確認する。AS指標n−1だけを根拠に無捩れを仮定しない。相対compact性も調べ、全Abel形式環をMの完備化と同一視するための条件を埋める。
+2. **全同値と相対比較。** 同型類関手の全単射を出発点とし、有限自己同型群の作用、O保存同値の自然変換、反標準軌道環の相対復元を調べる。形式局所環の一致だけでfull groupoidや大域スタックの同値を結論しない。
 3. **有限型族と一般nc点。** 活性三変数の重み(1,2,3)/(1,1,2)にn−1個の中心変数を加える模型について、EG型potentialの中心元・PBW平坦性を係数環全体で確認する。形式パラメータ1への代入を行わない。
 4. **全体の既約成分。** 適切な有限型atlasと全同値の商を構成した後、可換locusに接しない成分の不存在または存在を判定する。可換点の形式環の整性だけで結論しない。
 

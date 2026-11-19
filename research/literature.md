@@ -35,7 +35,9 @@
 | Lowen–Van den Bergh, *Deformation theory of abelian categories*, Trans. AMS 358 (2006), 5441–5483, DOI 10.1090/S0002-9947-06-03871-2 | [arXiv:math/0405226](https://arxiv.org/pdf/math/0405226)、取得したv1のPropositions 3.4, 3.7 | injective/coflatによる圏の平坦性、Hom-flatな線型圏の加群圏。出版版とは番号が異なる。本文のAbel平坦性はnoetherian基底に限定 |
 | Kontsevich, *Deformation quantization of Poisson manifolds*, LMP 66 (2003), 157–216, DOI 10.1023/B:MATH.0000027508.00421.bf | [著者最終稿](https://www.ihes.fr/~maxim/TEXTS/DefQuant_final.pdf)、§§4.6.2,6,8、§7のP3 | graph formality、twisted mapによる中心元、GL同変性。一般の非線型座標変換への厳密同変性ではない |
 
-これらの比較・量子化原理は既知である。本研究で示すのは、次数1・2・一般nの相対錐への適用、monic商の任意基底での分裂、O-markedな圏の同変降下である。全Artin同型類の比較と、構成した特定の量子化族がその比較の逆であることは分ける。
+これらの比較・量子化原理は既知である。本研究では、次数1・2・一般nの相対錐への適用、monic商の任意基底での分裂、O-markedな圏の同変降下を示す。さらに初commutatorと完備局所環の自己写像を使い、構成した特定の量子化そのものが全Artin同型類に自然な全単射を与えることを証明した。既知の比較の逆と正確に同じ正規化を持つことは、この結論に不要である。
+
+接空間のHochschildによる説明には、Lowen–Van den Bergh, *Hochschild cohomology of abelian categories and ringed spaces*, Adv. Math. 198 (2005), 172–221, DOI 10.1016/j.aim.2004.11.010 の [著者稿](https://cantate.be/site/hochschild_ab.pdf)、Theorem 3.1、Corollaries 7.7.2・7.8.2と、Yekutieli, *The Continuous Hochschild Cochain Complex of a Scheme*, Canad. J. Math. 54 (2002), 1319–1337, DOI 10.4153/CJM-2002-051-8 の [修正版出版論文](https://www.math.bgu.ac.il/~amyekut/publications/diagonal/cjm.pdf)、Corollary 0.6を確認した。主証明はcommutatorの完全列で完結し、HKRの積や括弧との両立は使わない。
 
 ## 3. 反標準認識と曲面の先行研究
 
@@ -51,4 +53,4 @@ Plücker座標環の正規性・Cohen–Macaulay性にはSvanes (1973) とDe Con
 
 ## 4. 公表前に残る文献上の課題
 
-一般nでの全Abel形式環、任意指数Veronese復元、同変な圏の降下という組合せについて、包括的な優先権調査は未了。既存の非可換del Pezzo曲面の様々な定義、AS Z-代数、marked quiver、非可換吹上げとの比較を深める必要がある。講演概要にある未公表の一般次数の主張は確立済み定理として引用していない。
+一般nでの全Abel形式環、具体量子化の全Artin普遍性、任意指数Veronese復元、同変な圏の降下という組合せについて、包括的な優先権調査は未了。既存の非可換del Pezzo曲面の様々な定義、AS Z-代数、marked quiver、非可換吹上げとの比較を深める必要がある。講演概要にある未公表の一般次数の主張は確立済み定理として引用していない。

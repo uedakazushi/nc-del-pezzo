@@ -1,0 +1,14 @@
+build/
+*.pdf
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.synctex.gz
+*.toc
+__pycache__/
+*.pyc
+*.zip

@@ -1,0 +1,127 @@
+% !TeX root = ../nc-del-pezzo.tex
+% 2026-11-20 JST / v0.1
+\section{固定した非零方向の形式一般ファイバーと中心}
+\label{subsec:formal-generic-center}
+
+ここでは滑らかな複素多様体 $X$ と非零 Poisson 構造 $\pi$ を固定する．
+冪零係数環上の任意の非零パラメータに対して適合座標が存在すると主張していない．
+適合する複素線型座標を選び，中心的な一次座標を
+$s_1,\ldots,s_k$，$k=n-1$ と書く．
+$P=\mathbb C[s_1,\ldots,s_k]$，$K=\operatorname{Frac}(P)$ とする．
+残る変数を次数1では $(u,y,z)$，次数2では $(u,v,z)$ とすると，
+可換切断環 $B_0$ は
+\[
+ B_0=\begin{cases}
+ P[u,y,z]/(z^2-y^3-A_4(u,s)y-A_6(u,s)),&d=1,\\
+ P[u,v,z]/(z^2-f_4(u,v,s)),&d=2
+ \end{cases}
+\]
+であり，Poisson 括弧はこれらの活性な三変数の Jacobian 括弧である．
+
+\begin{lemma}[古典切断環の中心]
+\label{lem:classical-casimir-center}
+$B_0\otimes_PK$ は幾何学的整な $K$-代数であり，
+\[
+ Z_{\mathrm{Pois}}(\operatorname{Frac}B_0)=K,
+ \qquad Z_{\mathrm{Pois}}(B_0)=P
+\]
+である．
+\end{lemma}
+\begin{proof}
+次数1では $y^3+A_4(u,s)y+A_6(u,s)$ の $y$-次数が3であるため，
+$\overline K[u,y]$ において平方ではない．UFD であることから分数体でも平方でなく，
+$z$ の二次式は $\overline K[u,y,z]$ で既約である．
+
+次数2で，反対に $f_4$ が $\overline K[u,v]$ の平方であると仮定する．
+平方根のある非零係数を1に正規化すると，平方根の一意性を符号を除いて用いることにより，
+正規化した多項式は $K$ 上に降下する．従って
+$f_4=a g^2$，$a\in K^\times$，$g\in K[u,v]$ と書ける．
+$g$ が $u,v$ に関して非定数なら，$P$ の UFD 性と Gauss の補題により，
+$f_4\in P[u,v]$ は $u,v$ に関して非定数な既約因子を重複して持つ．
+これは分岐四次超曲面の滑らかさに反する．
+$g$ が定数なら $f_4\in P$ であり，その斉次性から
+$s_1=\cdots=s_k=0$ で定まる活性変数の射影直線上で $f_4$ と全偏微分が消える．
+これも滑らかさに反する．従って $f_4$ は平方でなく，
+ここでも $z$ の二次式は $\overline K[u,v,z]$ で既約となる．
+
+$L=\operatorname{Frac}B_0$ とすると $\operatorname{trdeg}_K L=2$ である．
+いずれの場合も活性な最初の二変数の括弧は $2z\ne0$ なので，
+$\Omega^1_{L/K}\to\operatorname{Der}_K(L)$ は同型となる．
+従って Poisson 中心の元 $a\in L$ は $\mathrm da=0$ を満たし，標数零より $K$ 上代数的である．
+幾何学的整性により $K$ は $L$ の中で代数的に閉じているため，中心は $K$ である．
+最後に $F$ は $z$ について monic なので，$B_0$ は
+活性な最初の二変数の単項式と $z$ の指数0または1で与えられる $P$-自由基底を持つ．
+この基底は $1$ を含むため，$B_0\cap K=P$ である．
+\end{proof}
+
+\begin{theorem}[形式一般ファイバーの普遍中心条件]
+\label{thm:formal-generic-center}
+$\hbar\pi$ に対して前述の量子化を各冪零段階で行い，
+内部次数ごとに逆極限を取った中心商を $B_\hbar$ とする．
+$R_\hbar=\mathbb C[[\hbar]]$，$K_\hbar=\mathbb C((\hbar))$，
+$P_\hbar=R_\hbar[s_1,\ldots,s_k]$ と書く．このとき
+\begin{enumerate}
+\item $B_\hbar$ は中心的な $P_\hbar$ 上の次数付き自由加群である．
+\item 各内部次数 $\ell$ に対して
+\[
+ Z(B_\hbar)_\ell=P_\ell[[\hbar]]
+\]
+が成り立つ．従って $B_\eta=B_\hbar\otimes_{R_\hbar}K_\hbar$ とすると
+\[
+ Z(B_\eta)=K_\hbar[s_1,\ldots,s_k].
+\]
+\item 任意の可換 $K_\hbar$-代数 $T$ と任意の $r\ge0$ に対して
+\[
+ Z(B_\eta\otimes_{K_\hbar}T)_r
+   =T[s_1,\ldots,s_k]_r
+\]
+である．また $B_\eta\otimes_{K_\hbar}T$ は $T[s_1,\ldots,s_k]$ 上自由である．
+\end{enumerate}
+\end{theorem}
+\begin{proof}
+各内部次数の逆極限は有限自由 $R_\hbar$-加群である．
+二重ベクトルに $\partial_{s_i}$ 成分がないため，グラフ積は
+$P_\hbar$-双線型であり，$s_i$ は補正なしに中心に残る．
+monic 除法の写像と中心元の乗算も $P_\hbar$-線型である．
+定理\ref{thm:nilpotent-universal-quantization}の分裂に現れる逆行列
+$(1+K_\ell)^{-1}$ を $\hbar$-進極限で取ると，これも $P_\hbar$-線型となる．
+従って活性変数の単項式と $z$ の指数0または1による同じ基底が，
+$B_\hbar$ の $P_\hbar$-自由基底を与える．
+ここで各次数に現れる単項式は有限個であり，逆極限を取るのは内部次数ごとである．
+
+$b\in Z(B_\hbar)_\ell$ を還元すると，交換子の一次項から
+$b\bmod\hbar$ は $B_0$ の Poisson 中心に入る．
+補題\ref{lem:classical-casimir-center}により，これはある $p_0\in P_\ell$ に等しい．
+$p_0$ 自身が量子中心に属するので，$b-p_0=\hbar b_1$ と書ける．
+$\hbar$ は非零因子だから $b_1$ も中心的である．
+反復して $b=\sum_{j\ge0}\hbar^jp_j$，$p_j\in P_\ell$ を得る．
+逆の包含は既に示したため，次数別の中心の式が従う．
+$\hbar$ の非零因子性により，局所化後に中心となる元は
+$\hbar$ の冪を掛ければ局所化前から中心に入る．これで一般ファイバーの中心を得る．
+
+$B_\hbar$ は標準の有限個の重み付き変数で代数として生成される．
+実際，各次数で対応する有限個の単語からの生成写像は $\hbar$ による還元後全射であり，
+有限 $R_\hbar$-加群に対する Nakayama の補題を使える．
+従って $B_\eta$ の中心の次数 $r$ は，これらの有限個の生成元との交換子写像
+\[
+ (B_\eta)_r\longrightarrow\bigoplus_j(B_\eta)_{r+w_j}
+\]
+の核である．これは有限次元 $K_\hbar$-ベクトル空間の間の写像である．
+任意の $K_\hbar$-代数は $K_\hbar$ 上平坦なので，その核は任意の係数変更と可換する．
+自由性の係数変更と合わせて最後の主張を得る．
+\end{proof}
+
+\begin{corollary}[Veronese 持上げの代数的仮定を満たす形式一般例]
+\label{cor:formal-generic-veronese}
+$n\ge3$ なら，任意の固定した滑らかな $(X,\pi)$，$\pi\ne0$ に対する $B_\eta$ は，
+$k=n-1\ge2$ と任意の $r\ge2$ について
+定理\ref{thm:ncdp-veronese-lift}の中心・平坦性仮定を満たす．
+特に $r=n-1$ の Veronese 持上げに適用できる．
+$n=2$ では反標準指数 $r=1$ なので持上げ自体が不要である．
+\end{corollary}
+
+これは $\mathbb C((\hbar))$ 上の例であり，有限の非零複素数への特殊化を構成したものではない．
+また本節は相対 Serre 同型，saturation，Nakayama の捻りの消去を証明していないので，
+全ての $\mathcal O$ 保存 Abel 同値の認識にはそれらの条件が依然として必要である．
+$\hbar$ が冪零となる Artin 商では中心が増大し得るため，
+上の普遍中心条件を零切断の全 Artin 近傍へ延長しない．

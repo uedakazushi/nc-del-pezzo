@@ -1,0 +1,304 @@
+% !TeX root = ../nc-del-pezzo.tex
+% Standalone section draft for papers/nc-del-pezzo.tex; 2026-11-20.
+% Bibliography keys: Kontsevich, DeDekenLowen, LowenVdBDeformation.
+\section{Poisson 零切断の形式近傍上の同変量子化}
+\label{sec:equivariant-quantization}
+
+この節では，重み付き標準形とその線型座標変換群を用い，
+Poisson モジュライの零切断に沿う形式近傍上に
+構造対象付きの Abel 圏の族を構成する．
+これは量子化の一つの選択であり，全ての Abel 変形を分類する主張ではない．
+Kontsevich のグラフによる formality 写像を一つ固定し，以下では同じ写像を全ての族に用いる．
+
+次数 $d=1,2$ に応じて
+\[
+ S_R=\begin{cases}
+ R[x_0,\ldots,x_{n-1},y,z],&\deg(x_i,y,z)=(1,2,3),\quad d=1,\\
+ R[x_0,\ldots,x_n,z],&\deg(x_i,z)=(1,2),\quad d=2
+ \end{cases}
+\]
+とし，標準式を $F=z^2-y^3-A_4(x)y-A_6(x)$ または
+$F=z^2-f_4(x)$ とする．その次数を $m=6,4$ と書く．
+Poisson パラメータは次数1では $D_i$，次数2では $p_{ij}$ であり，
+後者には Pl\"ucker 関係を課す．相対構造定理が与える ambient の二重ベクトルを
+$\widetilde\pi$ とする。具体的には、次数1では
+\[
+ D=\sum_iD_i\partial_{x_i},\qquad
+ \widetilde\pi=F_zD\wedge\partial_y+D(F)\partial_y\wedge\partial_z
+              +F_y\partial_z\wedge D,
+\]
+次数2では $P=\sum_{i<j}p_{ij}\partial_{x_i}\wedge\partial_{x_j}$ とおいて
+\[
+ V_i=\sum_jp_{ij}\partial_{x_j}f_4,\qquad
+ \widetilde\pi=2zP+\Bigl(\sum_iV_i\partial_{x_i}\Bigr)\wedge\partial_z
+\]
+である。次数1のJacobi恒等式は三変数Jacobian括弧の恒等式の多項式的延長であり、
+次数2の座標Jacobiatorは $J(x_i,x_j,z)=0$ と
+$J(x_i,x_j,x_k)=2\sum_\ell q_{ijk\ell}\partial_{x_\ell}f_4$ となる。
+従って任意の係数環上で
+\[
+ [\widetilde\pi,\widetilde\pi]=0,\qquad
+ [\widetilde\pi,F]=0
+\]
+が成り立つ．いずれも超曲面で割る前の等式である．
+
+\subsection{冪零係数上の有限な公式}
+
+\begin{theorem}[任意係数の中心商量子化]
+\label{thm:nilpotent-universal-quantization}
+$R$ を可換 $\mathbb C$-代数，$J\subset R$ を $J^N=0$ を満たすイデアルとする．
+標準形の係数と Poisson パラメータを $R$ 上に取り，
+全ての Poisson パラメータが $J$ に属すると仮定する．
+このとき $S_R$ と同じ次数付き $R$-加群上の結合積 $\star$ と，
+次数 $m$ の中心元 $\Omega$ を次の性質を満たすように構成できる．
+\begin{enumerate}
+\item $a\star b\equiv ab\pmod J$，$\Omega\equiv F\pmod J$ であり，
+      全ての内部次数を保つ．
+\item $\Omega$ は両側非零因子である．
+      $B_R=(S_R,\star)/(\Omega)$ の各次数は有限自由 $R$-加群であり，
+      Hilbert 級数は可換 del Pezzo section ring と同じである．
+\item この構成は $R$ の任意の係数変更と可換する．
+      とくに係数変更の平坦性や被約性は要求しない．
+\item 同じ式を $N$ によらず使うことにより，冪零次数を下げる還元とも両立する．
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Kontsevich の $L_\infty$ 写像を $\mathcal U$ とし，
+その定数項の積を通常の積 $\mu$ とする．定義する式は
+\[
+ \mu_\pi=\mu+\sum_{r=1}^{N-1}\frac1{r!}
+       \mathcal U_r(\widetilde\pi,\ldots,\widetilde\pi),
+ \qquad
+ \Omega=\sum_{r=0}^{N-1}\frac1{r!}
+       \mathcal U_{r+1}(F,\widetilde\pi,\ldots,\widetilde\pi).
+\]
+係数環 $R$ の元を微分せず，ambient 変数だけを微分する．
+$r$ 個の二重ベクトルを含む項の係数は $J^r$ に属するので，これらは有限和である．
+各項は多項式係数の有限階多重微分作用素であり，任意の $\mathbb C$-代数上で定義される．
+結合性は Maurer--Cartan 方程式を保つ性質から，中心性は twisted chain map と
+$[\widetilde\pi,F]=0$ から従う
+\cite[\S4.6.2，\S6，\S8]{Kontsevich}．
+この中心性は Hochschild の零次 cocycle の等式であり，中心を coboundary で割っていない．
+各グラフの添字の縮約において係数の重みと微分の重みが相殺するため，
+積は内部次数零で，$\Omega$ は次数 $m$ である．
+単位を保つ正規化を用いる．
+
+平坦性には一般の冪零係数上の議論が必要である．
+$F$ は $z$ に関して monic な二次式なので，各次数で
+\[
+ S_{R,\ell}=F S_{R,\ell-m}\oplus W_{R,\ell},
+ \qquad
+ W_R=\operatorname{span}_R\{\text{$z$ の指数が $0$ または $1$ の単項式}\}
+\]
+という有限自由加群の分解がある．
+$F$ による除法の商を取る写像を
+$r_\ell:S_{R,\ell}\to S_{R,\ell-m}$ と書く．
+量子化後の乗算 $M_\ell(a)=\Omega\star a$ は
+\[
+ r_\ell M_\ell=1+K_\ell,
+ \qquad K_\ell(S_{R,\ell-m})\subset J S_{R,\ell-m}
+\]
+を満たす．従って $K_\ell^N=0$ であり，$1+K_\ell$ は有限幾何級数で可逆である．
+任意の $b\in S_{R,\ell}$ を
+\[
+ b=M_\ell(1+K_\ell)^{-1}r_\ell(b)
+   +\bigl(b-M_\ell(1+K_\ell)^{-1}r_\ell(b)\bigr)
+\]
+と書けば，第二項は $\ker r_\ell=W_{R,\ell}$ に属する．
+また $M_\ell(a)\in W_{R,\ell}$ なら $(1+K_\ell)a=0$ なので $a=0$ である．
+従って
+\[
+ S_{R,\ell}=M_\ell(S_{R,\ell-m})\oplus W_{R,\ell}.
+\]
+これは $\Omega$ の正則性と $B_{R,\ell}\simeq W_{R,\ell}$ を同時に示す．
+中心性により右側の正則性も従う．
+グラフ式，monic 除法，有限幾何級数は全て係数変更と可換するので，
+商の同定と各次数の自由性も任意の係数変更後に保たれる．
+\end{proof}
+
+\begin{remark}[中心的な線型座標]
+複素数体上の固定した非零 Poisson 構造に適合する座標を取ると，
+両次数とも $n-1$ 個の線型座標 $s_1,\ldots,s_{n-1}$ が中心的である．
+残る活性な三変数の重みは，次数1で $(1,2,3)$，次数2で $(1,1,2)$ となる．
+二重ベクトルに $\partial_{s_i}$ 成分がないため，グラフ式に
+$s_i$ 方向の微分は現れない．従って $s_i$ は補正なしに中心的であり，
+積は $R[s_1,\ldots,s_{n-1}]$-双線型である．
+この座標選択は普遍構成の定義には不要である．
+任意の冪零係数上の非零パラメータからこのような基底を選べるとは主張しない．
+\end{remark}
+
+\subsection{正規形の全座標変換との両立}
+
+正規形を保つ群 $\widetilde G_d$ は ambient 変数への線型作用を持つ．
+次数1では $g=(A,t)$ が $(x,y,z)\mapsto(Ax,t^2y,t^3z)$，
+次数2では $g=(A,b)$ が $(x,z)\mapsto(Ax,bz)$ と作用する．
+係数と Poisson パラメータを同時に変換すれば，ambient 二重ベクトルは pushforward され，
+方程式の直線はそれぞれ指標 $t^6$，$b^2$ で変換される．
+
+\begin{proposition}[厳密な同変性]
+\label{prop:quantization-linear-equivariance}
+定理\ref{thm:nilpotent-universal-quantization}の積と中心元の直線は
+$\widetilde G_d$ に関して同変である．
+従って中心商 $B_R$ には正規形の全座標変換が実際の次数付き代数同型として作用する．
+\end{proposition}
+\begin{proof}
+Kontsevich のグラフ公式は線型座標変換に関して同変である．
+これは全ての微分添字と係数添字が縮約されることから直接従い，
+同論文\S7冒頭の性質 P3 としても明記される\cite[\S7，P3]{Kontsevich}．
+実係数での恒等式は複素化後に成立し，各有限グラフの式は多項式恒等式なので，
+群の行列成分を任意の $R$-係数に取った場合にも成立する．
+同じ formality 写像の twisted 成分を中心元に用いているため，
+$F$ の半不変性がそのまま $\Omega$ の半不変性になる．
+従って中心イデアルは保たれる．
+\end{proof}
+
+\subsection{tails，係数変更，次数スカラーの消去}
+
+$B=B_R$ とおく．有限個の標準変数の像が $B$ を生成する．
+実際，各次数で生成写像の余核は $J$ で割ると零になり，
+$J$ の冪零性から余核自身が零である．
+生成元の最大重みを $w_{\max}$ とすると，右 ideal $B_{\ge q}$ は，
+重みが初めて $q$ 以上となる prefix を持つ単語のうち，
+その prefix 全体の有限集合で生成される．これらの重みは $q+w_{\max}-1$ 以下である．
+従って各 $B_{\ge q}$ は有限生成右 ideal であり，tails torsion は局所化部分圏をなす．
+これは $R$ の noetherian 性によらない．
+$R$ が noetherian なら $B$ は左右 noetherian である．
+これは有限の $J$-進 filtration の随伴次数環が可換 noetherian 環
+$(S_{R/J}/(F\bmod J))\otimes_{R/J}\operatorname{gr}_J R$ であることから従う．
+大きい圏を $\mathcal Q_R=\operatorname{QGr}B$，構造対象を
+$\mathcal O_R=\pi B$ とする．
+
+\begin{lemma}[tails の係数変更]
+\label{lem:tails-arbitrary-base-change}
+任意の可換 $R$-代数 $R'$ に対して，自然な同値
+\[
+ (\operatorname{QGr}B)_{R'}
+ \simeq\operatorname{QGr}(B\otimes_RR')
+\]
+がある．左辺は $\operatorname{QGr}B$ 内の $R'$-作用付き対象の圏である．
+この同値は構造対象と次数移動を保つ．
+\end{lemma}
+\begin{proof}
+$\pi:\operatorname{Gr}B\to\operatorname{QGr}B$ は exact な Gabriel 商であり，
+完全忠実な右随伴 $\omega$ を持つ．両関手に $R'$-作用を付けると，
+再び exact な左随伴と完全忠実な右随伴が得られる．
+前者の定義域は $\operatorname{Gr}(B\otimes_RR')$ である．
+その核は，$B$-加群として tails torsion である $R'$-作用付き加群である．
+これは $B\otimes_RR'$ に関する tails torsion と一致する．
+実際，$R'$ は次数零で中心的なので，ある斉次元が $B_{\ge q}$ によって消える条件と，
+$(B\otimes_RR')_{\ge q}$ によって消える条件は同じである．
+商の普遍性から結論を得る．
+\end{proof}
+
+\begin{lemma}[平坦な Abel 変形]
+\label{lem:tails-flat-deformation}
+$R$ が noetherian なら，$\mathcal Q_R$ は $R$-flat な Grothendieck 圏であり，
+$\mathcal O_R$ は $R$-flat な対象である．また
+\[
+ (\mathcal Q_R)_{R/J}\simeq\operatorname{QCoh}(X_{R/J}),
+ \qquad \mathcal O_R\bmod J\simeq\mathcal O_{X_{R/J}}
+\]
+である．局所Artin基底上では，これは通常の平坦 Abel 変形を与える．
+\end{lemma}
+\begin{proof}
+$B$ に付随する $\mathbb Z$-代数は各 Hom が $R$-flat なので，
+その加群圏は $R$-flat である
+\cite[arXiv v1, Proposition~3.7]{LowenVdBDeformation}．
+Gabriel 商の平坦性もここでは直接確認できる．
+$J_0$ が商圏の injective なら，$\pi$ の exact 性から $\omega J_0$ は加群圏の injective であり，
+coflat である\cite[arXiv v1, Proposition~3.4]{LowenVdBDeformation}．
+有限表示 $R$-加群 $M$ に対する内部 $\operatorname{Hom}_R(M,-)$ は
+有限直和間の写像の kernel で計算される．$\pi$ はこの計算と可換するので，
+\[
+ \operatorname{Hom}_R(M,J_0)
+ \simeq\pi\operatorname{Hom}_R(M,\omega J_0)
+\]
+となり，$J_0$ も coflat である．同じ判定から商圏は flat である．
+さらに $B$ 自身が次数ごとに $R$-free であり，$\pi$ が exact なので，
+$M\mapsto\pi(M\otimes_RB)$ は exact である．これは構造対象の平坦性を示す．
+還元は補題\ref{lem:tails-arbitrary-base-change}と補題\ref{lem:weighted-free-locus}による重み付き商の自由性と相対 Serre 対応による．
+Abel 変形としての tails の構成は
+De Deken--Lowen \cite[Proposition~4.4]{DDL2011} とも一致する．
+\end{proof}
+
+\begin{lemma}[次数スカラーの整合的な恒等化]
+\label{lem:grading-scalar-trivialization}
+次数付き代数 $B$ の自己同型 $\alpha_\lambda(a)=\lambda^{\deg a}a$ に対し，
+右加群の係数延長関手を
+$F_\lambda(M)=M\otimes_{B,\alpha_\lambda}B$ とする．
+写像
+\[
+ \eta_{\lambda,M}:F_\lambda(M)\longrightarrow M,
+ \qquad m\otimes a\longmapsto\lambda^{\deg m}ma
+\]
+は次数付き加群の自然同型であり，$\eta_{\lambda\mu}$ は
+$\eta_\lambda,\eta_\mu$ の合成と整合する．
+この自然同型は任意の次数を保つ代数同型と両立し，tails に降下する．
+$M=B$ 上では，構造対象を保つ標準同型に等しい．
+\end{lemma}
+\begin{proof}
+斉次元 $b$ について
+\[
+ \lambda^{\deg m+\deg b}mba
+ =\lambda^{\deg m}m\alpha_\lambda(b)a
+\]
+なので，写像は tensor 積の関係式を保つ．逆写像は
+斉次元 $m$ を $\lambda^{-\deg m}m\otimes1$ に送る．
+二つの係数延長を一つに同定する写像は
+$m\otimes a\otimes b\mapsto m\otimes\alpha_\mu(a)b$ である．
+両経路で得る係数は
+$\lambda^{\deg m}\mu^{\deg m+\deg a}$ で一致する．
+これが乗法的な coherence であり，三重以上の重なりにも同じ等式を使える．
+残る両立性は次数の保存から従う．$M=B$ の場合は
+$a\otimes b\mapsto\alpha_\lambda(a)b$ そのものである．
+\end{proof}
+
+\begin{theorem}[内在的 Poisson 形式近傍への降下]
+\label{thm:quantization-descent}
+$\widehat{\mathcal P}_{n,d,0}$ を，Poisson モジュライスタックの零切断に沿う形式完備化とする．
+一つのグラフ formality 写像を固定すると，この形式スタック上に
+$\mathcal O$-marked な tails の整合的な形式族を構成できる．
+局所 noetherian 基底上で，その各冪零段階は平坦 Abel 族である．
+この構成は任意の係数変更と両立し，零切断上で通常の
+$(\operatorname{QCoh}(X),\mathcal O_X)$ を与える．
+ここでは $\mathcal O$-marked 圏の射を，$\mathcal O$ を保つ完全線型同値の
+自然同型類とし，必要な fppf stack 化を取る．
+\end{theorem}
+\begin{proof}
+座標 atlas $U_d\times C_{n,d}$ 上で，Poisson パラメータのイデアルを $I$ とする．
+$I^N=0$ の各近傍に定理\ref{thm:nilpotent-universal-quantization}を適用する．
+得られた中心商とその tails は命題\ref{prop:quantization-linear-equivariance}により
+$\widetilde G_d$-同変である．
+基本線束のスカラーに当たる中央部分群 $Z_d\simeq\mathbb G_m$ は
+内部次数 $\ell$ 上で $\lambda^\ell$ と作用する．
+補題\ref{lem:grading-scalar-trivialization}は，この部分群の tails への作用を
+構造対象を保ちながら整合的に恒等化する．
+従って $G_d=\widetilde G_d/Z_d$ の torsor を局所的に持ち上げて得る圏は，
+持上げの差 $Z_d$ に依存せず，三重の重なりでも整合する．
+これが $G_d$ 商への降下データである．
+大域的な $\widetilde G_d$-torsor の存在を仮定していない．
+各 $N$ の構成とその降下データは還元と可換するので，形式族を得る．
+平坦性・構造対象・係数変更は直前の補題による．
+\end{proof}
+
+\begin{remark}[一次項と結論の範囲]
+平方零イデアル $J$ に Poisson パラメータが入る場合，積は
+\[
+ a\star b=ab+\tfrac12\widetilde\pi(\mathrm da,\mathrm db),
+ \qquad a\star b-b\star a=\widetilde\pi(\mathrm da,\mathrm db)
+\]
+である．また $\Omega=F$ である．実際，一次補正
+$\mathcal U_2(F,\widetilde\pi)$ に寄与し得るグラフは，第一種の頂点を二つ，
+第二種の頂点を零個持つ．$F$ の頂点から出る辺はなく，
+$\widetilde\pi$ の頂点からは二辺が出る．自己ループを認めないため，
+二辺はともに $F$ の頂点へ向かわねばならず，多重辺を認めない admissible graph は存在しない．
+従ってこの補正は零である．Hochschild--Kostant--Rosenberg 分解の二重ベクトル成分において，
+この構成の一次写像は与えた Poisson パラメータの恒等写像である．
+特に量子化操作は一次で余分な可換超曲面変形を加えない．
+積と中心元の構成は選んだ formality 写像に依存する．
+上の定理は全 Abel 変形との同値，量子化の一意性，有限の非零複素パラメータへの代数化，
+全 nc モジュライの代数性や成分性，および内在的な逆量子化を主張しない．
+\end{remark}
+
+\par

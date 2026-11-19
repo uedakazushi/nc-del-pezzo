@@ -1,0 +1,183 @@
+\RequirePackage{fix-cm}
+\documentclass[a4paper,11pt]{ltjsarticle}
+\usepackage{amsmath,amssymb,amsthm,mathtools,bm}
+\usepackage[margin=25mm]{geometry}
+\usepackage{booktabs,longtable,array}
+\usepackage[unicode,colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+\usepackage{luatexja-fontspec}
+\setmainjfont{Noto Serif CJK JP}
+\setsansjfont{Noto Sans CJK JP}
+\numberwithin{equation}{section}
+\theoremstyle{plain}
+\newtheorem{theorem}{定理}[section]
+\newtheorem{proposition}[theorem]{命題}
+\newtheorem{lemma}[theorem]{補題}
+\newtheorem{corollary}[theorem]{系}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{定義}
+\newtheorem{assumption}[theorem]{仮定}
+\newtheorem{example}[theorem]{例}
+\newtheorem{conjecture}[theorem]{予想}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{注意}
+\renewcommand{\proofname}{証明}
+\newcommand{\C}{\mathbb C}
+\newcommand{\A}{\mathbb A}
+\newcommand{\Gm}{\mathbb G_m}
+\newcommand{\OO}{\mathcal O}
+\newcommand{\PP}{\mathbb P}
+\newcommand{\Gr}{\operatorname{Gr}}
+\newcommand{\Spec}{\operatorname{Spec}}
+\newcommand{\Spf}{\operatorname{Spf}}
+\newcommand{\Hom}{\operatorname{Hom}}
+\newcommand{\End}{\operatorname{End}}
+\newcommand{\Ext}{\operatorname{Ext}}
+\newcommand{\Aut}{\operatorname{Aut}}
+\newcommand{\Isom}{\operatorname{Isom}}
+\newcommand{\QGr}{\operatorname{QGr}}
+\newcommand{\qgr}{\operatorname{qgr}}
+\newcommand{\Qcoh}{\operatorname{Qcoh}}
+\newcommand{\coh}{\operatorname{coh}}
+\newcommand{\Def}{\operatorname{Def}}
+\newcommand{\Sym}{\operatorname{Sym}}
+\newcommand{\Perf}{\operatorname{Perf}}
+\newcommand{\rank}{\operatorname{rank}}
+\newcommand{\HH}{\operatorname{HH}}
+\newcommand{\Version}{0.1}
+\title{次数1・2の非可換del Pezzo多様体\texorpdfstring{\\}{ }構造対象付き変形とモジュライの局所構造}
+\author{}
+\date{2026年11月20日\quad v\Version\quad 公表用研究稿}
+\hypersetup{pdftitle={次数1・2の非可換del Pezzo多様体：構造対象付き変形とモジュライの局所構造},pdfauthor={}}
+\begin{document}
+\maketitle
+\begin{abstract}
+滑らかな複素del Pezzo多様体 $X$、$n=\dim X\ge2$、
+$-K_X=(n-1)H$、$H^n\in\{1,2\}$ を可換点に持つ非可換変形を扱う。
+構造対象 $\OO_X$ だけを標識し、射には全ての標識を保つ完全Abel同値を採用する。
+既知のAbel変形・algebroid変形・量子化の比較と、次数1・2の相対Poisson構造定理を組み合わせ、
+特殊ファイバーを固定した全Abel Artin変形の同型類関手を計算する。
+次数1では形式的に滑らかであり、次数2では滑らかな形式基底と
+$\Gr(2,n+1)$ のPl\"ucker錐の頂点完備化の積となる。
+各可換点の形式分枝は一つであるが、大域的な全非可換モジュライの成分数は未決定である。
+さらに、反標準section代数による構造対象付き同値の認識と、
+中心的な一次変数を持つ次数付き代数のVeronese復元を調べる。
+一つのグラフformality写像を固定すると、中心商量子化は任意の冪零係数上で次数ごとに平坦であり、
+構造対象付き圏の形式族としてPoissonモジュライの零切断の完備化へ降下する。
+形式的構成、代数的な族、全モジュライの代数性を区別して述べる。
+\end{abstract}
+\tableofcontents
+
+\section{問題と主結果}
+\label{sec:introduction}
+次数1・2のdel Pezzo多様体のPoisson構造は、一般の次元でも単純な相対錐により記述できる。
+本稿の目標は、この記述を構造対象付き非可換射影多様体の変形とモジュライへ結び付けることである。
+基本偏極や豊富列を固定した表示の分類と、構造対象 $\OO$ のみを保つ全Abel同値による分類を区別する。
+比較の方法は非可換三次三様体の研究\cite{CubicModuli}を踏まえるが、
+重み付き生成元を持つ本件では次数一生成や二次包絡をそのまま仮定しない。
+
+\subsection{中心となる形式局所結果}
+$b_{n,d}$ を通常のdel Pezzoモジュライの次元とし、
+\begin{align}
+ b_{n,1}&=\binom{n+3}{4}+\binom{n+5}{6}-n^2,
+ &b_{n,2}&=\binom{n+4}{4}-(n+1)^2
+ \label{eq:base-dimensions}
+\end{align}
+とおく。特殊ファイバーを固定し、全Abel変形の射を自然同型で割ったとき、
+$\OO$-marked変形の同型類関手を表す環は非標準的に
+\begin{equation}
+ R_X\simeq
+ \begin{cases}
+ \C[[t_1,\ldots,t_{b_{n,1}},D_1,\ldots,D_n]],& d=1,\\[2pt]
+ \C[[t_1,\ldots,t_{b_{n,2}},p_{ij}\ (0\le i<j\le n)]]/(q_{ijk\ell}),& d=2,
+ \end{cases}
+ \label{eq:main-formal-ring}
+\end{equation}
+である。ここで
+$q_{ijk\ell}=p_{ij}p_{k\ell}-p_{ik}p_{j\ell}+p_{i\ell}p_{jk}$
+($i<j<k<\ell$) である。証明は第\ref{sec:formal-abel}節に置く。
+有限群 $\Aut(X)$ はまだ割っておらず、未切断2群oidの表示も主張していない。
+
+次数1では全一次変形が延長する。次数2では
+一次Poisson方向 $Q\in\wedge^2\C^{n+1}$ の二次障害は $Q\wedge Q$ であり、
+通常の多様体の変形方向を加えても相殺できない。
+これらは全ての通常の局所Artin係数環を対象とする主張であり、
+固定した一つの形式量子化族だけの接空間計算ではない。
+
+\subsection{先行研究と本稿の範囲}
+Lowenのalgebroidによる全Abel変形の比較\cite[Theorems 3.14, 3.26]{Lowen2008}と、
+Yekutieliのtwisted quantization\cite[Corollaries 7.5, 11.2]{Yekutieli2015}を用いる。
+後者のPoisson変形では、可換積自体も変化する。
+De Deken--Lowen\cite[Theorem 4.5, Proposition 4.6]{DDL2011}は
+豊富列の持上げとsection $\mathbb Z$-代数による全Artin変形の表示を与える。
+これらの比較原理そのものは既知の結果である。
+
+本稿固有の入力は、\cite[定理7.3, 定理8.8]{PoissonDP}の
+任意基底変換と両立する相対Jacobi錐と全族の商表示であり、
+式\eqref{eq:main-formal-ring}はそれらを既知の変形比較へ適用した帰結である。
+曲面でのPoisson変形の接空間次元10・9と高次障害空間の消滅は既知\cite[Theorem 3.9]{HongXu2011}であり、
+この数値を新発見とは扱わない。
+一般次元の本稿の帰結と復元定理について、優先権の包括的確認は未了である。
+
+具体的な非可換del Pezzo曲面の構成として、Etingof--Ginzburgは三変数の
+Calabi--Yau代数とその中心商を研究し、filteredな族の半普遍性を示した
+\cite[Theorems 3.4.4--3.4.5]{EG2010}。
+Rainsは楕円代数のfiltered変形と中心拡張を詳しく扱う\cite{Rains2022}。
+これらは本稿の重み $(1,2,3)$、$(1,1,2)$ の活性な三変数を具体的に代数化するための先行例であるが、
+任意の $n-1$ 個の中心Casimir変数に依存する全族の平坦性や、
+全 $\OO$ 保存同値による分類が自動的に従うわけではない。
+
+Abdelgadir--Okawa--Uedaの三次曲面のコンパクトモジュライ\cite{AOU2024}は、
+例外集合に付随するquiverの関係式を標識したGIT問題である。
+本稿では構造対象一つを残して豊富列の選択を忘れるため、同値関係が異なる。
+Okawa--Uedaの球面helixからのAS正則代数の構成\cite{OkawaUeda2020}も、
+将来の全 $\mathbb Z$-代数型の表示を考える際の基礎となる。
+これらの先行研究を、一般次元の全ncモジュライの代数性・成分数の既知の解答とは扱わない。
+
+以下では、全Abel Artin変形、許容表示のモジュライ問題、
+追加のSerre・豊富性仮定を満たす部分問題を区別する。
+全非可換モジュライの有限型atlasや成分数は、形式局所環の計算だけからは従わない。
+
+\subsection{形式族と同値関係についての結果}
+第\ref{sec:ncdp-anticanonical-reconstruction}節では、相対Serre双対、
+反標準列の豊富性、section復元を明示して、全 $\OO$ 保存同値を
+反標準軌道環の同型として認識する。
+第\ref{sec:ncdp-veronese-recovery}節では、二つ以上の中心一次変数と普遍中心条件の下で、
+任意の $r$ に対するVeronese同型の持上げが $\mu_r$-torsorとなることを示す。
+次数1・2の非零rank2模型には共に $n-1$ 個の中心一次変数があるため、
+$r=n-1$ の反標準環に適用するための次元上の障害はない。
+ただしその中心条件は可換点を含むArtin族には成立しない。
+
+第\ref{sec:equivariant-quantization}節では、標準形に対する一つの量子化を固定し、
+monicな中心商の分裂によって任意の冪零係数と基底変更に対する平坦性を証明する。
+正規形の座標変換に関する同変性と、次数スカラー作用の整合的な恒等化から、
+Poissonモジュライの零切断の形式完備化上に構造対象付きAbel圏の族が得られる。
+この具体的な族が全Abel変形比較の逆を実現するという主張は、別途の比較を要する。
+
+\input{sections/definitions}
+\input{sections/formal_moduli}
+\input{sections/recognition}
+\input{sections/quantization}
+\input{sections/as_lifting}
+\input{sections/generic_center}
+
+\section{大域的なモジュライへ進むための問題}
+\label{sec:questions}
+主な残問は、一般の非可換点での有限表示と変形の局所完全性、
+許容な表示の全 $\OO$ 保存同値による商、ならびに全モジュライの代数性である。
+各可換点の形式環が整であることから、可換点における形式分枝は一つと分かる。
+可換locusに接しない非可換成分が存在しないことまでは証明していない。
+また、形式量子化から実際の有限型族への代数化と、
+有限パラメータの非可換対象から古典Poisson多様体を自然に復元する射は別の課題である。
+
+三次三様体の残余圏による幾何化を次数1・2へ移すには、
+例外部分と残余圏の相対構成、同じ古典多様体との比較を新たに証明する必要がある。
+接空間や形式環の一致だけでKuznetsov成分の同値を結論しない。
+公表に向けては、本稿の形式局所定理と条件を明示した復元定理を一つの論理単位とし、
+未解決の大域分類をその定理の仮定に紛れ込ませない。
+
+\begingroup
+\small
+\bibliographystyle{alpha}
+\bibliography{../references}
+\endgroup
+\end{document}

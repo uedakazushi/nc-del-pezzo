@@ -1,0 +1,250 @@
+% !TeX root = ../nc-del-pezzo.tex
+\section{可換点の全 Abel Artin 変形と形式局所環}
+\label{sec:formal-abel}
+
+本節では滑らかな複素 del Pezzo manifold $X$ を固定する．
+$n=\dim X\geq2$，$-K_X\simeq(n-1)H$，$H^n=d\in\{1,2\}$ とする．
+全ての試験環は剰余体 $\mathbb C$ を持つ通常の可換局所 Artin
+$\mathbb C$-代数である．全 Abel 変形を扱う形式的な結果と，
+有限型基底上の非可換モジュライの構成とは区別する．
+
+\subsection{構造対象と豊富列の持上げ}
+
+\begin{definition}[framed な構造対象付き Abel 変形]
+\label{def:framed-o-abel}
+$\mathfrak D^{\mathcal O}_X(R)$ の対象は，
+Lowen--Van den Bergh の意味で平坦な $R$-線型 Grothendieck 圏
+$\mathcal D$，その $\mathbb C$-対象の部分圏への同値
+$\iota:\operatorname{Qcoh}(X)\xrightarrow{\sim}\mathcal D_{\mathbb C}$，
+および $\mathcal O_X$ の $R$-平坦な持上げ $\mathcal O_R$ の組とする．
+射は $R$-線型完全同値 $F$ と同型
+$\alpha:F(\mathcal O_R)\xrightarrow{\sim}\mathcal O'_R$ の組で，
+$F_{\mathbb C}\iota\simeq\iota'$ を満たすものの，
+$\alpha$ と両立する自然同型類である．
+この還元後の自然同型自体を追加の frame として保持しない．
+その同型類集合を $\mathrm{Def}^{\mathcal O}_X(R)$ と書く．
+基底変更には Grothendieck 圏の係数変更を用いる．
+\end{definition}
+
+\begin{lemma}[有向な線対象列の消滅]
+\label{lem:directed-line-vanishing}
+任意の整数 $a\leq b$ と $q>0$ に対して
+\[
+ \operatorname{Ext}^q_X(\mathcal O_X(aH),\mathcal O_X(bH))=0.
+\]
+特に各 $\mathcal O_X(aH)$ は例外対象である．
+\end{lemma}
+\begin{proof}
+左辺は $H^q(X,\mathcal O_X((b-a)H))$ である．
+$(b-a)H=K_X+(b-a+n-1)H$ と書くと，
+$n\geq2$ より右辺第二項は ample である．Kodaira 消滅を適用する．
+$H^0(X,\mathcal O_X)=\mathbb C$ だから例外性も従う．
+\end{proof}
+
+\begin{proposition}[全 Artin 変形の section 表示と標識忘却]
+\label{prop:directed-section-deformation}
+$E_i=\mathcal O_X(-iH)$ とし，
+$a_{ij}=H^0(X,\mathcal O_X((j-i)H))$ $(i\leq j)$，
+$a_{ij}=0$ $(i>j)$ を section $\mathbb Z$-代数とする．
+任意の平坦 Abel $R$-変形 $\mathcal D$ に対して，
+各 $E_i$ の平坦持上げ $E_{i,R}$ が同型を除いて一意に存在する．
+さらに
+\[
+ b_{ij}=\operatorname{Hom}_{\mathcal D}(E_{j,R},E_{i,R})
+ \quad(i\leq j),\qquad b_{ij}=0\quad(i>j)
+\]
+は $a$ の平坦線型変形を与え，
+$\mathcal D\simeq\operatorname{Qmod}(b)$ である．
+各 $b_{ij}$ は有限自由で，階数は $a_{ij}$ の次元に等しい．
+$b$ は正，連結，局所有限かつ noetherian である．
+自然同型を法にした定義\ref{def:framed-o-abel}の $1$-群oidでは，
+$\mathcal O_R$ を忘れる関手は全 Abel 変形群oidとの同値である．
+\end{proposition}
+\begin{proof}
+$H$ は ample なので $(\mathcal O_X(iH))_{i\in\mathbb Z}$ は
+$\mathbb Z$-generating sequence である．
+補題\ref{lem:directed-line-vanishing}は
+De Deken--Lowen \cite[Theorem~4.5, pp.~495--496]{DDL2011}
+の有向側の $\operatorname{Ext}^{1,2}$ 消滅仮定を満たす．
+同定理から，線型変形と Abel 変形の比較，
+平坦な線対象の持上げ，および Hom の平坦性を得る．
+同論文 Proposition~4.6 により局所有限性と noetherian 性が持ち上がる．
+$R$ は局所 Artin 環なので有限平坦な Hom は有限自由であり，
+その階数は特殊ファイバーによって決まる．
+
+特に $\operatorname{End}(\mathcal O_R)$ は階数1の有限自由加群である．
+単位写像 $R\to\operatorname{End}(\mathcal O_R)$ は還元後同型だから同型となる．
+従って任意の変形同値 $F$ に対して
+$F(\mathcal O_R)\simeq\mathcal O'_R$ が存在し，
+二つのそのような同型の差は $R^\times$ の元である．
+この差は $F$ 全体のスカラー自然自己同型で補正できる．
+同様に，二つの同値間の自然同型はスカラーを補正して
+指定された $\alpha$ と両立させられる．
+従って標識忘却は本質的全射かつ完全忠実である．
+\end{proof}
+
+\begin{remark}[曲面と重み付き生成の注意]
+この適用では $a\leq b$ の消滅だけを用いた．
+曲面の負の捻りに対する $H^2$ の消滅は主張しない．
+また，次数1の切断環は重み $(1^n,2,3)$，関係次数6，
+次数2では重み $(1^{n+1},2)$，関係次数4を持つ．
+したがってこれらを通常の次数一生成環と扱ってはならない．
+上の比較は有限生成 $\mathbb Z$-代数の tails topology によるものであり，
+通常の graded 周期化や重み付き AS 正則包絡の存在を結論しない．
+非切断の $2$-群oidではスカラー自然変換が残るため，
+標識忘却についても同じ結論をそのまま適用しない．
+\end{remark}
+
+\subsection{全変形の量子化比較}
+
+$\mathrm{PoisDef}_X(R)$ を，$\mathcal O_X$ の平坦な可換代数層の変形と，
+特殊ファイバーで零になる $R$-線型 Poisson 括弧の組の，
+還元を保つ同型による同値類集合とする．
+可換積自体も変化を許す．
+
+\begin{proposition}[既知の量子化比較の適用]
+\label{prop:abel-poisson-formal-comparison}
+全ての局所 Artin $\mathbb C$-代数の射に自然な全単射
+\[
+ \mathrm{PoisDef}_X(R)\xrightarrow{\sim}
+ \mathrm{Def}^{\mathcal O}_X(R)
+\]
+が存在する．この比較は一次の Poisson 括弧を保つ．
+\end{proposition}
+\begin{proof}
+$X$ の有限アフィン被覆とその有限交叉を取り，
+各被覆開に含まれるアフィン開全体を考える．
+これは $\mathcal O_X$ に関する acyclic basis であり，
+準連接層の制限は局所化を与える．
+Lowen \cite[Theorems~3.14,3.26]{Lowen2008} により，
+全 Abel 変形は $\mathcal O_X$ の algebroid 変形で記述される．
+補題\ref{lem:directed-line-vanishing}から
+$H^1(X,\mathcal O_X)=H^2(X,\mathcal O_X)=0$ である．
+従って Yekutieli \cite[Corollary~7.5]{Yekutieli2015} により，
+twisted な代数層変形の同値類は普通の結合代数層変形の gauge 同値類と一致する．
+同論文 Corollary~11.2 は，この結合代数層変形と
+Poisson 代数層変形の間に，係数環の射に自然で一次括弧を保つ全単射を与える．
+最後に命題\ref{prop:directed-section-deformation}の標識忘却を用いる．
+\end{proof}
+
+\begin{remark}[比較定理の適用範囲]
+使用した Yekutieli の結果は可換積も変化させる Corollary~11.2 である．
+固定した $R\otimes\mathcal O_X$ 上の星積を扱う Corollary~11.3 は
+$H^1(T_X)=H^1(\mathcal D_X)=0$ を追加仮定するため用いない．
+また，高い $H^q(X,\bigwedge^pT_X)$ の一括した消滅は必要ない．
+上の全単射は既知の一般定理の適用であり，その量子化原理自体を本研究の成果とはしない．
+\end{remark}
+
+\begin{lemma}[Poisson 代数層変形の幾何的解釈]
+\label{lem:poisson-geometric-artin}
+$\mathrm{PoisDef}_X(R)$ は，$X$ を特殊ファイバーとして固定した
+滑らかな次数 $d$ の del Pezzo $R$-族と，特殊ファイバー上零の相対 Poisson 構造の組の
+同型類関手に等しい．
+\end{lemma}
+\begin{proof}
+平坦な可換代数層変形を考える．滑らかなアフィン代数は形式的に滑らかなので，
+アフィン開上ではその可換 Artin 変形を自明化できる．
+これらは重なり上の代数同型によって貼り合い，
+滑らかな有限表示 $R$-スキーム $X_R$ を与える．
+特殊ファイバーは $X$ であり，冪零厚化の下で固有性は保たれる．
+
+小拡大の核を $I$ とすると，$H$ の持上げの障害は
+$I\otimes H^2(X,\mathcal O_X)$，同型類の差は
+$I\otimes H^1(X,\mathcal O_X)$ に属するので消滅する．
+従って $H$ は同型を除いて一意に線束 $H_R$ へ持ち上がる．
+同じ一意性により $\omega_{X_R/R}^{-1}\simeq H_R^{\otimes(n-1)}$ であり，
+ample 性は冪零厚化に不変だから $H_R$ は相対 ample である．
+次数も特殊ファイバーから変わらない．
+滑らかさの下で二重導分と相対二重ベクトルは一致し，
+Jacobi 恒等式は $[\pi,\pi]=0$ に等しい．逆構成は構造層を取ればよい．
+\end{proof}
+
+\subsection{形式環と唯一の形式分枝}
+
+\begin{theorem}[可換点の全 Abel 変形の形式局所環]
+\label{thm:abel-formal-ring}
+\[
+ b_{n,1}=\binom{n+3}{4}+\binom{n+5}{6}-n^2,
+ \qquad
+ b_{n,2}=\binom{n+4}{4}-(n+1)^2
+\]
+とおく．定義\ref{def:framed-o-abel}の同型類関手は，非標準的に
+\begin{align*}
+ d=1:\quad R_X&\simeq
+ \mathbb C[[t_1,\ldots,t_{b_{n,1}},D_1,\ldots,D_n]],\\
+ d=2:\quad R_X&\simeq
+ \frac{\mathbb C[[t_1,\ldots,t_{b_{n,2}},p_{ij}\ (0\leq i<j\leq n)]]}
+ {(p_{ij}p_{kl}-p_{ik}p_{jl}+p_{il}p_{jk}\mid i<j<k<l)}
+\end{align*}
+で prorepresent される．有限群 $\operatorname{Aut}(X)$ による商は取っていない．
+
+次数1の環は次元 $b_{n,1}+n$ の正則局所環である．
+次数2の環は正規かつ Cohen--Macaulay な整域であり，
+Krull 次元は $b_{n,2}+2n-1$，接空間次元は
+$b_{n,2}+\binom{n+1}{2}$ である．
+$n=2$ では正則で，$n\geq3$ では可換点で特異である．
+各場合とも可換点の形式近傍はちょうど一つの既約分枝を持つ．
+\end{theorem}
+\begin{proof}
+命題\ref{prop:abel-poisson-formal-comparison}と
+補題\ref{lem:poisson-geometric-artin}により，
+Poisson 族の零構造点における形式関手を計算すればよい．
+次数1・2の相対構造定理と全族の商表示
+\cite[定理7.3，定理8.8]{PoissonDP}を用いる．
+通常の del Pezzo スタックは滑らかで次元 $b_{n,d}$ であり，
+$H^0(X,T_X)=0$ なので，特殊ファイバーとの同一視を保つ通常の変形関手は
+形式円板 $\operatorname{Spf}\mathbb C[[t_1,\ldots,t_{b_{n,d}}]]$ となる．
+例えば標準形の係数空間で座標変換群の軌道に横断する局所 slice を取ればよい．
+
+この形式基底上で基本線束と標準座標を局所的に選ぶと，
+任意基底変換と両立する相対 Poisson スキームは
+次数1で $\mathbb A^n$，次数2で $\operatorname{Gr}(2,n+1)$ の
+Pl\"ucker アフィン錐の積族となる．
+特殊ファイバーの Poisson 構造を零とするため，
+パラメータ $D_i$ または $p_{ij}$ は $\mathfrak m_R$ に値を取る．
+原点で完備化すれば表示した環を得る．
+
+次数2の錐の次元は $2n-1$ であり，
+Pl\"ucker 方程式は全て二次なので原点の接空間次元は
+$\binom{n+1}{2}$ である．$n=2$ では方程式がなく，
+$n\geq3$ では接空間次元と次元の差は
+$(n-1)(n-2)/2>0$ となる．
+Pl\"ucker 座標環の正規性と Cohen--Macaulay 性\cite{Svanes1973,DeConciniProcesi1981}は積と完備化で保たれる．
+ここで有限型 $\mathbb C$-代数の優秀性を用いれば，
+頂点の正規局所環の完備化も正規局所環であり，整域となる．
+従って既約分枝は一つである．
+\end{proof}
+
+\begin{corollary}[一次方向と二次障害]
+\label{cor:abel-quadratic-obstruction}
+次数1では同型類関手 $\mathrm{Def}^{\mathcal O}_X$ は形式的に滑らかである．
+次数2の一次方向を $(v,Q)$ と書く．
+ここで $v\in H^1(X,T_X)$，
+$Q\in H^0(X,\bigwedge^2T_X)\simeq\bigwedge^2\mathbb C^{n+1}$ である．
+この方向が $\mathbb C[\varepsilon]/(\varepsilon^3)$ 上へ持ち上がるための
+必要十分条件は $Q\wedge Q=0$ である．
+従って通常の多様体の一次変形を加えても，非零の Pl\"ucker 二次障害は相殺できない．
+条件を満たす方向は，全ての $\mathbb C[t]/(t^{r+1})$ 上の
+両立する Abel 変形同型類へ延長できる．
+\end{corollary}
+\begin{proof}
+定理\ref{thm:abel-formal-ring}を用いる．
+次数2で $P=\varepsilon Q+\varepsilon^2Q_2$ と書くと
+$P\wedge P=\varepsilon^2Q\wedge Q$ であり，
+式には通常の変形パラメータ $t_i$ は現れない．
+$Q\wedge Q=0$ なら $P=tQ$ と任意の形式円板上の直線を選べば，
+全次数の両立する点を得る．
+\end{proof}
+
+\begin{remark}[形式的な結果と大域モジュライ]
+本節で決定したのは，全 Abel Artin 変形の同型類関手である．
+重み付き AS 包絡などを追加条件として課した大域非可換モジュライ関手を用いる場合，
+全 Artin 変形がその条件を満たすことを示すまでは，
+その関手の完備化を $\operatorname{Spf}R_X$ と同一視しない．
+また，形式分枝の一意性は，全非可換モジュライの既約性，
+可換 locus に接しない成分の不存在，有限型 atlas，
+形式量子化の代数化，内在的な Poisson モジュライ射，
+または Kuznetsov 成分の比較を意味しない．
+それらは別の研究課題である．
+\end{remark}
+\par

@@ -1,0 +1,359 @@
+% !TeX root = ../nc-del-pezzo.tex
+% Conditional reconstruction results for nc-del-pezzo.
+% Citation keys to provide: MoriUeyama2021, StacksProject, CubicModuliSource.
+\section{反標準軌道環と構造対象を保つ全同値}
+\label{sec:ncdp-anticanonical-reconstruction}
+
+本節の圏論的結果は，明示した相対復元条件の下での命題である．
+重み付き代数の Hilbert 級数や体上の AS--Gorenstein 性だけから，
+その条件が任意の基底上で成立すると主張しない．
+反標準自己同値を用いる発想は，三次三様体の偶数列による復元を
+一般の指数へ拡張するものである．
+
+\subsection{体上の反標準復元}
+
+$\mathcal C$ を $\mathbb C$-線型 Abel 圏とし，$D^b(\mathcal C)$ は
+Hom 有限で Serre 関手 $\mathsf S$ を持つとする．
+$\mathsf H:=\mathsf S^{-1}[n]$ が heart を保つとき，
+その heart 上の制限も $\mathsf H$ と書く．これは canonical bimodule の
+逆に対応する自己同値である
+\cite[Definition 3.4 and Remark 3.5]{MoriUeyama2021}．
+対象 $\mathcal O\in\mathcal C$ に対し
+\[
+ R(\mathcal C,\mathcal O)
+ :=\bigoplus_{m\ge0}\operatorname{Hom}_{\mathcal C}
+       (\mathcal O,\mathsf H^m\mathcal O)
+\]
+と置く．$a\in R_i$，$b\in R_j$ の積は
+$ab=\mathsf H^j(a)\circ b$ とする．
+この規約は右加群の section 環と整合する
+\cite[Definition 2.1(5)]{MoriUeyama2021}．
+
+\begin{proposition}[反標準軌道環による全 $\mathcal O$ 保存同値]
+\label{prop:ncdp-anticanonical-hom}
+$(\mathcal C,\mathcal O)$ と $(\mathcal C',\mathcal O')$ は上記の条件を満たし，
+さらに各々について次を仮定する．
+\begin{enumerate}
+\item $(\mathcal O,\mathsf H)$ は豊富な対であり，
+      $\operatorname{End}(\mathcal O)=\mathbb C$，$R_1\ne0$ である．
+\item 負の反標準次数の切断は消滅する：
+      $\operatorname{Hom}(\mathcal O,\mathsf H^m\mathcal O)=0$ for $m<0$．
+\end{enumerate}
+このとき $R=R(\mathcal C,\mathcal O)$，
+$R'=R(\mathcal C',\mathcal O')$ に対して自然な全単射
+\[
+ \operatorname{Isom}_{\mathrm{gr}}(R,R')/\mathbb C^\times
+ \ \simeq\
+ \pi_0\operatorname{Eq}_{\mathcal O}(\mathcal C,\mathcal C')
+\]
+がある．左辺の作用は次数 $m$ 上で $c^m$ を掛ける次数スカラーであり，
+右辺は全ての完全線型同値 $F$ と同型
+$\alpha:F(\mathcal O)\simeq\mathcal O'$ の組を，
+$\alpha$ を保つ自然同型で割った集合である．
+標識を保つ自然自己同型は自明であり，これらの同定は合成と両立する．
+\end{proposition}
+\begin{proof}
+$E_i=\mathsf H^{-i}\mathcal O$ と置く．各 $E_i$ の自己準同型はスカラーであり，
+$\operatorname{Hom}(E_{i+1},E_i)=R_1\ne0$ である．
+恒等関手の自然変換は $E_i$ 上のスカラー $\lambda_i$ により表され，
+隣接 Hom の自然性から全ての $\lambda_i$ は等しい．
+豊富列から各対象への全射を用いると，圏全体でも同じスカラーになる．
+従って $\operatorname{Nat}(\operatorname{Id},\operatorname{Id})=\mathbb C$ であり，
+$\mathcal O$ 上で恒等な自然自己同型は自明である．
+
+完全 Abel 圏同値は有界導来圏の同値を誘導する．
+双対同型を備えた Serre 関手の Yoneda 一意性
+\cite[Lemma 57.3.5, Tag 0FY3]{StacksProject} により
+$F\mathsf H\simeq\mathsf H'F$ を得る．
+その整合的な正負の反復と $\alpha$ は，
+$F(E_i)\simeq E'_i$ と，すべての
+\[
+ \operatorname{Hom}(E_j,E_i)=R_{j-i}
+\]
+に対する同型を与える．反復の整合性により，これは一つの次数付き環同型
+$\phi:R\simeq R'$ から来ており，すべての添字での合成を保つ．
+比較同型 $F\mathsf H\simeq\mathsf H'F$ の選択を変えたときの差は，
+準逆を合成すれば恒等関手の自然自己同型となる．
+従って差は一つの非零スカラーであり，$m$ 回の反復でその $m$ 乗が現れる．
+このため $\phi$ の次数スカラーを法とした類は選択によらない．
+
+豊富対による復元
+\cite[Theorem 2.6(2)]{MoriUeyama2021} は
+$\mathcal C\simeq\operatorname{tails}R$ を与える．
+この同値は $\mathcal O$ と $\mathsf H$ をそれぞれ
+$\pi R$ と次数シフトに移す．
+したがって任意の次数付き同型 $R\simeq R'$ は構造対象付き Abel 圏同値を誘導し，
+上述の section $\mathbb Z$-代数全体の比較により，元の $F$ もこの同値へ自然同型となる．
+
+核を調べるため，$\phi\in\operatorname{Aut}_{\mathrm{gr}}R$ の構造移送が
+標識付き恒等関手へ自然同型であるとする．
+$E_i$ 上のその自然同型を $\lambda_i\in\mathbb C^\times$，$\lambda_0=1$ と書く．
+隣接 Hom の自然性は $\phi|_{R_1}=c\operatorname{Id}$ と
+$\lambda_{i+1}/\lambda_i=c$ を与える．
+さらに全ての $\operatorname{Hom}(E_{i+m},E_i)=R_m$ に自然性を適用すると，
+$\phi|_{R_m}=c^m\operatorname{Id}$ となる．
+ここでは $R$ が次数一で生成されるとは仮定していない．
+逆に次数スカラーは，各次数に適切なスカラーを掛ける自然同型により
+標識付き恒等関手を誘導する．これで核と一意性を得る．
+\end{proof}
+
+\begin{remark}[通常の Veronese と一致する条件]
+\label{rem:ncdp-serre-twist}
+$\mathcal C=\operatorname{tails}B$，$\mathcal O=\pi B$ とし，
+section 写像が飽和していて
+$\mathsf S\simeq(-r)[n]$，$r=n-1$ ならば
+$R(\mathcal C,\mathcal O)\simeq B^{(r)}$ となる．
+AS--Gorenstein パラメータが $r$ という条件だけでは，この結論は出ない．
+一般の balanced dualizing complex は
+$B_\nu(-r)[n+1]$ であり，Nakayama 自己同型 $\nu$ の捻りを持ち得る
+\cite[\S1.2, after Definition 1.3]{MoriUeyama2021}．
+その場合の反標準軌道環には対応する Zhang 型の捻りが現れ，
+通常の $B^{(r)}$ と無条件に同一視できない．
+また，重み付き代数では全シフト列の豊富性から
+$r$ 倍シフトだけの豊富性を推論してはならない．
+\end{remark}
+
+\begin{proposition}[相対版と基底線束]
+\label{prop:ncdp-relative-anticanonical-hom}
+上の圏の族について，相対 Hom の局所自由性と任意の基底変更，
+section $\mathbb Z$-代数による復元，固定模型間の同値と自然同型の fppf 降下を仮定する．
+全ての完全線型同値が保存する標準の相対 perfect 部分圏上で，
+相対 RHom の perfect 性，基底変更，Serre 双対も仮定する．
+さらに反標準列が相対的に豊富であり，その隣接 Hom は正の階数のベクトル束であるとする．
+このとき命題\ref{prop:ncdp-anticanonical-hom}は fppf 同型層の同型
+\[
+ \underline{\operatorname{Isom}}_{\mathrm{gr}}(R^{\mathrm{can}},(R')^{\mathrm{can}})
+       /\mathbb G_m
+ \simeq
+ \underline{\operatorname{Eq}}_{\mathcal O}(\mathcal C,\mathcal C')
+\]
+へ拡張する．特に局所的な graded 模型で
+$\mathsf S\simeq(-r)\otimes L[n]$ と書ける場合は
+\[
+ R^{\mathrm{can}}_m\simeq B_{rm}\otimes L^{-m}.
+\]
+商は fppf 層商であり，大域切断の集合の商ではない．
+\end{proposition}
+\begin{proof}
+完全線型同値を複体へ項ごとに適用し，相対 perfect 部分圏の保存と
+相対 Serre 双対の表現の一意性を使う．
+相対 Hom とその合成の比較は前命題の証明と同じである．
+隣接 Hom の正階数局所自由性によりスカラーの比較は基底上で忠実であり，
+恒等関手の自然自己変換は基底の一つのスカラーに限られる．
+相対 section 復元を用いて得られた局所同値と自然同型を降下する．
+$L$ の自明化を変更すると反標準軌道環の次数 $m$ には
+その逆の $m$ 乗が現れるので，表示した線束の捻りが必要である．
+次数スカラーを除いた同型層はこれらの変更と両立する．
+\end{proof}
+
+滑らかな可換 del Pezzo $n$-fold では，$\mathsf H$ は
+$-\otimes\omega_X^{-1}$ であり，反標準束の ample 性から上の豊富性を得る．
+したがってこの場合の反標準軌道環は通常の反標準環である．
+非可換族への適用では，相対 Serre 同型，saturation，反標準列の復元を別々に確認する必要がある．
+
+\section{二つ以上の中心一次変数による任意指数の Veronese 復元}
+\label{sec:ncdp-veronese-recovery}
+
+以下の定理は $B$ の次数一生成を必要としないので，重み付きの環にも適用できる．
+ただし中心の条件は強い条件であり，可換点や冪零な量子化パラメータを含む全族には課さない．
+
+\begin{theorem}[任意指数の相対 Veronese 持上げ]
+\label{thm:ncdp-veronese-lift}
+$T$ を複素スキーム，$r\ge2$ とする．
+$B,B'$ は非負次数付きの単位的 $\mathcal O_T$-代数で，
+$B_0=B'_0=\mathcal O_T$ とする．
+階数 $k\ge2$ のベクトル束 $E\subset B_1$，$E'\subset B'_1$ があり，
+$P=\operatorname{Sym}E\hookrightarrow B$ と
+$P'=\operatorname{Sym}E'\hookrightarrow B'$ は中心的な埋込みとする．
+次を仮定する．
+\begin{enumerate}
+\item $B$ は $P$ 上平坦であり，$B'$ は $P'$ 上平坦である．
+\item 任意の基底変更後に $Z(B)_r=P_r$，$Z(B')_r=P'_r$ が成り立つ．
+\end{enumerate}
+このとき $R=B^{(r)}$，$R'=(B')^{(r)}$ に対する制限射
+\[
+ \underline{\operatorname{Isom}}_{\mathrm{gr},T}(B,B')
+ \longrightarrow
+ \underline{\operatorname{Isom}}_{\mathrm{gr},T}(R,R')
+\]
+は $\mu_{r,T}$-torsor である．核の作用は次数 $m$ 上で
+$\zeta^m$ を掛ける次数スカラーである．
+従って次数スカラーを法とした fppf 層には自然な同型
+\[
+ \underline{\operatorname{Isom}}_{\mathrm{gr},T}(B,B')/\mathbb G_m
+ \simeq
+ \underline{\operatorname{Isom}}_{\mathrm{gr},T}(R,R')/\mathbb G_m
+\]
+がある．右辺の次数スカラーへの写像は $\lambda\mapsto\lambda^r$ である．
+\end{theorem}
+\begin{proof}
+全ての議論は任意の基底変更と両立するので，束を自明化した基底の affine 開集合上で証明する．
+$u,v$ を $E$ の基底の最初の二元に取る．
+$P$ 上の平坦性により $u,v$ は $B$ 上の非零因子である．
+$z\in Z(R)_1$ と $b\in B_m$ に対し，$m+a\equiv0\pmod r$ となる
+$a\ge0$ を選ぶと $u^ab\in R$ なので
+$u^a[z,b]=[z,u^ab]=0$ となる．$u^a$ を消去すると
+$Z(R)_1=Z(B)_r=P_r$ を得る．
+従って $R$ の次数一中心が生成する部分代数は，内在的に $P^{(r)}$ である．
+同じ議論は $R'$ にも適用できる．
+
+$\phi:R\simeq R'$ は $\theta:P^{(r)}\simeq(P')^{(r)}$ を誘導する．
+まず $\theta$ を $P\simeq P'$ へ持ち上げる．
+Proj を取ると偏極 $\mathcal O(r)$ 付きの射影空間束の同型を得る．
+各幾何学的ファイバー上でこの同型は $\mathcal O(1)$ の類を保つ．
+$\mathcal O(1)$ の差は基底の線束であり，基底変更に両立する
+$H^0(\mathcal O)=\mathbb C$，$H^{>0}(\mathcal O)=0$ と評価写像からこれを確認できる．
+その基底線束を局所的に自明化すれば，次数一切断により線型同型
+$E\simeq E'$ が得られる．その $r$ 次対称冪と $\theta$ の差は一つの単元である．
+この単元の $r$ 乗根を fppf 局所的に取れば $P$ の持上げを得る．
+二つの持上げの差は射影空間上で恒等な線型写像なのでスカラーであり，
+その $r$ 乗が $1$ である．従って持上げ層は $\mu_r$-torsor である．
+
+この持上げを $\theta_1:P\simeq P'$ と書き，$u'=\theta_1(u)$，$v'=\theta_1(v)$ と置く．
+局所化には自然な表示
+\[
+ B[u^{-1}]
+ \simeq
+ R[(u^r)^{-1}][t,t^{-1}]/(t^r-u^r),\qquad t\longmapsto u
+\]
+がある．右辺の $t$ は中心的で内部次数 $1$ とする．
+実際，$b\in B_m$ に対して $m+a$ が $r$ の倍数なら
+$b=(bu^a)u^{-a}$ と書けるので全射である．
+$1,u,\ldots,u^{r-1}$ を係数 $R[(u^r)^{-1}]$ 上で考えると，
+それぞれ異なる内部次数の剰余類を持つので直和であり，単射性も従う．
+したがって $\phi$ と $u\mapsto u'$ は局所化の同型を一意に定める．
+$v$ についても同様であり，重なりでは両者は一致する．
+例えば $vu^{r-1}\in P_r$ を用いると，$u$ 側の延長も $v$ を $v'$ へ送ることが分かる．
+
+任意の係数環上で Laurent 単項式を比較すると
+\[
+ 0\longrightarrow P\longrightarrow
+ P[u^{-1}]\oplus P[v^{-1}]
+ \longrightarrow P[(uv)^{-1}]
+\]
+は最初の二つの非零項で完全である．
+これを平坦な $P$-加群 $B$ とテンソルすることにより
+\[
+ B=B[u^{-1}]\cap B[v^{-1}]
+ \quad\text{in }B[(uv)^{-1}]
+\]
+を得る．$B'$ にも同じ表示があるため，二つの局所同型は
+$B\simeq B'$ を与える．これは $\theta_1$ を固定すると一意である．
+
+持上げを $\zeta\theta_1$，$\zeta^r=1$ に変更すると，
+$b=(bu^a)u^{-a}$ の像には $\zeta^{-a}=\zeta^m$ が掛かる．
+従って持上げの差は正確に次数スカラー $\varepsilon_\zeta$ である．
+最後に $\mathbb G_m\to\mathbb G_m$，$\lambda\mapsto\lambda^r$ は fppf 全射で，
+その核は $\mu_r$ なので，商層の同型を得る．
+\end{proof}
+
+\begin{corollary}[一般次元への適用の形]
+\label{cor:ncdp-veronese-dp}
+次数1・2の非零 Poisson 構造の Casimir 模型には，いずれも $n-1$ 個の中心一次座標がある．
+その量子化が前定理の平坦性・普遍中心条件と
+命題\ref{prop:ncdp-relative-anticanonical-hom}の相対圏論的条件を満たし，
+さらに section 写像が飽和していて，Nakayama の捻りを持たない相対 Serre 同型
+$\mathsf S\simeq(-r)\otimes L[n]$ があるとする．このとき基底線束 $L$ を
+fppf 局所的に自明化し，次数スカラーを法とした同定を降下すれば，
+$r=n-1$ に対して
+\[
+ \underline{\operatorname{Eq}}_{\mathcal O}(\operatorname{QGr}B,
+       \operatorname{QGr}B')
+ \simeq
+ \underline{\operatorname{Isom}}_{\mathrm{gr}}(B,B')/\mathbb G_m
+\]
+となる．$n\ge3$ では $n-1\ge2$ より前定理を使える．
+$n=2$ では $r=1$ なので Veronese への移行そのものが恒等であり，持上げは不要である．
+\end{corollary}
+
+\begin{remark}[中心条件の確認と適用範囲]
+$B$ の生成元の次数が有限個の $w$ にあり，その生成元束を $V_w$ とする．
+$B_r/P_r$ と $B_{r+w}$ が有限局所自由なら，有限な交換子写像
+\[
+ B_r/P_r\longrightarrow
+ \bigoplus_w\mathcal Hom(V_w,B_{r+w})
+\]
+のファイバー単射性は開条件である．この開上では局所分裂単射となるので，
+$Z(B)_r=P_r$ が任意の基底変更後にも成立する．
+ただしこの開の非空性は個々の量子化族で別途証明する必要がある．
+特に $\hbar$ が冪零な量子化では $\hbar$-torsion による中心元が生じ得るため，
+形式族の一般ファイバーでの中心の計算を，零切断の全 Artin 近傍へ適用しない．
+\end{remark}
+
+\section{反標準 Euler 多項式による次数の識別}
+\label{sec:ncdp-intrinsic-degree}
+
+以下は，全 $\mathcal O$ 保存同値を取った後にも次数1と次数2を識別するための
+条件付きの不変量である．同一次数内の既約性を主張するものではない．
+
+\begin{proposition}[次数の圏論的不変性]
+\label{prop:ncdp-intrinsic-degree}
+$n\ge2$，$r=n-1$ とし，$D^b(\mathcal C)$ は Hom 有限かつ有限な
+Euler 和を持ち，Serre 関手 $\mathsf S$ を持つとする．
+$\mathsf H=\mathsf S^{-1}[n]$ と置く．
+$\mathcal O$ を持つ $\mathcal C$ に，次数 $d\in\{1,2\}$ の section 代数 $B$ があり，
+次の飽和性・ACM 型消滅を仮定する：全ての $m\ge0$ に対し
+\[
+ \operatorname{Hom}(\mathcal O,\mathsf H^m\mathcal O)\simeq B_{rm},
+ \qquad
+ \operatorname{Ext}^i(\mathcal O,\mathsf H^m\mathcal O)=0\quad(i>0).
+\]
+この Hom の同定には積の同一視を要求しない．
+$B$ の Hilbert 級数が
+\[
+ H_{n,1}(t)=\frac{1-t^6}{(1-t)^n(1-t^2)(1-t^3)},\qquad
+ H_{n,2}(t)=\frac{1-t^4}{(1-t)^{n+1}(1-t^2)}
+\]
+のいずれかであるとする．このとき
+\[
+ p_{\mathcal C,\mathcal O}(m)
+ :=\chi(\mathcal O,\mathsf H^m\mathcal O)
+\]
+は $m\ge0$ 上で次数 $n$ の多項式であり，前進差分 $\Delta p(m)=p(m+1)-p(m)$ に対し
+\[
+ \Delta^n p_{\mathcal C,\mathcal O}(m)=d\,r^n.
+\]
+従って，$n$ を固定したとき $d$ は全ての $\mathcal O$ 保存完全線型同値の不変量である．
+
+さらに相対的な族で，上記の条件が各幾何学的ファイバー上で成り立ち，
+$0\le j\le n$ に対する $R\mathcal Hom(\mathcal O,\mathsf H^j\mathcal O)$ が
+基底上 perfect かつ基底変更に両立すると仮定する．
+このとき $d$ は基底上局所定数である．
+\end{proposition}
+\begin{proof}
+因数分解 $1+t^3=(1+t)(1-t+t^2)$ により
+\[
+ H_{n,1}(t)=\frac{1-t+t^2}{(1-t)^{n+1}},\qquad
+ H_{n,2}(t)=\frac{1+t^2}{(1-t)^{n+1}}
+\]
+を得る．$q\ge0$ に対して，その係数はそれぞれ
+\[
+ \binom{q+n}{n}-\binom{q+n-1}{n}+\binom{q+n-2}{n},
+ \qquad
+ \binom{q+n}{n}+\binom{q+n-2}{n}
+\]
+である．ここで二項係数を上段の多項式として解釈する．
+$n\ge2$ なので $q=0,1$ に現れる負の係数添字の項も零となり，
+この式は全ての $q\ge0$ に有効である．
+両者は次数 $n$，最高次係数 $d/n!$ を持つ．
+仮定した消滅により $p(m)=\dim B_{rm}$ であり，その最高次係数は
+$d r^n/n!$ である．第 $n$ 差分は $n!$ 倍の最高次係数なので所望の式を得る．
+
+完全 Abel 同値は導来同値を誘導し，Serre 関手の一意性により
+$\mathsf H$ と整合する．したがって $\mathcal O$ を保つ同値は
+全ての上記 Euler 数を保つ．
+相対的には perfect 複体の Euler 階数が局所定数なので，
+\[
+ d=\frac{1}{r^n}\sum_{j=0}^n(-1)^{n-j}\binom nj
+      \chi(\mathcal O,\mathsf H^j\mathcal O)
+\]
+も局所定数である．
+\end{proof}
+
+滑らかな可換 del Pezzo $n$-fold では，反標準線束が ample であり，
+Kodaira 消滅を $\omega_X\otimes\omega_X^{-(m+1)}$ に適用すると
+$H^i(X,\omega_X^{-m})=0$ for $i>0$，$m\ge0$ を得る．
+標準の重み付き section 環の飽和性と合わせ，上の条件を満たす．
+非可換模型では，Hilbert 級数が一致することだけでこの ACM 型条件を省略してはならない．
+相対 perfect 条件を満たす全圏の問題では，次数1部分と次数2部分は開かつ閉に分かれるが，
+これは各部分の既約成分の個数を計算したことにはならない．

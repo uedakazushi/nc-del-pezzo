@@ -1,0 +1,200 @@
+% !TeX root = ../nc-del-pezzo.tex
+% 2026-11-20 JST / v0.1
+\section{冪零変形における重み付き多項式環の相対的性質}
+\label{subsec:nilpotent-weighted-as}
+
+ここでは通常の体上のAS正則性と，基底環に関する相対的な主張を区別する．
+以下の証明は基底環の局所性，Noether性，標数零を必要としない．
+内部次数の移動は $M(a)_q=M_{q+a}$ とし，
+$\underline{\operatorname{Ext}}$ は内部次数を集めたgraded Extを表す．
+
+\begin{lemma}[有限自由分解の冪零持上げ]
+\label{lem:nilpotent-resolution-lift}
+$R$ を可換環，$J\subset R$ を冪零イデアルとする．
+$A$ を非負次数付き中心的 $R$-代数とし，各 $A_q$ は
+$R$-射影加群であるとする．$M$ は各内部次数で $R$-射影な
+次数付き左 $A$-加群とする．
+$\overline A=A/JA$ と $\overline M=M/JM$ と置く．
+$\overline M$ が，シフトを指定した有限自由分解
+\[
+ 0\longrightarrow\overline F_N\longrightarrow\cdots
+ \longrightarrow\overline F_0\longrightarrow\overline M
+ \longrightarrow0,\qquad
+ \overline F_p=\bigoplus_\alpha\overline A(-a_{p,\alpha})
+\]
+を持つなら，これを還元とする有限自由分解
+\[
+ 0\longrightarrow F_N\longrightarrow\cdots
+ \longrightarrow F_0\longrightarrow M\longrightarrow0,
+ \qquad F_p=\bigoplus_\alpha A(-a_{p,\alpha})
+\]
+が存在する．その各短完全列は内部次数ごとに $R$-線形に分裂する．
+したがって任意の環準同型 $R\to T$ による基底変換後も分解である．
+右加群に対しても同じ結論が成り立つ．
+\end{lemma}
+
+\begin{proof}
+$\overline F_0\to\overline M$ の基底の像を $M$ に持ち上げて
+$F_0\to M$ を作る．余核 $C$ は $C=JC$ を満たすので，
+$J$ の冪零性から $C=0$ である．$M$ の各次数が $R$-射影だから
+$0\to Z_0\to F_0\to M\to0$ は各次数で分裂し，
+$Z_0$ の各次数も $R$-射影である．特に還元後の核は
+$Z_0/JZ_0$ であり，指定した分解の第零syzygyに一致する．
+その生成元を持ち上げて $F_1\to Z_0$ を作ると，同じ議論で
+これは全射であり，核 $Z_1$ は各次数で $R$-射影である．
+この操作を反復する．最後の核 $Z_N$ は $Z_N/JZ_N=0$ を満たすため
+$Z_N=0$ である．得られた全ての短完全列が $R$-分裂するので，
+任意の基底変換により完全性が保たれる．
+\end{proof}
+
+\begin{lemma}[有界射影複体の完全性の検出]
+\label{lem:nilpotent-complex-exactness}
+$J\subset R$ が冪零で，$C^\bullet$ が有界な $R$-射影加群の複体なら，
+$C^\bullet/JC^\bullet$ が完全であることから
+$C^\bullet$ が $R$-線形に可縮であることが従う．
+内部次数ごとに射影である次数付き複体にも，同じ主張が成り立つ．
+\end{lemma}
+
+\begin{proof}
+有界で完全な射影複体 $C^\bullet/JC^\bullet$ は可縮である．
+その縮約 $\overline h$ を射影性により $R$-線形写像 $h$ に持ち上げる．
+$u=dh+hd$ と置くと $u\equiv1\pmod J$ である．
+$u-1$ は各項を $J$ 倍の中へ写すので冪零であり，$u$ は可逆である．
+$u$ は $d$ と可換だから，$h u^{-1}$ が $C^\bullet$ の縮約となる．
+次数付きの場合はこの操作を各内部次数で行う．
+\end{proof}
+
+\begin{proposition}[重み付き相対正則性とaugmentation Ext]
+\label{prop:nilpotent-weighted-as}
+$R$ を可換環，$J\subset R$ を冪零イデアル，
+$A=\bigoplus_{q\geq0}A_q$ を $A_0=R$ を満たす次数付き中心的
+$R$-代数とする．各 $A_q$ は有限 $R$-自由であるとし，正整数
+$w_1,\ldots,w_N$ と次数付き代数の同型
+\[
+ A/JA\simeq (R/J)[x_1,\ldots,x_N],\qquad \deg x_i=w_i
+\]
+を固定する．$W=\sum_iw_i$ と置く．次が成り立つ．
+\begin{enumerate}
+\item augmentation加群 $R=A/A_{>0}$ は，左右とも
+\[
+ K_p=\bigoplus_{\substack{I\subset\{1,\ldots,N\}\\|I|=p}}
+ A\Bigl(-\sum_{i\in I}w_i\Bigr),\qquad0\leq p\leq N,
+\]
+を項とする有限自由分解を持つ．還元後の分解は重み付きKoszul分解である．
+\item $A^{\mathrm e}=A\otimes_R A^{\mathrm{op}}$ に関して，対角加群 $A$ は
+同じシフトと階数を持つ長さ $N$ の有限自由 $A^{\mathrm e}$-分解を持つ．
+特に $A$ は $R$ 上homologically smoothである．
+\item augmentationによる $A$-作用を右辺に入れると，左右とも
+\[
+ \underline{\operatorname{Ext}}_A^i(R,A)=
+ \begin{cases}R(W)&i=N,\\0&i\neq N\end{cases}
+\]
+である．
+\item これらの分解，完全性，Extの計算は任意の基底変換 $R\to T$ と両立する．
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+多項式環上で $x_1,\ldots,x_N$ は基底環によらず正則列である．
+そのKoszul分解を，補題\ref{lem:nilpotent-resolution-lift}で
+augmentation $A\to R$ の分解に持ち上げると第一の主張を得る．
+同じ補題を $A^{\mathrm e}$ とその左加群 $A$ に適用する．
+還元後は $(R/J)[x_1,\ldots,x_N,y_1,\ldots,y_N]$ 上の対角であり，
+$x_i-y_i$ のKoszul分解を持つ．$A$ は各次数で $R$-自由だから補題の仮定を満たし，
+第二の主張を得る．
+
+第一の分解を $\underline{\operatorname{Hom}}_A(-,A)$ で双対化する．
+最上位の項は $A(W)$ である．最終微分
+$K_N=A(-W)\to K_{N-1}$ の行列成分の次数はそれぞれ $w_i>0$ なので，
+双対複体の最後にaugmentationを付けて複体
+\[
+ 0\longrightarrow\underline{\operatorname{Hom}}_A(K_0,A)
+ \longrightarrow\cdots\longrightarrow A(W)
+ \longrightarrow R(W)\longrightarrow0
+\]
+が得られる．この複体の還元は，完全な双対Koszul複体に
+最上位の商 $(R/J)(W)$ を付けたものである．各項は内部次数ごとに
+$R$-射影だから，補題\ref{lem:nilpotent-complex-exactness}により元の複体も
+$R$-線形に可縮である．これが第三の主張を与える．
+反対代数に同じ議論を適用すれば右加群版も得られる．
+
+持ち上げた分解の短完全列と，今得た双対複体はいずれも $R$-線形に分裂する．
+したがって任意の基底変換で完全性を保つ．分解の項は有限自由 $A$-加群なので，
+その双対化も基底変換と両立する．
+\end{proof}
+
+\begin{remark}
+この命題は，$R$ 自身が特異である場合も適用できる．
+したがって $A$ の通常の大域次元や通常の入射次元が有限であるとは主張していない．
+ここで証明した内容は，$R$ に関する対角の完全性とaugmentation Ext条件である．
+また，$R$ がNoether環なら $A$ は左右Noether環である．実際，
+有限な $J$-進フィルターの随伴次数環は
+$\operatorname{gr}_J(R)[x_1,\ldots,x_N]$ に同型であり，Noether性を持つ．
+非Noether基底についてNoether性は主張しない．
+\end{remark}
+
+\begin{proposition}[平坦な中心超曲面商]
+\label{prop:flat-central-hypersurface-ext}
+命題\ref{prop:nilpotent-weighted-as}の仮定の下で，
+$\Omega\in A_m$ は $m>0$ の中心的な左右正則元であるとし，
+$B=A/(\Omega)$ は $R$-平坦であるとする．左右とも
+\[
+ \underline{\operatorname{Ext}}_B^i(R,B)=
+ \begin{cases}R(W-m)&i=N-1,\\0&i\neq N-1\end{cases}
+\]
+が成り立つ．この計算は任意の基底変換と両立する．
+
+さらに $\overline\Omega$ が，固定した多項式表示においてある変数に関して
+monicな多項式であれば，$\Omega$ の左右正則性と $B$ の各次数の
+有限 $R$-自由性は自動的に成り立つ．
+\end{proposition}
+
+\begin{proof}
+正則中心元の自由分解
+\[
+ 0\longrightarrow A(-m)\xrightarrow{\,\Omega\,}A
+ \longrightarrow B\longrightarrow0
+\]
+から，$\underline{\operatorname{Ext}}_A^q(B,A)$ は $q=1$ のときだけ非零で，
+その値は $B(m)$ である．従ってchange-of-ringsの随伴関係
+\[
+ \operatorname{RHom}_A(R,A)
+ \simeq\operatorname{RHom}_B
+ \bigl(R,\operatorname{RHom}_A(B,A)\bigr)
+\]
+は
+\[
+ \underline{\operatorname{Ext}}_B^i(R,B)
+ \simeq\underline{\operatorname{Ext}}_A^{i+1}(R,A)(-m)
+\]
+を与える．前命題を適用すれば表示した公式が得られる．
+$B$ が $R$-平坦なので，任意の基底変換後も上の短完全列は完全であり，
+$\Omega$ は左右正則である．随伴関係と前命題の有限自由分解は基底変換に自然なので，
+Extの計算も基底変換と両立する．
+
+最後の主張を示す．$\overline\Omega$ がある変数に関してmonicなら，
+$(R/J)[x_1,\ldots,x_N]/(\overline\Omega)$ の各内部次数は有限自由であり，
+その単項式基底を選べる．次数 $q$ でこの基底を $A_q$ に持ち上げると，写像
+\[
+ A_{q-m}\oplus R^{h_q}\longrightarrow A_q,
+ \qquad(a,c)\longmapsto\Omega a+\widetilde c
+\]
+は $J$ による還元後に同型となる．これは射影加群間の写像であるから，
+還元後の逆写像を持ち上げ，冪零誤差を有限幾何級数で除くことにより同型と分かる．
+従って $\Omega:A_{q-m}\to A_q$ は分裂単射で，その余核は $R^{h_q}$ である．
+全次数を合わせれば $\Omega$ の正則性と $B$ の各次数の有限自由性が従う．
+\end{proof}
+
+\begin{remark}[中心正則性と普遍的正則性の区別]
+中心正則性だけでは任意の基底変換に関する主張は得られない．
+例えば $R=k[t]$, $A=R[x]$, $\Omega=tx$ は中心正則であるが，
+$R\to R/(t)$ の後には $\Omega$ は零となる．上の命題では商の平坦性が
+この問題を排除している．本研究の重み付き超曲面は，次数 $1$ では
+重み $3$ の変数，次数 $2$ では重み $2$ の変数についてmonicな標準形を持つため，
+この条件を満たす．また，それぞれ
+\[
+ (N,W,m)=(n+2,n+5,6),\qquad(n+2,n+3,4)
+\]
+であるから，中心商の唯一の非零augmentation Extは
+$\underline{\operatorname{Ext}}_B^{n+1}(R,B)=R(n-1)$ となる．
+\end{remark}

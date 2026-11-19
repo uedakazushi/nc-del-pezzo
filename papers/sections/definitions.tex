@@ -1,0 +1,141 @@
+% !TeX root = ../nc-del-pezzo.tex
+\section{次数1・2の構造対象付きモジュライ問題}
+\label{sec:definitions}
+
+\subsection{重み付き模型と相対Poisson錐}
+基礎体を $\C$ とし、$n\ge2$ を固定する。基本偏極を $H$ と書く。
+可換な滑らか模型とその切断環のHilbert級数は次の表で与えられる。
+\begin{center}
+\begin{tabular}{ccc}
+\toprule
+次数 & 方程式と生成元の重み & Hilbert級数 $h_{n,d}(t)$\\
+\midrule
+$1$ & $z^2=y^3+A_4(x)y+A_6(x)$、$(1^n,2,3)$
+    & $\displaystyle\frac{1-t^6}{(1-t)^n(1-t^2)(1-t^3)}$\\[5pt]
+$2$ & $z^2=f_4(x)$、$(1^{n+1},2)$
+    & $\displaystyle\frac{1-t^4}{(1-t)^{n+1}(1-t^2)}$\\
+\bottomrule
+\end{tabular}
+\end{center}
+$h_{n,d}(j)=[t^j]h_{n,d}(t)$ とし、$j<0$ では $h_{n,d}(j)=0$ とする。
+変数の個数はどちらも $n+2$ であり、重みの和から関係の次数を引くと $n-1$ となる。
+
+\begin{lemma}[滑らかな標準形と通常の射影スキーム]
+\label{lem:weighted-free-locus}
+上の標準形が滑らかなdel Pezzo族 $X\to T$ を与えるとき、
+その重み付き射影超曲面はambientの安定化群が非自明な部分と交わらない。
+従ってその重み付き商スタックは $X$ 自身であり、切断環 $B$ に対して
+$\QGr B\simeq\operatorname{QCoh}(X)$ となる。
+\end{lemma}
+\begin{proof}
+次数2では $x_i$ のどれかが非零なら重み1により安定化群は自明であり、
+全てが零なら唯一の候補点 $[0:\cdots:0:z]$ は $z^2=f_4(0)=0$ を満たさない。
+次数1でも $x_i\ne0$ であれば同様である。全て $x_i=0$ なら $z^2=y^3$ であり、
+射影点であるため $y,z$ はともに非零である。安定化群は
+$\mu_2\cap\mu_3=1$ となる。この議論は幾何学的ファイバーで成り立ち、
+位数が可逆な対角化可能群の作用であることから相対的にも自由な部分に入る。
+次数付き加群のtorsion商はこの自由な重み付き商上の準連接層圏である。
+\end{proof}
+
+標準式が滑らかな多様体を定める係数空間の開集合を $U_d$ とする。
+以下の相対錐と商表示は \cite[定理7.3、定理8.8]{PoissonDP} を入力とする：
+\[
+ C_{n,1}=\A^n,\qquad
+ C_{n,2}=\operatorname{Spec}\C[p_{ij}]/(q_{ijk\ell}),\qquad
+ \mathcal P_{n,d}=[(U_d\times C_{n,d})/G_d].
+\]
+ここで $\mathcal P_{n,d}$ は相対Poisson構造付きの滑らかなdel Pezzo族のスタックであり、
+零構造も含む。標準形の変換群とその中央部分群は
+\begin{align*}
+ \widetilde G_1&=\mathrm{GL}_n\times\Gm,
+ &Z_1&=\{(\lambda I_n,\lambda)\},\\
+ \widetilde G_2&=\mathrm{GL}_{n+1}\times\Gm,
+ &Z_2&=\{(\lambda I_{n+1},\lambda^2)\},
+ &G_d&=\widetilde G_d/Z_d.
+\end{align*}
+作用は
+\begin{align*}
+ (A,t)\colon (A_4,A_6,D)&\longmapsto
+ \bigl(t^4A_4(A^{-1}x),t^6A_6(A^{-1}x),t^{-1}AD\bigr),\\
+ (A,b)\colon (f_4,P)&\longmapsto
+ \bigl(b^2f_4(A^{-1}x),b^{-1}(\wedge^2 A)P\bigr).
+\end{align*}
+これは偏極の自明化のスカラーを除いた作用であり、Poisson構造自体を
+任意の非零スカラーで同一視する操作ではない。
+
+\subsection{豊富列の存在と標識の選択}
+モジュライ問題は局所noetherianな複素スキームのfppf site上で考える。
+まず各affine基底 $T=\Spec R$ 上で、$R$-flatな局所noetherian Grothendieck圏
+$\mathcal Q$ と $R$-flatな対象 $\OO\in\mathcal Q$ を取る。
+基底変更は $R'$-作用付き対象の圏 $\mathcal Q_{R'}$ により定め、
+構造対象の基底変更は $R'\otimes_R\OO$ とする。
+以下の表示条件はfppf局所的な存在条件とし、表示そのものは標識に含めない。
+
+\begin{definition}[豊富列型の許容表示]
+\label{def:ample-model}
+$(n,d)$ 型の許容表示とは、$E_0=\OO$ を満たす相対豊富列
+$(E_i)_{i\in\mathbb Z}$ であって、
+\[
+ b_{ij}=\Hom(E_j,E_i)\quad(i\le j),\qquad b_{ij}=0\quad(i>j)
+\]
+が正・連結・局所有限なnoetherian $\mathbb Z$-代数をなし、
+$b_{ij}$ が階数 $h_{n,d}(j-i)$ の有限局所自由加群で、これらのHomと合成が
+任意の基底変更と可換し、標準関手
+$\mathcal Q\simeq\operatorname{Qmod}b$ が対象 $E_i$ と両立するものをいう。
+これらのnoetherian性、局所有限性、豊富性、復元と
+$\mathcal Q$ の局所noetherian性は、許される任意の局所noetherian基底変更後にも要求する。
+相対豊富性には、有限表示対象への十分大きい添字からの有限和による全射と、
+全射に対する十分大きい添字でのHomの全射性を要求する。
+\end{definition}
+
+このような表示を局所的に持つ $(\mathcal Q,\OO)$ の射は、
+\emph{全ての} $R$-線型完全同値 $F:\mathcal Q\simeq\mathcal Q'$ と
+$\alpha:F(\OO)\simeq\OO'$ の組を、$\alpha$ を保つ自然同型で割ったものとする。
+選んだ豊富列、次数シフト、生成元、またはAS包絡を保つことは要求しない。
+このfibered groupoidのfppf stack化を
+$\mathfrak A^{\OO}_{n,d}$ と書く。必要なら固定した宇宙で小さい模型を取る。
+stack化は降下データを有効にする操作であり、有限型atlasの存在を意味しない。
+
+\begin{definition}[非可換del Pezzo多様体のモジュライ問題]
+\label{def:nc-dp-stack}
+$\mathfrak M^{\OO}_{n,d}$ は、$\mathfrak A^{\OO}_{n,d}$ の対象で、
+導来圏 $D(\mathcal Q)$ がcompact生成され、
+$\Perf(\mathcal Q/R):=D(\mathcal Q)^c$ とその標準dg enhancementについて
+次を満たすものからなる
+fullな部分問題をstack化したものとする。
+\begin{enumerate}
+\item 幾何学的ファイバーのcoherent圏はHom有限でホモロジー次元 $n$ を持ち、
+      その有界導来圏は滑らかで固有なdg圏をなす。
+\item 相対perfect部分圏は豊富列の対象を含み、その相対RHomはperfectで基底変更と可換し、
+      相対Serre双対が存在する。$\mathcal Q$ の完全自己同値 $\mathsf H$ が存在し、
+      その導来関手の相対perfect部分圏への制限が $\mathsf S^{-1}[n]$ と同型である。
+      $(\OO,\mathsf H)$ は相対的に豊富である。
+\item 基底変更は上のcompact部分圏を保ち、相対Serre双対と両立する。
+\end{enumerate}
+これらの性質は許される基底変更後にも要求する。
+これらの構造の選択を追加の標識にはせず、その存在と保存を要求する。
+標準dg enhancementには複体のdg圏を非輪状複体で局所化したものを用いる。
+完全Grothendieck圏同値は全余極限とcompact対象を保ち、複体への項別適用から
+このenhancementの同値を誘導する。Serre構造は双対の表現として一意なので、
+これらの条件は全 $\OO$ 保存同値に対して不変である。
+\end{definition}
+
+さらに、fppf局所的に $\mathcal Q\simeq\QGr(A/(\Omega))$ と書ける部分問題を考える。
+$A$ は各次数が有限局所自由な連結次数付き代数で、幾何学的ファイバー上で
+生成重み $(1^n,2,3)$ または $(1^{n+1},2)$、大域次元 $n+2$、
+Gorensteinパラメータ $n+5$ または $n+3$ のAS正則代数とし、
+$\Omega$ は次数6または4の正規な正則元で、商のHilbert級数を $h_{n,d}$ とする。
+この\emph{重み付き超曲面による部分問題}を $\mathfrak M^{\OO,\mathrm{hyp}}_{n,d}$ と書く。
+中心的な $\Omega$ はその特別な場合である。AS包絡の選択は忘れ、射はやはり全 $\OO$ 保存同値とする。
+
+\begin{remark}[定義と証明すべき性質]
+以上でモジュライ問題は定まるが、代数スタック性、有限型性、
+重み付き超曲面による部分問題との一致、次数の異なる部分問題の互いの素性は
+定義からは従わない。次数の内在性については
+命題\ref{prop:ncdp-intrinsic-degree}の反標準Euler多項式による十分条件を用いる。
+第\ref{sec:formal-abel}節で計算するのは全Abel Artin変形の同型類であり、
+追加の相対Serre条件や通常の次数付き周期化の持上げを証明するまでは、
+それを $\mathfrak M^{\OO}_{n,d}$ や
+$\mathfrak M^{\OO,\mathrm{hyp}}_{n,d}$ の完成と無条件に同定しない。
+この区別が、次数付き表示だけを分類する商と、構造対象のみを標識する分類を比較する際に必要である。
+\end{remark}

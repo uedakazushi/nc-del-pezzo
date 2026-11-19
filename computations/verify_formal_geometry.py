@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Exact finite checks for nc-del-pezzo (2026-11-20, v0.1).
+"""Exact finite checks for nc-del-pezzo (2026-11-20, v0.2).
 
 No dependencies outside Python's standard library. These checks support the
 explicit formulas; they do not prove deformation or categorical equivalences.
@@ -84,13 +84,27 @@ def main():
         for d in (1, 2):
             hilbert_checks(n, d)
         wedge_obstruction_check(n)
+        # Standard quadratic Pluecker monomials are two ordered columns
+        # (i,j), (k,l) with weakly increasing rows. Count them independently
+        # of the presentation as a symmetric square modulo Pfaffians.
+        columns = list(combinations(range(n + 1), 2))
+        standard = sum(i <= k and j <= ell
+                       for i, j in columns for k, ell in columns)
+        presentation = comb(len(columns) + 1, 2) - comb(n + 1, 4)
+        closed_formula = n * (n + 1) ** 2 * (n + 2) // 12
+        assert standard == presentation == closed_formula, (n, "coarse tangent")
+        assert comb(n + 1, 2) > n
+        assert standard > 2 * n - 1
     print("PASS: n=2,...,8, both degrees: monic basis, Hilbert series, anticanonical finite differences.")
     print("PASS: n=2,...,8: all Pfaffian second-order expansions; explicit obstructed directions for n>=3.")
-    print("n | d=1: dimension | d=2: dimension / tangent dimension")
+    print("PASS: n=2,...,8: quadratic standard monomials and singularity of both generic sign quotients.")
+    print("n | d=1: dim / framed tangent / coarse tangent | d=2: dim / framed tangent / coarse tangent")
     for n in range(2, 6):
         b1 = comb(n + 3, 4) + comb(n + 5, 6) - n * n
         b2 = comb(n + 4, 4) - (n + 1) ** 2
-        print(f"{n} | {b1+n} | {b2+2*n-1} / {b2+comb(n+1,2)}")
+        coarse1 = b1 + comb(n + 1, 2)
+        coarse2 = b2 + n * (n + 1) ** 2 * (n + 2) // 12
+        print(f"{n} | {b1+n} / {b1+n} / {coarse1} | {b2+2*n-1} / {b2+comb(n+1,2)} / {coarse2}")
 
 
 if __name__ == "__main__":

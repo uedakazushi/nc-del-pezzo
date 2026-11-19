@@ -43,7 +43,7 @@
 \newcommand{\Perf}{\operatorname{Perf}}
 \newcommand{\rank}{\operatorname{rank}}
 \newcommand{\HH}{\operatorname{HH}}
-\newcommand{\Version}{0.1}
+\newcommand{\Version}{0.2}
 \title{次数1・2の非可換del Pezzo多様体\texorpdfstring{\\}{ }構造対象付き変形とモジュライの局所構造}
 \author{}
 \date{2026年11月20日\quad v\Version\quad 公表用研究稿}
@@ -55,7 +55,7 @@
 $-K_X=(n-1)H$、$H^n\in\{1,2\}$ を可換点に持つ非可換変形を扱う。
 構造対象 $\OO_X$ だけを標識し、射には全ての標識を保つ完全Abel同値を採用する。
 既知のAbel変形・algebroid変形・量子化の比較と、次数1・2の相対Poisson構造定理を組み合わせ、
-特殊ファイバーを固定した全Abel Artin変形の同型類関手を計算する。
+特殊ファイバーを固定した全Abel Artin変形の群oidを計算する。
 次数1では形式的に滑らかであり、次数2では滑らかな形式基底と
 $\Gr(2,n+1)$ のPl\"ucker錐の頂点完備化の積となる。
 各可換点の形式分枝は一つであるが、大域的な全非可換モジュライの成分数は未決定である。
@@ -63,8 +63,13 @@ $\Gr(2,n+1)$ のPl\"ucker錐の頂点完備化の積となる。
 中心的な一次変数を持つ次数付き代数のVeronese復元を調べる。
 一つのグラフformality写像を固定すると、中心商量子化は任意の冪零係数上で次数ごとに平坦であり、
 構造対象付き圏の形式族としてPoissonモジュライの零切断の完備化へ降下する。
-さらに、この具体的量子化自体が各可換点の全Artin変形の同型類を自然に分類する。
-従って全ての変形は通常の次数付き中心超曲面表示を持ち、相対augmentation Ext条件を満たす。
+この具体的量子化は全Artin変形を実現する。
+有限Ore被覆と対角dg加群のcompact持上げを用いて、そのperfect圏の相対的な滑らかさと固有性、
+切断環の飽和性、任意の正周期の豊富性を証明する。
+$HH^1(X)=0$ による剛性から相対Serre関手を $(-(n-1))[n]$ と同定し、
+定義した非可換多様体のモジュライのArtin完成が全Abel変形と一致することを示す。
+特殊ファイバーの枠を忘れた形式商は $[\operatorname{Spf}R_X/\operatorname{Aut}(X)]$ であり、
+一般の可換点では被覆対合の符号作用による粗商が両次数とも特異になる。
 形式的構成、代数的な族、全モジュライの代数性を区別して述べる。
 \end{abstract}
 \tableofcontents
@@ -97,7 +102,12 @@ $\OO$-marked変形の同型類関手を表す環は非標準的に
 である。ここで
 $q_{ijk\ell}=p_{ij}p_{k\ell}-p_{ik}p_{j\ell}+p_{i\ell}p_{jk}$
 ($i<j<k<\ell$) である。証明は第\ref{sec:formal-abel}節に置く。
-有限群 $\Aut(X)$ はまだ割っておらず、未切断2群oidの表示も主張していない。
+この環は特殊ファイバーの枠を固定した変形を表す。
+第\ref{sec:formal-groupoid}節では微小自己同値の消滅を証明し、
+枠を忘れた形式群oidを $[\Spf R_X/\Aut(X)]$ と同定する。
+$\OO$ の標識を保つ自然自己同型は自明である。
+定理\ref{thm:all-artin-are-nc-dp}により、同じ表示が
+$\mathfrak M^{\OO}_{n,d}$ とその重み付き超曲面部分問題のArtin完成を与える。
 
 次数1では全一次変形が延長する。次数2では
 一次Poisson方向 $Q\in\wedge^2\C^{n+1}$ の二次障害は $Q\wedge Q$ であり、
@@ -112,6 +122,21 @@ Yekutieliのtwisted quantization\cite[Corollaries 7.5, 11.2]{Yekutieli2015}を�
 De Deken--Lowen\cite[Theorem 4.5, Proposition 4.6]{DDL2011}は
 豊富列の持上げとsection $\mathbb Z$-代数による全Artin変形の表示を与える。
 これらの比較原理そのものは既知の結果である。
+
+Lowen--Van den BerghのAbel変形とinjective線型圏の比較
+\cite[Theorem~8.17, Appendix~B]{LowenVdBDeformation}を用い、
+$HH^1(X)=0$ から全Abel同値の微小剛性を得る。
+compact性の持上げにはDe Deken--Lowen
+\cite[Propositions~5.8--5.9]{DDL2011}を用いる。
+一般的なdeformed schemeのcompact生成は
+Lowen--Van den Bergh\cite[Proposition~5.1]{LowenVdBCompact2013}も扱うが、
+本稿では重み付き中心商の有限Ore被覆を構成し、任意基底変更、飽和性、
+proper性と基底変更を検証し、compact持上げの論法を対角dg加群へ適用してsmooth性を得る。
+ambientの無捩れな双対性はShoikhetの鎖formality
+\cite[Theorem~2.2.7]{Shoikhet2003}を冪零係数上で有限twistすることで得る。
+unimodularityとVan den Bergh双対性の関係自体は
+Dolgushev\cite[Theorem~3]{DolgushevModular2009}の既知の原理である。
+相対Serre公式には別途、smooth proper圏の対角bimoduleの剛性を用いる。
 
 本稿固有の入力は、\cite[定理7.3, 定理8.8]{PoissonDP}の
 任意基底変換と両立する相対Jacobi錐と全族の商表示であり、
@@ -136,7 +161,7 @@ Okawa--Uedaの球面helixからのAS正則代数の構成\cite{OkawaUeda2020}も
 これらの先行研究を、一般次元の全ncモジュライの代数性・成分数の既知の解答とは扱わない。
 
 以下では、全Abel Artin変形、許容表示のモジュライ問題、
-追加のSerre・豊富性仮定を満たす部分問題を区別する。
+Serre・豊富性条件を満たす部分問題を定義上区別し、可換点のArtin完成での一致を証明する。
 全非可換モジュライの有限型atlasや成分数は、形式局所環の計算だけからは従わない。
 
 \subsection{形式族と同値関係についての結果}
@@ -159,13 +184,23 @@ Poissonモジュライの零切断の形式完備化上に構造対象付きAbel
 逆写像補題を組み合わせるため、次数2の特異なPl\"ucker錐にも適用できる。
 従って全Artin変形は通常の次数付き中心超曲面で表示でき、
 第\ref{subsec:nilpotent-weighted-as}節の相対augmentation Ext条件も満たす。
-この表示の存在から相対Serre公式や大域モジュライの代数性は結論しない。
+第\ref{sec:artin-ample-perfect}節は有限Ore被覆から
+section saturation、有向ACM、正周期の豊富性とsmooth proper性を証明する。
+第\ref{sec:relative-serre-artin}節で相対Serre公式を証明し、
+全Artin変形が定義\ref{def:nc-dp-stack}を満たすことを示す。
+また命題\ref{prop:artin-full-graded-recognition}はArtin近傍で全 $\OO$ 保存同値を
+通常の次数付き環同型を次数スカラーで割ったものとして認識する。
+この局所結論は普遍中心条件を使わず、可換点でも成立する。
+一方、大域モジュライの代数性と成分数には有限型族と一般nc点の解析が残る。
 
 \input{sections/definitions}
 \input{sections/formal_moduli}
 \input{sections/recognition}
 \input{sections/quantization}
+\input{sections/formal_groupoid}
 \input{sections/as_lifting}
+\input{sections/artin_geometry}
+\input{sections/relative_serre}
 \input{sections/generic_center}
 
 \section{大域的なモジュライへ進むための問題}

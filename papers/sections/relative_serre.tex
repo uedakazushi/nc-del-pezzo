@@ -1,0 +1,412 @@
+% !TeX root = ../nc-del-pezzo.tex
+\section{体積形式と相対 Serre 双対}
+\label{sec:relative-serre-artin}
+
+\subsection{任意の冪零係数上の無捩れな ambient 双対性}
+
+この小節では，Kontsevich の写像と Shoikhet の鎖写像を対として固定する．
+後者は前者を用いた Hochschild 鎖の $L_\infty$ 加群構造から微分形式への写像である
+\cite[Theorem~2.2.7, \S2.2.8, \S3.2--3.3]{Shoikhet2003}．
+その線型座標変換に関する同変性は
+\cite[Theorem~3]{DolgushevChains2006}で明記されている．
+以下の議論は多項式環上のグラフ公式だけを使い，
+滑らかな多様体上の大域化や非線型座標変換の厳密同変性を使わない．
+
+\begin{lemma}[ambient 括弧の相対 unimodularity]
+\label{lem:ambient-unimodular-all-artin}
+第\ref{sec:equivariant-quantization}節の二つの ambient 二重ベクトルは，
+標準の相対体積形式
+\[
+ \omega=dx_0\wedge\cdots\wedge dx_{n-1}\wedge dy\wedge dz
+ \quad(d=1),\qquad
+ \omega=dx_0\wedge\cdots\wedge dx_n\wedge dz
+ \quad(d=2)
+\]
+に関して $\operatorname{div}_\omega\widetilde\pi=0$ を満たす．
+この等式は任意の係数環上で成立し，次数2の $P$ に対して
+二つのベクトルの外積による表示を選ぶ必要はない．
+\end{lemma}
+\begin{proof}
+$\widetilde\pi=\sum_{a<b}\pi^{ab}\partial_a\wedge\partial_b$ とし，
+発散の第 $b$ 成分を $\sum_a\partial_a\pi^{ab}$ とする．
+次数1では $D_i$ は相対微分で定数である．
+$x_i$ 成分は $-D_iF_{zy}+D_iF_{yz}=0$，
+$y$ 成分は $D(F_z)-\partial_zD(F)=0$，
+$z$ 成分は $-D(F_y)+\partial_yD(F)=0$ である．
+次数2では $\pi^{ij}=2zp_{ij}$ と
+$\pi^{iz}=V_i=\sum_jp_{ij}\partial_jf_4$ である．
+$x_i$ 成分は零であり，$z$ 成分は
+$\sum_{i,j}p_{ij}\partial_i\partial_jf_4=0$ となる．
+最後の等式は反対称性と混合微分の可換性による．
+従って $L_{\widetilde\pi}\omega=0$ である．
+\end{proof}
+
+\begin{lemma}[鎖 formality の冪零係数版]
+\label{lem:nilpotent-chain-formality}
+$R$ を可換 $\mathbb C$-代数，$J\subset R$ を冪零イデアルとし，
+$S_R=R[x_1,\ldots,x_N]$ に重み $w_i>0$ を与える．
+$\pi\in J\bigwedge^2\operatorname{Der}_R(S_R)$ を
+内部次数零の Poisson 二重ベクトルとする．
+固定した Kontsevich--Shoikhet の対で量子化した代数を $A$ とすると，
+相対 Hochschild 鎖複体から相対微分形式への内部次数を保つ鎖写像
+\[
+ \mathcal K_\pi:
+ (C_\bullet(A/R),b_\star)
+ \longrightarrow(\Omega^\bullet_{S_R/R},L_\pi)
+\]
+があり，これは擬同型である．その $J$ による還元は
+$\frac1{q!}a_0\,da_1\wedge\cdots\wedge da_q$ による HKR 写像である．
+構成は任意の $R\to T$ と両立する．
+\end{lemma}
+\begin{proof}
+Shoikhet の $q$ 次の構造写像を $\mathcal K_q$ と書くと，
+\[
+ \mathcal K_\pi(c)
+ =\sum_{q\ge0}\frac1{q!}\mathcal K_q(\pi,\ldots,\pi;c)
+\]
+と定める．$q$ 番目の項の係数は $J^q$ に入るため有限和である．
+各グラフは ambient 変数だけを微分する有限階の式であり，
+多項式を多項式微分形式へ送る．従って複素多項式上で成立する
+鎖写像の恒等式は任意の $R$ 上に拡張できる．
+これは一変数の $\hbar$ 進量子化から値 $\hbar=1$ を取る操作ではない．
+$J$ 進フィルトレーションの各随伴次数上でこの写像は，
+$J^a/J^{a+1}$ を複素ベクトル空間として係数に持つ多項式 HKR 写像である．
+その擬同型性とフィルトレーションの有限性から元の写像も擬同型となる．
+内部次数については各グラフの縮約が重みを保存する．
+有限グラフ公式なので係数変更は平坦性なしに可換し，
+係数変更後にも同じ有限フィルトレーションの議論が適用できる．
+\end{proof}
+
+\begin{theorem}[重み付き相対 Calabi--Yau 同型]
+\label{thm:nilpotent-ambient-cy}
+前補題の仮定に加え，$W=\sum_iw_i$ とし，
+$\omega=dx_1\wedge\cdots\wedge dx_N$ に関して
+$L_\pi\omega=0$ と仮定する．$A^{\mathrm e}=A\otimes_R A^{\mathrm{op}}$ と置くと，
+次数付き bimodule の導来圏で
+\[
+ A^!:=\underline{R\operatorname{Hom}}_{A^{\mathrm e}}(A,A^{\mathrm e})
+ \simeq A(W)[-N].
+\]
+この同型は，体積形式と鎖 formality の対を固定したとき任意の係数変更と両立する．
+従って全ての基底変更後に左右の作用に Nakayama 自己同型の捻りは残らない．
+\end{theorem}
+\begin{proof}
+$\omega$ は $L_\pi$ に関する最高次の cycle である．
+補題\ref{lem:nilpotent-chain-formality}の同型により，
+これに対応する一意の類
+\[
+ c_\pi\in HH_N(A/R)_W
+\]
+を得る．その還元は多項式環の標準的な体積類である．
+命題\ref{prop:nilpotent-weighted-as}により対角 $A$ は
+有限自由 $A^{\mathrm e}$-分解を持つ．有限双対性から
+\[
+ A\mathbin{\otimes^{\mathbf L}_{A^{\mathrm e}}}A
+ \simeq R\operatorname{Hom}_{(A^{\mathrm e})^{\mathrm{op}}}(A^!,A)
+\]
+が成り立つ．右 $A^{\mathrm e}$-加群は通常の反転で bimodule と読む．
+従って内部次数 $W$ の類 $c_\pi$ は，内部次数零の射
+\[
+ \theta_\pi:A^!\longrightarrow A(W)[-N]
+\]
+を与える．還元後，この射は Koszul 対角分解の標準双対同型である．
+有限自由分解を使って $\theta_\pi$ を chain map として表すと，
+その cone は各内部次数で有界な $R$-射影加群の複体となり，
+$J$ による還元後には完全である．
+補題\ref{lem:nilpotent-complex-exactness}により cone は完全であり，
+$\theta_\pi$ は同型である．
+
+$R\to T$ による係数変更に対し，$c_\pi$ の像は
+$\mathcal K_{\pi_T}$ によって $\omega_T$ へ送られる．
+後者も擬同型なので，この像は $c_{\pi_T}$ に等しい．
+有限自由対角分解の双対性も任意の係数変更と可換する．
+従って $\theta_\pi$ は基底変更と両立する．
+\end{proof}
+
+\begin{corollary}[次数1・2への適用]
+\label{cor:dp-ambient-cy}
+第\ref{sec:equivariant-quantization}節の量子化を
+Kontsevich--Shoikhet の対から選ぶと，任意の冪零係数上で
+\[
+ A_R^!\simeq
+ \begin{cases}
+ A_R(n+5)[-n-2],&d=1,\\
+ A_R(n+3)[-n-2],&d=2
+ \end{cases}
+\]
+である．とくに定理\ref{thm:concrete-quantization-all-artin}の
+全 Artin 表示には，この無捩れな相対 ambient 双対性を持つ表示を選べる．
+\end{corollary}
+\begin{proof}
+補題\ref{lem:ambient-unimodular-all-artin}と前定理を用い，
+$N=n+2$ とそれぞれの重みの和を代入する．
+\end{proof}
+
+\begin{remark}[既知の unimodularity 定理と射影的双対性]
+Dolgushev は滑らかな affine 多様体の一変数形式量子化について，
+Van den Bergh 双対化 bimodule が無捩れになることと
+形式 Poisson 構造の unimodularity の同値を証明した
+\cite[Theorem~3]{DolgushevModular2009}．
+本稿ではその一変数定理を任意の非被約基底へ直接適用せず，
+鎖 formality と有限自由対角分解による上の証明を用いた．
+これは既知の原理の相対・重み付きの適用であり，原理自体を新規結果とはしない．
+
+$\Omega$ が次数 $m$ の正則中心元なら，二項分解によって
+\[
+ \underline{R\operatorname{Hom}}_{A_R}
+ (B_R,A_R(-W)[N])\simeq B_R(m-W)[N-1]
+ =B_R(-(n-1))[n+1]
+\]
+を得る．ここでは両辺を中心商上の bimodule として読む．
+この随伴複体の計算だけで，相対 balanced dualizing complex の全公理，
+射影 tails の相対 Serre 双対，または compact 生成を証明したことにはならない．
+以下では smooth proper な相対 dg 圏が得られた場合に，
+Serre 関手の無捩れな同定を別の剛性論法で行う．
+\end{remark}
+
+\subsection{対角 bimodule の剛性による Serre 関手の同定}
+
+この小節で dg 代数の包絡代数を書くときは
+$A^{\mathrm e}=A\otimes_R^{\mathbf L}A^{\mathrm{op}}$ を意味する．
+同値に，$R$-cofibrant な模型を選んで通常のテンソル積で計算してよい．
+
+\begin{lemma}[対角の二つの持上げの同型]
+\label{lem:diagonal-bimodule-rigidity}
+$(R,\mathfrak m)$ を剰余体 $\mathbb C$ の局所 Artin 環とし，
+$A$ を $R$ 上 smooth proper な dg 代数とする．
+$A_0=A\otimes_R^{\mathbf L}\mathbb C$ と置き，$HH^1(A_0)=0$ と仮定する．
+$P,Q\in\operatorname{Perf}(A^{\mathrm e})$ の還元に
+$P_0\simeq A_0\simeq Q_0$ を固定する．
+この還元上の任意の同型 $P_0\to Q_0$ は，
+$P\simeq Q$ へ持ち上がる．
+\end{lemma}
+\begin{proof}
+$P$ の完全性と $A$ の proper 性から
+$K=R\operatorname{Hom}_{A^{\mathrm e}}(P,Q)$ は $R$-perfect である．
+これは任意の導来基底変更と可換し，
+$K\otimes_R^{\mathbf L}\mathbb C\simeq
+ R\operatorname{Hom}_{A_0^{\mathrm e}}(A_0,A_0)$ である．
+$R/\mathfrak m^{a+1}\to R/\mathfrak m^a$ の核
+$I_a=\mathfrak m^a/\mathfrak m^{a+1}$ に対する写像持上げの障害は，
+テンソルした複体の三角から
+\[
+ H^1(I_a\otimes_R^{\mathbf L}K)
+ =I_a\otimes_{\mathbb C}HH^1(A_0)=0
+\]
+に入る．従って $H^0(K)$ の元として所望の射を帰納的に持ち上げられる．
+その cone は $R$-perfect で還元が零なので，導来 Nakayama により零である．
+よって得られた射は同型である．
+\end{proof}
+
+\begin{proposition}[smooth proper な Artin 持上げの相対 Serre 関手]
+\label{prop:serre-from-smooth-proper-lift}
+$R$ を前補題の局所 Artin 環とし，$\mathcal C_R$ を
+$R$ 上 smooth proper な小さい dg 圏で，その完全包が compact generator を持つものとする．
+以下ではその冪等完備な完全包を同じ記号で書く．
+その還元が $\operatorname{Perf}(X)$ であるとする．
+$\mathsf T_R$ を $\mathcal C_R$ の dg 自己同値で，
+還元が $-\otimes\mathcal O_X(H)$ になるものとする．
+$X$ が次数1または2の滑らかな del Pezzo $n$-fold なら，
+相対 Serre 関手 $\mathsf S_R$ が存在し，
+\[
+ \mathsf S_R\simeq\mathsf T_R^{-(n-1)}[n].
+\]
+この同型を一つ選ぶと，任意の $R\to T$ に対して導来基底変更された
+smooth proper 圏の相対 Serre 同型を与える．
+$\mathsf T_R$ が Abel 圏の次数シフト $(1)$ から来る場合，
+$\mathsf S_R^{-1}[n]$ は完全自己同値 $(n-1)$ の制限であり，
+$E_i=\pi B_R(-i)$ に対して $E_i\mapsto E_{i-(n-1)}$ となる．
+\end{proposition}
+\begin{proof}
+compact generator による Morita 模型を $A$ とし，
+$A^*=R\operatorname{Hom}_R(A,R)$ と置く．
+$A$ が proper なので $A^*$ は $R$-perfect である．
+$A$ が smooth なので，$R$-perfect な $A$-加群は $A$-perfect である．
+実際，有限な perfect $A^{\mathrm e}$-分解で対角を表し，その加群をテンソルすると，
+$R$-perfect な係数を持つ $A$ の有限な cone 表示を得る．
+従って $\mathsf S_R=-\otimes_A^{\mathbf L}A^*$ は
+$\operatorname{Perf}(A)$ の自己関手である．
+テンソルと Hom の随伴関係から
+\[
+ R\operatorname{Hom}_R(R\operatorname{Hom}_A(M,N),R)
+ \simeq R\operatorname{Hom}_A
+ (N,M\otimes_A^{\mathbf L}A^*)
+\]
+を得る．これは $M=A$ の場合には通常の随伴同型であり，
+有限な cone と直和因子により全ての $M\in\operatorname{Perf}(A)$ に拡張する．
+$\mathsf S_R$ の右随伴は
+$R\operatorname{Hom}_A(A^*,-)$ である．
+$A^*$ と入力が $A$-perfect なのでその値は $R$-perfect であり，
+smooth 性から $A$-perfect でもある．従って右随伴も完全圏を保つ．
+この右随伴とその随伴写像は基底変更と両立する．
+その単位・余単位は特殊ファイバーで通常の Serre 同値のものになるため，
+$R$-perfect な cone に導来 Nakayama を適用すれば同型となる．
+従って $\mathsf S_R$ は相対 Serre 自己同値である．
+
+$\mathsf S_R\mathsf T_R^{n-1}[-n]$ を表す bimodule を $P$ とする．
+その右 $A$-加群としての値は生成元の像なので $A$-perfect，従って
+$R$-perfect である．$A^{\mathrm e}$ 自身も $R$ 上 smooth なので，
+（その対角は $A$ と $A^{\mathrm{op}}$ のperfect対角の外積である），
+同じ対角分解の議論により $P$ は $A^{\mathrm e}$-perfect である．
+$\omega_X\simeq\mathcal O_X(-(n-1)H)$ により $P_0\simeq A_0$ である．
+HKR と $H^0(X,T_X)=H^1(X,\mathcal O_X)=0$ により
+\[
+ HH^1(A_0)=HH^1(X)
+ =H^0(X,T_X)\oplus H^1(X,\mathcal O_X)=0.
+\]
+$H^0(T_X)=0$ は \cite[補題8.7]{PoissonDP} の入力であり，
+$H^1(\mathcal O_X)=0$ は Kodaira 消滅による．
+補題\ref{lem:diagonal-bimodule-rigidity}を $Q=A$ に適用すると
+$P\simeq A$ であり，所望の Serre 同型を得る．
+
+$A$ の $R$-完全性により $A^*$ の構成は任意の基底変更と可換する．
+perfect bimodule，その合成，同型も導来基底変更で保たれるので，
+選んだ Serre 同型は任意の $T$ 上へ移る．
+最後の主張は次数シフトの合成と $E_i$ の定義による．
+\end{proof}
+
+\begin{remark}[perfect圏と有界coherent導来圏]
+前命題のsmooth proper性とcompact生成の入力は、
+本稿のArtin中心商については定理\ref{thm:artin-smooth-proper}で満たされる．
+相対 Serre 同型の適用先は $\operatorname{Perf}$ であり，
+特異な Artin 基底上の全 $D^b(\operatorname{coh})$ ではない．
+例えば $R=\mathbb C[\epsilon]/(\epsilon^2)$ 上の自明族でも，
+$\mathcal O_{X\times\operatorname{Spec}R}\otimes_R\mathbb C$ は coherent だが，
+$R$ 上の射影次元が無限なので相対 compact ではない．
+反標準列の豊富性とsection saturationは、それぞれ
+定理\ref{thm:artin-positive-shift-ample}と定理\ref{thm:artin-saturation-acm}による．
+\end{remark}
+
+\subsection{全Abel変形と非可換多様体のArtin完成の一致}
+
+\begin{lemma}[局所Artin基底上のstack化と枠付き変形]
+\label{lem:artin-stackification-comparison}
+$\mathcal F$ を局所noetherianな複素スキームのfppf site上の
+群oid擬関手，$\mathcal F^a$ をそのstack化，$x\in\mathcal F(\mathbb C)$ とする．
+$\mathcal F_x(R)$ は $y\in\mathcal F(R)$ と
+$y\otimes_R\mathbb C\simeq x$ という枠の組の群oidとする．
+剰余体 $\mathbb C$ の局所Artin環上で，ある完備局所
+$\mathbb C$-代数 $A$ に対して自然な同値
+\[
+ \mathcal F_x(R)\simeq
+ h_A(R):=\operatorname{Hom}_{\mathrm{cont,loc},\mathbb C}(A,R)
+\]
+が存在すると仮定する．右辺は離散群oidとみなす．
+このとき自然な関手
+$\mathcal F_x(R)\to(\mathcal F^a)_x(R)$ は同値である．
+\end{lemma}
+\begin{proof}
+まず $R$ 上の任意のfppf被覆は，有限忠実平坦な局所Artin
+$\mathbb C$-代数 $S$ による一つの被覆で細分できる．
+実際，fppf被覆は局所準有限なfppf被覆で細分できる
+\cite[Tag 0572]{StacksProject}．
+$\operatorname{Spec}R$ の一点を覆う細分の非空なaffine開を取る．
+その座標環は $\mathbb C$ 上有限型かつ零次元なので有限次元である．
+その非零な局所因子を $S$ とすれば，$R$ 上有限平坦かつ非零であるから
+忠実平坦であり，剰余体は $\mathbb C$ である．
+有限個の局所Artin $\mathbb C$-代数の $R$ 上のテンソル積も
+局所Artin $\mathbb C$-代数である：各極大イデアルから生成される
+イデアルは冪零で，その商は $\mathbb C$ になる．
+従って被覆の全ての\v{C}ech重なりも同じ試験環の範囲に入る．
+また $R=\mathbb C$ の被覆は $\mathbb C$-点により分裂するので，
+$\mathcal F(\mathbb C)\to\mathcal F^a(\mathbb C)$ は同値である．
+
+忠実平坦性から $R\to S\rightrightarrows S\otimes_RS$ は等化子である．
+従って $h_A$ の元とその等式はこの被覆について降下する．
+局所性も降下するので，得られる準同型 $A\to R$ は局所的かつ連続である．
+$\mathcal F_x$ は離散群oid $h_A$ に同値だから，その降下は有効であり，
+同じ同型類の二対象間にはただ一つの射がある．
+
+これがstack化の射にも適用できることを先に確認する．
+$\mathcal F_x(R)$ の二対象間の $\mathcal F^a$ における枠付き射は，
+被覆上で $\mathcal F$ の射として表せる．上の $S$ に細分すると
+両者の $h_A(S)$ での値は一致するので，忠実平坦性から
+$h_A(R)$ でも一致し，$\mathcal F_x(R)$ に一意の射がある．
+stack化された射は局所的にこの射と一致するため全体でも一致する．
+よって自然な関手は完全忠実である．
+
+次に $(\mathcal F^a)_x(R)$ の対象を $S$ 上で
+$\mathcal F_x(S)$ の対象として表す．特殊ファイバーの枠は，
+$\mathcal F(\mathbb C)\simeq\mathcal F^a(\mathbb C)$ により
+元の群oid内で選べる．重なり上の降下同型は，先に示した完全忠実性によって
+$\mathcal F_x(S\otimes_RS)$ 内の射へ一意に持ち上がる．
+従って $h_A(S)$ の値は降下して $h_A(R)$ の元を与える．
+対応する $\mathcal F_x(R)$ の対象は，stack化後に元の対象と同型となる．
+これで本質的全射も得た．
+\end{proof}
+
+
+\begin{theorem}[全Artin変形の非可換del Pezzo性]
+\label{thm:all-artin-are-nc-dp}
+$X$ を次数 $d\in\{1,2\}$ の滑らかな複素del Pezzo $n$-fold，$n\ge2$ とする．
+その構造対象付き平坦Abel Artin変形は全て
+$\mathfrak M^{\mathcal O,\mathrm{hyp}}_{n,d}$ に属する．
+そのperfect圏は相対的にsmooth properであり、ある通常の次数シフトに対して
+\[
+ \mathsf S_R\simeq (-(n-1))[n],\qquad
+ \mathsf S_R^{-1}[n]\simeq(n-1)
+\]
+となる．これらの性質は任意の許される基底変更後にも成立する．
+
+従って，可換点 $[X]$ におけるArtin完成を変形群oidとして読むと，
+自然な包含は同値
+\[
+ \widehat{\mathfrak M}^{\mathcal O,\mathrm{hyp}}_{n,d,[X]}
+ \simeq\widehat{\mathfrak M}^{\mathcal O}_{n,d,[X]}
+ \simeq\widehat{\mathfrak A}^{\mathcal O}_{n,d,[X]}
+ \simeq\widehat{\mathfrak D}^{\mathcal O}_{[X]}
+ \simeq[\operatorname{Spf}R_X/\operatorname{Aut}(X)]
+\]
+を与える．特殊ファイバーの枠を固定した版は $\operatorname{Spf}R_X$ である．
+また，具体量子化表示 $B,B'$ 間の全構造対象付き同値は
+\[
+ \operatorname{Eq}^{\mathcal O}_R(\operatorname{QGr}B,\operatorname{QGr}B')
+ \simeq\operatorname{Isom}_{\mathrm{gr},R}(B,B')/R^\times
+\]
+で認識される．
+\end{theorem}
+\begin{proof}
+定理\ref{thm:concrete-quantization-all-artin}によって任意のAbel変形に
+通常の重み付き中心超曲面表示を選ぶ．
+定理\ref{thm:artin-saturation-acm}と定理\ref{thm:artin-positive-shift-ample}により，
+全シフト列は許容表示であり，有向ACMと正周期の豊富性を満たす．
+定理\ref{thm:artin-smooth-proper}によりcompact生成と相対smooth proper性，
+perfectなRHomと任意基底変更との両立を得る．有限compact generatorも同定理の証明にある．
+命題\ref{prop:serre-from-smooth-proper-lift}を次数シフト $(1)$ に適用すれば
+表示した相対Serre公式が成り立つ．
+$E_i=\pi B(-i)$ と $\mathsf H=(n-1)$ は必要なSerre周期を整合的に満たす．
+
+任意の基底変更の幾何学的ファイバーでは冪零パラメータが消えるため，
+元の滑らかな $X$ の体拡大となり，ホモロジー次元は $n$ である．
+ambient代数も重み付き多項式環の体拡大となり，所定の重み・大域次元・
+Gorensteinパラメータを持つAS正則代数である．
+中心元の普遍的正則性と商の次数別平坦性は
+定理\ref{thm:nilpotent-universal-quantization}に含まれる．
+よって定義\ref{def:nc-dp-stack}と超曲面部分問題の全条件が満たされる．
+
+これらの部分問題は全 $\mathcal O$ 保存同値についてfullであり，
+全Artin対象が既に最小の部分問題に入るから，stack化前の
+枠付き変形群oidは全て $\mathfrak D_X^{\mathcal O}$ と同値である．
+定理\ref{thm:quantization-framed-groupoid}と
+定理\ref{thm:abel-formal-ring}によれば，これは離散群oid
+$h_{R_X}$ に同値である．
+補題\ref{lem:artin-stackification-comparison}をそれぞれの
+stack化前の部分問題に適用すると，fppf stack化後も
+枠付きArtin完成は変わらない．
+枠を忘れる操作は $\operatorname{Aut}(X)$ による商であり，
+定理\ref{thm:unframed-formal-quotient}の形式商表示を得る．
+この議論は正次元の基底上の変形分類や降下の比較を仮定しない．
+
+次数付き同型による認識は、飽和性と豊富性を
+命題\ref{prop:artin-full-graded-recognition}へ適用して得る．
+\end{proof}
+
+\begin{remark}[局所定理と大域的な成分数]
+この定理により，定義した非可換多様体の可換点での形式分枝は一つであり，
+形式粗商は正規Cohen--Macaulay整域となる．
+被覆対合だけを持つ可換点の粗商の特異性は
+系\ref{cor:generic-nc-formal-sign-quotient}で計算される．
+一方，有限型atlas，形式量子化の代数化，一般nc点の全同値認識，
+可換locusに接しない成分の有無は未解決である．
+本定理はそれらを仮定せずにArtin完成を同定するものである．
+\end{remark}

@@ -1,6 +1,6 @@
 # 研究方針：次数1・2の非可換del Pezzo n-fold
 
-**2026-11-20（JST） / v0.1。再開時に最初に読む。**
+**2026-11-20（JST） / v0.2。再開時に最初に読む。**
 
 正本は [uedakazushi/nc-del-pezzo](https://github.com/uedakazushi/nc-del-pezzo) のmain。研究全体の入口は [research-hub](https://github.com/uedakazushi/research-hub)。続いて [研究ノート](research/research_notes.md)、[主原稿](papers/nc-del-pezzo.tex)、[再現手順](docs/reproduction.md) を読む。
 
@@ -23,37 +23,42 @@
 
 主原稿 `def:ample-model` はHilbert関数を持つ豊富列型の問題A、`def:nc-dp-stack` は標準compact圏の相対Serre・反標準豊富性・Serre周期n−1・有向ACM条件を備えたnc多様体の問題Mを定義する。重み付きAS超曲面の表示を持つ部分問題は別に記号化する。fppf stack化によるモジュライ問題の定義と、代数スタック・有限型atlasの構成は別である。
 
-元の成分数決定という目標のうち、可換点における全Abel変形の形式分枝数と、全Artin変形の具体的な中心超曲面表示の存在は解決した。全体の成分数には一般nc点と代数化が残る。現在は全Artin比較・同変な形式族・具体量子化の完全性を中心結果とし、相対Serre条件と全O同値の認識を通じて大域分類へ進む。
+元の成分数決定という目標のうち、可換点における全Abel変形群oid、有限自己同型群による形式商、全Artin変形の中心超曲面表示とnc多様体条件、形式分枝数は解決した。相対Serre・反標準豊富性・section saturationの持上げが揃い、MのArtin完成を全Abel変形に同定できたため、次の重点を有限パラメータ族と一般nc点へ移す。全体の成分数には代数化・有限型atlasと、可換locusに接しない成分の検討が残る。
 
 ## C. 主要到達点と確実性
 
 | 主張 | 状態・仮定 | 証明の所在 |
 |---|---|---|
-| 全O-marked Abel Artin変形の同型類関手は、d1で滑らかな形式円板、d2で通常の形式円板×Plücker錐の完備化 | 証明を記述し、一次比較定理の適用条件を点検。通常の局所Artin環全体。有限Aut(X)は未商 | `thm:abel-formal-ring` |
+| framed全Abel Artin形式環は、d1で滑らかな形式円板、d2で通常の形式円板×Plücker錐の完備化 | 証明を記述し、一次比較定理の適用条件を点検。通常の局所Artin環全体 | `thm:abel-formal-ring` |
 | 各可換点は一形式分枝、d2・n≥3で特異、二次障害Q∧Q | 上の形式環から証明。全ncスタックの成分定理ではない | `cor:abel-quadratic-obstruction` |
 | 任意の冪零係数上の中心商は次数ごとに自由、任意基底変更と両立 | monic分裂で証明、DVRのtorsion-free判定を一般化していない | `thm:nilpotent-universal-quantization` |
 | Poisson零切断の形式完備化にO-marked tailsの族が降下 | 固定formality、正規形の線型群、次数スカラーのcoherent trivializationで証明 | `thm:quantization-descent` |
-| 構成した量子化自体が全framed Abel Artin変形の同型類を自然に分類する | 初commutatorによる接写像の同型と、同じ完備局所環の自己写像の逆写像補題で証明。全groupoid同値ではない | `thm:concrete-quantization-all-artin` |
+| 構成した量子化自体が全framed Abel Artin変形群oidを分類する | 同型類の自然な全単射を、HH¹消滅による自己同値剛性で群oid同値に強化 | `thm:concrete-quantization-all-artin`, `thm:quantization-framed-groupoid` |
 | 全Abel Artin変形は通常の次数付き中心超曲面表示を持つ | 表示の存在を証明。相対augmentation Ext条件付き。表示の一意性・絶対AS正則性は主張しない | `cor:all-artin-weighted-hypersurface-presentation` |
+| 枠を忘れた形式群oidは `[Spf R_X/Aut(X)]`、粗商は正規CM整域 | 有限群不変sliceと既存Poisson商から証明。一般点のμ₂粗商は両次数で特異 | `thm:unframed-formal-quotient`, `cor:generic-nc-formal-sign-quotient` |
+| 全Artin中心商の飽和性・有向ACM・正周期豊富性・compact生成・smooth proper性 | 固定被覆元のOre局所化、有限Čechと対角dg加群のcompact持上げで証明。後者はDDL Proposition 5.8の論法を直接記述。任意基底変更に両立 | `thm:artin-saturation-acm`, `lem:dg-compact-nilpotent-lift`, `thm:artin-smooth-proper` |
+| 相対Serre公式 `S_R≅(−(n−1))[n]` と、M・超曲面部分問題・全Abel変形のArtin完成の一致 | smooth properなperfect圏の対角bimoduleをHH¹=0で比較。全Db(coh)への主張ではない | `prop:serre-from-smooth-proper-lift`, `thm:all-artin-are-nc-dp` |
+| Artin近傍の全O同値は通常のgraded同型を次数スカラーで割ったもの | 基本シフトをHH¹剛性で認識し、飽和性で復元。普遍中心条件不要 | `prop:artin-full-graded-recognition`, `thm:all-artin-are-nc-dp` |
 | 全O同値は反標準軌道環から認識可能 | 相対perfect/Serre、反標準豊富性、section復元等の追加仮定付き | `prop:ncdp-relative-anticanonical-hom` |
 | 任意指数rのVeronese同型の持上げはμr-torsor | 二つ以上の中心一次変数、中心多項式環上平坦、普遍的低次中心条件の下で証明 | `thm:ncdp-veronese-lift` |
 | dは反標準Euler多項式から内在的に復元でき、族で局所定数 | 一般には反標準ACM・相対perfect条件付き。定義したMでは条件を満たし次数1・2が開閉分解 | `prop:ncdp-intrinsic-degree`, `cor:defined-moduli-degree-separation` |
 | 冪零段階の中心商は左右で唯一のaugmentation Ext `R(n−1)` を次数n+1に持つ | R分裂Koszul持上げと平坦中心商のchange of ringsで証明。通常の絶対AS正則性やSerre公式ではない | `prop:nilpotent-weighted-as`, `prop:flat-central-hypersurface-ext` |
+| ambient量子化は無捩れな重み付き相対CY同型を持つ | Kontsevich–Shoikhetの対と体積形式を固定。発散零・有限鎖twist・有限自由対角分解による証明。任意冪零係数・任意基底変更 | `thm:nilpotent-ambient-cy`, `cor:dp-ambient-cy` |
 | 固定した全ての非零Poisson方向の形式一般ファイバーはCasimir多項式環を普遍中心に持つ | 古典generic active fiberの幾何学的整性とh係数帰納で証明。Artin商・有限複素hへの特殊化には適用しない | `thm:formal-generic-center`, `cor:formal-generic-veronese` |
 
 一般原理のLowen–Van den Bergh・Lowen・De Deken–Lowen・Yekutieli・Kontsevichと、入力となるPoisson構造定理は既知・既存の入力である。曲面の接空間次元10・9も先行研究で既知。一般nの適用・復元・降下の新規性について包括的な優先権確認は未了。
 
 ## D. 未解決の核心と次の一手
 
-1. **相対Serreと反標準列。** 得られた通常の次数付き中心超曲面表示から、canonical bimodule、Nakayama自己同型、基底線束、反標準豊富性、section saturationを確認する。AS指標n−1だけを根拠に無捩れを仮定しない。相対compact性も調べ、全Abel形式環をMの完備化と同一視するための条件を埋める。
-2. **全同値と相対比較。** 同型類関手の全単射を出発点とし、有限自己同型群の作用、O保存同値の自然変換、反標準軌道環の相対復元を調べる。形式局所環の一致だけでfull groupoidや大域スタックの同値を結論しない。
-3. **有限型族と一般nc点。** 活性三変数の重み(1,2,3)/(1,1,2)にn−1個の中心変数を加える模型について、EG型potentialの中心元・PBW平坦性を係数環全体で確認する。形式パラメータ1への代入を行わない。
-4. **全体の既約成分。** 適切な有限型atlasと全同値の商を構成した後、可換locusに接しない成分の不存在または存在を判定する。可換点の形式環の整性だけで結論しない。
+1. **有限型族と代数化。** 活性三変数の重み(1,2,3)/(1,1,2)にn−1個の中心変数を加える模型で、EG型potentialの中心元・PBW平坦性を係数環全体で検査する。最初に次数2の(1,1,2)模型の関係式とoverlapを有限な計算へ落とす。形式パラメータ1への代入を行わない。
+2. **一般nc点と全同値。** 得られた有限型族で普遍中心の開条件、相対Serre、飽和性と反標準豊富性を確認し、条件付きVeronese復元を適用する。Artin局所のHH¹剛性を一般nc点へ流用しない。
+3. **全体の既約成分。** 有限型atlasと全O同値の商を構成した後、可換locusに接しない成分の不存在または存在を判定する。各可換点の一分枝性と次数1・2の開閉分離を出発点とする。
+4. **公表範囲と先行研究。** 現在の主結果は全Artin群oidとnc多様体条件の持上げで論理的に閉じる。既存のnc del Pezzo曲面・AS Z-代数・楕円代数の定義と比較し、一般nにおける優先権を確認する。未解決の大域分類を主定理に含めない。
 
 ## E. 依存・再開・検証
 
-- 相対Poisson錐と商：`poisson-del-pezzo` main `4834ea4f3e13bff4d6c5793cec9b169d8f1ad56f`、主原稿v1.4の定理7.3・8.8。
+- 相対Poisson錐・商・自己同型：`poisson-del-pezzo` main `4834ea4f3e13bff4d6c5793cec9b169d8f1ad56f`、主原稿v1.4の定理7.3・8.8、補題8.7、注意8.5、命題9.4。
 - O-marked枠組み：`nc-cubic-threefold-moduli` main `6c35d2c84671c2538e61836a6bf3a511392eacce`、主原稿v22。三次三様体固有の次数一生成・指数2・残余圏の結論を無条件に輸入しない。
 - 一次資料・具体的な適用条件・優先権未確認点は [文献と依存](research/literature.md)。証明の重複は研究ノートへ置かない。
-- `make verify` はn=2,…,8のHilbert/monic基底・Euler差分・二次障害を正確整数計算で確認する。一般の証明を有限計算で代替していない。
+- `make verify` はn=2,…,8のHilbert/monic基底・Euler差分・二次障害・符号粗商の接空間次元を正確整数計算で確認する。一般の証明を有限計算で代替していない。
 - 組版・PDF確認の実施状況と環境は [再現手順](docs/reproduction.md)。生成・証明点検・計算・組版・GitHub反映・hub更新はそれぞれ確認する。

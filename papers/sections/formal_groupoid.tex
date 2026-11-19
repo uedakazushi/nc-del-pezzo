@@ -1,0 +1,299 @@
+% !TeX root = ../nc-del-pezzo.tex
+\section{形式群oidと自己同型を含む局所モジュライ}
+\label{sec:formal-groupoid}
+
+本節では全Abel Artin変形を扱い，相対Serre条件を入力として用いない．
+定義\ref{def:nc-dp-stack}のモジュライとの完成の一致は
+後の定理\ref{thm:all-artin-are-nc-dp}で証明する．
+試験環は引き続き剰余体 $\mathbb C$ の局所Artin環である．
+$\mathfrak P_X(R)$ を，特殊ファイバーを $(X,0)$ と同一視した
+Poisson変形の群oidとする．
+
+\begin{lemma}[微小なAbel自己同値の消滅]
+\label{lem:abel-infinitesimal-aut-rigidity}
+$\mathcal C$ を $\mathbb C$-線型Grothendieck圏とし，
+$\operatorname{HH}^1_{\mathrm{Ab}}(\mathcal C)=0$ と仮定する．
+任意の平坦Abel Artin変形 $\mathcal D$ の自己同値で，
+特殊ファイバー上で恒等に自然同型なものは，$\mathcal D$ 上でも恒等に自然同型である．
+\end{lemma}
+\begin{proof}
+Lowen--Van den Bergh \cite[Definition~8.2, Theorem~8.17]{LowenVdBDeformation}
+は，Abel変形と $\mathfrak i=\operatorname{Inj}(\mathcal C)$ の平坦線型変形の
+群oid擬関手を同値にする．両者の射は自然同型類である．
+同論文Appendix~BのPropositions~B.1, B.3により，線型変形は
+対象集合を固定した模型で表せ，自己同値も自然同型を変更して対象上恒等にできる．
+また
+\[
+ \operatorname{HH}^1(\mathfrak i)
+ \simeq\operatorname{HH}^1_{\mathrm{Ab}}(\mathcal C)=0
+\]
+である\cite[Theorem~6.6]{LowenVdBHochschild}．
+
+Artin環 $R$ の長さについて帰納する．
+$0\ne I\subset R$，$\mathfrak m_RI=0$ とし，$R'=R/I$ と置く．
+帰納法で自己同値 $F$ の $R'$ 上の還元は恒等に自然同型である．
+各対象上のその同型を，Homの平坦性と還元の全射性で持ち上げる．
+還元で可逆な射は冪零性により可逆なので，対象ごとの共役により
+$F$ は $R'$ 上で厳密に恒等と仮定できる．
+平坦線型変形を $\mathfrak a$ と書くと，$F-\operatorname{Id}$ は
+\[
+ \delta:\mathfrak i(A,B)\longrightarrow I\otimes_{\mathbb C}\mathfrak i(A,B)
+\]
+を与える．$\mathfrak m_RI=0$ と $I^2=0$ により，関手性は
+$\delta(ba)=\delta(b)a+b\delta(a)$ と同値である．
+従って $\delta$ は Hochschild $1$-cocycleである．
+$I$ は有限次元なので $\operatorname{HH}^1(\mathfrak i,I\otimes\mathfrak i)=0$ であり，
+ある $h_A\in I\otimes\mathfrak i(A,A)$ によって
+\[
+ \delta(a)=h_Ba-ah_A
+\]
+と書ける．$1-h_A$ は $F$ から恒等関手への自然同型を与える．
+これは既存の自己同値の核を消す議論であり，任意の同値を
+無条件に持ち上げられると主張しているのではない．
+\end{proof}
+
+\begin{theorem}[framed群oidにおける具体量子化の完全性]
+\label{thm:quantization-framed-groupoid}
+任意の $R$ に対して，$\mathfrak D_X^{\mathcal O}(R)$ の自己同型群は自明である．
+$\mathfrak P_X(R)$ についても同じであり，具体量子化は
+\[
+ \mathfrak P_X\simeq\mathfrak D_X^{\mathcal O}
+\]
+というArtin基底上の群oid擬関手の同値を与える．
+ここで射は全ての標識を保つ完全Abel同値の自然同型類である．
+\end{theorem}
+\begin{proof}
+Hochschild比較とHKR分解
+\cite[Theorem~6.6, Corollaries~7.7.2,7.8.2]{LowenVdBHochschild}
+\cite[Corollary~0.6]{YekutieliHKR2002}から
+\[
+ \operatorname{HH}^1_{\mathrm{Ab}}(\operatorname{Qcoh}X)
+ =H^0(X,T_X)\oplus H^1(X,\mathcal O_X)=0.
+\]
+第二項は補題\ref{lem:directed-line-vanishing}により零であり，
+第一項は入力となる可換del Pezzo族の自己同型剛性による．
+前補題と命題\ref{prop:directed-section-deformation}の標識忘却を用いると，
+$\mathfrak D_X^{\mathcal O}(R)$ の自己同型は自明となる．
+実際の自然自己同型についても，持ち上げた豊富列の各対象上で
+$\operatorname{End}(E_{i,R})=R$ であり，隣接Homの正階数自由性から
+全て同じスカラーとなる．$\mathcal O_R$ の標識を保てばそのスカラーは1である．
+
+幾何的なPoisson自己同型が小拡大の商上恒等なら，その差は
+$H^0(X,T_X)\otimes I$ に属する．これが零であることから帰納し，
+$\mathfrak P_X(R)$ の自己同型も自明である．
+従って両群oidからその同型類を離散群oidと見たものへの射は同値である．
+定理\ref{thm:concrete-quantization-all-artin}の自然な全単射と合わせれば主張を得る．
+量子化の対象の選択を変えても，同じ同型類の二対象間の射は一意だから，
+必要な比較同型と基底変更の整合性は一意に定まる．
+\end{proof}
+
+\subsection{Artin近傍での通常の次数付き表示の復元}
+
+\begin{proposition}[Artin局所での全構造対象付き同値]
+\label{prop:artin-full-graded-recognition}
+$B,B'$ を局所Artin環 $R$ 上の次数付き代数とし，
+$(\mathcal D,\mathcal O)=(\operatorname{QGr}B,\pi B)$，
+$(\mathcal D',\mathcal O')=(\operatorname{QGr}B',\pi B')$ が
+$\operatorname{Qcoh}X$ の平坦Abel変形を与え，$\mathcal O,\mathcal O'$ は $R$-flatとする．
+次数シフトを $s,s'$ と書き，両者は特殊ファイバーで
+$-\otimes\mathcal O_X(H)$ に一致するとする．
+各 $(\mathcal O,s)$，$(\mathcal O',s')$ は豊富対であり，section写像が
+\[
+ B_m\xrightarrow{\sim}\operatorname{Hom}_{\mathcal D}(\mathcal O,s^m\mathcal O),
+ \qquad
+ B'_m\xrightarrow{\sim}\operatorname{Hom}_{\mathcal D'}(\mathcal O',(s')^m\mathcal O')
+ \quad(m\ge0)
+\]
+という次数付き環の同型を与えると仮定する．
+このとき自然な全単射
+\[
+ \operatorname{Eq}^{\mathcal O}_R(\mathcal D,\mathcal D')
+ \simeq\operatorname{Isom}_{\mathrm{gr},R}(B,B')/R^\times
+\]
+がある．右辺では $\lambda\in R^\times$ が次数 $m$ 上で $\lambda^m$ を掛ける．
+上の仮定が保たれるArtin基底変更に関して自然である．
+\end{proposition}
+\begin{proof}
+全 $\mathcal O$ 保存同値 $F:\mathcal D\simeq\mathcal D'$ を取る．
+その特殊ファイバーは $X$ の自己同型を与え，基本線束 $H$ を保つ．
+従って
+\[
+ G=(s')^{-1}\circ F\circ s\circ F^{-1}
+\]
+は特殊ファイバー上で恒等となる．
+補題\ref{lem:abel-infinitesimal-aut-rigidity}は構造対象の保存を要求しないので，
+$G\simeq\operatorname{Id}$ となり，$\theta:Fs\xrightarrow{\sim}s'F$ が存在する．
+$\theta$ を反復して $\theta_m:Fs^m\simeq(s')^mF$ を定めると，
+これは整数の加法に関して整合する．負の整数には逆同型を用いる．
+
+標識 $\alpha:F\mathcal O\simeq\mathcal O'$ により，
+$a:\mathcal O\to s^m\mathcal O$ を
+\[
+ \mathcal O'\xrightarrow{\alpha^{-1}}F\mathcal O
+ \xrightarrow{F(a)}Fs^m\mathcal O
+ \xrightarrow{\theta_m}(s')^mF\mathcal O
+ \xrightarrow{(s')^m\alpha}(s')^m\mathcal O'
+\]
+へ送る．$\theta_m$ の整合性によりこれはsection環の次数付き同型である．
+各対象のEndと隣接Homを用いた
+補題\ref{lem:marking-removes-two-aut}の証明から，
+$\operatorname{Nat}(\operatorname{Id}_{\mathcal D'},
+\operatorname{Id}_{\mathcal D'})=R$ である．
+従って二つの $\theta$ の差は一つの $\lambda\in R^\times$ であり，
+$\theta_m$ の差は $\lambda^m$ となる．
+標識同型 $\alpha$ のスカラー変更は始域と終域で相殺される．
+よって右辺の元は $F$ の標識を保つ自然同型類だけで決まる．
+
+逆に次数付き環同型は構造対象を保ち，次数シフトと可換するtails同値を与える．
+豊富対からのsection復元により，この二つの構成は互いに逆である．
+具体的には全ての $s^{-m}\mathcal O$ とそれらの間の射上で同じ作用を持ち，
+豊富列からの表示とfiltered colimitにより全圏で自然同型となる．
+選択の差を次数スカラーで除いているので，得られた全単射は基底変更に自然である．
+\end{proof}
+
+この命題は，相対Serre公式やVeroneseの普遍中心条件を用いない．
+特に後者が破れる可換点のArtin近傍でも使える．
+一方，有限の非零パラメータ上の一般nc点では
+特殊ファイバーの $\operatorname{HH}^1=0$ による帰納が使えないので，
+本命題をそのまま大域の全同値認識へ延長してはならない．
+
+\subsection{有限自己同型群を含む形式商}
+$\Gamma_X=\operatorname{Aut}(X)$ と置く．これは有限群である．
+$\widehat{\mathfrak D}^{\mathcal O}_{[X]}(R)$ は，特殊ファイバーが
+$(\operatorname{Qcoh}X,\mathcal O_X)$ に同値な平坦Abel変形を対象とし，
+特殊ファイバーとの同一視自体は選ばない群oidとする．
+$\mathcal O$ の標識は保持する．
+
+\begin{theorem}[自己同型を含む形式局所商]
+\label{thm:unframed-formal-quotient}
+$\Gamma_X$ は枠の変更により $R_X$ に連続的に作用し，
+Artin試験環上で
+\[
+ \widehat{\mathfrak D}^{\mathcal O}_{[X]}
+ \simeq[\operatorname{Spf}R_X/\Gamma_X]
+\]
+となる．この作用は具体量子化による同値を通じて，
+Poisson変形の特殊ファイバーの枠を変える作用と一致する．
+\end{theorem}
+\begin{proof}
+可換点での全 $\mathcal O$ 保存完全Abel自己同値の群は
+$\operatorname{Aut}(X)$ である．完全同値をcoherent部分へ制限し，反標準豊富列からの復元
+（命題\ref{prop:ncdp-anticanonical-hom}）を可換点に適用して得る．
+実際，反標準軌道環は通常の反標準切断環であり，そのProjは $X$ である．
+$X$ の自己同型は標準的に反標準線束を保ち，
+切断環の次数スカラーは構造対象付き圏の自然同型で消える．
+
+枠を選べば対象は $\mathfrak D_X^{\mathcal O}(R)$ に入る．
+枠の二つの選択の差は $\Gamma_X$ の元であり，
+その作用は全Artin基底変更と両立するのでYonedaにより $R_X$ 上の作用を定める．
+二対象間で特殊ファイバー上の $\gamma\in\Gamma_X$ を誘導する同値は，
+枠を $\gamma$ で変更した後のframed同値に等しい．
+前定理によりその射は，対応する同型類が一致するときに限り存在し，存在すれば一意である．
+従って群oidは同型類集合と $\Gamma_X$ の作用群oidに等しい．
+局所Artin $\mathbb C$-基底上の有限定数群torsorは自明なので，
+これは表示した形式商のArtin点の群oidである．
+
+標準形の座標変換は全ての $X$ の自己同型を表し，
+定理\ref{thm:quantization-descent}の同変性と次数スカラーの整合的恒等化により，
+具体量子化はこの枠の変更に両立する．
+\end{proof}
+
+\begin{proposition}[同変な形式積表示]
+\label{prop:equivariant-formal-product}
+$N_X=H^1(X,T_X)$ とし，$C_{n,d}$ を第\ref{sec:definitions}節のPoisson錐とする．
+$R_X$ の積表示は，非標準的だが $\Gamma_X$ 同変に
+\[
+ R_X\simeq
+ \widehat{\mathcal O}_{N_X\times C_{n,d},(0,0)}
+\]
+と選べる．$N_X$ 上の作用は通常の変形の接表現であり，
+錐上の作用は第\ref{sec:definitions}節に書いた標準形の作用の制限である．
+\end{proposition}
+\begin{proof}
+標準形の係数空間 $U_d$ はある線型表現 $V_d$ の開部分であり，
+$X$ を表す点を $f\in U_d$ とする．$G_d$ の $f$ におけるstabilizerは
+$\Gamma_X$ である．$H^0(X,T_X)=0$ により，軌道接写像
+$\operatorname{Lie}(G_d)\to T_fU_d=V_d$ は単射である．
+有限群の平均化により，その像に対して $\Gamma_X$ 不変な補空間 $N$ を選ぶ．
+$N\simeq H^1(X,T_X)$ は接空間として同変である．
+$S=(f+N)\cap U_d$ と置くと，$G_d\times S\to U_d$ の微分は
+$(1,f)$ で同型であり，この写像はそこで\'{e}taleである．
+形式的逆写像により，恒等に還元する座標変換で各Artin変形を
+$S$ 上に一意に正規化できる．
+
+Poissonパラメータも同時にその座標変換で移す．
+$G_d\times S\times C_{n,d}\to U_d\times C_{n,d}$ は，
+$G_d\times S$ 上で $c\mapsto gc$ と変数変換した後には
+上の\'{e}tale写像と $C_{n,d}$ の恒等との積である．
+従って錐が特異でも同じ形式的正規化が働く．
+$S$ の選択は $\Gamma_X$ 不変であり，残る作用は
+$N\times C_{n,d}$ 上の線型な対角作用なので主張を得る．
+\end{proof}
+
+\begin{corollary}[形式粗商の正規性と一分枝性]
+\label{cor:formal-coarse-normal}
+形式局所商の不変式環 $R_X^{\Gamma_X}$ は完備Noether局所環で，
+正規かつCohen--Macaulayな整域である．その次元は
+$d=1$ で $b_{n,1}+n$，$d=2$ で $b_{n,2}+2n-1$ である．
+従って全自己同型を考慮した形式粗商も一分枝である．
+\end{corollary}
+\begin{proof}
+前命題の表示は有限型代数の固定点での完備化から得られる．
+有限群の不変式環は有限型で，元の環はその上有限である．
+平均化により不変式と完備化は可換するから，
+$R_X^{\Gamma_X}$ は完備Noether局所環で，$R_X$ はその上有限である．
+整域性と正規性は不変式部分環へ降りる．
+不変式環のパラメータ系は有限拡大 $R_X$ のパラメータ系にもなるので，
+$R_X$ のCohen--Macaulay性からそこで正則列である．
+平均化は不変な各パラメータによる商と可換するため，
+同じ列は不変式環でも正則列となる．次元は有限整拡大で変わらない．
+\end{proof}
+
+\begin{corollary}[被覆対合だけを持つ点の形式粗商]
+\label{cor:generic-nc-formal-sign-quotient}
+$\operatorname{Aut}(X)=\langle\tau\rangle\simeq\mu_2$，
+$\tau(z)=-z$ とする．この条件を満たす $X$ は両次数・全 $n\ge2$ で稠密開をなす
+\cite[命題9.4]{PoissonDP}．このとき形式粗商は
+\[
+ \operatorname{Spf}\Bigl(
+ \mathbb C[[t_1,\ldots,t_{b_{n,d}}]]
+ \widehat\otimes\widehat{\mathbb C[C_{n,d}]^{(2)}}\Bigr)
+\]
+である．右の完備化は頂点で取り，$(2)$ はPoissonパラメータ次数の第二Veroneseを表す．
+その接空間次元は，次数1では
+\[
+ b_{n,1}+\binom{n+1}{2},
+\]
+次数2では
+\[
+ b_{n,2}+\frac{n(n+1)^2(n+2)}{12}
+\]
+となる．特に両次数とも，全 $n\ge2$ でこの形式粗商は特異である．
+\end{corollary}
+\begin{proof}
+被覆対合は係数空間上で恒等，Poissonパラメータ上で $-1$ に作用する
+\cite[注意8.5]{PoissonDP}．従って前命題の $N_X$ 上では恒等であり，
+不変式はPoissonパラメータの偶数次数部分に等しい．
+元の錐の座標環は次数1で生成されるので，その第二Veroneseは
+元の次数2部分で生成され，これが頂点の余接空間となる．
+次数1ではその次元は $\dim\operatorname{Sym}^2\mathbb C^n=\binom{n+1}{2}$．
+次数2では $v=n+1$ と置き，$\binom v2$ 個のPl\"ucker変数の二次式から
+独立な $\binom v4$ 個のPl\"ucker関係を引けば
+\[
+ \binom{\binom v2+1}{2}-\binom v4
+ =\frac{v^2(v^2-1)}{12}
+ =\frac{n(n+1)^2(n+2)}{12}
+\]
+を得る．これらはそれぞれ錐の次元 $n$，$2n-1$ より大きい．
+\end{proof}
+
+\begin{remark}[粗商のArtin点と変形の同型類]
+形式粗商のArtin点は，変形の同型類集合そのものではない．
+例えば $R=\mathbb C[\epsilon]/(\epsilon^2)$ 上で
+Poissonパラメータ $\epsilon Q\ne0$ と零は異なる軌道だが，
+符号不変式は全て偶数次なので，ともに粗商の零点へ写る．
+群oidの商表示を不変式環への置換だけで扱うと，この微小情報を失う．
+本節の形式商は全Abel変形の形式モジュライである．
+$\mathfrak M^{\mathcal O}_{n,d}$ の完成との同定は
+定理\ref{thm:all-artin-are-nc-dp}を要し，大域の代数性・全既約成分数は残問である．
+\end{remark}

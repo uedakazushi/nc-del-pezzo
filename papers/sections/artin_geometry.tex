@@ -1,0 +1,329 @@
+% !TeX root = ../nc-del-pezzo.tex
+\section{Artin族の局所化，豊富性と相対perfect圏}
+\label{sec:artin-ample-perfect}
+
+本節では $R$ を剰余体 $k=\mathbb C$ を持つ局所Artin環，
+$\mathfrak m^N=0$ とする．$B$ は定理\ref{thm:nilpotent-universal-quantization}の
+中心超曲面商とし，$B\otimes_R k=B_0$ は固定した滑らかな $X$ の切断環である．
+$T$ は任意の可換 $R$-代数，$B_T=B\otimes_RT$，
+$J=\mathfrak mT$，$T_0=T/J$ と置く．
+noetherian性とcoherent対象を述べる箇所では $T$ をnoetherianとする．
+$\mathcal Q_T=\operatorname{QGr}B_T$，$E_{i,T}=\pi B_T(-i)$ と書く．
+
+\subsection{有限Ore被覆と導来切断}
+\begin{lemma}[斉次Ore局所化と重なり]
+\label{lem:artin-ore-cover}
+$B$ の正次数斉次元 $f$ で $B_0$ における像が非零なものを固定する．
+その $B_T$ への像の冪は
+左右の正則Ore集合をなす．局所化は任意の係数変更と可換する．
+有限個のそのような元を同時に逆転する局所化は，その積を逆転する局所化と
+標準的に一致し，積の順序によらない．
+次数2では $f_i=x_i$，次数1ではこれらと $f_*=y\star z$ を取ると，
+これらの局所化はtailsを被覆し，各局所環は強次数付きである．
+\end{lemma}
+\begin{proof}
+$[B_T,B_T]\subset JB_T$ なので $\operatorname{ad}_f^N=0$ である．
+$m\ge N-1$ に対して
+\[
+ b f^m=\sum_{a=0}^{N-1}(-1)^a\binom ma f^{m-a}\operatorname{ad}_f^a(b)
+\]
+となる．$m\ge q+N-1$ とすれば右辺は左から $f^q$ で割れ，
+反対側の公式も成立するから左右のOre条件を得る．
+$B_T$ は $T$-flatであり，その $J$-進随伴次数は
+$B_0\otimes_k\operatorname{gr}_J T$ である．$B_0$ は整域なので，
+$\bar f$ の乗法は各随伴次数で単射であり，$f$ は左右正則である．
+局所化は $B_T$ の平坦な左右加群であり，内部次数ごとの $T$-加群も
+局所化の直極限表示により平坦である．普遍性から任意の係数変更との両立を得る．
+
+$g=f_1\cdots f_s$ を逆転すると，$J$ で割った可換環では各 $f_i$ が可逆である．
+$J$ は局所化後も冪零なので，各 $f_i$ は局所化環自体で可逆である．
+逆に各 $f_i$ を逆転すれば $g$ は可逆である．これが重なりの標準的同定を与える．
+さらに乗法による $B_f\otimes_B B_g\to B_{fg}$ は同型である．
+両辺は $R$-flatであり，還元は可換局所化の標準同型であるから，
+有限の $\mathfrak m$-進filtrationにより元の写像も同型となる．
+この同型を $T$ へ移すことで，全ての重なりにおける
+局所化関手の合成の可換性も得る．
+
+選んだ $f_i$ の可換還元の零点集合はaffine coneの頂点だけである．
+次数1では $x=0$，$yz=0$，$z^2=y^3$ から $y=z=0$ が従う．
+よって全ての局所化で零となる加群の $J$-進随伴次数はtails torsionであり，
+有限のfiltrationにより元の加群もtails torsionである．この議論は加群の $T$-flat性を使わない．
+逆向きは，tails torsionの各元が十分高い $f_i$ の冪で消えることによる．
+$x_i$ の開では $x_i$ が次数1の可逆元である．$yz$ の開では $y,z$ がともに可逆であり，
+$z\star y^{-1}$ が次数1の可逆元である．従って各局所化は強次数付きである．
+\end{proof}
+
+$B_{T,I}$ を添字集合 $I$ の元を同時に逆転した環とし，
+次数付き加群または複体 $M$ に対して，非増大添字による有限複体
+\[
+ \check C_T(M)=\left[
+ \bigoplus_i M\otimes_{B_T}B_{T,i}\longrightarrow
+ \bigoplus_{i<j}M\otimes_{B_T}B_{T,ij}\longrightarrow\cdots\right]
+\]
+を次数0から置く．微分は制限写像の交代和である．複体 $M$ に対しては
+有限方向の全複体を取る．重なりの同定は局所化の普遍性により整合する．
+
+\begin{proposition}[有限\v{C}ech模型]
+\label{prop:artin-cech-model}
+$\pi:\operatorname{Gr}B_T\to\mathcal Q_T$ の右随伴を $\omega$ とすると，
+任意の $M\in D(\operatorname{Gr}B_T)$ について
+\[
+ R\omega(\pi M)\simeq\check C_T(M).
+\]
+特に任意の整数 $i,j$ に対して
+\[
+ R\operatorname{Hom}_{\mathcal Q_T}(E_{j,T},E_{i,T})
+ \simeq\check C_T(B_T)_{j-i}.
+\]
+これらの公式は任意の係数変更に対して導来的に両立する．
+\end{proposition}
+\begin{proof}
+全ての局所化はexactである．増大複体 $M\to\check C_T(M)$ を一つの $f_i$ で局所化すると，
+添字 $i$ を挿入する通常の縮約を持つ．よってそのconeのコホモロジーは
+全ての局所化で零になり，前補題によりtails torsionである．
+
+一方，局所化環上の任意の複体 $L$ を $B_T$-複体と見たものは，
+tails torsionのコホモロジーを持つ複体全体に右直交する．実際，exactなOre局所化と
+その制限関手の導来随伴により，そのような複体から $L$ への全ての導来Homは零である．
+従って有限全複体 $\check C_T(M)$ も同じ右直交圏に入る．
+これが $M$ のtails torsionに関する導来局所化を特徴付ける．
+exactなGabriel商の導来右随伴は完全忠実であり，
+$\ker D\pi$ はまさにtails torsionのコホモロジーを持つ複体であるから，最初の同型を得る．
+
+$B_T(-j)$ は次数付き加群圏の射影生成元の一つである．導来随伴を適用して二番目の公式を得る．
+全ての局所化環は $T$-flatであり，局所化の普遍性と有限全複体の構成は
+係数変更と可換する．一般の複体にはK-flatな係数変更を用いれば同じ公式が成立する．
+\end{proof}
+
+\subsection{飽和性，ACM条件，正の周期の豊富性}
+\begin{theorem}[普遍的な有向ACMとsection復元]
+\label{thm:artin-saturation-acm}
+全ての $i\le j$ と任意の $R\to T$ について，標準写像は準同型
+\[
+ (B_T)_{j-i}[0]\xrightarrow{\ \sim\ }
+ R\operatorname{Hom}_{\mathcal Q_T}(E_{j,T},E_{i,T})
+\]
+である．従って次数付き切断環の標準写像
+$B_T\to\bigoplus_{q\ge0}\operatorname{Hom}(\mathcal O_T,\mathcal O_T(q))$
+は積と両立する同型であり，全てのHomと消滅は任意の係数変更で保たれる．
+\end{theorem}
+\begin{proof}
+$q=j-i\ge0$ と置く．$B_q\to\check C_R(B)_q$ のconeは有界な $R$-flat複体である．
+$k$ で割ると通常のaffine被覆による $R\Gamma(X,\mathcal O_X(qH))$ の計算になる．
+可換切断環の飽和性とKodaira消滅により，還元後のconeは非輪状である．
+$\mathfrak m$-進filtrationの各随伴次数は，この非輪状な $k$-複体と
+$\mathfrak m^a/\mathfrak m^{a+1}$ のテンソル積なので，cone自体も非輪状である．
+さらに任意の $T$ 上で同じconeは有界な $T$-flat複体であり，
+$J$ で割ったものは可換模型の非輪状複体と $T_0$ のテンソル積となる．
+同じ有限filtrationの議論が適用できる．
+標準写像は斉次元の乗法によるものであるから，積との両立も保たれる．
+\end{proof}
+
+\begin{theorem}[任意の正周期の相対豊富性]
+\label{thm:artin-positive-shift-ample}
+$T$ がnoetherianなら，任意の整数 $r>0$ に対して
+$(\mathcal O_T,(r))$ は相対豊富対である．
+これは任意のnoetherian係数変更後にも成立する．
+特に $r=n-1$ に適用できる．
+\end{theorem}
+\begin{proof}
+$B_T$ は左右noetherianであり，$\mathcal Q_T$ は局所noetherianである．
+coherent対象 $M$ の有限 $J$-進filtrationの各商は，
+$X_{T_0}$ 上のcoherent層である．前命題の\v{C}ech模型は任意の加群に対してexactな局所化から作られるので，
+このfiltrationを保つ．$\mathcal O_X(rH)$ はampleであるから相対Serre消滅により，
+固定した $M$ に対して十分大きい $a$ で
+\[
+ \operatorname{Ext}^q_{\mathcal Q_T}(\mathcal O_T(-ar),M)=0
+ \quad(q>0)
+\]
+となる．各filtration商からの帰納によりHomは有限 $T$-加群である．
+全射 $M\to M'$ のcoherentな核にこの消滅を適用すれば，十分大きい $a$ でHomの全射性を得る．
+
+さらに $M/JM$ は十分大きい $a$ で有限個の $\mathcal O_{X_{T_0}}(-arH)$ により生成される．
+$JM$ への一次Extの消滅を使い，これらの生成写像を
+$\mathcal O_T(-ar)$ の有限直和から $M$ へ持ち上げる．
+余核 $C$ は $C/JC=0$ を満たすから $J$ の冪零性により零である．
+これが豊富性の二条件を与える．議論は任意のnoetherian $T$ について同じである．
+\end{proof}
+
+\subsection{Compact対象，proper性と任意基底変更}
+\begin{proposition}[Compact生成と相対proper性]
+\label{prop:artin-compact-proper}
+$D(\mathcal Q_T)$ は $\{E_{i,T}\}_{i\in\mathbb Z}$ によりcompact生成される．
+そのcompact部分圏の全てのRHomは $T$-perfectである．
+任意の $R\to T$ に対してcompact圏の導来基底変更は
+$\operatorname{Perf}(\mathcal Q_T)$ とMorita同値であり，RHomと基底変更が両立する．
+\end{proposition}
+\begin{proof}
+有限\v{C}ech局所化関手は任意の直和を保つ．従って導来右随伴 $R\omega$ の像は直和で閉じ，
+$R\omega$ 自体が直和を保つ．$B_T(-i)$ は $D(\operatorname{Gr}B_T)$ のcompact生成系なので，
+導来随伴により $E_{i,T}$ はcompactであり，これらが $D(\mathcal Q_T)$ を生成する．
+$T=R$ におけるcompact性は，既知の持上げ定理
+\cite[Propositions~5.8--5.9]{DDL2011}からも得られる．
+その結果を任意基底変更へ無条件に拡張せず，ここでは\v{C}ech模型で直接確認した．
+
+任意の整数 $q$ に対し，$\check C_R(B)_q$ は有界なflat $R$-複体であり，
+還元後のコホモロジーは $H^*(X,\mathcal O_X(qH))$ なので有限次元かつ有界である．
+Artin局所環上ではflat加群は自由である．還元複体をそのコホモロジーと可縮な複体に分解し，
+各次数の自由基底を持ち上げると，微分は還元微分の $R$-線型延長と
+$\mathfrak m$ に値を持つ摂動の和となる．縮約に対する有限幾何級数
+$(1-h\delta)^{-1}=\sum_{a=0}^{N-1}(h\delta)^a$ を用いると，
+$\check C_R(B)_q$ は有界有限自由 $R$-複体にホモトピー同値となる．
+この有限模型は任意の $T$ へテンソルしてよく，前命題の模型に一致する．
+従って全ての $R\operatorname{Hom}(E_{i,T},E_{j,T})$ は $T$-perfectであり，基底変更に両立する．
+有限coneと直和因子を両変数で取ることにより，全compact対象について同じ結論を得る．
+
+最後に，$E_i$ を対象とする小さいdg圏の任意基底変更は，
+$E_{i,T}$ を対象とするdg圏に準同値である．両方がcompact圏を生成するので，
+導来Morita理論\cite[\S4.3,\S8.2]{Keller1994}から主張の基底変更同値を得る．
+\end{proof}
+
+\subsection{対角dg加群のcompact性とsmooth性}
+\begin{lemma}[dg 加群の compact 性の冪零持上げ]
+\label{lem:dg-compact-nilpotent-lift}
+$(R,\mathfrak m)$ を剰余体 $k$ の局所 Artin 環とし，
+$\mathcal B$ を小さい $R$-線形 dg 圏とする．
+$\mathcal B_0=\mathcal B\otimes_R^{\mathbf L}k$ と置く．
+$M\in D(\mathcal B)$ に対し，
+$M_0=M\otimes_R^{\mathbf L}k$ が $D(\mathcal B_0)$ で compact なら，
+$M$ は $D(\mathcal B)$ で compact である．
+\end{lemma}
+\begin{proof}
+全ての基底変更を計算するため，Hom 複体が $R$-K-flat な dg 模型を取る．
+係数変更 $u:\mathcal B\to\mathcal B_0$ による restriction を
+$\operatorname{res}:D(\mathcal B_0)\to D(\mathcal B)$ と書く．
+この関手は直和を保ち，その左随伴は
+$-\otimes_{\mathcal B}^{\mathbf L}\mathcal B_0$ である．
+従って任意の対象族 $L_\alpha\in D(\mathcal B_0)$ について，随伴と
+$M_0$ の compact 性から
+\[
+ \bigoplus_\alpha R\operatorname{Hom}_{\mathcal B}
+       (M,\operatorname{res}L_\alpha)
+ \xrightarrow{\sim}
+ R\operatorname{Hom}_{\mathcal B}
+       \left(M,\bigoplus_\alpha\operatorname{res}L_\alpha\right)
+\]
+を得る．
+
+$\mathfrak m^N=0$ とし，$V_a=\mathfrak m^a/\mathfrak m^{a+1}$ と置く．
+$R$ の有限フィルトレーションに対角 bimodule
+$\mathcal B\otimes_R^{\mathbf L}-$ を施すと，
+\[
+ F_{a+1}\longrightarrow F_a
+ \longrightarrow\mathcal B_0\otimes_kV_a\longrightarrow,
+ \qquad F_a=\mathcal B\otimes_R^{\mathbf L}\mathfrak m^a
+\]
+という bimodule の三角を得る．ここで $F_0=\mathcal B$，$F_N=0$ であり，
+第三項の左右作用はともに $\mathcal B_0$ を経由する．
+任意の $Y\in D(\mathcal B)$ に対して
+$R\operatorname{Hom}_{\mathcal B}(-,Y)$ をこの有限列に施す．
+ここでbimoduleからのRHomは，残る作用を備えたdg加群を意味する．
+すると $Y$ は有限回の三角によって
+\[
+ R\operatorname{Hom}_{\mathcal B}
+    (\mathcal B_0\otimes_kV_a,Y)
+\]
+から構成される．これらは，第一変数に残る
+$\mathcal B_0$-作用によって全て $\operatorname{res}$ の像に属する．
+この構成は $Y$ に関手的で，列の長さは $Y$ に依存しない．
+
+対象族 $Y_\alpha$ にこの列を適用し，列の各三角の直和を取る．
+最初に証明した restriction の像上の比較同型と三角に関する帰納から，
+\[
+ \bigoplus_\alpha R\operatorname{Hom}_{\mathcal B}(M,Y_\alpha)
+ \xrightarrow{\sim}
+ R\operatorname{Hom}_{\mathcal B}
+       \left(M,\bigoplus_\alpha Y_\alpha\right)
+\]
+を得る．これが compact 性である．なお coinduction
+$R\operatorname{Hom}_{\mathcal B}(\mathcal B_0,-)$ 自体が直和を保つとは
+仮定していない．個々の $Y_\alpha$ の有限列を直和したことだけを用いた．
+\end{proof}
+
+\begin{remark}
+これは \cite[Proposition~5.8]{DDL2011} の compact 持上げの論法を
+小さい dg 圏の加群へ直接適用したものである．ここではその証明を書いたため，
+平坦 Abel 圏の定理を dg 圏へ無説明で引用してはいない．
+\end{remark}
+
+\begin{theorem}[全 Artin 量子化の smooth proper な perfect 圏]
+\label{thm:artin-smooth-proper}
+$\operatorname{Perf}(\mathcal Q_R)$ は $R$ 上 smooth かつ proper である．
+この性質は任意の係数変更後にも保たれる．
+\end{theorem}
+\begin{proof}
+全ての $E_i$ を対象とする dg 圏の $R$-K-flat な模型を $\mathcal A_R$ とする．
+前命題の有限 \v{C}ech 模型により，その各 Hom は $R$-perfect であり，
+\[
+ \mathcal A_R\otimes_R^{\mathbf L}k\simeq\mathcal A_0
+\]
+は $\operatorname{Perf}(X)$ を生成する line bundle 列の dg 圏である．
+従って proper 性は前命題で証明済みである．
+
+$\mathcal B=\mathcal A_R^{\mathrm{op}}
+ \otimes_R^{\mathbf L}\mathcal A_R$ とし，
+$M$ を $\mathcal A_R$ の対角 bimodule とする．
+その基底変更は $\mathcal A_0$ の対角 bimodule である．
+$X$ は滑らかな射影多様体なので $\operatorname{Perf}(X)$ は smooth であり，
+Morita 不変性からこの還元対角は $D(\mathcal B_0)$ で compact である．
+補題\ref{lem:dg-compact-nilpotent-lift}を適用すると $M$ は
+$D(\mathcal B)$ で compact，すなわち perfect である．
+これが $\mathcal A_R$ の相対 smooth 性である．
+
+ここから有限個の $E_i$ の直和をcompact generatorとして取れることも従う．
+実際，perfectな対角の有限cell表示には有限個の外積representableしか現れない．
+任意のrepresentableをこの対角とテンソルすると，proper性により係数は
+$R$-perfectであるから，それらの有限個の第二因子representableの厚い閉包に入る．
+
+
+perfect 対角と perfect な Hom 複体は任意の導来基底変更で保たれる．
+前命題の compact 圏の基底変更同値を用いれば，任意の $R\to T$ に対して
+$\operatorname{Perf}(\mathcal Q_T)$ についても同じ結論を得る．
+\end{proof}
+
+\subsection{二重tails上の平坦な対角対象}
+以上のsmooth性の証明とは独立に，重み付き表示から具体的な対角対象も構成できる．
+$C=B^{\mathrm{op}}\otimes_RB$ を二重次数付き代数とする．
+第一・第二因子それぞれについて前節の有限Ore被覆を取り，
+両因子の局所化で零となる対象を除くGabriel商を $\mathcal P_R$ とする．
+より明示的には，全ての $i,j$ について
+$C\to B_i^{\mathrm{op}}\otimes_RB_j$ で零となる加群を核とする．
+各局所化は強二重次数付きなので，その次数 $(0,0)$ 加群圏を用いても同じ商圏を得る．
+
+\begin{lemma}[積の平坦変形と対角]
+\label{lem:artin-product-diagonal}
+$\mathcal P_R$ は $\operatorname{QCoh}(X\times X)$ の平坦Abel変形である．
+二重次数付き $C$-加群
+\[
+ \Delta_B{}_{p,q}=B_{p+q}\quad(p,q\in\mathbb Z),\qquad
+ u\cdot(a^{\mathrm{op}}\otimes b)=a u b
+\]
+の像 $\Delta_R\in\mathcal P_R$ は $R$-flatであり，その還元は
+対角の構造層 $\Delta_*\mathcal O_X$ である．$\Delta_R$ は $D(\mathcal P_R)$ のcompact対象である．
+\end{lemma}
+\begin{proof}
+二重局所化の重なりと有限\v{C}ech模型は前節と同様に構成できる．
+$C$ は各二重次数で $R$-freeであり，Gabriel商のinjective/coflat判定
+（補題\ref{lem:tails-flat-deformation}の証明）により $\mathcal P_R$ は平坦である．
+係数変更も同じGabriel商の議論により可換する．
+可換還元は二つの自由な重み付き射影商の積なので $\operatorname{QCoh}(X\times X)$ である．
+
+$\Delta_B{}_{p,q}$ は各次数で $R$-freeだからその商圏内の像も $R$-flatである．
+還元後，$B_{0,p+q}$ は対角上の $\mathcal O_X((p+q)H)$ の切断である．
+局所化して次数 $(0,0)$ を取ると，$U_i\times U_j$ 上で
+$\Delta_*\mathcal O_{U_i\cap U_j}$ を得るので，還元は対角の構造層である．
+$X$ は滑らかなので $\Delta_*\mathcal O_X$ は $X\times X$ 上perfectである．
+$\Delta_R$ はflatであり，その導来還元は通常の還元に等しい．
+従って \cite[Proposition~5.8]{DDL2011} をこの平坦Abel変形に適用すればcompact性を得る．
+ここでは $\Delta_R$ 自体が相対平坦な持上げとして存在することを使っており，
+任意の特殊ファイバーのperfect対象が無条件に持ち上がるとは述べていない．
+\end{proof}
+
+
+\begin{remark}[相対Serre公式との役割分担]
+以上により，Artin段階ではsection saturation，有向ACM，任意の正周期の豊富性，
+compact生成，相対perfectなRHomとsmooth proper性が得られる．
+これだけではSerre関手を次数移動 $(-(n-1))[n]$ と同定していない．
+その同定には相対Serre双対bimoduleの比較が必要である．
+また，Artin係数での結論を有限の非零複素パラメータの代数的族へ延長したとは主張しない．
+\end{remark}

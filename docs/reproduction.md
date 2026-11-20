@@ -91,7 +91,7 @@ Python 3の標準ライブラリのみを使用する。`n=2,...,8` と両次数
 - `verify_degree_one_candidate_geometry.py`：二つの族の普遍syzygy、短い族の剰余とresultant、三つの例外値に対する法11Bézout、既存の長い例との一致、一般階数3の小行列式8100を厳密検算する。
 - `verify_kuznetsov_gluing_normal_form.py`：9変数の普遍行列式、三次Eulerの10基底、27×18 gauge微分の階数17、Hessian補空間を加えた階数27、規格化Jacobianの行列式−181398528、一般7・8点配置の評価階数、tail左右核のh² jetを検算する。
 
-これら3本の担当者による実行は全て成功した。d1のsyzygy・平滑性例外・補完3点の判別式とBézoutについては別のSymPyによる独立点検も成功した。最終統合後の再実行と組版は、この保存時点では確認中である。実際の反標準乗法・NC周期・δ₂の一般値を計算したという主張ではない。既存helpersをimportするため関連コードを同じcomputations/に保つ。
+これら3本は最終統合後にも再実行し、全て成功した。d1のsyzygy・平滑性例外・補完3点の判別式とBézoutについては別のSymPyによる独立点検も成功した。実際の反標準乗法・NC周期・δ₂の一般値を計算したという主張ではない。既存helpersをimportするため関連コードを同じcomputations/に保つ。
 
 既存の候補計算2本 `verify_degree_two_hessian_rigidity.py`、`verify_degree_one_hessian_counterexample.py` は新コードからimportされ、その証明書も再実行された。Klein階数6、Fermat階数3、catalecticant、d1の長い有理例・共変式分類の検証を保持する。再現資産自体にSymPy依存はない。
 
@@ -101,7 +101,9 @@ Python 3の標準ライブラリのみを使用する。`n=2,...,8` と両次数
 
 これらは多項式・有理式と有限群表現の厳密検算であり、Morita同値・周期比較・古典Torelliを機械的に証明するものではない。五次・四次の特殊化証明書は関数体上の非降下を証明するためのもので、その特定の有限hで全対象がsmooth proper開に入るとは主張しない。一般ファイバーの全残余圏の分離には、内在的な楕円固定曲線と非対角積の整性を用いた本文の証明を別に使う。
 
-現行ソースの全体組版・静的参照検査・新節のPDF表示確認は統合後に実施して結果へ置き換える。組版環境はLuaHBTeX 1.18.0、LaTeX2e 2024-11-01、latexmk 4.86、luatexja 20250208.0とHaranoAji。PDFとSyncTeXはbuild/へ生成する。TeXのformat・font map・和文依存を整備した環境を用い、repo内にバイナリ依存を収録しない。VS Code UIの操作・SyncTeXクリックは未実行である。
+現行v0.21は `latexmk -g -norc -r .latexmkrc papers/nc-del-pezzo.tex` により292頁へ組版できた。使用環境はLuaHBTeX 1.18.0、LaTeX2e 2024-11-01、latexmk 4.86、luatexja 20250208.0とHaranoAji。PDFとSyncTeXはbuild/へ生成された。51個のTeXソース・594ラベル・60文献を静的検査し、重複ラベル・参照切れ・未定義文献キーはなかった。最終ログに未解決参照・引用、Overfull/Underfull box、欠落文字はなく、BibTeXの警告もない。和文italicの既存Font Infoは未定義参照とは区別する。
+
+PDFの1・2・14–16・235–239・244–254・288–292頁、計26頁を画像化して実見した。新定理・証明・行列・長い係数式・有限体証明書・引用の表示を確認した。全292頁の目視確認ではない。TeXのformat・font map・和文依存を整備した環境を用い、repo内にバイナリ依存を収録しない。VS Code UIの操作・SyncTeXクリックは未実行である。
 
 既存の証明点検の対象は `finite_normalization_boundary.tex` であり、一般有限正規化・最大有限locus・粗零切断の逆像、次数1の正則不変量とmonic五次模型・零切断上の五枚・形式分裂、次数2のtrace不変量・接線素因子・符号二次体からの欠落分岐点を内部で独立に点検した。接線因子から古典係数空間への優勢性と、余接加群の支持の有限像によって全零切断へ結論を延ばす段階も確認した。正規化と粗射の基底変更を無条件に交換できない反例を含める。最高活性二係数商の形式模型1+3は研究ノートで証明し、全モジュライへの移送は未証明と区別した。Stacksの正規化・Zariski主定理・DVR特殊化・Hensel持上げの一次本文と、固定PoissonDPの全商表示・一般自己同型群を照合した。
 

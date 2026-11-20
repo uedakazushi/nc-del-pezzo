@@ -5,9 +5,10 @@
 本節では，Poisson比較の大域的一意性を調べるために，
 中央Casimir変数を除いた最高活性部分の係数写像を厳密に計算する。
 座標付きの有理写像と，座標変換を含む全モジュライの比較を区別する。
-以下の次数は指定した二係数族の次数であり，
-命題\ref{prop:poisson-shadow-degree-one-criterion}の
-$\delta_{n,d}$ を計算したものではない。
+以下ではまず指定した二係数族の次数を計算し，次数2では全下位係数へ拡張する。
+全同値で割った $\delta_{n,2}=4$ へ移すための中心torsorと座標商の比較は，
+第\ref{sec:degree-two-shadow-degree}節で別に証明する。
+次数1の係数次数5を $\delta_{n,1}$ と同一視することは，なお未証明である。
 
 \subsection{次数1の最高活性部分における五価な比較}
 \label{sec:degree-one-shadow-top-inverse}
@@ -205,7 +206,7 @@ $\alpha=-b/2$ を読み，さらに
 \subsection{次数2の最高活性部分における逆復元の四価性}
 \label{subsec:degree-two-shadow-inverse-obstruction}
 
-本項の計算は，Poisson shadow射全体の一般次数を決めるものではない。
+本項単独の計算は，Poisson shadow射全体の一般次数を決めるものではない。
 ただし，中心方程式の最高活性部分とPoisson方向から
 ambientの最高活性potentialを一意に線型復元する方法には，具体的な障害を与える。
 
@@ -414,14 +415,15 @@ $L_j\otimes1_{\operatorname{Sym}^{4-j}K}$ となる。
 既存中心族の任意中央係数への基底変更と斉次性から同じ証明が適用される。
 \end{proof}
 
-\begin{remark}[全モジュライの次数との区別]
+\begin{remark}[全モジュライの次数へ移すための比較]
 最高活性部分の次数4と，直前の選択した中心族の三角復元から，
 その固定座標の係数族では全下位項を加えても四つの一般分枝が残る。
-しかし全モジュライのPoisson shadow射の一般次数を4とするためには，
-この中心と全方向族で選んだ中心の中央Casimir差の比較，
-同じnc開近傍への所属，および
-全同値とPoisson同型による座標商の比較をさらに扱う必要がある。
-座標正規形に含まれる有限の補助選択の次数も揃えなければならない。
+これを全モジュライのPoisson shadow射の一般次数へ移すため，
+第\ref{sec:degree-two-shadow-degree}節では，
+規格化中心そのもののtorsorにより全方向中心とのCasimir差を処理し，
+共通のnc開への所属と，全同値・Poisson同型による同じ座標商を比較する。
+二係数正規形のnormalizerによる補助選択も両側で揃え，
+定理\ref{thm:degree-two-shadow-degree-four}で $\delta_{n,2}=4$ を得る。
 
 それでも，$V$ の係数に依存する可逆な有限線型作用素だけから
 $U$ の最高活性係数を一意に得る提案は，前命題と両立しない。

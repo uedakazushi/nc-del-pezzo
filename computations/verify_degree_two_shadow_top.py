@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Exact certificate for the degree-two highest-active Poisson shadow.
 
-2026-11-20 / v0.14. Standard library only; run from any working directory.
+2026-11-20 / v0.15. Standard library only; run from any working directory.
 Reuses the coefficient/free-word arithmetic and De Laet central-element
 certificate in verify_cubic_top.py (that module also runs its own checks).
 
@@ -13,13 +13,14 @@ A and B are represented by the existing engine's variables d and e.
 Everything is an exact polynomial identity over Q, before specialization.
 The rational formulas hold where their displayed denominators are nonzero.
 
-This proves the coordinate identities and the coprimality used in the
-function-field degree-four argument for this TWO-COEFFICIENT TOP FAMILY.
-It does not compute the degree of the full moduli morphism: lower active
-coefficients, membership in the common nc open, and all equivalences must
-still be considered. No assertion of novelty is made.
+This verifies coordinate identities, coprimality, the normalizer action,
+and the transverse Lie calculation used in the degree-four proof.
+The passage to all lower coefficients, normalized-center torsors, and
+the quotient by all equivalences is proved in the paper, not by this
+finite computation. No assertion of novelty is made.
 """
 from fractions import Fraction
+from itertools import permutations
 
 from verify_cubic_top import (
     NAMES, C, r1, r2, a, b, c, d, e,
@@ -111,8 +112,115 @@ assert substitute(N, {'b': const(-3)}) == mul(const(-972), B)
 assert substitute(quadratic, {'b': {}}) == const(18)
 assert substitute(add(mul(const(3), b), B, const(3)), {'b': {}}) == add(B, const(3))
 
+
+def matrix_product(left, right):
+    return tuple(tuple(sum(left[i][k] * right[k][j]
+                           for k in range(len(right)))
+                       for j in range(len(right[0])))
+                 for i in range(len(left)))
+
+
+# Effective normalizer N(V_4)/V_4 on the symmetric quartic coefficient plane.
+identity = ((Fraction(1), Fraction(0)), (Fraction(0), Fraction(1)))
+reflection_t = ((Fraction(-1), Fraction(0)), (Fraction(0), Fraction(1)))
+reflection_r = ((Fraction(1, 2), Fraction(1)),
+                (Fraction(3, 4), Fraction(-1, 2)))
+assert matrix_product(reflection_t, reflection_t) == identity
+assert matrix_product(reflection_r, reflection_r) == identity
+rotation = matrix_product(reflection_t, reflection_r)
+assert matrix_product(matrix_product(rotation, rotation), rotation) == identity
+normalizer = {identity}
+pending = [identity]
+while pending:
+    element = pending.pop()
+    for generator in (reflection_t, reflection_r):
+        new_element = matrix_product(element, generator)
+        if new_element not in normalizer:
+            normalizer.add(new_element)
+            pending.append(new_element)
+    assert len(normalizer) <= 6
+assert len(normalizer) == 6
+
+# Check f((x+y)/sqrt(2),(-x+y)/sqrt(2)) directly. All monomials have
+# degree four, so the common square-root factor contributes exactly 1/4.
+def binary_product(left, right):
+    result = {}
+    for (i, j), value in left.items():
+        for (k, ell), other in right.items():
+            exponent = (i + k, j + ell)
+            result[exponent] = result.get(exponent, Fraction(0)) + value * other
+    return {exponent: value for exponent, value in result.items() if value}
+
+
+def binary_power(value, exponent):
+    result = {(0, 0): Fraction(1)}
+    for _ in range(exponent):
+        result = binary_product(result, value)
+    return result
+
+
+linear_x = {(1, 0): Fraction(1), (0, 1): Fraction(1)}
+linear_y = {(1, 0): Fraction(-1), (0, 1): Fraction(1)}
+x_four = binary_power(linear_x, 4)
+y_four = binary_power(linear_y, 4)
+mixed = binary_product(binary_power(linear_x, 2), binary_power(linear_y, 2))
+alpha, beta = variable('alpha'), variable('beta')
+alpha_r = add(mul(const(Fraction(1, 2)), alpha), beta)
+beta_r = add(mul(const(Fraction(3, 4)), alpha), mul(const(Fraction(-1, 2)), beta))
+for i in range(5):
+    exponent = (i, 4 - i)
+    transformed = add(
+        mul(const((x_four.get(exponent, Fraction(0))
+                   + y_four.get(exponent, Fraction(0))) / 16), alpha),
+        mul(const(mixed.get(exponent, Fraction(0)) / 4), beta))
+    expected = (mul(const(Fraction(1, 4)), alpha_r) if i in (0, 4)
+                else beta_r if i == 2 else {})
+    assert transformed == expected
+
+# T acts by c -> -c, while R acts by the affine substitutions below
+# because c=alpha and b=-2+2*beta/3. Verify equivariance with denominators
+# cleared, so the assertion is a polynomial identity rather than sampling.
+assert substitute(A_num, {'c': neg(c)}) == neg(A_num)
+assert substitute(A_den, {'c': neg(c)}) == A_den
+assert substitute(B_num, {'c': neg(c)}) == B_num
+assert substitute(B_den, {'c': neg(c)}) == B_den
+reflection_substitution = {
+    'b': mul(const(Fraction(1, 2)), add(c, neg(b), const(-6))),
+    'c': mul(const(Fraction(1, 2)), add(c, mul(const(3), b), const(6))),
+}
+an, ad, bn, bd = [substitute(poly, reflection_substitution)
+                  for poly in (A_num, A_den, B_num, B_den)]
+assert mul(an, const(2), A_den, B_den) == (
+    mul(ad, add(mul(A_num, B_den), mul(const(2), B_num, A_den))))
+assert mul(bn, const(4), A_den, B_den) == (
+    mul(bd, add(mul(const(3), A_num, B_den), mul(const(-2), B_num, A_den))))
+
+# Columns: the two slice directions, followed by H,E,F in sl_2.
+# Rows: x^4,x^3*y,x^2*y^2,x*y^3,y^4.
+zero, one = {}, const(1)
+quarter = const(Fraction(1, 4))
+lie_matrix = [
+    [quarter, zero, alpha, zero, zero],
+    [zero, zero, zero, mul(const(2), beta), alpha],
+    [zero, one, zero, zero, zero],
+    [zero, zero, zero, alpha, mul(const(2), beta)],
+    [quarter, zero, neg(alpha), zero, zero],
+]
+determinant = {}
+for permutation in permutations(range(5)):
+    inversions = sum(permutation[i] > permutation[j]
+                     for i in range(5) for j in range(i + 1, 5))
+    term = const((-1) ** inversions)
+    for row, column in enumerate(permutation):
+        term = mul(term, lie_matrix[row][column])
+    determinant = add(determinant, term)
+assert determinant == mul(const(Fraction(1, 2)), alpha,
+                          add(mul(const(4), beta, beta), neg(mul(alpha, alpha))))
+
 print('PASS: De Laet quartic -> fully symmetrized coordinates, exact free-word identity.')
 print('PASS: normalized shadow coefficients and both inverse identities, all denominators cleared.')
 print('PASS: A^2=N(b,B)/Q(b,B), deg_b N=deg_b Q=4, gcd over Q(B) equals 1.')
 print('PASS: c^2=R(b,B) has odd valuation at b=0; supports the degree-four field-tower proof.')
-print('Scope: fixed h=1, symmetric two-coefficient highest-active quartic; full moduli degree unresolved.')
+print('PASS: binary quartic normalizer reflections, faithful S3 action, and exact shadow equivariance.')
+print('PASS: slice plus Lie orbit determinant = alpha*(4*beta^2-alpha^2)/2.')
+print('Scope: exact coefficient certificates; torsor, lower-term, and full moduli arguments are in the paper.')

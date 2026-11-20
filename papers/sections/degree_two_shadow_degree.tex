@@ -1,0 +1,629 @@
+% !TeX root = ../nc-del-pezzo.tex
+% 2026-11-20 JST / v0.15
+\section{次数2のPoisson比較の一般次数}
+\label{sec:degree-two-shadow-degree}
+
+本節では $d=2$，全ての $n\ge2$ について，
+構成済みのPoisson比較射の一般次数を4と決定する。
+最高活性二係数の計算だけでは残っていた，中心元の選択，
+共通の非可換開への所属，正規形の補助選択と全同値の商を順に処理する。
+中心関係式そのものをパラメータとすることにより，
+元のCasimir係数への有理逆を仮定せずに全同値を認識できる。
+本節では一般点を調べるため非零方向に制限するが，
+最終結論は全可換零切断を含む既存の $\Theta$ の関数体次数についてのものである。
+
+\subsection{ambient基底と規格化中心のtorsor}
+
+$E$ を重み1の生成空間，$\mathcal C^\times$ を非零可分解交代形式 $P$ の錐とし，
+$K_P=\ker P$，$\mathcal C_4=\operatorname{Sym}^4K$ と置く。
+添字付きの $\mathcal C_4$ はCasimir係数束であり，方向錐とは区別する。
+商ベクトル束の全空間
+\[
+ \mathcal B=\operatorname{Tot}_{\mathcal C^\times}
+        \bigl((\operatorname{Sym}^4E\otimes\mathcal O)/\mathcal C_4\bigr)
+\]
+の点を $(P,\overline U)$ と書く。
+ambientの関係式では $U$ は $\sum_jp_{ij}\partial_{x_j}U$ としてだけ現れるため，
+$U$ に $\operatorname{Sym}^4K_P$ を加えても，生成元を固定した代数自体が変わらない。
+従ってambient代数 $A_{P,\overline U}$ は $\mathcal B$ 上で定義される。
+
+全方向族の既存の非空開 $W^\times$ を $\mathcal B$ へ射影する。
+全係数空間から $\mathcal B$ への射は $\mathcal C_4$ のtorsorであり，
+$W^\times$ の射はその開制限なので滑らかである。
+その開像を $\mathcal B_0$ とし，必要なら後述の座標群による飽和
+$\mathcal B_0^{\mathrm{sat}}$ へ広げる。
+
+\begin{lemma}[有限な規格化中心torsor]
+\label{lem:intrinsic-normalized-center-torsor}
+$\mathcal B_0^{\mathrm{sat}}$ 上で，ambient中心の重み4部分は有限局所自由束
+$\mathcal Z_4$ となり，任意基底変更に可換する完全列
+\[
+ 0\longrightarrow\mathcal C_4\longrightarrow\mathcal Z_4
+       \xrightarrow{\lambda}\mathcal O\longrightarrow0
+\]
+を持つ。ここで $\lambda$ は完全対称化座標で $z^2$ 係数を読む写像である。
+従って
+\[
+                     \mathcal T=\lambda^{-1}(1/2)
+\]
+は $\mathcal C_4$ のaffine torsorであり，有限型の整なスキームである。
+\end{lemma}
+\begin{proof}
+中心は，有限局所自由な次数部分から作る有限行列
+\[
+ A_4\longrightarrow
+     \operatorname{Hom}(E,A_5)\oplus A_6,
+ \qquad v\longmapsto([v,x_i]_i,[v,z])
+\]
+の核である。
+$W^\times$ 上では補題\ref{lem:normalized-ambient-center-near-zero}により，
+この核は $\mathcal C_4\oplus\mathcal O\Omega$ で，
+$\ker\lambda=\mathcal C_4$，$\lambda(\Omega)=1/2$ が成り立つ。
+ここでは方向解消の例外因子の方程式が可逆なので，
+除した交換子の核と通常の中心が一致する。
+
+$W^\times\to\mathcal B_0$ は滑らかな全射であり，ambient，完全対称化，
+有限行列はすべて $\mathcal B_0$ からの引戻しである。
+従ってその次数部分の有限局所自由性，中心核の任意基底変更性，
+上の完全列は忠実平坦降下する。
+これらの性質は座標変換に不変なので，$\mathcal B_0$ の各translateへ運び，
+$\mathcal B_0^{\mathrm{sat}}$ 全体で貼り合わせられる。
+この順序なら，$\mathcal B_0$ 自身の不変性を仮定しなくてよい。
+最後に $\mathcal B_0^{\mathrm{sat}}$ は整なベクトル束の非空開であり，
+$\mathcal T$ はその上のベクトル束torsorだから整である。
+\end{proof}
+
+\begin{lemma}[中心元を係数とする写像]
+\label{lem:global-center-parameter-etale}
+全方向族で選んだ中心元は射
+\[
+ \sigma:W^\times\longrightarrow\mathcal T,
+ \qquad(P,U)\longmapsto(P,\overline U,\Omega(P,U))
+\]
+を定め，この射は\'{e}taleである。その像 $O$ は非空稠密開である。
+\end{lemma}
+\begin{proof}
+局所的に $U=U_{>0}+c$，$c\in\mathcal C_4$ と分裂し，
+$\mathcal T$ に一つの局所切断 $\Omega_0$ を取ると，
+\[
+ \Omega(P,U)=\Omega_0(P,\overline U)+\xi(P,U),\qquad
+                                  \xi(P,U)\in\mathcal C_4
+\]
+と書ける。$\sigma$ は基底 $\mathcal B$ を固定して $c\mapsto\xi$ を送る写像である。
+そのCasimir方向の微分は既存の $J_\Omega$ そのものであり，
+命題\ref{prop:casimir-jacobian-zero-neighborhood}によって可逆である。
+両辺は $\mathcal B$ 上滑らかな同じ相対次元のスキームなので，
+Jacobian判定により $\sigma$ は\'{e}taleとなる。
+具体的には小拡大上でまずCasimir座標を任意に持ち上げ，
+中心差を $J_\Omega^{-1}$ によって一意に補正できる。
+有限表示性とこの一意な持上げが\'{e}tale性を与える。
+\'{e}tale射は開写像だから像 $O$ は開であり，整性から稠密である。
+\end{proof}
+
+\subsection{座標作用と全同値群oid}
+
+次数付き座標写像を
+\[
+            \phi(x)=Mx',\qquad \phi(z)=cz',\qquad
+            M\in\operatorname{GL}(E),\ c\in\mathbb G_m
+\]
+と書くと，対応する点の変換は
+\begin{equation}
+\label{eq:intrinsic-center-coordinate-action}
+ P'=cM^{-1}PM^{-\mathsf t},\qquad
+ \overline U'=[c^{-2}U(Mx')],\qquad
+ \Omega'=c^{-2}\phi(\Omega)
+\end{equation}
+である。これは定義節の有効座標群 $G_2$ の作用を，座標写像の向きで書いた式である。
+通常の行列積 $(M,c)(N,d)=(MN,cd)$ に対し，この式は
+$(t\cdot g)\cdot h=t\cdot(gh)$ を満たす右作用として用いる。
+左作用の規約で書く場合は $g$ の代わりに $g^{-1}$ を代入する。
+特に $(M,c)=(\lambda I,\lambda^2)$ ではすべてのデータが不変なので，
+次数スカラーを割った $G_2$ が $\mathcal T$ に作用する。
+完全対称化の $z^2$ 係数は $\phi$ によって $c^2$ 倍となるため，
+最後の $c^{-2}$ は規格化を保つために必要である。
+
+$O^{\mathrm{sat}}=O\cdot G_2$ と置く。
+$O$ の不変性を仮定していないが，$O^{\mathrm{sat}}$ は不変な非空稠密開である。
+
+\begin{proposition}[内在的中心torsorによる商表示]
+\label{prop:intrinsic-center-full-groupoid}
+既存の全同値群oidの $W^\times$ へのfull restrictionは
+\[
+ \mathcal E_{W^\times}
+   \simeq W^\times\times_{\mathcal T,s}
+                  (G_2\times\mathcal T)
+                    \times_{\mathcal T,t}W^\times
+\]
+である。従って対応する非零方向の開部分スタックには同値
+\[
+                [W^\times/\mathcal E_{W^\times}]
+                    \simeq[O^{\mathrm{sat}}/G_2]
+\]
+がある。
+\end{proposition}
+\begin{proof}
+任意のNoether基底上で，既存の全同値認識と
+補題\ref{lem:all-graded-isom-weighted-linear}により，
+全 $\mathcal O$ 保存同値は上の重み付き線型写像を次数スカラーで割ったものである。
+最低関係式は $MP'M^{\mathsf t}=cP$ を与える。
+残るambient関係式を比較すると，変換した二つの $U$ の差は
+$\operatorname{Sym}^4K$ に属する。
+これは補題\ref{lem:nonzero-graded-isom-weighted-linear}の
+非被約基底でも有効なCasimir係数の認識である。
+従ってambientの同型条件は $(P,\overline U)$ の変換則と同値である。
+
+中心商が同型となる条件は，中心関係式の重み4成分の比較と
+$z^2$ の規格化により $\phi(\Omega)=c^2\Omega'$ である。
+これは式\eqref{eq:intrinsic-center-coordinate-action}の最後の条件に一致する。
+逆に，この三条件を満たす座標写像はambientと中心商の同型を与え，
+したがって全 $\mathcal O$ 保存同値を与える。
+合成・基底変更とも両立するので，群oidそのものの同型を得る。
+
+$W^\times\to[O^{\mathrm{sat}}/G_2]$ は滑らかな全射である。
+実際，その $O^{\mathrm{sat}}$ への引戻しは
+$G_2\times W^\times\to O^{\mathrm{sat}}$ であり，
+$\sigma$ の\'{e}tale性と群作用写像の滑らかさから滑らか，
+飽和の定義から全射となる。
+その二重fiber積は上で同定した群oidだから，商表示の同値が従う。
+\end{proof}
+
+\begin{remark}[元のCasimir座標の多価性]
+$\sigma$ 自体の一般次数は1とは限らない。
+しかし，同じ $(P,\overline U,\Omega)$ を与える元の二点の間には，
+生成元を恒等に送る中心商の同型がある。
+したがって全群oidは $W^\times\times_{\mathcal T}W^\times$ を含み，
+この関係だけを先に商すると $O$ になる。
+元のCasimir座標を中心元から一意に逆算できないことは，
+内在的な非可換モジュライの関数体に余分な次数を加えない。
+これは $\sigma$ が有理的に可逆であるという主張ではない。
+\end{remark}
+
+\subsection{二係数正規形から全四次係数への移行}
+\label{subsec:binary-shadow-full-quartic-degree}
+
+中心方程式の最高活性部分の写像を，全binary quarticへ移す。
+
+$V_4=\mathbb C[x,y]_4$ と置き，$G=\operatorname{PGL}_2$ を
+\[
+ f\cdot[M]=(\det M)^{-2}f(M(x,y)^{\mathsf t})
+\]
+という右作用で作用させる。
+スカラー行列は自明に作用するので，これは確かに $G$ の作用である。
+$\operatorname{SL}_2$ の作用を用いても同じ軌道を得る。
+$h=1$ では対応する生成元の変更は
+\[
+ (x,y)^{\mathsf t}\longmapsto M(x',y')^{\mathsf t},
+ \qquad z\longmapsto(\det M)z'
+\]
+であり，$[x,y]=z$ を保つ。
+従って $G$ はPoisson方向を固定したときの正しい有効な活性座標群である。
+
+\begin{lemma}[二係数平面の安定化群と軌道]
+\label{lem:binary-quartic-fixed-plane}
+\[
+ S=\left\{\frac{\alpha}{4}(x^4+y^4)+\beta x^2y^2\right\}
+ \subset V_4
+\]
+とし，$H\subset G$ を次の二元で生成される部分群とする：
+\[
+ \left[\begin{pmatrix}i&0\\0&-i\end{pmatrix}\right],
+ \qquad
+ \left[\begin{pmatrix}0&1\\-1&0\end{pmatrix}\right].
+\]
+このとき $H\simeq(\mathbb Z/2)^2$，$V_4^H=S$ である。
+$S$ の一般点の $G$-安定化群はちょうど $H$ であり，
+作用射 $G\times S\to V_4$ は優勢である。
+\end{lemma}
+\begin{proof}
+二つの表示行列は $\operatorname{SL}_2$ 内では四元数群を生成し，
+その中心 $\{\pm I\}$ を除くと $H$ を得る。
+最初の元への不変性で $x^3y,xy^3$ の係数が消え，
+第二の元への不変性で $x^4,y^4$ の係数が一致する。
+従って固定部分は $S$ である。
+
+四つの相異なる零点を持つ一般四次式について，
+その零点集合を保つ射影変換群はKlein四元群である。
+実際，四点を順序付けたcross-ratioを $\lambda$ とすると，
+その置換による値は
+\[
+ \lambda,\quad1-\lambda,\quad\lambda^{-1},\quad
+ (1-\lambda)^{-1},\quad
+ \frac{\lambda}{\lambda-1},\quad\frac{\lambda-1}{\lambda}
+\]
+である。これらが相異なる開集合では，
+cross-ratioを保つ置換は恒等置換と三つの二重互換からなるKlein群だけである。
+三点の像が射影変換を一意に定めるので，零点集合の自己同型群の位数は4である。
+$S$ の全点は既に $H$ で固定される。
+以下の優勢性から上の一般条件を $S$ 上でも課せるので，
+一般点の四次式そのものの安定化群も $H$ となる。
+
+優勢性は接空間でも直接確認できる。
+$f=\alpha(x^4+y^4)/4+\beta x^2y^2$ に対する
+$x\partial_x-y\partial_y,x\partial_y,y\partial_x$ の作用は
+\[
+ \alpha(x^4-y^4),\qquad
+ 2\beta x^3y+\alpha xy^3,\qquad
+ \alpha x^3y+2\beta xy^3
+\]
+である。これらは
+$\alpha(4\beta^2-\alpha^2)\ne0$ のとき $S$ の接空間に補空間を与える。
+従って作用射の微分は全射であり，その像は稠密である。
+\end{proof}
+
+\begin{remark}[既知のnormalizerによる補足]
+\label{rem:binary-quartic-normalizer}
+上の一般安定化群と正規形は古典的であり，
+Böhningの著者公開稿\cite[Proposition~3.3.1.2, Corollary~3.3.1.3]{BohningInvariantTheory}
+にも記されている。
+ここでは作用の規約と次数比較を明確にするため直接の証明を与えた。
+
+実際 $N_G(H)/H\simeq\mathfrak S_3$ である。
+共役作用 $N_G(H)\to\operatorname{Aut}(H)=\mathfrak S_3$ の核は
+$C_G(H)=H$ である。後者は上の二つの行列と可換する射影行列を直接解けば従う。
+$\zeta_8^2=i$ とし，
+\[
+ t=\left[\begin{pmatrix}\zeta_8&0\\0&\zeta_8^{-1}\end{pmatrix}\right],
+ \qquad
+ r=\left[\frac1{\sqrt2}\begin{pmatrix}1&1\\-1&1\end{pmatrix}\right]
+\]
+を取ると，それぞれ $H$ の三つの非単位元の異なる二つを交換する。
+従って共役作用は全射である。
+$S$ 上では
+\[
+ t:(\alpha,\beta)\longmapsto(-\alpha,\beta),\qquad
+ r:(\alpha,\beta)\longmapsto
+       \left(\frac{\alpha}{2}+\beta,\frac{3\alpha}{4}-\frac{\beta}{2}\right).
+\]
+この二つの行列を $T,R$ と書けば
+$T^2=R^2=(TR)^3=I$ であり，忠実な $\mathfrak S_3$ 作用を与える。
+一般の $G$-軌道と $S$ の交叉はこの6点の軌道である。
+これは，$s,s'\in S$ の安定化群がともに $H$ で
+$s'=s\cdot g$ なら $g\in N_G(H)$ となることからも分かる。
+\end{remark}
+
+\begin{proposition}[全binary quartic上の中心shadowの次数]
+\label{prop:binary-shadow-full-five-coefficients}
+次数2の最高活性ambient代数について，
+完全対称化座標の $z^2$ 係数を $1/2$ とする一意な次数4中心元から定まる
+有理写像
+\[
+                 \Phi_4:V_4\dashrightarrow V_4
+\]
+は $G$-同変であり，優勢かつ一般次数4である。
+また，$G$ による有理商上の誘導写像の一般次数も4である。
+\end{proposition}
+\begin{proof}
+$S$ の一般点では既存の中心式と中心核の階数から，
+規格化中心は一意である。
+この性質と所要次数の完全対称化の可逆性は座標不変な開条件であり，
+前補題の優勢性から $V_4$ の一般点にも成立する。
+中心条件は有限行列の核で記述されるので，
+$z^2$ 係数を指定した唯一の解は係数の有理関数である。
+活性変数だけの斉次次数4では，加えることのできる中央定数項はない。
+$x,y$ を固定し $z$ を $-z$ へ送る反自己同型は中心と
+完全対称化座標の $z^2$ 係数を保つから，一意性により規格化中心を固定する。
+従ってそのshadowには $z$ 線型項がなく，確かに終域は $V_4$ となる。
+生成元の線型変更と中心の一意性を使えば，
+\[
+ \Omega_{f\cdot M}
+   =(\det M)^{-2}
+       \Omega_f\bigl(M(x,y)^{\mathsf t},(\det M)z\bigr)
+\]
+となる。完全対称化はこの変更と可換するので $\Phi_4$ は $G$-同変である。
+その $S$ への制限は命題\ref{prop:binary-shadow-generic-degree-four}の写像である。
+従って $\Phi_4(S)$ は $S$ に稠密であり，$G$-同変性と前補題から
+$\Phi_4$ 自体も優勢である。始域と終域はともに5次元なので一般に有限である。
+
+一般の $v\in S$ を固定する。
+安定化群の位数が4となる始域の開部分を $G$-不変に取る。
+その閉補集合の像の閉包は，一般有限性から真の閉部分であり，
+同変性から $G$-不変である。$G\cdot S$ が稠密なのでこの閉部分は $S$ を含まない。
+従って $v$ とその全逆像を，安定化群が位数4となる開集合に取れる。
+任意の逆像 $u$ に対し，同変性から
+\[
+                     G_u\subset G_v=H
+\]
+である。両者の位数が4なので等号となり，$u\in V_4^H=S$ を得る。
+従って全5係数の写像の一般ファイバーは，
+二係数写像の一般ファイバーそのものである。
+後者は相異なる4点からなるため，一般次数は4である。
+
+商上の次数についても，この4点は同じ $G$-軌道には入らない。
+実際 $\Phi_4(u_1)=\Phi_4(u_2)=v$ で $u_2=u_1\cdot g$ なら
+$g\in G_v=H=G_{u_1}$ であり，$u_2=u_1$ となる。
+従って一般の商ファイバーも4点である。
+別の確認として，注意\ref{rem:binary-quartic-normalizer}の
+$W=N_G(H)/H$ を用いると，
+二つの係数体への $W$ の作用はともに忠実で，ともに不変体上の次数6を持つ。
+従って商の関数体次数は $4\cdot6/6=4$ である。
+\end{proof}
+
+\subsection{中央変数を許す固定方向の群と次数}
+\label{subsec:binary-shadow-central-variables-quotient}
+
+$K$ を $k=n-1$ 次元の中央な一次変数空間，
+$A=\langle x,y\rangle$ とし，$E=K\oplus A$ とする。
+非零rank2方向 $P_0$ を
+$P_0(x,y)=1$，$P_0(K,E)=0$ と規格化する。
+四次式を活性次数で
+\[
+ U=\sum_{j=0}^4 U_j,\qquad
+ U_j\in\operatorname{Sym}^{4-j}K\otimes\operatorname{Sym}^{j}A
+\]
+と分ける。
+ambientの関係式は $U_0$ を含まず，
+その選択は中心超曲面の中央係数に対応する。
+
+\begin{lemma}[固定方向の全座標群]
+\label{lem:rank-two-full-coordinate-group}
+固定した $P_0$ を保つ有効な重み付き線型座標群は
+\[
+ \Gamma_K=
+ \left((\operatorname{GL}(K)\times\operatorname{GL}(A))
+              \ltimes\operatorname{Hom}(K,A)\right)/\mathbb G_m
+\]
+である。表示において
+\[
+ s\longmapsto Bs,\qquad
+ \binom{x}{y}\longmapsto M\binom{x}{y}+Cs,\qquad
+ z\longmapsto(\det M)z,
+\]
+であり，分母の $\mathbb G_m$ は
+$(B,M,C)=(tI_K,tI_A,0)$ という次数スカラーである。
+特に活性変数へ中央一次式を加える変更を含む。
+\end{lemma}
+\begin{proof}
+変数の順序を $(s,x,y)$ とする。
+全線型行列 $L$ と $z$ の尺度 $c$ は
+$LP_0L^{\mathsf t}=cP_0$ を満たす。
+$L=\left(\begin{smallmatrix}B&N\\C&M\end{smallmatrix}\right)$，
+$J=\left(\begin{smallmatrix}0&1\\-1&0\end{smallmatrix}\right)$ と書くと，
+右下ブロックから $MJM^{\mathsf t}=cJ$ である。
+従って $M$ は可逆で，右上ブロック
+$NJM^{\mathsf t}=0$ から $N=0$ となる。ゆえに
+\[
+             L=\begin{pmatrix}B&0\\C&M\end{pmatrix},
+             \qquad c=\det M
+\]
+となる。逆にこの形の行列は関係を満たす。
+次数スカラー $(L,c)=(tI_E,t^2)$ を除けば表示した群を得る。
+正規形 $z^2/2+V(s,x,y)$ の間の一般の重み付き古典同型で
+$z\mapsto cz+q_2$ を許しても，$z$ 線型項の比較で $cq_2=0$，
+従って $q_2=0$ となる。
+よって終域の正規形にも追加の二次 $z$ 平行移動は残らない。
+\end{proof}
+
+
+前項で定義した $\mathcal T$ の $P_0$ 上のファイバーを $\mathcal T_K$ と書く。
+その点は $(U\bmod\operatorname{Sym}^4K,\Omega)$ であり，
+上の $\Gamma_K$ がambientと規格化中心を同時に運ぶことによって作用する。
+$G_2$ は非零rank2方向の空間上で推移的なので，
+\[
+ [\mathcal T/G_2]\simeq[\mathcal T_K/\Gamma_K],\qquad
+ [O^{\mathrm{sat}}/G_2]\simeq[(O^{\mathrm{sat}})_{P_0}/\Gamma_K].
+\]
+これは方向を固定するためのフレーム選択に伴う次数を，
+余分な有限被覆として数える操作ではない。
+方向の軌道 $G_2/\Gamma_K$ からの通常の商の同値である。
+
+最高活性項を対称二係数形にした族では，
+$\boldsymbol a=(U_4,U_3,U_2,U_1)$ と $c_0=U_0\in\operatorname{Sym}^4K$ を区別する。
+\begin{lemma}[制御中心はtorsorの線型座標である]
+\label{lem:controlled-center-torsor-coordinates}
+系\ref{cor:binary-shadow-lower-triangular}の制御中心は，定義された非空開上で
+\[
+ \Omega^{\mathrm{ctrl}}(\boldsymbol a,c_0)
+   =\Omega^{\mathrm{ctrl}}(\boldsymbol a,0)+\kappa(U_4,1)^{-1}c_0
+\]
+を厳密に満たす。
+従って $(\boldsymbol a,c_0)\mapsto(\boldsymbol a,\Omega^{\mathrm{ctrl}}(\boldsymbol a,c_0))$ は，
+対称な最高活性係数部分へ引き戻した $\mathcal T_K$ とCasimir係数束の間の同型である。
+\end{lemma}
+\begin{proof}
+ambientの関係式は $U_0$ に依存しない。
+整列基底の定数項を $U_0$，$z^2$ 係数を $1/2$ とする中心
+$\Omega^{\mathrm{ord}}$ の一意性から
+\[
+             \Omega^{\mathrm{ord}}(\boldsymbol a,c_0)
+                =\Omega^{\mathrm{ord}}(\boldsymbol a,0)+c_0
+\]
+である。完全対称化座標への再規格化係数 $\kappa$ は
+$U_4,h$ だけに依存するので，$\kappa$ で割れば表示式を得る。
+また規格化中心の任意の二点の差は $\operatorname{Sym}^4K$ だから，
+逆写像は
+\[
+           c_0=\kappa(U_4,1)
+                \bigl(\Omega-\Omega^{\mathrm{ctrl}}(\boldsymbol a,0)\bigr)
+\]
+であり，これは正則である。
+\end{proof}
+
+\begin{proposition}[中央係数を含むpresentationの次数]
+\label{prop:central-presentation-shadow-degree-four}
+系\ref{cor:binary-shadow-lower-triangular}の下位係数の三角復元により，
+\[
+ \Psi_K:\mathcal T_K\dashrightarrow\operatorname{Sym}^4E,
+ \qquad
+ (U,\Omega)\longmapsto
+          \operatorname{Sym}^{-1}(\Omega)-z^2/2
+\]
+は優勢かつ一般次数4の $\Gamma_K$-同変写像である。
+この主張は，中心元を選んだpresentationの有理パラメータ空間についての主張である。
+\end{proposition}
+\begin{proof}
+一般の終域の最高活性四次式を活性座標変更で $S$ に移す。
+命題\ref{prop:binary-shadow-full-five-coefficients}より，
+その最高活性部分にはちょうど4個の逆像があり，それらも $S$ に属する。
+各最高活性逆像を固定すると，lower三角復元の行列 $L_j$ は
+$\operatorname{Sym}^j A$ に作用する。
+中央変数を加えた場合は
+\[
+ \operatorname{id}_{\operatorname{Sym}^{4-j}K}\otimes L_j
+\]
+となるから，同じ最高次稠密開で可逆である。
+従って $j=3,2,1$ の係数は一意に復元できる。
+$j=0$ は中心torsorの平行移動であり，
+$\Omega\mapsto\Omega+q(s)$ はshadowをちょうど $q(s)$ だけ変える。
+よって最後の中央係数も一意に定まる。
+一般ファイバーは4点であり，標数0なので一般次数4を得る。
+同変性は，中心元を含むデータの定義と完全対称化の自然性から従う。
+
+整列語の定数項を指定した中心切断を使う場合も，
+対称化後の中央定数項を自由なtorsor座標として取り直せば同じ空間となる。
+この座標変更はlower三角式の可逆な最後の段である。
+選んだ切断自体が活性平行移動 $C$ と同変であることは要求しない。
+\end{proof}
+
+
+\begin{corollary}[制御中心の共通開と全一般対象]
+\label{cor:controlled-center-common-intrinsic-open}
+対称な最高活性項と全下位係数を持つ制御中心族には，
+既存の $\mathfrak U_{n,2}$ の対象を与える非空稠密開がある。
+この開と座標群の作用は $\mathfrak U_{n,2}$ の一般対象を被覆し，
+そのPoisson shadowは既存の $\Theta$ と一致する。
+\end{corollary}
+\begin{proof}
+この制御族の係数空間を $F$ とする。
+中心公式の分母が可逆であり，ambient基底が $\mathcal B_0^{\mathrm{sat}}$ に入る開へ
+最初に $F$ を制限する。後者は座標群に不変な基底条件であるため，
+作用射の定義域は $\Gamma_K\times F$ の形に取れる。
+補題\ref{lem:binary-quartic-fixed-plane}により，活性座標群と対称最高次係数の作用は
+全binary quartic係数へ優勢である。
+下位係数は全て自由であり，最後のCasimir方向は
+補題\ref{lem:controlled-center-torsor-coordinates}によって中心torsorそのものをパラメータ化する。
+従って $\Gamma_K\times F\dashrightarrow\mathcal T_K$ は優勢である。
+実際，最高次での五つの接方向と全下位方向を使うと，
+$\alpha(4\beta^2-\alpha^2)\ne0$ の開で微分は全射となる。
+
+$(O^{\mathrm{sat}})_{P_0}$ は $\Gamma_K$-不変な非空開である。
+その逆像は $\Gamma_K\times F^\circ$ の形となり，
+優勢性から $F^\circ$ は非空稠密開である。
+命題\ref{prop:intrinsic-center-full-groupoid}によって，
+この開の中心商はfppf局所的に元の $W^\times$ の中心商と同型となる。
+従って既存の非可換多様体条件を満たし，全モジュライ内の同じ開部分に属する。
+微分の全射性を保つ開では，$F^\circ$ から商への射もsmoothで，
+その像は稠密開となる。
+完全対称化した中心関係式と最低交換子がともに一致するため，shadowも一致する。
+ここでは形式族への一致だけから一般の有限パラメータへの所属を推論していない。
+\end{proof}
+
+\begin{lemma}[一般自由な終域による商は次数を保つ]
+\label{lem:generically-free-quotient-preserves-degree}
+代数群 $\Gamma$ が整な多様体 $X,Y$ に作用し，
+$f:X\dashrightarrow Y$ が優勢な $\Gamma$-同変有理写像で一般次数 $d$ を持つとする。
+$Y$ の一般安定化群が自明なら，有理商の誘導写像の一般次数も $d$ である。
+\end{lemma}
+\begin{proof}
+一般点を含む作用不変な開部分へ制限して射を考える。
+同じ群による商にはCartesian図式
+\[
+ \begin{array}{ccc}
+ X&\longrightarrow&Y\\
+ \downarrow&&\downarrow\\
+ {[X/\Gamma]}&\longrightarrow&[Y/\Gamma]
+ \end{array}
+\]
+がある。これは右のatlasを引き戻すと，
+商の対象に付随する $\Gamma$-torsorが自明化されることから従う。
+一般安定化群の自明性により，終域商は一般点でその粗空間に等しい。
+その一般点の上でtorsorを忠実平坦に自明化すれば，
+商写像のファイバーは $f$ の一般ファイバーと同じ有限スキームとなる。
+その次数は $d$ であり，忠実平坦基底変更によって変わらない。
+始域の一般安定化群も終域の安定化群に含まれるため自明である。
+\end{proof}
+
+
+\subsection{全同値で割った比較の次数}
+
+\begin{theorem}[次数2のPoisson比較は一般に四価である]
+\label{thm:degree-two-shadow-degree-four}
+全ての $n\ge2$ に対し，構成済みの比較射について
+\[
+ \delta_{n,2}
+   =[K(M^{\mathrm{nc}}_{n,2}):K(N_{n,2})]=4
+\]
+である。この次数は，同じambientと完全対称化の規格化を用い，
+Casimir Jacobianが可逆となる全方向中心の選択を変えても，
+共通の一般開部分では変わらない。
+\end{theorem}
+\begin{proof}
+命題\ref{prop:intrinsic-center-full-groupoid}は，
+非零方向の全 $\OO$ 保存Abel同値による商を
+$[O^{\mathrm{sat}}/G_2]$ と同定する。
+その $P_0$ 上の表示は $[(O^{\mathrm{sat}})_{P_0}/\Gamma_K]$ である。
+Poisson側も定義節の商表示により，
+滑らかなshadowを与える四次係数空間 $Y_K\subset\operatorname{Sym}^4E$ の
+同じ $\Gamma_K$ による商となる。
+
+中心の完全対称化は，この二つの商の間の $\Theta$ を正確に与える。
+命題\ref{prop:central-presentation-shadow-degree-four}から，商を取る前の射の一般次数は4である。
+$(O^{\mathrm{sat}})_{P_0}$ への制限と $Y_K$ への制限は非空開への制限であり，
+その関数体次数を変えない。
+特に，制御族で得た四つの一般分枝のうち一部だけを，
+共通開を取る操作によって恒等的に取り除くことはできない。
+その所属は系\ref{cor:controlled-center-common-intrinsic-open}でも確認した。
+
+Poisson側の一般安定化群は自明である
+（\cite[命題9.4--9.5]{PoissonDP}，
+および系\ref{cor:stabilizer-preserving-slice-generic-trivial}）。
+補題\ref{lem:generically-free-quotient-preserves-degree}を適用すると，
+全同値で割った商およびその粗空間でも一般次数は4である。
+これで $n-1$ 個の中央一次変数を含む全 $n\ge2$ について結論を得る。
+
+二つの全方向中心選択を用いた場合も，
+補題\ref{lem:global-center-parameter-etale}によって，
+それぞれの係数空間は同じ $\mathcal T$ の稠密開へ写る。
+両像の $G_2$ 飽和の共通開上では，
+中心商とshadowの両方がtautological中心元から得られる同じ構成である。
+従って一般の関数体拡大は一致する。
+特定のパラメータ点で二つの中心元が一致することや，
+二つの有限型開領域全体が同一であることは要求しない。
+\end{proof}
+
+\begin{corollary}[四つの一般逆像と大域的一意性の不存在]
+\label{cor:degree-two-four-sheet-consequences}
+次数2・全 $n\ge2$ について，次が成立する。
+\begin{enumerate}
+\item $N_{n,2}$ のある稠密開 $N^\circ$ 上で，
+      $\overline\Theta^{-1}(N^\circ)\to N^\circ$ は次数4の有限\'{e}tale射となる。
+      その始域は整である。一般のPoisson対象の逆像は，
+      全 $\OO$ 保存Abel同値で区別される四つの対象からなり，それぞれの自己同値群は自明である。
+\item $\Theta$ と $\overline\Theta$ は開埋込みでなく，
+      始域を任意の非空Zariski開へ縮めても開埋込みにならない。
+      これらの射は有理切断を持たない。
+\item いずれの可換点においても，その点を含む始域と終域のZariski開近傍へ制限して
+      比較射を有限またはproperにすることはできない。
+\end{enumerate}
+\end{corollary}
+\begin{proof}
+$\overline\Theta$ は分離的，準有限，\'{e}taleであり，
+前定理から一般次数は4である。
+Zariski主定理による有限射への開埋込みで，余分な境界の像を除けば，
+ある稠密開上で有限となる。その上では既に\'{e}taleなので次数4の有限\'{e}tale射である。
+始域は整な $M^{\mathrm{nc}}_{n,2}$ の非空開である。
+一般安定化群の自明性とスタック・粗空間のCartesian図式から，
+四つの点は記した全同値類を表す。
+
+非空開への制限は関数体次数4を変えない。
+開埋込みなら次数は1となるため，第二項の前半が従う。
+有理切断があれば，次数4の有限体拡大 $L/K$ に対する
+$K$-準同型 $L\to K$ が存在することになり，$[L:K]=1$ を強制する。
+一般点でスタックは粗空間に等しいので，スタックの有理切断も存在しない。
+
+可換零切断の逆像はその零切断自身であり，その上の比較は恒等である。
+従って任意の可換幾何点のファイバーの長さは1である。
+一方，その点を含む上記Zariski開近傍で比較射が有限なら，
+有限\'{e}tale射の階数は整な終域で一定であり，一般次数4に等しくなければならない。
+これは長さ1と矛盾する。
+比較射は表現可能で準有限だから，properなら有限となり，同じ矛盾を得る。
+粗空間の射にも同じ証明を適用できる。
+\end{proof}
+
+この結果は可換点の形式比較を否定しない。
+各可換点に対応する一つの完成局所環では $\Theta$ は同型であり，
+一般の四つの逆像の大域的な配置を一つの完成だけで検出することはできない。
+有限被覆のモノドロミー，開像の明示，零切断に向かう残りの分枝の境界，
+および $\mathfrak U_{n,2}$ の外の全モジュライは別の問題として残る。
+次数1の最高活性係数の次数5に本節の結論を移すには，
+全下位係数とPoisson側の $y$ 平行移動を含む群oidの比較がなお必要である。

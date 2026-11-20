@@ -42,7 +42,7 @@
 \newcommand{\Perf}{\operatorname{Perf}}
 \newcommand{\rank}{\operatorname{rank}}
 \newcommand{\HH}{\operatorname{HH}}
-\newcommand{\Version}{0.14}
+\newcommand{\Version}{0.15}
 \title{次数1・2の非可換del Pezzo多様体\texorpdfstring{\\}{ }構造対象付き変形とモジュライの局所構造}
 \author{}
 \date{2026年11月20日\quad v\Version\quad 公表用研究稿}
@@ -82,8 +82,11 @@ Poissonモジュライへの表現可能でstabilizer preservingな\'{e}tale射�
 古典粗モジュライへの射の平坦locusは，その滑らかなlocusの逆像に一致する。
 次数2では可換零切断のblow-upが滑らかなスタックを与え，例外因子は相対Grassmann多様体，
 discrepancyは $n$ である。
-最高活性部分では，規格化した係数写像の一般次数を次数1で5，次数2で4と計算する。
-Poisson比較射の大域的次数，構成近傍の外側の被覆，全既約成分数は未解決である。
+次数2では規格化中心のtorsorと全同値の商を比較し，
+全 $n\ge2$ でPoisson比較射の一般次数が4であることを証明する。
+従って一般のPoisson対象は構成近傍内に四つの非同値な非可換対象を持ち，この射は開埋込みでない。
+次数1の最高活性係数写像は次数5だが，全比較射の次数は未決定である。
+構成近傍の外側の被覆と全既約成分数も未解決である。
 \end{abstract}
 \clearpage
 \tableofcontents
@@ -354,19 +357,33 @@ $K_{\widetilde{\mathfrak U}}=\rho^*K_{\mathfrak U}+nE$ である
 $n\ge3$ ではこれは特異点解消である。
 Gorenstein性とterminal性は\'{e}tale atlas上の主張であり，粗空間には移さない。
 
-この比較は，有限パラメータに対する実際の射である。
-一方，その関数体次数 $\delta=[K(M^{\mathrm{nc}}_{n,d}):K(N_{n,d})]$ は未決定である。
-$\delta=1$ は $\Theta$ が開埋込みであることと同値だが，
-可換点の形式同型や零切断上の恒等性だけでは導けない
-（命題\ref{prop:poisson-shadow-degree-one-criterion}，
-例\ref{ex:etale-shadow-not-open-immersion}）。
-第\ref{sec:shadow-top-inverse}節では，最高活性部分の二係数写像を厳密に計算する。
-次数1ではPoisson側の $y$ 二次平行移動による正規化後に一般次数5，
-次数2の対称binary quartic族では同じ座標のshadow係数への写像が一般次数4となる
-（命題\ref{prop:degree-one-shadow-top-degree-five}，
-\ref{prop:binary-shadow-generic-degree-four}）。
-これらは指定した係数写像の次数であり，下位係数と全同値の商を含む
-$\delta_{n,d}$ の値や下界を与えたものではない。
+この比較の大域的な多価性は，次数2について次のように決まる。
+\begin{theorem}[次数2の比較の一般次数]
+\label{thm:main-degree-two-shadow-degree}
+全ての $n\ge2$ で
+\[
+ \delta_{n,2}:=[K(M^{\mathrm{nc}}_{n,2}):K(N_{n,2})]=4.
+\]
+Poisson粗モジュライのある稠密開上で，$\overline\Theta$ は次数4の有限\'{e}tale射となる。
+一般のPoisson対象の逆像は，互いに全 $\OO$ 保存Abel同値で結ばれない四つの対象からなる。
+$\Theta$ は開埋込みでなく，非空Zariski開へ縮めても開埋込みにはならない。
+有理切断も存在しない。
+\end{theorem}
+\begin{proof}
+定理\ref{thm:degree-two-shadow-degree-four}と
+系\ref{cor:degree-two-four-sheet-consequences}で証明する。
+\end{proof}
+
+証明では，まず第\ref{sec:shadow-top-inverse}節で二係数の中心式と
+全下位係数の三角復元を計算する。
+次に第\ref{sec:degree-two-shadow-degree}節で，中心関係式そのものを座標とするtorsorを作り，
+有限族のCasimir係数の余分な分枝を全同値群oidで除く。
+一般binary quarticの安定化群と正規形を使って全係数へ移し，
+同じ座標群による商のCartesian図式から次数4を得る。
+可換点の形式同型や零切断上の恒等性はこの一般次数と両立する。
+次数1ではPoisson側の $y$ 二次平行移動で正規化した最高活性係数写像が
+次数5となる（命題\ref{prop:degree-one-shadow-top-degree-five}）が，
+その数値を全比較射の次数 $\delta_{n,1}$ や下界とは同一視しない。
 
 \subsection{先行研究と本稿の範囲}
 Lowenのalgebroidによる全Abel変形の比較\cite[Theorems 3.14, 3.26]{Lowen2008}と、
@@ -437,6 +454,14 @@ Abdelgadir--Okawa--Uedaの三次曲面のコンパクトモジュライ\cite{AOU
 本稿では構造対象一つを残して豊富列の選択を忘れるため、同値関係が異なる。
 Okawa--Uedaの球面helixからのAS正則代数の構成\cite{OkawaUeda2020}も、
 将来の全 $\mathbb Z$-代数型の表示を考える際の基礎となる。
+さらにOkawa--Ueda\cite[Definitions~1.1, 6.1, Theorem~6.4]{OkawaUeda2025}は，
+del Pezzo型のmarked Artin--Schelter曲面を定義し，
+そのquiver potentialのモジュライと，種数1曲線・次数3の二線束・次数1の線束の組の
+モジュライとの双有理対応を証明している。
+同論文のmarkingはvery strong helixを含み，次元は曲面である。
+本稿の $\OO$ だけを標識する全Abel同値，任意 $n\ge2$ の相対族，
+および指定したPoisson shadow射の次数4との比較には，
+helixの選択を忘れる射と二つの幾何的構成の対応を別に検証する必要がある。
 これらの先行研究を、一般次元の全ncモジュライの代数性・成分数の既知の解答とは扱わない。
 多項式環のVeronese自己同型の持上げと根のスカラー核には
 Aitzhanova--Makar-Limanov--Umirbaev\cite[Corollaries~4--5]{AMU2025}の結果がある。
@@ -695,6 +720,7 @@ $(-(n-1))[n]$ と長さ $n+5$（次数1），$n+3$（次数2）のcompact生成�
 \input{sections/separated_coarse_moduli}
 \input{sections/poisson_shadow_comparison}
 \input{sections/shadow_top_inverse}
+\input{sections/degree_two_shadow_degree}
 
 \section{残る大域的なモジュライの問題}
 \label{sec:questions}
@@ -703,6 +729,7 @@ $\mathfrak U_{n,d}\subset\mathfrak M^{\mathcal O}_{n,d}$ を構成し，
 その全点で全Abel Artin普遍性を得た。
 同じ近傍は有限対角を持ち，粗空間は正規Cohen--Macaulayな整な準アフィンスキームとなる。
 一般安定化群は自明であり，Poissonモジュライへのstabilizer preservingな\'{e}tale比較を持つ。
+次数2では，この比較の一般次数は全 $n\ge2$ で4と決定した。
 任意の許容族の反標準環による復元は，全モジュライ問題の対角が
 affine有限表示であることも与える。
 これらを出発点として，次を今後の問題とする。
@@ -717,11 +744,13 @@ affine有限表示であることも与える。
       全対象の有界性と通常の重み付き超曲面表示の存在条件を調べる。
 \item \emph{Poisson比較の次数と像。}
       実際のPoisson構造の復元と\'{e}tale比較 $\Theta$ は構成できた。
-      次はその関数体次数 $\delta$ と開像を決定する。
-      最高活性係数とCasimir係数の逆復元を分け，
-      座標を固定した一意性をPoisson同型類の一意性と混同しない。
+      次数2の一般次数4を踏まえ，その有限被覆のモノドロミー，
+      開像と可換零切断に向かう境界を調べる。
+      次数1では最高活性係数の次数5を，全lower復元とPoisson正規化の座標商へ接続し，
+      $\delta_{n,1}$ を決定する。
       零切断を含む非空開への縮小は関数体次数を変えない。
-      中心元の別の構成に対する比較射の依存性も調べる。
+      次数2の一般点での中心選択は中心torsorで処理したが，
+      各構成が定める開領域の全体の比較はなお必要である。
 \item \emph{粗空間の特異性と安定化群の増大。}
       可換点の局所環の完成は $R_X^{\operatorname{Aut}(X)}$ である。
       一般可換点では符号商として明示できるが，

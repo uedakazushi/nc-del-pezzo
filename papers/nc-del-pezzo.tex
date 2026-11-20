@@ -84,9 +84,14 @@ proper性と相対Serre関手 $(-(n-1))[n]$ を全有限パラメータで証明
 可換楕円型点を含む明示的なAS正則開条件を得る。
 23未知数の中心方程式から，任意lower係数と任意基底変更を許す中心超曲面族を構成し，
 全次元の稠密開の古典Poisson対を半古典極限として実現する。
+有限忠実平坦被覆上で次数1の線束を持つ相対楕円曲線を構成し，
+その偶数Veroneseを用いて強Noether性と積Noether性を証明する。
 さらに二重次数付き対角の有限部分解消と $HH^1(X)=0$ を用い，
-両次数の分離型族と次数2の一般楕円型族は，滑らかな可換点を含む有限型開近傍で
+両次数の分離型族と一般楕円型族は，滑らかな可換点を含む有限型開近傍で
 smooth properとなり，定義した非可換del Pezzoの条件を満たすことを証明する。
+さらに，両次数の独立Poisson方向を同時に含む有限表示のambient族を構成し，
+零切断全体を含む明示的な有限主開集合上で普遍的な次数別平坦性を得る。
+その中心商は全ての一次方向について構成できるが，有限基底全体での中心持上げは未解決である。
 形式的構成、代数的な族、全モジュライの代数性を区別して述べる。
 \end{abstract}
 \tableofcontents
@@ -274,10 +279,16 @@ Stephensonの楕円代数へ移す。
 定理\ref{thm:degree-one-finite-central-family}は，分母が最高次係数だけに依存する
 普遍的に正則な中心商を与え，系\ref{cor:degree-one-elliptic-general-dimension}により
 任意の $n\ge2$ へ拡張する。
+さらに，有限被覆上でpoint curveを解消し，無限遠の切断 $P$ による
+次数1線束 $\mathcal O(P)$ の相対THCRと最高次中心商を同定する。
+定理\ref{thm:degree-one-relative-thcr}と
+系\ref{cor:degree-one-product-noetherian}により，
+次数1でも任意noetherian基底変更後の強Noether性と積Noether性を得る。
+定理\ref{thm:degree-one-relative-tails}は相対tailsと長さ $n+5$ のcompact生成窓を与える。
 
 \subsection{有限型開集合上の非可換del Pezzo族}
 第\ref{sec:finite-smoothness}節の定理\ref{thm:finite-family-smooth-open}は，
-両次数の分離型族と，次数2の一般楕円型族のそれぞれについて，
+両次数の分離型族と一般楕円型族のそれぞれについて，
 滑らかな可換模型を与える点 $s$ の有限型Zariski開近傍 $V$ を構成し，
 \[
  \operatorname{Perf}(\QGr B_V)\quad\text{が相対smooth properである}
@@ -293,10 +304,28 @@ Stephensonの楕円代数へ移す。
 $\mathfrak M^{\OO,\mathrm{hyp}}_{n,d}$ の族となり，
 幾何学的ファイバーのcoherent圏のホモロジー次元は $n$ となる。
 開集合は有限な局所化による存在証明であり，具体的な判別式はまだ計算していない。
-命題\ref{prop:one-parameter-atlas-obstruction}は，現在の共通パラメータ $h$ による族の
+命題\ref{prop:one-parameter-atlas-obstruction}は，これらの共通パラメータ $h$ による中心商族の
 Poisson Kodaira--Spencer像が高々1次元であり，可換点でsmooth atlasにはならないことを示す。
-全ncモジュライのatlasには独立なPoisson方向の同時有限代数化が必要であり，
+全ncモジュライのatlasには独立なPoisson方向の同時中心商族が必要であり，
 これらの構成の包括的な優先権確認も残る。
+
+\subsection{独立Poisson方向の同時ambient代数化}
+第\ref{sec:simultaneous-poisson}節では，次数1の $n$ 個の線型方向，
+次数2のPl\"ucker錐の全座標を直接関係式へ入れる。
+次数1では，Weierstrass最高次代数のAS条件に楕円判別式は不要であることを示し，
+方向 $D$ に対する $(1+A_4(D))(5+A_4(D))\ne0$ を明示する。
+次数2ではMori--Ueyama\cite[Theorem~3.4]{MoriUeyama2019}の三次CY判定から，
+四次式の対称四重線型化と交代形式 $P$ による作用素
+$T_{U,P}(ab)=\widetilde U(P^\flat a,P^\flat b,-,-)$ を用いた
+$g_2(U,P)=\det(1+4T_{U,P})\ne0$ という十分条件を得る。
+$g_2(U,0)=1$ であり，最高次四次式に重根があっても適用できる。
+これにより，両次数で可換係数の零切断全体を含む有限主開集合上の
+普遍的に次数別平坦なambient族を得る
+（定理\ref{thm:simultaneous-degree-one-ambient}，\ref{thm:simultaneous-poisson-ambient}）。
+零切断の一次厚化では古典方程式自体が中心元となり，
+全Poisson接方向の普遍的に正則な中心商を与える。
+同じambient族上の全有限パラメータでの中心元，
+相対tailsと形式的完全性は，この結果からさらに進むべき課題である。
 
 \input{sections/definitions}
 \input{sections/formal_moduli}
@@ -313,7 +342,9 @@ Poisson Kodaira--Spencer像が高々1次元であり，可換点でsmooth atlas�
 \input{sections/elliptic_relative}
 \input{sections/elliptic_degree_one}
 \input{sections/elliptic_degree_one_center}
+\input{sections/elliptic_degree_one_relative}
 \input{sections/finite_smoothness}
+\input{sections/simultaneous_poisson}
 
 \section{大域的なモジュライへ進むための問題}
 \label{sec:questions}
@@ -324,7 +355,7 @@ Poisson Kodaira--Spencer像が高々1次元であり，可換点でsmooth atlas�
 第\ref{sec:finite-auxiliary-quantization}節の分離型族では，
 第\ref{sec:finite-tails}節によりtailsの飽和性，proper性，相対Serre公式まで得られた。
 滑らかな可換点の開近傍では反標準列も豊富になる。
-第\ref{sec:elliptic-relative}節により，一般楕円型族でも
+第\ref{sec:elliptic-relative}節と第\ref{sec:elliptic-degree-one-finite}節により，両次数の一般楕円型族でも
 係数基底上の強Noether性，相対tailsと積のNoether性が得られる。
 両方の族について，第\ref{sec:finite-smoothness}節は滑らかな可換点を含む
 有限開近傍上のsmoothnessと非可換del Pezzo条件を証明した。
@@ -332,9 +363,9 @@ Poisson Kodaira--Spencer像が高々1次元であり，可換点でsmooth atlas�
 より大きい表示族の局所完全性と全 $\OO$ 保存同値による商を調べることである。
 特に命題\ref{prop:one-parameter-atlas-obstruction}の接空間の障害により，
 共通因子 $h$ による表示を越えて独立なPoisson方向を同時に含める必要がある。
-次数1の一般楕円型最高次項については，
-第\ref{sec:elliptic-degree-one-finite}節で有限開集合上のambientと中心商を得た。
-相対曲線表示を構成し，強Noether性と積のNoether性を確認することが次の段階である。
+第\ref{sec:simultaneous-poisson}節では，両次数で独立Poisson方向を含む
+有限型ambient族と全一次中心商まで構成した。
+その同じambient族上での中心元の同時持上げを，次の核心とする。
 半古典極限で稠密なPoisson対を実現することと，全非可換対象を被覆することは異なる。
 有限パラメータの非可換対象から古典Poisson多様体を自然に復元する射も構成していない。
 

@@ -7,8 +7,8 @@ Section 5.2. The normalized h=0 limit is checked with t=h^2.
 """
 from fractions import Fraction as F
 
-# All coefficient rings are polynomial subrings of Q[a,b,c,alpha,beta,t].
-NAMES = ('a', 'b', 'c', 'alpha', 'beta', 't')
+# All coefficient rings are polynomial subrings of Q[a,b,c,d,e,alpha,beta,t].
+NAMES = ('a', 'b', 'c', 'd', 'e', 'alpha', 'beta', 't')
 ZERO = (0,) * len(NAMES)
 def const(value):
     return {ZERO: F(value)} if value else {}
@@ -51,7 +51,7 @@ def comm(p,q):
 def words(*ws):
     return {w:const(1) for w in ws}
 
-a,b,c,alpha,beta,t = (variable(n) for n in NAMES)
+a,b,c,d,e,alpha,beta,t = (variable(n) for n in NAMES)
 a2,b2,c2 = mul(a,a),mul(b,b),mul(c,c)
 r1 = {'yyx':a, 'xyy':a, 'yxy':b, 'xxx':c}
 r2 = {'xxy':a, 'yxx':a, 'xyx':b, 'yyy':c}
@@ -115,7 +115,36 @@ expected=nadd(scale(words('xxxx','yyyy'),mul(const(F(1,4)),alpha)),
               scale(words('xxyy','xyxy','xyyx','yxxy','yxyx','yyxx'),
                     mul(const(F(1,6)),beta)))
 assert {w:mod_t(v) for w,v in omega_xy.items() if mod_t(v)} == expected
+
+# For f=a*u^4+4*b*u^3*v+6*c*u^2*v^2+4*d*u*v^3+e*v^4,
+# the polarized contraction T/t on (u^2,uv,v^2) is the following matrix.
+# Here t=h^2, so det(1+4T)=1-16*I*h^4+128*J*h^6.
+T = ((c,neg(b),a),
+     (mul(const(2),d),mul(const(-2),c),mul(const(2),b)),
+     (e,neg(d),c))
+M = tuple(tuple(add(const(int(i == j)),mul(const(4),t,T[i][j]))
+                for j in range(3)) for i in range(3))
+det_M = add(mul(M[0][0],M[1][1],M[2][2]),
+            mul(M[0][1],M[1][2],M[2][0]),
+            mul(M[0][2],M[1][0],M[2][1]),
+            neg(mul(M[0][2],M[1][1],M[2][0])),
+            neg(mul(M[0][1],M[1][0],M[2][2])),
+            neg(mul(M[0][0],M[1][2],M[2][1])))
+I = add(mul(a,e),mul(const(-4),b,d),mul(const(3),c,c))
+J = add(mul(a,c,e),mul(const(2),b,c,d),
+        neg(mul(a,d,d)),neg(mul(b,b,e)),neg(mul(c,c,c)))
+assert det_M == add(const(1),mul(const(-16),I,t,t),mul(const(128),J,t,t,t))
+# The even quartic used above has a=e=alpha/4, b=d=0, c=beta/6.
+even_I = add(mul(const(F(1,16)),alpha,alpha),mul(const(F(1,12)),beta,beta))
+even_J = add(mul(const(F(1,96)),alpha,alpha,beta),
+             mul(const(F(-1,216)),beta,beta,beta))
+even_det = add(const(1),mul(const(-16),even_I,t,t),
+               mul(const(128),even_J,t,t,t))
+even_a = add(const(1),mul(const(F(2,3)),beta,t))
+assert even_det == mul(add(const(1),mul(const(F(-4,3)),beta,t)),
+                       add(mul(even_a,even_a),neg(mul(alpha,alpha,t,t))))
 print('PASS: nine-term free-algebra certificate for both quartic commutators')
 print('PASS: Sklyanin parameter substitution and eliminated relations')
 print('PASS: C0 identity and polynomial normalized classical limit')
-print('Exact coefficient ring: Q[a,b,c,alpha,beta,t], t=h^2')
+print('PASS: general binary-quartic AS determinant and its even specialization')
+print('Exact coefficient ring: Q[a,b,c,d,e,alpha,beta,t], t=h^2')

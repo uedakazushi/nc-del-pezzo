@@ -2,7 +2,7 @@
 \section{有限パラメータ族の滑らかな開近傍}
 \label{sec:finite-smoothness}
 
-本節では両次数の分離型族と，次数2の一般楕円型族について，
+本節では両次数の分離型族と一般楕円型族について，
 滑らかな可換点を含む有限型開集合上で対角のperfect性を証明する．
 properなdg代数一般についてsmoothnessの開性を仮定するのではなく，
 二重次数付き対角の有限部分解消と，既に得た相対Serre双対を使う．
@@ -11,7 +11,8 @@ $HH^1(X)=0$ と $X\times X$ の有限ホモロジー次元から得る．
 
 以下，$S$ は有限型可換 $\C$-代数とし，$B$ は次のいずれかの全次元の斉次族を
 $S$ へ係数変更したものとする：第\ref{sec:finite-tails}節の次数1・2の分離型族，
-または定理\ref{thm:elliptic-relative-tails}の次数2の楕円型族．
+定理\ref{thm:elliptic-relative-tails}の次数2の楕円型族，
+または定理\ref{thm:degree-one-relative-tails}の次数1の楕円型族．
 後者では，各古典楕円型最高次点について同節で構成した有限開近傍上で作業する．
 lower係数は任意であり，その中央変数への斉次多項式代入も許す．
 $\mathcal Q=\QGr B$ と書き，$S$ の被約性・正則性は仮定しない．
@@ -23,7 +24,7 @@ $r=n-1$，$l=n+5$（次数1），$l=n+3$（次数2）とする．
 \]
 と置く．$C$ は $S$-perfectであり，$C^*=R\!\Hom_S(C,S)$ は
 定理\ref{thm:finite-tails-relative-serre}または
-定理\ref{thm:elliptic-relative-tails}のSerre関手を表す可逆bimoduleである．
+定理\ref{thm:elliptic-relative-tails}，\ref{thm:degree-one-relative-tails}のSerre関手を表す可逆bimoduleである．
 
 \subsection{Serre双対を使った逆向きのHomの有限性}
 
@@ -106,12 +107,12 @@ PBW基底によってこのfiltrationは $S$ 上分裂する．
 $A^{\mathrm{op}}\otimes_S A$ は左右noetherianであり，その商 $R$ も同じである．
 任意のnoetherian係数変更後に同じPBW基底と補助次数を使えるので，分離型について(1)を得る．
 この議論では，この補助次数に関する $\Omega$ の最高記号の形は使っていない．
-楕円型の場合は系\ref{cor:elliptic-product-noetherian}を適用する．
+楕円型の場合は系\ref{cor:elliptic-product-noetherian}，\ref{cor:degree-one-product-noetherian}を適用する．
 これは相対曲線の二重切断環と中央正則元から積代数のnoetherian性を証明する結果であり，
 一般には成り立たない「二つのNoether代数のtensor積もNoether」という推論をしていない．
 
 次に，定理\ref{thm:finite-tails-relative-serre}の証明で用い，
-定理\ref{thm:elliptic-relative-tails}でも確認した
+定理\ref{thm:elliptic-relative-tails}，\ref{thm:degree-one-relative-tails}でも確認した
 左右共通の局所化bimodule $L$ を使う．
 $B$ は $S$-flatなので，$R$ は各因子上flatである．
 従って各因子からのinductionは完全で，その右随伴であるrestrictionはinjectiveを保つ．
@@ -257,7 +258,7 @@ proper性とMorita模型の基底変更は既に証明済みなので最後の�
 \label{cor:finite-family-ncdp-open}
 定理\ref{thm:finite-family-smooth-open}の開近傍を，
 系\ref{cor:finite-periodic-ampleness}または
-定理\ref{thm:elliptic-relative-tails}の反標準豊富性の開近傍と交わらせる．
+定理\ref{thm:elliptic-relative-tails}，\ref{thm:degree-one-relative-tails}の反標準豊富性の開近傍と交わらせる．
 この開集合上の族は
 $\mathfrak M^{\OO,\mathrm{hyp}}_{n,d}$ の族を定める．
 特に，各幾何学的ファイバーのcoherent圏のホモロジー次元はちょうど $n$ で，
@@ -282,12 +283,12 @@ Serre公式から
 $\Ext^n(\mathcal O,\mathcal O(-r))\cong k$ によりホモロジー次元は $n$ である．
 
 相対proper性・基底変更・Serre公式・有向ACMは
-第\ref{sec:finite-tails}節および定理\ref{thm:elliptic-relative-tails}，
+第\ref{sec:finite-tails}節および定理\ref{thm:elliptic-relative-tails}，\ref{thm:degree-one-relative-tails}，
 反標準豊富性は上記の開集合の選択により成り立つ．
 基本シフトとその $r$ 乗による周期も同じ表示から得られる．
 分離型の幾何学的ファイバーのambient AS正則性は
 系\ref{cor:finite-relative-augmentation-ext}で確認した．
-楕円型では定理\ref{thm:elliptic-relative-tails}の相対CY式と
+楕円型では定理\ref{thm:elliptic-relative-tails}，\ref{thm:degree-one-relative-tails}の相対CY式と
 \cite[Lemma 1.2]{RRZ2014}を幾何学的体ファイバーに適用すれば，同じambient AS正則性を得る．
 中心元の普遍的正則性は，各族の構成で証明済みである．
 従って定義\ref{def:nc-dp-stack}および重み付き超曲面部分問題の全条件が成立する．
@@ -300,7 +301,7 @@ $\Ext^n(\mathcal O,\mathcal O(-r))\cong k$ によりホモロジー次元は $n$
 また非正則基底上でcoherentな有界導来圏全体を相対perfect圏と同一視しない．
 有限型の表示族を得たことから，全ての非可換点を被覆するatlasや
 全モジュライの成分数が従うわけでもない．
-次数2の楕円型族で用いたのは，片側の強Noether性だけでなく，
+両次数の楕円型族で用いたのは，片側の強Noether性だけでなく，
 $B^{\mathrm{op}}\otimes_S B$ のnoetherian性である．
 開集合は有限個の行列と有限自由複体から得られるが，その判別式の明示公式はここでは計算していない．
 \end{remark}

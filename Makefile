@@ -8,6 +8,7 @@ verify:
 	python3 computations/verify_cubic_top.py
 	python3 computations/verify_elliptic_curve.py
 	python3 computations/verify_degree_one_top.py
+	python3 computations/verify_degree_one_curve.py
 
 clean:
 	latexmk -C

@@ -46,8 +46,8 @@
 - Mori–Ueyama, *A categorical characterization of quantum projective spaces*, [arXiv:1708.00167v4](https://arxiv.org/abs/1708.00167v4)。Definitions 2.1(5), 2.5, 3.4、Theorem 2.6(2)、Remark 3.5、§1.2を確認。豊富対からのsection環復元とcanonical bimoduleを使う。AS-GorensteinのパラメータだけではNakayama捻りを消せない。
 - [Stacks Project, Tag 0FY3, Lemma 57.3.5](https://stacks.math.columbia.edu/tag/0FY3)：双対構造を持つSerre関手のYoneda一意性。これ自体はAbel同値の全認識を述べる定理ではない。
 - Hong–Xu, *Poisson cohomology of del Pezzo surfaces*, J. Algebra 336 (2011), 378–390、[arXiv:1001.1082v2](https://arxiv.org/abs/1001.1082v2)、Theorem 3.9。5≤r≤8点の吹上げでdim H²_π=r+2、高次は消滅。次数1・2の曲面の10・9という接空間次元を新規結果と扱わない。
-- Etingof–Ginzburg, *Noncommutative del Pezzo surfaces and Calabi–Yau algebras*, JEMS 12 (2010), 1371–1416、DOI 10.4171/JEMS/235、[出版版](https://ems.press/content/serial-article-files/31746)。三変数potentialと中心商によるfiltered量子化・generic半普遍性は先行結果。**Theorem 3.3.2は、正の生成重み `(a,b,c)`、`d=a+b+c`、斉次CY potential `Φ_d`を仮定すれば、任意のlower potential `Φ_<d`に適用できる。** (i)はCY性とHilbert級数、(ii)はfiltration次数d以下の非定数中心元の存在を与える。Proposition 7.3.1(ii)は同じ固定CY topに対するPBW同型 `gr A(Φ_d+Φ_<d)≅A(Φ_d)` を与える。一方、Definition 3.4.3、Lemma 7.1.5、Theorems 3.4.4–3.4.5のgeneric条件は可算個の開条件を伴い、そのまま一つの有限型開集合の主張に置き換えない。本稿の次数2の有限型族では、topのCY性を三次type-A代数の具体的な有限開条件から先に確認し、上の全lowerの定理、被約な普遍係数環での特殊化、活性次数6以下の中心方程式の行列を組み合わせる。低次係数に依存しない分母と任意中央係数への基底変更は本稿の証明である。Proposition 8.1.1(i)の形式中心持上げ自体は孤立特異点を仮定しない。
-- Rains, *Filtered deformations of elliptic algebras*, [arXiv:2107.13540v2](https://arxiv.org/abs/2107.13540v2)。Introと中心拡張の枠組みを確認。次数1の一般楕円型topと、楕円族のfiltered表示を比較する出発点である。全n・全O-markedモジュライの分類としては使わない。
+- Etingof–Ginzburg, *Noncommutative del Pezzo surfaces and Calabi–Yau algebras*, JEMS 12 (2010), 1371–1416、DOI 10.4171/JEMS/235、[出版版](https://ems.press/content/serial-article-files/31746)。三変数potentialと中心商によるfiltered量子化・generic半普遍性は先行結果。**Theorem 3.3.2は、正の生成重み `(a,b,c)`、`d=a+b+c`、斉次CY potential `Φ_d`を仮定すれば、任意のlower potential `Φ_<d`に適用できる。** (i)はCY性とHilbert級数、(ii)はfiltration次数d以下の非定数中心元の存在を与える。Proposition 7.3.1(ii)は同じ固定CY topに対するPBW同型 `gr A(Φ_d+Φ_<d)≅A(Φ_d)` を与える。一方、Definition 3.4.3、Lemma 7.1.5、Theorems 3.4.4–3.4.5のgeneric条件は可算個の開条件を伴い、そのまま一つの有限型開集合の主張に置き換えない。本稿の有限型族では、次数2の三次type-A代数、次数1のStephenson代数の具体的な有限開条件からtopのCY性を先に確認し、上の全lowerの定理、被約な普遍係数環での特殊化、活性次数6以下/9以下の中心方程式を組み合わせる。低次係数に依存しない分母と任意中央係数への基底変更は本稿の証明である。Proposition 8.1.1(i)の形式中心持上げ自体は孤立特異点を仮定しない。
+- Rains, *Filtered deformations of elliptic algebras*, [arXiv:2107.13540v2](https://arxiv.org/abs/2107.13540v2)。Introに加え、Propositions 2.2–2.3、Theorems 2.12–2.13、Example 3.1を確認。固定された有限表示graded代数のfiltered変形の代数性と、楕円THCRのfiltered表示を扱う。Theorem 2.13の中心持上げにはtorsion translationの仮定があり、未確認のtop全体や本稿の全方向ambientの中心へ無条件に適用しない。全n・全O-markedモジュライの分類としては使わない。
 - Abdelgadir–Okawa–Ueda, *Compact moduli of marked noncommutative cubic surfaces*, [arXiv:2404.00175](https://arxiv.org/abs/2404.00175)。Introとquiver markingを確認。例外集合に対応するquiver関係のGITモジュライであり、本研究のOのみを残す同値関係とは異なる。
 - Okawa–Ueda, *AS-regular algebras from acyclic spherical helices*, [arXiv:2007.07620](https://arxiv.org/abs/2007.07620)。球面helixからの構成を比較した。一般次元での表示を検討する基礎であり、本稿で全変形のAS包絡存在を結論する根拠には用いていない。
 
@@ -110,20 +110,28 @@ Stephenson, *Algebras associated to elliptic curves*, Trans. AMS 349 (1997), no.
 - 積のNoether性は `lem:elliptic-bisection-noetherian` で別に証明する。二曲線の積上の二重切断環について、右イデアルの評価像を高い象限で安定させ、上の一様消滅で有限生成を得る。残る有限幅の行・列は各因子のNoether性で扱う。評価元の係数加群のflat性やイデアルのsaturationは仮定せず、導来projection formulaと両包含を使う。二つの普遍的に正則な中心元とfiltered PBWを経て、全n・全noetherian基底変更で `A^op⊗A` と `B^op⊗B` のNoether性を得る（`cor:elliptic-product-noetherian`）。片側の強Noether性だけから非可換tensor積のNoether性を推論しない。
 - 上記のσ-ampleness/Noether原理や体上のSklyanin表示自体は既知である。本稿の可換極限を含む有限な開近傍、任意基底変更、二重切断環、中央多項式係数、全nの相対tailsへの適用という組合せの優先権は未確認。曲線表示は活性最高次商のものであり、n次元tails全体が曲線のcoherent圏になるとは主張しない。
 
+次数1ではStephensonの §2.1、式(2.1.9)、§3の次数1線束の幾何を使う。本稿では有限被覆上で二重対角線を解消し、無限遠の切断P・QとσQ=Pから `L=O(P)` を構成する。次数1〜4の全射性と次数2線束の評価列から全次数生成、一般点のσ⁶≠idと階数比較から中心商の相対THCR同定を得る。強Noether性は上記Keelerの定理から、積は偶数Veroneseと次数2の二重切断環から得る。悪い閉集合の固有像・有限像による縮小と、有限忠実平坦降下を明記した。Stephensonの体上の幾何を相対定理と読み替えただけではない。
+
 ### 5.5. 滑らかな有限開近傍とatlasの接空間障害
 
-`finite_smoothness.tex` の `thm:finite-family-smooth-open` は、次数1・2の分離型族と次数2の一般楕円型族の全n≥2を扱う。各構成族の中で全斉次式が滑らかな可換del Pezzo模型を与える任意の点について、smooth properな有限型Zariski開近傍を証明する。楕円型では各古典楕円型topの有限開近傍が前提であり、任意の非零hや任意のlower係数でsmoothであるとは主張しない。
+`finite_smoothness.tex` の `thm:finite-family-smooth-open` は、次数1・2の分離型族と一般楕円型族の全n≥2を扱う。各構成族の中で全斉次式が滑らかな可換del Pezzo模型を与える任意の点について、smooth properな有限型Zariski開近傍を証明する。楕円型では各古典楕円型topの有限開近傍が前提であり、任意の非零hや任意のlower係数でsmoothであるとは主張しない。
 
 証明は、Noetherな二重次数付き積上の平坦な対角、その有限部分解消、相対Serre双対による逆向きのHom複体のperfect性を用いる。特殊ファイバーの `HH¹(X)=0` と `X×X` の有限ホモロジー次元から得る射を、有限自由複体の消去によって開近傍へ持ち上げ、対角をcompact対象の直和因子にする。properなdg代数一般についてsmoothnessの開性を引用したものではない。反標準列の豊富性の開条件と交わらせると、任意の許されるnoetherian基底変更で非可換del Pezzo条件が成り立つ。幾何学的ファイバーのcoherent圏のホモロジー次元はnで、その有界導来圏はcompact圏と一致する（`cor:finite-family-ncdp-open`）。非正則基底上の全有界coherent導来圏までこの一致を拡張しない。
 
 一方、`prop:one-parameter-atlas-obstruction` は、現在の表示族のPoisson成分のKodaira–Spencer階数がh=0で高々1であることを示す。全変形のPoisson接空間次元は次数1でn、次数2でbinom(n+1,2)なので、全n≥2で接写像が不足する。係数や座標枠を動かしても共通因子hのため一次のPoisson方向は増えず、これらの族は可換点で形式的にsmoothではない。半古典方向を稠密に実現することとsmooth atlasを与えることを区別する。
 
+### 5.6. 全方向を含む同時ambient族
+
+Mori–Ueyama, *The classification of 3-dimensional noetherian cubic Calabi–Yau algebras*, J. Pure Appl. Algebra 223 (2019), no.5, 1946–1965、DOI 10.1016/j.jpaa.2018.08.009。[arXiv:1606.00183v3](https://arxiv.org/abs/1606.00183v3) のTheorem 3.4を一次資料で確認した。二生成元四次cyclic tensorの二つの一次端点微分が独立で、二階端点微分の四成分の共通零点がP¹×P¹にないことが3-CYの必要十分条件である。この有限次元の条件を、properな射の閉像の補集合として使う。曲線の滑らかさやbinary quarticの判別式非零は要求しない。
+
+本稿はこの判定から、四次式の偏極と交代形式Pを縮約する作用素 `T_(U,P)(ab)=Ũ(P♭a,P♭b,−,−)` による明示的十分条件 `g₂=det(1+4T)≠0` を得る。g₂(U,0)=1なので、全四次係数の零切断を含む有限主開である。活性binary quarticでは `g₂=1−16Ih⁴+128Jh⁶` となる。次数1ではStephensonの例外点と分離型Ore拡大によりΔ条件をambientから除き、`(1+A₄(D))(5+A₄(D))≠0` を得る。これらはambientの正則性の十分条件であり、相対楕円曲線の構成には別に楕円判別式が必要である。両次数とも全体ファイバーのHilbert関数を固定してから、被約普遍係数環の関係行列で任意基底変更の平坦性を証明する。一次中心商まで構成したが、全有限基底での中心元・tails・atlasは未解決である。この同時構成の新規性・先行する全方向量子化との一致は未確認。
+
 ## 6. 公表前に残る研究・文献上の課題
 
 優先順位の高い比較・調査は次の五点である。
 
-1. **次数1の相対楕円構成。** 一般topの有限AS開・相対CY・規格化中心商はStephensonとEtingof–Ginzburgの一次定理を使って証明した。相対point curve・次数1線束・強Noether性を明示し、Rainsのfiltered変形の結果との範囲を比較する。次数2の三次Sklyanin曲線と次数1の線束を同一視しない。
-2. **独立Poisson方向の同時有限代数化。** 一つの共通因子hを持つ表示の接空間障害を解消する有限型模型を構成する。全Artin形式環の同定と、固定Poisson方向の有限族の存在だけではこの模型は得られない。
+1. **同時ambientの中心元。** 両次数の有限型ambient族と全一次中心商は得た。同じ代数上の全高次の中心方程式を、既存の形式中心持上げ・filtered楕円代数の結果と比較し、零切断を含む有限解を構成する。
+2. **全方向の相対tailsと局所完全性。** 一方向族で得た強/積Noether性・Serre・smoothnessを、同時中心商の構成後に拡張する。全Artin形式環と全一次接方向の一致だけでatlasを結論しない。
 3. **滑らかな開集合の明示。** 得られた有限部分対角解消とHom複体から、具体的な係数の非消滅条件を計算する。開近傍の存在証明と、その判別式の明示は異なる状態である。
 4. **全O同値と大域モジュライ。** 有限表示族から一般nc点の全同値の商、全モジュライの有限型atlas、可換locusに接しない成分へ進む。Toën–Vaquiéの固定dg圏の対象モジュライを、可変な全O-marked圏のモジュライと同一視しない。
 5. **相対楕円構成と新規性。** 解消point curve、相対THCR、二重切断環による積Noether性、smoothnessの有限開近傍を、既存の楕円代数・filtered変形・変形圏の相対理論に比較する。中心増大層を含む適用範囲と、各主張の優先権を確認する。

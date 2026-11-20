@@ -1,0 +1,543 @@
+% !TeX root = ../nc-del-pezzo.tex
+% 2026-11-20 JST / v0.7
+\section{独立Poisson方向を含む有限型ambient族}
+\label{sec:simultaneous-poisson}
+
+本節では一つの共通因子 $h$ を使わず，次数1の全線型方向と
+次数2のPl\"ucker錐の全座標を関係式の係数として用いる。
+全ての可換点を含む一つの有限型開集合上で，通常の次数付きambient代数の
+有限表示と普遍的平坦性を証明する。
+この段階の結論はambientについてのものであり，有限パラメータにおける
+中心超曲面商，係数基底上の強Noether性，相対smoothnessや
+全Abel変形に対するatlasは含まない。
+
+\subsection{次数2における座標を分離しない関係式}
+
+$E$ を基底 $x_0,\ldots,x_n$ を持つ $(n+1)$ 次元複素ベクトル空間とする。
+$\mathcal F=\Sym^4E$ は四次多項式 $U$ の係数空間であり，
+\[
+ \mathcal C=\Spec\mathbb C[p_{ij}\mid 0\le i<j\le n]/(q_{ijk\ell})
+       \subset\bigwedge^2E^*
+\]
+をrankが高々2の交代形式のPl\"ucker錐とする。
+$p_{ji}=-p_{ij}$，$p_{ii}=0$ と定め，普遍交代形式を $P$ と書く。
+$\mathcal F\times\mathcal C$ は被約な有限型アフィンスキームである。
+以下 $U$ の係数と $p_{ij}$ の内部次数は0とする。
+
+$\operatorname{Sym}:\Sym E\to T(E)$ は完全対称化である。
+$S_0=\mathcal O(\mathcal F\times\mathcal C)$ 上の代数を
+\begin{equation}\label{eq:simultaneous-ambient-relations}
+ A_{U,P}=
+ S_0\langle x_0,\ldots,x_n,z\rangle\Big/
+ \left(
+ [x_i,x_j]-p_{ij}z,\quad
+ [x_i,z]+\sum_jp_{ij}\operatorname{Sym}(\partial_{x_j}U)
+ \right)
+\end{equation}
+で定める。生成元の重みは $\deg x_i=1$，$\deg z=2$ である。
+関係式はそれぞれ内部次数2と3の斉次式で，係数は有限個の多項式である。
+この表示は任意の可換係数環への基底変更と両立する。
+
+\begin{lemma}[座標変換と非零方向での表示]
+\label{lem:simultaneous-coordinate-free}
+表示\eqref{eq:simultaneous-ambient-relations}は $\operatorname{GL}(E)$ と両立する。
+複素点 $(U,P)$ において $P\ne0$ なら，$K=\ker(P:E\to E^*)$ は
+$A_{U,P}$ の中央な次数1の元からなる部分空間であり，$\dim K=n-1$ である。
+$K$ の基底 $s_1,\ldots,s_{n-1}$ と補空間の基底 $u,v$ を取り，
+$h=P(u,v)\ne0$ と置けば，代数は
+\begin{equation}\label{eq:simultaneous-active-presentation}
+ \mathbb C[s_1,\ldots,s_{n-1}]\langle u,v,z\rangle/
+ \bigl([u,v]-hz,\ [v,z]-h\partial_u\operatorname{Sym}U,
+                 [z,u]-h\partial_v\operatorname{Sym}U\bigr)
+\end{equation}
+となる。ここでは中央変数 $s_i$ を係数として完全対称化し，
+$\partial_u,\partial_v$ は巡回微分である。
+$P=0$ のファイバーは $\mathbb C[x_0,\ldots,x_n,z]$ である。
+\end{lemma}
+\begin{proof}
+$a,b\in E$ に対する関係式は，基底を使わず
+\[
+ [a,b]=P(a,b)z,\qquad
+ [a,z]=-\operatorname{Sym}(\partial_{P(a,-)}U)
+\]
+と書ける。右辺の $\partial_{P(a,-)}$ は線型汎関数
+$P(a,-)\in E^*$ に対応する可換多項式環の導分である。
+完全対称化は線型座標変換と可換するから，この表示は自然である。
+$a\in K$ なら両右辺が零となり，$a$ は全生成元と可換する。
+非零Pl\"ucker形式のrankは2なので，残りの主張は基底変換による。
+中央変数を含む単項式の完全対称化は，中央変数を外へ出した
+活性変数 $u,v$ の完全対称化に一致する。
+また，対称化した巡回語の巡回微分は，可換微分の完全対称化に等しい。
+\end{proof}
+
+\subsection{重根を許す最高次AS開集合}
+
+以下では四次式に重根があってもよい。
+二生成元の巡回potential
+\begin{equation}\label{eq:simultaneous-cubic-potential}
+ W_{h,f}=u^2v^2-uvuv+h^2\operatorname{Sym}(f),
+ \qquad f\in\mathbb C[u,v]_4
+\end{equation}
+を考える。巡回語を巡回平均によって $\langle u,v\rangle^{\otimes4}$ に
+持ち上げたものを $w_{h,f}$ と書く。
+
+\begin{lemma}[全可換最高次点を含む正則開集合]
+\label{lem:all-binary-quartic-as-open}
+$(f,h)$ の有限型係数空間には，$h=0$ の全点を含む
+$\operatorname{GL}_2$ と両立するZariski開集合 $\mathcal U_{\mathrm{CY}}$ があり，
+その全複素点で $J(W_{h,f})$ は3次元Noetherな三次Calabi--Yau代数である。
+対応する三生成元最高次代数
+\[
+ \mathbb C\langle u,v,z\rangle/
+ ([u,v]-hz,\ [v,z]-h\operatorname{Sym}(f_u),
+                 [z,u]-h\operatorname{Sym}(f_v))
+\]
+は $h=0$ も含めて3次元AS正則であり，Hilbert級数は
+$((1-t)^2(1-t^2))^{-1}$ である。
+\end{lemma}
+\begin{proof}
+Mori--Ueyama\cite[Theorem~3.4]{MoriUeyama2019}によれば，
+$J(w)$ が3次元Calabi--Yauとなるための必要十分条件は，
+二つの一次端点微分が線型独立であり，二階端点微分を並べた
+$2\times2$ 行列 $M(w)$ の全成分の共通零点が
+$\mathbb P^1\times\mathbb P^1$ に存在しないことである。
+端点微分は巡回平均したtensorの最初，または最後の文字を除く微分であり，
+通常の巡回微分とは非零定数倍だけ異なる。
+線型従属性は有限行列の小行列式で定義される閉条件である。
+後者の失敗も，相対的な $\mathbb P^1\times\mathbb P^1$ 内の閉集合の
+properな射影像として閉集合を定める。
+その和の補集合を $\mathcal U_{\mathrm{CY}}$ とする。
+
+$h=0$ ではpotentialは $W_0=u^2v^2-uvuv$ であり，
+二つの巡回微分は
+\[
+ uv^2+v^2u-2vuv,\qquad vu^2+u^2v-2uvu
+\]
+である。これらは線型独立である。
+$M(w_0)$ を非零定数倍して二重線型化すると
+\[
+ \begin{pmatrix}
+ v_1v_2&u_1v_2-2v_1u_2\\
+ v_1u_2-2u_1v_2&u_1u_2
+ \end{pmatrix}.
+\]
+対角成分がともに零なら，二つの射影点が有効であることから
+$u_1=v_2=0$ または $v_1=u_2=0$ となる。
+各場合に非対角成分の一つが非零なので，共通零点は存在しない。
+従って $f$ の重根の有無にかかわらず，全ての $h=0$ が開集合に属する。
+Noether性と標準Hilbert級数は同論文の三次AS正則代数の結果による。
+
+$h\ne0$ では $z=h^{-1}[u,v]$ を消去すると，
+三生成元代数は文字通り $J(W_{h,f})$ と同型になる。
+potential複体内の $z$ とその関係の可縮対も消去できるので，
+三生成元potentialはCY-potentialである。
+これは補題\ref{lem:elliptic-top-relative-cy}と同じ消去である。
+$h=0$ では三生成元表示は可換多項式環となる。
+このファイバーで $z$ の消去は行わない。
+最後に，活性基底を $g\in\operatorname{GL}_2$ で変えると
+$h$ は $\det(g)h$ となり，$W_{h,f}$ は座標変換後の
+potentialの $\det(g)^2$ 倍となる。
+上の二条件はこの変換で保たれる。
+\end{proof}
+
+四次式の判別式を可逆化せず，前補題の十分条件を
+全生成空間 $E$ 上の一つの行列式で与えられる。
+$U\in\Sym^4E$ の対称四重線型化を
+$\widetilde U:(E^*)^4\to\mathbb C$ とし，
+$\widetilde U(\xi,\xi,\xi,\xi)=U(\xi)$ と規格化する。
+$P^\flat(a)=P(a,-)$ と置く。
+対称な双線型式
+\begin{equation}\label{eq:simultaneous-quartic-operator}
+ T_{U,P}:\Sym^2E\longrightarrow\Sym^2E,\qquad
+ T_{U,P}(ab)=\widetilde U(P^\flat a,P^\flat b,-,-)
+\end{equation}
+は自然な線型作用素を定める。
+右辺は二つの残った双対変数に関する二次式として $\Sym^2E$ の元と見る。
+
+\begin{lemma}[明示的な行列式によるAS十分条件]
+\label{lem:simultaneous-explicit-as-determinant}
+\begin{equation}\label{eq:simultaneous-degree-two-open}
+ g_2(U,P)=\det(1+4T_{U,P})
+\end{equation}
+は $\operatorname{GL}(E)$-不変な係数多項式で，
+$g_2(U,0)=1$ である。
+非零rank2形式 $P$ に対し $K=\ker P$ と置くと，
+$T_{U,P}$ は $K\cdot E\subset\Sym^2E$ を零に送り，
+その商 $\Sym^2(E/K)$ 上の作用素を $\overline T$ と書けば
+\[
+ g_2(U,P)=\det(1+4\overline T).
+\]
+$g_2(U,P)\ne0$ なら，商 $E/K$ の四次式を活性最高次項に持つ
+三生成元potentialはCYである。
+従って $g_2\ne0$ は，最高次四次式の重根も許す有限AS開条件である。
+\end{lemma}
+\begin{proof}
+作用素はtensorの縮約だけで定義されるので，座標変換により共役される。
+係数の多項式性と $g_2(U,0)=1$ も明らかである。
+$P^\flat K=0$ だから $T_{U,P}(K\cdot E)=0$ であり，
+$\Sym^2E$ のこの部分空間に適合する基底で $1+4T$ は
+対角ブロックが $1$ と $1+4\overline T$ の三角行列になる。
+商作用素は，$f=U\bmod K\in\Sym^4(E/K)$ と
+$P$ が誘導する交代形式によって\eqref{eq:simultaneous-quartic-operator}を
+構成したものに等しい。
+
+従って $E=\langle u,v\rangle$ の場合を考えればよい。
+$P(u,v)=h$ とし，$w$ を\eqref{eq:simultaneous-cubic-potential}の巡回平均とする。
+まず二つの端点微分は，全ての $f,h$ で線型独立である。
+仮に非零な線型結合が零なら，基底変換後に最初の文字 $u$ による
+端点微分を零とできる。
+このとき $w$ の全ての語は最初の文字が $v$ であり，
+巡回不変性から全ての文字が $v$ でなければならない。
+従って $w$ は $v^4$ の定数倍となり，完全対称tensorになる。
+一方，$w_0$ の $uuvv$ と $uvuv$ の係数はそれぞれ $1/4$ と $-1/2$ なので，
+$w_0$ は完全対称ではない。
+完全対称tensorの部分空間は基底変換で保たれ，
+$h^2\operatorname{Sym}(f)$ を加えてもその商での $w_0$ の非零類は変わらない。
+これは矛盾である。
+
+$M(w)$ の二重線型化を評価する二つの射影点を
+$p=(u_1,v_1)$，$q=(u_2,v_2)$ とする。
+完全対称部分の行列は対称なので，$4M(w)$ の非対角成分の差は
+\[
+ 3(u_1v_2-v_1u_2)
+\]
+である。従って全成分の共通零点が存在すれば $p=q$ であり，
+代表を $p=(r,s)$ に揃えられる。
+この対角上では
+\[
+ 4M(w)(p,p)=
+ \begin{pmatrix}s^2&-rs\\-rs&r^2\end{pmatrix}
+       +\frac{h^2}{3}\operatorname{Hess}_f(p).
+\]
+ここでHessianは通常の可換二階微分である。
+$a=su-rv\in E$ と置くと $P^\flat a=hp$ であり，
+\[
+ T_{f,P}(a^2)=h^2\widetilde f(p,p,-,-)
+             =\frac{h^2}{12}\operatorname{Hess}_f(p).
+\]
+従って上の対称行列は，$\Sym^2E$ の元として
+$(1+4T_{f,P})(a^2)$ に一致する。
+$p\ne0$ なので $a^2\ne0$ であり，$g_2\ne0$ の下では零にならない。
+Mori--Ueyamaの二条件を満たすため，前補題の結論を得る。
+\end{proof}
+
+一般のbinary quarticを
+\[
+ f=a u^4+4b u^3v+6c u^2v^2+4d uv^3+e v^4
+\]
+と書くと，基底 $(u^2,uv,v^2)$ 上で
+\[
+ T=h^2\begin{pmatrix}
+ c&-b&a\\2d&-2c&2b\\e&-d&c
+ \end{pmatrix}.
+\]
+従って，標準的なbinary quartic不変量の規格化を
+\[
+ I=ae-4bd+3c^2,\qquad
+ J=ace+2bcd-ad^2-b^2e-c^3
+\]
+とすると，直接の行列式計算から
+\begin{equation}\label{eq:simultaneous-binary-invariant-open}
+ g_2=1-16Ih^4+128Jh^6
+\end{equation}
+を得る。
+例えば $f=\alpha(u^4+v^4)/4+\beta u^2v^2$ の場合，
+基底 $(u^2,uv,v^2)$ に関する $1+4T$ は
+\[
+ \begin{pmatrix}
+ 1+\frac23\beta h^2&0&\alpha h^2\\
+ 0&1-\frac43\beta h^2&0\\
+ \alpha h^2&0&1+\frac23\beta h^2
+ \end{pmatrix}
+\]
+であり，十分条件は具体的に
+\begin{equation}\label{eq:simultaneous-even-quartic-determinant}
+ g_2=\left(1-\frac43\beta h^2\right)
+       \left(\left(1+\frac23\beta h^2\right)^2-\alpha^2h^4\right)\ne0
+\end{equation}
+となる。これは十分条件であり，非零となることをAS正則性の必要条件とは主張しない。
+
+\begin{theorem}[次数2の全Pl\"ucker方向の有限型平坦ambient族]
+\label{thm:simultaneous-poisson-ambient}
+\eqref{eq:simultaneous-degree-two-open}の明示的な多項式 $g_2$ に対し，
+$S=S_0[g_2^{-1}]$ 上の\eqref{eq:simultaneous-ambient-relations}は，
+各内部次数で有限局所自由な有限表示代数となる。
+任意の可換 $S$-代数への基底変更に対して同じ表示と平坦性が成立し，
+次数別の階数は
+\[
+ H_A(t)=\frac1{(1-t)^{n+1}(1-t^2)}
+\]
+の係数である。
+特に開集合 $\Spec S$ は，四次式の係数空間の全零切断
+$\mathcal F\times\{0\}$ を含む。
+ここで四次式に対する滑らかさや一般性は仮定しない。
+\end{theorem}
+\begin{proof}
+\emph{全複素ファイバーのHilbert級数。}
+$P=0$ は補題\ref{lem:simultaneous-coordinate-free}から従う。
+$P\ne0$ では同補題の活性表示を使う。
+商 $E/\ker P$ の四次式が活性最高次項となり，
+補題\ref{lem:simultaneous-explicit-as-determinant}によってそのpotentialはCYである。
+全てのlower potentialについてEtingof--Ginzburgの
+Proposition~7.3.1(ii)\cite{EG2010}を適用できる。
+中央変数を係数にする段階を明記する。
+最高次パラメータを固定し，まず各 $u^iv^j$，$i+j\le3$ の係数を
+独立な中央変数 $c_{ij}$ とする。
+最高次代数の各次数の基底を同じ次数の語の線型結合で持ち上げると，
+最高次数を下げる帰納法により，これらは各有限filtration部分を生成する。
+これらの間の多項式係数の関係は，$c_{ij}$ の全複素特殊化で
+固定topのPBW定理により零となる。
+被約な多項式係数環上で係数も零となるため，各filtration部分はこの基底を持つ。
+従って任意の中央係数への基底変更にもPBW同型が保たれる。
+これは補題\ref{lem:elliptic-universal-lower-pbw}の証明で用いた議論であり，
+最高次式を偶四次式に限定する必要はない。
+
+ここで $c_{ij}$ に $s_1,\ldots,s_{n-1}$ の次数 $4-i-j$ の多項式を代入する。
+活性次数 $d$ の基底語は全内部次数でも $d$ であるから，
+結果は次数付き $\mathbb C[s_1,\ldots,s_{n-1}]$-加群として，
+最高次代数の次数別基底を持つ自由加群となる。
+従ってHilbert級数は
+\[
+ \frac1{(1-t)^{n-1}}\cdot\frac1{(1-t)^2(1-t^2)}
+\]
+であり，$P=0$ と一致する。
+
+\emph{普遍的平坦性。}
+各 $A_m$ は有限個の重み付き語と，それらの次数以内の関係式による
+有限表示 $S$-加群である。
+上で全閉点のファイバー次元が同じであることを証明した。
+$S$ は被約な有限型 $\mathbb C$-代数なので，その関係行列の階数を超える
+小行列式は恒等的に零である。
+所要階数の非零小行列式の開集合上で行列を消去すると，残る行列は零であり，
+$A_m$ は有限自由となる。
+これらの開集合は全閉点，従って $\Spec S$ を被覆する。
+各 $A_m$ は有限局所自由である。
+その基底変更は普遍関係式の基底変更に一致するので，
+非被約環を含む任意の $S$-代数上で同じ階数と平坦性が保たれる。
+この最後の主張では，非零rank2形式の基底を非被約環上で選ぶ必要はない。
+\end{proof}
+
+\subsection{次数1の全線型方向と明示的な正則開集合}
+
+次数1については，楕円判別式を除いたAS開条件そのものが
+方向の座標を使わずに記述できる。
+まず第\ref{sec:elliptic-degree-one-finite}節で用いた
+Weierstrass最高次項について，AS正則性の仮定を広げる。
+
+\begin{lemma}[特異なWeierstrass最高次項も含むAS開集合]
+\label{lem:degree-one-all-top-as-open}
+\[
+ T_1=\mathbb C[\alpha,\beta,h,D_1^{-1}],\qquad
+ D_1=(1+\alpha h^4)(5+\alpha h^4)
+\]
+と置く。potential
+\[
+ \Phi=xyz-yxz-h\left(\frac12z^2+\frac13y^3+
+                       \alpha x^4y+\beta x^6\right)
+\]
+の代数は，各内部次数で有限局所自由な $T_1$-代数であり，
+相対的な3-Calabi--Yau代数である。
+Hilbert級数は $((1-t)(1-t^2)(1-t^3))^{-1}$ で，
+これらの主張は任意の係数変更に両立する。
+全複素ファイバーはAS正則Noether整域である。
+ここでは $\Delta=4\alpha^3+9\beta^2\ne0$ を仮定しない。
+\end{lemma}
+\begin{proof}
+まず複素点で示す。$h=0$ では重み付き多項式環である。
+$h\ne0$ かつ $(\alpha,\beta)\ne(0,0)$ なら，
+$k^2=-\alpha$ の根の少なくとも一つに対し
+$6\beta-4k^3\ne0$ である。
+実際 $\alpha\ne0$ の場合に両方の符号で零なら
+$\beta=k=0$ となり矛盾し，$\alpha=0$ の場合は $\beta\ne0$ である。
+その根を取り，$\rho^3=6\beta-4k^3$ の非零根を選ぶ。
+補題\ref{lem:degree-one-stephenson-normal-form}の計算は
+$\rho\ne0$ だけを使うので，$\Delta=0$ の点でも同じ変数変換を行える。
+得られるStephensonのパラメータは
+\[
+ a=1+kh^2,\quad b=\rho h^2,\quad c=-2,
+ \qquad a(a+c)(c^2-ac-a^2)=-D_1\ne0.
+\]
+従ってStephenson\cite[Theorem~1.1]{Stephenson1997}のAS正則開集合に入り，
+補題\ref{lem:degree-one-elliptic-top-relative-cy}のpotential複体も完全となる。
+これは複素点ごとの根の選択であり，$\Delta=0$ の上で
+補題\ref{lem:degree-one-stephenson-normal-form}の有限被覆全体を
+可逆な座標変換に使っているわけではない。
+
+残る $(\alpha,\beta)=(0,0)$ では
+\[
+ [x,y]=hz,\quad [y,z]=0,\quad [z,x]=hy^2.
+\]
+これは $\mathbb C[y,z][x;\delta]$，
+$\delta(y)=hz$，$\delta(z)=-hy^2$ というOre拡大であり，
+重み付きPBW基底を持つAS正則Noether整域である。
+potentialのCY性は第\ref{sec:finite-auxiliary-quantization}節の分離型
+$P(x)=0$，$Q(y)=y^3/3$ の場合にも含まれる。
+よって全複素ファイバーで標準Hilbert級数とpotential複体の完全性を得た。
+
+$T_1$ は被約有限型なので，一定階数の有限関係行列から
+各内部次数の有限局所自由性が従う。
+potential対角複体の各内部次数は有限射影加群の有界複体であり，
+全閉点で完全だから局所的に分裂完全である。
+Hessianの自己双対性と合わせ，
+補題\ref{lem:degree-one-elliptic-top-relative-cy}と同じ証明により
+相対CY性と任意基底変更との両立を得る。
+\end{proof}
+
+ここからは $E$ を基底 $x_1,\ldots,x_n$ を持つ $n$ 次元空間とし，
+$A_4\in\Sym^4E$，$A_6\in\Sym^6E$，$D\in E^*$ を独立なパラメータとする。
+$D_i=D(x_i)$ と置き，同じ記号 $D$ で多項式環の定数係数導分
+$\sum_iD_i\partial_{x_i}$ を表す。
+$A_4(D)$ は四次tensor $A_4$ と $D^{\otimes4}$ の縮約である。
+
+\begin{theorem}[次数1の全線型方向の有限型平坦ambient族]
+\label{thm:simultaneous-degree-one-ambient}
+全係数空間
+\[
+ \mathcal F_1\times E^*
+   =(\Sym^4E\times\Sym^6E)\times E^*
+\]
+上で，次の有限個の斉次関係式を考える。
+\begin{equation}\label{eq:simultaneous-degree-one-relations}
+ \begin{gathered}
+ [x_i,x_j]=0,\qquad [x_i,y]=D_i z,\\
+ [z,x_i]=D_i(y^2+A_4(x)),\\
+ [y,z]=\operatorname{Sym}\bigl((D A_4(x))y\bigr)+D A_6(x),
+ \qquad \deg(x_i,y,z)=(1,2,3).
+ \end{gathered}
+\end{equation}
+ここで完全対称化は $x_i,y$ について行う。
+明示的な主開集合
+\begin{equation}\label{eq:simultaneous-degree-one-open}
+ (1+A_4(D))(5+A_4(D))\ne0
+\end{equation}
+上では，この代数 $A_1$ は次数ごとに有限局所自由であり，
+任意基底変更後も
+\[
+ H_{A_1}(t)=\frac1{(1-t)^n(1-t^2)(1-t^3)}
+\]
+を持つ。この開集合は $D=0$ の全係数点を含む。
+関係式と開条件は $\operatorname{GL}(E)$ と両立する。
+\end{theorem}
+\begin{proof}
+自然な導分とtensorの縮約を用いているので，座標変換との両立は直接従う。
+$D=0$ のファイバーは可換多項式環である。
+$D\ne0$ の複素点では，$\ker D$ の基底 $s_1,\ldots,s_{n-1}$ と
+補空間の基底 $u$ を取り，$h=D(u)\ne0$ と置く。
+表示関係式から全ての $s_i$ が中央となる。
+残る関係式は，中央 $s_i$ を係数とする三生成元potential
+\[
+ uyz-yuz-h\left(\frac12z^2+
+       \frac13y^3+\operatorname{Sym}(A_4(s,u)y)+A_6(s,u)\right)
+\]
+の関係式である。
+完全対称化と巡回微分の両立は
+補題\ref{lem:simultaneous-coordinate-free}と同様である。
+
+活性重み $(1,2,3)$ に関する最高次式は
+$y^3/3+\alpha u^4y+\beta u^6$ となる。
+$E\to E/\ker D$ において $x_i$ の像は $(D_i/h)u$ だから
+\[
+ \alpha=h^{-4}A_4(D),\qquad \beta=h^{-6}A_6(D).
+\]
+従って補題\ref{lem:degree-one-all-top-as-open}の十分条件は
+文字通り\eqref{eq:simultaneous-degree-one-open}である。
+固定CY topへの全lower potentialのPBW定理と，その中央係数への拡張を用いると，
+各複素ファイバーのHilbert級数は，最高次代数のHilbert級数を
+$(1-t)^{n-1}$ で割ったものになる。
+この中央係数への拡張は定理\ref{thm:simultaneous-poisson-ambient}の証明と同じであり，
+補題\ref{lem:degree-one-elliptic-universal-lower-pbw}の証明も
+最高次potentialがCYであることだけを使っている。
+
+最後に，全係数基底は被約有限型であり，各内部次数は有限表示加群である。
+全閉点でHilbert次元が一定なので，関係行列の一定階数から
+有限局所自由性と任意の非被約基底変更への両立が従う。
+\end{proof}
+
+\subsection{両次数の一次中心商と残る代数化問題}
+
+\begin{proposition}[全一次Poisson方向の中心商]
+\label{prop:simultaneous-first-order-center}
+定理\ref{thm:simultaneous-poisson-ambient}または
+定理\ref{thm:simultaneous-degree-one-ambient}の基底環を $S$ と書き，
+零切断のイデアルをそれぞれ $J=(p_{ij})S$ または $J=(D_i)S$ とする。
+$S^{(1)}=S/J^2$，$A^{(1)}=A\otimes_S S^{(1)}$ と置く。
+次の元は $A^{(1)}$ の中心元である。
+\[
+ \Omega^{(1)}=
+ \begin{cases}
+ \frac12z^2+\frac13y^3+\operatorname{Sym}(A_4(x)y)+A_6(x),&d=1,\\
+ \frac12z^2+\operatorname{Sym}(U),&d=2.
+ \end{cases}
+\]
+$B^{(1)}=A^{(1)}/(\Omega^{(1)})$ は次数ごとに有限局所自由である。
+この商は任意基底変更後も正則中心商となる。
+次数1の零切断における一次commutatorは，任意の $D\in E^*$ に対して
+\[
+ \{x_i,y\}=D_i z,\quad
+ \{z,x_i\}=D_i(y^2+A_4),\quad
+ \{y,z\}=(D A_4)y+D A_6,
+ \qquad \{x_i,x_j\}=0
+\]
+であり，次数1の全一次Poisson方向を与える。
+次数2では，任意の
+$Q\in\bigwedge^2E^*$ に対して
+\[
+ \{x_i,x_j\}=Q_{ij}z,\qquad
+ \{x_i,z\}=-\sum_jQ_{ij}\partial_{x_j}U
+\]
+であり，次数2の全一次Poisson方向を与える。
+\end{proposition}
+\begin{proof}
+$A^{(1)}$ は平坦であり，$J/J^2$ を係数とする一次commutatorは
+可換多項式環上の二重導分である。
+表示関係式から得られる上の二重導分について
+$F=(\Omega^{(1)})^{\mathrm{ab}}$ はCasimirである。
+次数1では $U=y^3/3+A_4(x)y+A_6(x)$ と置けば
+\[
+ \{x_i,y\}=D_iF_z,\quad
+ \{z,x_i\}=D_iF_y,\quad
+ \{y,z\}=D(F)
+\]
+というJacobian型の式なので，$\{x_i,F\}=\{y,F\}=\{z,F\}=0$ を直接得る。
+次数2でも $\{x_i,F\}$ の二つの項は相殺し，
+$\{z,F\}=\sum_{i,j}Q_{ij}U_{x_i}U_{x_j}=0$ である。
+従って $[\Omega^{(1)},a]=0$ が全生成元 $a$ について成立する。
+
+零切断上の $F$ は $z$ に関してmonicな二次多項式の非零定数倍である。
+その掛算の各内部次数は分裂単射で，余核は $z$ の指数が0または1の
+単項式を基底に持つ。
+この分裂を平方零厚化に持ち上げると，
+有限射影加群の掛算行列は同じ分裂単射と可逆な平方零摂動に分解される。
+従って $\Omega^{(1)}$ は普遍的に正則であり，余核も有限局所自由である。
+最後に次数1の方向空間は $E^*$ そのものであり，
+次数2のPl\"ucker関係は二次なので，頂点の接空間は
+$\bigwedge^2E^*$ 全体である。
+次数1の式は定数の重み付き座標変更と方程式の非零スカラー倍の下で，
+第\ref{sec:equivariant-quantization}節の規格化と一致する。
+$F=z^2-f_4$ という既存の規格化では $U=-f_4/2$，$Q=2P$ とすれば，
+第\ref{sec:equivariant-quantization}節の初括弧と一致する。
+\end{proof}
+
+\begin{remark}[楕円型方向だけでは不十分であること]
+滑らかな次数2模型でも，分岐四次超曲面の滑らかな点における接線上への
+四次式の制限は重根を持つ。
+従って楕円型最高次項だけの開集合を方向空間全体に要求することはできない。
+次数1でも活性方向のWeierstrass判別式は
+$\mathbb P^{n-1}$ 上の正次数斉次式であり，$n\ge2$ なら零点を持つ
+（恒等的に零の場合は全方向が該当する）。
+本節のambient構成で必要なのは，楕円曲線の滑らかさではなく
+補題\ref{lem:all-binary-quartic-as-open}と
+補題\ref{lem:degree-one-all-top-as-open}のCY条件である。
+\end{remark}
+
+\begin{remark}[証明されていない部分]
+本節は両次数の全一次Poisson方向を含む有限型ambient族を与えるが，
+その全有限基底上で $F$ を中心元 $\Omega$ に持ち上げることはまだ証明していない。
+一方向ごとの中心元の存在から，方向空間の零切断を含む同時持上げは従わない。
+また，有限生成元と有限関係式を持つ任意の表示族で，
+全次数の平坦性が有限開条件になるという一般原理も用いていない。
+本節では明示的な有限行列式と具体的CY判定から全複素ファイバーの
+Hilbert級数を先に固定したことが，普遍的平坦性の根拠である。
+中心商，相対tails，smoothness，全Abel変形への形式的完全性を
+さらに確認するまでは，このambient族をモジュライのatlasとは呼ばない。
+\end{remark}

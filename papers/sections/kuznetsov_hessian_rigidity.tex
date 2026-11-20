@@ -1,0 +1,275 @@
+% !TeX root = ../nc-del-pezzo.tex
+\section{次数2の多項式剛性と判別式境界への延長}
+\label{sec:kuznetsov-hessian-rigidity}
+
+本節では $n=d=2$ とする。
+巡回族の計算を一般の四次式へ移す際，座標変換に対する自然性だけでは
+二次差を決定できない。本節は，必要な追加条件を普遍Jacobian加群への
+多項式延長として明確にする。その条件の下ではHessian公式が強制されるが，
+実際のカテゴリー的二次差に対する延長条件はまだ証明していない。
+さらに，滑らかな係数空間上の正則性・同変性・巡回族での値を全て保ちながら
+異なるテンソルを与える明示式を構成する。
+
+\subsection{普遍Jacobian加群と多項式共変量}
+
+$V=\C^3$，$W=\Sym^4V^*$，$R=\Sym(W^*)$，$S=\Sym(V^*)$ とする。
+$R$ の次数は四次式の係数次数，$S$ の次数は変数 $x_0,x_1,x_2$ の次数である。
+普遍四次式を $\mathcal F\in R_1\otimes S_4$ とし，
+\begin{equation}\label{eq:ku-universal-quartic-jacobian-module}
+ M=\frac{R\otimes S_4}
+ {\displaystyle\sum_{i=0}^2(R\otimes S_1)\partial_i\mathcal F}
+\end{equation}
+を係数次数で次数付ける。
+$F\in W$ でのファイバーは $\operatorname{Jac}(F)_4$ である。
+判別式 $\Delta$ の非零部分 $W^{\mathrm{sm}}$ 上では，これは階数6のベクトル束であり，
+$X_F=\{z^2/2+F=0\}\subset\PP(1,1,1,2)$ の $H^1(T_{X_F})$ と同定される。
+$E=\Sym^2(\bigwedge^2V)$ と置く。
+
+Poisson方向 $P=\sum_{i<j}p_{ij}e_i\wedge e_j$ に対し，
+$P^{ij}=p_{ij}$ ($i<j$)，$P^{ji}=-p_{ij}$，$P^{ii}=0$ とする。
+次の多項式は係数次数2，変数次数4，$P$ に関する次数2を持つ：
+\begin{align}
+ Q(F,P)
+ &=\frac12\sum_{i,j,k,l=0}^2
+       P^{ij}P^{kl}F_{ik}F_{jl}\label{eq:ku-hessian-universal-contraction}\\
+ &=q^{\mathsf T}\operatorname{adj}(\operatorname{Hess}F)q,
+ \qquad q=(p_{12},-p_{02},p_{01})^{\mathsf T}.\notag
+\end{align}
+以下，$[Q]$ は $M$ または各ファイバーのJacobian商での類を表す。
+
+\begin{proposition}[係数次数2の多項式剛性]
+\label{prop:ku-degree-two-polynomial-rigidity}
+$\operatorname{GL}(V)$-同変な線型写像の空間は
+\[
+ \Hom_{\operatorname{GL}(V)}(E,M_2)=\C[Q]
+\]
+である。従って全四次係数上の多項式Jacobian類で，係数次数2，
+Poisson方向に関する次数2を持つ自然なテンソルは $[Q]$ の定数倍に限る。
+\end{proposition}
+\begin{proof}
+まずJacobian商を取る前の空間を計算する。
+係数次数2の多項式写像の偏極化と双対化により，求める空間は
+\begin{align*}
+ &\Hom_{\operatorname{GL}(V)}
+       \bigl(\Sym^2(\Sym^4V^*)\otimes E,\Sym^4V^*\bigr)\\
+ &\hspace{12mm}\simeq
+   \Hom_{\operatorname{GL}(V)}
+       \bigl(\Sym^2(\Sym^4V^*),
+             \Sym^4V^*\otimes\Sym^2(\bigwedge^2V^*)\bigr)
+\end{align*}
+となる。Schur関手を $\mathbb S_\lambda$ と書く。
+Pieri則\cite[Proposition~3.2.1]{GurevichHowe2021}による
+$\Sym^4\otimes\Sym^4=\bigoplus_{i=0}^4\mathbb S_{(8-i,i)}$
+の各成分では，二つの因子の交換が $(-1)^i$ で作用する。
+実際，二組の変数 $u,v$ で表した最高weightベクトル
+$(u_0v_1-u_1v_0)^iu_0^{4-i}v_0^{4-i}$ の交換符号が $(-1)^i$ であり，
+各成分の重複度は1である。
+従って
+\[
+ \Sym^2(\Sym^4V^*)
+ =\mathbb S_{(8)}V^*\oplus\mathbb S_{(6,2)}V^*
+   \oplus\mathbb S_{(4,4)}V^*.
+\]
+また $\dim V=3$ なので
+$\Sym^2(\bigwedge^2V^*)=\mathbb S_{(2,2)}V^*$ であり，
+$(2,2)$ に長さ4の水平stripを加えるPieri則から
+\[
+ \Sym^4V^*\otimes\mathbb S_{(2,2)}V^*
+ =\mathbb S_{(6,2)}V^*\oplus\mathbb S_{(5,2,1)}V^*
+   \oplus\mathbb S_{(4,2,2)}V^*
+\]
+を得る。共通成分は重複度1の $\mathbb S_{(6,2)}V^*$ だけであり，
+商を取る前の同変写像の空間は一次元である。
+式\eqref{eq:ku-hessian-universal-contraction}は非零な同変写像なので，その生成元になる。
+
+$R_2\otimes S_4\twoheadrightarrow M_2$ は有限次元有理表現の全射である。
+標数零の $\operatorname{GL}(V)$ は線型還元的であるから，
+$\Hom_{\operatorname{GL}(V)}(E,-)$ を適用しても全射を保つ。
+従って商での同変写像空間の次元は高々1である。
+$F=x_0^4+x_1^4+x_2^4$，$P=e_0\wedge e_1$ では
+$Q=144x_0^2x_1^2$ であり，これは
+$S/(x_0^3,x_1^3,x_2^3)$ で非零である。
+従って $[Q]$ は商でも消えず，主張を得る。
+\end{proof}
+
+\begin{corollary}[判別式境界へ多項式延長できる場合の二次差]
+\label{cor:ku-degree-two-hessian-conditional}
+実際の二次差 $\delta_2$ を $W^{\mathrm{sm}}$ へ引き戻して
+\[
+ \delta_2\in(M[\Delta^{-1}]\otimes E^*)^{\operatorname{GL}(V)}
+\]
+と表す。この切断が $M\otimes E^*$ の元へ延長すると仮定する。
+ここでいう延長は，普遍Jacobian加群
+\eqref{eq:ku-universal-quartic-jacobian-module}における多項式延長であり，
+各滑らかな点で多項式代表を選べるというだけの条件ではない。
+この追加仮定の下で，全ての滑らかな四次式と全Poisson方向について
+\begin{equation}\label{eq:ku-degree-two-hessian-conditional}
+ \delta_{2,X_F}(P,P)=\frac18[Q(F,P)]
+\end{equation}
+が成立する。
+\end{corollary}
+\begin{proof}
+座標変換 $x'=Ax$，$z'=bz$ の下で
+\[
+ F'=b^2F\circ A^{-1},\qquad
+ P'=b^{-1}(\bigwedge^2A)P
+\]
+であり，二次差は古典変形と同じ $b^2(-)\circ A^{-1}$ で変換する。
+$A=1$ とし，$P$ に関する二次性を使えば
+$\delta_{2,b^2F}(P,P)=b^4\delta_{2,F}(P,P)$ となる。
+従って係数次数は2である。
+
+仮定した多項式延長の係数次数2の斉次成分を取ると，
+局所化後は依然として $\delta_2$ となる。
+有限次元空間 $M_2\otimes E^*$ とその局所化像との間の全射に
+線型還元性を適用すれば，同じ像を持つ同変な延長を選べる。
+命題\ref{prop:ku-degree-two-polynomial-rigidity}により，これは $c[Q]$ である。
+Fermat点の $P=e_0\wedge e_1$ で
+命題\ref{prop:ku-fermat-full-quadratic-tensor}は
+$\delta_2(P,P)=18[x_0^2x_1^2]$ を与え，
+$[Q(F,P)]=144[x_0^2x_1^2]$ なので $c=1/8$ である。
+\end{proof}
+
+\begin{remark}[延長条件の状態]
+\label{rem:ku-polynomial-extension-open}
+補題\ref{lem:ku-quadratic-algebraic-tensor}による滑らかな古典モジュライ上の
+代数的正則性は，系\ref{cor:ku-degree-two-hessian-conditional}の追加仮定を含まない。
+判別式を反転した座標環の元には，係数次数を保つ分母が存在する。
+特異な四次曲線を含めた境界でのカテゴリー的復元を構成した，
+あるいは実際の $\delta_2$ の境界極を除いた，とは主張しない。
+\end{remark}
+
+\subsection{巡回族の値を保つ明示的な有理係数の曖昧さ}
+
+$\operatorname{Cat}_2(F)$ を $\Sym^2V$ 上の双線型形式
+\[
+ (a,b)\longmapsto a(\partial)b(\partial)F
+\]
+の行列とし，$C(F)=\det\operatorname{Cat}_2(F)$ と置く。
+基底は $e_0^2,e_1^2,e_2^2,e_0e_1,e_0e_2,e_1e_2$ を使う。
+判別式は任意の非零定数倍で規格化してよい。
+
+\begin{proposition}[巡回族で一致する異なる自然テンソル]
+\label{prop:ku-catalecticant-ambiguity}
+\begin{equation}\label{eq:ku-catalecticant-ambiguity}
+ h(F)=\frac{C(F)^9}{\Delta(F)^2},\qquad
+ T_{\lambda,F}(P,P)=\frac{1+\lambda h(F)}8[Q(F,P)]
+ \quad(\lambda\in\C)
+\end{equation}
+と置く。$T_\lambda$ は $W^{\mathrm{sm}}$ 上正則で，
+実際の二次差と同じ座標変換則・係数次数2・Poisson二次性を持つ。
+互いに異なる $\lambda$ は異なるテンソルを与える。
+しかし $F=f(x_0,x_1)+a x_2^4$ の全ての滑らかな巡回型，
+およびその全座標変換上では，全ての $T_\lambda$ が $[Q]/8$ に一致する。
+従って，そのlocusにおける値と全滑らか部分での自然性だけから
+一般の二次差を一意に決定することはできない。
+\end{proposition}
+\begin{proof}
+$C$ の係数次数は6である。
+$\det(\Sym^2 A)=(\det A)^4$ を使うと
+\[
+ C(b^2F\circ A^{-1})=b^{12}(\det A)^{-8}C(F)
+\]
+となる。三つの三次偏導関数のresultantとして判別式を表せば，
+係数次数は27であり，変数と偏導関数の基底の変換則から
+\[
+ \Delta(b^2F\circ A^{-1})
+ =b^{54}(\det A)^{-36}\Delta(F)
+\]
+を得る。従って $h$ は座標変換不変で係数次数0である。
+$\Delta$ は $W^{\mathrm{sm}}$ 上可逆だから，$h$ と $T_\lambda$ はそこで正則である。
+巡回型では $\partial_0\partial_2F=\partial_1\partial_2F=0$ なので
+catalecticantの二つの行が零となり，$C(F)=0$ となる。
+
+曖昧さが非自明であることを具体的に確認する。
+\[
+ F_*=x_0^4+x_1^4+x_2^4
+      +x_0^2x_1^2+x_1^2x_2^2+x_2^2x_0^2
+\]
+と置き，$s=x_0^2+x_1^2+x_2^2$ とする。
+全偏導関数が零なら $x_i(x_i^2+s)=0$ である。
+非零座標の個数を $k$ とすれば $s=-ks$，従って $s=0$ となり，
+全座標が零となる。よって $F_*$ は滑らかである。
+そのcatalecticantは
+\[
+ \operatorname{diag}
+   \bigl(20I_3+4\mathbf1\mathbf1^{\mathsf T},\,4I_3\bigr),
+ \qquad C(F_*)=32\cdot20^2\cdot4^3=819200\ne0
+\]
+である。一方，Jacobian商の偶数指数部分は
+$[x_0^2x_1^2],[x_0^2x_2^2],[x_1^2x_2^2]$ を基底に持ち，
+直接代入により
+\[
+ [Q(F_*,e_0\wedge e_1)]
+ =108[x_0^2x_1^2]+14[x_0^2x_2^2]+14[x_1^2x_2^2]\ne0.
+\]
+この基底主張は，偶数指数部分のJacobian関係が
+$x_i\partial_iF_*$ の三つであり，それぞれ異なる $4x_i^4$ を含むことから従う。
+従って $h(F_*)\ne0$ であり，$\lambda\ne\lambda'$ なら
+$T_\lambda(F_*)\ne T_{\lambda'}(F_*)$ となる。
+\end{proof}
+
+\begin{remark}
+$h$ は巡回型locusで零なので，$h^N$ に置き換えれば
+任意に高い有限次数までそのlocusで消える同様の補正を作れる。
+これは実際の二次差がそのような補正を持つという主張ではなく，
+特殊族から一般公式を補間する方法に必要な境界制御を示すものである。
+\end{remark}
+
+\subsection{Hessian候補の一般階数とKlein四次曲線}
+
+\begin{proposition}[Hessian候補の一般階数6]
+\label{prop:ku-hessian-klein-rank}
+候補 $[Q_F]:\Sym^2(\bigwedge^2V)\to\operatorname{Jac}(F)_4$ は，
+滑らかな四次式の稠密開集合で同型である。
+具体的にはKlein四次式
+\[
+ F_K=x_0^3x_1+x_1^3x_2+x_2^3x_0
+\]
+で階数6となる。Fermat四次式での階数は3である。
+この命題は候補 $[Q]$ の主張であり，追加仮定なしの実際の $\delta_2$ の
+一般階数6を主張するものではない。
+\end{proposition}
+\begin{proof}
+$F_K$ の偏導関数は
+\[
+ 3x_0^2x_1+x_2^3,\qquad
+ x_0^3+3x_1^2x_2,\qquad
+ x_1^3+3x_2^2x_0.
+\]
+これらが同時に零なら，一つの座標が零の場合は全て零となる。
+全座標が非零なら三式を掛け合わせて
+$27x_0^3x_1^3x_2^3=-x_0^3x_1^3x_2^3$ を得て矛盾する。
+従って $F_K$ は滑らかである。
+
+Jacobian商の次数4部分の基底を
+\[
+ [x_0^4],[x_1^4],[x_2^4],
+ [x_0^2x_1^2],[x_1^2x_2^2],[x_2^2x_0^2]
+\]
+と取れる。実際，残る九単項式に対する九つの
+$x_i\partial_jF_K$ の関係は独立である。
+うち三つは $(x_0^3x_1,x_1^3x_2,x_2^3x_0)$ 上で
+行列式28を持ち，残る六つはそれぞれ別の単項式を消去する。
+Hessianの余因子をこの基底で還元すると
+\begin{align*}
+ [Q(F_K,P)]={}&-21\bigl(q_2^2[x_0^4]
+                  +q_0^2[x_1^4]+q_1^2[x_2^4]\bigr)\\
+ &+126\bigl(q_0q_2[x_0^2x_1^2]
+           +q_0q_1[x_1^2x_2^2]+q_1q_2[x_2^2x_0^2]\bigr).
+\end{align*}
+従って六つの二次単項式は独立な六つの類へ写る。
+滑らかな係数空間上の同じ階数6のベクトル束間の射なので，
+同型locusは開であり，今の点を含む。係数空間の整性から稠密でもある。
+Fermatの場合はHessianが対角行列であり，三つの対角余因子だけが非零となる。
+\end{proof}
+
+Hessian小行列式をJacobian idealへ加える操作は，
+Dimca--SticlaruのHessian algebra $H_2(F)$ の定義そのものである
+\cite[(1.2), Remark 3.3(iii)]{DimcaSticlaru2015}。
+本節の階数計算はその既存の枠組みと区別せずに位置付けるが，
+当該文献はKuznetsov成分の二次差との同定を与えない。
+式の厳密検証は
+\texttt{computations/verify\_degree\_two\_hessian\_rigidity.py}
+で再現する。表現論による一意性，境界延長の追加仮定，
+実際の二次差との未証明の比較を分けて扱う。

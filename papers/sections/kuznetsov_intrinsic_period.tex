@@ -1,0 +1,220 @@
+% !TeX root = ../nc-del-pezzo.tex
+\section{内在的対合による全古典点での形式的局所Torelli}
+\label{sec:kuznetsov-intrinsic-period}
+
+本節は $n=2$，$d=1,2$ に限る。
+巡回対称族の楕円曲線とは別に，任意の滑らかな古典曲面に対して使える周期を構成する。
+入力は，Serre関手によるGeiser・Bertini対合の認識
+\cite[Proposition~4.1]{LinRampazzoZhang2026}，
+本稿の標識付きArtin変形の古典的復元，および曲線の周期写像の微分公式である。
+得られるのは全古典点で有効な形式的な検出法であり，
+一般係数における二次差の明示公式を計算したという主張ではない。
+
+\subsection{同変化と分岐曲線の奇数周期}
+
+$\mathcal K_X=\operatorname{Ku}(X)$ のSerre関手を $S_X$ とする。
+$d=2$ のGeiser対合を $\gamma$，$d=1$ のBertini対合を $\beta$ と書く。
+既知の同型は
+\begin{equation}\label{eq:ku-intrinsic-involutions}
+ \epsilon_2=S_X^2[-3]\simeq\gamma^*,\qquad
+ \epsilon_1=S_X^3[-5]\simeq\beta^*
+\end{equation}
+である。対合の二乗同型を含むcoherentな $\mu_2$-作用を用いる。
+分岐曲線とその種数を
+\[
+ (C_X,g_d)=
+ \begin{cases}
+  (\{F_4(x_0,x_1,x_2)=0\}\subset\PP^2,3),&d=2,\\
+  (\{y^3/3+A_4(x_0,x_1)y+A_6(x_0,x_1)=0\}
+    \subset\PP(1,1,2),4),&d=1
+ \end{cases}
+\]
+とする。次数1では重み付き射影\emph{stack}を底とする。
+曲線はそのstacky点を避け，滑らかなスキームである。
+
+\begin{lemma}[標識付き同変周期]
+\label{lem:ku-intrinsic-involution-period}
+$X$ の特殊ファイバーの標識を固定する。
+通常Artin基底上の $\mathcal K_X$ のMorita変形の同値類には，
+式\eqref{eq:ku-intrinsic-involutions}の対合の同変化から定まる
+標識付き形式Hodge周期がある。
+古典復元 $Y$ を用いて表すと，その奇数相対周期ホモロジーは
+\begin{equation}\label{eq:ku-intrinsic-odd-hp}
+ HP_{\mathrm{odd}}(\operatorname{Ku}(Y)^{\mu_2}/R)
+ \simeq H^1_{\mathrm{dR}}(C_Y/R)
+\end{equation}
+である。右辺と左辺では2周期化の変数を省略しており，
+Hodge filtration，係数基底方向のGauss--Manin接続，
+特殊ファイバーの標識を保持する。
+この周期は標識付きMorita同値とArtin基底変更に不変である。
+\end{lemma}
+\begin{proof}
+定理\ref{thm:surface-ku-formal}により，残余圏の変形の同値類を
+古典曲面の変形 $Y$ で一意に表す。
+Geiser・Bertini対合は相対反標準二重被覆のdeck変換として $Y$ 上に定まる。
+式\eqref{eq:ku-intrinsic-involutions}は単に各閉点で成立する同型を貼るのではない。
+その証明で用いる二重被覆の随伴，線束twist，例外対象を通るmutation，
+およびrotationの同型は，重み付き方程式の相対族でも同じ評価写像とconeで作られ，
+基底変更と両立する。
+具体的には半分の被覆次数を $b=2,3$ とすると，
+rotation $\tau$ に対する $\tau^b\simeq\delta^*[1]$ と
+$S=\tau^{-1}[2]$ から $S^b\simeq\delta^*[2b-1]$ を得る。
+従って相対Serre関手の式が相対deck作用と同一視される。
+
+異なる標識付きMorita表示を比較する同値はSerre関手を保つ。
+その対合との可換同型の二乗条件の誤差は，還元が1の単元である。
+補題\ref{lem:ku-finite-equivariant-companion}と同じ最小自由複体の議論により，
+自己自然変換の次数0は $R$ で，負次数は零である。
+$1+\mathfrak m_R$ 内の平方根で可換同型を補正すればcoherenceが成立する。
+固定した特殊ファイバーの作用を延長する選択間の比較にも
+$H^j(\mu_2,1+\mathfrak m_R)=0$ ($j>0$) を用いられる。
+従って同変化のMorita同値を，特殊ファイバーで既定の恒等同値になるように取れる。
+これは対合の線型化が大域的に選択なしで一意という意味ではない。
+
+$Z=\PP^2_R$ または $\PP_R(1,1,2)$ とし，$Y\to Z$ を二重被覆とする。
+商 $[Y/\mu_2]$ のroot-stack分解と構造対象の同変分解は
+\[
+ \Perf([Y/\mu_2]/R)=\langle\Perf(C_Y/R),\Perf(Z/R)\rangle,
+ \qquad
+ \Perf([Y/\mu_2]/R)=
+ \langle\operatorname{Ku}(Y)^{\mu_2},\Perf(R),\Perf(R)\rangle
+\]
+を与える。分解の構成については
+\cite[Theorem~4.2の証明]{LinRampazzoZhang2026}を参照する。
+底 $Z$ はそれぞれ3個，4個の相対例外線束で生成され，奇数周期は零である。
+root-stackの関手は閉埋込み，有限射，線束twistで与えられるので，
+この分解は相対perfect圏に制限され，Artin基底変更と両立する。
+mixed complexの加法性\cite[Theorem~5.2(a)]{KellerDG2006}から
+式\eqref{eq:ku-intrinsic-odd-hp}を得る。
+
+接続の比較は補題\ref{lem:ku-equivariant-elliptic-period}と同様に，
+滑らかな形式普遍基底上で行ってからArtin商に引き戻す。
+Morita関手に対する自然性には
+\cite[Theorem~3.32, Corollary~4.13]{Sheridan2020}，
+幾何Gauss--Manin接続との比較には\cite[Theorem~0.1(3)]{Tu2024}を用いる。
+曲線のTodd類の正次数部分は $H^1$ との積が零なので，
+この奇数部分の比較には非自明なTodd補正は残らない。
+特殊ファイバーで恒等となる比較は水平自明化の下で恒等である。
+従って同変化の選択やMorita表示を変更しても標識付きHodge部分空間は変わらない。
+\end{proof}
+
+\subsection{分岐曲線の微分と形式的埋込み}
+
+\begin{lemma}[分岐曲線への変形写像]
+\label{lem:ku-branch-deformation-injective}
+分岐曲線を取る写像の微分
+\[
+ H^1(X,T_X)\longrightarrow H^1(C_X,T_{C_X})
+\]
+は単射である。次数2では両辺は6次元で同型，
+次数1では左辺8次元，右辺9次元である。
+\end{lemma}
+\begin{proof}
+二重数環 $R=\C[e]/(e^2)$ 上の曲面変形を取り，
+その分岐曲線が標識付きで定数変形に同型であるとする。
+次数2では $K_C=\OO_C(1)$ であり，分岐曲線の平面表示は標準埋込みである。
+曲線の自明化は正則1形式の空間から相対 $\PP^2$ の自明化を誘導する。
+二つの四次方程式は単元倍だけ異なり，還元が1の単元の平方根で
+被覆座標を変更すれば二重被覆も標識付きで自明になる。
+
+次数1では $K_C=\OO_C(2)$ であり，
+\begin{equation}\label{eq:ku-branch-canonical-cone}
+ [x_0:x_1:y]\longmapsto
+ [u_0:u_1:u_2:v]=[x_0^2:x_0x_1:x_1^2:y]
+\end{equation}
+が標準埋込みを与える。
+その像は $Q=\{u_0u_2-u_1^2=0\}$ と三次曲面との完全交叉である。
+三次式に $v^3$ の係数があるため頂点は曲線上にない。
+次数2の関係は $u_0u_2-u_1^2$ のみなので，
+任意のArtin基底変更後も，標準曲線を含む二次方程式の空間は
+$R\cdot Q$ という階数1の直和因子である。
+従って曲線の標識付き自明化が標準空間に誘導する射影変換は
+$Q_R$ を保つ。
+
+ここで錐の移動を無視しているのではない。
+標準曲線の自明化が，その\emph{唯一の}二次方程式の線も自明化するのである。
+この射影変換が重み付き座標変換へ持ち上がることを二重数環上で確認する。
+$U=(u_0,u_1,u_2)$ 上の非退化二次形式を $q$ とする。
+還元で恒等な行列をblock表示すると，$q(U)$ の線を保つ条件により
+$U$ に $v$ を加えるblockは零で，$U$ 上のblockは
+$\operatorname{GO}(q)$ に入る。
+準同型 $\operatorname{GL}_2\to\operatorname{GO}(q)$，$M\mapsto\Sym^2M$ の
+単位元での微分は同型である。
+実際，両Lie代数は4次元で，$\Sym^2$ の微分の核は零である。
+従ってこのblockは還元で恒等な $x$ の線型変換から来る。
+残る座標は $v\mapsto av+\ell(U)$ なので，
+\[
+ x\mapsto Mx,\qquad y\mapsto ay+q_2(x)
+\]
+という重みを保つ座標変換に持ち上がる。
+変換後の六次方程式は定数変形の方程式の単元倍であり，
+その平方根を $z$ に吸収して曲面変形も自明になる。
+これで微分の核が零と分かる。次元は $h^1(T_X)=8,6$ と
+$h^1(T_C)=3g_d-3$ から従う。
+\end{proof}
+
+\begin{theorem}[内在的同変周期の形式的局所Torelli]
+\label{thm:ku-intrinsic-formal-torelli}
+任意の滑らかな複素del Pezzo曲面 $X$，$K_X^2=d\in\{1,2\}$ に対し，
+$H=H^1_{\mathrm{dR}}(C_X)$ のcup積と特殊ファイバーの標識を固定する。
+$F^1H=H^0(C_X,K_{C_X})$ におけるLagrangian Grassmannianの形式近傍を
+$\widehat{\mathcal L}_{g_d}$ とする。
+補題\ref{lem:ku-intrinsic-involution-period}の周期は形式写像
+\begin{equation}\label{eq:ku-intrinsic-formal-period}
+ \mathcal P_X:
+ \Def^{\mathrm{Mor}}_{\mathcal K_X}
+ \longrightarrow\widehat{\mathcal L}_{g_d}
+\end{equation}
+を与え，これは閉埋込みである。
+次数2では6次元の形式円板の同型であり，
+次数1では8次元の形式円板から10次元の形式円板への余次元2の閉埋込みである。
+特に，この同変周期は全古典点で残余圏の標識付き通常Artin変形を検出する。
+\end{theorem}
+\begin{proof}
+補題\ref{lem:ku-intrinsic-involution-period}と
+定理\ref{thm:surface-ku-formal}によって，写像は古典曲面の変形から
+分岐曲線の標識付き周期を取る写像に一致する。
+cup積は平坦であり，正則1形式の部分空間はLagrangianなので終域は指定した形式空間となる。
+曲線の周期写像の微分は，Serre双対の下で乗法
+\begin{equation}\label{eq:ku-branch-period-multiplication}
+ \Sym^2H^0(C,K_C)\longrightarrow H^0(C,K_C^{\otimes2})
+\end{equation}
+の双対である\cite[Theorem~4.3]{Landesman2019Torelli}。
+ここではその全射性を各表示で直接確かめられる。
+
+次数2では $K_C=\OO_C(1)$ で，四次曲線には次数2の関係がない。
+従って式\eqref{eq:ku-branch-period-multiplication}は6次元空間同士の同型である。
+次数1では $H^0(K_C)$ の基底は $x_0^2,x_0x_1,x_1^2,y$ である。
+その積は，重み4の全単項式
+\[
+ x_0^{4-i}x_1^i\ (0\le i\le4),\qquad
+ yx_0^{2-i}x_1^i\ (0\le i\le2),\qquad y^2
+\]
+を生成する。重み6の関係はこの次数に現れないので，これらは9次元の基底である。
+乗法の核は $u_0u_2-u_1^2$ の1次元であり，乗法は全射である。
+従って両次数で曲線の周期写像の微分は単射となる。
+補題\ref{lem:ku-branch-deformation-injective}と合わせ，
+$d\mathcal P_X$ も単射である。
+
+sourceは定理\ref{thm:surface-ku-formal}による滑らかな形式円板であり，
+targetも次元 $g_d(g_d+1)/2$ の滑らかな形式円板である。
+微分の単射性は，対応する完備局所環の準同型が余接空間上全射であることを意味する。
+targetのパラメータの適当な線型結合の像を取ると，sourceの正則パラメータ系となる。
+形式逆関数定理と完備性から局所環の準同型は全射で，形式写像は閉埋込みである。
+次数2では両次元が6なので同型，次数1では $10-8=2$ である。
+\end{proof}
+
+\begin{remark}[二次差の一般計算に残る入力]
+\label{rem:ku-intrinsic-period-gap}
+二つの残余圏変形が一次まで一致するとき，その二次差は
+式\eqref{eq:ku-intrinsic-formal-period}の周期の二次差で一意に検出される。
+従って一般係数で $\delta_2$ を求めるには，
+内在的対合 $S^2[-3]$ または $S^3[-5]$ による同変化の
+相対Hodge周期を二次まで計算すれば十分である。
+本節はこの検出写像の単射性を証明したもので，
+非可換な中心商の表示からその同変周期を計算したものではない。
+また，任意の反標準楕円曲線の周期でこの分岐曲線の周期を置き換えることはできない。
+前者はdivisorまたはgluingの追加データに依存し，残余圏だけの不変量ではない。
+全係数のHessian候補との一致，特異な古典係数への正則延長，
+古典stackへの大域的な復元射の持上げはいずれも本節の帰結には含まれない。
+\end{remark}

@@ -595,6 +595,143 @@ Fermat点では自己同型表現により全方向へ拡張した。
 一般曲面での全方向非消滅には，その特殊化と射影束の固有性だけを用いている。
 \end{remark}
 
+\subsection{二つの固定条件の交わりと二次有限決定性}
+
+以下では特殊ファイバーの標識を保持する。
+従って古典復元を固定する条件は，その標識付き残余圏変形の
+Morita同値類を固定する条件である。
+自己同型群で割った粗モジュライ上のファイバーとは区別する。
+
+\begin{lemma}[少数変数の偶形式写像の二次有限決定性]
+\label{lem:ku-even-quadratic-determinacy}
+$1\le r\le3$，$R=\C[[p_1,\ldots,p_r]]$，$\mathfrak m=(p_1,\ldots,p_r)$ とし，
+$\eta=(\eta_1,\ldots,\eta_b)\in(\mathfrak m^2)^b$ が
+$\eta(-p)=\eta(p)$ を満たすとする。
+その二次斉次部分を $Q=(Q_1,\ldots,Q_b)$ と書き，
+$Q(p)=0$ の解が $p=0$ だけであると仮定する。
+このとき，完備局所環 $R$ のイデアルとして
+\begin{equation}\label{eq:ku-quadratic-determinacy-ideal}
+ (\eta_1,\ldots,\eta_b)=(Q_1,\ldots,Q_b)
+\end{equation}
+が成立する。
+特に左辺で定まる形式スキームは有限で，その長さは高々 $2^r$ である。
+\end{lemma}
+\begin{proof}
+$W=\langle Q_1,\ldots,Q_b\rangle\subset\Sym^2(\C^r)^*$ と置く。
+仮定は $W$ が $\PP^{r-1}$ 上で基点を持たないことを意味する。
+一般の $r$ 個の線型結合 $q_1,\ldots,q_r\in W$ を取ると，
+これらも射影空間上で共通零点を持たない。
+実際，$W$ の定める射の像は次元高々 $r-1$ であり，
+一般の余次元 $r$ の線型部分空間と交わらない。
+従って $q_1,\ldots,q_r$ は多項式環の斉次正則列をなし，
+その商のHilbert級数はKoszul解消により $(1+s)^r$ である。
+$J_0=(q_1,\ldots,q_r)R$ とすれば
+\[
+ \mathfrak m^{r+1}\subset J_0,\qquad
+ \dim_{\C}R/J_0=2^r.
+\]
+特に $r\le3$ から $\mathfrak m^4\subset J_0$ である。
+
+$q_i$ と同じ線型結合を $\eta$ に適用して $g_i$ とする。
+偶性により $g_i-q_i\in\mathfrak m^4$ である。
+$q_j$ は二次斉次なので，各次数で斉次係数を選ぶことにより
+\[
+ g_i=q_i+\sum_{j=1}^r a_{ij}(p)q_j,
+ \qquad a_{ij}\in\mathfrak m^2
+\]
+と書ける。行列 $I_r+(a_{ij})$ は可逆だから $(g_1,\ldots,g_r)=J_0$。
+全ての $\eta_j-Q_j$ も $\mathfrak m^4\subset J_0$ に属するため，
+式\eqref{eq:ku-quadratic-determinacy-ideal}を得る。
+この商は $R/J_0$ の商なので長さの上界も従う。
+\end{proof}
+
+\begin{theorem}[残余圏とshadowを同時に固定する変形]
+\label{thm:ku-fixed-shadow-intersection}
+$X\in\mathcal S_d^\circ(\C)$，$d=1,2$ とし，
+$r=d+1=\dim H^0(X,-K_X)$，$b=\dim H^1(X,T_X)$ と置く。
+標識付き形式変形空間で，shadowと残余圏の双方が $X$ の自明変形に対応する
+閉部分形式スキームを $Z_X$ とする。
+命題\ref{prop:surface-ku-parity}の偶座標 $p$ をshadowの固定ファイバーに選べば
+\begin{equation}\label{eq:ku-fixed-shadow-intersection}
+ Z_X\simeq\Spec\frac{\C[[p_1,\ldots,p_r]]}
+ {\bigl(\lambda(\delta_{2,X}(p,p)):
+                      \lambda\in H^1(X,T_X)^*\bigr)}.
+\end{equation}
+従ってこの交わりは二次差だけで決まり，四次以上の復元式には依存しない。
+その被約部分は一点で，接空間は $H^0(X,-K_X)$ 全体である。
+
+$k=\rank(\delta_{2,X}:\Sym^2H^0(-K_X)\to H^1(T_X))$ とすると，
+長さと最大イデアルに関するHilbert関数は次の表で尽くされる。
+\begin{center}
+\begin{tabular}{cccc}
+\toprule
+$d$ & $k$ & Hilbert関数 & $\operatorname{length}Z_X$\\
+\midrule
+1 & 2 & $(1,2,1)$ & 4\\
+1 & 3 & $(1,2)$ & 3\\
+2 & 3 & $(1,3,3,1)$ & 8\\
+2 & 4 & $(1,3,2)$ & 6\\
+2 & 5 & $(1,3,1)$ & 5\\
+2 & 6 & $(1,3)$ & 4\\
+\bottomrule
+\end{tabular}
+\end{center}
+この表は可能性を列挙するものであり，全ての階数が実際の $\delta_2$ に
+現れるという主張ではない。
+\end{theorem}
+\begin{proof}
+命題\ref{prop:surface-ku-parity}の座標では
+\[
+ \operatorname{sh}(t,p)=t,\qquad
+ \rho(t,-p)=\rho(t,p),\qquad
+ \rho(t,p)=t+O(p^2).
+\]
+$X$ の古典変形座標を $t=0$ とすれば，二つの固定条件は
+$t=0$ と $\eta(p):=\rho(0,p)=0$ である。
+その二次部分は $\delta_{2,X}(p,p)$ であり，
+系\ref{cor:ku-generic-all-directions-quadratic}から非零共通零点を持たない。
+前補題が式\eqref{eq:ku-fixed-shadow-intersection}を与える。
+一次方程式がないため接空間の主張も従う。
+
+Hilbert関数は二次式の空間 $W=\operatorname{im}(\delta_{2,X}^*)$ から計算する。
+$W$ は基点を持たないので $k\ge r$ である。
+$r=2$ のとき，$k=2$ なら二次完全交叉，$k=3$ なら全二次式のイデアルである。
+$r=3$ のときも，$k=3$ なら三つの二次式の完全交叉である。
+$k\ge4$ なら，$W$ 内の正則列三つの商を $A$ とする。
+$A$ はsocle次数3の斉次Artin完全交叉であり，
+Koszul双対性による積の完全対
+\[
+ A_1\otimes A_2\longrightarrow A_3\simeq\C
+\]
+を持つ。追加の独立な二次式は $A_2$ の非零元だから，
+その一次式による積が $A_3$ を生成する。
+従って追加の式で割った商の次数3以上は零であり，
+次数2は次元 $6-k$，次数1は次元3となる。
+これで表の全ての値を得る。
+\end{proof}
+
+\begin{corollary}[Fermat点の交わりの完全な局所環]
+\label{cor:ku-fermat-intersection-algebra}
+命題\ref{prop:ku-fermat-full-quadratic-tensor}のFermat曲面では
+\[
+ \OO_{Z_{X_1}}\simeq\C[p_0,p_1]/(p_0^2,p_1^2),\qquad
+ \OO_{Z_{X_2}}\simeq
+ \C[p_{01},p_{02},p_{12}]/(p_{01}^2,p_{02}^2,p_{12}^2).
+\]
+長さはそれぞれ4，8である。
+従って両方を固定する非定数の被約形式路は存在しないが，
+一次の全Poisson方向と，上に表示した混合冪零方向は残る。
+\end{corollary}
+\begin{proof}
+Fermat点の二次差の独立な成分は，非零定数倍を除いて
+それぞれ $p_0^2,p_1^2$ と $p_{01}^2,p_{02}^2,p_{12}^2$ である。
+前定理を適用すれば局所環が得られる。
+剰余体が $\C$ である有限局所環から被約整域への準同型は剰余体を経由するため，
+非定数の被約形式路はない。
+ここでの4，8は標識付き固定条件の交わりの長さであり，
+Poisson比較の一般被覆次数5，4や，粗モジュライ上のファイバー長とは異なる量である。
+\end{proof}
+
 \begin{corollary}[既存Poisson shadowは残余圏を一般には保存しない]
 \label{cor:ku-shadow-nonpreservation}
 両次数 $d=1,2$ で，古典復元射と中心方程式のshadow射は一致しない。

@@ -1,6 +1,6 @@
 # 研究方針：次数1・2の非可換del Pezzo n-fold
 
-**2026-11-21（JST） / v0.19。再開時に最初に読む。**
+**2026-11-21（JST） / v0.20。再開時に最初に読む。**
 
 正本は [uedakazushi/nc-del-pezzo](https://github.com/uedakazushi/nc-del-pezzo) のmain。研究全体の入口は [research-hub](https://github.com/uedakazushi/research-hub)。続いて [研究ノート](research/research_notes.md)、[主原稿](papers/nc-del-pezzo.tex)、[再現手順](docs/reproduction.md) を読む。
 
@@ -43,7 +43,9 @@ Uの全幾何学的点で全Abel Artin変形を同じ族が実現する。Abel H
 
 両次数の巡回対称族では、有限群同変化した残余圏の楕円Hodge周期を使い、`δ₂(π,π)=[det Hess_(x,y)(f)]/8≠0` を得た。従って `rho_Ku≠sh` であり、shadowによるKuznetsov成分の一般保存性は否定される。さらに、復元曲面の楕円固定巡回部分群の一意性とpoint-curve jの非降下の有理数証明書を使い、一般のPoissonファイバーの5・4個の残余圏は全て相互に非同値と判定した。一次でPoisson方向が消えることは、高次の残余圏の一定性を意味しない。
 
-保存性と一般ファイバーの二者択一という元の比較課題は上記の範囲で解決した。現在の優先課題は、一般の全係数・全Poisson方向に対する二次差の公式と高次復元式である。巡回族で得たHessian式を一般公式とは扱わず、固定点配置のgluing模型と低次数Hochschild–Serre積で比較する。境界・全成分の課題も保持する。既知の変形・同変化・巡回ホモロジー・古典Torelliと本件への具体的適用を区別し、包括的な優先権は未確認とする。
+保存性と一般ファイバーの比較は上記の範囲で解決した。さらに、全方向で二次差が非零となる古典開集合では、Kuとshadowを同時に固定する標識付き形式変形の交わりは二次イデアルだけで完全に決まる。Fermat点の局所環は二変数・三変数の各二乗を零とする環で、長さは4・8。二次差の階数による全ての可能なHilbert関数も決定した。全滑らかな古典点で、Serre関手から認識する対合の同変周期は通常Morita変形を検出し、次数2で6次元形式円板の同型、次数1で8次元から10次元への閉埋込みを与える。
+
+現在の核心は、その内在的周期を一般NC表示から二次まで計算することと、普遍Jacobian加群への多項式延長である。次数2は延長を仮定すればHessian/8が一意に強制されるが、catalecticantと判別式による補正が、滑らか部分の自然性と巡回族の値だけでは決まらないことを示す。次数1は多項式延長を仮定しても `H₁+sR₁` の一つの定数が残り、既存の巡回族はこの定数を検出しない。H₁の値が零になる滑らかな曲面・非零方向も構成した。従って、特殊族の補間よりも巡回族外の内在的周期計算を優先する。一般Hessian等式・候補の零方向での実際のδ₂・一般階数は未解決であり、既存の非保存性・一般全枝分離は維持する。境界・全成分・高次復元の課題も保持し、包括的な優先権は未確認とする。
 
 ## C. 主要到達点と確実性
 
@@ -57,6 +59,11 @@ Uの全幾何学的点で全Abel Artin変形を同じ族が実現する。Abel H
 | 残余圏から定まる古典粗モジュライへの標準射 | Lin–Rampazzo–Zhang 2609.10344v1 Theorem 1.2を入力。被約な重なりでの下降を証明。古典stackへの大域的持上げは別 | `cor:surface-ku-coarse-companion` |
 | 巡回対称族でδ₂=活性Hessian行列式のJacobian類/8≠0 | 相対THCR・同変復元・相対周期/GM比較を入力とし、両次数で証明。一般全係数への同じ公式は未証明 | `thm:ku-degree-two-quadratic-obstruction`, `thm:ku-degree-one-quadratic-obstruction` |
 | Fermat点の全tensorと一般曲面の全非零方向でδ₂(π,π)≠0 | 自然Poisson線型化と有限群指標で係数18・15/2を決定。二次jetの代数性と方向射影束の固有性からFermatを含む稠密開へ拡張 | `prop:ku-fermat-full-quadratic-tensor`, `cor:ku-generic-all-directions-quadratic` |
+| Kuとshadowの同時固定交わりは二次差だけで完全に決まる | 上記開上の標識付き形式変形。偶性・変数数≤3・二次完全交叉。Fermat局所環は各p_i²=0、長さ4・8。階数別Hilbert関数も決定 | `lem:ku-even-quadratic-determinacy`, `thm:ku-fixed-shadow-intersection`, `cor:ku-fermat-intersection-algebra` |
+| 内在的対合の同変周期は全古典点で形式的局所Torelliを満たす | LRZ Proposition4.1・Theorem4.2、相対HP/GM、Landesman Theorem4.3と分岐曲線への微分単射性。d2は6→6同型、d1は8→10閉埋込み | `thm:ku-intrinsic-formal-torelli` |
+| d2は多項式延長の下で全二次差がHessian/8に限る | 普遍Jacobian加群への延長は追加仮定。Schur分解による一意性を証明。catalecticant/判別式の補正が滑らか部分の自然性だけの不足を示す | `prop:ku-degree-two-polynomial-rigidity`, `cor:ku-degree-two-hessian-conditional`, `prop:ku-catalecticant-ambiguity` |
+| d1は多項式延長の下でもH₁+sR₁の定数が残る | 三次元の共変式空間と巡回較正を証明。R₁は巡回族で消え、一般には非零。延長とsの値は未証明 | `prop:ku-d1-polynomial-classification` |
+| d1のHessian候補に滑らかな零方向の例、d2の候補は一般階数6 | 候補だけの証明済み結果。d1はJacobian syzygyと法11Bézoutによる滑らかさ、d2はKlein四次式での厳密階数。実際のδ₂の値・一般階数は未確定 | `prop:ku-d1-hessian-null-direction`, `prop:ku-hessian-klein-rank` |
 | 既存shadowはKuznetsov成分を一般には保存しない | 非零二次差から粗射の不一致、等化子の閉性と古典Torelliを使用 | `cor:ku-shadow-nonpreservation` |
 | 一般Poissonファイバーの5・4個の残余圏は全て相互に非同値 | 楕円固定曲線の内在性・j非降下の厳密証明書・全非対角積の整性とS₅・S₄の二重推移性 | `thm:ku-generic-poisson-fibres-separated` |
 | framed全Abel Artin形式環は、d1で滑らかな形式円板、d2で通常の形式円板×Plücker錐の完備化 | 証明を記述し、一次比較定理の適用条件を点検。通常の局所Artin環全体 | `thm:abel-formal-ring` |
@@ -147,7 +154,7 @@ Uの全幾何学的点で全Abel Artin変形を同じ族が実現する。Abel H
 
 両次数の一般次数5・4と一般モノドロミーS₅・S₄は、全lower、規格化中心torsor、全同値商を経た結果である。有限族のCasimir係数に余分な分枝があっても全同値群oidで同一視される。次数1のy正規化と全座標商の比較も完了し、係数次数だけからの推測ではない。自由語中心証明書、逆式、S₃同変性、Sylvester判別式と有限体Bézout証明書を再現資産として保持する。
 
-0. **優先：一般の二次差と高次復元。** 巡回族での非零二次差と一般Poissonファイバーの相互非同値性は得た。次に、次数2では `pᵗ adj(Hess F₄)p/8`、次数1では一般の重み付き方程式に対する対応式を、Jacobian商での候補として検討する。Fermatでの全tensorと一般の全係数公式を区別する。固定点配置のKu一定gluing族を中心商presentationへ移し、shadowを再構成する方法も具体的な入口である。非可換Hochschild–Serre積を用いる場合は、次数2の3次関係、次数1の重み4・5の関係を直接計算し、PBW対称化の乗法互換性を仮定しない。
+0. **優先：巡回族外での二次差の一回の計算と境界制御。** 次数1の `eq:ku-d1-hessian-null-example` の曲面とD=∂xでは `H₁(D)=0`、`R₁(D)≠0` である。ここで内在的対合 `S³[−5]` による相対HPの二次Hodge変化を計算すれば、多項式延長の下で残る定数sを決めるための一つの検査となる。次数2は `cor:ku-degree-two-hessian-conditional` の延長仮定を境界で証明するか、`S²[−3]` による同変周期または低次数HS積を直接計算する。一般の反標準楕円切断の周期はKu単独の不変量ではないので、その置換は使わない。固定点配置のKu一定gluing模型から反標準環を復元する経路も保持する。HS積では次数2の3次関係、次数1の重み4・5の関係を計算し、PBW対称化の乗法互換性を仮定しない。実際のδ₂の一般階数・特殊locusと高次復元式全体も残る。
 
 1. **具体的な開像と境界全体。** 有限正規化Zと最大有限locus N\ν(B)、次数1の全零切断上の欠落四枚、次数2の各零点上の欠落分岐点は得た。次は正規化上で中心分母・smooth proper開・Casimir Jacobianの消滅条件を比較し、選んだ構成近傍M^ncの像とB全体を同定する。次数1の明示的monic五次式と正則I,J,αを具体的な着手点とする。境界自身の形式完備化を四つの形式近傍と同一視せず、係数判別式だけで全境界を決めない。
 2. **次数2の零切断上の局所模型。** 接線因子Hに沿う符号分岐は証明済みだが、高余次元の零切断上の分岐指数、全ファイバーの長さ、欠落点の個数、正規化の平坦性は未決定である。最高活性逆写像の1+3型を出発点に、全lower係数の復元行列と全座標商を含む整閉包・付値を計算する。最高活性部分の模型を全モジュライの局所模型とするには追加の証明が必要である。
@@ -168,5 +175,5 @@ Uの全幾何学的点で全Abel Artin変形を同じ族が実現する。Abel H
 - `verify_poisson_shadow.py` はFの1階・2階jetを独立変数とし、n=2,…,6でJacobian括弧のJacobiatorとPlücker関係による表示を厳密に検算する。一般n・任意基底の証明は主原稿の添字計算と全同値の変換則に置き、有限個の検算で置き換えない。
 - `verify_degree_two_gorenstein_curve.py` と `verify_degree_one_integral_curve.py` は全独立係数のpoint行列・blowup・分母を払ったshiftと関係式を厳密検算する。d2の非被約ribbon、d1の尖点を除外しない。σ⁴・σ⁶の非自明性だけは明示したmod h²の検査である。強・積Noether性、相対CY・tails・smoothnessは論文の証明により、これらの計算だけから推論しない。
 - 両shadow計算は中心の自由語証明書と逆有理式に加え、Sylvester判別式・有限体Bézout証明書を厳密検算する。次数1はdepressionとh尺度変更、次数2はnormalizer商S₃、全係数同変性、Lie行列式と符号二次体の反不変式も確認する。全モジュライの次数5・4とモノドロミーには、論文の中心torsor・共通開・全同値群oid・単純分岐の証明を別に用いる。
-- 曲面の新計算4本は `verify_kuznetsov_quadratic_symmetry.py`、`verify_degree_one_period_quadratic.py`、`verify_degree_one_period_fibres.py`、`verify_degree_two_period.py`。有限群指標、全係数の二次jetとmarked座標変換、五次・四次ファイバー上のj非降下を標準ライブラリの有理数演算で検算する。本文の同変周期・内在的固定曲線・Torelliの証明を計算で代替しない。
+- 曲面の周期・対称性の4本は `verify_kuznetsov_quadratic_symmetry.py`、`verify_degree_one_period_quadratic.py`、`verify_degree_one_period_fibres.py`、`verify_degree_two_period.py`。有限群指標、二次jetとmarked座標変換、五次・四次ファイバー上のj非降下を標準ライブラリの有理数演算で検算する。候補の新しい2本 `verify_degree_two_hessian_rigidity.py`、`verify_degree_one_hessian_counterexample.py` はKlein階数6、catalecticant、d1の厳密syzygy・平方因子不存在・共変式分類を検算する。本文の同変周期・内在的固定曲線・Torelliの証明や実際のδ₂の一般式を計算で代替しない。
 - 組版・PDF確認の実施状況と環境は [再現手順](docs/reproduction.md)。生成・証明点検・計算・組版・GitHub反映・hub更新はそれぞれ確認する。

@@ -1,6 +1,6 @@
 # 再現手順と検証範囲
 
-2026-11-21（JST） / v0.19
+2026-11-21（JST） / v0.20
 
 ## 組版
 
@@ -32,6 +32,8 @@ python3 computations/verify_kuznetsov_quadratic_symmetry.py
 python3 computations/verify_degree_one_period_quadratic.py
 python3 computations/verify_degree_one_period_fibres.py
 python3 computations/verify_degree_two_period.py
+python3 computations/verify_degree_two_hessian_rigidity.py
+python3 computations/verify_degree_one_hessian_counterexample.py
 python3 computations/verify_formal_geometry.py
 python3 computations/verify_finite_families.py
 python3 computations/verify_cubic_top.py
@@ -78,19 +80,23 @@ Python 3の標準ライブラリのみを使用する。`n=2,...,8` と両次数
 
 ## 検証の状態
 
-今回（v0.19）は、有限群同変な標識付き古典復元、中央巡回被覆のrecollement、相対perfectへの制限、相対HPのHodge filtrationとGauss–Manin接続、楕円曲線の二次KSとの比較を独立に点検した。両次数の巡回族でHess/8となる二次差を計算し、Fermatの自己同型表現から全tensorと全非零方向での非消滅を得た。巡回固定部分群の内在性、有限unramified作用空間の形式切断の代数化、h=1への尺度変更、全非対角積の整性、等化子から一般全枝分離への議論も相互に独立点検した。一般全係数のHessian公式と非可換Hochschild–Serre乗法は未計算である。形式証明器は使用していない。
+現行v0.20では、標識付き同時固定交わりの二次有限決定性・階数別Hilbert関数、内在的対合による全古典点の形式的局所Torelli、普遍Jacobian加群への多項式延長を仮定したd2の一意性とd1の三次元候補・較正直線を本文へ記述し、内部で独立に論理点検した。内在的周期はLRZ Proposition4.1・Theorem4.2、Landesman Theorem4.3、相対HP/GM比較へ照合した。d2のcatalecticant補正とKlein階数、d1の滑らかな零方向例・非零補正項は候補の結果であり、実際のδ₂の一般式とは区別する。形式証明器・外部査読・包括的新規性確認は実施していない。
 
-新しい計算4本はPython 3標準ライブラリの整数・有理数演算で再現する。`verify_kuznetsov_quadratic_symmetry.py` は自然なPoisson線型化、有限群指標、二次テンソルの不変直線を検算する。`verify_degree_one_period_quadratic.py` は全α,β係数について、point四次式・I,J・特殊ファイバーの標識を保つMöbius変換・shadowのdepression・二次Hessian差を検算する。`verify_degree_one_period_fibres.py` はh=1の全point不変式のk²=−αへの降下と、五次逆方程式上のj非定数性をQ上のgcdおよび法101のEuclid証明書で確認する。`verify_degree_two_period.py` は二次jet、shadow固定例のjのh²係数94640、四次逆方程式上のj非定数性をQ上と法101で確認する。計算に使う既存の多項式演算をimportするため、関連ファイルを同じcomputations/に保つ。
+新計算2本 `verify_degree_two_hessian_rigidity.py` と `verify_degree_one_hessian_counterexample.py` を標準ライブラリのみで実行し成功した。前者はKleinのJacobian関係・階数6、Fermat階数3、catalecticantの巡回消滅と行列式819200、曖昧さの非零類を検算する。後者は有理係数の厳密Jacobian syzygy、判別式、法11のBézout証明書、小行列式−378、共変式のHessian恒等式と表現重複度・較正を検算する。これは非可換乗法・実際の周期変化を計算したという主張ではない。
+
+既存の同変古典復元・中央巡回分解・相対周期・Fermat全tensor・一般全枝分離の証明点検と計算成功の状態は維持する。今回、上流の全構成を再検証したとは扱わない。
+
+周期・対称性に関する既存計算4本はPython 3標準ライブラリの整数・有理数演算で再現する。`verify_kuznetsov_quadratic_symmetry.py` は自然なPoisson線型化、有限群指標、二次テンソルの不変直線を検算する。`verify_degree_one_period_quadratic.py` は全α,β係数について、point四次式・I,J・特殊ファイバーの標識を保つMöbius変換・shadowのdepression・二次Hessian差を検算する。`verify_degree_one_period_fibres.py` はh=1の全point不変式のk²=−αへの降下と、五次逆方程式上のj非定数性をQ上のgcdおよび法101のEuclid証明書で確認する。`verify_degree_two_period.py` は二次jet、shadow固定例のjのh²係数94640、四次逆方程式上のj非定数性をQ上と法101で確認する。計算に使う既存の多項式演算をimportするため、関連ファイルを同じcomputations/に保つ。
 
 これらは多項式・有理式と有限群表現の厳密検算であり、Morita同値・周期比較・古典Torelliを機械的に証明するものではない。五次・四次の特殊化証明書は関数体上の非降下を証明するためのもので、その特定の有限hで全対象がsmooth proper開に入るとは主張しない。一般ファイバーの全残余圏の分離には、内在的な楕円固定曲線と非対角積の整性を用いた本文の証明を別に使う。
 
-現行v0.19は既存recipe `latexmk -norc -r .latexmkrc papers/nc-del-pezzo.tex` により261頁のPDFとSyncTeXの生成に成功した。最終ログにLaTeXエラー、未解決参照・引用、欠落文字、overfull/underfull boxはなく、BibTeX警告もない。静的な全参照・引用キー・ラベル重複検査も通過した。表紙、Introductionの主定理、新第37・38節（209–224頁）と文献（258–261頁）の一覧画像を確認し、同変周期・Fermat全tensor・一般分離定理（211・214・224頁）は拡大画像も確認した。従来からの日本語フォントの斜体不使用・尺度・数式フォントのサイズ代替、および旧式コマンドの警告は残るが、欠落文字の警告ではない。変更していない全頁を今回目視したとは扱わない。
+現行v0.20の組版・静的参照・PDF表示は検証作業中である。既存recipeは `latexmk -norc -r .latexmkrc papers/nc-del-pezzo.tex`。現在の作業環境ではTeXのformatと和文依存が不足していたため利用者領域で復旧している。組版完了・最終ページ数・警告と表示確認の結果は、確認後にこの段落を置き換える。
 
 既存の証明点検の対象は `finite_normalization_boundary.tex` であり、一般有限正規化・最大有限locus・粗零切断の逆像、次数1の正則不変量とmonic五次模型・零切断上の五枚・形式分裂、次数2のtrace不変量・接線素因子・符号二次体からの欠落分岐点を内部で独立に点検した。接線因子から古典係数空間への優勢性と、余接加群の支持の有限像によって全零切断へ結論を延ばす段階も確認した。正規化と粗射の基底変更を無条件に交換できない反例を含める。最高活性二係数商の形式模型1+3は研究ノートで証明し、全モジュライへの移送は未証明と区別した。Stacksの正規化・Zariski主定理・DVR特殊化・Hensel持上げの一次本文と、固定PoissonDPの全商表示・一般自己同型群を照合した。
 
 既存の一般次数5・4、中心torsor・全lower・全同値商、一般S₅・S₄と符号二次体、Poisson shadow・粗空間・解消の点検結果は保持する。上流の全PBW・AS分類・Noether降下・全Abel比較を今回すべて再検証したとは扱わない。
 
-計算資産12本は2026-11-20に成功した結果を保持する。既存の両shadow計算の実行記録では、既存の一般判別式・有限体Bézout証明書・符号二次体に加え、次数1の零係数での五次式分解・非零判別式・二次Hensel jet、次数2の全binary quartic trace不変量・活性三次特性多項式・接線判別式の横断例・四つの逆関係Jacobianの厳密検算に成功した。importされる既存 `verify_cubic_top.py` も同時に成功した。既存の計算コードは変更していない。今回の4本の実行時にはimportにより `verify_degree_one_curve.py` と `verify_degree_one_integral_curve.py` の検算も再実行され成功した。他の既存計算については直近の成功確認を保持し、今回の全再実行は行っていない。形式証明器による検証は行っていない。
+計算資産12本は2026-11-20に成功した結果を保持する。既存の両shadow計算の実行記録では、既存の一般判別式・有限体Bézout証明書・符号二次体に加え、次数1の零係数での五次式分解・非零判別式・二次Hensel jet、次数2の全binary quartic trace不変量・活性三次特性多項式・接線判別式の横断例・四つの逆関係Jacobianの厳密検算に成功した。importされる既存 `verify_cubic_top.py` も同時に成功した。既存の計算コードは変更していない。既存の周期計算4本の直近の成功確認時にはimportにより `verify_degree_one_curve.py` と `verify_degree_one_integral_curve.py` の検算も再実行され成功した。他の既存計算については直近の成功確認を保持し、今回の全再実行は行っていない。形式証明器による検証は行っていない。
 
 
 - 原稿の主要証明を直接点検した。全Artin比較は引用する一次定理の仮定・射・係数環に照合した。

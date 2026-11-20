@@ -42,7 +42,7 @@
 \newcommand{\Perf}{\operatorname{Perf}}
 \newcommand{\rank}{\operatorname{rank}}
 \newcommand{\HH}{\operatorname{HH}}
-\newcommand{\Version}{0.19}
+\newcommand{\Version}{0.20}
 \title{次数1・2の非可換del Pezzo多様体\texorpdfstring{\\}{ }構造対象付き変形とモジュライの局所構造}
 \author{}
 \date{2026年11月21日\quad v\Version\quad 公表用研究稿}
@@ -101,6 +101,12 @@ shadowとの二次差が活性Hessian行列式の $1/8$ のJacobian類となる�
 これは非零であり，shadowは残余圏を一般には保存しない。
 さらに楕円固定曲線の内在性，逆方程式の厳密な計算証明書，対称群モノドロミーを合わせ，
 一般の同じPoisson構造に属する五枚・四枚の残余圏が全て相互に非同値であることを示す。
+全非零方向で二次差が消えない古典開集合では，残余圏とshadowを同時に固定する
+標識付き形式変形の局所環は二次差だけで決まる。
+Fermat点では二変数または三変数の各二乗を零とする環となり，長さは4，8である。
+また内在的なGeiser・Bertini対合の同変周期による，全古典点での形式的局所Torelliを得る。
+一般Hessian公式については，次数2の多項式延長を仮定した剛性と，
+次数1の多項式候補の曖昧さ・滑らかな零方向の例を記述し，未証明の比較を明示する。
 \end{abstract}
 \clearpage
 \tableofcontents
@@ -469,6 +475,46 @@ perfect対象と同値bimoduleのモジュライを用い，
 \cite{KellerDG2006,Elagin2015,Sheridan2020,Tu2024}の既知の結果に依存する。
 これらの一般原理と，本稿の具体的な中心商・楕円曲線への適用を区別する。
 一般の全方向Hessian公式と，本結果の包括的な優先権確認は未了である。
+
+\begin{theorem}[同時固定条件の二次有限決定性と内在的周期]
+\label{thm:main-ku-finite-determinacy-period}
+$d=1,2$ とする。全非零Poisson方向で二次差が非零となる，Fermat点を含む
+稠密古典開集合 $\mathcal S_d^\circ$ が存在する。
+$X\in\mathcal S_d^\circ$ において，残余圏とshadowを同時に固定する
+標識付き形式変形の局所環は
+\[
+ \C[[p_1,\ldots,p_{d+1}]]/
+  \bigl(\lambda(\delta_{2,X}(p,p)):\lambda\in H^1(T_X)^*\bigr)
+\]
+であり，四次以上の復元式に依存しない。
+Fermat点ではイデアルは $(p_1^2,\ldots,p_{d+1}^2)$ で，長さは $2^{d+1}$ である。
+一方，任意の滑らかな古典 $X$ について，残余圏の内在的対合による標識付き同変周期は
+通常Morita変形の形式空間を検出する。
+次数2では6次元の形式周期空間との同型，次数1では10次元の形式周期空間への
+8次元の閉埋込みとなる。
+\end{theorem}
+\begin{proof}
+系\ref{cor:ku-generic-all-directions-quadratic}，
+定理\ref{thm:ku-fixed-shadow-intersection}，
+系\ref{cor:ku-fermat-intersection-algebra}，
+定理\ref{thm:ku-intrinsic-formal-torelli}による。
+\end{proof}
+最初の結論は，偶性と $d+1\le3$，二次完全交叉のHilbert級数から従う。
+長さ4，8は粗モジュライのファイバー長でもPoisson比較の一般次数でもない。
+後半には\cite[Proposition~4.1, Theorem~4.2]{LinRampazzoZhang2026}の内在的対合と
+分岐曲線の認識，および\cite[Theorem~4.3]{Landesman2019Torelli}の既知の周期微分公式を用いる。
+
+一般公式の問題には次数による違いがある。
+次数2では普遍Jacobian加群へ多項式延長できれば
+$\delta_2=[q^{\mathsf T}\operatorname{adj}(\operatorname{Hess}F)q]/8$ が強制される。
+しかしcatalecticantと判別式から作る $C(F)^9/\Delta(F)^2$ は
+巡回族で零となる非定数不変関数であり，滑らか部分での自然性だけでは不十分である。
+次数1では $[4A_4D^2A_4-3(DA_4)^2]$ という非零多項式項自体が巡回族で消える。
+さらに全係数Hessian候補には滑らかな零方向の例がある。
+これらの証明は第\ref{sec:kuznetsov-hessian-rigidity}・
+\ref{sec:kuznetsov-hessian-counterexample}節に置く。
+Hessian小行列式のJacobian商での研究には\cite{DimcaSticlaru2015}の既存の枠組みがあり，
+候補の性質と残余圏の二次差との同定を区別する。
 
 \subsection{有限正規化と零切断に向かう分枝}
 一般次数が1でないことと，可換点での形式同型の関係を，有限正規化によって記述する。
@@ -858,6 +904,9 @@ $(-(n-1))[n]$ と長さ $n+5$（次数1），$n+3$（次数2）のcompact生成�
 \input{sections/kuznetsov_relative}
 \input{sections/kuznetsov_shadow_obstruction}
 \input{sections/kuznetsov_cyclic_fibres}
+\input{sections/kuznetsov_intrinsic_period}
+\input{sections/kuznetsov_hessian_rigidity}
+\input{sections/kuznetsov_hessian_counterexample}
 \input{sections/shadow_top_inverse}
 \input{sections/degree_two_shadow_degree}
 \input{sections/degree_one_shadow_degree}
@@ -914,9 +963,13 @@ affine有限表示であることも与える。
 相対構成，通常Artin変形の古典的復元，\'{e}tale局所幾何化と粗射を得た。
 第\ref{sec:kuznetsov-shadow-obstruction}・\ref{sec:kuznetsov-cyclic-fibres}節では，
 巡回族の非零な二次差と，一般Poissonファイバーの残余圏の相互非同値性を得た。
-次の核心は，一般の全係数・全Poisson方向に対する二次差と，高次復元射の明示式である。
-巡回族のHessian式を，tilting代数の評価写像またはHochschild--Serre積によって
-一般の方程式へ拡張できるかを調べる。
+同時固定条件の交わりは二次差により完全に決まり，内在的同変周期は全古典点で変形を検出する。
+次の核心は，一般非可換表示からこの周期またはHochschild--Serre積を二次まで計算することである。
+次数2では普遍Jacobian加群への多項式延長が公式を強制するが，その延長は未証明である。
+次数1では多項式性を仮定しても巡回族で消える補正項が残るため，
+巡回族外での新しいカテゴリー的計算が必要である。
+Hessian候補の滑らかな零方向の例で，実際の二次差を計算することは具体的な着手点となる。
+二次差の一般階数・例外locusと，高次復元射全体の明示式も残る。
 高次元の通常の例外blockに対する同じ幾何化も別課題である。
 
 \begingroup

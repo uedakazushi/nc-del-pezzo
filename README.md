@@ -1,6 +1,6 @@
 # 次数1・2の非可換del Pezzo n-fold
 
-**2026-11-21（JST） / v0.19 — 現行研究一式**
+**2026-11-21（JST） / v0.20 — 現行研究一式**
 
 最初に [研究方針](00_research_plan.md) を読む。対象は一般の `n ≥ 2`、次数 `d=1,2`。構造対象 **Oだけを標識**し、射には全てのO保存完全Abel同値を採用する。GitHub mainが正本である。
 
@@ -27,9 +27,20 @@
 
 Fermatでは自己同型群の指標から全二次テンソルを決定した。さらに二次差の代数性とPoisson方向の射影束の固有性により、Fermat点を含む稠密開の古典曲面上で、**全ての非零Poisson方向について二次差が非零**となる。
 
+この開集合では、**Kuとshadowを同時に固定する標識付き形式変形の局所環は、二次差の成分が生成する二次イデアルだけで完全に決まる。** 偶性とPoisson変数の個数が2・3であることを用い、四次以上の項がこのイデアルを変えないことを証明した。Fermat点では `C[p₁,…,p_(d+1)]/(p₁²,…,p_(d+1)²)` となり、長さは次数1で4、次数2で8。一般には二次差の階数に応じ、次数1の長さは3・4、次数2は4・5・6・8のいずれかである。これらは標識付き交わりの長さであり、Poisson比較の一般次数5・4や粗ファイバー長とは異なる。
+
+全ての滑らかな古典点では、内在的対合 `S_Ku²[−3]`（次数2）・`S_Ku³[−5]`（次数1）の同変周期が残余圏の通常Artin変形を検出する。分岐曲線の種数は3・4であり、形式周期写像は次数2で6次元同士の同型、次数1で8次元から10次元への閉埋込みとなる。Lin–Rampazzo–Zhangの内在的対合とLandesmanの既知の周期微分公式に、相対HPと本稿の形式復元を組み合わせた帰結である。
+
+一般Hessian公式については、未解決の条件を次のように絞った。
+
+| 次数 | 証明した条件付き分類・障害 | 残る入力 |
+|---|---|---|
+| 2 | 普遍Jacobian加群へ多項式延長できれば `δ₂=[qᵗ adj(Hess F₄)q]/8` に限る。catalecticant/判別式による補正は滑らか部分で正則かつ巡回族で零なので、滑らか部分の自然性だけでは不足 | 実際のδ₂の判別式境界への延長、または一般NC表示からの直接計算 |
+| 1 | 多項式延長の下でも `δ₂=H₁+sR₁` という一つの定数が残る。`R₁=[4A₄D²A₄−3(DA₄)²]` は巡回族で消える。H₁が非零方向で零となる滑らかな有理係数曲面も構成した | 多項式延長と定数sの決定。候補の零方向で実際のδ₂が零かどうかは未判定 |
+
 一般の全係数・全Poisson方向に対するHessian公式、高次復元式、古典モジュライstackへの大域的な射、全近傽での一つのMorita同値、n≥3の長い例外blockの幾何化は未解決である。
 
-証明は [曲面の形式復元](papers/sections/kuznetsov_surface.tex)、[相対構成・étale局所幾何化](papers/sections/kuznetsov_relative.tex)、[同変周期と非零二次差](papers/sections/kuznetsov_shadow_obstruction.tex)、[一般Poissonファイバーの分離](papers/sections/kuznetsov_cyclic_fibres.tex)。既存の相対THCR、幾何化、Lin–Rampazzo–Zhangの古典Torelliを入力とする。一次資料・論理の独立点検と有理数・多項式の厳密計算を実施した。形式証明器による検証と包括的な新規性確認はしていない。
+証明は [曲面の形式復元](papers/sections/kuznetsov_surface.tex)、[相対構成・étale局所幾何化](papers/sections/kuznetsov_relative.tex)、[二次差・同時固定交わり](papers/sections/kuznetsov_shadow_obstruction.tex)、[一般Poissonファイバーの分離](papers/sections/kuznetsov_cyclic_fibres.tex)、[内在的周期](papers/sections/kuznetsov_intrinsic_period.tex)、[次数2の条件付き剛性](papers/sections/kuznetsov_hessian_rigidity.tex)、[次数1の分類・反例](papers/sections/kuznetsov_hessian_counterexample.tex)。各主張の既知入力と追加仮定を本文で明示する。一次資料・論理の独立点検と有理数・多項式の厳密計算を実施した。形式証明器による検証と包括的な新規性確認はしていない。
 
 ## 形式モジュライと圏論的結果
 

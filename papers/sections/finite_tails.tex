@@ -1,0 +1,527 @@
+% !TeX root = ../nc-del-pezzo.tex
+\section{有限パラメータ族の局所コホモロジーと相対Serre双対}
+\label{sec:finite-tails}
+
+本節では $n\ge2$ とし，$\Lambda$ をnoetherianな可換 $\mathbb C$-代数とする．
+定理\ref{thm:explicit-finite-pbw-casimir}の分離型有限パラメータ族のambientを $A$，中央元を $\Omega$，
+$B=A/(\Omega)$ と書く．記号を
+\[
+ N=n+2,\qquad d=N-1=n+1,\qquad
+ (l,D)=\begin{cases}(n+3,4)&\text{次数2},\\(n+5,6)&\text{次数1},\end{cases}
+ \qquad r=l-D=n-1>0
+\]
+とする．定理\ref{thm:explicit-finite-pbw-casimir}，
+命題\ref{prop:finite-separated-absolute-cy}によって，次の性質が得られている：
+$A,B$ は左右noetherianで各内部次数が有限自由，$A_0=B_0=\Lambda$，
+$A$ は $\Lambda$ 上homologically smoothで
+\[
+ A^!_\Lambda\simeq A(l)[-N],
+\]
+$\Omega$ は次数 $D$ の中央正則元であり，これらは任意の係数変更で保たれる．
+以下の加群計算は可換係数環一般でも成り立つが，
+coherent tailsの主張は本稿のsiteに合わせて局所noetherian基底に限定する．
+
+次数付き $\Lambda$-複体の相対双対を
+\[
+ (D_\Lambda M)_j=R\!\operatorname{Hom}_\Lambda(M_{-j},\Lambda)
+\]
+と書く．各次数が有限自由の代数の場合には通常の次数別双対 $M^\vee$ と一致する．
+左右の式は反対環にも適用する．
+
+\subsection{有限な係数加群に対するambient双対}
+\begin{lemma}\label{lem:relative-proper-module-duality}
+$M$ を次数付き左 $A$-加群で，$\Lambda$ 上perfectなものとする．
+このとき $M$ は $A$ 上perfectで，右 $A$-加群として自然な同型
+\[
+ R\!\operatorname{Hom}_A(M,A)
+       \simeq D_\Lambda M(l)[-N]
+\]
+を持つ．$M$ がbimoduleなら，残る作用についても自然である．
+同様に，$M$ が $B$-加群で $\Lambda$ 上perfectなら
+\[
+ R\!\operatorname{Hom}_B(M,B)
+       \simeq D_\Lambda M(r)[-d].
+\]
+後者では $M$ が $B$ 上perfectであるとは主張しない．
+\end{lemma}
+\begin{proof}
+$A$ の有限projective対角解消を右 $A$ 上で $M$ とtensorすると，
+$M$ は有限個の $A\otimes_\Lambda M$ から作られるので $A$ 上perfectである．
+対角の双対可能性，tensor--Hom随伴，$M$ の $\Lambda$-perfect性から
+\begin{align*}
+ R\!\operatorname{Hom}_A(M,A)
+ &\simeq R\!\operatorname{Hom}_{A^e_\Lambda}
+       \bigl(A,R\!\operatorname{Hom}_\Lambda(M,A)\bigr)\\
+ &\simeq A^!_\Lambda\otimes^L_{A^e_\Lambda}
+             (A\otimes_\Lambda D_\Lambda M)\\
+ &\simeq D_\Lambda M(l)[-N]
+\end{align*}
+を得る．最後のtensorでは $A\otimes_\Lambda D_\Lambda M$ を
+$A^{\mathrm{op}}$ からの誘導加群として見ればよい．
+この議論はReyes--Rogalski--Zhangの体上の議論
+\cite[Lemma 1.2]{RRZ2014}と同じ随伴であり，ここでは係数環についてのperfect性を明示した．
+
+中央正則元の二項解消から
+$R\!\operatorname{Hom}_A(B,A)\simeq B(D)[-1]$．
+$B$-加群 $M$ についてのchange of ringsにより
+\[
+ R\!\operatorname{Hom}_A(M,A)
+ \simeq R\!\operatorname{Hom}_B(M,B)(D)[-1]
+\]
+なので第二の式を得る．全ての同型は自然で，次数付きbimoduleの作用と両立する．
+\end{proof}
+
+\begin{corollary}\label{cor:finite-relative-augmentation-ext}
+任意の許される基底変更後にも
+\[
+ R\!\operatorname{Hom}_A(\Lambda,A)=\Lambda(l)[-N],\qquad
+ R\!\operatorname{Hom}_B(\Lambda,B)=\Lambda(r)[-d]
+\]
+が左右で成り立つ．幾何学的体ファイバーでは $A$ は大域次元 $N$，
+AS index $l$ のAS正則代数であり，$B$ はinjective dimension $d$，
+AS index $r$ のAS--Gorenstein代数である．
+\end{corollary}
+\begin{proof}
+相対Ext式は前補題で $M=\Lambda$ としたものである．
+体ファイバーのambientは連結次数付きCYなので
+\cite[Lemma 1.2]{RRZ2014}によりAS正則である．
+Hilbert級数からGK次元も有限である．中央元のchange of ringsを任意の $B$-加群に適用すると，
+$\operatorname{injdim}_B B\le N-1$ を得る．
+augmentation Extの非消滅から等号であり，左右のAS--Gorenstein条件が従う．
+非正則な $\Lambda$ 上で絶対的な有限大域次元を主張するものではない．
+\end{proof}
+
+\subsection{相対局所コホモロジー}
+$C$ を $A$ または $B$ とし，$\Gamma_C$ を内部次数のirrelevant idealによるtorsion関手とする．
+\[
+ R\Gamma_C(M)=\mathop{\mathrm{colim}}_q
+       R\!\operatorname{Hom}_C(C/C_{\ge q},M)
+\]
+を用いる．ここでHomは全ての内部次数を含む．
+
+\begin{theorem}\label{thm:finite-relative-local-cohomology}
+次数付きbimoduleとして
+\[
+ R\Gamma_A(A)\simeq A^\vee(l)[-N],\qquad
+ R\Gamma_B(B)\simeq B^\vee(r)[-d].
+\]
+さらに $\Gamma_B$ のcohomological dimensionは高々 $d$ で，
+\[
+ R\Gamma_B(M)\simeq R\Gamma_B(B)\otimes_B^L M
+\]
+が左加群に対して自然に成り立つ．右加群には左右を交換した式を用いる．
+これらの関手は直和を保つ．構造加群 $A,B$ の式は任意の基底変更と両立する．
+\end{theorem}
+\begin{proof}
+$A/A_{\ge q}$ と $B/B_{\ge q}$ は $\Lambda$ 上有限自由である．
+前補題を適用して $q$ のcolimitを取ると，最初の二つの式を得る．
+次数ごとに双対が安定するので，この計算は任意の基底変更と両立する．
+
+$A/A_{\ge q}$ は $A$ 上perfectであるため，
+\[
+ R\Gamma_A(M)
+ \simeq\left(\mathop{\mathrm{colim}}_q
+ R\!\operatorname{Hom}_A(A/A_{\ge q},A)\right)\otimes_A^L M.
+\]
+従って $R\Gamma_A$ はsmashingであり，直和を保つ．
+有限projective対角解消をtensorすることによって各 $A/A_{\ge q}$ のprojective dimensionには
+$q$ によらない上界があるので，$\Gamma_A$ は有限cohomological dimensionを持つ．
+上の具体式 $A^\vee(l)[-N]\otimes_A^LM$ によって，その上界を $N$ にできる．
+
+次に $B$-加群上で $R\Gamma_A=R\Gamma_B$ であることを確認する．
+$I$ を次数付きinjective $B$-加群とすると，change of ringsにより
+\[
+ \operatorname{Ext}^i_A(A/A_{\ge q},I)
+ \cong\operatorname{Hom}_B
+   \bigl(\operatorname{Tor}_i^A(B,A/A_{\ge q}),I\bigr).
+\]
+$\operatorname{Tor}_i$ は $i>1$ で零であり，$i=1$ の項は
+$\Omega$ の正則性から内部次数 $q,\ldots,q+D-1$ にのみ支持を持つ．
+$q'\ge q+D$ なら切断写像が誘導する $\operatorname{Tor}_1$ の写像は零である．
+従って $q$ のcolimitを取ると $I$ は $\Gamma_A$-acyclicとなる．
+両torsion関手は $B$-加群上で一致するので，injective $B$-解消により
+導来関手も一致する．まず下に有界な複体で比較し，有限cohomological dimensionにより
+非有界導来圏へ延長する．
+
+従って導来tensorの結合性から
+\begin{align*}
+ R\Gamma_B(M)
+ &\simeq R\Gamma_A(A)\otimes_A^L M\\
+ &\simeq\bigl(R\Gamma_A(A)\otimes_A^L B\bigr)\otimes_B^L M\\
+ &\simeq R\Gamma_B(B)\otimes_B^L M.
+\end{align*}
+これは直和を保つ．$B^\vee(r)[-d]$ の式から，離散加群 $M$ の局所コホモロジーは
+次数 $d$ より上で零である．
+
+後で用いる局所化の冪等性も確認できる．内部次数が上に有界なtorsion加群 $T$ に対し，
+$A/A_{\ge q}$ の自由解消を，零次項は $A$，それ以外の項の生成次数は全て $q$ 以上となるように取る．
+固定した内部次数では，$q\to\infty$ により正の解消次数から $T$ へのHomは零になるので，
+$R\Gamma_A(T)=T$ である．一般のtorsion加群は，内部次数が上に有界な有限生成torsion部分加群の
+filtered colimitである．$A/A_{\ge q}$ のperfect性から $R\Gamma_A$ はfiltered colimitを保つため，
+一般のtorsion加群にも同じ結論が成立し，有限cohomological dimensionにより
+torsionコホモロジーを持つ複体にも延長される．$B$ に対しては比較同型を使う．
+また $R\Gamma_B(M)$ の各コホモロジーはtorsionである：
+切断からのExtにおける残りの $B$-作用は $B/B_{\ge q}$ を経由するためである．
+従って $R\Gamma_B$ はtorsion導来部分圏への冪等なcolocalizationであり，
+その局所化三角は導来商 $D(\operatorname{QGr}B)$ の局所化三角と一致する．
+\end{proof}
+
+\begin{corollary}[相対局所双対]\label{cor:finite-relative-local-duality}
+自然な同型
+\[
+ D_\Lambda R\Gamma_B(M)
+       \simeq R\!\operatorname{Hom}_B(M,B(-r)[d])
+\]
+が成り立つ．ここでも右加群には左右を交換した式を用いる．
+これは相対局所双対であり，非正則な $\Lambda$ 上での絶対balanced dualizing complexの
+全公理を意味するとは限らない．
+\end{corollary}
+\begin{proof}
+前定理のsmashing表示に導来tensor--Hom随伴を適用する．
+$B$ の各次数は有限自由なので
+$D_\Lambda(B^\vee(r)[-d])=B(-r)[d]$ である．
+\end{proof}
+
+\subsection{飽和性，ACM，豊富列，compact生成}
+$\mathcal Q=\operatorname{QGr}B$，$\mathcal O(t)=\pi B(t)$ とする．
+$\pi$ の右随伴を $\omega$ と書く．局所コホモロジーと導来sectionの三角
+\[
+ R\Gamma_B(M)\longrightarrow M\longrightarrow R\omega\pi M
+\]
+を用いる．これは次数付きnoetherian torsion商の通常の局所化三角である．
+
+\begin{theorem}\label{thm:finite-tails-cohomology}
+任意の整数 $t$ について
+\[
+ R\!\operatorname{Hom}_{\mathcal Q}(\mathcal O,\mathcal O(t))
+ \simeq
+ \begin{cases}
+  B_t,&t\ge0,\\
+  \operatorname{Hom}_\Lambda(B_{-t-r},\Lambda)[-n],&t\le-r,\\
+  0,&-r<t<0.
+ \end{cases}
+\]
+従って切断環は全次数で飽和し，有向ACM条件が成立する．
+これらのRHomは $\Lambda$ 上perfectで，任意の許される基底変更と両立する．
+\end{theorem}
+\begin{proof}
+局所化三角の内部次数 $t$ を取る．
+$R\Gamma_B(B)$ の唯一のコホモロジーは次数 $d=n+1$ にあり，
+その内部次数 $t$ 部分は $\operatorname{Hom}_\Lambda(B_{-t-r},\Lambda)$．
+$r>0$ により $B_t$ とこの双対は同時に非零にならない．
+従って各 $t$ の複体は上記の一つのコホモロジー群だけを持つ．
+基底変更は有限自由加群の双対と局所コホモロジーの構成に両立する．
+\end{proof}
+
+\begin{proposition}\label{prop:finite-full-shift-ample}
+任意のnoetherian次数付き $B$-加群 $M$ について，
+$H^i(\mathcal Q,\pi M(t))$ は有限 $\Lambda$-加群であり，
+$i>0$ では $t\gg0$ に対して零である．
+$B$ は左右で相対 $\chi$ 条件を満たす：全ての $q,i$ について
+$\underline{\operatorname{Ext}}^i_B(B/B_{\ge q},M)$ は有限 $\Lambda$-加群である．
+従って全シフト列 $(\mathcal O(-j))_{j\in\mathbb Z}$ は相対豊富列であり，
+この性質は許される基底変更後も成立する．
+\end{proposition}
+\begin{proof}
+$M$ の各項が有限生成次数付き自由加群である解消 $F^\bullet$ を選ぶ．
+局所コホモロジーは $B^\vee(r)[-d]\otimes_BF^\bullet$ で計算できる．
+固定したコホモロジー次数の項は有限個の $B^\vee$ の次数シフトの和なので，
+各内部次数で有限 $\Lambda$-加群であり，内部次数について右有界である．
+その部分商にも同じ性質がある．$i>0$ のsection cohomologyは
+$H^{i+1}_{\ge1}(M)$ から計算されるので有限性と消滅を得る．
+$H^0$ の有限性は局所化の完全列から従う．
+
+$T_q=B/B_{\ge q}$ はtorsionなので，導来商の随伴から
+\[
+ R\!\underline{\operatorname{Hom}}_B(T_q,M)
+ \simeq R\!\underline{\operatorname{Hom}}_B(T_q,R\Gamma_B(M)).
+\]
+$T_q$ の有限型自由解消と，有限範囲 $0\le j\le d$ にのみ支持を持つ
+$H^jR\Gamma_B(M)$ に対するスペクトル系列を用いると，このExtは
+内部次数について右有界で，各内部次数が有限 $\Lambda$-加群となる．
+一方，左辺を $M$ から直接計算すれば，$M$ の内部次数が左有界なので
+同じExtは左有界でもある．従って全内部次数の和が有限 $\Lambda$-加群であり，
+相対 $\chi$ 条件を得る．反対環でも同じである．
+
+任意の大きい $q$ について $M_{\ge q}$ は有限生成であり，
+$\pi M_{\ge q}=\pi M$ だから，十分大きい添字からの有限和による全射を得る．
+全射に対するHomの全射性は，その核への $H^1$ の消滅から従う．
+任意の局所noetherian係数変更後も同じ証明を適用できる．
+これは全シフトの豊富性であり，任意の正周期部分列の豊富性は別途確認する．
+\end{proof}
+
+\begin{proposition}\label{prop:finite-tails-compact-proper}
+$\mathcal O(j)$ は $D(\mathcal Q)$ のcompact生成系である．
+従ってそのthick閉包は $D(\mathcal Q)^c$ に一致し，このperfect圏は
+$\Lambda$ 上properである．許される係数変更はcompact対象を保ち，
+compact対象間のRHomは基底変更と可換する．
+\end{proposition}
+\begin{proof}
+$R\Gamma_B$ が直和を保つので，局所化三角から $R\omega\pi$ も直和を保つ．
+$\pi R\omega=\mathrm{Id}$ を用いると $R\omega$ 自体も直和を保つ．
+$B(j)$ は $D(\operatorname{Gr}B)$ でcompactなので，随伴によって $\mathcal O(j)$ はcompact．
+これら全てからの導来Homが零なら $R\omega$ を施した対象は $D(\operatorname{Gr}B)$ で零，
+従って元の対象も零である．これがcompact生成を与える．
+生成対象間のRHomは前定理で有限自由の一つのシフトとして計算した．
+有限coneと直和因子に閉じることにより，任意のcompact対のRHomは $\Lambda$ 上perfectとなる．
+係数変更は $\mathcal O(j)$ を対応する $\mathcal O_T(j)$ へ送り，
+生成対象間で既にRHom比較が同型なので，全compact対へ拡張する．
+\end{proof}
+
+\subsection{有限個のtwistからなる生成元}
+\begin{proposition}[有限windowとproperなdg模型]
+\label{prop:finite-window-proper}
+有限直和
+\[
+ E=\bigoplus_{j=0}^{l-1}\mathcal O(j)
+\]
+は $D(\mathcal Q)$ のcompact生成元であり，
+\[
+ D(\mathcal Q)^c=\operatorname{thick}(E).
+\]
+従って $C=R\!\operatorname{End}_{\mathcal Q}(E)$ は $\Lambda$-perfectなdg代数で，
+$\operatorname{Perf}(C)\simeq D(\mathcal Q)^c$ である．
+任意の許されたnoetherian係数変更 $\Lambda\to T$ に対し
+\[
+ C\otimes_\Lambda^L T
+   \simeq R\!\operatorname{End}_{\operatorname{QGr}B_T}(E_T)
+\]
+が成り立つ．
+\end{proposition}
+\begin{proof}
+命題\ref{prop:finite-tails-compact-proper}により，全てのtwistはcompact生成系である．
+従って有限windowから全てのtwistが生成されることを示せばよい．
+$\Lambda$ の有限自由右 $A$-分解を，その内部次数も指定して構成する．
+中央変数 $s_i$ の補助重みを1，活性変数の補助重みを
+次数2では $(6,8,12)$，次数1では $(12,20,30)$ とする．
+これは中央変数も正の重みを持つ，この段落だけの補助filtrationである．
+係数 $p_i(s),q_j(s)$ の内部次数を含めて数えると，
+$z^2/2+P+Q$ の最高補助次数はそれぞれ25，61以下であり，
+活性三変数の重みの和26，62より小さい．
+従って全ての交換子関係の補正項は補助次数を真に下げる．
+既知のPBW基底により
+\[
+ \operatorname{gr}_{\mathrm{aux}} A
+   =\Lambda[s_1,\ldots,s_{n-1},x,y,z]
+\]
+であり，この等式は内部次数も保つ．
+
+右辺のaugmentationのKoszul分解をfilteredに持ち上げる．
+その自由加群の基底と内部shiftを固定し，微分を順に持ち上げる．
+微分の合成に残る誤差の最高記号はKoszul複体のcycleであり，
+その完全性を用いて同じ内部次数のboundaryを引けば，誤差の補助次数が下がる．
+全ての変数の補助重みは正なので，この補正は有限回で終わる．
+こうして得られた複体のcycleにも同じ最高記号の除去を行えば完全性が従い，
+最後の項の単射性もassociated gradedの単射性から従う．
+Koszul分解は任意の $\Lambda$ 上で完全であり，
+この持上げに $\Lambda$ の体性や正則性は不要である．
+まず係数を独立変数とする普遍係数環上でこの有限回の持上げを行う．
+任意の係数変更後にもそのassociated gradedは同じKoszul分解であるため，
+同じ最高記号の帰納法が完全性を示す．
+従って一度構成した有限自由分解は任意の係数変更に対して解消のままである．
+得られた有限自由分解 $K_\bullet$ のshiftは生成元の内部重みの部分和のままである．
+従って両端は $A(-l)$ と $A$ がそれぞれ一つであり，
+他の全ての項は $1\le e\le l-1$ を満たす $A(-e)$ の有限直和である．
+
+中心正則元の二項分解
+$0\to A(-D)\xrightarrow{\Omega}A\to B\to0$ を用いると，
+\[
+ \operatorname{Tor}^A_i(\Lambda,B)=
+ \begin{cases}
+ \Lambda&i=0,\\
+ \Lambda(-D)&i=1,\\
+ 0&i\ne0,1.
+ \end{cases}
+\]
+ここでは $\Omega$ の正の内部次数によりaugmentation上の作用が零である．
+両方のTorは次数付きtorsion加群なので，
+$\pi(K_\bullet\otimes_A B)$ は有限の完全複体になる．
+従って $\mathcal O(-l)$ は
+$\mathcal O(-l+1),\ldots,\mathcal O$ のthick閉包に属し，
+同様に $\mathcal O$ は他の端点と中間項のthick閉包に属する．
+この完全複体をtwistし，両方向に帰納すれば，
+長さ $l$ の任意の連続したtwistの組から全てのtwistが生成される．
+特に $E$ はcompact生成元である．
+compact対象のthick生成とdg Morita同値は
+Kellerの定理\cite[\S4.3,\S8.2]{Keller1994}を適用して得られる．
+$C$ の相対perfect性と基底変更は命題\ref{prop:finite-tails-compact-proper}を
+有限和 $E$ に適用したものである．
+
+\end{proof}
+
+\subsection{perfect圏上の相対Serre双対}
+\begin{theorem}\label{thm:finite-tails-relative-serre}
+$\operatorname{Perf}(\mathcal Q/\Lambda)=D(\mathcal Q)^c$ 上の相対Serre関手は
+\[
+ S_\Lambda\simeq(-r)[n]
+\]
+である．この同型は許される任意の基底変更と両立する．
+この主張に $\mathcal Q$ のsmoothnessは不要である．
+\end{theorem}
+\begin{proof}
+まず左と右のtorsion複体を $E_\ell,E_r$ と書く．
+両者のコホモロジーは $B^\vee(r)[-d]$ なので，左右どちらについてもtorsionである．
+左右のsmashing表示を使うと，随伴の自然な写像は
+\[
+ E_\ell\otimes_B^L E_r\xrightarrow{\sim}E_\ell,
+ \qquad E_\ell\otimes_B^L E_r\xrightarrow{\sim}E_r
+\]
+を与える．これらは $B$ への写像と両立するので，左右共通の
+torsion bimoduleを $E$ と書ける．局所化bimoduleを
+\[
+ E\longrightarrow B\longrightarrow L
+\]
+で定める．すると左右とも $R\omega\pi$ は $L$ との導来tensorであり，
+$L\otimes_B^LL\simeq L$ である．torsion複体の導来部分圏は
+このsmashing局所化の核に一致する．
+$L$ は対応する局所化dg代数として取ることができ，
+$\mathcal O(i)$ 全体のdg部分圏のHom複体は
+\[
+ R\!\operatorname{Hom}_{\mathcal Q}(\mathcal O(i),\mathcal O(j))
+       =L_{j-i}
+\]
+であり，合成は $L$ の積で与えられる．
+
+局所化三角を次数別に $\Lambda$-双対化すると，bimoduleの三角
+\[
+ D_\Lambda L\longrightarrow B^\vee
+       \longrightarrow B(-r)[d]
+\]
+を得る．$D_\Lambda L$ は左右ともlocalである．実際，任意のtorsion複体 $T$ に対し
+\[
+ R\!\operatorname{Hom}_B(T,D_\Lambda L)
+       \simeq D_\Lambda(L\otimes_B^LT)=0
+\]
+であり，反対側も同じである．従って上の三角に左右から $L$ をtensorすると，
+第一項はそのまま残り，第二項は
+$B^\vee=E(-r)[d]$ なので消える．これにより，局所化bimoduleとしての同型
+\[
+ D_\Lambda L\simeq L(-r)[d-1]=L(-r)[n]
+\]
+を得る．このbimoduleの同型は上のdg部分圏における合成と両立するので，
+単にHom群の次元が一致するだけではなく，coherentなSerre対を与える．
+compact生成とproper性から，そのperfect加群へ拡張すると，任意のcompact対象 $E',F$ について
+\[
+ R\!\operatorname{Hom}_{\mathcal Q}(E',F)^\vee_\Lambda
+       \simeq R\!\operatorname{Hom}_{\mathcal Q}(F,E'(-r)[n])
+\]
+を得る．$(-r)[n]$ は自己同値なので相対Serre関手である．
+生成系のRHomは次数ごとに有限自由の一つのシフトであり，
+局所化三角・双対・traceはその基底変更と両立するので，この双対も基底変更と両立する．
+
+体上のAS--Gorenstein代数に対する局所双対とprojective Serre双対は
+\cite[Theorem 4.2, Corollary 4.3]{YZ1997}の範囲にある．
+ここではその絶対dualizing定理を非正則基底に適用する代わりに，
+相対CYからの局所コホモロジーと局所化bimoduleを直接計算した．
+\end{proof}
+
+\subsection{正周期の生成を有限個の次数で検査する}
+\label{subsec:finite-periodic-generation}
+
+ここでは基本シフトから反標準シフトへ移る際の生成条件を扱う．
+重み付き代数では，すべてのシフトを使う豊富性から，
+固定周期の部分列の豊富性を無条件に推論することはできない．
+次の命題は，その生成条件を有限個の行列の全射性に帰着する．
+
+\begin{proposition}[正周期の生成条件の開性]
+\label{prop:finite-periodic-generation}
+$S$ を有限型可換 $\C$-代数，$B=\bigoplus_{m\ge0}B_m$ を
+$B_0=S$ を満たす次数付き $S$-代数とする．各 $B_m$ は有限表示
+$S$-加群であり，$B$ は重み $1\le w_\ell\le w$ の有限個の
+斉次生成元 $b_\ell$ により生成されるとする．$r\ge1$ を固定する．
+$s\in\Spec S$ を複素閉点とし，$B_s$ は右noetherianと仮定する．
+$\operatorname{qgr}B_s$ において，
+各 $j=0,\ldots,r-1$ に対し有限個の整数 $a_{j\ell}$ と全射
+\[
+ \bigoplus_\ell\mathcal O_s(-r a_{j\ell})
+ \longrightarrow\mathcal O_s(-j)
+\]
+が存在するとする．これらの射は次数 $r a_{j\ell}-j$ の
+$B_s$ の元から誘導され，$a_{0\ell}>0$ と仮定する．
+このとき $s$ のZariski開近傍 $V$ 上へこれらの射を持ち上げられ，
+任意の係数変更後にも $\QGr$ における全射となる．
+任意の許されたnoetherian基底変更後でも，任意の $\mathcal O(-u)$ は，
+任意に大きい $a$ に対する $\mathcal O(-ra)$ の有限和の商となる．
+\end{proposition}
+
+\begin{proof}
+射を定める有限個の元を対応する $B_{r a_{j\ell}-j}$ へ持ち上げ，
+次数付き右加群の写像
+\[
+ f_j:\bigoplus_\ell B(-r a_{j\ell})\longrightarrow B(-j)
+\]
+を作る．$Q_j=\operatorname{coker} f_j$ と置く．
+各次数 $(Q_j)_m$ は有限表示 $S$-加群である．
+特殊ファイバーの $Q_j\otimes_S\C(s)$ は有限生成torsion加群だから，
+ある $D>r$ に対して全ての $j$ と $m\ge D$ でその次数 $m$ 部分が零である．
+有限個の加群 $(Q_j)_m$，$D\le m<D+w$，の支持を除くと，
+$s$ を含む開集合 $V$ 上でこれらの加群自身が零となる．
+$Q_j$ は次数 $j$ の一つの元で生成される右 $B$-加群であるから，
+$m>j$ に対して
+\[
+ (Q_j)_m=\sum_\ell (Q_j)_{m-w_\ell}b_\ell
+\]
+である．従って $m$ について帰納すると $m\ge D$ で全て零となる．
+この消滅は任意の係数変更で保たれる．したがって各 $f_j$ は
+$\QGr$ において全射を誘導する．
+
+$j=0$ の全射を次数 $-rt$ だけ移動すると，
+$\mathcal O(-rt)$ を $\mathcal O(-r(t+a_{0\ell}))$ の有限和で覆える．
+$a_{0\ell}>0$ なのでこれを反復すれば，始点の添字を任意に大きくできる．
+一般の $u$ を $u=qr+j$，$0\le j<r$ と書き，$j$ の全射を $-qr$ だけ
+移動してからこの反復を行えば最後の主張を得る．
+\end{proof}
+
+\begin{corollary}[有限開近傍上の相対反標準豊富性]
+\label{cor:finite-periodic-ampleness}
+前命題の $V$ 上で，許された全てのnoetherian係数変更 $T$ に対し
+$B_T$ が右noetherianであり，全シフトについてcoherent対象のSerre消滅を持つとする．
+このとき，全てのそのような $T$ において
+$(\mathcal O_T,(r))$ は豊富な対である．
+
+特に，分離型有限パラメータ族の有限型係数空間で，$s$ が $h=0$ の
+滑らかな可換del Pezzo模型を与えるとする．このとき $s$ のZariski開近傍 $V$ 上で
+反標準列 $(\mathcal O,(n-1))$ は相対的に豊富であり，
+許された任意のnoetherian基底変更後も豊富である．
+\end{corollary}
+\begin{proof}
+任意のそのような係数変更 $T$ を固定する．各coherent対象は
+有限個の $\mathcal O_T(-u)$ の和の商であり，
+命題\ref{prop:finite-periodic-generation}の普遍的な全射を反復すれば，
+任意に大きい $a$ に対する $\mathcal O_T(-ra)$ の有限和で覆える．
+これが豊富性の第一条件である．
+coherent対象の全射の核を $K$ とすると，
+\[
+ \operatorname{Ext}^1(\mathcal O_T(-ra),K)=H^1(K(ra))=0
+ \qquad(a\gg0)
+\]
+であるから，十分大きい $a$ で
+$\operatorname{Hom}(\mathcal O_T(-ra),-)$ はその全射を保つ．
+これが第二条件であり，各基底変更後のSerre消滅を適用したので，
+主張はファイバーだけに限られない．
+
+分離型族では命題\ref{prop:finite-full-shift-ample}が
+任意のnoetherian基底変更後のSerre消滅を与える．
+滑らかな可換点では $\mathcal O_X(r)$ が豊富なので，
+各 $\mathcal O_X(ra-j)$ は $a\gg0$ で大域生成される．
+定理\ref{thm:finite-tails-cohomology}の飽和性により，
+これらの切断は $B_{ra-j}$ であり，前命題の有限個の全射を選べる．
+有限開近傍上の生成と全基底変更後のSerre消滅を合わせて結論を得る．
+\end{proof}
+
+\begin{remark}[有限パラメータ族で得られた条件と残る問題]
+\label{rem:finite-tails-scope}
+分離型族では全ての有限 $h$ において，飽和性，有向ACM，相対 $\chi$，
+全シフトの豊富性，compact生成，proper性，無捩れな相対Serre公式が得られた．
+反標準周期 $r=n-1$ 自体の相対豊富性は，滑らかな可換点の有限な開近傍で得られる．
+いずれも本節で指定した任意のnoetherian基底変更に対する主張である．
+
+一方，$C=R\!\operatorname{End}(E)$ の対角が $C^{\mathrm e}$ 上perfectであること，
+すなわちcompact圏のhomological smoothness，およびcoherent圏全体の有限ホモロジー次元は
+本節の結論に含まれない．滑らかな可換特殊ファイバーや全Artin近傍のsmoothnessだけで，
+有限型基底のZariski開近傍のsmoothnessを結論しない．
+これらを完成するには，この族の対角について有限完全分解を構成するか，
+適用条件を満たす追加の開性定理を検証する必要がある．
+AS--Gorenstein商のperfect圏のSerre公式から，全 $D^b(\mathrm{coh})$ のsmoothnessを
+推論してはならない．
+\end{remark}

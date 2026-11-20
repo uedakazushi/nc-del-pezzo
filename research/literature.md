@@ -1,6 +1,6 @@
 # 文献・依存関係・新規性の範囲
 
-2026-11-20（JST） / v0.3。完全な書誌は [references.bib](../references.bib)。以下は使用する一次資料の具体的な箇所を示す。外部論文のPDFは収録しない。
+2026-11-20（JST） / v0.4。完全な書誌は [references.bib](../references.bib)。以下は使用する一次資料の具体的な箇所を示す。外部論文のPDFは収録しない。
 
 ## 1. 他研究からの数学的入力
 
@@ -46,7 +46,7 @@
 - Mori–Ueyama, *A categorical characterization of quantum projective spaces*, [arXiv:1708.00167v4](https://arxiv.org/abs/1708.00167v4)。Definitions 2.1(5), 2.5, 3.4、Theorem 2.6(2)、Remark 3.5、§1.2を確認。豊富対からのsection環復元とcanonical bimoduleを使う。AS-GorensteinのパラメータだけではNakayama捻りを消せない。
 - [Stacks Project, Tag 0FY3, Lemma 57.3.5](https://stacks.math.columbia.edu/tag/0FY3)：双対構造を持つSerre関手のYoneda一意性。これ自体はAbel同値の全認識を述べる定理ではない。
 - Hong–Xu, *Poisson cohomology of del Pezzo surfaces*, J. Algebra 336 (2011), 378–390、[arXiv:1001.1082v2](https://arxiv.org/abs/1001.1082v2)、Theorem 3.9。5≤r≤8点の吹上げでdim H²_π=r+2、高次は消滅。次数1・2の曲面の10・9という接空間次元を新規結果と扱わない。
-- Etingof–Ginzburg, *Noncommutative del Pezzo surfaces and Calabi–Yau algebras*, JEMS 12 (2010), 1371–1416、[出版版](https://ems.press/content/serial-article-files/31746)。Theorem 3.3.2、Definition 3.4.3、Theorems 3.4.4–3.4.5、§3.5、Proposition 8.1.1。三変数potentialと中心商によるfiltered量子化・generic半普遍性は先行結果。Definition 3.4.3とLemma 7.1.5のgeneric/CY条件は可算開条件。Proposition 7.3.1(ii)、Corollary 7.4.1(ii)は固定CY topへの全lower potentialのPBW・CYを与える。任意中央係数への拡張は基底の生成・独立性、または本稿の直接のfiltered証明を用いる。Proposition 8.1.1(i)の中心持上げ自体は孤立特異点を仮定しない。
+- Etingof–Ginzburg, *Noncommutative del Pezzo surfaces and Calabi–Yau algebras*, JEMS 12 (2010), 1371–1416、DOI 10.4171/JEMS/235、[出版版](https://ems.press/content/serial-article-files/31746)。三変数potentialと中心商によるfiltered量子化・generic半普遍性は先行結果。**Theorem 3.3.2は、正の生成重み `(a,b,c)`、`d=a+b+c`、斉次CY potential `Φ_d`を仮定すれば、任意のlower potential `Φ_<d`に適用できる。** (i)はCY性とHilbert級数、(ii)はfiltration次数d以下の非定数中心元の存在を与える。Proposition 7.3.1(ii)は同じ固定CY topに対するPBW同型 `gr A(Φ_d+Φ_<d)≅A(Φ_d)` を与える。一方、Definition 3.4.3、Lemma 7.1.5、Theorems 3.4.4–3.4.5のgeneric条件は可算個の開条件を伴い、そのまま一つの有限型開集合の主張に置き換えない。本稿の次数2の有限型族では、topのCY性を三次type-A代数の具体的な有限開条件から先に確認し、上の全lowerの定理、被約な普遍係数環での特殊化、活性次数6以下の中心方程式の行列を組み合わせる。低次係数に依存しない分母と任意中央係数への基底変更は本稿の証明である。Proposition 8.1.1(i)の形式中心持上げ自体は孤立特異点を仮定しない。
 - Rains, *Filtered deformations of elliptic algebras*, [arXiv:2107.13540v2](https://arxiv.org/abs/2107.13540v2)。Introと中心拡張の枠組みを確認。楕円代数からのfiltered変形は有限パラメータ族を研究する次の出発点。全n・全O-markedモジュライの分類としては使わない。
 - Abdelgadir–Okawa–Ueda, *Compact moduli of marked noncommutative cubic surfaces*, [arXiv:2404.00175](https://arxiv.org/abs/2404.00175)。Introとquiver markingを確認。例外集合に対応するquiver関係のGITモジュライであり、本研究のOのみを残す同値関係とは異なる。
 - Okawa–Ueda, *AS-regular algebras from acyclic spherical helices*, [arXiv:2007.07620](https://arxiv.org/abs/2007.07620)。球面helixからの構成を比較した。一般次元での表示を検討する基礎であり、本稿で全変形のAS包絡存在を結論する根拠には用いていない。
@@ -65,14 +65,44 @@ Plücker座標環の正規性・Cohen–Macaulay性にはSvanes (1973) とDe Con
 | Dolgushev, *The Van den Bergh duality and the modular symmetry of a Poisson variety*, Selecta Math. 14 (2009), 199–228、DOI 10.1007/s00029-008-0062-z、[arXiv:math/0612288v3](https://arxiv.org/abs/math/0612288v3) | Theorem 3。一変数h進・滑らかなaffine複素多様体・自明なcanonicalという設定でunimodularityと無捩れ双対性を比較。本稿の任意Artin係数はこの定理の直接適用ではなく、有限鎖twistと有限自由対角分解で証明 |
 | Stacks Project、[Tag 0572](https://stacks.math.columbia.edu/tag/0572)、Lemma 37.23.6 | fppf被覆の局所準有限細分。局所Artin C基底では有限忠実平坦な局所Artin被覆に細分でき、全Čech環も局所Artinになる。この帰結から形式関手の等化子降下を証明し、stack化後のArtin完成を同定 |
 
-上記一次資料の該当定理・係数環・射の定義を2026-11-20に確認した。相対Serre公式は本文のsmooth proper模型とHH¹対角剛性から証明し、AS-Gorenstein indexだけから結論していない。ambient CYはbimodule同型の主張であり、negative cyclic CY構造や中心商のbalanced dualizing complexの全公理を付加していない。
+上記一次資料の該当定理・係数環・射の定義を2026-11-20に確認した。Artin近傍の相対Serre公式はsmooth proper模型とHH¹対角剛性から証明する。分離型の有限パラメータ族では、相対局所コホモロジーと局所化bimoduleの双対から別に証明する。いずれもAS-Gorenstein indexだけから無捩れなSerre公式を結論していない。ambient CYはbimodule同型の主張であり、negative cyclic CY構造や非正則基底上のbalanced dualizing complexの全公理を付加していない。
 
-## 5. 有限パラメータ族とpotentialの対角複体
+## 5. 有限パラメータ族、局所双対、smoothness
 
-- Ginzburg, *Calabi–Yau algebras*, [arXiv:math/0612139v3](https://arxiv.org/abs/math/0612139v3)、2007。Proposition 5.1.9と式(5.1.8)のHessian対角複体、Theorem 5.3.1(iii)の完全性とCY、Proposition 8.1.3(ii)のtensor flip対称性を確認。原資料の半単純基底の設定を任意係数環へ無説明で拡張せず、本文ではPBW随伴次数のKoszul完全性と明示的な自己双対性を証明する。
-- Etingof–Ginzburgの上記一次定理を2026-11-20に再確認。negative auxiliary degreeによるfiltered量子化の一般原理は既知の枠組みと重なる。本稿では両次数・全nへの中央係数の付加、有限Casimir公式、商の普遍自由性と非零hの普遍中心を具体化した。明示式そのものの新規性は未確定。
-- 同論文の参考文献[R]が指す [RainsのMagma形式中心元](https://math.mit.edu/~etingof/delpezzocenter) は取得を確認。E6/E7/E8の式があり、E7は `xy−q yx=t z+c1` 等の規約でzを消去した式。本稿の定理には使用していない。一般elliptic topへの拡張時に、分母・関係式・正規化を厳密に照合する。
+### 5.1. Potential、負の補助次数、既知の中心式
+
+- Ginzburg, *Calabi–Yau algebras*, [arXiv:math/0612139v3](https://arxiv.org/abs/math/0612139v3)、2007。Proposition 5.1.9と式(5.1.8)のHessian対角複体、Theorem 5.3.1(iii)の完全性とCY、Proposition 8.1.3(ii)のtensor flip対称性を確認。原資料の半単純基底の設定を任意係数環へ無説明で拡張しない。分離型では随伴次数のKoszul完全性、楕円型では三次AS正則代数の極小解消とファイバーごとの完全性を用い、自己双対性と任意基底変更を本文で証明する。
+- Etingof–Ginzburgの上記一次定理を2026-11-20に再確認。負の補助次数によるfiltered量子化の一般原理は既知の枠組みと重なる。本稿は両次数・全nへの中央係数の付加、分離型の有限Casimir式、商の普遍自由性と規格化族の非零hでの普遍中心を具体化する。分離型の明示式そのものの新規性は未確定である。
+- 同論文の参考文献[R]が指す [RainsのMagma形式中心元](https://math.mit.edu/~etingof/delpezzocenter) は取得を確認。E6/E7/E8の式があり、E7は `xy−q yx=t z+c1` 等の規約でzを消去した式。本稿の証明入力には使っていない。次数1の一般楕円型topへの拡張では、分母、関係式、正規化と中央係数の扱いを照合する。
+
+### 5.2. 次数2の一般楕円型topと有限型係数への適用
+
+| 一次資料 | 確認箇所・仮定 | 本稿での使用範囲 |
+|---|---|---|
+| Belmans–Raedschelders, *Derived categories of noncommutative quadrics and Hilbert squares*, IMRN 2020 (19), 6042–6069、DOI 10.1093/imrn/rny192、[arXiv:1605.02795v2](https://arxiv.org/pdf/1605.02795) | Example 3.11、式(75)–(76)。三次type-A関係式と除外集合 `{a²=b²=c²}∪{[0:0:1],[0:1:0]}` を明記 | `a=1+2βh²/3`, `b=−2+2βh²/3`, `c=αh²` とし、`a(a²−b²)≠0` を有限なAS正則条件として使う。h=0では元の三生成元表示を使い、多項式環に戻す。原論文AS1987の本文は未取得であり、ここで確認した具体的分類の出典はこの一次研究論文である |
+| Artin–Tate–Van den Bergh, *Modules over regular algebras of dimension 3*, Invent. Math. 106 (1991), 335–388、[p.338の一次資料](https://gdz.sub.uni-goettingen.de/fulltext/PPN356556735_0106/00000344?_format=xml)、[p.349の一次資料](https://gdz.sub.uni-goettingen.de/fulltext/PPN356556735_0106/00000355?_format=xml) | §2 p.338は次数一生成の3次元正則代数のNoether性をATV1990 (8.1)として明記。Theorem 3.9 p.349は大域次元とGK次元がともにd≤4の正則Noether代数の整域性 | 三次type-Aの全正則複素ファイバーのNoether性・整域性に使用。滑らかな楕円point curveだけに制限する必要はない。族の係数環上のNoether性や強Noether性はこの体上の定理から結論しない。GDZの該当頁を直接取得して確認 |
+| De Laet, *On the center of 3-dimensional and 4-dimensional Sklyanin algebras*, J. Algebra 487 (2017), 244–268、DOI 10.1016/j.jalgebra.2017.05.032、[arXiv:1612.06158v1](https://arxiv.org/pdf/1612.06158) | §5.2の四次中心元の式とTheorem 5.3。三次代数がAS正則であれば表示した元は中心的。表示された元が特別なパラメータで零になる可能性は排除していない | 最高次中心元の既知の式として引用する。本稿ではhを逆元にせず多項式係数の除算で可換極限へ延長し、九項の自由代数恒等式と正規化を `verify_cubic_top.py` で検算。自由語でのz²係数と整列基底での係数を区別する |
+
+`papers/sections/elliptic_top.tex` の定理 `thm:elliptic-finite-central-family` は、これらの体上の結果をそのまま相対定理と呼び替えたものではない。最高次代数の各次数の有限局所自由性、全lowerに対する普遍PBW性、22未知数・活性次数6以下の中心方程式、低次係数を戻した際の三角行列、中心商の普遍正則性を証明している。局所化の分母が最高次係数だけに依存するため、lower係数にn−1個の中央一次変数の任意の斉次多項式を代入できる。
+
+Sklyanin代数、四次中心元、固定CY topのfiltered変形の存在は既知である。本稿で区別している内容は、可換楕円型点を含む有限な開近傍、任意中央係数・任意基底変更、全nの重み付き超曲面への適用である。この組合せの包括的な新規性確認は未了。中心全体の生成、有限非零hでのtailsの全条件、全O-markedモジュライの有限型atlasはこの節からは従わない。
+
+### 5.3. 分離型有限族の双対性とsmoothnessの境界
+
+| 一次資料 | 確認箇所・本稿での役割と限定 |
+|---|---|
+| Reyes–Rogalski–Zhang, *Skew Calabi–Yau algebras and homological identities*, Adv. Math. 264 (2014), 308–354、DOI 10.1016/j.aim.2014.07.010、[arXiv:1302.0437v2](https://arxiv.org/pdf/1302.0437) | Lemma 1.2。体上の連結次数付き代数についてskew CYとAS正則性を比較し、対角の双対からaugmentation Extを求めるHom–tensor随伴を証明する。本稿の体ファイバーに適用し、有限GK次元はHilbert級数から別途確認する。非正則係数環上の絶対AS正則性は主張せず、係数についてperfectな加群の相対双対を同じ随伴から本文で直接証明 |
+| Yekutieli–Zhang, *Serre duality for noncommutative projective schemes*, Proc. AMS 125 (1997), 697–707、DOI 10.1090/S0002-9939-97-03782-9、[著者掲載出版版](https://www.math.bgu.ac.il/~amyekut/publications/nc-serre/paper.pdf) | Lemma 4.1はQGrの導来Homを切断加群の極限で記述。Theorem 4.2は体上の連結次数付き左右Noether環とbalanced dualizing complexを仮定し、局所双対・projective双対・χ等を与える。Corollary 4.3はAS–Gorensteinの場合のχ、cohomological dimension、dualizing sheaf、classical Cohen–Macaulay性。一般には双対bimoduleのNakayama捻りが残る。本稿の非正則基底上の無捩れ相対Serre式は、この絶対定理の直接適用ではなく、相対CYからの局所コホモロジーと局所化bimoduleの計算による |
+| Toën–Vaquié, *Moduli of objects in dg-categories*, Ann. Sci. ENS (4) 40 (2007), 387–444、DOI 10.1016/j.ansens.2007.05.001、[出版版](https://www.numdam.org/article/ASENS_2007_4_40_3_387_0.pdf) | Lemma 2.8(1)はlocally perfectならperfect加群が相対pseudo-perfect、(2)はsmoothなら逆方向、(3)は両条件の下での同値。Theorem 3.6はDefinition 2.4の意味でfinite typeなdg圏の対象モジュライの局所幾何性・局所有限表示性。finite typeはhomotopically finitely presentedなdg代数によるMorita模型を要求し、通常代数の有限表示と異なる。Corollary 2.13はsmooth properからこの有限性を導く。proper性とSerre自己同値だけで対角のperfect性を代用しない。また固定dg圏の対象モジュライの定理を、可変な全O-marked圏のモジュライの代数性と同一視しない |
+
+上記三論文の指定箇所を2026-11-20に一次資料で確認した。分離型有限族について本文が証明する飽和性、有向ACM、χ、compact生成、相対proper性、perfect圏のSerre双対と、対角のperfect性としてのsmoothnessを区別する。Serre双対が存在することから全coherent対象のperfect性や有限ホモロジー次元を推論しない。
 
 ## 6. 公表前に残る文献上の課題
 
-一般nでの全Abel形式群oid、nc多様体条件のArtin持上げ、形式粗商、具体量子化の完全性、任意指数Veronese復元、有限型部分族のCasimir・普遍中心という組合せについて、包括的な優先権調査は未了。変形・compact持上げ・formalityの一般原理は既知と明記し、本件の重み付き模型とモジュライへの適用を区別する。既存の非可換del Pezzo曲面の様々な定義、AS Z-代数、marked quiver、非可換吹上げとの比較を深める必要がある。講演概要にある未公表の一般次数の主張は確立済み定理として引用していない。
+優先順位の高い比較・調査は次の三点である。
+
+1. **次数1の一般楕円型top。** x⁶・y³・z²を同時に含む重み(1,2,3)の模型について、Etingof–GinzburgとRainsの結果から固定topの存在以上に何が従うかを確認し、有限な開条件と中央多項式係数に依存しない分母を検証する。次数2の三次Sklyanin計算を次数1に移したとは扱わない。
+2. **次数2楕円型族の強Noether性と相対表示。** 複素ファイバーのAS正則性・Noether性、次数別平坦性、有限表示だけでは、有限型係数環上の強Noether性は未証明である。相対twisted homogeneous coordinate ring、中心拡張、filtered変形の文献について、任意の係数変更を含む仮定を照合する。
+3. **有限パラメータtailsのsmoothnessとモジュライ。** 分離型で得られた相対proper性・Serre双対と、対角のperfect性、coherent圏の有限ホモロジー次元を区別し、追加の有限性・開性を検証する。Toën–Vaquiéのfinite type仮定を満たす前に対象モジュライの代数性を使用しない。全O-marked圏のatlasと可換locusに接しない成分はさらに別の課題である。
+
+一般nでの全Abel形式群oid、nc多様体条件のArtin持上げ、形式粗商、具体量子化の完全性、任意指数Veronese復元、有限型族のCasimir・普遍中心・相対双対、および一般楕円型topの有限基底への適用という組合せについて、包括的な優先権調査は未了。変形・compact持上げ・formality・Sklyanin中心元の一般結果は既知と明記する。非可換del Pezzo曲面の各定義、AS Z-代数、marked quiver、非可換吹上げとの比較も継続する。講演概要にある未公表の一般次数の主張は確立済み定理として引用しない。

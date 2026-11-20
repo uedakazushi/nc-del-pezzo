@@ -43,7 +43,7 @@
 \newcommand{\Perf}{\operatorname{Perf}}
 \newcommand{\rank}{\operatorname{rank}}
 \newcommand{\HH}{\operatorname{HH}}
-\newcommand{\Version}{0.3}
+\newcommand{\Version}{0.4}
 \title{次数1・2の非可換del Pezzo多様体\texorpdfstring{\\}{ }構造対象付き変形とモジュライの局所構造}
 \author{}
 \date{2026年11月20日\quad v\Version\quad 公表用研究稿}
@@ -73,6 +73,12 @@ $HH^1(X)=0$ による剛性から相対Serre関手を $(-(n-1))[n]$ と同定し
 さらに負の補助次数を使って，両次数・全次元の特別な部分族に対する有限パラメータ量子化を構成する。
 分離型potentialには有限な中心元公式と普遍PBW基底を与え，ambientの相対bimodule CY性を証明する。
 この族の全ての有限非零パラメータにおける中心はCasimir多項式環であり，任意基底変更と両立する。
+分離型族のtailsについて，相対局所コホモロジーを計算し，飽和性，ACM，compact生成，
+proper性と相対Serre関手 $(-(n-1))[n]$ を全有限パラメータで証明する。
+正周期の豊富性も滑らかな可換点の有限型開近傍で成立する。
+さらに次数2では，三次Sklyanin代数の正則領域と中心方程式の有限行列を用いて，
+一般楕円型最高次項と任意の低次項を持つ普遍的に平坦な中心超曲面族を構成する。
+この構成は全次元で稠密開集合の古典Poisson対を半古典極限に持つ。
 形式的構成、代数的な族、全モジュライの代数性を区別して述べる。
 \end{abstract}
 \tableofcontents
@@ -212,8 +218,32 @@ potentialの対角複体とその自己双対性によりambientは相対CYで�
 ここでは中央多項式係数と任意基底変更を直接扱う。
 これらの一般原理や量子化の存在を新規性として主張しない。
 全次元への適用，明示式と普遍中心の整理についても包括的な優先権調査は未完了である。
-本節の部分族は一般の楕円的な最高次項を含まず，有限 $h\ne0$ のtailsが
-$\mathfrak M^{\OO}_{n,d}$ の全条件を満たすことも別途必要である。
+第\ref{sec:finite-tails}節では，分離型ambientの相対CY同型と
+中央正則元のchange of ringsから，$r=n-1$ として
+\[
+ R\Gamma_{B_+}(B)\simeq B^\vee(r)[-n-1]
+\]
+を任意のnoetherian係数基底上で証明する。
+その結果，飽和性，有向ACM，$\chi$，全シフトの豊富性，compact生成と相対proper性を得る。
+局所化bimoduleの双対を計算することにより，perfect圏の相対Serre関手は
+$(-r)[n]$ となる。これは体上のAS--Gorenstein双対性
+\cite[Theorem~4.2, Corollary~4.3]{YZ1997}と整合するが，
+非正則係数基底への主張は本文で直接証明する。
+有限個の次数の余核を用い，正周期の豊富性を滑らかな可換点の開近傍まで拡張する。
+perfect圏のsmoothnessとcoherent圏の有限ホモロジー次元は，これらの結論とは区別する。
+
+第\ref{sec:elliptic-degree-two-finite}節は，負の補助次数では扱えなかった
+次数2の一般楕円型最高次項を扱う。
+Belmans--Raedschelders\cite[Example~3.11]{BelmansRaedschelders2020}に記された
+三次type-A代数の正則領域を使い，$h=0$ を含む有限型開集合でambientを構成する。
+固定topでのlower potentialのPBW性と中心元の存在は
+Etingof--Ginzburg\cite[Proposition~7.3.1(ii), Theorem~3.3.2(ii)]{EG2010}の既知の結果である。
+本稿では普遍係数環での平坦性，低次係数に依存しない有限個の分母，
+任意基底変更で正則な中心商を証明して，全次元へ適用する。
+最高次中心元にはDe Laet\cite[\S5.2, Theorem~5.3]{DeLaet2017}の公式を用い，
+自由代数内の恒等式と可換極限を別に検算する。
+一般の量子化やSklyanin中心元の存在自体は新規性の主張ではない。
+この族の強Noether性，有限非零 $h$ でのtailsの全条件と，全ncモジュライのatlasは未証明である。
 
 \input{sections/definitions}
 \input{sections/formal_moduli}
@@ -225,6 +255,8 @@ $\mathfrak M^{\OO}_{n,d}$ の全条件を満たすことも別途必要である
 \input{sections/relative_serre}
 \input{sections/generic_center}
 \input{sections/finite_families}
+\input{sections/finite_tails}
+\input{sections/elliptic_top}
 
 \section{大域的なモジュライへ進むための問題}
 \label{sec:questions}
@@ -232,11 +264,16 @@ $\mathfrak M^{\OO}_{n,d}$ の全条件を満たすことも別途必要である
 許容な表示の全 $\OO$ 保存同値による商、ならびに全モジュライの代数性である。
 各可換点の形式環が整であることから、可換点における形式分枝は一つと分かる。
 可換locusに接しない非可換成分が存在しないことまでは証明していない。
-第\ref{sec:finite-auxiliary-quantization}節の有限型族は，滑らかな可換点を持つ特殊な部分族である。
-一般の楕円的な最高次項を許す形式量子化の代数化と、
-有限パラメータの非可換対象から古典Poisson多様体を自然に復元する射は別の課題である。
-次の具体的な課題は，一般の次数2の活性四次式に対するPBW族と中心元を有限な開集合上で構成し，
-既に得た有限型族ではtailsの相対Serre，飽和性，smooth proper性を確認することである。
+第\ref{sec:finite-auxiliary-quantization}節の分離型族では，
+第\ref{sec:finite-tails}節によりtailsの飽和性，proper性，相対Serre公式まで得られた。
+滑らかな可換点の開近傍では反標準列も豊富になる。
+次の課題は有限compact生成元のdg自己準同型代数の対角がperfectであることを確認し，
+有限パラメータでのsmooth性を証明することである。
+第\ref{sec:elliptic-degree-two-finite}節の一般楕円型族には，
+さらに係数基底上の強Noether性と相対tailsの検証が残る。
+次数1の一般楕円型最高次項についても，有限開集合上の同様の構成が必要である。
+半古典極限で稠密なPoisson対を実現することと，全非可換対象を被覆することは異なる。
+有限パラメータの非可換対象から古典Poisson多様体を自然に復元する射も構成していない。
 
 三次三様体の残余圏による幾何化を次数1・2へ移すには、
 例外部分と残余圏の相対構成、同じ古典多様体との比較を新たに証明する必要がある。

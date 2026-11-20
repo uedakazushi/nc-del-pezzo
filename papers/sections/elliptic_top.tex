@@ -1,0 +1,431 @@
+% !TeX root = ../nc-del-pezzo.tex
+\section{次数2の一般楕円型最高次項を持つ有限型量子化}
+\label{sec:elliptic-degree-two-finite}
+
+本節では活性重みを $(1,1,2)$ とする。
+負の補助次数を仮定せず，三次Sklyanin代数の具体的な正則領域を用いる。
+結論は，有限型基底上の有限表示，普遍的平坦性，相対ambient CY性，
+および普遍的に正則な中心商である。
+有限非零パラメータでのtailsのsmooth proper性や，
+全 $\mathcal O$ 保存同値によるモジュライのatlasを結論しない。
+また，全複素ファイバーのNoether性と，係数環上の族の強Noether性は区別する。
+
+\subsection{三次Sklyanin代数を与える最高次potential}
+
+巡回語の空間で
+\[
+ U_4=\frac{\alpha}{4}(x^4+y^4)
+       +\beta\left(\frac23x^2y^2+\frac13xyxy\right),\qquad
+ u_4=\frac{\alpha}{4}(x^4+y^4)+\beta x^2y^2
+\]
+と置く。前者の可換化は後者である。
+各単項式 $x^iy^j$ の完全対称化の巡回類を $\operatorname{Sym}(x^iy^j)$ と書き，
+\[
+ U=U_4+\sum_{i+j\le3}c_{ij}\operatorname{Sym}(x^iy^j),\qquad
+ F=\frac12z^2+u_4+\sum_{i+j\le3}c_{ij}x^iy^j
+\]
+を考える。$c_{00}$ は関係式に現れないが，中心元の定数項の規格化に用いる。
+potentialと代数を
+\begin{equation}\label{eq:elliptic-potential}
+ \Phi=xyz-yxz-h\left(\frac12z^2+U\right),\qquad
+ A=R\langle x,y,z\rangle/
+  \bigl([x,y]-hz,\ [y,z]-h\partial_xU,\ [z,x]-h\partial_yU\bigr)
+\end{equation}
+で定める。ここで $R$ の元は中央である。
+$c_{ij}=0$ とした代数を $A^{\mathrm{top}}$ と書く。
+
+\begin{lemma}\label{lem:elliptic-top-as-open}
+次の多項式を置く。
+\[
+ a=1+\frac23\beta h^2,\quad b=-2+\frac23\beta h^2,\quad
+ c=\alpha h^2,\qquad
+ \Delta_{\mathrm{AS}}=
+   \left(1+\frac23\beta h^2\right)(-3+4\beta h^2).
+\]
+$T=\mathbb C[\alpha,\beta,h,\Delta_{\mathrm{AS}}^{-1}]$ 上の
+$A^{\mathrm{top}}$ は次数ごとに有限局所自由で，任意の係数変更に対し
+\[
+ H_{A^{\mathrm{top}}}(t)=\frac1{(1-t)^2(1-t^2)}
+\]
+を持つ。全複素ファイバーは3次元のAS正則整域である。
+特に $h=0$ の全点がこの開集合に含まれる。
+\end{lemma}
+\begin{proof}
+$h\ne0$ では $z=h^{-1}(xy-yx)$ を消去でき，二つの関係式は
+\[
+ a(y^2x+xy^2)+byxy+cx^3=0,\qquad
+ a(x^2y+yx^2)+bxyx+cy^3=0
+\]
+となる。三次type-A代数の非正則パラメータは
+\[
+ \{[a:b:c]\mid a^2=b^2=c^2\}
+   \cup\{[0:0:1],[0:1:0]\}
+\]
+に限られる
+\cite[Example 3.11, (75)--(76)]{BelmansRaedschelders2020}。
+$a(a^2-b^2)=\Delta_{\mathrm{AS}}$ であるため，指定した開集合はこれらを避ける。
+AS正則性と標準Hilbert級数を得る。
+Noether性は次数一生成の3次元正則代数の既知の性質であり，
+Artin--Tate--Van den Bergh\cite[Section 2, p.~338]{ATV1991}に明記されている。
+さらに大域次元とGK次元がともに3なので，
+同論文のTheorem 3.9から整域性が従う。
+$h=0$ では三生成元表示そのものから $A^{\mathrm{top}}=\mathbb C[x,y,z]$ である。
+この点で $z$ を消去してはならない。
+
+各次数の普遍代数は有限個の単語と関係式による有限表示 $T$-加群である。
+全閉点でファイバー次元が一定なので，その関係行列の階数は一定である。
+$T$ は被約であるから，必要な階数を超える小行列式は恒等的に零であり，
+所要階数の非零小行列式による開被覆上で有限自由性を得る。
+従って各次数は有限局所自由であり，その表示は任意の基底変更と両立する。
+\end{proof}
+
+\begin{lemma}\label{lem:elliptic-top-relative-cy}
+上の $A^{\mathrm{top}}$ は $T$ に相対的な3-Calabi--Yau代数であり，
+potential対角複体は任意の係数変更後も完全である。
+内部次数を含む相対双対は
+\[
+ R\!\operatorname{Hom}_{(A^{\mathrm{top}})^e_T}
+       (A^{\mathrm{top}},(A^{\mathrm{top}})^e_T)
+       \simeq A^{\mathrm{top}}(4)[-3]
+\]
+である。
+\end{lemma}
+\begin{proof}
+各複素ファイバーでpotential対角複体を考える。
+$h=0$ では三変数の対角Koszul複体である。
+$h\ne0$ では $z$ の消去と，対角複体内の係数 $-h$ の可縮対の消去により，
+二生成元potential
+\[
+ W=a x^2y^2+\frac b2xyxy+\frac c4(x^4+y^4)
+\]
+の対角複体になる。
+このpotentialの巡回微分は上の二つの三次関係式である。
+この二生成元代数を $S$ と書く。
+AS正則三次代数の標準極小解消
+\[
+ 0\longrightarrow S(-4)\longrightarrow S(-3)^2
+  \longrightarrow S(-1)^2\longrightarrow S\longrightarrow\mathbb C
+  \longrightarrow0
+\]
+において，次数4のsyzygyは1次元である。
+巡回恒等式 $[x,\partial_xW]+[y,\partial_yW]=0$ がその非零生成元を与えるため，
+potential対角複体を片側のaugmentationでテンソルした複体はこの極小解消である。
+下に有界な次数付き自由複体に対するgraded Nakayamaにより，対角複体自体も完全である。
+巡回Hessianのtensor flip対称性は無捩れな自己双対性を与える。
+これはGinzburgのpotential複体の標準的な証明である
+\cite[Proposition 5.1.9, Theorem 5.3.1, Proposition 8.1.3(ii)]{Ginzburg2007}。
+
+普遍複体の各内部次数は有限射影 $T$-加群の有界複体であり，
+augmentation項も補題\ref{lem:elliptic-top-as-open}により有限射影である。
+全閉点で完全であるため，これらは局所的に分裂完全である。
+従って任意の $T$-代数への係数変更後も完全である。
+Hessianの自己双対性は係数環上の恒等式なので，任意の係数変更に両立する。
+\end{proof}
+
+\subsection{任意の低次係数と有限行列による中心持上げ}
+
+以下の補題は，複素数上のfiltered PBW定理を
+任意の中央係数へ移すために必要な基底変更の議論を明記するものである。
+
+\begin{lemma}\label{lem:elliptic-universal-lower-pbw}
+$S=T[c_{ij}:i+j\le3]$ とし，$A_S$ を\eqref{eq:elliptic-potential}で定める。
+$S$ の活性filtration次数を0，$(x,y,z)$ の活性次数を $(1,1,2)$ とすれば，
+\[
+ \operatorname{gr}_{\mathrm{act}}A_S
+       \simeq A^{\mathrm{top}}\otimes_T S.
+\]
+各filtration部分および各随伴次数部分は有限射影 $S$-加群である。
+この同型と射影性は，任意の可換 $S$-代数への係数変更に両立する。
+また $A_S$ は $S$ 上相対3-Calabi--Yauである。
+\end{lemma}
+\begin{proof}
+複素数値の最高次パラメータを固定すると，
+補題\ref{lem:elliptic-top-relative-cy}と
+Etingof--GinzburgのProposition 7.3.1(ii)から，
+全ての低次potentialについてPBW性とCY性が従う
+\cite{EG2010}。
+ここでは同論文の「generic」を有限開条件と読み替えていない。
+最高次potentialがCYであることを既に具体的に証明した上で，
+固定したCY topに対する全lower termsの定理を使っている。
+
+活性次数の上限 $N$ を固定する。
+最高次代数の次数 $0,\ldots,N$ の各部分を局所的に自由化し，
+その基底を同じ次数の単語の線型結合で持ち上げる。
+最高次関係式による次数降下から，持上げた基底は
+$F_NA_S$ を $S$ 上生成する。
+これらの間の $S$-線型関係があれば，任意の複素最高次パラメータと
+任意の複素低次係数へ特殊化する。
+固定topのPBW定理により全ての係数が零となる。
+普遍係数環は被約かつ有限型なので，元の係数多項式も零である。
+従ってこの生成系は基底である。
+各 $N$ で得られる議論を貼り合わせると，主張の随伴次数同型と射影性を得る。
+filtrationの短完全列は射影加群の列として分裂するため，
+任意の非被約係数への基底変更も許される。
+
+相対CY性には同じpotential対角複体を使う。
+活性filtrationを入れた随伴次数複体は，
+$A^{\mathrm{top}}$ の完全な対角複体の係数変更である。
+filtrationは下に有界で各元は有限次数を持つため，
+最高次数のcycleを境界として持ち上げる次数降下により元の複体も完全である。
+この議論とHessianの自己双対性は任意の基底変更に両立する。
+\end{proof}
+
+\begin{theorem}\label{thm:elliptic-finite-central-family}
+$\alpha_0(4\beta_0^2-\alpha_0^2)\ne0$ とし，
+$p=(\alpha_0,\beta_0,0)$ を可換最高次パラメータとする。
+$p$ のある主開近傍 $V\subset\operatorname{Spec}T$ が存在し，
+その座標環を $T_V$ と置くと，次が成立する。
+\begin{enumerate}
+ \item 全低次係数環 $S_V=T_V[c_{ij}:i+j\le3]$ 上の $A$ は有限表示で，
+       活性filtrationに関して普遍的PBW性と相対CY性を持つ。
+ \item $A$ に活性filtration次数4の中心元 $\Omega$ が存在し，
+       $\Omega\bmod h=F$ である。
+       必要な分母は最高次パラメータ $\alpha,\beta,h$ だけに依存し，
+       低次係数 $c_{ij}$ に依存しない。
+ \item $\Omega$ は任意の基底変更後も左右の非零因子であり，
+       $B=A/(\Omega)$ は $S_V$ 上平坦である。
+       より正確には，各活性随伴次数部分は有限射影で，
+       \[
+        \operatorname{gr}_{\mathrm{act}} B
+         \simeq (A^{\mathrm{top}}/(\Omega^{\mathrm{top}}))\otimes_{T_V}S_V,
+        \qquad
+        H_{A^{\mathrm{top}}/(\Omega^{\mathrm{top}})}(t)
+          =\frac{1-t^4}{(1-t)^2(1-t^2)}.
+       \]
+       ここで $\Omega^{\mathrm{top}}$ は $\Omega$ の最高活性部分である。
+ \item $\deg c_{ij}=4-i-j$，$\deg(\alpha,\beta,h)=0$ とすると，
+       $\Omega$ は全内部次数4の斉次元に選べる。
+\end{enumerate}
+\end{theorem}
+\begin{proof}
+PBW性とCY性は前の補題による。
+近傍を必要に応じて $\alpha(4\beta^2-\alpha^2)\ne0$ の領域へ制限する。
+中心元には活性次数6以下の有限な線型代数だけを使う。
+各次数 $d\le6$ において，整列語 $x^iy^jz^k$ と，
+非整列語 $w$ から整列語への隣接交換を集めた関係列を用いる。
+$h=0$ で後者は $w-\operatorname{ord}(w)$ であり，
+非整列語成分に関する行列は単位行列である。
+一般の $h$ では同じ行列は $I+hK_d$ になる。
+有限個の行列式 $\det(I+hK_d)$ を可逆化すれば，
+次数6以下で整列語を基底にできる。
+これらの行列式は最高次パラメータだけの関数で，$h=0$ で1である。
+低次係数を戻したときの関係行列は活性次数に関して三角行列となり，
+対角ブロックは最高次の場合と同じである。
+従って同じ局所化で $F_6A$ も整列語基底を持つ。
+
+$A/hA$ が可換であり，$A$ は $h$ に関して捩れを持たないので，
+\[
+ D:F_4A\longrightarrow F_5A\oplus F_5A\oplus F_6A,
+ \qquad
+ D(v)=h^{-1}([v,x],[v,y],[v,z])
+\]
+は正則な係数を持つ線型写像である。
+ここで $h^{-1}$ は商環への移行ではなく，$hA$ 内の元の一意的な割算を表す。
+基底表示では分子の全係数が $h$ で割り切れる。
+$F_4A$ の階数は $1+2+4+6+9=22$ である。
+
+$h=0$ では $D$ はJacobian Poisson括弧による写像であり，
+\[
+ \ker D=\mathbb C\cdot1\oplus\mathbb C\cdot F
+\]
+となる。
+この低次の主張には全Poisson中心の定理は不要である。
+実際 $v=g_0(x,y)+zg_1(x,y)+kz^2$ と書き，
+$\{v,x\}=\{v,y\}=0$ の $z$ に関する係数を比較すると，
+$U_y^{\mathrm{ab}}g_1=U_x^{\mathrm{ab}}g_1=0$ から $g_1=0$，
+続いて $\partial_xg_0=2k\partial_xU^{\mathrm{ab}}$，
+$\partial_yg_0=2k\partial_yU^{\mathrm{ab}}$ を得る。
+従って $v=2kF+\text{constant}$ である。
+最高次係数 $\alpha\ne0$ により，この比較に用いた偏微分は非零である。
+
+まず低次係数を全て零にする。
+$D$ は活性次数を，各出力で生成元の重みだけ上げる。
+従って，出力座標に「出力次数から生成元の重みを引いた次数」を付けると，
+$D$ は次数ごとのブロックに分かれる。
+次数 $1,2,3,4$ でそれぞれ $2,4,6,8$ 本の独立な行を選び，
+定数項と $z^2$ の係数を読む二つの行を加える。
+こうして $p$ で可逆な22次正方行列 $M$ を得る。
+有限個の分母を払った $\det M$ の非零開集合にさらに制限する。
+低次係数を戻しても，行列は活性次数に関して三角で，
+対角ブロックは低次係数を含まない。
+従ってその行列式は最高次パラメータだけに依存する。
+
+選んだ20本の $D$ の行を零とし，定数項を $c_{00}$，
+$z^2$ の係数を $1/2$ と指定した22個の線型方程式を解く。
+その唯一の解を $\Omega$ とする。
+ここでまだ選んでいない交換子の行も零になることを示す。
+$h\ne0$ の任意の複素特殊化では，
+Etingof--GinzburgのTheorem 3.3.2(ii)により
+$F_4A$ に非定数の中心元がある。
+従って $\ker D$ は少なくとも2次元である。
+一方，$M$ の可逆性から，定数項と $z^2$ 係数による
+$\ker D\to\mathbb C^2$ は単射である。
+よってこれは同型であり，規格化された解 $\Omega$ は全交換子方程式を満たす。
+$h=0$ では上の直接計算により解は $F$ である。
+全複素特殊化で残りの行が零であり，係数環が被約なので，
+全交換子方程式は普遍係数環上でも恒等的に零である。
+中心性はその後の任意の非被約基底変更にも保たれる。
+
+最高活性部分 $\Omega^{\mathrm{top}}$ は低次係数に依存せず，
+整列基底での $z^2$ の係数が $1/2$ であるため全複素点で非零である。
+最高次代数の全複素ファイバーは整域だから，
+各次数の乗法写像
+\[
+ A^{\mathrm{top}}_{d-4}\xrightarrow{\ \Omega^{\mathrm{top}}\ }
+ A^{\mathrm{top}}_d
+\]
+は全ファイバーで単射である。
+有限局所自由加群の写像に対する小行列式の判定から，
+これは局所的に分裂単射で，余核も有限局所自由である。
+従って任意の係数変更後も単射である。
+活性filtrationで最高項を比較すると，$\Omega$ による乗法は普遍的に単射かつstrictで，
+その余核の随伴次数は表示した最高次商になる。
+随伴次数部分が射影であることから商のfiltrationも分裂し，普遍平坦性を得る。
+
+最後に，低次係数へ重み $4-i-j$ を与えた同時スカラー作用を考える。
+関係式と全中心方程式はこの作用に同変であり，
+定数項 $c_{00}$ と $z^2$ 係数 $1/2$ の規格化も次数4に適合する。
+解の一意性により $\Omega$ は内部斉次次数4を持つ。
+\end{proof}
+
+\begin{remark}\label{rem:elliptic-center-scope}
+上の議論は，中心元の構成に必要な次数6以下の有限行列を使っている。
+全次数にわたる中心の階数一定性を仮定していない。
+最高次代数では楕円自己同型の有限位数パラメータで高次の中心元が増え得るので
+\cite[Theorem II]{ATV1991}，
+$Z(A)=S_V[\Omega]$ を有限開集合全体で結論しない。
+また，各次数の局所自由性は，全次数を同時に整列単項式で自由化する
+一つの主開集合の存在を意味しない。
+本証明で整列基底を固定するのは中心方程式に必要な次数6以下だけである。
+\end{remark}
+
+\subsection{最高次中心元の明示式}
+
+有限行列による持上げとは独立に，最高次中心元の具体式も得られる。
+\[
+ \begin{aligned}
+ C={}&b(a^2-c^2)(xyxy+yxyx)
+      +a(b^2-a^2)(yx^2y+xy^2x)\\
+     &+a(c^2-a^2)(x^2y^2+y^2x^2)
+      +c(a^2-b^2)(x^4+y^4)
+ \end{aligned}
+\]
+はDe Laetの四次中心元である
+\cite[Section 5.2, Theorem 5.3]{DeLaet2017}。
+$C_0=C|_{a=1,b=-2,c=0}$ と置く。
+\[
+ \widetilde\Omega^{\mathrm{top}}
+  =-\frac18\left(
+       \frac{C-C_0}{h^2}-4z^2+x\partial_xU_4+y\partial_yU_4
+      \right)
+\]
+は最高次代数の中心元で，
+$\widetilde\Omega^{\mathrm{top}}\bmod h=\frac12z^2+u_4$ を満たす。
+ここで $(C-C_0)/h^2$ は自由代数の係数を多項式として割った式であり，
+$h$ を可逆化した式ではない。
+実際，最高次代数で
+\[
+ C_0=h^2\bigl(-4z^2+x\partial_xU_4+y\partial_yU_4\bigr)
+\]
+が成り立つため，$h\ne0$ では
+$\widetilde\Omega^{\mathrm{top}}=-C/(8h^2)$ である。
+$h$-捩れがないことから中心性は $h=0$ を含む族で成立する。
+中心性は次の自由代数内の多項式恒等式からも直接確認できる。
+$r_1=a(y^2x+xy^2)+byxy+cx^3$，$r_2=a(x^2y+yx^2)+bxyx+cy^3$ と置くと，
+\begin{align*}
+ [C,x]={}&-(a^2+c^2)r_1x^2-2ac\,r_1y^2
+          +(a^2+b^2)xr_1x-(b^2-c^2)x^2r_1\\
+         &+2ac\,y^2r_1-2ab\,r_2xy-(a^2+b^2)r_2yx
+          +(a^2+b^2)xr_2y+2ab\,yxr_2.
+\end{align*}
+$[C,y]$ の式は $x,y$ および $r_1,r_2$ を同時に交換して得られる。
+従って最高次代数の関係式の下で両交換子は零となる。
+
+表示した自由語での $z^2$ の係数は $1/2$ であるが，
+純粋な $x,y$ の語を整列基底へ直すと $z^2$ 項が生じ得る。
+従って定理\ref{thm:elliptic-finite-central-family}の規格化中心元と比較する際は，
+整列基底での $z^2$ 係数を用い，必要ならその非零開集合へ制限してスカラー倍する。
+この係数は $h=0$ で $1/2$ なので，追加の制限も有限な開条件である。
+
+\subsection{一般次元への中央係数の付加と半古典極限の範囲}
+
+\begin{corollary}\label{cor:elliptic-general-dimension}
+$n\ge2$ とし，中心一次変数 $s_1,\ldots,s_{n-1}$ を加える。
+各 $c_{ij}$ を $s$ の任意の次数 $4-i-j$ の斉次多項式で置き換える。
+その係数を独立な有限個のパラメータとし，
+得られる有限型係数環を $K$ と書く。このとき $K$ 上で
+普遍的に次数ごとに平坦な有限表示代数 $B=A/(\Omega)$ を得る。
+\[
+ H_{B_\xi}(t)=\frac{1-t^4}{(1-t)^{n+1}(1-t^2)},\qquad
+ B/(h)\simeq (K/(h))[s_1,\ldots,s_{n-1},x,y,z]/(F)
+\]
+である。ここで $\xi$ は $\operatorname{Spec}K$ の任意の幾何点である。
+最初の交換子は
+\[
+ \{x,y\}=z,\qquad \{y,z\}=\partial_xF,
+ \qquad\{z,x\}=\partial_yF,\qquad\{s_i,-\}=0
+\]
+を与える。最高次係数にだけ依存する局所化なので，この置換は全て許される。
+\end{corollary}
+\begin{proof}
+これは定理の任意基底変更と内部斉次性の適用である。
+活性随伴次数で中心変数の多項式環と最高次商のテンソル積になり，
+各内部次数では有限個の射影加群の直和となる。
+Hilbert級数と普遍的次数別平坦性が従う。
+複素係数を固定すると，ambient代数の活性随伴次数環は
+Noether代数 $A^{\mathrm{top}}$ の中央多項式拡大なので，
+そのambient代数と中心商 $B$ もNoetherである。
+交換子の第一項は関係式の $h$ に関する一次部分から直ちに得られる。
+\end{proof}
+
+\begin{proposition}\label{prop:elliptic-semiclassical-coverage}
+平方完成と方程式の非零定数倍により
+$F=z^2/2+f_4(s,x,y)$ と正規化した次数2の可換Jacobian模型で，
+選んだ活性平面上の二変数四次最高次項が
+異なる四つの零点を持つと仮定する。
+活性変数の $\operatorname{GL}_2$ 変換とPoissonパラメータの非零スカラー倍の後，
+その模型は上の族の $h=0$ の特殊化と最初の交換子として実現される。
+この条件は可換Poisson対のパラメータ空間の稠密開条件である。
+\end{proposition}
+\begin{proof}
+異なる四点からなる $\mathbb P^1$ の集合で，二組への分割を選ぶ。
+その二組をそれぞれ交換する射影変換は位数2である。
+二つの不動点を $0,\infty$ に移すと，この変換は $t\mapsto-t$ になり，
+四点は $\{r,-r,q,-q\}$ となる。
+従って四次式は $Ax^4+Bx^2y^2+Cy^4$ と書け，$AC\ne0$ である。
+対角変換によって $x^4$ と $y^4$ の係数を等しくできるため，
+$u_4=\alpha(x^4+y^4)/4+\beta x^2y^2$ の形を得る。
+四つの零点が異なる条件は $\alpha(4\beta^2-\alpha^2)\ne0$ である。
+座標の選択は有限な補助選択とフレームの選択を伴うものであり，
+一意的な大域正規形を主張していない。
+
+受動的座標変換 $(x,y)^t=M(x',y')^t$ で $z$ を固定すると，
+Jacobian括弧は
+\[
+ \pi_F\longmapsto (\det M)^{-1}\pi_{F\circ M}
+\]
+と変換される。従って $h'=h/(\det M)$ と置けば同じ第一交換子を表す。
+最高次項以外の全ての項は $c_{ij}(s)$ に自由に含められる。
+必要な開集合は各可換最高次パラメータ $(\alpha,\beta,0)$ を含むので，
+任意のこのような古典模型の近傍で上の構成が使える。
+
+四次式の判別式非零は開条件であり，例えば
+\[
+ F=\frac12z^2+x^4+y^4+\sum_{i=1}^{n-1}s_i^4
+\]
+が全 $n\ge2$ でその条件を満たす。
+この例のaffine coneは原点外で滑らかであり，
+重み付き射影空間の $z$ 軸上の特異点も超曲面上にない。
+従って滑らかな次数2 del Pezzo $n$-foldを与える。
+判別式非零条件は，係数が自由な各活性平面チャートで非空な稠密開集合である。
+\end{proof}
+
+\begin{remark}
+この最後の主張は，古典的Poisson対とその第一交換子の範囲に関するものである。
+有限非零 $h$ の族が $\mathfrak M^{\mathcal O}_{n,2}$ のatlasとなること，
+その形式完成が全ての非可換変形を被覆すること，
+あるいは全 $\mathcal O$ 保存同値がこの表示の座標変換で与えられることは，
+本節からは結論しない。
+同様に，全複素ファイバーがNoetherである事実だけから，
+この有限型係数環上の族が強Noetherであるとは結論しない。
+\end{remark}

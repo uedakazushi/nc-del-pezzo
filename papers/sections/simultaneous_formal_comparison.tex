@@ -1,9 +1,9 @@
 % !TeX root = ../nc-del-pezzo.tex
-% 2026-11-20 JST / v0.8
+% 2026-11-20 JST / v0.9
 \section{同時中心商による全Artin変形の有限代数的表示}
 \label{sec:simultaneous-formal-comparison}
 
-本節では，直前の二つの有限型中心商族そのものを全Abel Artin変形と比較する。
+本節では，両次数の同じ有限型中心商族を全Abel Artin変形と比較する。
 比較のために，有限型基底全体での強Noether性や相対tailsのsmoothnessを
 先に仮定する必要はない。Artin基底上の平坦な線型変形の理論と，
 既に求めた全形式環を使う。
@@ -139,9 +139,12 @@ nc del Pezzo条件は，全Abel Artin変形について既に証明した
 中心元の選択や可換sliceの変更は，形式パラメータの自己同型を変え得る。
 グラフ量子化の既存の対応と厳密に同じ座標を与えることは主張しない。
 
-また，本定理は有限型基底 $V$ 全体のtailsがsmooth properな族をなすことや，
-全O保存同値によるモジュライのatlasを与えることとは異なる。
-全方向族の強Noether性・積Noether性，相対tailsと相対Serre式，
-有限開近傍へのsmoothness，および大域的な射の認識を引き続き確認する必要がある。
-ここで証明したのは，同じ有限表示代数族のArtin基底変更に関する完全性である。
+全方向族の強・積Noether性と相対tailsは第\ref{sec:noether-descent}--
+\ref{sec:simultaneous-relative-geometry}節で別に証明した。
+定理\ref{thm:simultaneous-smooth-ncdp-open}の開集合へ制限しても，
+可換点での完成は変わらない。
+従って全framed Abel Artin変形を実現する有限型nc del Pezzo族が得られる。
+一方，一般非可換点の全O保存同値の認識，全対象の被覆とモジュライのatlasは未解決である。
+形式的完全性と有限基底上のsmooth proper性を合わせたことだけで，
+これらの大域的主張を結論していない。
 \end{remark}

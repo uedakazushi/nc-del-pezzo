@@ -1,0 +1,263 @@
+% !TeX root = ../nc-del-pezzo.tex
+% 2026-11-20 JST / v0.9
+\section{完成と頂点外の被覆による全方向族のNoether性}
+\label{sec:noether-descent}
+
+方向解消は頂点上で平坦ではないため，その上のNoether性を
+忠実平坦降下として直接用いることはできない。
+本節では，次数別に有限な代数に対するKrull交叉の議論と，
+係数環の完成および頂点外の主開集合からなる一つの忠実平坦被覆を使う。
+これにより，退化した活性最高次式を含む相対曲線表示を，
+全独立Poisson方向の同時族へ移す。
+
+\subsection{次数別有限性とJacobson根基}
+
+\begin{lemma}\label{lem:graded-jacobson-noether}
+$R$ を可換Noether環，$J\subset\operatorname{Jac}(R)$ をイデアルとする。
+$C=\bigoplus_{d\ge0}C_d$ を $R$ が中央に作用する非負次数付き代数とし，
+各 $C_d$ は有限 $R$-加群であると仮定する。
+$C/JC$ が右Noetherなら $C$ も右Noetherである。
+左側についても同じ主張が成立する。
+$C_d$ の $R$-平坦性や $R$ の完備性はこの補題の仮定に含めない。
+\end{lemma}
+\begin{proof}
+$J=(a_1,\ldots,a_s)$ と書く。
+$J$-進随伴次数環には中央変数を持つ多項式環からの全射
+\[
+ (C/JC)[T_1,\ldots,T_s]\longrightarrow
+ \operatorname{gr}_J C
+   =\bigoplus_{r\ge0}J^rC/J^{r+1}C,
+ \qquad T_i\longmapsto a_i\bmod J^2C
+\]
+がある。従って中央変数についてのHilbert基底定理により
+$\operatorname{gr}_J C$ は右Noetherである。
+ここには $J$-進次数と内部次数の二つの次数があり，
+$\deg(T_i)=(1,0)$ である。
+
+内部次数に関して斉次な右イデアル $I\subset C$ を取る。
+誘導された $J$-進filtrationから
+\[
+ \operatorname{gr}_J I
+ =\bigoplus_{r\ge0}
+       (I\cap J^rC)/(I\cap J^{r+1}C)
+ \subset\operatorname{gr}_J C
+\]
+を得る。これは二重斉次な右イデアルなので，有限個の二重斉次生成元を選べる。
+その持上げを $f_1,\ldots,f_t\in I$ とし，
+内部次数 $\deg f_i=d_i$，$J$-進次数 $r_i$ を記す。
+$H=\sum_i f_iC\subset I$ と置く。
+初項を順に消去することで，任意の $x\in I_d$ と任意の $r\ge0$ に対して
+\[
+ x\in H_d+J^rC_d
+\]
+となる。実際，各段階で内部次数 $d-d_i$ の係数だけを用いれば，
+誤差の内部次数を $d$ に保ちながら $J$-進次数を一つずつ上げられる。
+各 $r$ について必要なのは有限回の消去であり，無限和を $C$ の元とみなす必要はない。
+
+$C_d/H_d$ は有限 $R$-加群である。
+$J\subset\operatorname{Jac}(R)$ なのでKrull交叉
+\cite[Tag~00IQ, Lemma~10.51.5(2)]{StacksProject}から
+\[
+ \bigcap_{r\ge0}J^r(C_d/H_d)=0
+\]
+であり，$x\in H_d$ が従う。従って $I=H$ である。
+これで全ての斉次右イデアルが有限生成となった。
+
+一般の右イデアルについては，内部次数の最高項が作る斉次右イデアルを取り，
+その有限個の斉次生成元を元の右イデアルへ持ち上げる。
+最高項の消去で内部次数が真に下がるので，今度は有限回で厳密に停止する。
+従って一般の右イデアルも有限生成である。
+反対代数に適用すれば左側も従う。
+\end{proof}
+
+\begin{corollary}\label{cor:simultaneous-local-noether}
+両次数の同時有限中心族 $A$，$B=A/(\Omega)$ を，
+定理\ref{thm:simultaneous-degree-two-central-family}または
+定理\ref{thm:simultaneous-degree-one-central-family}の基底から
+可換Noether環 $R$ へ変更する。
+方向座標の生成するイデアル $J_R$ が $\operatorname{Jac}(R)$ に含まれるなら，
+\[
+ A_R,\qquad B_R,\qquad
+ A_R^{\mathrm{op}}\otimes_R A_R,\qquad
+ B_R^{\mathrm{op}}\otimes_R B_R
+\]
+は左右Noetherである。
+特に，可換零方向点へ閉点を送る任意のNoether局所基底に成立し，
+Artin環や完備局所環に限定されない。
+\end{corollary}
+\begin{proof}
+$A_R/J_RA_R$ は重み付き可換多項式環であり，
+$B_R/J_RB_R$ はその可換超曲面商である。
+いずれも $R/J_R$ 上有限型なのでNoetherである。
+両代数の各内部次数は有限 $R$-加群であるから前補題を適用できる。
+積代数には二つの内部次数の和を用いる。
+各総次数には有限個のtensor成分しかなく，係数環上有限である。
+$J_R$ を法とする積代数も有限型可換代数なので，同じ補題が適用できる。
+\end{proof}
+
+\subsection{完成と主開集合の忠実平坦被覆}
+
+\begin{lemma}\label{lem:completion-punctured-flat-cover}
+$R$ を可換Noether環，$J=(a_1,\ldots,a_s)$ を任意のイデアルとし，
+$\widehat R=\varprojlim_r R/J^r$ と置く。
+このとき
+\begin{equation}\label{eq:completion-punctured-flat-cover}
+ R\longrightarrow R'=
+     \widehat R\times\prod_{i=1}^s R[a_i^{-1}]
+\end{equation}
+は忠実平坦であり，$R'$ はNoether環である。
+また $J\widehat R\subset\operatorname{Jac}(\widehat R)$ である。
+零環となる因子は除いてよい。
+\end{lemma}
+\begin{proof}
+$R\to\widehat R$ の平坦性，$\widehat R$ のNoether性と
+$\widehat R/J\widehat R=R/J$ は
+\cite[Tags~00MB, 031C, 05GH]{StacksProject}による。
+局所化も平坦であり，有限積は加群として有限直和だから，
+表示した射は平坦である。$\Spec R$ のうち $V(J)$ の点は
+$\Spec(\widehat R/J\widehat R)=\Spec(R/J)$ を通じて
+$\Spec\widehat R$ の像に入る。それ以外の点は，いずれかの
+$\Spec R[a_i^{-1}]$ の像に入る。
+従ってスペクトル上全射であり，
+\cite[Tag~00HQ, Lemma~10.39.16]{StacksProject}から忠実平坦である。
+各因子はNoetherで，因子数は有限だから $R'$ もNoetherである。
+最後に $u\in J\widehat R$ と $v\in\widehat R$ に対し，
+$\sum_{r\ge0}(uv)^r$ は $J\widehat R$-進位相で収束して
+$1-uv$ の逆元になる。これは $J\widehat R$ がJacobson根基に入ることを意味する。
+\end{proof}
+
+\begin{proposition}\label{prop:noether-completion-punctured-gluing}
+$R,J=(a_1,\ldots,a_s)$ と $C=\bigoplus_{d\ge0}C_d$ は
+補題\ref{lem:graded-jacobson-noether}と同じとするが，
+$J\subset\operatorname{Jac}(R)$ は仮定しない。
+次の二条件を仮定する。
+\begin{enumerate}
+ \item $C/JC$ は左右Noetherである。
+ \item 各 $C[a_i^{-1}]$ は左右Noetherである。
+\end{enumerate}
+このとき $C$ は左右Noetherである。
+\end{proposition}
+\begin{proof}
+$\widehat C=C\otimes_R\widehat R=\bigoplus_d(C_d\otimes_R\widehat R)$
+を考える。これは係数環を完成した通常の次数付き代数であり，
+環 $C$ 全体の $J$-進完成を意味しない。
+各次数は有限 $\widehat R$-加群で，
+\[
+ \widehat C/J\widehat C\simeq C/JC
+\]
+である。前補題のJacobson根基条件と
+補題\ref{lem:graded-jacobson-noether}により $\widehat C$ は左右Noetherとなる。
+従って
+\[
+ C\otimes_R R'\simeq
+   \widehat C\times\prod_i C[a_i^{-1}]
+\]
+は左右Noetherである。
+右イデアルの上昇列を $R'$ へtensorすると，$R'$ の $R$-平坦性により
+右イデアルの上昇列のままであり，有限段階で停止する。
+その後の各商が $R'$ へのtensorで零になることと忠実性から，
+元の上昇列も同じ段階で停止する。左側も同様である。
+\end{proof}
+
+この命題では，完成だけを忠実平坦と仮定していない。
+零切断から離れた主開集合を有限個加えることが，忠実性を保証している。
+また，それぞれの局所環上のNoether性から，一様な有限開近傍を
+推測する議論も用いていない。
+
+\begin{remark}\label{rem:jacobson-localization-cover}
+完成の代わりに乗法的集合 $1+J$ による局所化
+$R^\circ=R[(1+J)^{-1}]$ を用いることもできる。
+実際，$j\in J$，$r\in R$，$s,t\in1+J$ なら
+\[
+ 1-\frac js\frac rt=\frac{st-jr}{st}
+\]
+の分子と分母はいずれも $1+J$ に属するので，
+$JR^\circ\subset\operatorname{Jac}(R^\circ)$ である。
+$R^\circ$ はNoetherな平坦局所化で，$R^\circ/JR^\circ=R/J$ だから，
+$R\to R^\circ\times\prod_iR[a_i^{-1}]$ もスペクトル上全射で忠実平坦である。
+従って補題\ref{lem:graded-jacobson-noether}による同じ降下が成立する。
+ここでは $1+J$ の全元を可逆化しており，この局所化が有限表示であるとは主張しない。
+一つの元の可逆化に置き換えたのでもなく，降下にはNoether性と忠実平坦性で十分である。
+\end{remark}
+
+\subsection{方向解消上の曲線表示から同時族へ}
+
+\begin{theorem}\label{thm:simultaneous-strong-product-noether}
+両次数 $d=1,2$，全 $n\ge2$ について，同時有限中心族の基底を
+全可換係数の零切断を含む $\operatorname{GL}(E)$-不変な有限主開集合へ
+さらに縮めることができ，その上の同じambient $A$ と中心商 $B=A/(\Omega)$ は
+強左右Noetherである。さらに，任意の可換Noether係数環 $R$ への変更後に
+\[
+ A_R^{\mathrm{op}}\otimes_R A_R,\qquad
+ B_R^{\mathrm{op}}\otimes_R B_R
+\]
+も左右Noetherとなる。
+この主開集合は，活性最高次式の楕円判別式が零になる方向も含む。
+\end{theorem}
+\begin{proof}
+\emph{方向解消上の入力。}
+中心構成後のaffine基底を $X_0$，零方向のイデアルを $J$ と書く。
+次数1では $\mathcal F_1\times E^*$，次数2では
+$\mathcal F_2\times\mathcal C$ の既に選んだ主開である。
+方向解消を $q:Y_0\to X_0$ とすると，次数1では
+$\operatorname{Tot}\mathcal O_{\PP(E^*)}(-1)$，次数2では
+$\operatorname{Tot}\mathcal O_{\Gr(2,E^*)}(-1)$ との係数空間の積からの基底変更である。
+$q$ はproperであり，$X_0\setminus V(J)$ 上で同型である。
+
+方向束と中央部分束を自明化した各chartでは，
+引戻したambientは，一つの活性方向 $h$ と中央一次変数 $n-1$ 個を持つ
+既存のPBW族である。
+次数1には定理\ref{thm:degree-one-all-top-noether}，
+次数2には系\ref{cor:degree-two-all-top-strong-product}を適用する。
+これらは全活性最高次係数の $h=0$ を含む有限開近傍で，
+任意lower係数，任意個数の中央多項式変数と，積代数のNoether性を扱う。
+従って $q^{-1}V(J)$ 全体を含む開集合 $W\subset Y_0$ を取り，
+その上でambientと積代数が強左右Noetherになるようにできる。
+これは局所的な性質であり，座標変更は代数の同型を与える。
+必要なら $W$ の全ての $\operatorname{GL}(E)$-移動の和を取り，$W$ を不変にする。
+
+\emph{基底の有限主開の選択。}
+proper性により $q(Y_0\setminus W)$ は閉で，$V(J)$ と交わらない。
+その閉集合を除いた不変開集合を $U\subset X_0$ と置く。
+$X_0$ はaffineであるから，$X_0\setminus U$ の定義イデアル $I_0$ と
+$J$ は $I_0+J=\mathcal O(X_0)$ を満たす。
+従って $g\in I_0$，$g\equiv1\pmod J$ を取れる。
+二つのイデアルは不変なので，標数0のReynolds作用素を用いれば
+$g$ を不変にできる。$X_g\subset U$ を新しい基底とする。
+この操作により $q^{-1}(X_g)\subset W$ であり，
+全係数の零切断を保ったまま，全方向のchart入力を同時に適用できる。
+
+\emph{任意Noether基底上の頂点外。}
+$S=\mathcal O(X_g)$ とし，任意の可換Noether $S$-代数 $R$ を取る。
+方向座標の像を $a_1,\ldots,a_s$，その生成するイデアルを $J_R$ と書く。
+$D(a_i)$ 上では方向解消が同型である。
+従って $A_{R[a_i^{-1}]}$ とその積代数は，方向束の自明化による
+有限なaffine被覆上で，上記の強Noether定理の基底変更として表される。
+各affine被覆を有限個の主開集合で細分し，その係数環の有限積へ忠実平坦に変更すれば，
+Noether性は右・左イデアルの上昇列を用いて降下する。
+従って $A_{R[a_i^{-1}]}$ と
+$A_{R[a_i^{-1}]}^{\mathrm{op}}\otimes_{R[a_i^{-1}]}A_{R[a_i^{-1}]}$
+はともに左右Noetherである。
+
+\emph{頂点を含む基底全体。}
+$A_R/J_RA_R$ は $R/J_R$ 上の重み付き多項式環である。
+各内部次数は有限局所自由であり，積代数の各総次数も有限局所自由である。
+従って命題\ref{prop:noether-completion-punctured-gluing}を
+$A_R$ と $A_R^{\mathrm{op}}\otimes_R A_R$ にそれぞれ適用できる。
+後者の $J_R$ による商も有限型可換代数である。
+これで両者の左右Noether性を得る。
+$B_R$ は $A_R$ の商であり，
+$B_R^{\mathrm{op}}\otimes_R B_R$ は $A_R^{\mathrm{op}}\otimes_R A_R$ の商なので，
+同じ結論が成立する。
+$R$ は任意だったから，これは主張した強Noether性と積の性質である。
+\end{proof}
+
+\begin{remark}\label{rem:noether-descent-scope}
+本定理は方向解消を忠実平坦とみなしていない。
+proper性は有限開集合の選択に，忠実平坦性は
+\eqref{eq:completion-punctured-flat-cover}による別の係数変更に用いた。
+また，特殊ファイバーの中心全体が基底変更と可換することも仮定していない。
+中心元の既存の有限構成と，退化曲線を含む最高次代数のNoether性で十分である。
+追加の主開多項式 $g$ は存在を得たものであり，最小の明示公式は求めていない。
+相対tailsやsmooth proper性は，本定理を入力として別に確認する。
+\end{remark}

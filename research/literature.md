@@ -1,6 +1,6 @@
 # 文献・依存関係・新規性の範囲
 
-2026-11-20（JST） / v0.8。完全な書誌は [references.bib](../references.bib)。以下は使用する一次資料の具体的な箇所、現行論文での適用とその限界を示す。外部論文のPDFは収録しない。
+2026-11-20（JST） / v0.9。完全な書誌は [references.bib](../references.bib)。以下は使用する一次資料の具体的な箇所、現行論文での適用とその限界を示す。外部論文のPDFは収録しない。
 
 ## 1. 他研究からの数学的入力
 
@@ -103,9 +103,10 @@ Stephenson, *Algebras associated to elliptic curves*, Trans. AMS 349 (1997), no.
 
 上記三論文の指定箇所を2026-11-20に一次資料で確認した。飽和性、有向ACM、χ、compact生成、相対proper性、perfect圏のSerre双対は `finite_tails.tex` と `elliptic_relative.tex` に記述する。対角のperfect性としてのsmoothnessは、それらを入力とする `finite_smoothness.tex` の別証明による。滑らかな開近傍の幾何学的ファイバーでは、smooth性によりcoherent対象がcompactとなり、Serre公式によりホモロジー次元がちょうどnであることを得る。Serre公式だけでsmoothnessや全coherent対象のperfect性を推論したものではない。
 
-### 5.4. 相対楕円曲線と強Noether性
+### 5.4. 相対曲線の切断環と強・積Noether性
 
-- Keeler, *Ample filters of invertible sheaves*, J. Algebra 259 (2003), no.1, 243–283、DOI 10.1016/S0021-8693(02)00557-4；Corrigendum, J. Algebra 507 (2018), 592–598、DOI 10.1016/j.jalgebra.2018.03.024。[訂正を含むarXiv:math/0108068v5](https://arxiv.org/abs/math/0108068v5) のTheorems 1.5, 7.13–7.14とErratum Theorem E2.5を一次資料で確認した。Theorems 7.13–7.14は、可換noetherian環上のproper schemeについて、数値的quasi-unipotenceとあるL_mの豊富性からσ-amplenessを判定し、左右Noetherなtwisted homogeneous coordinate ringを与える。Theorem 1.5はprojective scheme上のcoherent層について、豊富線束の冪に任意のnef線束をtensorしたときの一様な高次コホモロジー消滅である。Erratum Theorem E2.5はその証明の基底変更による還元を修正し、結論を維持する。いずれも基底を体や被約環に限定しない。
+- Keeler, *Ample filters of invertible sheaves*, J. Algebra 259 (2003), no.1, 243–283、DOI 10.1016/S0021-8693(02)00557-4；Corrigendum, J. Algebra 507 (2018), 592–598、DOI 10.1016/j.jalgebra.2018.03.024。[訂正を含むarXiv:math/0108068v5](https://arxiv.org/abs/math/0108068v5) のTheorems 1.3, 1.5, 7.13–7.14とErratum Theorem E2.5を2026-11-20に一次本文で確認した。Theorem 1.3の条件(A4)は、任意の固定線束HについてH⊗L_mが最終的に豊富となることからample filterを与える。Theorems 7.13–7.14は、可換noetherian環上のproper schemeについて、数値的quasi-unipotenceとあるL_mの豊富性からσ-amplenessを判定し、左右Noetherなtwisted homogeneous coordinate ringを与える。Theorem 1.5はprojective scheme上のcoherent層について、豊富線束の冪に任意のnef線束をtensorしたときの一様な高次コホモロジー消滅である。Erratum Theorem E2.5はその証明の基底変更による還元を修正し、結論を維持する。これらの定理は基底を体・被約環に限定せず、スキームの滑らかさ・整性も仮定しない。
+- Keeler, *Noncommutative ampleness for multiple divisors*, J. Algebra 265 (2003), no.1, 299–311、[出版社ページ](https://www.sciencedirect.com/science/article/pii/S0021869303001261)、DOI 10.1016/S0021-8693(03)00126-1、[arXiv:math/0210417](https://arxiv.org/abs/math/0210417)、BibTeX key `KeelerMultiple2003`。出版社の書誌とabstractを確認した。Chanの多重斉次切断環を背景とし、THCRのtensor積のNoether性を含む先行研究として比較する。**本文の定理番号・完全な仮定・一般係数基底への適用範囲は未確認**であり、本稿の証明の数学的依存には加えない。本稿の相対積Noether性は、上記の確認済みFujita消滅と評価イデアルによって直接証明する。
 - 本稿では、点曲線の二重対角線を理想(h,δ)で解消し、σ₀=idの滑らかな相対種数1曲線を構成する。最高次中心商の相対THCR同定を先に証明し、任意noetherian基底変更後に上の定理を適用する。σは基底上で各曲線の次数を保ち、相対数値同値類に恒等に作用する。中心正則拡大とfiltered PBWにより全lower・全nに拡張する。
 - 積のNoether性は `lem:elliptic-bisection-noetherian` で別に証明する。二曲線の積上の二重切断環について、右イデアルの評価像を高い象限で安定させ、上の一様消滅で有限生成を得る。残る有限幅の行・列は各因子のNoether性で扱う。評価元の係数加群のflat性やイデアルのsaturationは仮定せず、導来projection formulaと両包含を使う。二つの普遍的に正則な中心元とfiltered PBWを経て、全n・全noetherian基底変更で `A^op⊗A` と `B^op⊗B` のNoether性を得る（`cor:elliptic-product-noetherian`）。片側の強Noether性だけから非可換tensor積のNoether性を推論しない。
 - 上記のσ-ampleness/Noether原理や体上のSklyanin表示自体は既知である。本稿の可換極限を含む有限な開近傍、任意基底変更、二重切断環、中央多項式係数、全nの相対tailsへの適用という組合せの優先権は未確認。曲線表示は活性最高次商のものであり、n次元tails全体が曲線のcoherent圏になるとは主張しない。
@@ -124,7 +125,7 @@ Stephenson, *Algebras associated to elliptic curves*, Trans. AMS 349 (1997), no.
 
 Mori–Ueyama, *The classification of 3-dimensional noetherian cubic Calabi–Yau algebras*, J. Pure Appl. Algebra 223 (2019), no.5, 1946–1965、DOI 10.1016/j.jpaa.2018.08.009。[arXiv:1606.00183v3](https://arxiv.org/abs/1606.00183v3) のTheorem 3.4とCorollary 3.8を一次資料で確認した。前者は、二生成元四次cyclic tensorの二つの一次端点微分が独立で、二階端点微分の四成分の共通零点がP¹×P¹にないことを3-CYの必要十分条件とする。後者は二生成元四次potentialのJacobian代数について3-CY性と整域性の同値を与える。最高次の正則開集合と、同時中心商の普遍正則性を示す際の全複素ファイバーの整域性に使う。曲線の滑らかさやbinary quarticの判別式非零は要求しない。
 
-本稿はこの判定から、四次式の偏極と交代形式Pを縮約する作用素 `T_(U,P)(ab)=Ũ(P♭a,P♭b,−,−)` による明示的十分条件 `g₂=det(1+4T)≠0` を得る。g₂(U,0)=1なので、全四次係数の零切断を含む有限主開である。活性binary quarticでは `g₂=1−16Ih⁴+128Jh⁶` となる。次数1ではStephensonの例外点と分離型Ore拡大によりΔ条件をambientから除き、`(1+A₄(D))(5+A₄(D))≠0` を得る。これらはambientの正則性の十分条件であり、相対楕円曲線の構成には別に楕円判別式が必要である。両次数とも全体ファイバーのHilbert関数を固定してから、被約普遍係数環の関係行列で任意基底変更の平坦性を証明する。全方向の中心元と普遍正則な有限中心商は次項、同じ有限族のArtin完成は§5.8で扱う。追加の中心構成用主開は存在を示したもので、その明示的な非消滅多項式は未計算である。
+本稿はこの判定から、四次式の偏極と交代形式Pを縮約する作用素 `T_(U,P)(ab)=Ũ(P♭a,P♭b,−,−)` による明示的十分条件 `g₂=det(1+4T)≠0` を得る。g₂(U,0)=1なので、全四次係数の零切断を含む有限主開である。活性binary quarticでは `g₂=1−16Ih⁴+128Jh⁶` となる。次数1ではStephensonの例外点と分離型Ore拡大によりΔ条件をambientから除き、`(1+A₄(D))(5+A₄(D))≠0` を得る。これらはambientの正則性の十分条件である。§5.9の相対THCR表示は特異・非被約なGorenstein曲線も扱い、楕円判別式の非零性を要求しない。両次数とも全体ファイバーのHilbert関数を固定してから、被約普遍係数環の関係行列で任意基底変更の平坦性を証明する。全方向の中心元と普遍正則な有限中心商は次項、同じ有限族のArtin完成は§5.8で扱う。中心構成と圏論的性質のための追加主開は存在を示したもので、最小の非消滅多項式は未計算である。
 
 ### 5.7. 同じambientの規格化中心と全方向の貼合せ
 
@@ -155,16 +156,32 @@ BWB消滅で規格化中心のtorsorを自明化する。局所中心が存在�
 
 `thm:simultaneous-central-all-artin` では、滑らかな可換点で係数の可換sliceを選ぶ。その有限族の完備局所環は、次数1では通常の形式円板、次数2では通常の形式円板とPlücker錐の完備化の積であり、既に求めた全Abel形式環と同じ表示を持つ。可換方向のKodaira–Spencer写像と一次交換子によるPoisson方向の写像がともに同型なので、自然変換に対応する完備局所環の自己写像は同型となる。HH¹によるframed自己同値の剛性と合わせ、同じ有限中心商族のArtin基底変更が全framed変形群oidを表す。次数2の二次Plücker関係を含む全形式環を使っており、接空間の一致だけから高次障害の消滅を結論していない。
 
-以上により、同じ有限代数族の全Artin変形に対する形式的完全性は証明した。一方、全有限基底での強Noether性・積Noether性、相対tailsとSerre式、smooth properな有限開近傍、全O保存同値によるatlasは未解決である。既存の比較理論の一般原理は先行研究であり、全方向の有限中心商の構成、有限jetによる貼合せ、同じ族の全Artin比較という組合せの包括的な優先権確認は未了である。
+以上により、同じ有限代数族の全Artin変形に対する形式的完全性を得る。有限基底上の強・積Noether性、相対tails・Serre式、smooth properな有限開近傍は、次項の独立した証明による。全O保存同値による一般nc点の認識と全モジュライのatlasは未解決である。既存の比較理論の一般原理は先行研究であり、全方向の有限中心商の構成、有限jetによる貼合せ、同じ族の全Artin比較という組合せの包括的な優先権確認は未了である。
+
+### 5.9. 全topの退化曲線、Noether降下、有限基底上のnc族
+
+**次数2の全二元四次式。** `degree_two_gorenstein_curve.tex` の `lem:degree-two-all-top-gorenstein-curve` と `thm:degree-two-all-top-thcr` は、全binary quartic係数のh=0を含む有限主開上で、解消point curveをP¹の有限平坦二重被覆として構成し、同じ活性最高次ambientの中心商を相対THCRと同定する。trace分裂 `p_*O=O⊕N⁻¹`、`deg N=2` により、節点・尖点・可約曲線とf=0の非被約な二重P¹を含めてGorenstein種数1と双対化層の自明性を得る。非被約ファイバーのnilradicalはO(−2)であり、`lem:degree-two-double-cover-cohomology` は正の成分次数を持つ線束のH¹消滅を、このnilradicalを含めて証明する。成分ごとの次数の保存からKeelerのTheorem 1.3を適用し、相対Fujita消滅から `lem:degree-two-gorenstein-bisection` の積Noether性を得る。全lower項と中央多項式係数への拡張は `cor:degree-two-all-top-strong-product`。行列式・blowup・分母を払ったshift恒等式の全係数検算は `verify_degree_two_gorenstein_curve.py` であり、最後のσ⁴検査だけmod h²と明記する。
+
+**次数1の尖点を含む全Weierstrass top。** `degree_one_integral_curve.tex` は階数2の被覆 `k²=−α` を用い、三次根や `γ=6β−4k³` を可逆化しない表示でpoint curveを構成する。全幾何ファイバーは整なGorenstein種数1曲線で、α=β=0の尖点も含む。相対smooth locusの切断P・Qから次数1のLと大域生成な次数2のL₂を得て、正次数線束のH¹消滅と有限個の低次数の全射性でTHCRを同定する。偶数Veroneseを使う積Noether性と有限忠実平坦降下により、`thm:degree-one-all-top-noether` は全top・全lower・全nの任意Noether基底変更を扱う。Stephensonの体上の分類・幾何とKeelerの一般原理は既知の入力であり、退化を含む相対構成の証明は本文に記す。
+
+**零方向を含むNoether性の降下。** `noether_descent.tex` の `lem:graded-jacobson-noether` は、可換Noether環R、`J⊂Jac(R)`、各次数が有限R加群である非負次数付き代数Cについて、C/JCのNoether性をCへ持ち上げる。J進随伴次数環はC/JC上の有限個の中央変数による商なのでNoetherであり、斉次イデアルの初項を有限生成元で消去した後、各内部次数の有限加群にKrull交叉を適用する。[Stacks Tag 00IQ, Lemma 10.51.5(2)](https://stacks.math.columbia.edu/tag/00IQ) を確認した。平坦性や完備性はこの補題の仮定ではない。
+
+一般のJでは `R→R̂_J×∏R[a_i⁻¹]` を使う（`lem:completion-punctured-flat-cover`、`prop:noether-completion-punctured-gluing`）。完成の平坦性は [Tag 00MB](https://stacks.math.columbia.edu/tag/00MB)、スペクトル全射による忠実性は [Tag 00HQ](https://stacks.math.columbia.edu/tag/00HQ) による。完成の像がV(J)を、有限個の主開がその補集合を覆うため、完成自体を忠実平坦と仮定する必要がない。代わりに全ての1+Jを可逆化するJacobson局所化も使えるが、一つの有限表示局所化への置換は主張しない。方向解消のproper性は悪条件の像を除いて有限主開を選ぶためだけに使い、Noether性をproper射の平坦降下で得てはいない。これにより `thm:simultaneous-strong-product-noether` は、全係数の零切断を含む不変有限主開上の同じ同時ambient・中心商とその積について、任意Noether基底変更後の左右Noether性を与える。
+
+**相対CY、tailsとsmooth proper開近傍。** `simultaneous_relative_geometry.tex` は上のNoether入力を使う。`lem:graded-fiberwise-projective` は有限な次数零Hom複体の行列消去から相対projective性を証明する。非零方向での活性potential複体、中央多項式係数のPBW filtration、中央差Koszulと、零方向の可換Koszul解消から、全ファイバーの無捩れCY同型を得る。相対対角のExtの最低次数は基底上の線束であり、左右作用の差を被約な普遍係数環上で消し、Koszul体積でその線束を有限開上自明化する。恒等式を確立してから任意の非被約基底へ移すのが `thm:simultaneous-relative-cy` である。体上のCY性を直接相対CY性と呼び替えたものではない。
+
+`thm:simultaneous-relative-tails` は同じ有限族についてAbel平坦性、局所コホモロジー、飽和性・有向ACM・χ・豊富性、有限compact窓、相対proper性と無捩れSerre式 `S=(−(n−1))[n]` を与える。ここでは§5.3の既知の双対原理に加え、本稿の有限対角・相対局所双対の証明を使い、非正則基底に体上のbalanced dualizing定理を無条件に適用しない。さらに `thm:simultaneous-smooth-ncdp-open` は積代数上の有限部分対角解消、相対Serre双対、可換点のHH¹消滅を使い、**滑らかな全可換正規形の零切断を含む有限型開集合**で、同じ中心商がsmooth properなnc del Pezzo族となることを証明する。全係数の零切断では古典方程式自体が特異な場合もあるため、そこまでsmoothnessを主張しない。
+
+これらと§5.8を合わせ、全framed Abel Artin変形を実現する同じ有限型nc族を得る。双対・ample filter・THCR・Krull交叉・忠実平坦降下の一般原理は既知である。全topの退化曲線、全独立方向への降下、同じ有限中心商の相対圏論的性質と全Artin比較を組み合わせた範囲の包括的な優先権は未確認である。追加の開条件の明示、一般nc点の全O同値認識、全モジュライのatlasと成分数は残る。
 
 ## 6. 公表前に残る研究・文献上の課題
 
 優先順位の高い比較・調査は次の五点である。
 
 1. **全方向中心構成の比較と明示化。** 同じambient上の全方向中心と有限中心商、同じ族のArtin完成を既存の形式中心持上げ・filtered楕円代数・全Abel変形理論と比較する。追加の主開条件の明示、中心元の選択の違い、既知の公式との関係を調べる。
-2. **全方向の有限基底上の相対tails。** 一方向族で得た強/積Noether性・相対Serre・smoothnessを同時中心商へ拡張する。同じ有限族のArtin完成が全変形を表すことと、有限型基底全体での族・atlasの存在を区別する。
+2. **全方向有限族と既存理論の比較。** 全topの退化曲線、強・積Noether性の零方向への降下、同じ族の相対tails・Serre・smooth proper開近傍を、既存のTHCR・filtered変形・圏の変形理論と比較する。Keelerのmultiple divisors論文の本文と正確な仮定を確認し、体上・相対基底上の適用範囲を整理する。同じ有限族の全Artin普遍性と、全O同値による有限型atlasを区別する。
 3. **滑らかな開集合の明示。** 得られた有限部分対角解消とHom複体から、具体的な係数の非消滅条件を計算する。開近傍の存在証明と、その判別式の明示は異なる状態である。
 4. **全O同値と大域モジュライ。** 有限表示族から一般nc点の全同値の商、全モジュライの有限型atlas、可換locusに接しない成分へ進む。Toën–Vaquiéの固定dg圏の対象モジュライを、可変な全O-marked圏のモジュライと同一視しない。
-5. **相対楕円構成と新規性。** 解消point curve、相対THCR、二重切断環による積Noether性、smoothnessの有限開近傍を、既存の楕円代数・filtered変形・変形圏の相対理論に比較する。中心増大層を含む適用範囲と、各主張の優先権を確認する。
+5. **退化曲線を含む構成と新規性。** 解消point curve、次数1の尖点と次数2のribbonを含む相対THCR、二重切断環による積Noether性、smoothnessの有限開近傍を、既存の楕円代数・非可換del Pezzo・変形圏の構成と比較する。中心増大層を含む適用範囲と、各主張の優先権を確認する。
 
-一般nでの全Abel形式群oid、nc多様体条件のArtin持上げ、形式粗商、具体量子化の完全性、任意指数Veronese復元、有限型族のCasimir・普遍中心・相対双対、一般楕円型topの相対曲線表示・積Noether性、smooth properな有限開近傍、全方向の同時中心商とその全Artin比較という組合せについて、包括的な優先権調査は未了。変形・compact持上げ・formality・CY potentialの中心存在・Sklyanin中心元・Borel–Weil–Bott・σ-amplenessの一般結果は既知と明記する。非可換del Pezzo曲面の各定義、AS Z-代数、marked quiver、非可換吹上げとの比較も継続する。講演概要にある未公表の一般次数の主張は確立済み定理として引用しない。
+一般nでの全Abel形式群oid、nc多様体条件のArtin持上げ、形式粗商、具体量子化の完全性、任意指数Veronese復元、有限型族のCasimir・普遍中心・相対双対、全topの退化曲線を含む相対THCRと積Noether性、全方向の同時中心商・相対tails・smooth proper開近傍・全Artin比較という組合せについて、包括的な優先権調査は未了。変形・compact持上げ・formality・CY potentialの中心存在・Sklyanin中心元・Borel–Weil–Bott・σ-ampleness・THCRのtensor積に関する一般結果は既知の研究として区別する。非可換del Pezzo曲面の各定義、AS Z-代数、marked quiver、非可換吹上げとの比較も継続する。講演概要にある未公表の一般次数の主張は確立済み定理として引用しない。

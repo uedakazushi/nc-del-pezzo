@@ -1,0 +1,341 @@
+% !TeX root = ../nc-del-pezzo.tex
+% 2026-11-20 JST / v0.9
+\section{次数1の特異な最高次曲線を含む相対切断環}
+\label{sec:degree-one-integral-curve}
+
+次数1の最高次式について，楕円判別式の非零条件を除く。
+必要な曲線は滑らかとは限らないが，幾何学的に整なGorenstein種数1曲線として扱える。
+とくに $\alpha=\beta=0$ の尖点曲線も同じ構成に入る。
+本節の有限開条件は最高次係数と一つの方向パラメータ $h$ にだけ依存する。
+全独立方向への移行では，方向空間からの降下をさらに行う必要がある。
+
+\subsection{三次根を用いないpoint曲線}
+
+補題\ref{lem:degree-one-all-top-as-open}の係数環を $T_1$ とする。
+以下では必要に応じて，$h=0$ の全点を含む有限主開近傍へ制限する。
+有限忠実平坦被覆
+\[
+ T'_1=T_1[k]/(k^2+\alpha),\qquad
+ \gamma=6\beta-4k^3,\qquad a=1+kh^2,\quad c=-2
+\]
+を使う。この被覆の階数は2であり，$T'_1$ は
+$\mathbb C[k,\gamma,h]$ の局所化である。
+$\gamma$ の三次根を取らず，$\gamma$ も楕円判別式も可逆化しない。
+$9+\alpha h^4$ を可逆化すれば $a-c$ が可逆であり，
+$a(a+c)=-(1+\alpha h^4)$ より $a,a+c$ も可逆である。
+
+$h\ne0$ で $z$ を消去し，$y=Y+kx^2$ と変数変換すると，巡回potentialは
+\[
+ W=a x^2Y^2+\frac c2xYxY
+       +h^2\left(\frac13Y^3+\frac\gamma6x^6\right)
+\]
+となる。従って二つの関係式は
+\begin{equation}\label{eq:degree-one-unscaled-relations}
+ \begin{aligned}
+ f_4&=a(x^2Y+Yx^2)+cxYx+h^2Y^2,\\
+ f_5&=a(Y^2x+xY^2)+cYxY+\gamma h^2x^5.
+ \end{aligned}
+\end{equation}
+これは補題\ref{lem:degree-one-stephenson-normal-form}の計算から
+$Y$ の尺度変更だけを取り除いたもので，$\gamma=0$ でも可逆な変数変換である。
+
+$t=z_0/w_0$，$q=z_1/w_1$ を
+$\mathbb P^1\times\mathbb P^1$ の有限座標とし，
+$C=a^2-c^2$ と置く。次の式とその二重次数 $(2,2)$ の斉次化を $H$ と書く：
+\begin{equation}\label{eq:degree-one-integral-point-curve}
+ \begin{split}
+ H(t,q)={}&aC(t^2+q^2)+ah^2(a+c)(t^2q+tq^2)\\
+ &+(a^2c-\gamma h^6-c^3)tq
+     -a\gamma h^4(t+q)-a^2\gamma h^2.
+ \end{split}
+\end{equation}
+$\gamma=\rho^3\ne0$ では，これは既存のStephenson曲線に
+$t/\rho,q/\rho$ を代入して $\rho^2$ 倍した式である。
+この由来は式の発見に用いるが，以下の恒等式は全 $\gamma$ で成り立つ多項式恒等式である。
+
+\begin{lemma}\label{lem:degree-one-integral-curve}
+$\Spec T_1$ の $h=0$ 全体を含む有限主開 $V$ を選ぶと，
+その全逆像 $V'$ 上に，平坦で射影的な曲線族 $f:E\to V'$，
+自己同型 $\sigma$，相対smooth locus内の切断 $P,Q$ が存在する。
+全幾何学的ファイバーは整なGorenstein曲線で算術種数1を持ち，次を満たす。
+\begin{enumerate}
+ \item $h=0$ の曲線は
+ $z^2/2+y^3/3+\alpha x^4y+\beta x^6=0$ であり，$\sigma_0=\operatorname{id}$ である。
+ \item $L=\mathcal O_E(P)$ は相対次数1であり，
+ $\sigma Q=P$，$L_2:=L\otimes\sigma^*L\simeq p_1^*\mathcal O_{\mathbb P^1}(1)$ である。
+ $L_2$ は相対的に大域生成される。
+ \item $L_m=L\otimes\sigma^*L\otimes\cdots\otimes\sigma^{(m-1)*}L$ と置くと，
+ $f_*\mathcal O_E=\mathcal O_{V'}$，
+ $f_*L_m$ は $m>0$ で階数 $m$ の有限局所自由加群，$R^1f_*L_m=0$ である。
+ これらは任意の基底変更に両立する。
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+\textbf{曲線と特殊ファイバー。}
+$\delta=w_0z_1-z_0w_1$ と置くと，
+$H|_{h=0}=-3\delta^2$ であり，$H+3\delta^2$ は $h^2$ で割り切れる。
+積の射影直線を $(h,\delta)$ に沿ってblow upし，$H=0$ のstrict transformを取る。
+$h$-chartの有限座標では $q=t+hw$ と書け，その方程式は
+$G=h^{-2}H(t,t+hw)=0$ となる。無限遠では
+$u=1/t,v=1/q,\eta=(v-u)/h$ を用いる。
+両式は多項式であり，特殊方程式はそれぞれ
+\begin{equation}\label{eq:degree-one-integral-special-charts}
+ \begin{aligned}
+ G_0&=-3w^2-6kt^2-2t^3-\gamma,\\
+ G_{\infty,0}&=-3\eta^2-6ku^2-2u-\gamma u^4.
+ \end{aligned}
+\end{equation}
+もう一方のblowup chartで $h=e\delta$ とすると，strict transformの式は
+$-3+e^2(\cdots)=0$ である。
+従って $h=0$ 上には $e=0$ の点がなく，二つの表示した $h$-chartで尽くされる。
+
+$y=t+k,z=w,\alpha=-k^2,\beta=(\gamma+4k^3)/6$ により
+\[
+ 6\left(\frac{w^2}{2}+\frac{(t+k)^3}{3}
+             -k^2(t+k)+\frac{\gamma+4k^3}{6}\right)=-G_0.
+\]
+$G_0$ は $w$ について二次，$t$ について最高次係数が非零の三次なので，
+任意の代数閉体ファイバーで既約である。
+無限遠点は $(u,\eta)=(0,0)$ だけで，$u$ 微分は常に $-2$ である。
+従って全ての特殊曲線は幾何学的に整であり，無限遠点は滑らかである。
+二重点を持つ場合も尖点の場合も，重み付きWeierstrass曲線のGorenstein性と
+算術種数1は保たれる。
+
+strict transform上で $h$ は非零因子である。
+二つの特殊chartは $w^2$ または $\eta^2$ の係数が $-3$ である相対超曲面なので，
+平坦性の局所判定により，$h=0$ の全逆像の近傍で $f$ は平坦かつ相対Gorensteinとなる。
+その外の閉集合の固有像を除く。
+平坦で固有かつ有限表示な射の幾何学的被約ファイバーの開性
+\cite[Tag 0C0E]{StacksProject}を適用し，全幾何学的ファイバーを被約にする。
+算術種数は平坦射影族で一定なので1である。
+整性は後で次数1の豊富な線束を使って示す。
+この操作で特異なファイバーを除いてはいない。
+
+\textbf{shift。}
+次の行列を使う：
+\[
+ \begin{aligned}
+ m_{11}&=cw_0z_1+az_0w_1,&
+ m_{12}&=(aw_0+h^2z_0)w_1,\\
+ m_{21}&=a\gamma h^2cw_0w_1+\gamma h^4cw_0z_1+aCz_0z_1,\\
+ m_{22}&=cCz_0w_1+ah^2(a+c)z_0z_1+aCw_0z_1.
+ \end{aligned}
+\]
+$\det M=cH$ である。$h=0$ の有限chartでは第1行が $(-t,1)$，
+無限遠では第2行が $(-3,0)$ なので，rank零箇所の固有像を除くと
+$M$ のkernelは全曲線上で第三点を定める。
+その有限表示は
+\begin{equation}\label{eq:degree-one-integral-shift}
+ r=-\frac{cq+at}{a+h^2t},\qquad
+ (a+h^2t)^2H(q,r)=(a^2-h^2cq)H(t,q).
+\end{equation}
+$h=0$ 上で第二点と第三点が一致するので，
+blowupの中心理想の逆像は $(h)$ となる。
+blowupの普遍性によりshiftはstrict transformへ持ち上がり，有限chartでは
+\begin{equation}\label{eq:degree-one-integral-lifted-shift}
+ t'=t+hw=q,\qquad
+ w'=\frac{w-h\{k(t+q)+tq\}}{a+h^2t}
+\end{equation}
+となる。$h=0$ で恒等写像である。
+射の正則性はrank1の行列で示しているため，表示分母が消える点も含まれる。
+二つの射影直線の交換を $J$ と書くと，
+$a(t+r)+cq+h^2tr=0$ の外側の変数の対称性から $J\sigma J=\sigma^{-1}$ を得る。
+$h\ne0$ 上の恒等式は，$h$-平坦性と分離性により全体で成り立つ。
+
+\textbf{線束とコホモロジー。}
+元の積の上で
+\[
+ Q=((0:1),(0:1)),\qquad
+ P=((0:1),(h^2:c-a))
+\]
+を取る。無限遠chartの持上げは
+$Q:(u,\eta)=(0,0)$，$P:(u,\eta)=(0,h/(c-a))$ である。
+両者は $h=0$ 上で相対smooth locusに入り，その性質の開性により全体でもそうできる。
+従って $P,Q$ は相対次数1の有効Cartier因子である。
+行列のkernelを $Q$ で計算すると $\sigma Q=P$ である。
+無限遠chartの厳密な因子分解
+\begin{equation}\label{eq:degree-one-integral-infinity}
+ G_\infty(0,\eta)=a(a+c)\eta\bigl((a-c)\eta+h\bigr)
+\end{equation}
+により $p_1^{-1}(\infty)=P+Q$ がCartier因子として成り立つ。
+とくに $h=0$ で二切断が合流する点でも，$G_\infty$ の $u$ 微分は $-2$ という単元である。
+従って局所的に $G_\infty(u,\eta)=G_\infty(0,\eta)+uK$，$K$ は単元と書け，
+曲線上の $u$ は $\eta((a-c)\eta+h)$ の単元倍となる。
+これは交点での重複度も含む等式を与える。
+従って $L\otimes\sigma^*L=p_1^*\mathcal O(1)$ であり，後者は大域生成される。
+
+$L$ は全ての $h=0$ ファイバーで次数1の線束なので豊富である。
+相対豊富性の開性\cite[Proposition 2.5]{Keeler2003}により，
+全零切断を保って縮めれば $L$ は相対的に豊富となる。
+有効Cartier切断で定義したため，全幾何学的ファイバーの $L$ の全次数は1である。
+被約な射影曲線上では，豊富な線束の次数は各既約成分で正の整数であり，
+全次数はそれらの和である。従って各ファイバーの既約成分は一つしかない。
+既に被約性を確保したので，全幾何学的ファイバーは整である。
+
+整なGorenstein種数1曲線上では，双対化線束は自明である。
+実際，その次数は0で，Serre双対により非零切断を持つため，零因子を持てない。
+正次数の線束 $N$ には $H^1(N)=H^0(N^{-1})^*=0$ が成り立ち，
+Riemann--Rochから $h^0(N)=\deg N$ を得る
+\cite[Tag 0BS6]{StacksProject}。
+これを全ファイバーの $L_m$ に適用し，proper flatな族のcohomology and base changeを使う。
+これで非被約基底を含む主張3が従う。
+
+最後に，各縮小を元の $\Spec T_1$ 上で行えることを確認する。
+$V'\to V$ を有限被覆の全逆像として保ち，除く閉集合の有限像を基底から除く。
+全ての悪い集合は $h=0$ の全点と交わらない。
+残る開集合の補集合のイデアルを $I$ とすれば $I+(h)=(1)$ なので，
+$g\in I$，$g\equiv1\pmod h$ を選んだ主開で全構成を行える。
+\end{proof}
+
+\subsection{同じ最高次中心商の切断環表示}
+
+\begin{theorem}\label{thm:degree-one-all-top-thcr}
+$\Spec T_1$ の $h=0$ 全体を含む有限主開 $V$ 上で，
+同じ最高次ambient $A^{\mathrm{top}}$ に次数6の普遍的な中央非零因子
+$\Omega^{\mathrm{top}}$ を選べる。
+完全対称化座標の $z^2$ 係数は $1/2$，$h=0$ での値は古典の最高次式である。
+補題\ref{lem:degree-one-integral-curve}の階数2被覆 $V'\to V$ 上で
+\[
+ \bigl(A^{\mathrm{top}}/(\Omega^{\mathrm{top}})\bigr)_{V'}
+       \simeq D(E,L,\sigma):=\bigoplus_{m\ge0}f_*L_m
+\]
+が成り立つ。同型は任意の可換基底変更に両立する。
+\end{theorem}
+\begin{proof}
+最高次中心は補題\ref{lem:degree-one-all-top-finite-center}でlower項を零にして得る。
+全零切断を一つの有限主開で扱うには，次数6と交換子の有限行列の余核を用いる。
+各零切断点で規格化中心が存在するので，その余核類の支持は零切断に交わらない。
+支持のイデアルから $g\equiv1\pmod h$ を選べば，有限線型方程式の解を全体で選べる。
+同時に有限個の完全対称化座標と $z^2$ 係数の単元性を確保する。
+これは命題\ref{prop:relative-finite-center-lift}と同じ有限余核の操作である。
+各ファイバーのambientは整域であり，規格化により中心は非零である。
+各内部次数の乗法行列は全ファイバーで単射なので，局所的に分裂した単射となる。
+従って中心は普遍的に正則で，商の正次数 $m$ の階数は $m$ である。
+
+$D$ の切断を有理関数で表示し，
+\[
+ x=1\in D_1,\quad Y=t\in D_2,\quad
+ y=Y+kx^2,\quad z=\frac{xY-Yx}{h}\in D_3
+\]
+と置く。$D/(h)$ は可換であり $D_3$ は $h$-平坦なので，最後の割算は正則で一意である。
+有限chartで $z=w$ となる。
+式\eqref{eq:degree-one-integral-shift}と，$s=t\circ\sigma^3$ に対する恒等式
+\[
+ (a+h^2t)(a+h^2q)\{a(tr+qs)+cts+\gamma h^2\}=-H(t,q)
+\]
+から，式\eqref{eq:degree-one-unscaled-relations}の二関係式が成立する。
+従って $h\ne0$ 上でambientからの写像があり，$D_m$ の $h$-平坦性により
+元の三生成元の全関係式は $h=0$ を含めて成立する。
+
+特殊曲線では無限遠の $t,w$ の極の位数は2,3であり，
+次数1から4の切断はそれぞれ
+$(1)$，$(1,t)$，$(1,t,w)$，$(1,t,t^2,w)$ を基底に持つ。
+このことは尖点の場合も同じである。
+有限な四つの余核を消して，これらの次数の全射性を確保する。
+$m\ge3$ では，$\sigma^{m*}L_2$ の二生成元の評価列を $L_m$ でtensorすると，
+そのkernelのファイバー次数は $m-2>0$ となる。
+前補題の $H^1$ 消滅と基底変更により
+\[
+ D_mD_2=D_{m+2}\qquad(m\ge3)
+\]
+が成り立ち，全次数で $A^{\mathrm{top}}\to D$ は全射となる。
+
+一般点では $\Omega^{\mathrm{top}}$ の像は零である。
+式\eqref{eq:degree-one-integral-lifted-shift}により
+$t\circ\sigma^6=t+6hw\pmod {h^2}$ なので，$\sigma^6$ は一般点で恒等写像でない。
+一方，非零の次数6中心切断があれば，非常に豊富な高次数の切断の比との可換性から
+$\sigma^6$ は関数体に恒等に作用する。
+一般点の曲線は滑らかで整だから矛盾となる。
+$D_6$ は整な普遍係数環上で捩れを持たないので，中心の像は全体で零である。
+得られた中心商から $D$ への全射は，各次数で同じ階数の有限局所自由加群の間の写像であり同型となる。
+全ての構成が基底変更に両立するため，最後の主張も従う。
+\end{proof}
+
+\subsection{強Noether性，積，および全低次項}
+
+\begin{lemma}\label{lem:integral-genus-one-bisection}
+補題\ref{lem:elliptic-bisection-noetherian}の滑らかさの仮定は，
+平坦なGorenstein曲線族で全幾何学的ファイバーが整かつ算術種数1である，
+という仮定に弱められる。ただし次数2の線束の相対大域生成を仮定する。
+従ってその二つのTHCRのtensor積は，任意のnoetherian基底変更後も左右Noetherである。
+\end{lemma}
+\begin{proof}
+正次数線束の $H^1$ 消滅と次数別有限射影性は前補題と同じRiemann--Rochと双対で従う。
+自己同型は各整な曲線ファイバーの次数を保つので，相対数値同値群には恒等的に作用する。
+従ってKeelerのTheorems 7.13--7.14\cite{Keeler2003}は特異な曲線族にも適用できる。
+既存補題の二重評価イデアル $J_{m,n}$ は，大域生成により同じく増加し，
+noetherianな積のスキーム上で有限段階で安定する。
+二曲線からの引戻しの外積は，各ファイバーの次数を調べると同じ相対nef性を持つ。
+Keelerの相対Fujita消滅（同論文Theorem 1.5と訂正Theorem E2.5）は
+滑らかさを仮定しないので，安定した一つの評価列のkernelの高象限での $H^1$ を消す。
+積のスキームは基底上平坦であり，正次数の外積線束の導来切断は有限射影で次数0に集中する。
+従って評価イデアル成分自体の平坦性を仮定せずprojection formulaを使える。
+残る有限幅の行と列の議論も，片側THCRのNoether性と有限射影性だけを使う。
+これらは既存補題の証明の全入力であり，滑らかさを使う箇所は残らない。
+\end{proof}
+
+\begin{theorem}\label{thm:degree-one-all-top-noether}
+ある有限主開 $V\subset\Spec T_1$ は $h=0$ の全点を含み，次を満たす。
+最高次ambient，全12個のlower係数を独立に加えたambient，および
+$n-1$ 個の中央一次変数にlower係数を斉次多項式で代入した全 $n\ge2$ のambientについて，
+任意の許されるnoetherian可換係数環 $R$ 上で
+\[
+ A_R,\qquad A_R^{\mathrm{op}}\otimes_R A_R
+\]
+は左右Noetherである。従って同じambientの任意の中心商 $B_R$ と
+$B_R^{\mathrm{op}}\otimes_R B_R$ も左右Noetherである。
+特に，選んだ規格化中心商にもこれらの性質が成り立つ。
+$V$ の分母は $\alpha,\beta,h$ だけに依存する。
+\end{theorem}
+\begin{proof}
+まず階数2の有限忠実平坦被覆の上で，前定理の $D=D(E,L,\sigma)$ を使う。
+$L$ の相対次数は1で豊富であり，自己同型は曲線ファイバーの数値同値を保つ。
+Keelerの定理から，任意のnoetherian係数変更後に $D$ は左右Noetherである。
+偶数Veronese $D^{(2)}=D(E,L_2,\sigma^2)$ には前補題を適用できる。
+左右の評価列から
+$D_mD_2=D_{m+2}=D_2D_m$ ($m\ge3$) となるため，
+$D$ は $D^{(2)}$ の左右有限生成加群である。
+従って $D^{\mathrm{op}}\otimes_R D$ も
+$(D^{(2)})^{\mathrm{op}}\otimes_R D^{(2)}$ の左右有限生成加群であり，左右Noetherである。
+
+正次数6の普遍的な中央非零因子 $\Omega^{\mathrm{top}}$ を戻す。
+その随伴次数は $D[v]$ であり，内部次数が非負なので斉次イデアルの生成元の持上げは有限回で止まる。
+積には二つの中心元を順に戻す。各代数と中心商の係数環上の平坦性により，
+途中の商でも二つの元は正則である。
+これで最高次ambientとその積のNoether性を得る。
+有限忠実平坦被覆への基底変更はイデアルの上昇列の停止を検出するので，結論は $V$ へ降下する。
+
+全lower項の活性filtrationの随伴次数は最高次ambientである。
+そのPBW同型は任意の中央係数変更に両立するから，filtered持上げによりNoether性を得る。
+積にも両因子の活性filtrationを用いれば同じ結論となる。
+全次元への移行では中央多項式環 $R[s_1,\ldots,s_{n-1}]$，
+積では二組の中央変数を持つ多項式環を係数環として同じ議論を行う。
+中心商はNoether環の商であり，その積もambientの積の商なので結論が従う。
+\end{proof}
+
+\begin{corollary}\label{cor:degree-one-all-top-tails}
+本節の有限開集合上で，規格化した普遍正則な斉次中心元を用いた全次元の中心商について，
+定理\ref{thm:degree-one-relative-tails}の相対CY性，局所コホモロジー，
+飽和性，有向ACM，相対 $\chi$，全シフトの豊富性，compact生成とproper性，
+および $S_R\simeq(-(n-1))[n]$ が成り立つ。
+compact生成窓は $\bigoplus_{j=0}^{n+4}\mathcal O(j)$ である。
+全斉次式が滑らかな可換del Pezzo模型を与える零方向点の有限開近傍では，
+正周期 $n-1$ の列が豊富となり，tailsのcompact圏は相対的にsmooth properとなる。
+\end{corollary}
+\begin{proof}
+相対potential対角複体は補題\ref{lem:degree-one-all-top-as-open}により
+楕円判別式によらず普遍的に完全であり，中央差のKoszul複体を加えたCY shiftは $n+5$ である。
+全lower項のfiltered持上げと次数6の普遍的に正則な中心商も既に得ている。
+これらと前定理の強Noether性が，定理\ref{thm:degree-one-relative-tails}の証明で用いた入力の全てである。
+従ってその局所コホモロジー，Serre双対，有限windowの証明を適用できる。
+さらに積のNoether性が得られたので，第\ref{sec:finite-smoothness}節の
+対角の有限部分解消と $HH^1(X)=0$ による持上げを適用できる。
+最後の縮小は全斉次係数にも依存してよく，最高次曲線自体の滑らかさは要求しない。
+\end{proof}
+
+\begin{remark}
+整な種数1曲線を用いたのは活性な最高次中心商の表示だけである。
+全lower項を持つ高次元のtailsが曲線のcoherent圏になるという主張ではない。
+また本節だけから，全独立方向を持つ同時族の基底でNoether性が降下するとは結論していない。
+明示的なAS開条件の全域での結論でもなく，零切断を含む追加の有限主開を選んでいる。
+\end{remark}

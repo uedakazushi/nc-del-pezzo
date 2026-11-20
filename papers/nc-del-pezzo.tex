@@ -42,7 +42,7 @@
 \newcommand{\Perf}{\operatorname{Perf}}
 \newcommand{\rank}{\operatorname{rank}}
 \newcommand{\HH}{\operatorname{HH}}
-\newcommand{\Version}{0.8}
+\newcommand{\Version}{0.9}
 \title{次数1・2の非可換del Pezzo多様体\texorpdfstring{\\}{ }構造対象付き変形とモジュライの局所構造}
 \author{}
 \date{2026年11月20日\quad v\Version\quad 公表用研究稿}
@@ -74,12 +74,13 @@ smooth proper性と相対Serre公式 $(-(n-1))[n]$ を証明する。
 この一つの有限型中心商族のArtin基底変更が，
 可換sliceを選んだ後の全framed Abel変形を実現することを証明する。
 
-別に，分離型と一般楕円型の一方向族については，
-普遍PBW・相対CY，明示的中心または有限中心方程式，相対曲線の切断環表示を与える。
-これらの族は任意のnoetherian基底変更後に強・積Noether性，相対tailsとSerre公式を持ち，
-滑らかな可換点の有限型開近傍で実際の非可換del Pezzo族となる。
-全方向中心商族へのこれらの有限基底上の圏論的性質の拡張，
-全モジュライのatlasおよび全既約成分数は未解決として区別する。
+さらに，活性最高次曲線の特異・可約・非被約な退化を含む相対切断環を構成する。
+次数別のKrull交叉と，方向頂点の完成および頂点外の忠実平坦被覆を組み合わせ，
+この全方向族の強Noether性と積代数のNoether性を証明する。
+同じambientの無捩れな相対CY同型から，相対tails・Serre公式と有限compact生成窓を得る。
+対角の有限部分解消により，滑らかな全可換模型の零切断を含む有限型開近傍で，
+同じ族が実際のsmooth properな非可換del Pezzo族となる。
+全モジュライのatlasと全既約成分数，追加開条件の明示公式は未解決として区別する。
 \end{abstract}
 \tableofcontents
 
@@ -337,9 +338,50 @@ $m\ge5$ で用い，それ以前の障害を
 De Deken--Lowen\cite[Proposition~4.4]{DDL2011}でArtin基底上のAbel平坦性を得て，
 初交換子による全接空間の同型と，式\eqref{eq:main-formal-ring}の
 全完備局所環の比較から証明する。
-有限基底全体の相対tails・smooth proper性と，全モジュライのatlasは，
-この形式的完全性とは別に残る問題である。
-上の同時中心の構成と有限代数的表示についても，包括的な優先権確認は未了である。
+有限基底上の圏論的性質は，この形式比較とは独立に次のように証明する。
+
+\subsection{全方向族のNoether性と相対幾何}
+第\ref{sec:degree-two-gorenstein-curve}節では，
+全二元四次式のpoint curveを解消し，$\mathbb P^1$ の有限平坦二重被覆を得る。
+可約曲線と非被約な二重 $\mathbb P^1$ も含み，後者のnilradicalは
+$\mathcal O_{\mathbb P^1}(-2)$ である。
+第\ref{sec:degree-one-integral-curve}節では，三次根による尺度変更を取り除き，
+階数2の有限被覆上で節点・尖点を含む整なGorenstein種数1曲線を得る。
+これらの曲線のコホモロジーと成分ごとの次数を使い，
+Keeler\cite[Theorems~1.3, 7.14; Erratum~Theorem~E2.5]{Keeler2003}の
+既知のample filter・Noether性・相対Fujita消滅を適用する。
+THCRのtensor積を多重斉次切断環として扱う研究には
+Keeler\cite{KeelerMultiple2003}の先行研究がある。
+同文献は書誌とabstractを確認した段階で，本文の定理番号と一般基底への仮定は未確認である。
+従ってここではその定理を入力とせず，確認済みの相対Fujita消滅から積の議論を直接記述する。
+最高次中心商のTHCR同定，二重切断環，中央拡大とPBW持上げにより，
+全topを許す方向chartで強・積Noether性を得る。
+
+方向解消は頂点で平坦でないため，そのまま忠実平坦降下には使えない。
+第\ref{sec:noether-descent}節では，任意の可換Noether環 $R$ と
+方向イデアル $J=(a_1,\ldots,a_s)$ に対する忠実平坦射
+\[
+ R\longrightarrow\widehat R_J\times\prod_iR[a_i^{-1}]
+\]
+を用いる。完成側では，次数別有限性とKrull交叉により，
+可換な零方向商からNoether性が持ち上がる。
+頂点外では方向chartの相対曲線を使う。
+定理\ref{thm:simultaneous-strong-product-noether}は，
+全可換係数の零切断を含む一つの有限主開上で，
+任意Noether基底変更後の $A,B,A^{\mathrm{op}}\otimes A,B^{\mathrm{op}}\otimes B$ の
+左右Noether性を与える。体ファイバーだけのNoether性に基づく結論ではない。
+
+第\ref{sec:simultaneous-relative-geometry}節では，有限な次数零Hom複体を用いて
+全ファイバーのprojective性から相対有限対角解消を構成する。
+最低次数の双対化線束と左右作用を調べ，同じambientの無捩れな相対CY同型を得る。
+従って相対tailsは飽和性・ACM・$\chi$・豊富性・Serre公式
+$(-(n-1))[n]$ と長さ $n+5$（次数1），$n+3$（次数2）のcompact生成窓を持つ。
+定理\ref{thm:simultaneous-smooth-ncdp-open}により，
+滑らかな全可換模型の零切断を含む有限型開近傍で，
+この同じ全方向族が実際のsmooth properなnc del Pezzo族となる。
+全モジュライの被覆と全 $\mathcal O$ 保存同値の一般点での認識はなお残る。
+同時中心・退化曲線・頂点での降下・相対幾何のこの組合せについて，
+包括的な優先権確認は未了である。
 
 \input{sections/definitions}
 \input{sections/formal_moduli}
@@ -362,6 +404,10 @@ De Deken--Lowen\cite[Proposition~4.4]{DDL2011}でArtin基底上のAbel平坦性�
 \input{sections/relative_center_lift}
 \input{sections/simultaneous_degree_two_center}
 \input{sections/simultaneous_degree_one_center}
+\input{sections/degree_two_gorenstein_curve}
+\input{sections/degree_one_integral_curve}
+\input{sections/noether_descent}
+\input{sections/simultaneous_relative_geometry}
 \input{sections/simultaneous_formal_comparison}
 
 \section{大域的なモジュライへ進むための問題}
@@ -384,10 +430,14 @@ De Deken--Lowen\cite[Proposition~4.4]{DDL2011}でArtin基底上のAbel平坦性�
 第\ref{sec:simultaneous-poisson}--\ref{sec:simultaneous-formal-comparison}節では，
 両次数で独立Poisson方向を含む有限型中心商族を構成し，
 その同じ族の全Artin普遍性まで証明した。
-次の核心は，全方向族について強Noether性と積Noether性を確認し，
-相対tails・Serre公式と有限開近傍のsmoothnessを構成することである。
-活性最高次式が特異な方向も零切断で含むため，
-滑らかな楕円曲線のTHCR表示だけではこの問題を覆えない。
+全方向族の強・積Noether性，相対tailsとSerre公式，
+滑らかな可換零切断の有限開近傍でのsmooth proper性も証明した。
+活性最高次式の特異・可約・非被約な曲線を扱い，
+完成と頂点外を合わせた忠実平坦被覆を使うことが必要だった。
+次の核心は，この有限型nc族について一般点の全 $\mathcal O$ 保存同値を認識し，
+商と被覆の範囲を確定することである。
+追加の中心分母・Noether性の開集合・smoothnessの有限行列を明示し，
+どの境界を残せるかも調べる。
 半古典極限で稠密なPoisson対を実現することと，全非可換対象を被覆することは異なる。
 有限パラメータの非可換対象から古典Poisson多様体を自然に復元する射も構成していない。
 

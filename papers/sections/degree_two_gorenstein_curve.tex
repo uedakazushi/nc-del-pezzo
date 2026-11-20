@@ -1,0 +1,378 @@
+% !TeX root = ../nc-del-pezzo.tex
+% 2026-11-20 JST / v0.9
+\section{次数2の全最高次式とGorenstein曲線}
+\label{sec:degree-two-gorenstein-curve}
+
+次数2の相対切断環表示は，楕円判別式の非零性を仮定せずに構成できる。
+本節では節点・尖点・可約曲線と非被約な二重 $\PP^1$ を同時に含める。
+必要なのは滑らかさではなく，$\PP^1$ の有限平坦二重被覆，その双対化層と
+成分ごとの線束の次数である。
+係数環への任意のnoetherian基底変更を許し，積代数のNoether性も証明する。
+
+\subsection{全二元四次式のpoint curveとその解消}
+
+独立な係数を用いて
+\[
+ f(u,v)=a u^4+4b u^3v+6c u^2v^2+4d uv^3+e v^4,
+ \qquad T=\Spec\C[a,b,c,d,e,h]
+\]
+と置く。活性最高次代数は
+\[
+ A^{\mathrm{top}}=
+ \mathcal O_T\langle u,v,z\rangle/
+ ([u,v]-hz,\ [v,z]-h\operatorname{Sym}f_u,
+                 [z,u]-h\operatorname{Sym}f_v)
+\]
+であり，内部次数は $(1,1,2)$ である。
+補題\ref{lem:all-binary-quartic-as-open}と
+\ref{lem:simultaneous-explicit-as-determinant}のAS開集合上で考える。
+以下の追加開条件も全て $h=0$ の全係数を含む。
+
+\begin{lemma}\label{lem:degree-two-all-top-gorenstein-curve}
+$T$ の $\operatorname{GL}_2$ と両立する有限型開集合 $V$ で
+$\{h=0\}\subset V$ を満たすものが存在し，その上に射影的な平坦曲線族
+$\pi:\mathcal E\to V$，自己同型 $\sigma$，および射
+\[
+ p_1:\mathcal E\longrightarrow\PP^1_V,
+ \qquad L=p_1^*\mathcal O_{\PP^1_V}(1)
+\]
+があり，次を満たす。
+\begin{enumerate}
+ \item $p_1$ は次数2の有限平坦射である。
+       各幾何ファイバーは連結Gorenstein曲線で，
+       $H^0(\mathcal O)=\kappa(\bar s)$，算術種数1，双対化層は自明である。
+ \item $h=0$ では $\mathcal E$ は
+       $z^2/2+f(u,v)=0\subset\PP(1,1,2)$ と同型で，
+       $\sigma=1$，$L=\mathcal O(1)$ である。
+       この主張は $f=0$ も含む。
+ \item $u,v$ は $\pi_*L$ の基底で，$L$ は相対的に豊富かつ大域生成される。
+       $z\in H^0(\mathcal E,L\otimes\sigma^*L)$ があり，
+       twisted積について $uv-vu=hz$ となる。
+ \item 各幾何ファイバーの全既約成分上で，
+       $\sigma^*L$ と $L$ の次数は等しい。
+\end{enumerate}
+開集合 $V$ は有限個のproperな悪条件の像を除いて得られ，
+必要なら $h=0$ 上で1となる多項式による主開に選べる。
+\end{lemma}
+\begin{proof}
+二点 $p=(r:s)$，$q=(R:S)$ に対し
+\[
+ \begin{split}
+ A(p,q)&=a rR+b(rS+sR)+c sS,\\
+ B(p,q)&=b rR+c(rS+sR)+d sS,\\
+ C(p,q)&=c rR+d(rS+sR)+e sS
+ \end{split}
+\]
+と置く。三次関係式の多重線型化を第三点に関する行列にすると，
+非零定数倍を除いて
+\begin{equation}\label{eq:all-quartic-point-matrix}
+ M(p,q)=
+ \begin{pmatrix}
+ sS+4h^2A&rS-2sR+4h^2B\\
+ sR-2rS+4h^2B&rR+4h^2C
+ \end{pmatrix}
+\end{equation}
+となる。これは補題\ref{lem:simultaneous-explicit-as-determinant}の
+$4M(w)$ と同じ行列である。
+$\delta=rS-sR$，$H=\det M$ とすると
+\begin{equation}\label{eq:all-quartic-blowup-equation}
+ H=2\delta^2+h^2Q,
+ \qquad Q(p,p)|_{h=0}=4f(p).
+\end{equation}
+例えば最後の等式は，$M|_{h=0,p=q}$ の余因子行列が
+$\bigl(\begin{smallmatrix}r^2&rs\\rs&s^2\end{smallmatrix}\bigr)$
+であることから直接従う。
+
+$\PP^1_T\times_T\PP^1_T$ を $(h,\delta)$ でblow upし，
+$H=0$ のstrict transformを $\mathcal E$ とする。
+$h$-chartでは $\delta=hw$ と書く。
+$r=R=1$，$t=s/r$，$q=S/R=t+hw$ の表示で，その式は
+\[
+ G(t,w)=h^{-2}H(t,t+hw)=0,
+ \qquad G|_{h=0}=2w^2+4f(1,t).
+\]
+ここで $h^{-2}H(t,t+hw)$ は多項式である。
+他方のchartで $h=k\delta$ と書くと，式は $2+k^2Q=0$ になる。
+$h=0$ 上で $k=0$ の点は存在しないから，特殊ファイバーを全て
+$h$-chartで見ている。逆座標のchartでは
+$t'=1/t$，$q'=1/q$，$w'=-w/(tq)$ と貼り合わさり，
+特殊ファイバーは上記の重み付き四次曲線となる。
+その $\PP^1$ への射は，$f$ の重根や零性によらず有限平坦な二重被覆である。
+
+この $h$-chartの周囲は $T$ 上滑らかな相対曲面であり，
+$G|_{h=0}$ は各ファイバーで非零因子である。
+相対Cartier因子の平坦性の判定により，$\mathcal E\to T$ は
+$h=0$ の全点の近くで平坦かつ局所完全交叉となる。
+非平坦locus等のproperな像を除けば，この性質は族全体で成り立つ。
+第一射影 $p_1$ はproperで，特殊ファイバー上で有限である。
+非準有限locusのproperな像を除くと $p_1$ は有限となる。
+さらに相対平坦性の局所判定を，$\mathcal E$ と $\PP^1_T$ の
+$T$-平坦性および特殊ファイバーの有限平坦性に適用すると，
+$p_1$ は特殊ファイバーの近くで平坦である。
+その非平坦locusと階数が2でないlocusの像も除き，
+$p_1$ を次数2の有限平坦射にできる。
+これらの像はいずれも $h=0$ と交わらない。
+
+標数0の有限平坦二重被覆では，traceにより
+\[
+ (p_1)_*\mathcal O_{\mathcal E}
+       =\mathcal O_{\PP^1_V}\oplus N^{-1}
+\]
+と分裂し，$N$ は線束である。平坦曲線族のEuler標数は一定で，
+特殊ファイバーのEuler標数は0だから，$N$ の相対次数は2である。
+従って局所的に $N=\mathcal O_{\PP^1_V}(2)\otimes\pi_0^*M_0$ と書ける。
+ここで $\pi_0:\PP^1_V\to V$，$M_0$ は基底上の線束である。
+被覆の代数構造は $N^{-2}\to\mathcal O$ によって決まり，
+各幾何ファイバーは $w^2=g_4$ 型の二重被覆である。
+随伴公式は
+$\omega_{\mathcal E/V}=p_1^*(\omega_{\PP^1_V/V}\otimes N)$
+を与えるので，各ファイバーの双対化層は自明である。
+また $H^0(\mathcal O)=1$，$H^1(\mathcal O)=1$ であり，
+$\pi_*\mathcal O=\mathcal O_V$ は任意基底変更と両立する。
+このtrace分裂から $\pi_*L=\mathcal O_V^2$ とその任意基底変更も従う。
+$L$ は有限射による $\mathcal O(1)$ の引戻しなので豊富であり，
+$u,v$ によって大域生成される。
+
+次にshiftを構成する。AS開条件により行列\eqref{eq:all-quartic-point-matrix}は
+$H=0$ 上で階数1であり，その核が第三点を一意的に定める。
+有限座標では $A=A(1,t;1,q)$ 等と略記し，
+\[
+ D=1+4h^2C(t,q),\qquad
+ r_{\mathrm{new}}=\frac{2q-t-4h^2B(t,q)}{D}
+\]
+と書ける。直接展開により
+\begin{equation}\label{eq:all-quartic-shift-identity}
+ D^2H(q,r_{\mathrm{new}})=K(q)H(t,q),
+\end{equation}
+ただし
+\[
+ \begin{split}
+ K(q)={}&1+8h^2(c+2dq+eq^2)\\
+       &+16h^4\{c^2-bd+(cd-be)q+(d^2-ce)q^2\}
+ \end{split}
+\]
+である。分母を払った多項式恒等式として読む。
+解消上では
+\begin{equation}\label{eq:all-quartic-regular-shift}
+ t_{\mathrm{new}}=q=t+hw,\qquad
+ w_{\mathrm{new}}=
+ \frac{w-4h\{B(t,q)+qC(t,q)\}}{1+4h^2C(t,q)}.
+\end{equation}
+分母は $h=0$ で1である。
+逆座標の同じ式も合わせれば，特殊ファイバー全体の近傍で正則な射となる。
+座標を持たない記述では，核による第三点への射の下で
+新しい $\delta$ は $h$ で割り切れ，blow upへの持上げを定める。
+未定義locusのproperな像を除けば大域的な射となる。
+$H(p,q)=H(q,p)$ であり，二点の交換を $\iota$ とすると
+$\iota\sigma\iota$ が逆shiftである。
+これらの恒等式は普遍係数の一般点で確認され，
+$\mathcal E\to V$ の平坦性と整な係数環により全体へ延長される。
+従って $\sigma\in\Aut_V(\mathcal E)$ であり，式から $\sigma|_{h=0}=1$ となる。
+第二射影は $p_2=p_1\sigma$ である。
+$z=\delta/h$ は $L\otimes p_2^*\mathcal O(1)=L\otimes\sigma^*L$ の切断で，
+定義から $uv-vu=hz$ である。
+
+最後に各幾何ファイバーの既約成分を考える。
+被約整な場合，$L$ の次数は2である。
+可約被約な場合は二つの $\PP^1$ からなり，各成分の $L$ の次数は1である。
+非被約な場合は $\PP^1$ の二重構造で，その被約曲線上の次数は1である。
+有限平坦二重被覆のtrace表示がこれらの全てを尽くす。
+従って自己同型が成分を交換しても $L$ の成分ごとの次数は保存される。
+
+ここまでの悪条件は座標変換と両立し，有限個の閉集合のproper像だけを除いた。
+その閉集合のイデアルは $(h)$ と互いに素であるから，
+$g\equiv1\pmod h$ を満たす $g$ による主開を選べる。
+必要ならReynolds作用素を用いて座標変換と両立する主開に取る。
+\end{proof}
+
+\subsection{非被約ファイバーを含むコホモロジー}
+
+\begin{lemma}\label{lem:degree-two-double-cover-cohomology}
+前補題の任意の幾何ファイバーを $C$ とする。
+線束 $M$ の次数が $C_{\mathrm{red}}$ の全既約成分上で正ならば
+$H^1(C,M)=0$ である。
+特に
+\[
+ L_m=L\otimes\sigma^*L\otimes\cdots\otimes(\sigma^{m-1})^*L
+ \quad(m\ge1)
+\]
+に対して，$\pi_*L_m$ は階数 $2m$ の有限局所自由加群で，
+高次直像は零，任意基底変更と両立する。
+さらに $m\ge2$ なら
+\[
+ \pi_*L_m\otimes\pi_*L\longrightarrow\pi_*L_{m+1}
+\]
+は全射であり，この全射も任意基底変更後に保たれる。
+\end{lemma}
+\begin{proof}
+双対化層が自明なので，Serre双対により $H^1(C,M)$ は
+$H^0(C,M^{-1})$ の双対である。
+$C$ が被約なら，$M^{-1}$ は全成分で負の次数を持つため切断は零である。
+非被約な場合，trace表示の四次式は恒等的に零であり，
+nilradicalは $C_{\mathrm{red}}=\PP^1$ 上の $\mathcal O(-2)$ である。
+$M|_{\PP^1}=\mathcal O(r)$，$r>0$ とすると
+\[
+ 0\longrightarrow\mathcal O_{\PP^1}(-r-2)
+   \longrightarrow M^{-1}
+   \longrightarrow\mathcal O_{\PP^1}(-r)\longrightarrow0
+\]
+があるので，この場合も $H^0(C,M^{-1})=0$ となる。
+非被約性を無視して被約曲線の次数だけから消滅を結論していない。
+
+$L_m$ は成分ごとに $mL$ と数値同値なので，上の消滅と
+$\chi(L_m)=2m$ を適用する。
+proper平坦な局所完全交叉族上の線束のコホモロジーと基底変更により，
+その導来大域切断は次数0の有限局所自由加群となる。
+従って非平坦な基底変更も含めて両立する。
+評価列
+\[
+ 0\longrightarrow (\sigma^m)^*L^{-1}
+  \longrightarrow\mathcal O_{\mathcal E}^{\oplus2}
+  \longrightarrow(\sigma^m)^*L\longrightarrow0
+\]
+に $L_m$ をtensorすると，核の線束は成分ごとに $(m-1)L$ と数値同値である。
+$m\ge2$ ならその $R^1\pi_*$ は零であるから，全射とその基底変更を得る。
+\end{proof}
+
+\begin{theorem}\label{thm:degree-two-all-top-thcr}
+前補題の開集合を，なお $h=0$ の全係数を含む有限主開 $V$ に制限する。
+同じ $A^{\mathrm{top}}$ に次数4の中心元 $\Omega^{\mathrm{top}}$ を取り，
+$\Omega^{\mathrm{top}}\bmod h=z^2/2+f$，完全対称座標の $z^2$ 係数を $1/2$ とできる。
+この中心元は普遍的に左右正則であり，任意の可換係数変更に両立する同型
+\[
+ A^{\mathrm{top}}/(\Omega^{\mathrm{top}})
+       \simeq D:=\bigoplus_{m\ge0}H^0(\mathcal E,L_m)
+\]
+が存在する。右辺の積は $s\cdot t=s\otimes(\sigma^m)^*t$ である。
+\end{theorem}
+\begin{proof}
+命題\ref{prop:relative-finite-center-lift}を，中央な正次数変数を持たない
+係数環 $\C[a,b,c,d,e]$ 上に適用する。
+AS開上の普遍PBW性とpotential対角複体によりその仮定は成立する。
+従って全零切断を含む有限主開上で規格化した中心元を得る。
+各複素ファイバーのambientはAS正則整域であり，中心元は $z^2$ 係数が非零である。
+各内部次数の掛算写像の階数判定により，その余核は有限局所自由となる。
+従って中心元は任意の基底変更後も正則で，商のHilbert級数は
+$(1-t^4)/((1-t)^2(1-t^2))$ である。
+
+前補題の $u,v,z$ は $A^{\mathrm{top}}$ の全関係式を満たす。
+$h\ne0$ では $z=h^{-1}[u,v]$ を消去すると行列
+\eqref{eq:all-quartic-point-matrix}の二つの関係そのものであり，
+各 $D_m$ の係数環上の平坦性から $h=0$ まで恒等式が延長される。
+よって $A^{\mathrm{top}}\to D$ を得る。
+次数1では既に全射であり，次数2の切断 $u^2,uv,v^2,z$ は $h=0$ で基底である。
+この一つの次数の有限行列の行列式を可逆化すれば，次数2でも全射となる。
+前補題の乗法全射から全次数で全射となるので，
+無限個の開条件を課していない。
+
+普遍係数の一般ファイバーは整な滑らかな種数1曲線である。
+そのtwisted切断環に正次数4の非零中心切断があれば，
+同次数の切断の比と可換性を比較して $\sigma^4=1$ が従う。
+ここで $m\ge2$ なら $L_m$ は次数4以上で非常に豊富なので，
+その同次数の切断比は曲線の函数体を生成する。
+しかし式\eqref{eq:all-quartic-regular-shift}は
+$t\circ\sigma^4=t+4hw\pmod {h^2}$ を与え，
+一般の特殊曲線上で $w$ は零でない。
+従って $\sigma^4$ は一般点で恒等写像でなく，
+$\Omega^{\mathrm{top}}$ の $D$ における像は零である。
+$D_4$ は整な普遍係数環上で局所自由なので，
+この消滅は特異・可約・非被約ファイバーを含めて成立する。
+中心全体の次元が特殊ファイバーで一定とは仮定していない。
+
+以上より中心商から $D$ への全射を得る。
+両辺の次数0の階数は1，正次数 $m$ の階数は $2m$ である。
+従って各次数で有限局所自由加群の同型であり，
+全次数の同型と任意基底変更との両立が従う。
+\end{proof}
+
+\subsection{強Noether性と二つの族の積}
+
+\begin{lemma}\label{lem:degree-two-gorenstein-bisection}
+上の $V$ から任意のnoetherian可換環 $R$ へ基底変更して得られる
+二つの曲線とtwisted切断環を $(\mathcal E_i,L_i,\sigma_i,D_i)$ とする。
+二つの係数変更は異なってもよい。このとき $D_i$ と $D_1\otimes_R D_2$ は
+左右noetherianである。反対環を一方の因子に用いても同じである。
+\end{lemma}
+\begin{proof}
+$L_i$ は相対的に豊富で，各ファイバーの全積分曲線上で
+$\sigma_i^*L_i$ と数値同値である。
+従って $L_{i,m}$ は相対的に $L_i^m$ と数値同値であり，
+Keelerのample filter判定\cite[Theorem 1.3]{Keeler2003}から左右
+$\sigma_i$-ampleとなる。実際，任意の線束 $H$ に対して
+$H\otimes L_{i,m}$ は $m\gg0$ で豊富である。
+同文献のTheorem 7.14により $D_i$ は左右noetherianである。
+ここで曲線の滑らかさ・整性は仮定していない。
+
+積について補題\ref{lem:elliptic-bisection-noetherian}の証明を拡張する。
+その際に使う入力を明記する。
+$X=\mathcal E_1\times_R\mathcal E_2$ はnoetherianかつ $R$-flatである。
+$\mathcal L_{m,n}=L_{1,m}\boxtimes L_{2,n}$ は大域生成され，
+相対K\"unneth公式により
+\[
+ (D_1)_m\otimes_R(D_2)_n=H^0(X,\mathcal L_{m,n}).
+\]
+$m,n>0$ ならその導来大域切断は次数0の有限射影加群である。
+次数0の因子についても，$\pi_*\mathcal O=R$ とその基底変更から上式が成り立つ。
+
+二重斉次右イデアル $I$ の各成分を評価して得るイデアル層を
+$J_{m,n}\subset\mathcal O_X$ とする。
+右側に掛ける線束の大域生成により $J_{m,n}$ は両添字について増加する。
+$X$ のNoether性から，その和はある $J_{N,N}=J$ に等しい。
+一つの評価完全列
+\[
+ 0\longrightarrow K\longrightarrow I_{N,N}\otimes_R\mathcal O_X
+   \longrightarrow J\otimes\mathcal L_{N,N}\longrightarrow0
+\]
+を取る。$H=L_1\boxtimes L_2$ は相対的に豊富であり，
+$\tau=\sigma_1^N\times\sigma_2^N$ とすると
+$\tau^*\mathcal L_{p,q}\otimes H^{-k}$ は $p,q\ge k$ で相対的にnefである。
+これは二つの曲線上の成分ごとの次数がそれぞれ
+$(p-k)\deg L_1$，$(q-k)\deg L_2$ であることによる。
+非被約構造は数値同値の判定を変えない。
+相対Fujita消滅\cite[Theorem 1.5, Erratum Theorem E2.5]{Keeler2003}から，
+$p,q\gg0$ で $H^1(X,K\otimes\tau^*\mathcal L_{p,q})=0$ を得る。
+さらに $X$ の $R$-平坦性と正次数の導来大域切断の有限射影性により，
+$I_{N,N}$ が $R$-flatでなくてもprojection formulaが適用できる。
+従って
+\[
+ I_{N,N}(D_1)_p(D_2)_q
+ =H^0(X,J\otimes\mathcal L_{N+p,N+q})
+ =I_{N+p,N+q}\qquad(p,q\gg0).
+\]
+残る有限幅の行と列は，各 $D_i$ 上の有限射影加群の部分加群として有限生成である。
+これで全二重斉次右イデアルの有限生成性を得る。
+総次数と辞書式の最高成分による帰納で一般の右イデアルも有限生成である。
+反対環は $\sigma_i^{-1}$ と $(\sigma_i^{-1})^*L_i$ の切断環なので，
+左側にも同じ証明が成立する。
+\end{proof}
+
+\begin{corollary}\label{cor:degree-two-all-top-strong-product}
+全binary quarticの零切断を含む上の有限主開 $V$ 上で，
+$A^{\mathrm{top}}$ とその規格化中心商は強左右Noetherである。
+任意のlower potentialを加え，中央変数 $s_1,\ldots,s_r$ の多項式を
+その係数に代入した普遍PBW代数を $A$ とする。
+任意の次数付き中央商 $B$ に対し，許される全noetherian係数環 $R$ 上で
+\[
+ A_R,\quad B_R,\quad
+ A_R^{\mathrm{op}}\otimes_R A_R,\quad
+ B_R^{\mathrm{op}}\otimes_R B_R
+\]
+は左右noetherianである。
+開条件は最高次の $f,h$ だけに依存し，lower係数には条件を課さない。
+\end{corollary}
+\begin{proof}
+前定理と補題を用いる。
+正次数4の普遍的に正則な中央元による拡大は，内部次数ごとには有限な
+中央元進filtrationを持つので，中心商のNoether性からambientへ持ち上がる。
+積では二つの中央元の正則性が次数別平坦性により保たれ，
+同じ議論を二度適用する。
+中央変数を加えた場合，片側には $R[s_1,\ldots,s_r]$，
+積には二組の中央変数を持つnoetherian係数環を用いる。
+活性次数による普遍PBW filtrationの随伴次数は，それぞれ最高次ambientと
+その積である。増大filtrationの最高記号を消去してNoether性が持ち上がる。
+中央商とその積は，対応するambientと積の商だから同じ性質を持つ。
+\end{proof}
+
+この系は方向を固定するchart上の結果である。
+方向解消から元の同時族への降下では，proper射を忠実平坦射として扱うことはできない。
+零方向の完成と非零方向の有限開被覆を用いる降下を，別に適用する必要がある。

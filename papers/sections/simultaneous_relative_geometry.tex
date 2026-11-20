@@ -1,0 +1,331 @@
+% !TeX root = ../nc-del-pezzo.tex
+% 2026-11-20 JST / v0.9
+\section{全方向族の相対双対とsmooth properな有限開近傍}
+\label{sec:simultaneous-relative-geometry}
+
+本節では定理\ref{thm:simultaneous-strong-product-noether}を使い，
+同じ全方向中心商の有限基底上の圏論的性質を証明する。
+方向を分離する座標は頂点で選べないため，
+相対CY同型は方向解消からの平坦降下ではなく，
+次数別に有限なHom複体と，全ファイバーのCY同型から構成する。
+最後に第\ref{sec:finite-smoothness}節の有限部分対角の議論を適用する。
+
+\subsection{次数付き加群のファイバー別projective性}
+
+\begin{lemma}\label{lem:graded-fiberwise-projective}
+$S$ を可換Noether環，$T=\bigoplus_{j\ge0}T_j$ を
+$T_0=S$，各 $T_j$ が有限射影 $S$-加群である左右Noetherな次数付き代数とする。
+$M$ を有限生成次数付き右 $T$-加群とし，$S$ 上平坦と仮定する。
+全ての幾何学的ファイバーについて
+$\operatorname{pd}_{T_s}M_s\le a$ なら，
+$M$ は長さ $a$ 以下の有限生成次数付きprojective解消を持つ。
+この解消は任意の係数変更後も完全である。
+\end{lemma}
+\begin{proof}
+Noether性により，有限生成次数付き自由加群による部分解消を
+$a+2$ 段より先まで取れる。
+$M$ と自由項が $S$ 上平坦なので，各短完全列から全syzygyが $S$ 上平坦であり，
+解消の各部分は任意の係数変更に対して完全のままである。
+各syzygyの内部次数部分は有限 $S$-加群なので，有限射影でもある。
+$a$ 番目のsyzygyを $K$ とする。
+その全ファイバーは次数付きprojectiveであるから，$K$ 自身のprojective性を示せばよい。
+
+有限自由表示を含む解消
+\[
+ \cdots\longrightarrow F_2\longrightarrow F_1
+       \longrightarrow F_0\longrightarrow K\longrightarrow0
+\]
+を取り，$N=F_0$ または $N=K$ とする。
+次数零のHomを取った複体の最初の三項
+\[
+ C^0=\Hom_T(F_0,N)_0\longrightarrow
+ C^1=\Hom_T(F_1,N)_0\longrightarrow
+ C^2=\Hom_T(F_2,N)_0
+\]
+は有限射影 $S$-加群である。
+各ファイバーでは $\Ext^1_{T_s}(K_s,N_s)_0=0$ だから，
+この三項複体は中央で完全である。
+ある点での二つの微分の階数を $u,v$ とすると
+$u+v=\rank C^1$ である。
+対応する二つの非零小行列式を可逆化し，複体の合成が零であることを使って
+単位行列の部分複体を消去すると，中央の項全体が消える。
+従って $\ker(C^0\to C^1)$ は局所的に有限自由で，任意基底変更に可換する。
+ここで単に「ファイバーのExt消滅からHomが可換する」と仮定せず，
+次数零の有限三項複体に還元した。
+
+以上より $\Hom_T(K,F_0)_0$ と $\Hom_T(K,K)_0$ は
+有限射影 $S$-加群であり，任意基底変更と可換する。
+写像
+\[
+ \Hom_T(K,F_0)_0\longrightarrow\Hom_T(K,K)_0
+\]
+は全ファイバーで全射である。
+その余核は有限 $S$-加群だから零であり，恒等射を持ち上げると
+$F_0\to K$ は次数付きで分裂する。
+従って $K$ は有限生成次数付きprojectiveである。
+元の解消をここで切ればよく，既に確認した $S$-平坦性が任意基底変更後の完全性を与える。
+\end{proof}
+
+\subsection{同じambientの無捩れな相対CY同型}
+
+以下，$S$ は全方向中心族に対して選んだ，被約な有限型普遍係数環とする。
+必要な縮小は全可換係数の零切断を保って行う。
+記号を
+\[
+ N=n+2,\qquad
+ (l,e)=\begin{cases}(n+5,6)&d=1,\\(n+3,4)&d=2,\end{cases}
+ \qquad r=l-e=n-1
+\]
+と固定する。
+
+\begin{theorem}\label{thm:simultaneous-relative-cy}
+零切断全体を含む有限主開集合へさらに制限すると，
+同時ambient $A$ は $S$ 上homologically smoothであり，
+次数付きbimoduleの同型
+\begin{equation}\label{eq:simultaneous-relative-cy}
+ A^!_S=\underline{R\Hom}_{A^e_S}(A,A^e_S)
+          \simeq A(l)[-N]
+\end{equation}
+を持つ。
+この同型とhomological smoothnessは任意の可換係数変更で保たれる。
+従って非被約な係数変更後にもNakayama捻りは現れない。
+\end{theorem}
+\begin{proof}
+\emph{ファイバーの入力。}
+零方向では $A$ は $N$ 変数の重み付き可換多項式環なので，
+Koszul対角解消から $N$-CY，内部shift $l$ である。
+非零方向では中央な一次変数 $n-1$ 個と活性三変数を分ける。
+次数2の最高次代数には補題\ref{lem:all-binary-quartic-as-open}，
+次数1には補題\ref{lem:degree-one-all-top-as-open}を適用する。
+どちらも楕円判別式の非零性を仮定しない。
+全lower項を含むpotential複体の活性filtrationの随伴次数は
+最高次CY代数のpotential複体である。
+その完全性と巡回Hessianの自己双対性から，
+中央多項式環上の相対3-CY同型を得る。
+これは\cite[Proposition~7.3.1(ii)]{EG2010}のfiltered論法であり，
+補題\ref{lem:elliptic-universal-lower-pbw}および
+次数1の対応するPBW証明と同じく，中央係数へ適用できる。
+次に中央差 $s_i\otimes1-1\otimes s_i$ のKoszul解消を組み合わせると，
+長さは $3+n-1=N$，内部shiftは $e+n-1=l$ になる。
+これで全幾何学的ファイバーの無捩れなCY同型を得た。
+
+\emph{有限な相対対角解消。}
+定理\ref{thm:simultaneous-strong-product-noether}により $A^e_S$ はNoetherである。
+総内部次数に関する各部分は有限射影 $S$-加群であり，
+対角 $A$ は有限生成かつ $S$-平坦である。
+補題\ref{lem:graded-fiberwise-projective}を $T=A^e_S$，$M=A$ に適用すると，
+長さ $N$ の有限生成次数付きprojective対角解消 $P^\bullet$ を得る。
+従ってambientは相対的にhomologically smoothである。
+
+この解消を双対化した複体の各内部次数は，有界な有限射影 $S$-複体である。
+全ファイバーのコホモロジーが解消次数 $N$ だけに集中するため，
+有限行列の消去から
+\[
+ \underline{R\Hom}_{A^e_S}(A,A^e_S)=H[-N],
+ \qquad H=\underline{\Ext}^{N}_{A^e_S}(A,A^e_S)
+\]
+となり，各 $H_j$ は有限射影で任意基底変更に可換する。
+そのファイバーは $A_s(l)_j$ である。
+特に $H_j=0$ ($j<-l$) で，$L=H_{-l}$ は階数1の射影 $S$-加群である。
+左作用による自然な写像
+\[
+ A(l)\otimes_S L\longrightarrow H
+\]
+は全ファイバーで同型なので，内部次数ごとの有限射影性から同型である。
+
+\emph{左右の作用と基底線束。}
+任意の $a\in A_j$ に対する，$L$ 上の左作用と右作用の差は
+$H_{j-l}$ を値に取る $S$-線型写像である。
+各複素ファイバーのCY同型では最低次数の生成元は中央なので，この差は全複素点で零である。
+$S$ は被約な有限型 $\C$-代数，$H_{j-l}$ は射影なので，差そのものが零となる。
+従って上の同型はbimoduleの同型である。
+被約性を使ったのは普遍係数環上でこの恒等式を確認する段階だけである。
+確認後の恒等式は任意の非被約基底にも移る。
+
+零方向のイデアルを $J$ とする。
+Koszul体積形式は $L/JL\simeq S/J$ の自明化を与える。
+その生成元を $L$ の切断へ持ち上げ，生成しない点の閉集合を除けば，
+零切断全体を含む有限主開で $L\simeq S$ となる。
+同変性が必要なら，古典体積に対応する1次元characterで $L$ をtwistし，
+Reynolds作用素によりこの持上げを同変に選ぶ。
+その零点集合は不変なので，前節と同様に $g\equiv1\pmod J$ の
+不変な主開を選べる。これが式\eqref{eq:simultaneous-relative-cy}である。
+有限projective対角解消，その双対，同型は任意の係数変更で保たれる。
+\end{proof}
+
+\subsection{有限compact生成窓と相対tails}
+
+\begin{lemma}\label{lem:simultaneous-finite-window}
+全零切断を含む有限開近傍において，局所的にambientのaugmentationは
+有限生成次数付き自由解消を持ち，その両端は $A$ と $A(-l)$ 一つずつ，
+他の項の内部shiftは $1,\ldots,l-1$ に入る。
+この解消は任意の係数変更で完全である。
+従って
+\[
+ E=\bigoplus_{j=0}^{l-1}\mathcal O(j)
+\]
+は $D(\QGr B)$ のcompact生成元となる。
+\end{lemma}
+\begin{proof}
+全体ファイバーのaugmentationは大域次元 $N$ 以下の解消を持つ。
+補題\ref{lem:graded-fiberwise-projective}を $T=A$，$M=S$ に適用し，
+長さ $N$ の有限projective解消を取る。
+有限生成次数付きprojective右 $A$-加群 $P$ は，
+$P/PA_+$ という有限生成次数付きprojective $S$-加群から誘導される。
+実際，次数ごとに $S$-線型な持上げを取り $(P/PA_+)\otimes_S A\to P$ を作ると，
+次数付きNakayamaの帰納により全射である。
+$P$ のprojective性で分裂した核は $A_+$ を法として零であり，
+再び次数付きNakayamaにより零となるので，同型である。
+従って係数空間の有限な局所自明化上で，解消の各項を次数付き自由にできる。
+
+零方向の複素点を一つ固定する。
+そこでのambientは重み付き多項式環であり，augmentationの最小解消はKoszul解消である。
+既に選んだ有限自由解消をこの最小解消へ縮める操作は，
+同じ内部shiftを持つ二項間の非零なスカラー成分を有限回消去することからなる。
+これらの成分は係数環 $A_0=S$ の元なので，
+有限個の非零小行列式を可逆化すれば，同じ消去を点の有限開近傍で実行できる。
+得られた解消の自由項は特殊ファイバーのKoszul解消と同じshiftを持つ。
+その両端は $A$ と $A(-l)$ で，真部分集合の重みの和は $1$ から $l-1$ の間にある。
+元の解消の $S$-平坦syzygyと分裂消去から，任意基底変更後の完全性も保たれる。
+零切断は準コンパクトなので有限個のこのような開集合で覆える。
+必要ならその不変開集合内に，零切断を含む一つの有限主開を選ぶ。
+
+この解消を $B=A/(\Omega)$ とtensorしたときのTorは
+$S$ と $S(-e)$ だけであり，ともにirrelevant torsionである。
+従ってtailsでは両端に $\mathcal O$ と $\mathcal O(-l)$ を一つずつ持つ有限完全複体となる。
+そのシフトにより，長さ $l$ の連続窓から両方向に全twistを生成できる。
+前定理の相対CY同型と中央元のchange of ringsを用いる
+定理\ref{thm:finite-relative-local-cohomology}の証明により，
+tails局所化はsmashingで全twistがcompact生成する。
+従って表示した $E$ がcompact生成元である。
+これらの生成操作は係数基底で局所的に行え，有限な主開被覆で検査できる。
+\end{proof}
+
+\begin{theorem}\label{thm:simultaneous-relative-tails}
+上で選んだ全零切断の有限主開近傍から，任意の可換Noether環 $R$ へ係数変更する。
+その上の同じ中心商 $B_R$ について，次が成り立つ。
+\begin{enumerate}
+ \item $(\QGr B_R,\pi B_R)$ は $R$-flatなAbel圏とflatな構造対象を与え，
+       許された基底変更と両立する。
+ \item 左右の相対局所コホモロジーは
+       \[
+        R\Gamma_{(B_R)_+}(B_R)\simeq B_R^\vee(r)[-n-1]
+       \]
+       であり，torsionの導来関手は有限cohomological dimensionを持つsmashing関手である。
+       切断環は飽和し，有向ACM，相対 $\chi$，全シフトの相対豊富性が成立する。
+ \item 全ての整数 $t$ について
+       \[
+        R\Hom(\mathcal O,\mathcal O(t))\simeq
+        \begin{cases}
+         (B_R)_t,&t\ge0,\\
+         \Hom_R((B_R)_{-t-r},R)[-n],&t\le-r,\\
+         0,&-r<t<0.
+        \end{cases}
+       \]
+       $E=\bigoplus_{j=0}^{l-1}\mathcal O(j)$ はcompact生成元であり，
+       $R\End(E)$ は $R$ 上perfectである。
+ \item compact圏は相対properで，その相対Serre関手は
+       \[
+          S_R\simeq(-(n-1))[n]
+       \]
+       である。以上の構成と同型は任意の許される基底変更に両立する。
+\end{enumerate}
+\end{theorem}
+\begin{proof}
+Noether性と積のNoether性は定理\ref{thm:simultaneous-strong-product-noether}，
+次数別有限射影性と普遍正則性は同時中心商の構成による。
+Abel平坦性には，命題\ref{prop:finite-pbw-abel-family}の
+作用付き加群・Gabriel商・injectiveのcoflat性の証明を適用する。
+その証明で必要なのは係数平坦性と有限生成Noether性であり，分離型の関係式ではない。
+
+定理\ref{thm:simultaneous-relative-cy}により相対有限対角解消と無捩れな双対性がある。
+各 $A/A_{\ge q}$，$B/B_{\ge q}$ は係数環上有限射影なので，
+補題\ref{lem:relative-proper-module-duality}の証明が適用できる。
+中央正則元の二項解消とchange of ringsから
+\[
+ R\Hom_{B_R}(M,B_R)=D_RM(r)[-n-1]
+\]
+を係数上perfectな $M$ に対して得る。
+$M=B_R/(B_R)_{\ge q}$ としてcolimitを取れば局所コホモロジーの表示を得る。
+ambientと中心商のtorsion比較における $\operatorname{Tor}_1$ は
+長さ $e$ の内部次数帯にだけ支持を持ち，十分離れた切断間で遷移が零になる。
+従って定理\ref{thm:finite-relative-local-cohomology}のsmashingの証明も適用できる。
+
+局所化三角から(3)のHom公式が従う。
+有限型自由解消にこの局所コホモロジーを適用する
+命題\ref{prop:finite-full-shift-ample}の証明から，
+coherent対象のSerre消滅，$\chi$ と全シフトの豊富性を得る。
+有限窓は補題\ref{lem:simultaneous-finite-window}による。
+左右共通の局所化bimoduleとその相対双対を使う
+定理\ref{thm:finite-tails-relative-serre}の証明は，
+上記のCY同型・局所コホモロジー・compact生成だけを用いるので，
+ここでも無捩れな相対Serre公式を与える。
+有限窓のHom公式により $R\End(E)$ は有限個の係数perfect複体から作られ，proper性も得る。
+これらは固定した普遍係数上の構成の基底変更であり，非正則・非被約な $R$ を許す。
+\end{proof}
+
+\subsection{滑らかな全可換模型を含むnc del Pezzo族}
+
+\begin{theorem}\label{thm:simultaneous-smooth-ncdp-open}
+両次数 $d=1,2$ と全 $n\ge2$ について，滑らかな可換正規形の係数空間を
+$\mathcal F_d^{\mathrm{sm}}$ とする。
+全方向有限中心族には，$\mathcal F_d^{\mathrm{sm}}$ の零切断全体を含む
+有限型の不変開集合 $V$ があり，その上で
+\[
+ (\QGr B_V,\mathcal O)\in\mathfrak M^{\mathcal O,\mathrm{hyp}}_{n,d}(V)
+\]
+となる。
+特にcompact圏は任意の許されるNoether基底変更後もsmooth properで，
+反標準周期 $r=n-1$ の列は相対的に豊富である。
+全幾何学的ファイバーのcoherent圏はホモロジー次元 $n$ を持ち，
+その有界導来圏はcompact圏と一致する。
+\end{theorem}
+\begin{proof}
+前定理により，$C=R\End(E)$ は係数上perfectで，その双対は可逆Serre bimoduleである。
+定理\ref{thm:simultaneous-strong-product-noether}により
+$B^{\mathrm{op}}\otimes_S B$ は任意Noether基底変更後もNoetherである。
+従って補題\ref{lem:finite-family-product-diagonal}の証明に必要な入力が全て揃う。
+二つのirrelevant torsionを順に割った積圏は外積twistでcompact生成され，
+有限窓のMorita代数は $C^{\mathrm{op}}\otimes_S^LC$ である。
+二重次数付き対角 $\Delta_{a,b}=B_{a+b}$ は有限生成かつ $S$-平坦で，
+そのMorita像は標準の対角bimoduleとなる。
+
+任意の滑らかな可換零方向点 $s$ を固定する。
+$\Delta$ の有限生成自由解消を $q>2n$ で切り，得られるcompact対象を $P_q$ とする。
+特殊ファイバーは $X\times X$ 上の対角であり，
+そのホモロジー次元は $2n$，また $HH^1(X)=0$ である。
+従って対角への写像 $P_{q,s}\to\mathcal O_{\Delta_X}$ は右逆を持ち，
+この右逆の持上げに関わる $\Ext^1$ は零である。
+相対Serre双対から得られる
+補題\ref{lem:serre-pseudoperfect-to-perfect}によって，
+対角から $P_q$ へのHom複体は係数上perfectで基底変更に可換する。
+定理\ref{thm:finite-family-smooth-open}の有限行列の持上げと
+可逆性の開性を適用すると，$s$ の有限開近傍で右逆を持ち上げられる。
+対角はperfect対象の直和因子となるのでsmoothである。
+これは対角が既にperfectだと仮定してからその開性を用いる議論ではない。
+
+命題\ref{prop:finite-periodic-generation}と
+系\ref{cor:finite-periodic-ampleness}を用いて，
+同じ近傍を正周期 $r$ の豊富性が成立する開集合と交わらせる。
+全可換係数の滑らかな零切断は準コンパクトなので，有限個の近傍の和で覆える。
+必要ならその群による移動の和を取り，不変な有限型開集合 $V$ を得る。
+構成した対角の有限cone・直和因子による表示と豊富性は任意基底変更に保たれる。
+
+coherent対象が幾何学的ファイバーでcompactとなること，
+Serre公式からホモロジー次元が $n$ となることは，
+系\ref{cor:finite-family-ncdp-open}の証明をそのまま適用する。
+非正則な係数基底上の全有界coherent導来圏までcompactと同一視する主張ではない。
+その他の飽和性・ACM・周期・Hilbert関数と構造対象の平坦性は前定理と中心商の構成による。
+\end{proof}
+
+\begin{remark}\label{rem:simultaneous-geometric-scope}
+本節により，全独立Poisson方向を含む同じ有限中心商は，
+滑らかな可換零切断の有限型開近傍で実際の非可換del Pezzo族となる。
+定理\ref{thm:simultaneous-central-all-artin}と合わせれば，
+各可換点の横断slice上で全framed Abel Artin変形を実現する有限型nc族を得る。
+しかし全 $\mathcal O$ 保存同値による一般非可換点の認識，
+この族による全モジュライの被覆，有限型atlas，
+および可換locusに接しない成分の不存在は別の主張である。
+また，ここで選んだ追加の開集合は有限行列による存在証明であり，
+最小の分母やsmoothnessの判別式は明示していない。
+\end{remark}

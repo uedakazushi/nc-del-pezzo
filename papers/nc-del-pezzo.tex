@@ -42,10 +42,10 @@
 \newcommand{\Perf}{\operatorname{Perf}}
 \newcommand{\rank}{\operatorname{rank}}
 \newcommand{\HH}{\operatorname{HH}}
-\newcommand{\Version}{0.18}
+\newcommand{\Version}{0.19}
 \title{次数1・2の非可換del Pezzo多様体\texorpdfstring{\\}{ }構造対象付き変形とモジュライの局所構造}
 \author{}
-\date{2026年11月20日\quad v\Version\quad 公表用研究稿}
+\date{2026年11月21日\quad v\Version\quad 公表用研究稿}
 \hypersetup{pdftitle={次数1・2の非可換del Pezzo多様体：構造対象付き変形とモジュライの局所構造},pdfauthor={}}
 \begin{document}
 \maketitle
@@ -96,8 +96,11 @@ Galois閉包の次数は120，24となる。符号二次体も明示する。
 曲面では構造対象の右直交を相対的に構成し，その通常Artin変形を古典曲面の変形で復元する。
 可換零切断の開近傍で\'{e}tale局所的な古典曲面族と残余圏のMorita同値を得る。
 古典Torelliを入力として，残余圏から定まる古典粗モジュライへの射を構成する。
-既存のshadowとの高次比較は未解決だが，対称群モノドロミーにより一般の五枚・四枚の残余圏は，
-全て同値か全て相互に非同値かのいずれかに限られる。
+有限巡回群で同変化した残余圏の楕円Hodge周期を用い，両次数の巡回対称族で
+shadowとの二次差が活性Hessian行列式の $1/8$ のJacobian類となることを計算する。
+これは非零であり，shadowは残余圏を一般には保存しない。
+さらに楕円固定曲線の内在性，逆方程式の厳密な計算証明書，対称群モノドロミーを合わせ，
+一般の同じPoisson構造に属する五枚・四枚の残余圏が全て相互に非同値であることを示す。
 \end{abstract}
 \clearpage
 \tableofcontents
@@ -430,16 +433,17 @@ $d=1,2$，$n=2$ とする。
  $\overline\rho_{\mathrm{Ku}}:M^{\mathrm{nc,geom}}_{2,d}\to M^{\mathrm{cl}}_{2,d}$
  が得られる。
 \item 同じ古典Torelliの入力の下で，Poisson比較の一般ファイバーに属する五つまたは四つの対象について，
- 適当な非空開集合上で，残余圏は全て相互に同値であるか，
- 全て相互に非同値であるかのいずれかとなる。
- どちらが成立するかは未決定である。
+ 適当な非空開集合上で，残余圏は全て相互に非同値である。
+ また $\overline\rho_{\mathrm{Ku}}\ne\overline{\operatorname{sh}}$ であり，
+ 一般の非可換対象の残余圏は，そのshadow曲面の残余圏と非同値である。
 \end{enumerate}
 \end{theorem}
 \begin{proof}
 定理\ref{thm:surface-ku-hochschild}，\ref{thm:surface-ku-formal}，
 \ref{thm:surface-ku-etale-companion}，
 系\ref{cor:surface-ku-coarse-companion}，
-命題\ref{prop:surface-ku-generic-dichotomy}による。
+系\ref{cor:ku-shadow-nonpreservation}，
+定理\ref{thm:ku-generic-poisson-fibres-separated}による。
 \end{proof}
 第1項のHochschild公式はKuznetsov\cite[Theorem~8.5]{KuznetsovHH2009}の既知結果である。
 形式変形の同定には，$\PP^2$ の $9-d$ 点でのblow-upから作るtilting対象を使う。
@@ -447,14 +451,24 @@ $d=1,2$，$n=2$ とする。
 局所的な代数化ではTo\"en--Vaqui\'e\cite{ToenVaquie2007}の
 perfect対象と同値bimoduleのモジュライを用い，
 曲面の一意性には\cite[Theorem~1.2]{LinRampazzoZhang2026}を用いる。
-二者択一は既存の対称群モノドロミーの二重推移性による。
+一般ファイバーの分離には，対称群モノドロミーの二重推移性に加えて，
+巡回群の同変化から得る楕円曲線の変形と逆方程式の計算を使う。
 これらの一般原理や古典Torelliを本研究の新結果とは扱わない。
 
 残余圏から定まる局所射 $\rho_{\mathrm{Ku}}$ と具体的なshadow射は
-可換点で同じ微分 $(\xi,\pi)\mapsto\xi$ を持つが，
-高次での一致は未証明である。
-特に，古典曲面が\emph{存在する}という幾何化と，それが
-$\Sym^{-1}(\Omega)$ で定めた曲面に\emph{一致する}ことを区別する。
+可換点で同じ微分 $(\xi,\pi)\mapsto\xi$ を持つ。
+しかし，$z^2/2+f(x,y)+u^m=0$，$[x,y]=hz$ の巡回族では
+\[
+ \delta_{2,X}(\pi,\pi)=\frac18[\det\operatorname{Hess}_{x,y}(f)]\ne0
+\]
+となる。次数2では $m=4$，$f=\alpha(x^4+y^4)/4+\beta x^2y^2$，
+次数1では $m=6$，$f=y^3/3+\alpha x^4y+\beta x^6$ である。
+従って，幾何化で得られる曲面は，中心元の完全対称化が与える曲面とは一般に異なる。
+証明は第\ref{sec:kuznetsov-shadow-obstruction}節に置く。
+用いる半直交分解の加法性，同変化，非可換Gauss--Manin接続と幾何周期の比較は
+\cite{KellerDG2006,Elagin2015,Sheridan2020,Tu2024}の既知の結果に依存する。
+これらの一般原理と，本稿の具体的な中心商・楕円曲線への適用を区別する。
+一般の全方向Hessian公式と，本結果の包括的な優先権確認は未了である。
 
 \subsection{有限正規化と零切断に向かう分枝}
 一般次数が1でないことと，可換点での形式同型の関係を，有限正規化によって記述する。
@@ -842,6 +856,8 @@ $(-(n-1))[n]$ と長さ $n+5$（次数1），$n+3$（次数2）のcompact生成�
 \input{sections/poisson_shadow_comparison}
 \input{sections/kuznetsov_surface}
 \input{sections/kuznetsov_relative}
+\input{sections/kuznetsov_shadow_obstruction}
+\input{sections/kuznetsov_cyclic_fibres}
 \input{sections/shadow_top_inverse}
 \input{sections/degree_two_shadow_degree}
 \input{sections/degree_one_shadow_degree}
@@ -896,9 +912,11 @@ affine有限表示であることも与える。
 \end{enumerate}
 曲面の残余圏については，第\ref{sec:kuznetsov-surface}・\ref{sec:kuznetsov-relative}節で
 相対構成，通常Artin変形の古典的復元，\'{e}tale局所幾何化と粗射を得た。
-次の核心は，この射と具体的なshadowの高次比較である。
-非可換tilting代数の評価写像，または内在的なHochschild--Serre積の低次数関係を計算し，
-対称化中心のJacobian関係と比較する。一般ファイバーの二者択一のどちらかは未決定であり，
+第\ref{sec:kuznetsov-shadow-obstruction}・\ref{sec:kuznetsov-cyclic-fibres}節では，
+巡回族の非零な二次差と，一般Poissonファイバーの残余圏の相互非同値性を得た。
+次の核心は，一般の全係数・全Poisson方向に対する二次差と，高次復元射の明示式である。
+巡回族のHessian式を，tilting代数の評価写像またはHochschild--Serre積によって
+一般の方程式へ拡張できるかを調べる。
 高次元の通常の例外blockに対する同じ幾何化も別課題である。
 
 \begingroup

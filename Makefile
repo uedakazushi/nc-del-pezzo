@@ -4,6 +4,10 @@ pdf:
 
 verify:
 	python3 computations/verify_surface_kuznetsov.py
+	python3 computations/verify_kuznetsov_quadratic_symmetry.py
+	python3 computations/verify_degree_one_period_quadratic.py
+	python3 computations/verify_degree_one_period_fibres.py
+	python3 computations/verify_degree_two_period.py
 	python3 computations/verify_formal_geometry.py
 	python3 computations/verify_finite_families.py
 	python3 computations/verify_cubic_top.py

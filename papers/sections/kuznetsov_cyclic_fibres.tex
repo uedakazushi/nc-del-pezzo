@@ -1,0 +1,524 @@
+% !TeX root = ../nc-del-pezzo.tex
+\section{巡回固定曲線と一般Poissonファイバーの残余圏の分離}
+\label{sec:kuznetsov-cyclic-fibres}
+
+本節も $n=2$ とする。
+前節の同変周期比較により得られる楕円曲線の不変量を，
+巡回作用の標識を忘れた古典曲面の不変量として認識する。
+その後，最高活性二係数の有限被覆における非降下を使い，
+命題\ref{prop:surface-ku-generic-dichotomy}の二者択一を決定する。
+巡回対称性を持つ曲面は古典モジュライの特殊部分に属するため，
+そこで定義する $j$ を古典全モジュライの有理関数とは扱わない。
+また，この特殊部分が全Poisson比較の有限\'{e}tale locusと交わることも仮定しない。
+
+\subsection{次数2の巡回部分群の一意性}
+
+\begin{proposition}[Ciani曲面の楕円固定部分群]
+\label{prop:ku-degree-two-intrinsic-cyclic-group}
+\[
+ Y_c:\quad \frac{z^2}{2}+x^4+y^4+u^4+cx^2y^2=0
+       \quad\subset\PP(1,1,1,2)
+\]
+とし，$c\notin\{0,2,-2,6,-6\}$ と仮定する。
+位数4の巡回部分群で，その生成元が正種数の曲線を点ごとに固定するものは
+\[
+ H_4=\langle (x,y,u,z)\longmapsto(x,y,iu,z)\rangle
+\]
+だけである。その固定曲線は $E_c=Y_c\cap\{u=0\}$ であり，滑らかな種数1曲線である。
+従って $Y_c$ の同型類だけから $E_c$ の同型類と $j(E_c)$ が定まる。
+\end{proposition}
+\begin{proof}
+反標準環の次数1部分が反標準二重被覆
+$Y_c\to\PP^2_{x,y,u}$ を定めるので，任意の自己同型は分岐四次曲線
+\[
+ C_c:\quad F=x^4+y^4+u^4+cx^2y^2=0
+\]
+の射影自己同型へ降りる。その核はGeiser対合 $z\mapsto-z$ である。
+これは反標準環からも直接分かる。
+次数2の追加生成元の変換を $z\mapsto az+q_2(x,y,u)$ と書けば，
+関係式の $z$ の一次係数から $q_2=0$ となる。
+従って分岐曲線の同じ射影変換の持上げは二つに限られる。
+
+Hessianを計算すると
+\begin{equation}\label{eq:ku-ciani-hessian-factorization}
+ \det\operatorname{Hess}(F)
+ =144u^2\{2c(x^4+y^4)+(12-c^2)x^2y^2\}.
+\end{equation}
+括弧内の二元四次式は，仮定の下で相異なる四つの一次因子を持つ。
+実際，その二重根条件は
+\[
+ (12-c^2)^2-16c^2=(c^2-4)(c^2-36)=0
+\]
+であり，$c=0$ も除いてある。
+従ってHessian divisorの唯一の重複直線は $u=0$ である。
+Hessian divisorは射影座標変更で保存されるから，$\Aut(C_c)$ はこの直線を保つ。
+その元を
+\[
+ (x,y)^{\mathsf T}\longmapsto A(x,y)^{\mathsf T}+bu,
+ \qquad u\longmapsto du
+\]
+と書く。$A$ は可逆で，$d\ne0$ である。
+$f=x^4+y^4+cx^2y^2$ と置き，変換後の式の $u$ の一次係数を比較すると
+$D_bf(A(x,y))=0$ となる。
+滑らかな二元四次式の二つの偏微分は一次独立なので $b=0$ である。
+射影スカラーで $d=1$ に正規化すれば
+\begin{equation}\label{eq:ku-ciani-base-automorphisms}
+ (x,y,u)\longmapsto(A(x,y),u),\qquad f(A(x,y))=f(x,y).
+\end{equation}
+対応する曲面の持上げは $z\mapsto\varepsilon z$，$\varepsilon\in\{1,-1\}$ である。
+
+曲面上の位数4の元の射影像が位数2になる可能性も除く。
+射影対合を $\operatorname{diag}(-1,1,1)$ と書き，
+$F$ の固有値を $\eta\in\{1,-1\}$ とする。
+$\eta=-1$ なら全ての単項式が反変座標を奇数回含むため，$F$ はその座標で割り切れる。
+これは滑らかな四次曲線に矛盾する。
+$\eta=1$ なら $z$ の係数は $\pm1$ で，どちらの持上げも位数高々2である。
+射影像が恒等の場合も核の位数は2なので，位数4の元の射影像は位数4である。
+
+その元が曲線を点ごとに固定すれば，その反標準像も曲線であり，
+非自明な射影変換の固定集合に含まれる。
+従って射影行列は重複固有値を持ち，固定直線が存在する。
+式\eqref{eq:ku-ciani-base-automorphisms}で $A$ がscalarなら，
+位数4の場合は $A=iI$ または $-iI$ である。
+一方，$A$ がnonscalarなら，重複固有値は $u$ の固有値1であり，
+$A$ の固有値は $1,i$ または $1,-i$ でなければならない。
+固有座標を $X,Y$ とすると，$f$ の不変性から $f=aX^4+bY^4$ となる。
+この場合の二重被覆の $j$ は1728であるが，
+\begin{equation}\label{eq:ku-ciani-fixed-j}
+ j(E_c)=16\frac{(c^2+12)^3}{(c^2-4)^2},\qquad
+ (c^2+12)^3-108(c^2-4)^2=c^2(c^2-36)^2
+\end{equation}
+より，これは除外した $c=0,\pm6$ に限られる。
+
+残るscalarの場合，射影像は $u\mapsto iu$ またはその逆である。
+その二つの持上げのうち，$u=0$ の一般点を固定するのは $z$ を固定する方だけである。
+もう一方はこの曲線上で二重被覆の対合として作用し，固定点は有限個である。
+射影像の固定集合は $u=0$ と一つの点だけなので，別の固定曲線はない。
+よって主張した部分群だけが残る。
+$c^2\ne4$ より $E_c$ は滑らかであり，四つの分岐点を持つ
+$\PP^1$ の二重被覆なので種数1である。
+任意の曲面同型はこの一意な部分群とその固定曲線を保つ。
+\end{proof}
+
+\subsection{次数1の全自己同型と巡回部分群}
+
+\begin{proposition}[次数1の楕円固定部分群]
+\label{prop:ku-degree-one-intrinsic-cyclic-group}
+\[
+ Y_{\alpha,\beta}:\quad
+ \frac{z^2}{2}+\frac{y^3}{3}+\alpha x^4y+\beta x^6+u^6=0
+       \quad\subset\PP(1,1,2,3)
+\]
+とし，$\alpha\beta(4\alpha^3+9\beta^2)\ne0$ と仮定する。
+このとき
+\[
+ \Aut(Y_{\alpha,\beta})
+   =\mu_6\times\langle\iota_{\mathrm B}\rangle,
+ \qquad
+ \zeta\cdot(x,u,y,z)=(x,\zeta u,y,z),\quad
+ \iota_{\mathrm B}(x,u,y,z)=(x,u,y,-z).
+\]
+ここで $\iota_{\mathrm B}$ はBertini対合である。
+位数6の巡回部分群で，生成元が正種数曲線を点ごとに固定するものは，
+表示した第一因子 $H_6=\mu_6$ だけである。
+その固定曲線 $E_{\alpha,\beta}=Y_{\alpha,\beta}\cap\{u=0\}$ は滑らかな種数1曲線で，
+\begin{equation}\label{eq:ku-degree-one-fixed-j}
+ j(E_{\alpha,\beta})
+   =1728\frac{4\alpha^3}{4\alpha^3+9\beta^2}.
+\end{equation}
+特にこの $j$ は巡回作用の標識を忘れた曲面の同型不変量である。
+\end{proposition}
+\begin{proof}
+全ての曲面自己同型は反標準線束を保つので，その切断環の次数付き自己同型を誘導する。
+反標準線束の自明化の違いはgrading scalarだけである。
+従って任意の自己同型を，$w=(x,u)^{\mathsf T}$ として
+\[
+ w\longmapsto Mw,\qquad
+ y\longmapsto ay+q_2(w),\qquad
+ z\longmapsto bz+\ell_1(w)y+q_3(w)
+\]
+と書ける。ここで $M$ は可逆で $a,b\ne0$ である。
+関係式の $z$ の一次係数から $\ell_1=q_3=0$，
+次いで $y^2$ の係数から $q_2=0$ が従う。
+$z^2$ と $y^3$ の係数比較により，関係式の尺度は
+$b^2=a^3$ である。
+平方根 $s^2=a$ を選び，grading scalar $s^{-1}$ を合成すれば
+$y$ を固定し $z\mapsto\varepsilon z$，$\varepsilon=\pm1$ とできる。
+この正規化で
+\begin{equation}\label{eq:ku-degree-one-base-preservation}
+ A_4(Mw)=A_4(w),\qquad B_6(Mw)=B_6(w),
+ \quad A_4=\alpha x^4,\quad B_6=\beta x^6+u^6
+\end{equation}
+が成り立つ。
+
+$\alpha\ne0$ より $x\mapsto a_0x$，$a_0^4=1$ であり，
+$u\mapsto cx+du$，$d\ne0$ と書ける。
+式\eqref{eq:ku-degree-one-base-preservation}の第二式の $xu^5$ 係数は
+$6cd^5$ なので，$c=0$ である。
+$u^6$ と $x^6$ の比較により $d^6=1$，$a_0^6=1$ となり，
+$\beta\ne0$ と $a_0^4=1$ を合わせて $a_0=\pm1$ を得る。
+残るgrading scalar $-1$ は
+\[
+ (a_0,d,\varepsilon)\longmapsto(-a_0,-d,-\varepsilon)
+\]
+と作用するので，$a_0=1$ の代表が一意に取れる。
+従って全自己同型は表示した $\mu_6\times\mu_2$ である。
+この議論は反標準pencilのbase pointを除いた部分だけの計算ではなく，
+全反標準環の自己同型の計算なので，全ての曲面自己同型を含む。
+
+位数6の元を $g=(\zeta^a,\varepsilon)$ とする。
+その反標準pencil上の作用は非自明であり，固定点は
+$[x:u]=[1:0],[0:1]$ だけである。
+従って点ごとに固定される曲線は $u=0$ または $x=0$ の曲線に含まれる。
+$u=0$ の一般点では $x\ne0$ であり，weighted projective scalarは1に限られるから，
+この曲線を点ごとに固定する条件は $\varepsilon=1$ である。
+位数6という条件から $\zeta^a$ は原始6乗根となり，生成部分群は $H_6$ である。
+
+一方，$x=0$ の曲線は
+$z^2/2+y^3/3+u^6=0$ であり，一般点では $u,y,z$ が全て非零である。
+その点を固定するにはprojective scalar $\lambda=\zeta^a$ に対して
+$\lambda^2=1$，$\varepsilon=\lambda^3$ が必要である。
+この場合の $g$ の位数は高々2なので，位数6では起こらない。
+反標準pencilのbase locusは一点であり，ここから固定曲線が追加されることもない。
+
+$u=0$ の式を $x=1$ でWeierstrass形に移すと
+$Z^2=y^3+3\alpha y+3\beta$ となる。
+$4\alpha^3+9\beta^2\ne0$ より滑らかであり，
+通常のWeierstrass不変式から式\eqref{eq:ku-degree-one-fixed-j}を得る。
+\end{proof}
+
+\begin{remark}[除外した特殊点]
+\label{rem:ku-cyclic-exceptional-parameters}
+次数2のFermat型 $c=0,\pm6$ では追加の楕円固定部分群があり得るので，
+前命題の一意性をそこで使わない。
+次数1でも $\alpha=0$ または $\beta=0$ では自己同型群の計算が変わる。
+以下ではこれらを除いた非空開上の有理関数だけを用いる。
+二次差を特殊点へ延長する前節の議論とは，適用範囲を区別する。
+\end{remark}
+
+\subsection{形式的な巡回作用の代数化と内在的な\texorpdfstring{$j$}{j}}
+
+\begin{lemma}[有限unramified空間の形式切断]
+\label{lem:ku-finite-unramified-formal-section}
+$T$ を局所noetherianスキーム，$t\in T$ を複素閉点とし，$Z\to T$ を有限unramified射とする。
+$z\in Z$ を通る両立した切断が $t$ の全Artin近傍上にあるなら，
+$Z\to T$ は $z$ で\'{e}taleである。
+従って $t$ の\'{e}tale近傍上に，その形式切断を誘導する切断が存在する。
+\end{lemma}
+\begin{proof}
+$A=\OO_{T,t}$ とし，完備化を $\widehat A$ と書く。
+有限性により，両立したArtin切断は
+$\Spec\widehat A\to Z\times_T\Spec\widehat A$ を与える。
+unramifiedかつ分離的な射の切断は開かつ閉な埋込みである
+\cite[Tag~024T]{StacksProject}。
+その像は $z$ を含む局所因子であり，その因子は $\Spec\widehat A$ と同型である。
+従って $z$ における完備局所環の写像は同型となる。
+noetherian局所環の完備化の忠実平坦性により，元の射は $z$ で平坦である。
+有限表示かつunramifiedなので $z$ で\'{e}taleとなる。
+$Z$ のこの\'{e}tale開部分を新しい基底とし，対角切断を取ればよい。
+\end{proof}
+
+次数 $d$ の前二命題の曲面からなる古典粗モジュライの部分を $L_d$ と書く。
+必要ならその被約な閉包の稠密開に制限する。
+一意な巡回部分群の楕円固定曲線の $j$ は，この部分上の有理関数
+\begin{equation}\label{eq:ku-intrinsic-cyclic-j}
+ j_{\mathrm{cyc}}:L_d\dashrightarrow\A^1
+\end{equation}
+を定める。
+実際，表示の係数空間上では
+式\eqref{eq:ku-ciani-fixed-j}または\eqref{eq:ku-degree-one-fixed-j}であり，
+曲面同型は一意な固定曲線を保つので，この値は同型関係に関して不変である。
+標数0の有理商への降下，または同型層による\'{e}tale降下から
+式\eqref{eq:ku-intrinsic-cyclic-j}を得る。
+これは $M^{\mathrm{cl}}_{2,d}$ 全体上の有理関数を定義したという主張ではない。
+
+\begin{proposition}[巡回族の古典復元とpoint curveの\texorpdfstring{$j$}{j}]
+\label{prop:ku-cyclic-point-j-intrinsic}
+前節の二係数巡回族
+\[
+ C_{\alpha,\beta,h}=A_{\alpha,\beta,h}[u]/(\Omega_{\alpha,\beta,h}+u^{m_d}),
+ \qquad m_1=6,\quad m_2=4
+\]
+を，規格化中心の有理式の定義域で考える。
+$h=1$ の二係数空間 $S_d$ には非空稠密開 $S_d^\circ$ があり，次が成り立つ。
+\begin{enumerate}
+ \item 対応する非可換曲面は $\mathfrak U^{\mathrm{geom}}_{2,d}$ に属する。
+ \item 粗復元射の像は $L_d$ に入り，
+ \begin{equation}\label{eq:ku-point-j-equals-companion-j}
+ j_{\mathrm{cyc}}\bigl(\overline\rho_{\mathrm{Ku}}(C_{\alpha,\beta,1})\bigr)
+       =j(E_{\alpha,\beta,1})
+ \end{equation}
+ が有理関数として成立する。右辺は解消したpoint curveの $j$ である。
+\end{enumerate}
+ここでは $h=1$ が形式近傍に属すると仮定せず，
+有限族の開性と厳密な尺度変更によって $h=1$ の主張へ移す。
+\end{proposition}
+\begin{proof}
+まず $h$ も変数とする整な係数空間を用いる。
+前二命題の一般性条件を満たす滑らかな可換点 $s_0=(\alpha_0,\beta_0,0)$ を取る。
+定理\ref{thm:simultaneous-smooth-ncdp-open}と
+系\ref{cor:surface-ku-geometric-open}により，$s_0$ の開近傍で実際の非可換族と幾何化が得られる。
+定理\ref{thm:surface-ku-etale-companion}をこの族へ引き戻し，
+$s_0$ の\'{e}tale近傍 $T$ 上に古典曲面族 $Y_T$ と相対Morita同値を取る。
+
+\emph{形式作用の代数化。}
+古典del Pezzo族の自己同型層 $\mathcal A=\operatorname{Aut}_T(Y_T)$ は有限である
+（\cite[定理9.2]{PoissonDP}，および定理\ref{thm:zero-neighborhood-finite-diagonal}の証明の古典部分）。
+$H^0(Y_t,T_{Y_t})=0$ よりunramifiedでもある。
+$G=\mu_{m_d}$ の作用を与えるhomomorphismの空間は，
+$\mathcal A^{|G|}$ 内に有限個の群則方程式を課した閉部分スキーム
+\[
+ \mathcal H=\operatorname{Hom}_{T\text{-grp}}(G_T,\mathcal A)
+\]
+として有限unramifiedである。
+補題\ref{lem:ku-finite-equivariant-companion}は，特殊ファイバーの既定の作用を延長する
+$\mathcal H$ の両立した形式切断を与える。
+補題\ref{lem:ku-finite-unramified-formal-section}を適用し，
+さらに\'{e}tale縮小して $Y_T$ 上の実際の $G$-作用を得る。
+作用の特殊ファイバーは忠実であり，有限個の非恒等元の固定条件を除けば忠実性も保たれる。
+
+\emph{巡回表示と固定曲線。}
+反標準環の有限自由な生成元空間を指標分解し，
+特殊ファイバーの固有基底を\'{e}tale局所的に持ち上げる。
+指標は離散的なので，関係式に現れる単項式は特殊ファイバーと同じ指標条件を満たす。
+次数2では $z^2/2+f_4(x,y)+u^4$，
+次数1では $z^2/2+y^3/3+\alpha_Tx^4y+\beta_Tx^6+u^6$ へ正規化できる。
+平方完成，三次式の二次項除去，単元の有限乗根だけを用いるので，
+必要な変更は\'{e}tale局所的に実行できる。
+次数2の滑らかな二元四次式は同じ意味でCiani形にできる。
+その局所可解性は，$x^3y,xy^3$ の係数に対する微分の行列
+\[
+ \begin{pmatrix}4&2c\\2c&4\end{pmatrix}
+\]
+が $c^2\ne4$ で可逆であることと，二つのdiagonal尺度変更から従う。
+従って $Y_T$ の粗像は $L_d$ に入り，$u=0$ は滑らかな種数1曲線族 $E_Y$ を与える。
+前二命題の例外条件を除く縮小は，選んだ $s_0$ を保つ。
+
+補題\ref{lem:ku-equivariant-elliptic-period}を $s_0$ の全Artin近傍に適用すると，
+$j(E_Y)$ と $j(E_{\alpha,\beta,h})$ は完備局所環で一致する。
+ここでは同じ特殊ファイバー標識と，接続を含むHodge周期を比較している。
+有限型の被約局所環からその完備化への単射により，この等式は
+$T$ の対応する整成分上の有理関数の等式となる。
+異なる\'{e}tale chart上の復元曲面は同じ粗像を持ち，
+前二命題の一意性により固定曲線の $j$ も一致する。
+従ってこの有理等式は元の係数空間へ降下する。
+
+\emph{$h=1$ への移行。}
+$h\ne0$ では，次数1で $x=hx'$ と置くと
+\[
+ (\alpha,\beta,h)\longmapsto(\alpha h^4,\beta h^6,1)
+\]
+となる。これは式\eqref{eq:degree-one-shadow-h-scaling}の厳密な同型であり，
+$u,y,z$ と中心元の規格化を保つ。
+次数2では $\eta^2=h$ の有限\'{e}tale基底変更後に
+$x=\eta x'$，$y=\eta y'$ と置くと
+\[
+ (\alpha,\beta,h)\longmapsto(\alpha h^2,\beta h^2,1)
+\]
+となり，$u,z$ と $z^2$ の規格化を保つ。
+どちらも巡回作用を保つ同型であり，point curveも同型な曲線へ移る。
+これらの係数写像は $S_d$ へ優勢である。
+従って先に得た非空開と有理等式は，$S_d$ の非空開へ移り，
+必要な有限基底変更から降下する。
+所属条件は同型不変な開条件であり，粗像は標準的なので，
+この操作から第1項と式\eqref{eq:ku-point-j-equals-companion-j}を得る。
+\end{proof}
+
+\subsection{非対角ファイバー積と一般の全分枝}
+
+\begin{lemma}[全非対角部分の整性]
+\label{lem:ku-global-offdiagonal-integral}
+$N$ を整正規なnoetherian代数空間，$f:X\to N$ を整な代数空間からの
+分離的\'{e}tale射とする。
+関数体拡大の次数を $\delta>1$ とし，一般モノドロミーが相異なる二点の順序対に推移的と仮定する。
+このとき
+\[
+ W=(X\times_NX)\setminus\Delta_X
+\]
+は整である。ここでは $f$ の有限性は仮定しない。
+\end{lemma}
+\begin{proof}
+分離的\'{e}tale射の対角は開かつ閉なので，$W\to N$ も\'{e}taleである。
+$N$ の正規性から $W$ は正規であり，その既約成分は互いに交わらない開閉部分となる。
+各成分の像は\'{e}tale射の開写像性から $N$ の非空開であり，従って各成分は優勢である。
+一方，一般ファイバーの成分は一般モノドロミーの順序付き相異なる二点への軌道に対応する。
+仮定から軌道は一つなので，$W$ の成分も一つである。
+正規性と合わせて整性を得る。
+\end{proof}
+
+\subsection{point曲線の不変量がshadowから降下しないことの証明書}
+
+\begin{proposition}[楕円不変量の非降下]
+\label{prop:ku-point-j-nondescending}
+両次数の最高活性二係数族を $h=1$ で表示する。
+解消したpoint曲線の $j$-不変量 $j_E$ は，それぞれのshadow係数体
+$\C(I,J)$，$\C(A,B)$ に属さない。
+従って最高活性shadowの一般有限ファイバーには，$j_E$ の異なる二点がある。
+\end{proposition}
+\begin{proof}
+\textbf{次数1。}
+式\eqref{eq:degree-one-integral-point-curve}の $h=1$ の二次式を
+$q$ について判別式に取り，その $-1/12$ 倍を四次式 $R(t)$ とする。
+$k^2=-\alpha$，$\gamma=6\beta-4k^3$ を代入する。
+そのbinary quartic不変式 $I_E,J_E$ は $k$ の偶多項式であり，
+従って $\C[\alpha,\beta]$ に降下する。
+不変式の規約は\cite[Section~2, (1)--(2)]{Fisher2022}と同じで，
+\[
+ j_E=\frac{6912I_E^3}{4I_E^3-J_E^2}
+\]
+である。ここで $I_E,J_E$ とshadow係数 $I,J$ を区別する。
+
+式\eqref{eq:degree-one-shadow-top-beta-inverse}により，
+shadow $(I,J)=(-5,-5)$ の逆像は
+\begin{align*}
+ \beta(T)&=\frac{-12T^3-35T^2+30T+75}{30T+75},\\
+ F_1(T)&=T(112T^4+340T^3+120T^2-1025T-1125)=0
+\end{align*}
+で与えられる。$T=\alpha$ である。
+$F_1$ は平方因子を持たず，表示の分母と $j_E$ の分母はいずれも
+$\mathbb Q[T]/(F_1)$ の単元である。
+有理数演算で
+\[
+ j_E(0,1)=\frac{1022208}{3125},\qquad
+ \gcd\left(F_1(T),\operatorname{num}\left(
+ j_E(T,\beta(T))-\frac{1022208}{3125}\right)\right)=T
+\]
+を得る。従って少なくとも残る四点の値は $T=0$ の値と異なる。
+
+このgcdには短い有限体証明書もある。
+等値条件の分子を $F_1$ で割った剰余をprimitive化し，法101でmonic化すると
+\[
+ T(T^3+31T^2+46T+18)
+\]
+となり，$F_1/T$ の法101での像は
+$11T^4+37T^3+19T^2+86T+87$ である。
+この四次式と上の三次式のEuclid剰余列は
+\[
+ 49T^2+35T+4,\qquad82T+17,\qquad53
+\]
+なので，余分な共通因子はない。
+分母の互いに素性を含む有理数上の検算は
+\texttt{verify\_degree\_one\_period\_fibres.py}に収録する。
+
+\textbf{次数2。}
+$a=b+3$，$c=\alpha$，$\beta=3(b+2)/2$ と置く。
+式\eqref{eq:ku-degree-two-point-discriminant}を
+$K(1+t^4)+Mt^2$ と書くと
+\[
+ K=4a^2bc,\qquad
+ M=(c^2-b^2)^2-4a^2(c^2+b^2),\qquad
+ j_E=\frac{16(M^2+12K^2)^3}{K^2(M^2-4K^2)^2}.
+\]
+この式は $c^2$ だけに依存する。
+式\eqref{eq:binary-shadow-inverse-square}により
+\[
+ c^2=\frac{b(3b^2+bB+15b+18)}{3b+B+3}
+\]
+を代入すれば $j_E\in\C(b,B)$ となる。
+shadow $B=1,A^2=-125/9$ では，逆方程式は
+\[
+ F_2(b)=9(b+1)(107b^3+771b^2+1716b+1152)=0.
+\]
+各 $b$ から $c$ は式\eqref{eq:binary-shadow-inverse-linear-c}で一意に復元され，
+必要な分母は全て単元である。
+この平方因子のない四次式に対し
+\[
+ j_E(-1)=\frac{300763}{35721},\qquad
+ \gcd\left(F_2(b),\operatorname{num}\left(
+ j_E(b,1)-\frac{300763}{35721}\right)\right)=b+1
+\]
+となる。
+分子の剰余をprimitive化し法101でmonic化すると
+$b^3+32b^2+37b+6$ であり，$F_2$ の像は
+$54b^4+24b^3+62b^2+57b+66$ である。
+Euclid剰余列は
+\[
+ 72b^2+60b+89,\qquad14b+14,\qquad0
+\]
+となる。従ってgcdは $b+1$ に限られる。
+全ての分母と楕円判別式の非消滅，および有理数上のgcd計算は
+\texttt{verify\_degree\_two\_period.py}で検証する。
+
+いずれも滑らかな有限ファイバー上で正則な有理関数の値が一定でないため，
+その関数が基底の係数体に属することはない。
+例えば降下を仮定して基底有理関数に極がある場合も，有限\'{e}tale射の上では極が残るため，
+各逆像での正則性と矛盾する。
+この計算は特定の有限 $h$ の全対象がsmooth proper開に入るという主張を含まない。
+非降下は関数体の恒等式の否定であり，後続の適用では
+可換点から得た非空開集合と一般ファイバー上で交差させる。
+\end{proof}
+
+\begin{remark}[計算の範囲]
+上の二つの証明書は標準ライブラリの整数・有理数演算だけで再現できる。
+数値近似による根の分離を使っていない。
+ただし，計算単独が証明するのはpoint曲線の $j$ の非降下である。
+これを群作用を忘れた残余圏の非同値性へ移すためには，
+本節の巡回部分群の一意性，標識付き周期比較，幾何化と古典Torelliが必要である。
+\end{remark}
+
+\begin{theorem}[一般Poissonファイバーの残余圏は全て相互に非同値]
+\label{thm:ku-generic-poisson-fibres-separated}
+曲面 $n=2$，$d=1,2$ とし，$\delta_1=5$，$\delta_2=4$ と置く。
+古典Torelliの入力\cite[定理1.2]{LinRampazzoZhang2026}の下で，
+$N_{2,d}$ には非空開 $V$ があり，その任意の複素閉点の逆像を
+$\mathcal Q_1,\ldots,\mathcal Q_{\delta_d}$ とすると，
+全てが $\mathfrak U^{\mathrm{geom}}_{2,d}$ に属し，
+\[
+ \operatorname{Ku}(\mathcal Q_i)\not\simeq
+ \operatorname{Ku}(\mathcal Q_j)\qquad(i\ne j)
+\]
+となる。従って残余圏からの粗復元射はPoisson比較を通じて有理的にも降下しない。
+\end{theorem}
+\begin{proof}
+まず前命題の $h=1$ 二係数族 $S_d$ と，そのshadowの二係数空間 $T_d$ を使う。
+最高活性部分の有理写像 $\psi_d:S_d\dashrightarrow T_d$ は，
+命題\ref{prop:degree-one-shadow-top-degree-five}，
+\ref{prop:binary-shadow-generic-degree-four}により，それぞれ次数5，4である。
+次数1では $y^2$ 項を除いたPoisson正規形を用いる。
+命題\ref{prop:ku-point-j-nondescending}は
+\[
+ j(E_{\alpha,\beta,1})\notin\psi_d^*K(T_d)
+\]
+を与える。
+従って分離的な一般ファイバー上で，point curveの $j$ は定数でない。
+
+$\psi_d$ を非空開上の有限\'{e}tale射へ制限し，
+$S_d^\circ$ の補集合および用いた有理式の極の閉像を終域から除く。
+いずれも一般点を含まないため，終域の非空開が残る。
+非降下により，そのある複素閉ファイバーには $j$ 値の異なる二点 $s_1,s_2$ がある。
+命題\ref{prop:ku-cyclic-point-j-intrinsic}によって，対応する非可換曲面は
+$\mathfrak U^{\mathrm{geom}}_{2,d}$ に属し，古典復元の粗像は異なる。
+一意な楕円固定部分群により，等しい粗像から異なる $j$ が生じることはないからである。
+従ってこれらは非可換粗空間上でも相異なる二点である。
+両者の最高活性shadowは同じで，その他の係数は同じ $u^{m_d}$ だけである。
+次数1のdepressionもPoisson同型なので，二点の実際のPoisson粗像は等しい。
+この議論では，二係数presentationの全ての枝を先に非可換粗空間の別々の点と認識する必要はない。
+$j$ 値の異なる二点だけで，相異なる粗点が得られる。
+
+$X=M^{\mathrm{nc,geom}}_{2,d}$ とし，そのPoisson粗射を $f:X\to N_{2,d}$ とする。
+既存の粗射は分離的\'{e}taleであり，$N_{2,d}$ は整正規である。
+一般モノドロミーは $\mathfrak S_{\delta_d}$ なので，
+補題\ref{lem:ku-global-offdiagonal-integral}により
+$W=(X\times_NX)\setminus\Delta_X$ は整である。
+古典粗モジュライの分離性から
+\[
+ \mathcal E=
+ \{\overline\rho_{\mathrm{Ku}}\circ p_1
+      =\overline\rho_{\mathrm{Ku}}\circ p_2\}\subset W
+\]
+は閉部分空間である。
+先に構成した巡回族の二点は $W\setminus\mathcal E$ に属するから，
+$\mathcal E$ は真の閉部分であり，$W$ の一般点を含まない。
+ここで，この二点が全Poisson比較の最大有限locusに属する必要はない。
+
+最後に命題\ref{prop:surface-ku-generic-dichotomy}の証明と同じく，
+全 $\delta_d$ 枝が $X$ に入り，$f$ が次数 $\delta_d$ の有限\'{e}tale射となる
+非空開 $V\subset N_{2,d}$ を取る。
+$\mathcal E|_V$ の像は有限射による真の閉部分なので，これをさらに除く。
+残る全複素閉ファイバーで古典復元の粗像は相互に異なる。
+二つの残余圏がMorita同値なら，それぞれの古典幾何化と引用したTorelli定理により
+対応する古典曲面は同型となるため，これは不可能である。
+従って全ての残余圏が相互に非同値となる。
+粗復元射がPoisson比較を通じて有理的に降下すれば，一般ファイバーで定数となるため，
+最後の主張も従う。
+\end{proof}

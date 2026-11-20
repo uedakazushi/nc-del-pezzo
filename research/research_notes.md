@@ -1,6 +1,6 @@
 # 研究ノート：次数1・2のnc del Pezzo n-fold
 
-2026-11-20（JST） / v0.18。証明本文は主原稿、一次資料の位置は [文献と依存](literature.md)。この文書は現在有効な知識と障害を整理する。
+2026-11-20（JST） / v0.19。証明本文は主原稿、一次資料の位置は [文献と依存](literature.md)。この文書は現在有効な知識と障害を整理する。
 
 ## 1. 形式局所環と数値
 
@@ -287,7 +287,7 @@ R^W=\mathbb C[[u,v]],\quad R^{\langle T\rangle}=\mathbb C[[B,A^2]].
 
 ### 曲面のKuznetsov成分と古典曲面の復元
 
-主証明は [曲面の形式復元](../papers/sections/kuznetsov_surface.tex)、[相対構成とétale局所幾何化](../papers/sections/kuznetsov_relative.tex)。一般原理・古典公式と、本研究の非可換族への適用を区別する。
+主証明は [曲面の形式復元](../papers/sections/kuznetsov_surface.tex)、[相対構成とétale局所幾何化](../papers/sections/kuznetsov_relative.tex)、[周期による二次差](../papers/sections/kuznetsov_shadow_obstruction.tex)。一般5・4枝の比較は主原稿 `sec:kuznetsov-cyclic-fibres`。一般原理・古典公式と、本研究の非可換族への適用を区別する。
 
 **相対構成と既知の計算。** 全nでOの右直交を相対smooth proper dg圏として作り、導来基底変更と全O保存Abel同値に関して降下できる。n=2でこれをKuと呼ぶ。n≥3では通常の長い例外blockの右直交と区別する。Kuznetsov (2009) Theorem 8.5とその証明により、曲面のHH制限は最高polyvector因子を除く射影。d1で (dim HH²(X), dim HH²(Ku), dim核)=(10,8,2)、d2で (9,6,3)。核はPoisson因子H⁰(−K_X)全体であり、一次では残余圏に見えない。HH⁰=C、HH²以外の正次数は零。HHホモロジーは次数0に集中し、その次元は11−d。この公式自体の新規性は主張しない。
 
@@ -307,20 +307,103 @@ d^1(\lambda_i,\nu_i,M)_i=(\lambda_i-\nu_i)p_i+p_iM.
 
 Lin–Rampazzo–Zhang (2026) Theorem 1.2の古典Torelliを入力として、対応する古典曲面の同型類は一意。被約なétale重なり上での複素閉点の一致と古典粗空間の分離性から、標準的な粗射ρ_Ku:Mnc_geom→Mclが降下する。古典stackへの大域的持上げ、曲面族・同値bimoduleの大域的貼合せ、粗射の全点での平坦性は別問題。
 
-**一般5・4枚の二者択一。** S₅・S₄の二重推移性から、有限étale領域の非対角ファイバー積は整となる。二つのρ_Kuの値の等化子は閉。全体なら粗射はPoisson基底へ下降し、真の閉集合ならその有限像を除くと全ての値が異なる。古典Torelliにより、一般の複素閉ファイバーの残余圏は全同値か全て相互に非同値かとなる。どちらが実現するかは未決定。この二者択一をconstancyの証明に読み替えない。
-
-**shadowとの二次差。** 自然な形式射ρと既存shは零切断と一次で一致する。被覆対合は古典変形を固定しPoisson方向に−1で作用する。shに適合する相対座標を平均化するとsh(t,p)=t、σ(t,p)=(t,−p)とでき、ρの差はpの偶数次数だけを持つ。最初の比較テンソルは
+**shadowとの二次差と巡回周期。** 自然な形式射ρと既存shは零切断と一次で一致する。被覆対合は古典変形を固定しPoisson方向に−1で作用する。shに適合する相対座標を平均化するとsh(t,p)=t、σ(t,p)=(t,−p)とでき、ρの差はpの偶数次数だけを持つ。最初の比較テンソルは
 \[
 \delta_{2,X}\in H^1(T_X)\otimes\operatorname{Sym}^2H^0(-K_X)^*
 \]
-で、候補空間はd1で24次元、d2で36次元。ρ*−sh* mod I³:Ω_S→I²/I³として座標によらず定義できる。**その値は未計算。** 非零なら形式的な保存性を否定する。一点で零でも高次・近傍全体の一致にはならず、tも動かせば二次係数c_α(t)の変化も残る。追加の自己同型の不変部分への制限も使える。
+で、候補空間はd1で24次元、d2で36次元。ρ*−sh* mod I³:Ω_S→I²/I³として座標によらず定義できる。
 
-**有限の計算目標。** 点配置代数の積μ_iを非可換中心商から二次まで復元する方法と、内在的Hochschild–Serre積を計算する方法がある。後者にはLRZ Propositions 3.4–3.5の次の古典公式が目標となる。
+中央巡回族 `C_h=A_h[u]/(Ω_h+u^m)`（d2でm=4、d1でm=6）をμ_mで同変化すると、奇数周期はpoint曲線EのH¹_dRのm−1コピーとなる。特殊ファイバーで恒等のMorita同値を有限群同変化する際のcoherence誤差は1+m_Rに入り、logと平均化で消せる。接続・Hodge filtrationを共に保つ標識付き周期比較と楕円曲線の局所Torelliから、復元曲面の固定楕円曲線の二次類をpoint曲線の二次類へ同定する。単にHHやHPの次元を比較する議論ではない。
+
+この方法により、`F=z²/2+f(x,y)+u^m=0`、`[x,y]=hz` の規格化で、次の巡回族における**実際の二次差**を得た：
+
+\[
+\begin{array}{c|c|c}
+d&f(x,y)&\delta_{2,X}(\pi,\pi)=\tfrac18[\det\operatorname{Hess}_{x,y}(f)]\\ \hline
+2&\tfrac\alpha4(x^4+y^4)+\beta x^2y^2&\tfrac98(\alpha^2-4\beta^2)[x^2y^2]\\
+1&y^3/3+\alpha x^4y+\beta x^6&[(15/2)\beta x^4y-5\alpha^2x^6]
+\end{array}
+\]
+
+d2では `α(α²−4β²)≠0`、d1では `4α³+9β²≠0` を仮定する。d1の方向が尺度方向(4α,6β)に入らないことは行列式 `5(4α³+9β²)` で分かる。d2もJacobian商の二つの関係から表示した非零類を得る。従ってρ_Ku≠shであり、古典Torelliを入力として、稠密開で既存Poisson shadowは残余圏を保存しない。一般曲面・全方向のHessian公式は、この二つの特殊族だけからは従わない。
+
+**Fermat点の全テンソル。** 主原稿 `prop:ku-fermat-full-quadratic-tensor` は、規格化した
+
+\[
+X_2:z^2/2+x_0^4+x_1^4+x_2^4=0,\qquad
+X_1:z^2/2+y^3/3+x_0^6+x_1^6=0
+\]
+
+で、全方向の式
+
+\[
+\delta_{2,X_2}(P,P)=18\sum_{i<j}p_{ij}^2[x_i^2x_j^2],\qquad
+\delta_{2,X_1}(D,D)=\frac{15}{2}\sum_{i=0}^1D_i^2[x_i^4y]
+\]
+
+を与える。混合項は零で、Sym²Pからの線型写像の階数は3・2。主原稿に置いた指標証明の要点は以下の通り。
+
+- d2：全Autは `((μ₄³×μ₂)/μ₄)⋊S₃`、位数192。自然Poisson作用は `P↦b⁻¹(Λ²A)P` であり、表示上のO(1)の作用と同一視しない。Jacobian基底は指数(2,2,0)、(2,1,1)の六単項式。対角指標の一致条件 `α_i+β_i≡0 mod4` は `p_ij²↦[x_i²x_j²]` だけを許し、S₃が三係数を等しくする。不変テンソル空間は一次元。
+- d1：全Autは `((μ₆²×μ₃×μ₂)/μ₆)⋊S₂`、位数72。自然作用は `D↦(c/b)AD`、`b²=c³`。Jacobian基底は `y Sym⁴(x₀,x₁)` の五個と三つのsextic。μ₃指標が後者を除き、残る指標一致は `D₀²↦[x₀⁴y]`、`D₁²↦[x₁⁴y]` のみ。交換が二係数を等しくするので不変空間は一次元。
+
+全Autの計算には反標準環の生成重みと、Fermat形のHessian因子 `1728x₀²x₁²x₂²`、`900x₀⁴x₁⁴` によるmonomial性を使う。分類表に依存しない直接証明が主原稿にある。Dolgachev–Iskovskikh, *Finite subgroups of the plane Cremona group*, Progress in Mathematics269 (2009),443–548、[出版版PDF](https://math.nyu.edu/~tschinke/.manin/final/dolgachev/dolgachev.pdf) §6.6 Table6 TypeII、§6.7 Table8 TypeIIとも照合した。
+
+巡回族の値一つをこの不変直線に入れると、d2で18、d1で15/2が決まる。独立なJacobian単項式の二乗係数なので、両Fermat点の**全ての非零Poisson方向**でδ₂(π,π)≠0である。`lem:ku-quadratic-algebraic-tensor` によりδ₂は古典零切断上の代数的束射Sym²P→Tとして降下する。局所幾何化のjetを用い、恒等へ還元する古典同型の一意性と被約étale重なり上の閉点比較で貼り合わせる。P(P)上の零集合のproper像を除くと、Fermat点を含む稠密Zariski開上の全非零方向で同じ非消滅を得る（`cor:ku-generic-all-directions-quadratic`）。古典stackへの復元射全体の大域的持上げは必要ない。
+
+**次数1の計算上の規格化。** h=1の中心式から戻す置換は `y′=h²y,z′=h³z,α′=αh⁴,β′=βh⁶` であり、中心元をh⁶で割る。その後のdepression `y=Y+2αh²x²` がJの二次項を変える。
+
+\[
+(\alpha_E,\beta_E)=(\alpha+(5/2)\beta h^2,\beta-(5/3)\alpha^2h^2)+O(h^4),\qquad
+(\alpha_{\rm sh},\beta_{\rm sh})=(\alpha-5\beta h^2,\beta+(10/3)\alpha^2h^2)+O(h^4).
+\]
+
+判別式四次式は `R(t)=−disc_q(H)/(12h²)`。`t=v/(1+h²v/24)` により四次項を消し、単元 `1−kh²/12` 倍、`v=Y−k+(11/12)k²h²` によるdepression、`η=1+kh²/24` のWeierstrass尺度調整で、特殊ファイバーの恒等へ還元する直接変換を得る。従って粗いjの分岐を無視してα_Eを選んでいない。古典jは `1728·4α³/(4α³+9β²)`。Fermat α=0では二次jが消えるが、`j_E=12000βh⁶+O(h⁸)`、`j_sh=−96000βh⁶+O(h⁸)` となる。
+
+**一般5・4枝の分離の論理。** S₅・S₄の二重推移性から、Poisson基底の正規性とΘのétale性を用いた非対角ファイバー積Wは整となる。二つのρ_Kuの値の等化子は閉である。巡回部分族でρ_Kuの値が異なる一組をW内に得れば、等化子は真の閉集合である。有限étale領域へ制限してその有限像を除くと、一般ファイバーの全五枝・四枝のρ_Ku値が相異なり、古典Torelliにより残余圏は全て相互に非同値となる。
+
+この接続には、巡回古典模型の正の種数の曲線を点ごとに固定する位数mの部分群の一意性を使う。d2では `c=4β/α∉{0,±2,±6}` のHessianの唯一の二重直線がu=0を認識し、d1では `αβ(4α³+9β²)≠0` のgraded環の自己同型比較を使う。得られるjは巡回復元locus上の内在的不変量であり、全古典moduli上の有理関数とは主張しない。形式G作用のétale局所代数化、巡回locusへのρ制限、hによる尺度変更後の全枝がUgeomへ入ることを含む接続の証明は `sec:kuznetsov-cyclic-fibres` に集約する。これらの幾何学的接続の監査が終わるまでは、次の係数体計算だけから非標識Kuの一般分離を断定しない。
+
+**五枝の厳密な係数体証人。** h=1でpoint四次式から得る不変式を𝓘,𝓙とし、Ī=9𝓘,J̄=27𝓙とすると、これらは `k²=−α,γ=6β−4k³` の代入後にkの偶多項式となる。`j_E=6912 Ī³/(4Ī³−J̄²)` はC(α,β)の元である。shadow値I_sh=J_sh=−5には源(α₀,β₀)=(0,1)があり、逆五次式は
+
+\[
+F(T)=T(112T^4+340T^3+120T^2-1025T-1125),\qquad
+\beta(T)=\frac{-12T^3-35T^2+30T+75}{30T+75}.
+\]
+
+Fは平方因子を持たず、全j分母・楕円判別式・中心式の分母が全五点で単元。T=0で𝓘=−11,𝓙=151、`j_E=1022208/3125` となる。`gcd(F,num(j_E(T)−1022208/3125))=T` を有理数上で確認した。読みやすい補助証明書はmod101で、F/Tは `11T⁴+37T³+19T²+86T+87`、equal-j剰余/Tは単元倍を除き `T³+31T²+46T+18`。Euclid剰余列は `49T²+35T+4,82T+17,53` である。従ってj_Eはshadow係数体に属さず、拡大次数5が素数なのでj_Eが全拡大を生成する。**最高活性の一般五枝のpoint-jは全て相異なる。** d2の四枝については `sec:kuznetsov-cyclic-fibres` の対応する証明書を使う。
+
+計算資産は `verify_kuznetsov_quadratic_symmetry.py`、`verify_degree_one_period_quadratic.py`、`verify_degree_one_period_fibres.py`。いずれも標準ライブラリの整数・有理数演算で実行済み。これはカテゴリー的period定理や内在的部分群の証明とは別の検証である。binary quartic不変式の一次資料はFisher, *On binary quartics and the Cassels–Tate pairing*, Research in Number Theory8,74(2022)、[§2 equations(1)–(2)](https://link.springer.com/article/10.1007/s40993-022-00376-z)。二次のmarked比較自体には上の直接座標変換も用いる。
+
+**未完了の内在的乗法計算。** 一般曲面の全方向公式を得るため、点配置代数の積μ_iを非可換中心商から二次まで復元する方法と、内在的Hochschild–Serre積を計算する方法が残る。後者にはLRZ Propositions 3.4–3.5の次の古典公式が目標となる。
 
 - d2：V=HS^{2,−1}は3次元。Sym³V→HS^{6,−3}の像は7次元、核は3次元のspan(∂f₄)。終域はtwisted sectorを含め9次元であり、像と終域を区別する。
 - d1：V=HS^{2,−1}は2次元、W₂=HS^{4,−2}は4次元、W₂/Sym²Vが重み2生成元。重み4の多項式空間は9次元で関係1個、重み5は12次元で関係4個、うち新しい関係2個。これが∂_yG₆と∂_{x_i}G₆を検出する。
 
 これは可換weighted MFにおける公式である。非可換AS環のdiagonalと積は未計算であり、PBW対称化という線形同型をHS積の同型と扱わない。Ext¹(id,τ)（両次数で1次元）やd1のExt¹(id,τ²)（2次元）があるため、単純な隣接消滅からH⁰の平坦性を主張しない。
+
+**一般曲面の共変候補と対称性だけによる消滅の限界。** 一般の曲面でも、実際のδ₂とはまだ同定していない次の自然な二次テンソルが存在する：
+
+\[
+Q_{2,f}(P)=[q^t\operatorname{adj}(\operatorname{Hess}f)q],\quad
+q=(p_{12},-p_{02},p_{01})^t;
+\qquad
+Q_{1,(A,B)}(D)=[yD^2B].
+\]
+
+d2で `q′=(det A/b)A^{-t}q`、`H′=b²A^{-t}H(A⁻¹x′)A⁻¹` だから、`adj H′=b⁴(det A)⁻² A(adj H)(A⁻¹x′)A^t` となり、Q₂は古典係数と同じ `b²·(−)∘A⁻¹` で変換する。d1でも `D′=(c/b)AD`、`B′=b²B∘A⁻¹`、`b²=c³` によりyD²Bの変換則が一致する。Fermat点ではQ₂=144倍、Q₁=30倍の上記不変生成元となる。
+
+これらは**全ての滑らかな曲面上で非零**である。d2ではJac(f)は三つの三次式による長さ27のArtin完全交叉であり、det Hess(f)は非零socle生成元。もしQ₂=0ならchar0と対称性からadj Hの全成分がJac(f)で零となり、`H adj H=(det H)I` に矛盾する。socleの入力はEisenbud–Ulrich, *Duality and socle generators for residual intersections*, Crelle756(2019),183–226、[Appendix A, Theorem A.5](https://www.degruyterbrill.com/document/doi/10.1515/crelle-2017-0045/html)（[著者PDF](https://www.math.purdue.edu/~bulrich/papers/Duality-and-Socle-180119.pdf)ではTheorem8.5）で、本文と証明を確認した。
+
+d1で `F=z²/2+y³/3+A(x)y+B(x)` とする。z=0,y²=−Aを消去したJacobianの重み6部分は
+
+\[
+H^1(T_X)=\bigl(\Sym^6\C^2{}^*\oplus y\Sym^4\C^2{}^*\bigr)
+/\{v(B)+yv(A):v\in\mathfrak{gl}_2\}.
+\]
+
+Q₁=0なら `span(B₀₀,B₀₁,B₁₁)⊂{v(A):v(B)=0}` となる。B=0はAの根上のy=z=0でXを特異にするので除かれる。Bに三つ以上の異なる射影根があれば、その全てを固定するP¹のベクトル場は零であり、v(B)=0ならv=0となって矛盾。二根ならB=x₀^k x₁^{6−k}とでき、v(B)=0の空間は一次元だが、二階微分のspanは少なくとも二次元で矛盾。一根ならB=x₀⁶、v=(a x₀+b x₁)∂x₁なので、x₀⁴がspan(x₀A_x₁,x₁A_x₁)に入る必要がある。従ってA_x₁=λx₀³、A=λx₀³x₁+μx₀⁴となり、[0:1:0:0]が特異点となる。
+
+従って全滑らか点で `Hom_Aut(X)(Sym²H⁰(−K),H¹T)` は少なくとも一次元である。一般のδ₂の公式を対称性だけで決定したり、自己同型不変部分が零になる点を探して消滅を証明したりする方法は使えない。これらの共変候補と非消滅の新規性は未調査であり、実際のδ₂の全曲面公式とは区別する。
 
 **三様体への注意と未完了の候補。** n=3の二対象blockについて、Kuznetsov Theorem 8.9はd1でHH²=35・HH⁴=7、d2でHH²=20・HH⁴=1を与える。古典変形34・19次元との違いだけからPoisson制限の非零性を結論しない。d2のbivector接空間は6次元でJacobi錐の次元5とは異なる。
 
@@ -677,7 +760,7 @@ smooth properな有限窓dg代数Cでは、`HH=RHom_(C^e)(C,C)` が係数perfect
 
 ## 19. 優先する未解決点
 
-0. **曲面の残余圏とshadowの比較。** まず二次差δ₂を、tilting評価写像または低次数Hochschild–Serre乗法から求める。幾何化・粗射と一般ファイバーの二者択一は得たが、ρ_Ku=shと一般ファイバーのconstancyは未証明。
+0. **曲面の一般二次差公式と内在的乗法。** 巡回族でδ₂=Hessian/8、Fermat点の全テンソルとその近傍の全非零Poisson方向での二次非消滅を得た。一般曲面・全方向の明示公式、消滅または階数が変わる特殊locus、四次以上の比較は未解決。tilting評価写像の復元、全係数のHochschild–Serre乗法、既知の共変候補との比較を進める。n≥3の長い例外blockの比較は別問題として扱う。
 
 1. **全Mの被覆と大域成分。** 全可換locusを含む整な有限型開Uと、全Mのaffine有限表示対角は得た。Uの閉包と補集合、可換locusに接しない対象・成分の有無を調べ、全Mの代数性と全成分数へ進む。Uの開性と一分枝性から全Mの既約性を推論しない。
 2. **Poisson比較の開像・境界。** 有限正規化への開埋込み、最大有限基底開、次数1の全零切断上の五枚と四枚の欠落・形式分裂、次数2の全零切断上の欠落分岐点まで得た。次は中心分母・smooth proper開・Casimir Jacobianと照合して境界全体を具体化する。次数2は最高活性商の1+3模型を全係数空間へ引き戻した代数の正規性から調べ、全粗空間のファイバー長・平坦性を判定する。粗正規化のスタック引戻しの正規性と、特殊自己同型群Γ_Xによる境界安定化群も別途確認する。

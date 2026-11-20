@@ -1,6 +1,6 @@
 # 再現手順と検証範囲
 
-2026-11-20（JST） / v0.18
+2026-11-21（JST） / v0.19
 
 ## 組版
 
@@ -28,6 +28,10 @@ latexmk -norc -r .latexmkrc papers/nc-del-pezzo.tex
 make verify
 # 個別には
 python3 computations/verify_surface_kuznetsov.py
+python3 computations/verify_kuznetsov_quadratic_symmetry.py
+python3 computations/verify_degree_one_period_quadratic.py
+python3 computations/verify_degree_one_period_fibres.py
+python3 computations/verify_degree_two_period.py
 python3 computations/verify_formal_geometry.py
 python3 computations/verify_finite_families.py
 python3 computations/verify_cubic_top.py
@@ -74,11 +78,13 @@ Python 3の標準ライブラリのみを使用する。`n=2,...,8` と両次数
 
 ## 検証の状態
 
-今回（v0.18）はKuznetsov成分の二節の証明を作成し、Hochschild制限、tiltingのシフト・積、全通常Artin変形の復元、相対基底変更、同値bimoduleのétale性、Torelli入力による粗射の降下を相互に独立点検した。被覆対合による偶数次数の制約と、一般ファイバーの二者択一も点検した。δ₂の値、非可換Hochschild–Serre乗法、ρ_Ku=sh、および一般5・4枚のconstancyは未計算・未証明である。形式証明器は使用していない。
+今回（v0.19）は、有限群同変な標識付き古典復元、中央巡回被覆のrecollement、相対perfectへの制限、相対HPのHodge filtrationとGauss–Manin接続、楕円曲線の二次KSとの比較を独立に点検した。両次数の巡回族でHess/8となる二次差を計算し、Fermatの自己同型表現から全tensorと全非零方向での非消滅を得た。一般全係数のHessian公式と非可換Hochschild–Serre乗法は未計算である。形式証明器は使用していない。
 
-`python3 computations/verify_surface_kuznetsov.py` を実行し、一般位置の有理点配置、相対Hochschild複体のd¹d⁰=0、階数(d⁰,d¹)=(9,16),(8,15)、HH次元(1,0,8),(1,0,6)を厳密有理数で確認した。古典Jacobian環のHilbert係数も確認した。これは全変形の圏同値や非可換HS積の機械証明ではない。既存12本の全再実行は今回行っていない。
+新しい計算4本はPython 3標準ライブラリの整数・有理数演算で再現する。`verify_kuznetsov_quadratic_symmetry.py` は自然なPoisson線型化、有限群指標、二次テンソルの不変直線を検算する。`verify_degree_one_period_quadratic.py` は全α,β係数について、point四次式・I,J・特殊ファイバーの標識を保つMöbius変換・shadowのdepression・二次Hessian差を検算する。`verify_degree_one_period_fibres.py` はh=1の全point不変式のk²=−αへの降下と、五次逆方程式上のj非定数性をQ上のgcdおよび法101のEuclid証明書で確認する。`verify_degree_two_period.py` は二次jet、shadow固定例のjのh²係数94640、四次逆方程式上のj非定数性をQ上と法101で確認する。計算に使う既存の多項式演算をimportするため、関連ファイルを同じcomputations/に保つ。
 
-現行原稿v0.18は既存recipe `latexmk -norc -r .latexmkrc papers/nc-del-pezzo.tex` により244頁のPDFとSyncTeXの生成に成功した。最終ログにはLaTeXエラー、未解決参照・引用、欠落文字、overfull/underfull boxがなく、BibTeXの警告もない。表紙、関係する目次・Introductionの主定理、新第35・36節（196–208頁）、文献（241–244頁）の一覧画像と、新節の主要表示式・定理の拡大画像を確認した。今回、変更していない全頁の表示を再点検したとは扱わない。
+これらは多項式・有理式と有限群表現の厳密検算であり、Morita同値・周期比較・古典Torelliを機械的に証明するものではない。五次・四次の特殊化証明書は関数体上の非降下を証明するためのもので、その特定の有限hで全対象がsmooth proper開に入るとは主張しない。一般ファイバーの全残余圏の分離には、内在的な楕円固定曲線と非対角積の整性を用いた本文の証明を別に使う。
+
+v0.19の統合原稿について組版・最終参照点検は作業中。直前のv0.18では同じrecipeで244頁のPDFとSyncTeXを生成し、未解決参照・引用・欠落文字・box警告がないことを確認した。今回の組版結果と表示確認は完了後にこの段落を置き換える。
 
 既存の証明点検の対象は `finite_normalization_boundary.tex` であり、一般有限正規化・最大有限locus・粗零切断の逆像、次数1の正則不変量とmonic五次模型・零切断上の五枚・形式分裂、次数2のtrace不変量・接線素因子・符号二次体からの欠落分岐点を内部で独立に点検した。接線因子から古典係数空間への優勢性と、余接加群の支持の有限像によって全零切断へ結論を延ばす段階も確認した。正規化と粗射の基底変更を無条件に交換できない反例を含める。最高活性二係数商の形式模型1+3は研究ノートで証明し、全モジュライへの移送は未証明と区別した。Stacksの正規化・Zariski主定理・DVR特殊化・Hensel持上げの一次本文と、固定PoissonDPの全商表示・一般自己同型群を照合した。
 

@@ -1,6 +1,6 @@
 # 文献・依存関係・新規性の範囲
 
-2026-11-20（JST） / v0.18。完全な書誌は [references.bib](../references.bib)。以下は使用する一次資料の具体的な箇所、現行論文での適用とその限界を示す。外部論文のPDFは収録しない。
+2026-11-21（JST） / v0.19。完全な書誌は [references.bib](../references.bib)。以下は使用する一次資料の具体的な箇所、現行論文での適用とその限界を示す。外部論文のPDFは収録しない。
 
 ## 1. 他研究からの数学的入力
 
@@ -59,7 +59,7 @@ Plücker座標環の正規性・Cohen–Macaulay性にはSvanes (1973) とDe Con
 
 ### Kuznetsov成分：曲面の変形、局所幾何化、古典Torelli
 
-2026-11-20に以下の一次本文と適用条件を確認した。主証明はkuznetsov_surface.texとkuznetsov_relative.tex。
+2026-11-20〜21に以下の一次本文と適用条件を確認した。主証明はkuznetsov_surface.tex、kuznetsov_relative.tex、kuznetsov_shadow_obstruction.tex、kuznetsov_cyclic_fibres.tex。
 
 | 一次資料と参照箇所 | この研究で使う内容と限界 |
 |---|---|
@@ -69,11 +69,19 @@ Plücker座標環の正規性・Cohen–Macaulay性にはSvanes (1973) とDe Con
 | Lowen, *Obstruction theory for objects in abelian and derived categories*, Comm. Algebra 33 (2005), 3195–3223, [math/0407019v1](https://arxiv.org/abs/math/0407019), Theorem B・Theorem 6.10 | Abel変形での導来対象の持上げ。有限coflat次元の定式化と有限Tor次元の双対を区別し、perfect対象に用いる。自己Ext²の障害とExt¹のtorsor |
 | Keller–Lowen, *On Hochschild cohomology and Morita deformations*, IMRN 2009(17), 3221–3235, DOI [10.1093/imrn/rnp050](https://doi.org/10.1093/imrn/rnp050), [著者掲載本文](https://win.uantwerpen.be/~wlowen/pdf%20papers/KellerLowenHochDefo.pdf) | 一般のHH²は非曲率Morita変形だけでは捉えられないという制約。今回はtilting対象を実際に持ち上げ、通常代数へ還元する |
 | Perry, *Noncommutative homological projective duality*, Adv. Math. 350 (2019), 877–972, DOI 10.1016/j.aim.2019.04.052, [1804.00132v2](https://arxiv.org/abs/1804.00132), Lemmas 4.10・4.15(4) | 線形圏のsmooth proper性の基底変更と許容半直交成分への保存。全対象の有限Extだけでsmoothnessを結論していない |
-| Lin–Rampazzo–Zhang, *Categorical reconstruction of del Pezzo surfaces: Hochschild–Serre algebras and spinor modifications*, [2609.10344v1](https://arxiv.org/abs/2609.10344), 2026-09-09、Theorem 1.2・§2.3・Propositions 3.4–3.5 | 次数≤4の滑らかな複素古典del Pezzo曲面はenhanced O^perpから復元される。古典曲面の一意性の入力であり、非可換族の幾何化の存在は別に証明。可換weighted MFのHS積からJacobian関係を復元する公式は、次の計算目標に用いる |
+| Lin–Rampazzo–Zhang, *Categorical reconstruction of del Pezzo surfaces: Hochschild–Serre algebras and spinor modifications*, [2609.10344v1](https://arxiv.org/abs/2609.10344), 2026-09-09、Theorem 1.2・§2.3・Propositions 3.4–3.5 | 次数≤4の滑らかな複素古典del Pezzo曲面はenhanced O^perpから復元される。古典曲面の一意性の入力であり、非可換族の幾何化の存在は別に証明。可換weighted MFのHS積からJacobian関係を復元する公式は、一般全係数での計算目標に用いる |
 
-基本公式、blow-up、tilting変形、perfect対象のモジュライ、古典Torelliは先行研究の結果である。本稿では、全O同値を含む既存の非可換族で相対直交圏を構成し、点配置代数で全通常Artin変形を復元し、同値bimoduleの空間からétale局所的な古典族・粗射を得る。その独立した新規性は未確認である。一般ファイバーの全同値／全相異の二者択一は、既存のS₅・S₄モノドロミーとこの粗射の等化子を組み合わせた帰結である。
+| Keller, *On differential graded categories*, ICM Madrid 2006, Vol. II, 151–190, [刊行本文](https://www.imj-prg.fr/wp-content/uploads/2020/prix/keller2006.pdf), §5.1、Theorem 5.2(a) | mixed complexのMorita不変性・加法性。係数基底Rに対する相対HPに適用し、例外成分の奇数部分を除く。絶対HP(-/C)と混同しない |
+| Elagin, *On equivariant triangulated categories*, [arXiv:1403.7027v2](https://arxiv.org/abs/1403.7027v2), Theorem 7.1 | 有限群位数が可逆なときのAbel圏と導来圏の同変化の比較。coherentな作用とdg模型を先に構成する |
+| Sheridan, *Formulae in noncommutative Hodge theory*, J. Homotopy Relat. Struct. 15 (2020), 249–299, DOI 10.1007/s40062-019-00251-2, [著者掲載PDF](https://www.pure.ed.ac.uk/ws/portalfiles/portal/144440775/1510.03795.pdf), Theorem 3.32、Corollary 4.13 | cyclic homologyにおけるMorita不変性とGetzler接続の自然性。接続とHodge filtrationの両方を残し、特殊ファイバー恒等という標識を利用する |
+| Tu, *A remark on the B-model Comparison of Hodge structures*, [arXiv:2404.13805v1](https://arxiv.org/html/2404.13805v1), Theorem 0.1(3)、Lemma 0.1 | 幾何Gauss–ManinとGetzler接続の族での比較。楕円曲線のTodd補正は1。滑らかな形式基底上で比較し、Artin商単独の水平自明化は使わない |
+| Fisher, *On binary quartics and the Cassels–Tate pairing*, Res. Number Theory 8, 74 (2022), [DOI 10.1007/s40993-022-00376-z](https://link.springer.com/article/10.1007/s40993-022-00376-z), §2、(1)–(2) | 四次式の不変量I,JとJacobianのWeierstrass式。marked二次類の同定は不変量だけに依存せず、恒等へ還元するMöbius変換も直接記述する |
 
-LRZの低次数HS積は**可換**重み付き多項式環上のgraded matrix factorizationsとdiagonalに依存する。非可換AS環上の積やPBW完全対称化との乗法互換性は同論文に含まれない。従ってρ_Ku=shと同じPoissonファイバー上の残余圏のconstancyは未証明である。二次差テンソル・具体的な関係空間・三様体の未完了候補は研究ノートの該当項目に保持する。
+基本公式、blow-up、tilting変形、perfect対象のモジュライ、同変化、巡回ホモロジーと接続、古典Torelliは先行研究の結果である。本稿はそれらを全O同値を含む具体的非可換族に適用する。中央巡回被覆の分解はstratifying idealを直接構成し、非可換・weightedの場合へ他論文の定理を無条件に拡張していない。巡回族のHess/8、Fermat全tensor、一般ファイバーの分離は本稿の具体計算と既存原理の組合せであり、包括的な優先権確認は未了である。
+
+LRZの低次数HS積は**可換**重み付き多項式環上のgraded matrix factorizationsとdiagonalに依存する。非可換AS環上の積やPBW完全対称化との乗法互換性は同論文に含まれない。今回の非保存性の証明は、その未確認の乗法互換性を使わず、標識付き同変周期と楕円曲線の局所Torelliで行う。非可換HS積、一般の全方向二次公式、三様体の未完了候補は研究ノートに保持する。
+
+Kuを固定したgluing模型には Auroux–Katzarkov–Orlov, *Mirror symmetry for del Pezzo surfaces: vanishing cycles and coherent sheaves*, [著者PDF](https://homepage.mi-ras.ru/~orlov/papers/hmsratl.pdf), §2.1・§2.3 の有限代数模型を用いる。今回の中央超曲面presentationへの移送は未実行であり、一般二次差の証明とはしない。次数2のHessian共変候補の非消滅には、Eisenbud–Ulrich, *Duality and socle generators for residual intersections*, J. Reine Angew. Math. 756 (2019), 183–226, Appendix A, Theorem A.5（[著者稿](https://www.math.purdue.edu/~bulrich/papers/Duality-and-Socle-180119.pdf) Theorem 8.5）のArtin完全交叉のJacobian socle定理を使う。これは候補の性質であり、実際のδ₂との一般同定ではない。
 
 ### 逆被覆の分岐とモノドロミー
 

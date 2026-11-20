@@ -1,0 +1,626 @@
+% !TeX root = ../nc-del-pezzo.tex
+\section{巡回対称性による二次差の計算とshadow非保存}
+\label{sec:kuznetsov-shadow-obstruction}
+
+本節は曲面 $n=2$ に限る。
+第\ref{sec:kuznetsov-surface}節の二次差を，中央変数を一つ持つ具体的な族で計算する。
+有限巡回群で同変化すると，元の有理曲面の残余圏には現れなかった
+楕円曲線の奇数Hodge構造が現れる。
+その変形を使うことにより，中心方程式の完全対称化とカテゴリー的な古典復元が
+実際に異なることを示す。
+以下の計算は，古典的なHochschild--Serre積の公式を
+非可換環へそのまま適用するものではない。
+
+\subsection{標識付きMorita同値の有限群同変化}
+
+\begin{lemma}[古典復元と有限群作用]
+\label{lem:ku-finite-equivariant-companion}
+$R$ を剰余体 $\C$ の局所Artin環とし，$\mathcal Q_R$ を古典曲面 $X$ の
+本稿の非可換変形とする。有限群 $G$ が $R$-線型に作用し，構造対象を保つとする。
+特殊ファイバーの作用は $X$ の幾何学的な作用から来ると仮定する。
+定理\ref{thm:surface-ku-formal}で復元した $X$ の古典変形 $Y_R$ には，
+特殊ファイバーの作用を延長する $G$-作用が一意に存在する。
+さらに特殊ファイバーで恒等となるMorita同値
+\[
+ \operatorname{Ku}(\mathcal Q_R)\simeq\operatorname{Ku}(Y_R)
+\]
+を，既定の特殊ファイバーの同変構造を保つ $G$-同変同値にできる。
+これらの選択はArtin商の塔に沿って両立させられる。
+\end{lemma}
+\begin{proof}
+古典変形と残余圏変形の同値類関手の同型は，特殊ファイバーの自己同型について自然である。
+従って各 $g\in G$ に対し，$Y_R$ の変形類は $g$ で不変であり，
+特殊ファイバーの $g$ を持ち上げる同型が存在する。
+$H^0(X,T_X)=0$ なので，還元で恒等な $Y_R$ の自己同型はない。
+小拡大について反復すれば，この持上げの一意性と群則が従う。
+
+残余圏の同値を $F$ とする。
+$Fg$ と $gF$ を与える二つのperfect bimoduleは同じ特殊ファイバーを持つ。
+その相対Hom複体は $R$-perfectであり，特殊ファイバーのコホモロジーは
+定理\ref{thm:surface-ku-hochschild}により次数0と2だけにあり，次数0は $\C$ である。
+局所環上の有限自由複体で可縮な単元対を消すと，次数0と2だけの最小複体になる。
+従ってその次数0コホモロジーは階数1の自由 $R$-加群で，基底変更と両立する。
+特殊ファイバーで指定した自然同型を持ち上げられ，そのconeの還元は零だから，
+導来Nakayamaにより持上げも同型である。
+
+合成のcoherenceの誤差は $\operatorname{Aut}(F)=R^\times$ の2-cocycleである。
+還元の同変構造を既に固定したため，値は $1+\mathfrak m_R$ に入る。
+有限対数により $1+\mathfrak m_R\simeq\mathfrak m_R$ であり，
+$|G|$ は可逆なので平均化から $H^2(G,1+\mathfrak m_R)=0$ となる。
+従って自然同型を補正してcoherenceを満たせる。
+同じ議論を各小拡大で，相対的な還元条件を固定して行う。
+ここでは一般の $H^2(G,\C^\times)$ の消滅を主張していない。
+\end{proof}
+
+\subsection{中央巡回被覆の分解と楕円曲線の周期}
+
+\begin{lemma}[中央元に対する巡回被覆の分解]
+\label{lem:ku-central-cyclic-sod}
+$R$ をNoetherな可換 $\C$-代数，$A$ を $R$ 上次数別平坦な
+左右Noether次数付き代数，$\Omega\in A_m$ を中央な普遍的左右非零因子とし，
+\[
+ C=A[u]/(u^m+\Omega),\qquad \deg u=1,\qquad D=A/(\Omega)
+\]
+と置く。$u$ は $A$ と可換する。
+$\mu_m$ は $u$ を標準指標で，$A$ を自明に作用させる。
+本稿の相対有限表示・coherent tailsの仮定の下で
+\begin{equation}\label{eq:ku-central-cyclic-sod}
+ D^b(\operatorname{qgr}C)^{\mu_m}
+ =\left\langle
+    D^b(\operatorname{qgr}D)^{\oplus(m-1)},
+    D^b(\operatorname{qgr}A)
+   \right\rangle
+\end{equation}
+という半直交分解がある。最初の記号は $m-1$ 個の順序付き成分を表し，
+それらが互いに直交することまでは意味しない。
+構成は本稿で許される係数変更と両立し，
+係数基底上perfectな対象からなる相対perfect部分にも制限できる。
+\end{lemma}
+\begin{proof}
+$\Lambda=C\#\mu_m$ の指標idempotentを $e_0,\ldots,e_{m-1}$ とし，$e=e_0$ とする。
+$e\Lambda e=A$ で，各cornerは適当な次数shiftを持つ $Au^j$ である。
+積の写像
+\[
+ \Lambda e\otimes_A e\Lambda\longrightarrow\Lambda e\Lambda
+\]
+は各cornerで $1$ または $-\Omega$ の乗算になる。
+従って $\Omega$ の正則性により単射であり，定義から全射である。
+$\Lambda e,e\Lambda$ は $A$ 上有限自由なので高いTorは零である。
+商 $Q=\Lambda/\Lambda e\Lambda$ は，$D$ を対角成分とする
+$m-1$ 頂点の三角行列環である。矢の内部次数は頂点のshiftで取り除ける。
+
+このstratifying idealによるrecollementを，まず有界coherent graded加群で作る。
+実際，ideal $\Lambda e\otimes_Ae\Lambda$ は左・右の $\Lambda$-加群として有限射影であり，
+短完全列から $Q$ の両側の射影次元は高々1である。
+従ってテンソル・Homによるrecollementの関手は有界coherent圏を保つ。
+有限個の次数shiftだけを使うためtorsion部分圏も保ち，tailsの商へ降下する。
+$Q$ の三角分解を反復すれば式\eqref{eq:ku-central-cyclic-sod}を得る。
+ここでは特異なaffine cone $\operatorname{Spec}D$ 上のperfect加群だけから
+全ての $\operatorname{qgr}D$ を復元するという推論は使っていない。
+同変Abel圏と導来圏の同変化の比較は
+\cite[Theorem~7.1]{Elagin2015}による。
+上で用いた有限自由加群，射影加群および長さ1の解消は係数変更と両立する。
+従って各関手は係数基底上の有限Tor振幅を保ち，相対perfect部分にも同じ分解を与える。
+非正則なArtin基底上で全ての有界coherent対象が相対perfectであるとは仮定していない。
+\end{proof}
+
+本節で使う $A$ は重み $(1,1,2)$ または $(1,2,3)$ の3次元AS正則代数で，
+$m$ はそれぞれ4または6である。
+augmentationの有限自由解消とAS--Gorenstein双対性から
+$D^b(\operatorname{qgr}A)$ は $m$ 個の標準例外対象で生成される。
+中心商 $D$ は，第\ref{sec:elliptic-relative}節および
+第\ref{sec:degree-one-integral-curve}節の相対twisted homogeneous coordinate ringであり，
+可換点近傍で $D^b(\operatorname{qgr}D)\simeq D^b(E)$ となる滑らかな楕円曲線族 $E$ を持つ。
+この同定は解消したpoint curveを用い，可換点での二重対角線を曲線と同一視しない。
+
+\begin{lemma}[同変残余圏による楕円変形の検出]
+\label{lem:ku-equivariant-elliptic-period}
+前段落の族について，$C$ の残余圏の古典復元を $Y$ とする。
+特殊ファイバーでの標識を固定し，$Y$ を $\mu_m$-同変に復元する。
+$Y$ が古典巡回表示を持つとし，その $u=0$ の楕円曲線を $E_Y$ と書く。
+この巡回表示の存在は，以下の各次数の定理で同変反標準環から確認する。
+このとき，解消したpoint curve $E$ と $E_Y$ の標識付きHodge周期は一致する。
+特に，両曲線の一次変形が零の一変数族では，二次Kodaira--Spencer類が等しい。
+\end{lemma}
+\begin{proof}
+滑らかな形式基底 $R=\C[[t_1,\ldots,t_s]]$ へ引き戻して議論する。
+用いるdg圏は相対perfect圏であり，巡回ホモロジーは $R$ に対する相対理論
+$HP(-/R)$，接続は $R/\C$ 方向のGetzler接続である。
+前補題により半直交分解はこの相対perfect圏へ制限できる。
+補題\ref{lem:ku-finite-equivariant-companion}により
+$\operatorname{Ku}(C)^{\mu_m}\simeq\operatorname{Ku}(Y)^{\mu_m}$ である。
+構造対象の同変化は $m$ 個の例外対象からなる $\operatorname{Rep}(\mu_m)$ なので，
+各成分の相対巡回ホモロジーは $\operatorname{Perf}(R)$ のものに等しく，
+これを除いても奇数部分は変わらない。
+補題\ref{lem:ku-central-cyclic-sod}と $\operatorname{qgr}A$ の例外生成から，
+従って両辺の奇数部分はそれぞれ
+\begin{equation}\label{eq:ku-equivariant-odd-period}
+ H^1_{\mathrm{dR}}(E)^{\oplus(m-1)},
+ \qquad H^1_{\mathrm{dR}}(E_Y)^{\oplus(m-1)}
+\end{equation}
+に対応する。
+ここでは2周期化の変数の表示を省略し，
+Hodge filtrationとGauss--Manin接続を共に保持する。
+mixed complexの加法性には\cite[Section~5.1, Theorem~5.2(a)]{KellerDG2006}，
+Morita不変性と接続の自然性には
+\cite[Theorem~3.32, Corollary~4.13]{Sheridan2020}を用いる。
+幾何Gauss--Manin接続との比較は\cite[Theorem~0.1(3)]{Tu2024}であり，
+楕円曲線ではTodd補正は1である。
+幾何側では滑らかな古典変形の解析的局所普遍族にこの比較を適用し，
+形式完備化へ引き戻す。
+圏論側では平坦な鎖模型に接続の式を連続に適用する。
+同値はArtin商の塔に沿って両立させて取るが，
+接続と水平自明化そのものはこの滑らかな形式基底上で比較する。
+
+特殊ファイバーでは同値は恒等であり，二つの巡回分解と曲線の同定も同じものに選ぶ。
+従って式\eqref{eq:ku-equivariant-odd-period}の比較は，標識付きのflat bundleとして恒等に還元する。
+水平自明化の下では恒等であるから，Hodge部分束のグラフが一致する。
+その二次係数は，各直和因子上で楕円曲線の二次Kodaira--Spencer類による縮約である。
+零でない正則1形式 $\omega$ による
+\[
+ H^1(E_0,T_{E_0})\xrightarrow{\ \lrcorner\omega\ }H^1(E_0,\OO_{E_0})
+\]
+は同型なので，二次類は等しい。
+同じ局所Torelliの議論を最初に異なる係数へ適用すれば，標識付き形式周期全体の一致を得る。
+単に $HH$ の次元や，接続を忘れたfiltered bundleの同型を使っているのではない。
+\end{proof}
+
+\subsection{次数2の巡回族における明示的な二次差}
+
+\begin{theorem}[次数2の二次差]
+\label{thm:ku-degree-two-quadratic-obstruction}
+\[
+ X_{\alpha,\beta}:
+ \frac{z^2}{2}+f(x,y)+u^4=0,
+ \qquad f(x,y)=\frac\alpha4(x^4+y^4)+\beta x^2y^2,
+ \qquad \alpha(\alpha^2-4\beta^2)\ne0
+\]
+とする。$[x,y]=hz$ を与えるPoisson方向を $\pi$ と書く。
+定義\eqref{eq:surface-ku-quadratic-discrepancy}の二次差は
+\begin{equation}\label{eq:ku-degree-two-hessian-obstruction}
+ \delta_{2,X}(\pi,\pi)
+  =\frac18[\det\operatorname{Hess}_{x,y}(f)]
+  =\frac98(\alpha^2-4\beta^2)[x^2y^2]
+  \ne0
+  \quad\text{in }H^1(X,T_X).
+\end{equation}
+ここで角括弧は反標準方程式のJacobian商による変形類を表す。
+\end{theorem}
+\begin{proof}
+第\ref{sec:elliptic-degree-two-finite}節の $A_{\alpha,\beta,h}$ と，
+$z^2$ 係数を $1/2$ としたその最高活性中心元 $\Omega$ を使い，
+\[
+ C_h=A_{\alpha,\beta,h}[u]/(\Omega+u^4)
+\]
+と置く。$u$ は中央で，$\mu_4$ は $u\mapsto iu$ と作用する。
+全方向族のsmooth properな開近傍に制限すれば，本稿の実際の非可換del Pezzo族である。
+
+$q=h^2$ とし，
+\[
+ a=1+\frac23\beta q,\qquad b=-2+\frac23\beta q,\qquad c=\alpha q
+\]
+と置く。式\eqref{eq:elliptic-point-determinant}を第二射影の座標について二次式と見る。
+その判別式は
+\begin{equation}\label{eq:ku-degree-two-point-discriminant}
+ D(t)=4a^2bc(1+t^4)
+       +\{(c^2-b^2)^2-4a^2(c^2+b^2)\}t^2.
+\end{equation}
+$-D/(32h^2)$ を
+$\alpha_E(1+t^4)/4+\beta_Et^2$ と書けば，
+解消したpoint curveはこの二元四次式の二重被覆であり，
+特殊ファイバーの同定は既存の $z=\delta/h$ と一致する。
+展開すると
+\begin{equation}\label{eq:ku-degree-two-point-jet}
+ \alpha_E=\alpha+\alpha\beta h^2+O(h^4),\qquad
+ \beta_E=\beta+\frac{3\alpha^2-4\beta^2}{8}h^2+O(h^4).
+\end{equation}
+
+一方，中心元の完全対称化を
+$z^2/2+\alpha_{\rm sh}(x^4+y^4)/4+\beta_{\rm sh}x^2y^2$ と書く。
+第\ref{sec:shadow-top-inverse}節の次数2の中心式で $z'=hz$ とし，
+中心元を $h^2$ で割って元の規格化へ戻すと
+\begin{equation}\label{eq:ku-degree-two-shadow-jet}
+ \alpha_{\rm sh}=\alpha-2\alpha\beta h^2+O(h^4),\qquad
+ \beta_{\rm sh}=\beta-\frac{3\alpha^2-4\beta^2}{4}h^2+O(h^4).
+\end{equation}
+これらの式は $h=0$ で正則な有理式の展開であり，
+非零 $h$ の表示をそのまま零へ代入しているのではない。
+
+復元曲面の $\mu_4$-同変な反標準環では，degree~1を $x,y,u$，
+degree~2の新生成元を $z$ として，作用を $u\mapsto iu$ に合わせられる。
+唯一の関係は
+$a_0z^2+zq_2(x,y)+f_4(x,y)+c_0u^4$ であり，
+同変な $z$ の平行移動と単元の平方根・四乗根によって
+$z^2/2+f_4(x,y)+u^4$ に正規化できる。
+滑らかな二元四次式の $\operatorname{GL}_2$-sliceにより，
+$f_4$ は形式的に対称形へ戻せる。
+この巡回対称性を保つ曲面の変形接空間は
+\[
+ H^1(X,T_X)^{\mu_4}
+ \simeq\bigl(\C[x,y]/(f_x,f_y)\bigr)_4
+\]
+である。二つの三次偏導関数は正則列なので，右辺は1次元である。
+これは $u=0$ の楕円曲線と次数2線束の変形接空間でもあり，
+線束を忘れる射は $H^1(E_0,T_{E_0})$ への同型となる。
+実際，線束のAtiyah完全列の連結写像
+$H^0(T_{E_0})\to H^1(\OO_{E_0})$ は次数2の第一Chern類による非零な同型である。
+従って楕円曲線への制限は，巡回不変な曲面の二次変形類を一意に決める。
+具体的に $\lambda=4\beta/\alpha$ とすると，
+$x^2y^2$ の変形類は $\lambda^2\ne4$ で非零である。
+偶数部分のJacobian関係 $\alpha x^4+2\beta x^2y^2$，
+$\alpha y^4+2\beta x^2y^2$ からこの非消滅を直接確認できる。
+
+補題\ref{lem:ku-equivariant-elliptic-period}により，古典復元の二次変形類は
+式\eqref{eq:ku-degree-two-point-jet}の類に等しい。
+式\eqref{eq:ku-degree-two-shadow-jet}との差は
+\[
+ \frac34\alpha\beta(x^4+y^4)
+       +\frac{9\alpha^2-12\beta^2}{8}x^2y^2
+   =\frac18\det\operatorname{Hess}_{x,y}(f).
+\]
+Jacobian商で $x^4+y^4=-(4\beta/\alpha)x^2y^2$ を代入すれば
+式\eqref{eq:ku-degree-two-hessian-obstruction}を得る。
+両射の一次微分は一致するので，同じ二次接ベクトルを両方へ加えても差は変わらない。
+従ってこの差は，shadowを固定する形式路に変更しても
+定義された $\delta_2(\pi,\pi)$ そのものである。
+\end{proof}
+
+\subsection{次数1の巡回族における明示的な二次差}
+
+\begin{theorem}[次数1の二次差]
+\label{thm:ku-degree-one-quadratic-obstruction}
+\[
+ X_{\alpha,\beta}:
+ \frac{z^2}{2}+f(x,y)+u^6=0,
+ \qquad f(x,y)=\frac{y^3}{3}+\alpha x^4y+\beta x^6,
+ \qquad \Delta=4\alpha^3+9\beta^2\ne0
+\]
+とする。$[x,y]=hz$ を与えるPoisson方向を $\pi$ と書く。
+二次差は
+\begin{equation}\label{eq:ku-degree-one-hessian-obstruction}
+ \delta_{2,X}(\pi,\pi)
+  =\frac18[\det\operatorname{Hess}_{x,y}(f)]
+  =\left[\frac{15}{2}\beta x^4y-5\alpha^2x^6\right]
+  \ne0.
+\end{equation}
+\end{theorem}
+\begin{proof}
+第\ref{sec:elliptic-degree-one-finite}節の重み $(1,2,3)$ の代数と中心元を使い，
+$C_h=A_h[u]/(\Omega_h+u^6)$ を作る。
+$\mu_6$ の作用は $u$ の回転である。
+第\ref{sec:degree-one-integral-curve}節の解消したpoint curveは，
+$k^2=-\alpha$，$\gamma=6\beta-4k^3$，$a=1+kh^2$，$c=-2$ を用いた
+式\eqref{eq:degree-one-integral-point-curve}で与えられる。
+これを $q$ について二次式と見た判別式を $D(t)$ とすると，
+\begin{align}
+ -\frac{D(t)}{12h^2}
+ ={}&2t^3+6kt^2+\gamma\notag\\
+ &-\frac{h^2}{12}
+  (t^4+4kt^3+60k^2t^2-28\gamma t-28k\gamma)+O(h^4).
+ \label{eq:ku-degree-one-point-quartic-jet}
+\end{align}
+二元四次式 $at^4+bt^3+ct^2+dt+e$ の不変式を
+\[
+ I=12ae-3bd+c^2,\qquad
+ J=72ace+9bcd-27ad^2-27b^2e-2c^3
+\]
+とする。これらの正規化と対応するJacobianのWeierstrass表示は
+\cite[Section~2, equations~(1)--(2)]{Fisher2022}による。
+この式では
+\[
+ I=-36\alpha-90\beta h^2+O(h^4),\qquad
+ J=-648\beta+1080\alpha^2h^2+O(h^4).
+\]
+特殊ファイバーのWeierstrass規格化に合わせた代表を取れば，point curveの二次類は
+\begin{equation}\label{eq:ku-degree-one-point-jet}
+ \alpha_E=\alpha+\frac52\beta h^2+O(h^4),\qquad
+ \beta_E=\beta-\frac53\alpha^2h^2+O(h^4)
+\end{equation}
+で与えられる。
+この代表が特殊ファイバーの標識を保つことも直接確認する。
+$s=h^2$ とし，式\eqref{eq:ku-degree-one-point-quartic-jet}の右辺を $P(t)$ と書く。
+恒等に還元するM\"obius変換
+$t=v/(1+sv/24)$ と二重被覆座標の対応する変更を行うと，
+\[
+ (1+sv/24)^4P\!\left(\frac{v}{1+sv/24}\right)
+ =\left(2+\frac{ks}{6}\right)v^3
+ +(6k-5k^2s)v^2+\frac{5\gamma}{2}sv
+ +\gamma+\frac{7k\gamma}{3}s+O(s^2).
+\]
+これに $1-ks/12$ を掛け，$v=Y-k+(11/12)k^2s$ と置く。
+特殊ファイバーの既定の $y=t+k$ に合わせると，得られるWeierstrass係数は
+\[
+ \widetilde\alpha
+   =\alpha+\left(\frac52\beta-\frac{\alpha k}{6}\right)s+O(s^2),
+ \qquad
+ \widetilde\beta
+   =\beta+\left(-\frac53\alpha^2-\frac{\beta k}{4}\right)s+O(s^2).
+\]
+さらに $\eta=1+ks/24$ として
+$(\widetilde\alpha,\widetilde\beta)$ を
+$(\eta^4\widetilde\alpha,\eta^6\widetilde\beta)$ へ変更すれば，
+式\eqref{eq:ku-degree-one-point-jet}を得る。
+この尺度変更も恒等に還元するため，標識付き変形類は変わらない。
+
+shadow側には式\eqref{eq:degree-one-shadow-top-center}を使う。
+$y'=h^2y$，$z'=h^3z$，$\alpha'=\alpha h^4$，$\beta'=\beta h^6$ として
+$h=1$ の表示へ移し，中心元を $h^6$ で割って戻す。
+その後 $y^2$ 項を消すと
+\begin{equation}\label{eq:ku-degree-one-shadow-jet}
+ \alpha_{\rm sh}=\alpha-5\beta h^2+O(h^4),\qquad
+ \beta_{\rm sh}=\beta+\frac{10}{3}\alpha^2h^2+O(h^4).
+\end{equation}
+表示の分母は $h=0$ で単元である。
+
+復元曲面の $\mu_6$-同変な重み付き反標準表示では，
+同変な固有生成元を選ぶと，$\mu_6$-不変な関係式において
+$u$ を含む単項式は $u^6$ だけである。
+$z$ の平方完成と $y$ の二次項の除去により，
+$z^2/2+y^3/3+\alpha_Rx^4y+\beta_Rx^6+u^6$ の形に戻せる。
+残る尺度変更は $(\alpha_R,\beta_R)$ に重み $(4,6)$ で作用する。
+従って巡回不変な変形接空間は
+$\C^2/\C(4\alpha,6\beta)$ で1次元である。
+$u=0$ の楕円曲線と次数1線束の変形もこの表示で与えられ，
+次数1線束のAtiyah完全列から，線束を忘れる射は
+$H^1(E_0,T_{E_0})$ への同型になる。
+補題\ref{lem:ku-equivariant-elliptic-period}により，
+古典復元の二次類は式\eqref{eq:ku-degree-one-point-jet}の類である。
+式\eqref{eq:ku-degree-one-shadow-jet}との差を取ると，
+$(\delta\alpha,\delta\beta)=((15/2)\beta,-5\alpha^2)$ となる。
+\[
+ \det\operatorname{Hess}_{x,y}(f)
+ =24\alpha x^2y^2+60\beta x^4y-16\alpha^2x^6
+\]
+とJacobian関係 $y^2=-\alpha x^4$ から
+式\eqref{eq:ku-degree-one-hessian-obstruction}の表示を得る。
+この変形方向が尺度方向 $(4\alpha,6\beta)$ に入るための行列式は
+\[
+ 6\beta\delta\alpha-4\alpha\delta\beta
+   =5(4\alpha^3+9\beta^2)=5\Delta
+\]
+であり，零でない。
+従って巡回不変変形の中で非自明である。
+有限群の不変部分を取る操作は完全なので，曲面の全変形空間でも非自明である。
+\end{proof}
+
+\subsection{Fermat曲面の全二次テンソルと全方向での非消滅}
+
+\begin{proposition}[Fermat曲面の二次差]
+\label{prop:ku-fermat-full-quadratic-tensor}
+次の二曲面を考える：
+\[
+ X_2:\quad z^2/2+x_0^4+x_1^4+x_2^4=0,
+ \qquad
+ X_1:\quad z^2/2+y^3/3+x_0^6+x_1^6=0.
+\]
+次数2のPoisson方向を $[x_i,x_j]=p_{ij}z$ による $P=(p_{01},p_{02},p_{12})$，
+次数1のPoisson方向を $[x_i,y]=D_i z$ による $D=(D_0,D_1)$ と書く。
+このとき
+\begin{align}
+ \delta_{2,X_2}(P,P)
+   &=18\sum_{i<j}p_{ij}^2[x_i^2x_j^2],
+       \label{eq:ku-fermat-degree-two-tensor}\\
+ \delta_{2,X_1}(D,D)
+   &=\frac{15}{2}\bigl(D_0^2[x_0^4y]+D_1^2[x_1^4y]\bigr).
+       \label{eq:ku-fermat-degree-one-tensor}
+\end{align}
+従って混合項は零である。
+$\Sym^2H^0(-K_X)\to H^1(T_X)$ としての階数はそれぞれ3，2であり，
+両曲面とも任意の非零Poisson方向 $\pi$ に対して
+$\delta_{2,X}(\pi,\pi)\ne0$ となる。
+\end{proposition}
+\begin{proof}
+\textbf{自然な線型化。}
+次数2では $x'=Ax,z'=bz$ に対し，係数と一次交換子は
+\[
+ f'=b^2f\circ A^{-1},\qquad
+ P'=b^{-1}(\wedge^2A)P
+\]
+と変換する。
+従ってPoisson空間を重み1の表示と単純に同一視してはならず，
+$\wedge^2V\simeq V^*\otimes\det V$ の行列式因子と $b^{-1}$ を保持する。
+次数1では $x'=Ax,y'=cy,z'=bz$，$b^2=c^3$ に対し
+\[
+ A_4'=(b^2/c)A_4\circ A^{-1},\qquad
+ A_6'=b^2A_6\circ A^{-1},\qquad
+ D'=(c/b)AD.
+\]
+最後の二つのPoisson変換則は，表示した交換子を変換するだけで得られる。
+重み付きスカラー，すなわち射影曲面上で恒等な変換は，これらの表現に自明に作用する。
+
+\textbf{次数2の指標。}
+$X_2$ の自己同型群には
+\[
+ G_2=\bigl((\mu_4^3\times\mu_2)/\mu_4\bigr)\rtimes\mathfrak S_3,
+ \qquad
+ \lambda\longmapsto(\lambda,\lambda,\lambda;\lambda^2)
+\]
+が作用する。
+これは実際に全自己同型群である。
+反標準環により任意の自己同型は $x\mapsto Ax,z\mapsto bz+q_2(x)$ と書け，
+方程式の $z$ 一次項から $q_2=0$ を得る。
+$f(Ax)=b^2f(x)$ と
+$\det\operatorname{Hess}(f)=1728x_0^2x_1^2x_2^2$ から，
+$A$ は三つの座標直線を置換するmonomial行列である。
+重み付きスカラーで規格化すれば上記の群となり，位数は192である。
+
+古典接空間のJacobian表示は
+\[
+ H^1(T_{X_2})=
+ \bigl(\C[x_0,x_1,x_2]/(x_0^3,x_1^3,x_2^3)\bigr)_4.
+\]
+指数が $(2,2,0)$ および $(2,1,1)$ の置換である六単項式が基底をなす。
+対角元 $(a_0,a_1,a_2;b)$ に対し，$x^\alpha$ の接指標は
+$b^2\prod a_i^{-\alpha_i}$，$p_{ij}$ の指標は $a_ia_j/b$ である。
+$\Sym^2P$ の単項式の $a_i$ 指数を $\beta_i$ とすると，
+指標が一致する条件は $\alpha_i+\beta_i\equiv0\pmod4$ である。
+従って可能な写像は
+\[
+ p_{ij}^2\longmapsto[x_i^2x_j^2]
+\]
+の三つだけであり，異なるPoisson基底の積からの写像はない。
+$\mathfrak S_3$ がこれら三つを推移的に置換し，外積の符号は二乗で消えるから，
+不変テンソル空間は一次元である。
+
+\textbf{次数1の指標。}
+同様に全自己同型群は
+\[
+ G_1=\bigl((\mu_6^2\times\mu_3\times\mu_2)/\mu_6\bigr)
+       \rtimes\mathfrak S_2,
+ \qquad
+ \lambda\longmapsto(\lambda,\lambda;\lambda^2;\lambda^3)
+\]
+で，位数は72である。
+実際，重み付き生成元の一般の変換
+$x\mapsto Ax,y\mapsto cy+q_2,z\mapsto bz+r_3$
+で，方程式の $z$ 一次項と $y^2$ 項から $r_3=q_2=0$ が従う。
+$x_0^6+x_1^6$ のHessian行列式は $900x_0^4x_1^4$ なので，
+$A$ は二つの座標直線を置換するmonomial行列である。
+従って規格化後に上記の群を得る。
+
+古典接空間は
+\[
+ H^1(T_{X_1})=
+ \bigl(\C[x_0,x_1,y]/(x_0^5,x_1^5,y^2)\bigr)_6.
+\]
+$y\Sym^4\langle x_0,x_1\rangle$ の五単項式と，
+$x_0^2x_1^4,x_0^3x_1^3,x_0^4x_1^2$ が基底となる。
+対角元 $(a_0,a_1;c;b)$ に対する $x_0^{r_0}x_1^{r_1}y^e$ の指標は
+$b^2a_0^{-r_0}a_1^{-r_1}c^{-e}$，$D_i$ の指標は $ca_i/b$ である。
+$c^3=1$ なので $\Sym^2D$ の $c$ 指標は $c^{-1}$ であり，
+$y$ を含まない三方向への写像はない。
+残る $yx_0^r x_1^{4-r}$ と $D_0^mD_1^{2-m}$ の指標一致条件は
+\[
+ r+m\equiv0\pmod6,\qquad (4-r)+(2-m)\equiv0\pmod6.
+\]
+解は $(r,m)=(4,2),(0,0)$ だけである。
+$\mathfrak S_2$ が両係数を等しくするため，不変テンソル空間は再び一次元となる。
+
+\textbf{係数の決定。}
+$\delta_2$ の自己同型に関する自然性により，上の二つの不変直線に属する。
+定理\ref{thm:ku-degree-two-quadratic-obstruction}へ $\alpha=4,\beta=0$ を入れると，
+$p_{01}$ 方向の値は $18[x_0^2x_1^2]$ である。
+定理\ref{thm:ku-degree-one-quadratic-obstruction}へ $\alpha=0,\beta=1$ を入れると，
+$D_0$ 方向の値は $(15/2)[x_0^4y]$ となる。
+これで式\eqref{eq:ku-fermat-degree-two-tensor}，
+\eqref{eq:ku-fermat-degree-one-tensor}が決まる。
+表示したJacobian単項式はそれぞれ独立なので，階数と全非零方向での非消滅も従う。
+指標・置換条件と規格化係数は
+\texttt{computations/verify\_kuznetsov\_quadratic\_symmetry.py}
+で整数・有理数の厳密演算により検算できる。
+\end{proof}
+
+\begin{lemma}[二次差の代数性]
+\label{lem:ku-quadratic-algebraic-tensor}
+$\mathcal S_d$ を滑らかな次数 $d=1,2$ のdel Pezzo曲面の古典DMスタックとする。
+普遍曲面を $f:\mathcal X\to\mathcal S_d$ と書き，
+\[
+ \mathcal P=f_*\omega_{\mathcal X/\mathcal S_d}^{-1},
+ \qquad \mathcal T=R^1f_*T_{\mathcal X/\mathcal S_d}
+\]
+と置くと，これらは階数 $d+1$ および $b_d$ のベクトル束である。
+形式的に定義した二次差は，代数的なベクトル束射
+\[
+ \delta_2:\Sym^2\mathcal P\longrightarrow\mathcal T
+\]
+として降下する。
+この主張は，古典復元射の古典スタックへの大域的持上げを要求しない。
+\end{lemma}
+\begin{proof}
+定理\ref{thm:surface-ku-etale-companion}のétale局所幾何化を，
+零切断上で恒等同値核を選んで用いる。
+古典スタックの滑らかなétale chartと非可換側のétale chartを取れば，
+古典復元とshadowは零切断で同じ古典chartへ写る代数的射として表される。
+必要ならétale持上げの一意性を用い，零切断の第三無限小近傍上で
+両射の標的chartを一致させる。
+
+零切断のidealを $\mathcal I$ とする。
+一次比較により，二つの射は $\mathcal I^2$ を法として一致する。
+従ってその差を $\mathcal I^3$ で割ると
+\[
+ \Omega^1_{\mathcal S_d}
+ \longrightarrow\mathcal I^2/\mathcal I^3
+ \simeq\Sym^2(\mathcal I/\mathcal I^2)
+\]
+という代数的derivationを得る。
+零切断の法束は初括弧の比較により $\mathcal P$ であり，
+古典接束は $\mathcal T$ なので，これが求める局所ベクトル束射である。
+第一無限小近傍での一致も，同じ局所表示の差を
+$\Omega^1\to\mathcal I/\mathcal I^2$ とみなし，
+全閉点での一次比較と古典chartの被約性から確認できる。
+
+二つのchartの重なりを考える。
+各複素閉点の特殊ファイバー標識を固定すると，二つの古典復元は
+定理\ref{thm:surface-ku-formal}による同じ形式変形を表す。
+特殊ファイバーの恒等へ還元する古典同型は $H^0(T_X)=0$ により一意であるから，
+二つの局所テンソルはその点で同じ $\delta_{2,X}$ を与える。
+重なりは被約であり，局所テンソルは局所自由層の射なので，
+全複素閉点での一致から射として一致する。
+自己同型によるchart変更にも形式復元の自然性を適用でき，
+従ってétale降下により $\mathcal S_d$ 上の射を得る。
+ここでは曲面族やMorita同値核の大域的な貼合せを結論していない。
+\end{proof}
+
+\begin{corollary}[一般曲面の全Poisson方向での二次非消滅]
+\label{cor:ku-generic-all-directions-quadratic}
+各 $d=1,2$ について，Fermat点を含む稠密Zariski開部分スタック
+$\mathcal S_d^\circ\subset\mathcal S_d$ が存在し，
+任意の $X\in\mathcal S_d^\circ(\C)$ と任意の
+$0\ne\pi\in H^0(X,-K_X)$ に対して
+\[
+ \delta_{2,X}(\pi,\pi)\ne0
+\]
+となる。従って，これらの各方向でshadowを固定する形式路に沿い，
+残余圏の古典復元は二次で非自明に変形する。
+\end{corollary}
+\begin{proof}
+非零方向の射影束 $p:\PP(\mathcal P)\to\mathcal S_d$ 上で，
+前補題のテンソルはtautological lineの二乗から
+\[
+ \OO_{\PP(\mathcal P)}(-2)\longrightarrow p^*\mathcal T
+\]
+への射を与える。その零集合を $Z$ とすれば，$Z$ は閉である。
+$p$ は射影的なので $p(Z)$ も閉である。
+命題\ref{prop:ku-fermat-full-quadratic-tensor}により，Fermat点は $p(Z)$ に属さない。
+従って $\mathcal S_d^\circ=\mathcal S_d\setminus p(Z)$ は求める非空開集合である。
+一般位置の $9-d$ 点の平面配置は既約で，そのblow-upが全ての滑らかな次数 $d$ の
+曲面を与えるため，$\mathcal S_d$ は既約であり，この開集合は稠密である。
+最後の主張は二次差の定義による。
+\end{proof}
+
+\begin{remark}
+この全方向非消滅は，一般の四次式・六次式に対する二次差の明示公式を与えるものではない。
+Hessianによる公式を証明した範囲は上の巡回族であり，
+Fermat点では自己同型表現により全方向へ拡張した。
+一般曲面での全方向非消滅には，その特殊化と射影束の固有性だけを用いている。
+\end{remark}
+
+\begin{corollary}[既存Poisson shadowは残余圏を一般には保存しない]
+\label{cor:ku-shadow-nonpreservation}
+両次数 $d=1,2$ で，古典復元射と中心方程式のshadow射は一致しない。
+Lin--Rampazzo--Zhangの古典Torelliを入力として，
+$\mathfrak U^{\mathrm{geom}}_{2,d}$ のある稠密開部分の複素点で
+\[
+ \operatorname{Ku}(\mathcal Q)
+    \not\simeq\operatorname{Ku}(X_{\mathrm{sh}(\mathcal Q)})
+\]
+となる。
+\end{corollary}
+\begin{proof}
+前二定理により，shadowを固定する形式路上で復元曲面は二次で非自明に変形する。
+その粗モジュライ像も形式路全体では定数でない。
+実際，有限群商である古典粗モジュライの局所模型において，
+定点の逆像は有限であり，被約な形式円板からその有限ファイバーへの射は定数となる。
+従って粗射 $\overline\rho_{\rm Ku}$ と $\overline{\operatorname{sh}}$ は異なる。
+共通の定義域は整で，標的は分離的だから，両射の等化子は真の閉部分である。
+その補集合と局所幾何化を合わせ，古典Torelliを適用する。
+\end{proof}
+
+\begin{remark}[この計算の射程]
+二つの定理は，表示した巡回対称族で実際の $\delta_2$ を計算した結果である。
+一般の四次式・六次式の全係数と全Poisson方向に対するHessian公式は，
+この特殊族の計算だけからは従わない。
+また $\overline\rho_{\rm Ku}\ne\overline{\operatorname{sh}}$ と，
+一般のPoissonファイバーの五枚・四枚の残余圏の相互非同値性は別の主張である。
+後者は第\ref{sec:kuznetsov-cyclic-fibres}節で，復元射が $\Theta$ を通じて降下しないことを示して証明する。
+\end{remark}

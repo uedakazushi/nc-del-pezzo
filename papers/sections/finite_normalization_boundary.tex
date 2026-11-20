@@ -1,0 +1,566 @@
+% !TeX root = ../nc-del-pezzo.tex
+% 2026-11-20 / v0.17
+\section{有限正規化と零切断上の欠落分枝}
+\label{sec:finite-normalization-boundary}
+
+本節の有限正規化は，構成した比較射の関数体拡大を有限射へ延長するものである。
+その境界の点を非可換del Pezzo対象と解釈することや，全モジュライの被覆は主張しない。
+以下，$X=M^{\mathrm{nc}}_{n,d}$，$Y=N_{n,d}$，
+$f=\overline\Theta$，$F=K(Y)$，$L=K(X)$ と置く。
+既存の結果により，$X,Y$ は正規整な有限型 $\mathbb C$-スキームであり，
+$Y$ はaffine，$f$ は優勢，分離的，有限表示かつ\'{e}taleである。
+$[L:F]=m$ は次数1で5，次数2で4である。
+
+\subsection{正規化による標準的な有限延長}
+
+\begin{proposition}[有限正規化への開埋込み]
+\label{prop:finite-normalization-open}
+$Y$ の $L$ における正規化を $\nu:Z\to Y$ とする。
+$Z$ は正規整な有限型affineスキームであり，$\nu$ は有限全射，
+$K(Z)=L$ である。$f$ は，関数体 $L$ 上で恒等を誘導する唯一の射を使って
+\[
+ X\xrightarrow{\ j\ }Z\xrightarrow{\ \nu\ }Y
+\]
+と分解し，$j$ は稠密開埋込みとなる。
+この分解は $X$ を非空開部分へ縮めても，$Z$ と $\nu$ を変えない。
+\end{proposition}
+\begin{proof}
+$V=\operatorname{Spec}A\subset Y$ に対し，$A$ の $L$ における整閉包を
+$\overline A$ とする。$X$ は正規なので，$b\in\overline A$ は
+$f^{-1}(V)$ の各局所環で正則である。実際，$b$ はその局所環の分数体 $L$ に属し，
+$A$ 上のmonic方程式はその局所環上のmonic方程式でもある。
+従って
+\[
+ \overline A\subset\Gamma(f^{-1}(V),\mathcal O_X)\subset L.
+\]
+逆包含の整性を考えれば，$\overline A$ は
+$\Gamma(f^{-1}(V),\mathcal O_X)$ 内での $A$ の整閉包にも一致する。
+従って関数体における正規化は，相対正規化と同じである。
+相対正規化の構成は $j$ を与え，quasi-finiteかつseparatedな射に対する
+Zariski主定理\cite[Tag 02LR]{StacksProject}によって $j$ は開埋込みである。
+$Y$ は有限型 $\mathbb C$-スキーム，従ってNagataであるから，
+相対正規化の有限性\cite[Tag 03GR]{StacksProject}が適用できる。
+$\overline A\subset L$ は整域かつ整閉であり，$j$ が開埋込みであることから
+$K(Z)=L$ を得る。優勢な有限射は全射である。
+指定した関数体同一視の下での一意性は，$L$ 内の整閉包という記述から従う。
+\end{proof}
+
+\begin{proposition}[境界と有限となる最大の基底開]
+\label{prop:normalization-boundary-locus}
+$B=(Z\setminus j(X))_{\mathrm{red}}$，$C=\nu(B)$ と置く。
+すると $B,C$ は真の閉部分集合であり，
+\[
+ V_{\mathrm{fin}}=Y\setminus C
+\]
+は $f$ が有限となる最大の基底開部分である。
+その上では $X\times_YV_{\mathrm{fin}}=Z\times_YV_{\mathrm{fin}}$ であり，
+次数 $m$ の有限\'{e}tale被覆となる。
+さらに $\nu$ の非\'{e}tale locus は $B$ に含まれる。
+\end{proposition}
+\begin{proof}
+$B$ は真の閉部分であり，$\nu$ は有限なので $C$ は閉である。
+$Z,Y$ は同次元の整スキームであり，有限射は閉集合の次元を保つから
+$C\ne Y$ である。$Y\setminus C$ 上には境界点がないため，最初の等式を得る。
+その上の射は $\nu$ と一致するので有限であり，$f$ から\'{e}tale性を受け継ぐ。
+有限\'{e}tale射の階数は連結な基底上で一定で，一般点では $m$ である。
+
+逆に，非空開 $V\subset Y$ 上で $f$ が有限なら，
+$X_V\to V$ は関数体 $L$ を持つ正規整な有限模型である。
+正規整な有限模型は整閉包に一致するので $X_V=Z_V$ となり，
+$V\cap C=\varnothing$ である。
+最後の主張は，$j(X)$ 上で $\nu=f$ が\'{e}taleであることによる。
+\end{proof}
+
+\begin{remark}[開像との区別]
+$C$ は「少なくとも一つの枝が欠ける点」の集合であり，$Y\setminus f(X)$ ではない。
+実際，零切断は後述のとおり $f(X)\cap C$ に含まれる。
+また $Z$ は $j(X)$ のscheme論的閉包であるが，
+$B$ の具体的な位置は選んだ有限型開近傍 $X$ に依存する。
+その関数体拡大と有限正規化 $Z$ は，さらに稠密開へ縮める操作では変わらない。
+\end{remark}
+
+\subsection{零切断と境界への特殊化}
+
+可換粗空間の零切断を $S=M^{\mathrm{cl}}_{n,d}\hookrightarrow Y$ と書く。
+ここで $S$ は閉であり，スタックの零切断を $\mathcal D\hookrightarrow\mathcal P$ と書く。
+
+\begin{lemma}[粗零切断の逆像]
+\label{lem:coarse-zero-preimage}
+$X\times_Y S\to S$ は同型である。
+\end{lemma}
+\begin{proof}
+この射は $f$ の基底変更なので\'{e}taleである。
+スタックのCartesian比較と $\Theta^{-1}(\mathcal D)=\mathcal D$，
+および粗空間の幾何点が対象の同型類を分類することから，
+各幾何学的ファイバーはただ一つの点である。
+従ってこの射は全射かつuniversally injectiveであり，
+\cite[Tag 025G]{StacksProject}により全射な開埋込み，従って同型となる。
+この議論は $\mathcal P\times_Y S=\mathcal D$ とは主張していない。
+粗空間から零切断を引き戻したスタックには余分な冪零構造があり得る。
+\end{proof}
+
+\begin{proposition}[全可換点の上にある欠落枝]
+\label{prop:boundary-over-zero}
+$m>1$ のもとで，$S\subset C=\nu(B)$ である。
+特に $f$ は零切断のどの点を含む基底開上でも有限にならない。
+$S$ が純余次元 $c$ の整スキームなら，境界の最小余次元について
+\[
+ 1\le\operatorname{codim}_Z B\le c
+\]
+を得る。一般の仮定だけから境界の純余次元1や既約性は従わない。
+\end{proposition}
+\begin{proof}
+$s\in S$ が $C$ に含まれないと仮定すると，$s$ を含む $V_{\mathrm{fin}}$ 上で
+$f$ は次数 $m$ の有限\'{e}tale射になる。
+一方，前補題によって $s$ の幾何学的ファイバーの長さは1であり，矛盾する。
+余次元の下限は $B\subsetneq Z$ による。
+$B\cap\nu^{-1}(S)\to S$ は有限全射であるので，その次元は $\dim S$ である。
+従って $\dim B\ge\dim S$，すなわち上限を得る。
+\end{proof}
+
+\begin{remark}[高余次元境界が可能な理由]
+連結な有限\'{e}tale被覆 $Z\to Y$ が閉部分 $S$ 上で $m$ 枚に分裂しているとする。
+その $m-1$ 個の $S$ のコピーだけを $Z$ から除いた開部分 $X$ を取ると，
+$X\to Y$ は上の仮定を満たし，境界は余次元 $\operatorname{codim}_Y S$ である。
+従って，今回の比較に純余次元1の境界を示すには，判別式等の追加の入力が必要である。
+\end{remark}
+
+\begin{proposition}[境界点は実際の開部分の特殊化である]
+\label{prop:boundary-valuative-specialization}
+任意の $z\in B$ に対して，DVR $R$ と射 $\operatorname{Spec}R\to Z$ が存在し，
+一般点は $X$ の一般点へ，閉点は $z$ へ写る。
+その一般点の $X$ への射は，$\operatorname{Spec}R\to Y$ 上の $X$ への射へ延長しない。
+\end{proposition}
+\begin{proof}
+$Z$ は整なので，その一般点は $z$ へ特殊化する。
+\cite[Tag 054F]{StacksProject}を適用すればDVRを得る。
+もし $X$ への延長があれば，$j$ と合成した射は元の $Z$ への射と
+一般点上で一致する。$Z\to Y$ の分離性から両者は一致し，
+閉点 $z\notin X$ に矛盾する。
+\end{proof}
+
+\subsection{次数1の正則な逆係数と零切断上の五分枝}
+\label{subsec:degree-one-normalization-zero}
+
+本項では $N=N_{n,1}$，$M=M^{\mathrm{nc}}_{n,1}$ とし，
+$S=M^{\mathrm{cl}}_{n,1}\hookrightarrow N$ をPoisson零切断の粗空間とする。
+$N$ は正規な整affineスキーム，$M$ は正規な整quasi-affineスキームであり，
+$\overline\Theta:M\to N$ は分離的\'{e}tale射である。
+これらには定理\ref{thm:coarse-shadow-etale-flat-locus}と，
+固定した\cite[定理9.2]{PoissonDP}を用いる。
+
+\begin{lemma}[最高活性係数の零方向への正則延長]
+\label{lem:degree-one-regular-invariants-zero}
+命題\ref{prop:degree-one-intrinsic-inverse-quintic}の関数 $I,J$ は
+$N$ 全体の正則関数であり，$I|_S=J|_S=0$ である。
+同命題の $\alpha$ は構成済みの $M$ 全体の正則関数で，
+可換零切断上で零となる。
+また，既存の全方向族 $W$ 上で
+\[
+ F^{\mathrm{sh}}=\frac{z^2}{2}+\frac{y^3}{3}
+                      +B_2y^2+C_4y+D_6
+\]
+と書け，$B_2,C_4,D_6$ と
+\[
+ I_4=C_4-B_2^2,\qquad
+ J_6=D_6-B_2C_4+\frac23B_2^3
+\]
+は零方向を含めて正則である。
+これらによる $I_4(D),J_6(D)$ は $\overline\Theta^*I,\overline\Theta^*J$ を与える。
+\end{lemma}
+\begin{proof}
+終域の全族の商表示は\cite[定理8.8，9.2]{PoissonDP}により
+\[
+ \mathcal P_{n,1}=[(U_1\times E^*)/G_1],\qquad
+ N=\operatorname{Spec}\Gamma(U_1\times E^*,\mathcal O)^{G_1}
+\]
+であり，非零方向だけへの制限ではない。
+本稿の固定した定数規格化により，その方程式を
+$z^2/2+y^3/3+I_4y+J_6$ と書く。
+同文献の座標作用は
+\[
+ (I_4,J_6,D)\longmapsto
+ (t^4I_4(A^{-1}x),\ t^6J_6(A^{-1}x),\ t^{-1}AD)
+\]
+である。
+従って $I=I_4(D)$ と $J=J_6(D)$ は，係数と $D$ に関する多項式であり，
+それぞれ $t^4t^{-4}$，$t^6t^{-6}$ の相殺によって $G_1$-不変である。
+上の不変式環の元として $N$ 全体へ正則に降下する。
+$D=0$ に制限するとこの多項式は零なので，粗零切断上でもschemeとして零となる。
+ここでは $D$ の成分を可逆化したり，非零方向のフレームを選んだりしていない。
+
+源のpresentation空間 $W$ 上で $\alpha_W=A_4(D)$ を取る。
+これは零方向を含めて正則な関数である。
+非零方向上の全同値は補題\ref{lem:nonzero-graded-isom-weighted-linear}により
+座標作用と $A_6$ のCasimir係数差からなり，$A_4(D)$ を保つ。
+その等式を全同値群oid $\mathcal E_W$ 上へ延ばす。
+$W$ は次数1の全係数空間の開部分なので滑らかであり，
+$s:\mathcal E_W\to W$ も定理\ref{thm:full-source-smooth-zero-neighborhood}により滑らかである。
+従って $\mathcal E_W$ は被約である。
+滑らかな射は開写像であり，$W^\times$ は $W$ の稠密開なので，
+$s^{-1}(W^\times)$ は $\mathcal E_W$ の稠密開である。
+その上で $s^*\alpha_W=t^*\alpha_W$ であるから，被約性により全群oid上で等しい。
+これは普遍スキーム上の正則関数の等式なので，任意の非被約基底変更後にも保たれる。
+fppf降下によって $\mathfrak U_{n,1}\to\mathbb A^1$ が得られ，
+粗空間の代数空間に対する普遍性から $\alpha\in\Gamma(M,\mathcal O_M)$ へ一意に因子化する。
+可換零切断上では $D=0$ だから $\alpha=0$ である。
+
+最後に，全方向中心 $\Omega$ の完全対称化逆像は $W$ 上で正則である。
+補題\ref{lem:shadow-even-z}により $z$ について偶で，$z^2$ 係数は $1/2$ である。
+補題\ref{lem:degree-one-shadow-depression}と
+補題\ref{lem:degree-one-controlled-common-open}により，
+一般点では $y^3$ 係数が $1/3$ である。
+規格化中心のCasimir差は $\operatorname{Sym}^6K$ に属し，$y^3$ 係数を変えないので，
+この一般点での等式は選んだ全方向中心にも適用できる。
+$W$ は整であり，この係数は正則なので，全 $W$ 上で $1/3$ に等しい。
+従って追加の根の選択や分母を用いず，表示したdepressionを全 $W$ 上で行える。
+補題\ref{lem:degree-one-shadow-depression}の体積三重ベクトルの計算も
+多項式恒等式なので，零方向と非被約基底を含めてPoisson同型となる。
+上で構成した終域の不変関数をこの表示で引き戻せば，最後の等式を得る。
+\end{proof}
+
+五次式を，粗空間 $N$ と区別して次のように明記する：
+\begin{align}
+ f(T;I,J)={}&112T^5+340T^4+(156I+900)T^3\notag\\
+ &+(450I+475-150J)T^2\notag\\
+ &+(-18I^2+675I+75-525J)T-90I^2-75I-375J.
+ \label{eq:degree-one-quintic-regular}
+\end{align}
+これは命題\ref{prop:degree-one-intrinsic-inverse-quintic}の五次式そのものである。
+$p=f/112$ とし，命題\ref{prop:degree-one-top-monodromy-s5}の
+$\mathscr D_1(I,J)=\operatorname{Disc}_T f$ を用いて
+\[
+ V_1=D(\mathscr D_1(I,J))\subset N,\qquad
+ M_1=\overline\Theta^{-1}(V_1)
+\]
+と置く。$\operatorname{Disc}_T p=112^{-8}\mathscr D_1$ なので，
+両判別式の非消滅開は同じである。
+
+\begin{theorem}[零切断を含む有限\'{e}tale正規化]
+\label{thm:degree-one-finite-normalization-zero}
+$V_1$ は $S$ 全体を含む。
+有限型 $V_1$-スキーム
+\[
+ Z_1=\operatorname{Spec}_{V_1}\bigl(\mathcal O_{V_1}[T]/(p(T;I,J))\bigr)
+\]
+は整で，$V_1$ 上次数5の有限\'{e}tale射を持つ。
+$F=K(N)$，$L=K(M)=F(\alpha)$ とすると，$Z_1$ は $V_1$ の $L$ における正規化である。
+$T\mapsto\alpha$ は $V_1$ 上の開埋込み
+\[
+                         j_1:M_1\hookrightarrow Z_1
+\]
+を与え，$\overline\Theta|_{M_1}$ はこの開埋込みと有限\'{e}tale射の合成になる。
+\end{theorem}
+\begin{proof}
+命題\ref{prop:degree-one-top-monodromy-s5}の厳密な判別式から
+\[
+ \mathscr D_1(0,0)=7812256185000000000\ne0
+\]
+である。前補題の $I|_S=J|_S=0$ により $S\subset V_1$ となる。
+$p$ はmonicであり，判別式が単元なので $Z_1\to V_1$ は階数5の有限\'{e}tale射である。
+一般点の代数は命題\ref{prop:degree-one-intrinsic-inverse-quintic}により体 $L$ である。
+$\mathcal O_{V_1}[T]/(p)$ は $\mathcal O_{V_1}$ 上自由なので，
+一般点への写像は単射であり，この代数は整域である。
+$V_1$ は正規であり，\'{e}tale射による引戻しは正規性を保つので
+$Z_1$ も正規である\cite[Tag 034F]{StacksProject}。
+従って有限性と関数体 $L$ から，$Z_1$ は所定の正規化に一致する。
+
+前補題により $\alpha$ は $M_1$ 上で正則である。
+$f(\alpha;I,J)=0$ は一般点で成立し，$M_1$ は整なので全体で成立する。
+従って $T\mapsto\alpha$ によって射 $j_1:M_1\to Z_1$ を得る。
+$M_1\to V_1$ と $Z_1\to V_1$ はともに\'{e}taleだから，$j_1$ も\'{e}taleである。
+具体的には $M_1\times_{V_1}Z_1\to M_1$ は\'{e}taleであり，
+$j_1$ のグラフはその切断として開埋込みとなる。
+他方の射影 $M_1\times_{V_1}Z_1\to Z_1$ も\'{e}taleなので，その合成が\'{e}taleである。
+分離性は $M_1\to V_1$ の分離性から従い，
+関数体の同一視により $j_1$ は双有理である。
+正規な終域への分離的な双有理\'{e}tale射は開埋込みである。
+これはZariski主定理を相対正規化へ適用した形でもある
+\cite[Tag 02LR]{StacksProject}。
+\end{proof}
+
+\begin{corollary}[粗零切断上の五枚と欠落する四枚]
+\label{cor:degree-one-five-sheets-zero}
+\[
+ q(T)=112T^4+340T^3+900T^2+475T+75
+\]
+の相異なる四つの根を $\rho_1,\ldots,\rho_4\in\mathbb C$，$\rho_0=0$ とする。
+すると $V_1$ 上の有限正規化には
+\[
+             Z_1\times_{V_1}S\simeq\coprod_{i=0}^4 S_i,
+             \qquad S_i\simeq S,\quad T|_{S_i}=\rho_i
+\]
+という分裂があり，実際の構成近傍の逆像は
+\[
+                  M_1\times_{V_1}S\simeq S_0
+\]
+である。従って $S_1,\ldots,S_4$ の四枚は $Z_1\setminus j_1(M_1)$ に含まれる。
+\end{corollary}
+\begin{proof}
+$S$ 上では
+\[
+ f(T;0,0)=Tq(T)
+\]
+である。上の判別式が非零なので，五つの根はすべて相異なる。
+また $q(0)=75\ne0$ である。
+複素数体上での中国剰余定理により，表示した五枚の分裂が $S$ 全体で成立する。
+
+実際の粗零切断の逆像を $H=M\times_NS$ とする。
+$H\to S$ は\'{e}taleであり，可換対象から誘導される切断 $S\to H$ を持つ。
+命題\ref{prop:poisson-shadow-morphism}は，Poisson零構造の逆像が
+可換零切断そのものであり，その上の $\Theta$ が恒等であることを与える。
+粗空間の幾何学的点は幾何学的対象の同型類なので，
+$H\to S$ の各幾何学的ファイバーはこの切断の一点だけである。
+\'{e}tale射の切断は開埋込みであり，ここでは全幾何学的点を尽くすから同型である。
+前補題によりこの切断上で $\alpha=0$ なので，$j_1$ はこれを $S_0$ に送る。
+他の四枚は $M_1$ の像に入らない。
+
+この議論は，Poissonスタックを粗零切断で基底変更したものを
+可換スタックと同一視していない。
+有限群の粗商ではその基底変更に冪零の厚みが生じ得るが，
+ここでは粗射自身の\'{e}tale性と幾何学的ファイバー，既存の切断を使った。
+\end{proof}
+
+\begin{corollary}[全零切断に沿う形式分裂]
+\label{cor:degree-one-formal-five-splitting}
+$\widehat V_{1,S}$ を $S$ に沿う形式完備化とする。
+$Z_1$ を $Z_1\times_{V_1}S$ に沿って完備化すると
+\[
+ \widehat Z_{1,Z_1\times_{V_1}S}
+          \simeq\coprod_{i=0}^4\widehat V_{1,S}
+\]
+となる。$M_1$ の可換零切断に沿う完備化は $i=0$ の一枚に一致する。
+一方，任意の非空Zariski開 $V'\subset V_1$ 上で $Z_1|_{V'}$ は整であり，
+どの非空Zariski開上にも切断を持たない。従って，この五枚の形式分裂はZariski分裂には延長しない。
+\end{corollary}
+\begin{proof}
+各 $\rho_i$ は $p(T;0,0)$ の単根なので，Henselの補題により一意な
+\[
+ \tau_i(I,J)\in\mathbb C[[I,J]],\qquad
+ \tau_i(0,0)=\rho_i,\qquad p(\tau_i;I,J)=0
+\]
+がある。$I,J$ は $S$ のイデアルに属するから，これらの級数は
+$\widehat V_{1,S}$ 上で定義される。
+$\tau_i-\tau_j$ は非零定数 $\rho_i-\rho_j$ に一致する剰余を持つので単元であり，
+中国剰余定理によって五つのコピーへの分裂を得る。
+これは有限\'{e}tale代数のHensel対上の一意持上げとしても得られる
+\cite[Tags 0ALJ, 09ZL]{StacksProject}。
+$i=0$ の形式根は
+\[
+ \tau_0(I,J)=I+5J-\frac{212}{15}I^2-\frac{304}{3}IJ-\frac{370}{3}J^2+O((I,J)^3)
+\]
+である。一次項は $f_T(0;0,0)=75$，$f_I(0;0,0)=-75$，$f_J(0;0,0)=-375$ から従う。
+二次項は式\eqref{eq:degree-one-quintic-regular}に代入し，
+全次数2以下の係数を消すことで得る。既存の有理係数多項式演算でも検証できる。
+$j_1(M_1)$ は $S_0$ を含む開集合なので，その $S_0$ に沿う完備化は
+$Z_1$ の $S_0$ に沿う完備化に等しく，$i=0$ のコピーとなる。
+
+最後に $Z_1$ は整で，$Z_1|_{V'}$ はその非空開部分であるから整である。
+次数5の有限\'{e}tale被覆が五つの大域的切断へ分裂すれば非連結となるので，これは不可能である。
+さらに一つの切断も，$F$-準同型 $L\to F$ を与え，$[L:F]=5$ に反するため存在しない。
+\end{proof}
+
+\begin{remark}[有限正規化の境界としての意味]
+上の四枚は，構成した開モジュライ $M$ の有限正規化に追加される点である。
+その点を，Poisson零構造を持つ新しい非可換対象として構成したわけではない。
+また，境界全体が $S_1\cup\cdots\cup S_4$ に等しいこと，
+境界自身の形式完備化が四つの $\widehat V_{1,S}$ に等しいことは結論しない。
+示したのは，有限正規化そのものの形式分裂と，零切断上で実際の構成近傍から欠落する四枚である。
+零切断以外の開像と境界の厚み・余次元は，残る開条件と比較して調べる必要がある。
+\end{remark}
+
+\subsection{次数2の正則不変量と接線判別因子}
+
+\begin{proposition}[零方向を含む正則不変量]
+\label{prop:degree-two-regular-trace-invariants}
+次数2のPoisson模型を $F=z^2/2+U$ と書く。
+式\eqref{eq:simultaneous-quartic-operator}の作用素 $T=T_{U,P}$ を用いると，
+\[
+ u=2\operatorname{tr}(T^2),\qquad
+ v=\frac43\operatorname{tr}(T^3),\qquad
+ \Delta=u^3-27v^2
+\]
+は，全Poisson係数空間上の正則な座標不変関数であり，
+Poisson粗空間 $N_{n,2}$ 上の正則関数へ降下する。
+前節の有理関数 $u,v,\Delta$ と一致し，それぞれ $P$ に関して
+次数 $4,6,12$ で斉次である。
+\end{proposition}
+\begin{proof}
+$T$ は四次tensorと二つの $P$ の縮約で定義される。
+座標変換では $T$ は共役され，方程式の尺度と $P$ の二つの尺度は相殺する。
+従って表示したtraceは正則不変関数である。
+粗空間の普遍性により $\mathbb A^1$ への射として降下する。
+
+非零rank2方向で中央部分を割った活性二変数を選び，
+$P(x,y)=h$，
+\[
+ U^{\mathrm{top}}=a x^4+4b x^3y+6c x^2y^2+4d xy^3+e y^4
+\]
+と書く。$T$ は中央変数を含む二次式を零に送り，
+残る三次元商上では
+\[
+ T=h^2
+ \begin{pmatrix}c&-b&a\\2d&-2c&2b\\e&-d&c\end{pmatrix}.
+\]
+$I=ae-4bd+3c^2$，
+$J=ace+2bcd-ad^2-b^2e-c^3$ と置くと
+\[
+ \operatorname{tr}(T^2)=2Ih^4,\qquad
+ \operatorname{tr}(T^3)=6Jh^6.
+\]
+よって $u=4Ih^4$，$v=8Jh^6$ である。
+$h=1$，$a=e=A/4$，$b=d=0$，$c=B/6$ に制限すれば
+前節の $u=(3A^2+4B^2)/12$，
+$v=B(9A^2-4B^2)/108$ を得る。
+また
+\[
+ \Delta=64h^{12}(I^3-27J^2)
+       =\frac{h^{12}}4\operatorname{Disc}(U^{\mathrm{top}})
+\]
+である。特に $u,v$ は零方向で零，$\mathscr D_2(u,v)$ は零方向で1となる。
+\end{proof}
+
+\begin{remark}[中央変数を含む幾何学的意味]
+$P\ne0$ が定める活性二次元空間の射影化を
+$\ell\subset\mathbb P(E^*)$ とする。
+$U^{\mathrm{top}}$ は四次分岐超曲面 $(U=0)$ の $\ell$ への制限である。
+従って $\Delta=0$ は，この制限が重根を持つ条件である。
+一般点では $\ell$ が四次超曲面に一度だけ単純接触し，残りの二交点は単純である。
+$n=2$ では，滑らかな平面四次曲線の双対曲線のaffine錐である。
+この双対曲線の次数は，$\Delta$ のPoisson次数が12で，
+一般の接線に沿って単純に消えることから12となる。
+\end{remark}
+
+\begin{proposition}[有限正規化の零切断上の欠落分岐点]
+\label{prop:degree-two-normalization-zero-boundary}
+$L=K(M^{\mathrm{nc}}_{n,2})$，$F=K(N_{n,2})$ とし，
+$\nu:Z\to N_{n,2}$ を $L/F$ による有限正規化とする。
+既存の $\overline\Theta$ は開埋込み
+$M^{\mathrm{nc}}_{n,2}\hookrightarrow Z$ を通して因子化する。
+零Poisson切断の任意の幾何学的点 $s$ に対し，
+$\nu^{-1}(s)$ にはこの開部分に属さず，$\Omega^1_{Z/N_{n,2}}$ の茎が非零となる点がある。
+従ってその点では $\nu$ は非分岐ではない。
+特に零切断のどの点を含む終域開近傍でも，
+有限正規化全体を\'{e}tale被覆にすることはできない。
+\end{proposition}
+\begin{proof}
+$N_{n,2}$ は標数0の有限型正規整スキームなので，体拡大による正規化は有限である。
+$M^{\mathrm{nc}}_{n,2}$ も正規であり，その射は分離的で準有限である。
+正規化の普遍性とZariski主定理から，表示した開埋込みを得る。
+
+滑らかな四次式と非零rank2方向の係数空間で，
+$U|_\ell$ が重根を持つ被約因子を $\mathcal H^{\mathrm{fr}}$ とする。
+これは既約であり，一般点で $\Delta$ の消滅位数は1である。
+実際，Grassmann多様体上の制限
+$\operatorname{Sym}^4E\to\operatorname{Sym}^4(E/K)$ は全射なベクトル束写像であり，
+binary quarticの判別因子は既約で，二重根を一つ持つ点で被約である。
+後者は，例えば
+\[
+ f_\epsilon=x^2(x-y)(x-2y)+\epsilon y^4,\qquad
+ \operatorname{Disc}(f_\epsilon)
+   =\epsilon(256\epsilon^2-107\epsilon-32)
+\]
+で直接確認できる。滑らかな全四次式の条件との交わりは非空である。
+制限の二重根において中央法方向の微分を非零に選び，
+それ以外では一般の延長へBertiniを適用すればよい。
+従って滑らかな係数開へ制限した後も既約であり，被約な一般点を持つ。
+
+この因子から滑らかな四次係数空間への射は全射である。
+実際，任意の滑らかな四次超曲面の点 $p$ と，その接超平面内で $p$ を通る直線を選べばよい。
+$n\ge2$ なのでそのような直線が存在し，制限は重根を持つ。
+従って因子の一般点でも古典模型は一般である。
+一般の古典模型の自己同型群は被覆対合だけであり
+\cite[命題9.4]{PoissonDP}，その対合は非零 $P$ を固定しない。
+従ってこの因子の一般点ではPoisson慣性は自明である。
+その粗空間への像の閉包を $H\subset N_{n,2}$ とすると，
+$H$ は素因子であり，$\operatorname{ord}_H(\Delta)=1$ である。
+座標atlasはこの一般点で滑らかな群torsorなので消滅位数を変えない。
+$P$ の尺度を零へ近づけると $u,v\to0$，
+$\mathscr D_2(u,v)\to1$ となるから，
+$\mathscr D_2$ は $H$ の一般点でも単元である。
+
+符号二次体
+$F(\sqrt{\Delta\mathscr D_2})$ は $H$ の離散付値において分岐する。
+従って $L/F$ の有限正規化も $H$ の一般点上のどこかで分岐する。
+もし全ての点で非分岐なら，標数0の離散付値体の有限非分岐拡大の
+Galois閉包も非分岐であり，その二次部分体も非分岐となって矛盾する。
+
+ここで $R=\operatorname{Supp}\Omega^1_{Z/N_{n,2}}$ と置く。
+$\nu$ は有限表示なので $R$ は閉であり，前段の離散付値での分岐から
+$\nu(R)$ は $H$ の一般点を含む。有限射は閉写像なので，$\nu(R)$ は $H$ 全体を含む。
+一方，接線を持つ一般の滑らかな四次式を固定し，
+$P$ をスカラー倍して零へ送れば，$H$ は古典零切断の稠密開を含む。
+古典零切断は整なので，閉集合 $H$ は零切断全体を含む。
+ゆえにその任意の点 $s$ 上に $R$ の点が存在し，その点では $\nu$ は非分岐でない。
+既存の開部分では $\nu=\overline\Theta$ が\'{e}taleであるから，
+この点は必ず $Z\setminus M^{\mathrm{nc}}_{n,2}$ に属する。
+\end{proof}
+
+\begin{remark}[結論の範囲]
+この証明は，零切断上で不足する点が実際に有限正規化の非\'{e}tale境界にあることを示す。
+高余次元の零切断での分岐指数，境界ファイバーの長さ，三つの残りの一般分枝が
+何個の幾何学的点に集まるか，有限正規化の平坦性はまだ決定していない。
+また対称係数切断では $\Delta=A^2(A^2-4B^2)^2/64$ が平方となる。
+その切断上で符号捩れが平方として消えることは，全座標商での分岐を否定しない。
+\end{remark}
+
+\subsection{スタックへの有限延長と正規性}
+
+\begin{proposition}[粗正規化のスタックへの引き戻し]
+\label{prop:stack-pullback-finite-normalization}
+\[
+ \mathcal Z_0=Z\times_Y\mathcal P
+\]
+と置く。$\mathcal Z_0\to\mathcal P$ は有限かつschemeで表現可能であり，
+既存のCartesian比較から
+\[
+ \mathfrak U=X\times_Y\mathcal P\hookrightarrow\mathcal Z_0
+\]
+は開埋込みとなる。$\mathcal Z_0\to\mathcal P$ はstabilizer preservingである。
+$\nu$ が\'{e}taleとなる開上では $\mathcal Z_0$ は正規である。
+一方，$\mathcal Z_0$ の全体の正規性は一般には成立しない。
+\end{proposition}
+\begin{proof}
+有限性，表現可能性，開埋込みは全て基底変更で保たれる。
+$Z,Y$ は代数空間なので，$\mathcal Z_0$ の対象の自己同型群は
+対応する $\mathcal P$ の対象の自己同型群と同じである。
+$\nu$ が\'{e}taleなら $\mathcal Z_0\to\mathcal P$ も\'{e}taleである。
+$\mathcal P$ は正規であり，正規性はsmooth局所的である
+\cite[Tag 034F]{StacksProject}から，この範囲では $\mathcal Z_0$ も正規となる。
+
+反例として，$\mathcal P=[\mathbb A^1_x/\boldsymbol\mu_2]$，
+$Y=\mathbb A^1_t$，$t=x^2$ とし，$Z=\mathbb A^1_y$，$t=y^2$ を取る。
+$\mathcal Z_0$ のatlasは
+\[
+ \operatorname{Spec}\mathbb C[x,y]/(x^2-y^2)
+\]
+であり，原点で正規ではない。
+この例で $X=Z\setminus\{0,-1\}$，$S=\{t=1\}$ とすれば，
+$X\to Y$ は分離的\'{e}taleで一般次数2，$X\times_Y S\simeq S$ となるため，
+零切断に一枚だけ残るという条件を加えても反例である。
+\end{proof}
+
+\begin{remark}[正規スタックを要求する場合]
+必要なら $\mathcal Z_0$ の被約化を取った後，その正規化
+$\mathcal Z_0^\nu\to\mathcal Z_0$ を別に取る。
+スタックの正規化はsmooth atlasの正規化を貼り合わせて構成される
+\cite[Tag 0GMJ]{StacksProject}。
+有限型 $\mathbb C$ 上ではatlasの正規化が有限なので，この正規化も有限である。
+正規な開部分 $\mathfrak U$ 上では同型であり，$\mathfrak U$ はその開部分として残る。
+ただしこの追加の正規化は境界の自己同型群を減らし得るので，
+境界までのstabilizer preserving性を結論してはいけない。
+正規化がsmooth基底変更と可換する事実\cite[Tag 081J]{StacksProject}を，
+一般にはsmoothでない粗射 $\mathcal P\to Y$ へ適用することはできない。
+\end{remark}
+
+\begin{remark}[有限\'{e}tale領域でのスタックの形式分裂]
+次数1の定理\ref{thm:degree-one-finite-normalization-zero}の開 $V_1$ 上では，
+$\mathcal Z_0\to\mathcal P$ 自体が有限\'{e}taleで正規であるため，追加の正規化は不要である。
+実際の零切断 $\mathcal D\hookrightarrow\mathcal P$ への基底変更は
+$5$ 個の $\mathcal D$ のコピーであり，その形式完成は
+$5$ 個の $\widehat{\mathcal P}_{\mathcal D}$ に分かれる。
+$\mathfrak U$ の零切断に沿う完成はその一つである。
+これはsmooth atlas上で有限\'{e}tale代数の一意な形式持上げを適用し，
+その一意性によって降下すればよい。
+ここでも $\mathcal P\times_Y S$ と $\mathcal D$ をschemeとして同一視する必要はない。
+\end{remark}

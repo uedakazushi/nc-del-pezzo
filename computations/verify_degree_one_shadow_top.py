@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Exact degree-one centre, degree-five Poisson map, and S5 certificates.
 
-2026-11-20 / v0.16.
+2026-11-20 / v0.17.
 
 Standard library only.  Over Q[alpha,beta], with h=1, eliminate
 z=[x,y] and use the two weighted relations r4,r5.  Explicit free-algebra
@@ -11,6 +11,8 @@ in the full seven-dimensional symmetric weight-six space.  The subsequent
 commutative identities verify the depressed cubic and the coprimality
 needed for the function-field degree five. Exact discriminants, a finite-field
 Bezout certificate, depression, and scaling identities support the S5 proof.
+The zero-fibre factorization and its nonzero discriminant support the finite
+normalization at the classical locus; a quadratic Hensel jet is checked exactly.
 The full lower-term, center-torsor, and moduli-quotient arguments are supplied
 in the manuscript; these finite identities are not a formal proof of them.
 """
@@ -387,3 +389,15 @@ assert P({(a, b, 0): c for (a, b, i), c in scaled_c_numerator.items() if i == 4}
 assert P({(a, b, 0): c for (a, b, i), c in scaled_d_numerator.items() if i == 6}) == 15*beta
 print("PASS: full depressed-cubic identities and h-scaling of the coefficient relations")
 print("Scope: exact coefficient identities; degree five and S5 descent to moduli use the paper's proofs")
+
+# The five distinct roots over the classical zero section and the formal branch
+# through alpha=0. beta is still J_branch in this exact coefficient calculation.
+zero_quartic = 112*alpha**4+340*alpha**3+900*alpha**2+475*alpha+75
+assert quintic.sub(I=0, beta=0) == alpha*zero_quartic
+assert discriminant.sub(I=0, beta=0) == P.coerce(7812256185000000000)
+assert zero_quartic.sub(alpha=0) == P.coerce(75)
+formal_root_two_jet = (I+5*J_branch-F(212, 15)*I**2
+                       -F(304, 3)*I*J_branch-F(370, 3)*J_branch**2)
+formal_error = quintic.sub(alpha=formal_root_two_jet)
+assert all(a == 0 and b+i >= 3 for a, b, i in formal_error)
+print("PASS: classical five-root factorization, nonzero discriminant, and quadratic Hensel inverse")

@@ -42,7 +42,7 @@
 \newcommand{\Perf}{\operatorname{Perf}}
 \newcommand{\rank}{\operatorname{rank}}
 \newcommand{\HH}{\operatorname{HH}}
-\newcommand{\Version}{0.16}
+\newcommand{\Version}{0.17}
 \title{次数1・2の非可換del Pezzo多様体\texorpdfstring{\\}{ }構造対象付き変形とモジュライの局所構造}
 \author{}
 \date{2026年11月20日\quad v\Version\quad 公表用研究稿}
@@ -88,7 +88,10 @@ discrepancyは $n$ である。
 Galois閉包の次数は120，24となる。符号二次体も明示する。
 一般のPoisson対象は構成近傍内にそれぞれ五つ，四つの非同値な非可換対象を持つ。
 比較射は開埋込みでなく有理切断を持たず，次数1の一般逆像は根号でも復元できない。
-構成近傍の外側の被覆と全既約成分数も未解決である。
+有限正規化では，次数1の零切断近傍は五枚の有限\'{e}tale被覆となり，
+零切断上の四枚が構成近傍から欠ける。
+次数2では接線判別因子の符号捩れにより，零切断の各点上に欠落分岐点がある。
+構成近傍の外側の対象と全既約成分数は未解決である。
 \end{abstract}
 \clearpage
 \tableofcontents
@@ -399,6 +402,40 @@ $\Theta$ は開埋込みでなく，非空Zariski開へ縮めても開埋込み�
 五次逆方程式の六つの単純有限分岐から対称群モノドロミーを得る。
 次数2の符号二次体では，normalizerの符号による捩れも追う。
 
+\subsection{有限正規化と零切断に向かう分枝}
+一般次数が1でないことと，可換点での形式同型の関係を，有限正規化によって記述する。
+$S=M^{\mathrm{cl}}_{n,d}\hookrightarrow N_{n,d}$ を粗零切断とする。
+\begin{theorem}[有限正規化の境界と次数による違い]
+\label{thm:main-finite-normalization}
+$N=N_{n,d}$ の $L=K(M^{\mathrm{nc}}_{n,d})$ における正規化を $\nu:Z\to N$ とする。
+$Z$ は正規整なaffineスキームで，$\nu$ は有限全射であり，
+$\overline\Theta$ は開埋込み $j:M^{\mathrm{nc}}_{n,d}\hookrightarrow Z$ を通して因子化する。
+$B=(Z\setminus j(M^{\mathrm{nc}}_{n,d}))_{\mathrm{red}}$ と置くと，
+$N\setminus\nu(B)$ は比較射が有限となる最大の基底開であり，$S\subset\nu(B)$ である。
+\begin{enumerate}
+\item 次数1では，$S$ 全体を含む明示的な主開 $V_1$ 上で $Z\to N$ は次数5の有限\'{e}tale射である。
+  $Z\times_N S$ は五つの $S$ のコピーに分かれ，実際の構成近傍に属するのはその一つだけである。
+  $S$ に沿う有限正規化の形式完成も五分裂し，構成近傍の完成は一枚に一致する。
+\item 次数2では，$S$ の任意の幾何学的点 $s$ に対し，
+  $B\cap\nu^{-1}(s)$ に $\Omega^1_{Z/N}$ の茎が非零となる点がある。
+  従って，零切断のどの点を含む開上でも，有限正規化全体は\'{e}taleにならない。
+\end{enumerate}
+\end{theorem}
+\begin{proof}
+命題\ref{prop:finite-normalization-open}，\ref{prop:normalization-boundary-locus}，
+\ref{prop:boundary-over-zero}，定理\ref{thm:degree-one-finite-normalization-zero}，
+系\ref{cor:degree-one-five-sheets-zero}，\ref{cor:degree-one-formal-five-splitting}，
+命題\ref{prop:degree-two-normalization-zero-boundary}による。
+\end{proof}
+
+次数1では内在的逆五次式の係数 $I,J$ と原始元 $\alpha$ を零方向へ正則に延長し，
+$\operatorname{Disc}f(0,0)\ne0$ を使う。
+次数2では $u=2\operatorname{tr}(T^2)$，$v=\frac43\operatorname{tr}(T^3)$ が零方向を含む正則不変量となり，
+$\Delta=u^3-27v^2$ は活性直線への四次式の制限が重根を持つ条件を表す。
+その素因子は零切断全体へ特殊化し，符号二次体の奇数位数から有限正規化の分岐を強制する。
+有限正規化の追加点を，新しい非可換対象として構成したとは主張しない。
+また形式分裂はZariski開上での切断の存在を意味しない。
+
 \subsection{先行研究と本稿の範囲}
 Lowenのalgebroidによる全Abel変形の比較\cite[Theorems 3.14, 3.26]{Lowen2008}と、
 Yekutieliのtwisted quantization\cite[Corollaries 7.5, 11.2]{Yekutieli2015}を用いる。
@@ -484,7 +521,14 @@ helixの選択を忘れる射と二つの幾何的構成の対応を別に検証
 第\ref{sec:shadow-monodromy}節では，指定した逆五次式・逆四次式の分岐を厳密に計算し，
 全lower係数と全同値の商を経た後もそれぞれ $\mathfrak S_5,\mathfrak S_4$ を得る。
 符号二次体の全商への降下では，次数2の正規化群による捩れを追う。
-この具体的な比較射とそのモノドロミーに関する包括的な優先権調査は未了である。
+Zariski主定理による有限正規化への開埋込みとNagata基底上の有限性は
+\cite[Tags 02LR, 03GR]{StacksProject}を用い，
+形式分裂には完備Hensel対上の有限\'{e}tale代数の持上げ
+\cite[Tags 0ALJ, 09ZL]{StacksProject}を用いる。
+これらの一般原理は既知である。
+本稿固有の計算は，逆五次式の全零切断での正則性と単根性，
+および次数2の接線判別因子と符号二次体を使う欠落分岐点の検出である。
+この具体的な比較射，モノドロミーと境界に関する包括的な優先権調査は未了である。
 
 多項式環のVeronese自己同型の持上げと根のスカラー核には
 Aitzhanova--Makar-Limanov--Umirbaev\cite[Corollaries~4--5]{AMU2025}の結果がある。
@@ -746,6 +790,7 @@ $(-(n-1))[n]$ と長さ $n+5$（次数1），$n+3$（次数2）のcompact生成�
 \input{sections/degree_two_shadow_degree}
 \input{sections/degree_one_shadow_degree}
 \input{sections/shadow_monodromy}
+\input{sections/finite_normalization_boundary}
 
 \section{残る大域的なモジュライの問題}
 \label{sec:questions}
@@ -769,12 +814,13 @@ affine有限表示であることも与える。
       具体的には，反標準環の有限表示を出発点として，
       全対象の有界性と通常の重み付き超曲面表示の存在条件を調べる。
 \item \emph{Poisson比較の像と境界。}
-      一般次数5・4と対称群モノドロミーを踏まえ，
-      有限被覆の正規化，開像，可換零切断に向かう欠落分枝を調べる。
-      符号二次体と係数判別式を，実際の非可換開の境界と比較する。
-      両次数の一般点での中心選択は中心torsorで処理したが，
-      各構成が定める開領域の全体の比較はなお必要である。
-      可換点での完成同型と非有限性を，同じ有限正規化の局所幾何として説明したい。
+      有限正規化への開埋込み，次数1の零切断上の五枚と四枚の欠落，
+      次数2の全零切断上に現れる欠落分岐点を得た。
+      次は実際の開像と境界の全体を，中心分母・smooth proper性・Casimir Jacobianの条件と比較する。
+      次数2では境界ファイバーの長さと局所環，有限正規化の平坦性が未決定である。
+      最高活性商の $1+3$ の形式模型を全モジュライへ移すには，
+      基底変更後の正規化を別に計算する必要がある。
+      有限正規化の境界を，全モジュライの追加対象と無条件に同一視しない。
 \item \emph{粗空間の特異性と安定化群の増大。}
       可換点の局所環の完成は $R_X^{\operatorname{Aut}(X)}$ である。
       一般可換点では符号商として明示できるが，

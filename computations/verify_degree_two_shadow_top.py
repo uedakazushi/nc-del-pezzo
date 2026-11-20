@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Exact certificate for the degree-two highest-active Poisson shadow.
 
-2026-11-20 / v0.16. Standard library only; run from any working directory.
+2026-11-20 / v0.17. Standard library only; run from any working directory.
 Reuses the coefficient/free-word arithmetic and De Laet central-element
 certificate in verify_cubic_top.py (that module also runs its own checks).
 
@@ -15,7 +15,9 @@ The rational formulas hold where their displayed denominators are nonzero.
 
 This verifies coordinate identities, coprimality, the normalizer action,
 the transverse Lie calculation, and the exact discriminant certificates
-used in the degree-four and S4 monodromy proofs.
+used in the degree-four and S4 monodromy proofs. It also checks all-coefficient
+trace/discriminant identities, a simple-tangency transversal, and the four
+formal coefficient branches used in the finite-normalization discussion.
 The passage to all lower coefficients, normalized-center torsors, and
 the quotient by all equivalences is proved in the paper, not by this
 finite computation. No assertion of novelty is made.
@@ -369,3 +371,122 @@ for value, expected in [(Fraction(0), Fraction(-10368)),
                         (Fraction(-4, 3), Fraction(-512, 9))]:
     assert substitute(F, {'e': const(1), 'b': const(value)}) == const(expected)
 print('PASS: normalizer anti-invariant, orientation square class, and smooth branch-plane witnesses.')
+
+
+# Finite-normalization boundary and highest-active quotient certificates.
+def polynomial_matrix_product(left, right):
+    return [[add(*(mul(left[i][k], right[k][j])
+                   for k in range(len(right))))
+             for j in range(len(right[0]))]
+            for i in range(len(left))]
+
+
+# f=a*x^4+4*b*x^3*y+6*c*x^2*y^2+4*d*x*y^3+e*y^4.
+# The shared variable t represents h^2.
+qa, qb, qc, qd, qe = (variable(name) for name in ('a', 'b', 'c', 'd', 'e'))
+tau_squared = variable('t')
+quartic_matrix = [
+    [qc, neg(qb), qa],
+    [mul(const(2), qd), mul(const(-2), qc), mul(const(2), qb)],
+    [qe, neg(qd), qc],
+]
+quartic_matrix = [[mul(tau_squared, entry) for entry in row]
+                  for row in quartic_matrix]
+matrix_square = polynomial_matrix_product(quartic_matrix, quartic_matrix)
+matrix_cube = polynomial_matrix_product(matrix_square, quartic_matrix)
+trace_two = add(*(matrix_square[i][i] for i in range(3)))
+trace_three = add(*(matrix_cube[i][i] for i in range(3)))
+standard_I = add(mul(qa, qe), mul(const(-4), qb, qd), mul(const(3), qc, qc))
+standard_J = add(mul(qa, qc, qe), mul(const(2), qb, qc, qd),
+                 neg(mul(qa, qd, qd)), neg(mul(qb, qb, qe)),
+                 neg(power(qc, 3)))
+general_x = variable('alpha')
+general_quartic = add(mul(qa, power(general_x, 4)),
+                      mul(const(4), qb, power(general_x, 3)),
+                      mul(const(6), qc, general_x, general_x),
+                      mul(const(4), qd, general_x), qe)
+assert resultant(general_quartic, derivative(general_quartic, 'alpha'), 'alpha') == (
+    mul(qa, const(256),
+        add(power(standard_I, 3), mul(const(-27), standard_J, standard_J))))
+assert trace_two == mul(const(2), standard_I, tau_squared, tau_squared)
+assert trace_three == mul(const(6), standard_J, power(tau_squared, 3))
+trace_u = mul(const(2), trace_two)
+trace_v = mul(const(Fraction(4, 3)), trace_three)
+assert trace_u == mul(const(4), standard_I, power(tau_squared, 2))
+assert trace_v == mul(const(8), standard_J, power(tau_squared, 3))
+
+even_specialization = {
+    'a': mul(const(Fraction(1, 4)), A), 'b': {},
+    'c': mul(const(Fraction(1, 6)), B), 'd': {},
+    'e': mul(const(Fraction(1, 4)), A), 't': const(1),
+}
+assert substitute(trace_u, even_specialization) == u
+assert substitute(trace_v, even_specialization) == v
+
+# q^3-u*q+2*v is the active characteristic polynomial of -2*T.
+spectral_q = variable('alpha')
+spectral_matrix = [[add(mul(const(2), quartic_matrix[i][j]),
+                        spectral_q if i == j else {})
+                    for j in range(3)] for i in range(3)]
+assert determinant_dp(spectral_matrix) == add(
+    power(spectral_q, 3), neg(mul(trace_u, spectral_q)), mul(const(2), trace_v))
+trace_delta = add(power(trace_u, 3), mul(const(-27), trace_v, trace_v))
+assert trace_delta == mul(const(64), power(tau_squared, 6),
+                          add(power(standard_I, 3),
+                              mul(const(-27), standard_J, standard_J)))
+
+# A transversal to the generic binary-quartic discriminant:
+# f_eps=x^2(x-y)(x-2y)+eps*y^4.
+epsilon = variable('alpha')
+affine_x = variable('beta')
+tangent_polynomial = add(power(affine_x, 4),
+                         mul(const(-3), power(affine_x, 3)),
+                         mul(const(2), affine_x, affine_x), epsilon)
+tangent_discriminant = add(mul(const(256), power(epsilon, 3)),
+                           mul(const(-107), epsilon, epsilon),
+                           mul(const(-32), epsilon))
+assert resultant(tangent_polynomial, derivative(tangent_polynomial, 'beta'),
+                 'beta') == tangent_discriminant
+tangent_specialization = {
+    'a': const(1), 'b': const(Fraction(-3, 4)),
+    'c': const(Fraction(1, 3)), 'd': {}, 'e': epsilon, 't': const(1),
+}
+assert substitute(standard_I, tangent_specialization) == add(epsilon, const(Fraction(1, 3)))
+assert substitute(standard_J, tangent_specialization) == add(
+    mul(const(Fraction(-11, 48)), epsilon), const(Fraction(-1, 27)))
+assert mul(const(4), substitute(trace_delta, tangent_specialization)) == tangent_discriminant
+assert substitute(derivative(tangent_discriminant, 'alpha'), {'alpha': {}}) == const(-32)
+print('PASS: all binary-quartic trace invariants u=2 tr(T^2), v=(4/3) tr(T^3).')
+print('PASS: q^3-uq+2v is the active characteristic polynomial of -2T.')
+print('PASS: Delta has Poisson weight 12 and equals h^12 times quartic discriminant / 4.')
+print('PASS: exact simple-tangency transversal Disc(f_eps)=eps*(256 eps^2-107 eps-32).')
+print('Scope: polynomial identities; quotient valuation and normalization-boundary arguments are in the paper.')
+
+# Additional highest-active quotient witness.  This does not assert that
+# normalization commutes with the base change to the full moduli space.
+source_b, source_c = variable('b'), variable('c')
+inverse_one = add(
+    mul(source_c, source_c, add(mul(const(3), source_b), B, const(3))),
+    neg(mul(source_b, add(mul(const(3), source_b, source_b),
+                         mul(source_b, B), mul(const(15), source_b), const(18)))))
+inverse_two = add(
+    mul(const(3), A, source_b, add(source_b, const(3))),
+    mul(const(-2), source_c,
+        add(mul(source_b, B), mul(const(6), source_b),
+            mul(const(3), B), const(9))))
+inverse_jacobian = add(
+    mul(derivative(inverse_one, 'b'), derivative(inverse_two, 'c')),
+    neg(mul(derivative(inverse_one, 'c'), derivative(inverse_two, 'b'))))
+for sb, sc, jac in [
+    (Fraction(-2), Fraction(0), Fraction(36)),
+    (Fraction(-3), Fraction(0), Fraction(-162)),
+    (Fraction(-3, 2), Fraction(3, 2), Fraction(-81)),
+    (Fraction(-3, 2), Fraction(-3, 2), Fraction(-81)),
+]:
+    point = {'b': const(sb), 'c': const(sc), 'd': {}, 'e': {}}
+    assert not substitute(inverse_one, point)
+    assert not substitute(inverse_two, point)
+    assert substitute(inverse_jacobian, point) == const(jac)
+q_from_B = mul(const(Fraction(2, 3)), B)
+assert not add(power(q_from_B, 3), neg(mul(u, q_from_B)), mul(const(2), v))
+print('PASS: four etale coefficient branches at A=B=0 and the cubic q^3-uq+2v.')

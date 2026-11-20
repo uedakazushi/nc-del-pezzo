@@ -1,6 +1,6 @@
 # 文献・依存関係・新規性の範囲
 
-2026-11-20（JST） / v0.16。完全な書誌は [references.bib](../references.bib)。以下は使用する一次資料の具体的な箇所、現行論文での適用とその限界を示す。外部論文のPDFは収録しない。
+2026-11-20（JST） / v0.17。完全な書誌は [references.bib](../references.bib)。以下は使用する一次資料の具体的な箇所、現行論文での適用とその限界を示す。外部論文のPDFは収録しない。
 
 ## 1. 他研究からの数学的入力
 
@@ -15,7 +15,7 @@
 - 定理9.2、label `thm:affine-coarse-moduli`：古典del PezzoおよびPoissonモジュライの有限対角・分離的アフィン粗空間。`coarse.tex` を上記固定commitで確認。判別式主開のaffine性、還元群と全有限stabilizer、Luna I §4 p.90が入力。本研究では対称化した中心方程式のshadowに適用し、全非可換Isomの閉埋込みから有限対角を得る。
 - 定理9.6、label `thm:coarse-flat-locus`：Poisson粗空間のCohen–Macaulay性と、粗忘却射の平坦locusが古典粗空間のsmooth locusの逆像に等しいこと。上記commitの `papers/sections/coarse.tex` の証明を確認。Luna slice上の有限群不変環と被約ファイバー `C_X/Aut(X)`、fiber内の滑らかな稠密開、正則性の忠実平坦降下を用いる。本研究ではΘ̄のétale局所環が忠実平坦であることを介して移す。
 - 補題10.1 `lemma:cone-lci`、定理10.3 `thm:poisson-resolution`、命題10.4 `prop:plucker-terminal`：上記commitの `papers/sections/singularities.tex` を確認。Plücker錐のlci判定、相対零切断blow-upのGrassmann線束表示、Gorenstein terminal性とdiscrepancy n。Θがétaleで零切断の逆像をschemeとして保つことから本研究へ移す。粗空間のterminal性やその解消には適用しない。
-- 補題8.7：全ての対象XでH⁰(T_X)=0。注意8.5、label `rem:deck-action`：被覆対合はPoissonパラメータに−1で作用。命題9.4、label `prop:generic-deck-stabilizer`：両次数・全n≥2でAut(X)=μ₂となる稠密開。形式群oidと一般点の粗符号商の入力。命題9.4の非空性・開性の証明を確認した。
+- 補題8.7：全ての対象XでH⁰(T_X)=0。注意8.5、label `rem:deck-action`：被覆対合はPoissonパラメータに−1で作用。命題9.4、label `prop:generic-deck-stabilizer`：両次数・全n≥2でAut(X)=μ₂となる稠密開。形式群oidと一般点の粗符号商の入力。命題9.4の非空性・開性の証明を確認した。次数2の普遍接線因子は滑らかな四次係数空間へ全射するため、その一般点にもこの稠密開が適用できる。非零Pは被覆対合に固定されず、因子の一般点のPoisson安定化群は自明となる。これが粗空間の接線判別因子Hで `ord_H Δ=1` を保つための入力である。
 - 定理8.13・命題8.14：古典Poissonモジュライの次数ごとの既約性と次数の区別。これは全ncモジュライの成分定理ではない。
 - `quantization.tex`：固定Poisson方向の形式量子化と重み付き次数の保存。今回の任意冪零基底でのmonic分裂、同変な圏の降下をこのrepoで進める。
 
@@ -115,6 +115,24 @@ Plücker座標環の正規性・Cohen–Macaulay性にはSvanes (1973) とDe Con
 - [0DUA](https://stacks.math.columbia.edu/tag/0DUA) により零切断を保ってstabilizer preservingへ縮小し、[0DUS](https://stacks.math.columbia.edu/tag/0DUS) と [0DUE](https://stacks.math.columbia.edu/tag/0DUE) によって粗空間のCartesian正方形とétale射を得る。一般のétale射がstabilizer preservingであるとは仮定しない。
 - [082J](https://stacks.math.columbia.edu/tag/082J) の代数空間版Zariski Main TheoremでΘ・shの準アフィン性と粗空間のスキーム性を得る。[0805](https://stacks.math.columbia.edu/tag/0805) はblow-upの平坦基底変更。これらは既知の一般定理であり、本稿ではPoisson側の既存幾何を移す。
 - 原稿 `sec:poisson-shadow-comparison` のPoisson構成と上の入力を分けて点検した。次数2の全一般次数4は `sec:degree-two-shadow-degree` の中心torsor・exact fullEq・正規形・全lower・同じ群の商による追加の証明である。次数1も全lower・Poisson正規化・中心torsorと同じ群の商によって全一般次数5を得た。全同値降下・étale比較・一般次数・対称群モノドロミーの組合せについて包括的な優先権確認は未了である。
+
+### 有限正規化・零切断の分枝・基底変更
+
+以下の一次資料を2026-11-20に確認し、主原稿 `sec:finite-normalization-boundary` に適用した。
+
+| 一次資料 | 適用箇所と範囲 |
+|---|---|
+| [Stacks 02LR](https://stacks.math.columbia.edu/tag/02LR) | 分離的準有限射に対するZariski主定理。正規な構成近傍を、その関数体拡大による相対正規化へ開埋込みする。正規性だけから有限性を結論しない |
+| [Stacks 03GR](https://stacks.math.columbia.edu/tag/03GR) | Nagata基底上の相対正規化の有限性。本件の有限型複素スキームに適用し、関数体拡大による正規化を有限射とする |
+| [Stacks 054F](https://stacks.math.columbia.edu/tag/054F) | 局所Noetherスキームの特殊化をDVRの射で実現する。境界点へ到達するDVRの一般点を正規化の一般点に取る。有限型C上の閉点や余次元1点だけに限定しない |
+| [Stacks 034F](https://stacks.math.columbia.edu/tag/034F) | 正規性のsmooth局所性・smooth射による保存。判別式を反転した有限étale五次代数と、有限étale領域でのスタック引戻しの正規性に適用する |
+| [Stacks 0ALJ](https://stacks.math.columbia.edu/tag/0ALJ)、[09ZL](https://stacks.math.columbia.edu/tag/09ZL) | 完備化によるHensel対と、その上の有限étale代数の一意な持上げ。零切断上の五枚の分裂を形式完成へ持ち上げる。Zariski開上の分裂は結論しない |
+
+[Stacks 0GMJ](https://stacks.math.columbia.edu/tag/0GMJ) のスタックの正規化と、[081J](https://stacks.math.columbia.edu/tag/081J) のsmooth基底変更との可換性も一次本文を確認した。有限型C上のatlasに適用し、必要なら引戻しの被約化を別に正規化できることを用いる。
+
+正規化は任意の基底変更と可換せず、有限正規化の粗スタックへの引戻しも正規とは限らない。主原稿 `prop:stack-pullback-finite-normalization` の `t=x²=y²` によるatlas `C[x,y]/(x²−y²)` が具体的な障害を与える。smooth基底変更との可換性を、一般にsmoothでない粗射へ適用してはならない。次数2の最高活性商の1+3形式模型も、この制約のため全Poisson粗空間へはまだ移送していない。
+
+Zariski主定理・Nagata有限性・Hensel持上げ・判別式による非分岐判定は既知の原理である。本件で証明するのは、全同値不変な逆係数の正則延長、次数1の全零切断上の五枚と四枚の欠落、次数2のtrace不変量・接線判別因子・符号二次体を用いた各可換点上の欠落分岐点への適用である。この組合せについて包括的な新規性・優先権の確認は未了である。境界点を新しい非可換対象として構成したとは主張しない。
 
 ### Binary quarticの正規形と次数比較
 

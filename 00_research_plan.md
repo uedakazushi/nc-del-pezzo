@@ -1,6 +1,6 @@
 # 研究方針：次数1・2の非可換del Pezzo n-fold
 
-**2026-11-20（JST） / v0.16。再開時に最初に読む。**
+**2026-11-20（JST） / v0.17。再開時に最初に読む。**
 
 正本は [uedakazushi/nc-del-pezzo](https://github.com/uedakazushi/nc-del-pezzo) のmain。研究全体の入口は [research-hub](https://github.com/uedakazushi/research-hub)。続いて [研究ノート](research/research_notes.md)、[主原稿](papers/nc-del-pezzo.tex)、[再現手順](docs/reproduction.md) を読む。
 
@@ -37,7 +37,7 @@ Uの全幾何学的点で全Abel Artin変形を同じ族が実現する。Abel H
 
 粗比較射M^nc→NもCartesianなétale射であり、M^ncは正規Cohen–Macaulayなquasi-affine schemeとなる。粗shadowの平坦点集合は古典粗空間M^clのsmooth locusの逆像にちょうど一致する。次数2・n≥3では可換零切断のblow-upが滑らかなDMスタックによる解消で、例外因子はD上の相対Gr(2,n+1)、法束はO(−1)、discrepancyはnである。Uはsmooth atlasの意味でGorensteinかつterminalとなる。粗空間のGorenstein性・terminal性は別問題である。
 
-両次数で全n≥2のPoisson比較の一般次数を決定し、δ_(n,1)=5、δ_(n,2)=4を得た。規格化中心torsorと全同値群oidに、次数2のbinary quartic正規形、次数1のy二次平行移動による正規化、両次数の全lower復元を組み合わせる。一般モノドロミーはS₅・S₄、Galois閉包の次数は120・24である。次数1では内在的α=A₄(D)が原始元となり一般逆像は根号で選べず、両次数で中間体と非自明なdeck変換はない。符号二次体も明示した。大域的一意復元や次数の決定から、有限被覆の開像・境界と構成近傍外の成分へ研究の重点を移す。全Mの被覆・代数性・成分数は未解決である。
+両次数で全n≥2のPoisson比較の一般次数を決定し、δ_(n,1)=5、δ_(n,2)=4を得た。規格化中心torsorと全同値群oidに、次数2のbinary quartic正規形、次数1のy二次平行移動による正規化、両次数の全lower復元を組み合わせる。一般モノドロミーはS₅・S₄、Galois閉包の次数は120・24である。次数1では内在的α=A₄(D)が原始元となり一般逆像は根号で選べず、両次数で中間体と非自明なdeck変換はない。符号二次体も明示した。有限正規化への開埋込みと、境界Bの像を除いた最大有限locus N\ν(B)を得た。次数1では逆係数を全零切断近傍へ正則に降下し、全零切断上の五枚の有限étale正規化と実際の一枚・欠落四枚、形式五分裂を証明した。次数2では接線因子Hのord_H(Δ)=1から符号二次体の分岐を得て、全零切断の各点上にΩ¹_{Z/N}の茎が非零となる欠落点が存在することを証明した。研究の重点は具体的な開像・境界B全体、次数2の全ファイバーの長さ・局所模型、構成近傍外の成分にある。全Mの被覆・代数性・成分数は未解決である。
 
 ## C. 主要到達点と確実性
 
@@ -87,6 +87,11 @@ Uの全幾何学的点で全Abel Artin変形を同じ族が実現する。Abel H
 | 次数2の全Poisson比較の一般次数は全n≥2で4 | 規格化中心torsorへのétale写像とexact fullEq、共通nc開、V₄安定化群による全binary quarticへの移行、全lower、同じ群のCartesian商を使用。一般4対象は全O保存Abel同値で非同値。開埋込み・有理切断はなく、可換点を含むZariski近傍で有限・properにはならない | `thm:degree-two-shadow-degree-four`, `cor:degree-two-four-sheet-consequences` |
 | 次数1のPoisson比較の一般次数は全n≥2で5 | 全lowerの重み三角復元、h尺度変更、depressed Poisson形と同じ全座標群、中心torsorと共通開を使用。内在的α=A₄(D)が逆五次式の原始元。一般5対象は全O保存Abel同値で非同値 | `thm:degree-one-shadow-degree-five`, `prop:degree-one-intrinsic-inverse-quintic` |
 | 一般モノドロミーは次数1でS₅、次数2でS₄ | Sylvester判別式、有限体Bézout、単純分岐、全lowerと全同値商を用いて証明。Galois閉包120・24、中間体なし、deck変換自明。両符号二次体を明示。次数1は根号による一般復元不可 | `sec:shadow-monodromy`, `cor:shadow-symmetric-field-consequences` |
+| 有限正規化ν:Z→NへのM^ncの稠密開埋込みと最大有限locus N\ν(B) | B=(Z\M^nc)_red。正規性・Nagata有限性・Zariski主定理を使用。零切断S⊂ν(B)、各境界点はDVRによる特殊化として実現。Bの具体的な全体は未決定 | `prop:finite-normalization-open`, `prop:normalization-boundary-locus`, `prop:boundary-over-zero`, `prop:boundary-valuative-specialization` |
+| 次数1の全零切断を含む開で正規化は逆五次式による次数5の有限étale被覆 | I,Jは全Nで、αは全M^ncで正則。D₁(0,0)=7812256185000000000≠0を厳密計算。V₁=D(D₁)、Z₁=Spec O_V₁[T]/(f/112) | `lem:degree-one-regular-invariants-zero`, `thm:degree-one-finite-normalization-zero` |
+| 次数1の全零切断上の五枚、実際の一枚と欠落四枚、形式五分裂 | 五つの根は相異なる定数。実際の粗零切断はT=0成分。Hensel持上げで正規化の完成が五分裂するが、非空Zariski開上の切断はない。境界自体の完成は未決定 | `lem:coarse-zero-preimage`, `cor:degree-one-five-sheets-zero`, `cor:degree-one-formal-five-splitting` |
+| 次数2の全零切断各点上にΩ¹_{Z/N}の茎が非零の欠落点が存在 | 全粗空間上の正則u,v、接線素因子Hでord_H(Δ)=1、符号二次体の分岐、有限射の閉性を使用。全ファイバーの長さ・局所模型・平坦性は未決定 | `prop:degree-two-regular-trace-invariants`, `prop:degree-two-normalization-zero-boundary` |
+| 有限正規化のPoissonスタックへの引戻しは有限で安定化群を保つ | 構成Uを開部分に含む。引戻し全体の正規性は一般には成立せず、追加の正規化で安定化群が変わり得る。次数1の有限étale領域では追加正規化不要 | `prop:stack-pullback-finite-normalization` |
 | 任意指数rのVeronese同型の持上げはμr-torsor | 二つ以上の中心一次変数、中心多項式環上平坦、普遍的低次中心条件の下で証明 | `thm:ncdp-veronese-lift` |
 | dは反標準Euler多項式から内在的に復元でき、族で局所定数 | 一般には反標準ACM・相対perfect条件付き。定義したMでは条件を満たし次数1・2が開閉分解 | `prop:ncdp-intrinsic-degree`, `cor:defined-moduli-degree-separation` |
 | 冪零段階の中心商は左右で唯一のaugmentation Ext `R(n−1)` を次数n+1に持つ | R分裂Koszul持上げと平坦中心商のchange of ringsで証明。通常の絶対AS正則性やSerre公式ではない | `prop:nilpotent-weighted-as`, `prop:flat-central-hypersurface-ext` |
@@ -126,17 +131,19 @@ Uの全幾何学的点で全Abel Artin変形を同じ族が実現する。Abel H
 
 両次数の一般次数5・4と一般モノドロミーS₅・S₄は、全lower、規格化中心torsor、全同値商を経た結果である。有限族のCasimir係数に余分な分枝があっても全同値群oidで同一視される。次数1のy正規化と全座標商の比較も完了し、係数次数だけからの推測ではない。自由語中心証明書、逆式、S₃同変性、Sylvester判別式と有限体Bézout証明書を再現資産として保持する。
 
-1. **有限被覆の開像と境界。** δ_(n,1)=5、δ_(n,2)=4とS₅・S₄を出発点に、Poisson粗空間を各関数体拡大で正規化し、構成近傍の開像と欠落分枝を調べる。次数1の内在的逆五次方程式、次数2の符号二次体√((u³−27v²)D₂)を、中心分母・smooth proper開・Casimir Jacobianの条件と比較する。可換点での形式逆、全零切断上の一つの逆像、有限正規化上の残りの分枝を同時に記述する。係数判別式だけで全境界を同定しない。
-2. **全域被覆と残る成分。** Uの全M内での開性は証明した。Uの外にあるM対象を、反標準環と許容豊富列から調べる。全可換locusがUに入ることと、可換locusに接しない成分の不存在は別である。中心超曲面表示の存在条件、他のHilbert一定な族、特殊化の可能性を具体的に調べ、全Mの代数性・被覆・成分数を段階的に判定する。
-3. **特殊自己同型と粗空間の特異層。** M^ncの正規CM性・quasi-affine性、粗shadowの厳密な平坦点集合、可換点の局所模型T/Aut(X)は得た。次は特殊可換模型のAut(X)作用とR_X^Aut(X)を計算する。粗空間のGorenstein性・terminal性、非被約になり得る粗ファイバー、shadowの幾何学的ファイバーの既約性は、それぞれ追加の問題である。
-4. **境界と明示条件。** 零切断を含む開近傍ではH=Eである。その外側の中心増大層で追加同値があるか、smooth proper性や全点Artin比較がどこまで延長するかを調べる。中心行列・分母・Noether開・CY線束・smoothness・Casimir Jacobian・Hochschild階数の非消滅条件を具体化する。全次数の中心条件を一つの有限開条件へ置き換えない。
-5. **公表範囲と先行研究。** 全方向有限型nc族、全点Abel Artin比較、全M内の開性、有限対角、Poisson shadowとその相対幾何を一貫した中心結果として整理する。変形比較・THCR・Fujita消滅・Noether降下・同型関手・トーラス商・Keel–Mori・slice・Zariski主定理は既知の原理であり、組合せの包括的優先権は未確認。平坦点集合・Plücker解消・terminal性は固定commitのPoisson側の結果を移送している。多項式Veroneseの持上げにはAMU2025の先行結果を明示し、相対非可換復元との差を説明する。Keelerのmultiple divisors論文の本文と一般基底への仮定は引き続き確認が必要。
+1. **具体的な開像と境界全体。** 有限正規化Zと最大有限locus N\ν(B)、次数1の全零切断上の欠落四枚、次数2の各零点上の欠落分岐点は得た。次は正規化上で中心分母・smooth proper開・Casimir Jacobianの消滅条件を比較し、選んだ構成近傍M^ncの像とB全体を同定する。次数1の明示的monic五次式と正則I,J,αを具体的な着手点とする。境界自身の形式完備化を四つの形式近傍と同一視せず、係数判別式だけで全境界を決めない。
+2. **次数2の零切断上の局所模型。** 接線因子Hに沿う符号分岐は証明済みだが、高余次元の零切断上の分岐指数、全ファイバーの長さ、欠落点の個数、正規化の平坦性は未決定である。最高活性逆写像の1+3型を出発点に、全lower係数の復元行列と全座標商を含む整閉包・付値を計算する。最高活性部分の模型を全モジュライの局所模型とするには追加の証明が必要である。
+3. **全域被覆と残る成分。** Uの全M内での開性は証明した。Uの外にあるM対象を、反標準環と許容豊富列から調べる。全可換locusがUに入ることと、可換locusに接しない成分の不存在は別である。中心超曲面表示の存在条件、他のHilbert一定な族、特殊化の可能性を具体的に調べ、全Mの代数性・被覆・成分数を段階的に判定する。
+4. **特殊自己同型と粗空間の特異層。** M^ncの正規CM性・quasi-affine性、粗shadowの厳密な平坦点集合、可換点の局所模型T/Aut(X)は得た。次は特殊可換模型のAut(X)作用とR_X^Aut(X)を計算する。粗空間のGorenstein性・terminal性、非被約になり得る粗ファイバー、shadowの幾何学的ファイバーの既約性は、それぞれ追加の問題である。
+5. **境界と明示条件。** 零切断を含む開近傍ではH=Eである。その外側の中心増大層で追加同値があるか、smooth proper性や全点Artin比較がどこまで延長するかを調べる。中心行列・分母・Noether開・CY線束・smoothness・Casimir Jacobian・Hochschild階数の非消滅条件を具体化する。全次数の中心条件を一つの有限開条件へ置き換えない。
+6. **公表範囲と先行研究。** 全方向有限型nc族、全点Abel Artin比較、全M内の開性、有限対角、Poisson shadowとその相対幾何を一貫した中心結果として整理する。変形比較・THCR・Fujita消滅・Noether降下・同型関手・トーラス商・Keel–Mori・slice・Zariski主定理は既知の原理であり、組合せの包括的優先権は未確認。平坦点集合・Plücker解消・terminal性は固定commitのPoisson側の結果を移送している。多項式Veroneseの持上げにはAMU2025の先行結果を明示し、相対非可換復元との差を説明する。Keelerのmultiple divisors論文の本文と一般基底への仮定は引き続き確認が必要。
 
 ## E. 依存・再開・検証
 
 - 相対Poisson錐・商・自己同型：`poisson-del-pezzo` main `4834ea4f3e13bff4d6c5793cec9b169d8f1ad56f`、主原稿v1.4の定理7.3・8.8・9.2、補題8.7、注意8.5、命題9.4。古典対角の有限性には定理9.2とLunaのaffine作用の結果を使用する。粗shadowの厳密な平坦点集合は定理9.6、各固定古典模型上の一般Poisson自己同型の自明性は命題9.5に依存する。錐の局所完全交叉判定・零切断解消・discrepancyは補題10.1・定理10.3・命題10.4を使用し、固定commitの本文と証明を確認した。
 - O-marked枠組み：`nc-cubic-threefold-moduli` main `6c35d2c84671c2538e61836a6bf3a511392eacce`、主原稿v22。三次三様体固有の次数一生成・指数2・残余圏の結論を無条件に輸入しない。
 - 一次資料・具体的な適用条件・優先権未確認点は [文献と依存](research/literature.md)。証明の重複は研究ノートへ置かない。
+- 有限正規化と零切断上の分枝の主証明は `papers/sections/finite_normalization_boundary.tex`。有限性・開埋込み・DVR特殊化はStacksの03GR・02LR・054F、形式分裂は0ALJ・09ZLの一次本文で仮定を確認した。次数1の正則不変量には上記PoissonDP固定commitの全群作用とaffine粗商を用いる。
 - `make verify` はn=2,…,8のHilbert/monic基底・Euler差分・二次障害・符号粗商の接空間次元と、分離型の全係数PBW overlap・中心交換子・内部次数・補助次数を検査する。さらに三次Sklyanin中心元の自由代数内の九項証明書、パラメータ置換と可換極限を厳密計算する。分離型とSklyanin中心の検算はhの有限jetではない。`verify_elliptic_curve.py` はpoint curveの行列式、blowup、分母を払ったshiftの恒等式を厳密検算し、σ⁴の非自明性だけは明示したmod h²計算で確認する。`verify_degree_one_top.py` はWeierstrassからStephensonへの変数変換、関係式のイデアル、AS開多項式、cyclic syzygyを有理係数の自由代数で厳密に検算する。`verify_degree_one_curve.py` は解消曲線の両chart・無限遠因子・shiftと関係式を全係数の恒等式で検算し、σ⁶の非自明性だけmod h²を使う。一般の証明を有限次元の数値例で代替していない。
 - `verify_degree_one_center_jet.py` は独立な全係数上で4次補正の三つの交換子がmod h⁶で零となること、内部次数6と完全対称化のz²規格化を厳密に検証する。この有限jet証明書に、論文のH¹消滅と有限余核の議論を組み合わせて全中心元を得る。
 - `verify_poisson_shadow.py` はFの1階・2階jetを独立変数とし、n=2,…,6でJacobian括弧のJacobiatorとPlücker関係による表示を厳密に検算する。一般n・任意基底の証明は主原稿の添字計算と全同値の変換則に置き、有限個の検算で置き換えない。

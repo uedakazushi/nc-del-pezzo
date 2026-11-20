@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
-"""Exact degree-one active-top centre and its degree-five Poisson map.
+"""Exact degree-one centre, degree-five Poisson map, and S5 certificates.
+
+2026-11-20 / v0.16.
 
 Standard library only.  Over Q[alpha,beta], with h=1, eliminate
 z=[x,y] and use the two weighted relations r4,r5.  Explicit free-algebra
@@ -7,9 +9,10 @@ certificates verify the centre after clearing 6(alpha+1)(alpha+5).
 An exact rational rank check at alpha=beta=0 proves generic uniqueness
 in the full seven-dimensional symmetric weight-six space.  The subsequent
 commutative identities verify the depressed cubic and the coprimality
-needed for the function-field degree five.  This is a statement about
-the active homogeneous top; it does not compute the degree of the
-full noncommutative moduli morphism with arbitrary lower coefficients.
+needed for the function-field degree five. Exact discriminants, a finite-field
+Bezout certificate, depression, and scaling identities support the S5 proof.
+The full lower-term, center-torsor, and moduli-quotient arguments are supplied
+in the manuscript; these finite identities are not a formal proof of them.
 """
 from fractions import Fraction as F
 from functools import lru_cache
@@ -268,4 +271,119 @@ assert N.sub(alpha=F(-5, 2)) == -F(5, 2)*(3*I+65)*(6*I+55)
 assert max(m[0] for m in N) == 5
 assert {m: c for m, c in N.items() if m[0] == 5} == {(5, 0, 0): F(112)}
 print("PASS: depressed-cubic map, elimination, exact coprimality, and degree five")
-print("Scope: active homogeneous top only; no degree claim for the full moduli map")
+
+
+# The existing three-variable polynomial ring is reused below with beta as J.
+# This is an exact coefficient certificate; moduli descent is proved in the paper.
+J_branch = beta
+quintic = N-J_branch*den_J_after
+
+
+def coefficients_in_alpha(polynomial, degree):
+    coefficients = [P() for _ in range(degree+1)]
+    for (a, b, i), coefficient in polynomial.items():
+        coefficients[a] += P({(0, b, i): coefficient})
+    return coefficients
+
+
+def determinant_polynomial(matrix):
+    """Subset expansion: exact determinant over the existing Q-polynomial ring."""
+    dimension = len(matrix)
+    partial = {0: P.coerce(1)}
+    for row in matrix:
+        following = {}
+        for mask, value in partial.items():
+            for column, entry in enumerate(row):
+                if mask & (1 << column) or not entry:
+                    continue
+                sign = -1 if (mask >> (column+1)).bit_count() % 2 else 1
+                next_mask = mask | (1 << column)
+                following[next_mask] = following.get(next_mask, P())+sign*value*entry
+        partial = following
+    return partial.get((1 << dimension)-1, P())
+
+
+coefficients = coefficients_in_alpha(quintic, 5)
+derivative = [i*coefficients[i] for i in range(1, 6)]
+# Four shifts of F (degree 5), five shifts of F' (degree 4).
+sylvester = []
+for shift in range(4):
+    sylvester.append([P()]*shift+list(reversed(coefficients))+[P()]*(3-shift))
+for shift in range(5):
+    sylvester.append([P()]*shift+list(reversed(derivative))+[P()]*(4-shift))
+# (-1)^(5*4/2)=1 and the leading coefficient of F is 112.
+discriminant = F(1, 112)*determinant_polynomial(sylvester)
+assert all(a == 0 for a, b, i in discriminant)
+assert max(b for a, b, i in discriminant) == 6
+assert {(a, b, i): c for (a, b, i), c in discriminant.items() if b == 6} == {
+    (0, 6, 0): F(-8680203000000000000)
+}
+D0 = (1157360400*J_branch**6+114742255536*J_branch**5
+      -1260129809475*J_branch**4-5034506238090*J_branch**3
+      -13419254573985*J_branch**2-245130767140*J_branch-1041634158)
+assert discriminant.sub(I=0) == -7500000000*D0
+print("PASS: exact quintic discriminant, J-degree six, constant leading coefficient")
+
+
+def derivative_in_beta(polynomial):
+    return P({(a, b-1, i): b*c for (a, b, i), c in polynomial.items() if b})
+
+
+# Bezout identity in F_19[J]; the leading degree-six coefficient is nonzero.
+modulus = 19
+d0_mod = 5*J_branch**6-3*J_branch**5-6*J_branch**4-J_branch**3+9*J_branch**2-3*J_branch-8
+bezout_u = -7*J_branch**4+J_branch**3+4*J_branch**2+2*J_branch+5
+bezout_v = -2*J_branch**5+7*J_branch**4+5*J_branch**3-6*J_branch**2+9*J_branch-1
+assert all(c.denominator == 1 and c.numerator % modulus == 0 for c in (D0-d0_mod).values())
+assert 1157360400 % modulus != 0
+bezout_error = bezout_u*d0_mod+bezout_v*derivative_in_beta(d0_mod)-1
+assert all(c.denominator == 1 and c.numerator % modulus == 0 for c in bezout_error.values())
+# The two finite poles never cancel over C(I); at I=0 both evaluations are nonzero.
+assert N.sub(alpha=-1, I=0) == P.coerce(-272)
+assert N.sub(alpha=F(-5, 2), I=0) == P.coerce(-F(17875, 2))
+assert max(m[0] for m in den_J_after) == 2
+print("PASS: modulo-19 squarefreeness certificate and simple finite poles")
+
+# General depressed cubic, using the three polynomial variables as B,C,D and
+# a separate univariate coefficient list for Y.
+def commutative_univariate_product(left, right):
+    result = [P() for _ in range(len(left)+len(right)-1)]
+    for i, a in enumerate(left):
+        for j, b in enumerate(right):
+            result[i+j] += a*b
+    return result
+
+
+B_depress, C_depress, D_depress = alpha, beta, I
+linear = [-B_depress, P.coerce(1)]
+square = commutative_univariate_product(linear, linear)
+cube = commutative_univariate_product(square, linear)
+depressed = [F(1, 3)*a for a in cube]
+for i, coefficient in enumerate(square):
+    depressed[i] += B_depress*coefficient
+for i, coefficient in enumerate(linear):
+    depressed[i] += C_depress*coefficient
+depressed[0] += D_depress
+assert depressed == [D_depress-B_depress*C_depress+F(2, 3)*B_depress**3,
+                      C_depress-B_depress**2, P(), P.coerce(F(1, 3))]
+
+# Exact x=h*x' scaling of every independent potential monomial.
+# For a monomial c*x^i*y^j, h*d_x changes its coefficient by h^i;
+# h^(-1)[z,h*x'] and h^(-1)[h*x',y] give the target relations.
+h_scale = I
+for x_degree in range(7):
+    for y_degree in range(4):
+        if x_degree+2*y_degree > 6:
+            continue
+        if x_degree:
+            assert h_scale*x_degree*h_scale**(x_degree-1) == x_degree*h_scale**x_degree
+        if y_degree:
+            assert y_degree*h_scale**x_degree == h_scale**x_degree*y_degree
+scaled_c_numerator = num_c.sub(alpha=alpha*h_scale**4, beta=beta*h_scale**6)
+scaled_d_numerator = num_d.sub(alpha=alpha*h_scale**4, beta=beta*h_scale**6)
+assert all(i >= 4 for a, b, i in scaled_c_numerator)
+assert all(i >= 6 for a, b, i in scaled_d_numerator)
+assert P({(a, b, 0): c for (a, b, i), c in scaled_c_numerator.items() if i == 4}) == 15*alpha
+assert P({(a, b, 0): c for (a, b, i), c in scaled_d_numerator.items() if i == 6}) == 15*beta
+print("PASS: full depressed-cubic identities and h-scaling of the coefficient relations")
+print("Scope: exact coefficient identities; degree five and S5 descent to moduli use the paper's proofs")

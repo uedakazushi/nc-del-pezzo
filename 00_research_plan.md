@@ -1,6 +1,6 @@
 # 研究方針：次数1・2の非可換del Pezzo n-fold
 
-**2026-11-20（JST） / v0.15。再開時に最初に読む。**
+**2026-11-20（JST） / v0.16。再開時に最初に読む。**
 
 正本は [uedakazushi/nc-del-pezzo](https://github.com/uedakazushi/nc-del-pezzo) のmain。研究全体の入口は [research-hub](https://github.com/uedakazushi/research-hub)。続いて [研究ノート](research/research_notes.md)、[主原稿](papers/nc-del-pezzo.tex)、[再現手順](docs/reproduction.md) を読む。
 
@@ -37,7 +37,7 @@ Uの全幾何学的点で全Abel Artin変形を同じ族が実現する。Abel H
 
 粗比較射M^nc→NもCartesianなétale射であり、M^ncは正規Cohen–Macaulayなquasi-affine schemeとなる。粗shadowの平坦点集合は古典粗空間M^clのsmooth locusの逆像にちょうど一致する。次数2・n≥3では可換零切断のblow-upが滑らかなDMスタックによる解消で、例外因子はD上の相対Gr(2,n+1)、法束はO(−1)、discrepancyはnである。Uはsmooth atlasの意味でGorensteinかつterminalとなる。粗空間のGorenstein性・terminal性は別問題である。
 
-次数2では全n≥2でPoisson比較の一般次数 δ_(n,2)=4 を決定した。規格化中心のtorsor、全同値群oid、binary quarticの正規形、全lower復元を結び、係数の四分枝が全モジュライ上でも残ることを証明した。従って大域的な一意復元や開埋込みは目標にせず、四枚の被覆のモノドロミー・開像・可換点へ向かう境界を調べる。元の目標のうち次数1の全比較の次数、U外の対象・成分、特殊自己同型群の粗空間は未解決である。全成分数には可換locusに接しない成分の検討も必要となる。追加開条件の最小明示式、形式的普遍性だけでは代数化できない反例、完成同型を持つétale射の大域的多価性を、現在有効な障害として保持する。
+両次数で全n≥2のPoisson比較の一般次数を決定し、δ_(n,1)=5、δ_(n,2)=4を得た。規格化中心torsorと全同値群oidに、次数2のbinary quartic正規形、次数1のy二次平行移動による正規化、両次数の全lower復元を組み合わせる。一般モノドロミーはS₅・S₄、Galois閉包の次数は120・24である。次数1では内在的α=A₄(D)が原始元となり一般逆像は根号で選べず、両次数で中間体と非自明なdeck変換はない。符号二次体も明示した。大域的一意復元や次数の決定から、有限被覆の開像・境界と構成近傍外の成分へ研究の重点を移す。全Mの被覆・代数性・成分数は未解決である。
 
 ## C. 主要到達点と確実性
 
@@ -77,14 +77,16 @@ Uの全幾何学的点で全Abel Artin変形を同じ族が実現する。Abel H
 | Uは分離的で整な有限型粗空間M^ncを持ち、一般安定化群は自明 | 有限慣性とKeel–Mori。一般可換点のμ₂が方向に符号作用し、stabilizer preserving slice上の非零方向では自由。零切断での慣性の平坦性は要求しない | `cor:zero-neighborhood-separated-coarse`, `cor:stabilizer-preserving-slice-generic-trivial` |
 | 可換点の実際の粗空間はT/Aut(X)をétale局所模型に持ち、完備局所環はR_X^Aut(X) | 粗射との正方形はCartesian。可換点で正規CMかつ解析的一分枝。一般μ₂点は係数方向とPoisson錐の2次Veronese商の積の開部分 | `cor:algebraic-coarse-local-model` |
 | 中心方程式のshadowは全同値に関手的なPoisson構造を持つ | 全基底でJacobian括弧のJacobi恒等式とweighted-linear同型の厳密な変換則を証明。ρ反自己同型でz偶性を得る。Poisson零切断の逆像はschemeとして可換零切断 | `lem:shadow-jacobian-poisson`, `lem:shadow-even-z`, `prop:poisson-shadow-morphism` |
-| 全零切断を保った縮小でΘ:U→Pは表現可能・分離的・有限表示・étaleかつstabilizer preserving | 全可換点のframed完成同型とétale locusの開性、Poisson側の有限慣性から証明。像は全Poisson零切断を含む開部分。開埋込みは未証明 | `prop:poisson-shadow-formal-comparison`, `thm:poisson-shadow-etale` |
+| 全零切断を保った縮小でΘ:U→Pは表現可能・分離的・有限表示・étaleかつstabilizer preserving | 全可換点のframed完成同型とétale locusの開性、Poisson側の有限慣性から証明。像は全Poisson零切断を含む開部分。下記の一般次数5・4により開埋込みではない | `prop:poisson-shadow-formal-comparison`, `thm:poisson-shadow-etale` |
 | sh:U→Dはquasi-affine平坦全射、純相対次元nまたは2n−1 | 幾何学的ファイバーはA^nまたはPlücker錐へのétale射を持ち、正規CMかつGorenstein。d1およびd2・n=2はsmooth、d2・n≥3の相対非smooth locusの台は零切断。全ファイバーの既約性は未証明 | `cor:shadow-flat-cone-fibers` |
 | M^ncは正規CMなquasi-affine schemeで、粗shadowの平坦点はM^clのsmooth locusの逆像に一致 | 粗比較射M^nc→Nは分離的étaleかつ粗射との正方形はCartesian。PoissonDP定理9.2・9.6とZariski主定理、平坦性の忠実平坦降下を使用。粗ファイバーの被約性は主張しない | `thm:coarse-shadow-etale-flat-locus` |
 | d2の零切断blow-upはn≥3で滑らかなDM解消、UはGorenstein terminal | Θの平坦基底変更でPoissonDP定理10.3・命題10.4を移す。例外因子は相対Gr(2,n+1)、法束O(−1)、discrepancy n。d2・n=2は既にsmooth。粗空間のterminal性は未判定 | `cor:nc-shadow-zero-blowup-resolution` |
-| 有限一般次数δが1であることとΘの開埋込み性は同値 | 整正規な粗schemeとZariski主定理を使用。次数2ではδ=4と決定したため開埋込みではない。μ₂同変なt↦t+t³は局所条件だけでは次数を決められない一般反例 | `prop:poisson-shadow-degree-one-criterion`, `ex:etale-shadow-not-open-immersion` |
-| 指定した最高活性二係数写像の一般次数は、d1で5、d2で4 | h=1、中央変数とlowerなし。d1はPoisson側のy二次項を除く正規化後、d2は対称binary quarticの同座標shadow。自由語証明書・体の塔・互いに素性を証明し厳密計算を実行。d1の全Θの次数や下界は未証明 | `prop:degree-one-shadow-top-center`, `prop:degree-one-shadow-top-degree-five`, `prop:binary-shadow-generic-degree-four` |
+| 有限一般次数δが1であることとΘの開埋込み性は同値 | 整正規な粗schemeとZariski主定理を使用。両次数でδ=5・4と決定したため開埋込みではない。μ₂同変なt↦t+t³は局所条件だけでは次数を決められない一般反例 | `prop:poisson-shadow-degree-one-criterion`, `ex:etale-shadow-not-open-immersion` |
+| 指定した最高活性二係数写像の一般次数は、d1で5、d2で4 | h=1、中央変数とlowerなし。d1はPoisson側のy二次項を除く正規化後、d2は対称binary quarticの同座標shadow。自由語証明書・体の塔・互いに素性を証明し厳密計算を実行。全Θへの移行は下記の別証明を使う | `prop:degree-one-shadow-top-center`, `prop:degree-one-shadow-top-degree-five`, `prop:binary-shadow-generic-degree-four` |
 | 次数2の選択した中心族では全lowerが三角的に有理復元され、固定座標の全係数写像も一般次数4 | 整列定数項・z²係数の一意な規格化、topだけの分母、lowerの重み、hの尺度変更を使用。中央一次変数への斉次代入を含む | `cor:binary-shadow-lower-triangular` |
 | 次数2の全Poisson比較の一般次数は全n≥2で4 | 規格化中心torsorへのétale写像とexact fullEq、共通nc開、V₄安定化群による全binary quarticへの移行、全lower、同じ群のCartesian商を使用。一般4対象は全O保存Abel同値で非同値。開埋込み・有理切断はなく、可換点を含むZariski近傍で有限・properにはならない | `thm:degree-two-shadow-degree-four`, `cor:degree-two-four-sheet-consequences` |
+| 次数1のPoisson比較の一般次数は全n≥2で5 | 全lowerの重み三角復元、h尺度変更、depressed Poisson形と同じ全座標群、中心torsorと共通開を使用。内在的α=A₄(D)が逆五次式の原始元。一般5対象は全O保存Abel同値で非同値 | `thm:degree-one-shadow-degree-five`, `prop:degree-one-intrinsic-inverse-quintic` |
+| 一般モノドロミーは次数1でS₅、次数2でS₄ | Sylvester判別式、有限体Bézout、単純分岐、全lowerと全同値商を用いて証明。Galois閉包120・24、中間体なし、deck変換自明。両符号二次体を明示。次数1は根号による一般復元不可 | `sec:shadow-monodromy`, `cor:shadow-symmetric-field-consequences` |
 | 任意指数rのVeronese同型の持上げはμr-torsor | 二つ以上の中心一次変数、中心多項式環上平坦、普遍的低次中心条件の下で証明 | `thm:ncdp-veronese-lift` |
 | dは反標準Euler多項式から内在的に復元でき、族で局所定数 | 一般には反標準ACM・相対perfect条件付き。定義したMでは条件を満たし次数1・2が開閉分解 | `prop:ncdp-intrinsic-degree`, `cor:defined-moduli-degree-separation` |
 | 冪零段階の中心商は左右で唯一のaugmentation Ext `R(n−1)` を次数n+1に持つ | R分裂Koszul持上げと平坦中心商のchange of ringsで証明。通常の絶対AS正則性やSerre公式ではない | `prop:nilpotent-weighted-as`, `prop:flat-central-hypersurface-ext` |
@@ -122,9 +124,9 @@ Uの全幾何学的点で全Abel Artin変形を同じ族が実現する。Abel H
 
 ## D. 未解決の核心と次の一手
 
-次数2の一般次数4は、最高活性の二係数計算に加え、全lower、実際の中心関係式のtorsor、全同値群oid、正規形と全座標群の商を比較して得た。中心選択のCasimirパラメータ化に余分な分枝があっても、それらは同じ中心商の恒等座標同型で同一視される。次数1では最高活性係数の次数5までであり、全lowerとPoisson側の正規化の比較が残る。自由語中心証明書、有理式、S₃同変性と正規形の微分の厳密検算を保持する。
+両次数の一般次数5・4と一般モノドロミーS₅・S₄は、全lower、規格化中心torsor、全同値商を経た結果である。有限族のCasimir係数に余分な分枝があっても全同値群oidで同一視される。次数1のy正規化と全座標商の比較も完了し、係数次数だけからの推測ではない。自由語中心証明書、逆式、S₃同変性、Sylvester判別式と有限体Bézout証明書を再現資産として保持する。
 
-1. **残る次数と四枚の被覆の幾何。** 次数1では、23変数の中心方程式のtopだけの分母とlowerの重みを使って全lowerの三角復元を調べ、Poisson側のy二次平行移動を含む群oidとの比較からδ_(n,1)を求める。最高活性の次数5を全次数や下界とはしない。次数2ではδ_(n,2)=4を出発点に、既存の逆四次方程式の分解体・判別式と座標商の両立からモノドロミーを調べ、可換零切断へ向かう分枝の境界と開像を記述する。全零切断での形式逆と大域的な有理切断の不存在を区別する。
+1. **有限被覆の開像と境界。** δ_(n,1)=5、δ_(n,2)=4とS₅・S₄を出発点に、Poisson粗空間を各関数体拡大で正規化し、構成近傍の開像と欠落分枝を調べる。次数1の内在的逆五次方程式、次数2の符号二次体√((u³−27v²)D₂)を、中心分母・smooth proper開・Casimir Jacobianの条件と比較する。可換点での形式逆、全零切断上の一つの逆像、有限正規化上の残りの分枝を同時に記述する。係数判別式だけで全境界を同定しない。
 2. **全域被覆と残る成分。** Uの全M内での開性は証明した。Uの外にあるM対象を、反標準環と許容豊富列から調べる。全可換locusがUに入ることと、可換locusに接しない成分の不存在は別である。中心超曲面表示の存在条件、他のHilbert一定な族、特殊化の可能性を具体的に調べ、全Mの代数性・被覆・成分数を段階的に判定する。
 3. **特殊自己同型と粗空間の特異層。** M^ncの正規CM性・quasi-affine性、粗shadowの厳密な平坦点集合、可換点の局所模型T/Aut(X)は得た。次は特殊可換模型のAut(X)作用とR_X^Aut(X)を計算する。粗空間のGorenstein性・terminal性、非被約になり得る粗ファイバー、shadowの幾何学的ファイバーの既約性は、それぞれ追加の問題である。
 4. **境界と明示条件。** 零切断を含む開近傍ではH=Eである。その外側の中心増大層で追加同値があるか、smooth proper性や全点Artin比較がどこまで延長するかを調べる。中心行列・分母・Noether開・CY線束・smoothness・Casimir Jacobian・Hochschild階数の非消滅条件を具体化する。全次数の中心条件を一つの有限開条件へ置き換えない。
@@ -139,5 +141,5 @@ Uの全幾何学的点で全Abel Artin変形を同じ族が実現する。Abel H
 - `verify_degree_one_center_jet.py` は独立な全係数上で4次補正の三つの交換子がmod h⁶で零となること、内部次数6と完全対称化のz²規格化を厳密に検証する。この有限jet証明書に、論文のH¹消滅と有限余核の議論を組み合わせて全中心元を得る。
 - `verify_poisson_shadow.py` はFの1階・2階jetを独立変数とし、n=2,…,6でJacobian括弧のJacobiatorとPlücker関係による表示を厳密に検算する。一般n・任意基底の証明は主原稿の添字計算と全同値の変換則に置き、有限個の検算で置き換えない。
 - `verify_degree_two_gorenstein_curve.py` と `verify_degree_one_integral_curve.py` は全独立係数のpoint行列・blowup・分母を払ったshiftと関係式を厳密検算する。d2の非被約ribbon、d1の尖点を除外しない。σ⁴・σ⁶の非自明性だけは明示したmod h²の検査である。強・積Noether性、相対CY・tails・smoothnessは論文の証明により、これらの計算だけから推論しない。
-- `verify_degree_two_shadow_top.py` は中心の自由語証明書と逆有理式に加え、normalizer商S₃の二反射、全係数のshadow同変性、正規形とLie軌道の行列式を厳密検算する。全モジュライの次数4には、論文の中心torsor・共通開・全同値群oidの証明を別に用いる。
+- 両shadow計算は中心の自由語証明書と逆有理式に加え、Sylvester判別式・有限体Bézout証明書を厳密検算する。次数1はdepressionとh尺度変更、次数2はnormalizer商S₃、全係数同変性、Lie行列式と符号二次体の反不変式も確認する。全モジュライの次数5・4とモノドロミーには、論文の中心torsor・共通開・全同値群oid・単純分岐の証明を別に用いる。
 - 組版・PDF確認の実施状況と環境は [再現手順](docs/reproduction.md)。生成・証明点検・計算・組版・GitHub反映・hub更新はそれぞれ確認する。

@@ -1,6 +1,6 @@
 # 文献・依存関係・新規性の範囲
 
-2026-11-20（JST） / v0.15。完全な書誌は [references.bib](../references.bib)。以下は使用する一次資料の具体的な箇所、現行論文での適用とその限界を示す。外部論文のPDFは収録しない。
+2026-11-20（JST） / v0.16。完全な書誌は [references.bib](../references.bib)。以下は使用する一次資料の具体的な箇所、現行論文での適用とその限界を示す。外部論文のPDFは収録しない。
 
 ## 1. 他研究からの数学的入力
 
@@ -53,9 +53,16 @@
 - Rains, *Filtered deformations of elliptic algebras*, [arXiv:2107.13540v2](https://arxiv.org/abs/2107.13540v2)。Introに加え、Propositions 2.2–2.3、Theorems 2.12–2.13、Example 3.1を確認。固定された有限表示graded代数のfiltered変形の代数性と、楕円THCRのfiltered表示を扱う。Theorem 2.13の中心持上げにはtorsion translationの仮定があり、未確認のtop全体や本稿の全方向ambientの中心へ無条件に適用しない。全n・全O-markedモジュライの分類としては使わない。
 - Abdelgadir–Okawa–Ueda, *Compact moduli of marked noncommutative cubic surfaces*, [arXiv:2404.00175](https://arxiv.org/abs/2404.00175)。Introとquiver markingを確認。例外集合に対応するquiver関係のGITモジュライであり、本研究のOのみを残す同値関係とは異なる。
 - Okawa–Ueda, *AS-regular algebras from acyclic spherical helices*, [arXiv:2007.07620](https://arxiv.org/abs/2007.07620)。球面helixからの構成を比較した。一般次元での表示を検討する基礎であり、本稿で全変形のAS包絡存在を結論する根拠には用いていない。
-- Okawa–Ueda, *Marked Artin–Schelter surfaces of del Pezzo types*, [arXiv:2508.04986v1](https://arxiv.org/abs/2508.04986v1) (2025)。Definitions 1.1・6.1、Theorem 6.4とその直前の構成・証明を一次本文で確認。markingはvery strong helixを含み、曲面のquiver potentialのモジュライと、種数1曲線・次数3の二線束・次数1の線束の組のモジュライを双有理に比較する。本稿のOのみを標識する全Abel同値、任意nの中心商族、指定Poisson shadowの次数4とは定義と射が異なる。helixを忘れる射と幾何的データの対応は未比較であり、この既存双有理性を本稿のδの値へ読み替えない。
+- Okawa–Ueda, *Marked Artin–Schelter surfaces of del Pezzo types*, [arXiv:2508.04986v1](https://arxiv.org/abs/2508.04986v1) (2025)。Definitions 1.1・6.1、Theorem 6.4とその直前の構成・証明を一次本文で確認。markingはvery strong helixを含み、曲面のquiver potentialのモジュライと、種数1曲線・次数3の二線束・次数1の線束の組のモジュライを双有理に比較する。本稿のOのみを標識する全Abel同値、任意nの中心商族、指定Poisson shadowの次数5・4とS₅・S₄モノドロミーとは定義と射が異なる。helixを忘れる射と幾何的データの対応は未比較であり、この既存双有理性を本稿のδの値へ読み替えない。
 
 Plücker座標環の正規性・Cohen–Macaulay性にはSvanes (1973) とDe Concini–Procesi (1981) の標準単項式理論を用いる。具体的書誌と一次資料URLはBibTeXに保持する。
+
+### 逆被覆の分岐とモノドロミー
+
+- Allcock–Hall, *Monodromy Groups of Hurwitz-type Problems*, [arXiv:0803.0237v1](https://arxiv.org/abs/0803.0237v1) (2008)。IntroductionのPDF pp.1,3を一次本文で確認した。単純分岐の局所モノドロミーは互換であり、連結な単純分岐次数4被覆のGalois閉包はS₄となる。この原理自体は古典的である。同論文の主結果はHurwitz空間自体のモノドロミーであり、本稿の一つの比較被覆の四分枝への作用とは異なる。刊行版の巻頁は今回確認せず、参照したarXiv版を引用する。
+- [Stacks Tag 0C1B](https://stacks.math.columbia.edu/tag/0C1B)、Section 53.12の標数0のRiemann–Hurwitz公式を一次本文で確認した。次数2のB=1切断は種数1・次数4なので総分岐次数8であり、八つの単純分岐を検出すると追加の分岐がないと分かる。
+
+本稿固有の計算は、両逆方程式のSylvester判別式、法11・19のBézout証明書、全lowerと全同値商を経たS₄・S₅、次数2のnormalizer符号捩れである。次数1の素数次数と互換による対称群判定、Galois対応、根号可解性の一般原理は既知の体論であり、原稿に必要な短い証明を記載する。これらの具体的比較射についての包括的な新規性調査は未完了。
 
 ### 有限族の全同値とVeronese復元
 
@@ -107,7 +114,7 @@ Plücker座標環の正規性・Cohen–Macaulay性にはSvanes (1973) とDe Con
 - [Stacks 039M](https://stacks.math.columbia.edu/tag/039M) のNoether局所環と完成によるétale判定、[02GH](https://stacks.math.columbia.edu/tag/02GH) のétale locusの開性・étale射の平坦性と開写像性を、全可換点の形式比較へ適用する。
 - [0DUA](https://stacks.math.columbia.edu/tag/0DUA) により零切断を保ってstabilizer preservingへ縮小し、[0DUS](https://stacks.math.columbia.edu/tag/0DUS) と [0DUE](https://stacks.math.columbia.edu/tag/0DUE) によって粗空間のCartesian正方形とétale射を得る。一般のétale射がstabilizer preservingであるとは仮定しない。
 - [082J](https://stacks.math.columbia.edu/tag/082J) の代数空間版Zariski Main TheoremでΘ・shの準アフィン性と粗空間のスキーム性を得る。[0805](https://stacks.math.columbia.edu/tag/0805) はblow-upの平坦基底変更。これらは既知の一般定理であり、本稿ではPoisson側の既存幾何を移す。
-- 原稿 `sec:poisson-shadow-comparison` のPoisson構成と上の入力を分けて点検した。次数2の全一般次数4は `sec:degree-two-shadow-degree` の中心torsor・exact fullEq・正規形・全lower・同じ群の商による追加の証明である。次数1の全一般次数は未決定。全同値降下・étale比較とこの次数計算の組合せについて包括的な優先権確認は未了である。
+- 原稿 `sec:poisson-shadow-comparison` のPoisson構成と上の入力を分けて点検した。次数2の全一般次数4は `sec:degree-two-shadow-degree` の中心torsor・exact fullEq・正規形・全lower・同じ群の商による追加の証明である。次数1も全lower・Poisson正規化・中心torsorと同じ群の商によって全一般次数5を得た。全同値降下・étale比較・一般次数・対称群モノドロミーの組合せについて包括的な優先権確認は未了である。
 
 ### Binary quarticの正規形と次数比較
 

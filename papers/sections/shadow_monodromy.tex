@@ -1,0 +1,460 @@
+% !TeX root = ../nc-del-pezzo.tex
+% 2026-11-20 JST / v0.16
+\section{Poisson比較の一般モノドロミー}
+\label{sec:shadow-monodromy}
+
+本節で一般モノドロミーとは，複素数体上の関数体拡大のGalois閉包の群を，
+一般の逆像への置換群として見るものである。
+有限係数の判別式を計算した後，実際の全同値の商へ移す。
+
+\begin{lemma}[基底変更による一般モノドロミーの包含]
+\label{lem:degree-four-monodromy-base-change}
+$f:X\dashrightarrow Y$ を標数0の整な多様体の優勢な一般有限射，
+$d=[K(X):K(Y)]$ とする。
+整な多様体 $Y'$ から $Y$ への優勢有理写像を与え，
+一般fiber積 $X\times_Y Y'$ が整であると仮定する。
+基底変更後の次数 $d$ 拡大のGalois閉包の群は，
+元の拡大のGalois閉包の群の部分群として，$d$ 個の分枝に作用する。
+従って基底変更後の群が $\mathfrak S_d$ なら，元の群も $\mathfrak S_d$ である。
+\end{lemma}
+\begin{proof}
+$F=K(Y)$，$L=K(X)$，$F'=K(Y')$ と置き，$L/F$ のGalois閉包を
+$E/F$ とする。$L/F$ の一つの原始元の最小多項式を取ると，
+$E$ はその分解体である。
+$F'$ を含む代数閉体に $E$ を埋め込むと，基底変更後の分解体は合成体 $EF'$ となる。
+制限写像
+\[
+ \operatorname{Gal}(EF'/F')\hookrightarrow\operatorname{Gal}(E/F)
+\]
+は単射で，根への置換作用と両立する。
+従って両者を同じ $\mathfrak S_d$ の部分群として比較できる。
+\end{proof}
+
+\subsection{四次逆方程式の幾何学的モノドロミー}
+\label{subsec:binary-shadow-geometric-monodromy}
+
+\begin{proposition}[係数比較の幾何学的モノドロミー]
+\label{prop:binary-shadow-geometric-sfour}
+二係数の中心shadowに付随する次数4の体拡大
+\[
+ \mathbb C(A,B)\subset\mathbb C(b,c)
+\]
+の正規閉包のGalois群は，四つの逆像への自然な作用に関して
+$\mathfrak S_4$ である。
+\end{proposition}
+\begin{proof}
+逆関係式から $b$ は
+\[
+ F_{A,B}(b)=
+ 9A^2b(b+3)^2(3b+B+3)
+ -4(3b^2+bB+15b+18)(bB+6b+3B+9)^2=0
+\]
+を満たし，$c$ は一般点で $A,b,B$ から有理的に復元される。
+従ってこの四次式の四根へのGalois作用を調べればよい。
+
+$B=1$ に制限する。$A^2$ の逆関係は
+\[
+ A^2=\frac{4(3b^2+16b+18)(7b+12)^2}
+ {9b(b+3)^2(3b+4)}
+\]
+であり，その滑らかな射影模型を $C_1$ とする。
+これは
+\[
+ w^2=b(3b+4)(3b^2+16b+18),\qquad
+ A=\frac{2(7b+12)w}{3b(b+3)(3b+4)}
+\]
+という表示を持つ。四次式の四根は相異なる：
+二次因子の判別式は40，その $b=0,-4/3$ での値は18,2である。
+よって $C_1$ は連結な滑らかな種数1曲線である。
+$A$ の極は $b=0,-4/3$ 上の分岐点と，$b=-3$ 上の二点であり，
+いずれも単純極である。無限遠の二点で $A$ はそれぞれ
+$14/3,-14/3$ に収束する。従って
+\[
+                       \deg(A:C_1\longrightarrow\mathbb P^1)=4.
+\]
+特に $F_{A,1}$ は $\mathbb C(A)[b]$ で既約である。
+
+直接計算によって
+\begin{align}
+ \operatorname{Disc}_b(F_{A,1})
+   &=-15116544A^2H(A),\\
+ H(A)&=820125A^8-17781768A^6-68102208A^4
+                     +2738419200A^2+20480000
+\end{align}
+を得る。$H$ は平方因子を持たず，$A=0$ および
+$F_{A,1}$ の最高係数 $27A^2-588$ の零点では消えない。
+後者は $H|_{A^2=196/9}=28171411200$ で確かめられる。
+平方因子がないことには，$\mathbb F_{11}$ 上の次の証明書を使える：
+\[
+ \overline H=-2A^8-4A^6+2A^4+2,
+\]
+\[
+ (-2A^6-4A^4-5)\overline H
+ +(3A^7+2A^5+2A^3+5A)\overline H'=1.
+\]
+最高係数が11で消えないので，この恒等式は
+$\gcd(H,H')=1$ を標数0でも保証する。
+
+$H$ の八つの根では四次式の最高係数は非零であり，判別式は単純零を持つ。
+このとき $A\ne0$ であり，$F_{A,1}$ の $b=0,-3,-4/3$ での値は
+それぞれ $-10368,972,-512/9$ なので，根はこれらの点を避ける。
+従って根の上で $\partial_AF=18A\,b(b+3)^2(3b+4)\ne0$ であり，
+平面曲線は滑らかである。
+従って各値の上には一つの単純分岐点があり，局所モノドロミーは互換である。
+種数1・次数4の射のRiemann--Hurwitz公式\cite[Tag 0C1B]{StacksProject}による総分岐次数は8なので，
+この八点が全ての分岐である。
+判別式の余分な因子 $A^2$ は分岐ではない。
+実際 $A=0$ 上には二次因子の根の上の各一点と
+$b=-12/7$ 上の二点があり，四点とも非分岐である。
+後者の二点を $b$ 座標だけでは区別できないことが，この因子を生む。
+
+連結な被覆なのでモノドロミー作用は推移的であり，
+$\mathbb P^1$ から八分岐値を除いた基本群はそれらを回るループで生成される。
+従ってモノドロミー群は互換で生成される推移的な $\mathfrak S_4$ の部分群である。
+互換を辺とする四頂点のグラフは推移性から連結であり，
+連結グラフの辺の互換は $\mathfrak S_4$ を生成する。
+ゆえに $B=1$ 上の幾何学的モノドロミーは $\mathfrak S_4$ である。
+この単純分岐から対称群を得る原理自体は古典的である
+\cite[Introduction, pp.~1, 3]{AllcockHall2008}。
+
+最後に，$(A,B)$ 平面で $F$ の最高係数と判別式を可逆化した開部分を取る。
+その上の四根の有限\'{e}tale被覆を $B=1$ へ引き戻した被覆の
+モノドロミー群は，元の被覆のモノドロミー群の部分群である。
+この制限は空でなく，上で得た $\mathfrak S_4$ を持つから，
+元の群も $\mathfrak S_4$ である。
+これは $\mathbb Q$ 上の算術的な特殊化のみを用いた議論ではなく，
+$\mathbb C$ 上の被覆の幾何学的モノドロミーを計算している。
+\end{proof}
+
+\begin{remark}[不変式による判別式の短い表示]
+\label{rem:binary-shadow-invariant-discriminant}
+normalizer商 $\mathfrak S_3$ の不変式を
+\[
+ u=\frac{3A^2+4B^2}{12},\qquad
+ v=\frac{B(9A^2-4B^2)}{108}
+\]
+と置くと，
+\[
+ \operatorname{Disc}_b(F_{A,B})
+ =944784\cdot136048896\,A^2(B+3)^2\,\mathscr D_2(u,v),
+\]
+ただし
+\begin{align*}
+ \mathscr D_2(u,v)
+ ={}&(1-8v)u^3+3(2v-1)^2u^2\\
+ &+(-6v^3+153v^2+216v-24)u\\
+ &+v^4-104v^3-615v^2-266v+1.
+\end{align*}
+この恒等式は全係数上で厳密に検算できる。
+これは四次逆方程式の判別式である。消去座標が退化する因子も含むため，
+この式だけから構成済みの全モジュライの境界や分岐因子を同定しない。
+\end{remark}
+
+\subsection{五枚被覆の対称群モノドロミー}
+\label{subsec:degree-one-shadow-monodromy}
+
+\begin{proposition}[最高活性五次写像の幾何学的モノドロミー]
+\label{prop:degree-one-top-monodromy-s5}
+命題\ref{prop:degree-one-shadow-top-degree-five}の五次拡大
+$\mathbb C(\alpha,\beta)/\mathbb C(I,J)$ の正規閉包のGalois群は $\mathfrak S_5$ である。
+$I$ を一般に固定した有理写像 $\mathbb P^1_\alpha\to\mathbb P^1_J$ の
+幾何学的モノドロミーも $\mathfrak S_5$ である。
+\end{proposition}
+\begin{proof}
+同命題の $N(T,I)$ を用い，
+\[
+ Q(T)=75(T+1)(2T+5),\qquad f(T)=N(T,I)-JQ(T)
+\]
+と置く。$N,Q$ は $\overline{\mathbb C(I)}[T]$ でも互いに素であり，
+$\deg N=5$，$\deg Q=2$ である。
+従って $N/Q:\mathbb P^1_T\to\mathbb P^1_J$ は幾何学的に連結な次数5の被覆を与える。
+有限な二つの極 $T=-1,-5/2$ は単純であり，$T=\infty$ の極の位数は3である。
+
+$\mathscr D_1(I,J)=\operatorname{Disc}_T f$ は $J$ の次数6の多項式で，
+最高係数は定数 $-8680203000000000000$ である。
+$I=0$ では
+\[
+ \mathscr D_1(0,J)=-7500000000\,D_0(J),
+\]
+ただし
+\begin{align*}
+ D_0(J)={}&1157360400J^6+114742255536J^5
+       -1260129809475J^4\\
+ &-5034506238090J^3-13419254573985J^2
+       -245130767140J-1041634158.
+\end{align*}
+これらは $f,f'$ の9次Sylvester行列式を展開し，最高係数112で割る厳密な恒等式である。
+巨大な一般 $I$ の展開を証明書として保存する代わりに，
+\texttt{verify\_degree\_one\_shadow\_top.py}が既存の有理係数多項式演算で
+この行列式，$J$ の次数と最高係数，$I=0$ の表示を直接検証する。
+
+$D_0$ の平方因子がないことには有限体上のB\'ezout証明書を使う。
+$\mathbb F_{19}[J]$ において
+\begin{align*}
+ d&=5J^6-3J^5-6J^4-J^3+9J^2-3J-8,\\
+ u&=-7J^4+J^3+4J^2+2J+5,\\
+ v&=-2J^5+7J^4+5J^3-6J^2+9J-1
+\end{align*}
+と置くと $D_0\bmod19=d$，$ud+vd'=1$ である。
+次数6の最高係数も19で非零なので，$D_0$ は標数0でも平方因子を持たない。
+$\mathscr D_1$ の最高係数が定数であるため，もし
+$\mathbb C(I)[J]$ で正の $J$ 次数の平方因子を持てば，
+Gaussの補題でmonic因子を $\mathbb C[I,J]$ に取れる。
+$I=0$ への特殊化でその次数は落ちず，$D_0$ の平方因子を与えてしまう。
+従って $\mathscr D_1$ は $\mathbb C(I)[J]$ で平方因子を持たない。
+標数0なので，$\overline{\mathbb C(I)}[J]$ でも相異なる六つの零点を持つ。
+
+各零点における被覆の局所分岐は一つの二重分岐である。
+実際，$Q$ はそのファイバーの各点で非零なので，局所的に $J=N(T,I)/Q(T)$ と書ける。
+分岐指数 $e$ の点は判別式に $e-1$ を寄与する。
+判別式の位数が1だから，ちょうど一つの $e=2$ と残りの非分岐点を得る。
+従ってモノドロミー群はtranspositionを含む。
+
+次数5の連結被覆のモノドロミー群 $G\subset\mathfrak S_5$ は推移的である。
+一つのtranspositionの全 $G$ 共役を辺とする，五点上のグラフを考える。
+連結成分は $G$ によって置換され，推移性からすべて同じ大きさである。
+5は素数であり辺が存在するので，このグラフは連結である。
+連結グラフの辺に対応するtranspositionは $\mathfrak S_5$ を生成するから $G=\mathfrak S_5$ となる。
+この議論は幾何学的係数体 $\overline{\mathbb C(I)}$ 上で成立し，
+従って元の $\mathbb C(I,J)$ 上の正規閉包の群も $\mathfrak S_5$ である。
+\end{proof}
+
+\begin{corollary}[次数1の全モジュライ比較のモノドロミー]
+\label{cor:degree-one-moduli-monodromy-s5}
+定理\ref{thm:degree-one-shadow-degree-five}の五次拡大の正規閉包は次数120で，
+Galois群は $\mathfrak S_5$ である。
+\end{corollary}
+\begin{proof}
+下位復元により，全係数の拡大は最高活性五次拡大に出力の下位係数を
+独立な超越変数として加えたものである。
+純超越拡大は有限分離拡大の正規閉包の群を変えないので，全係数の群も $\mathfrak S_5$ である。
+全モジュライの比較を，終域の一般自由な座標atlasへ引き戻すと，
+同じ群によるCartesian商図式によりこの全係数被覆になる。
+有限被覆の基底変更後のモノドロミーは元のモノドロミーの部分群である。
+元の群は五点に作用し，引戻しの群は既に $\mathfrak S_5$ だから，元の群も $\mathfrak S_5$ である。
+\end{proof}
+
+\begin{corollary}[次数1の符号二次体]
+\label{cor:degree-one-monodromy-sign-field}
+$F=K(N_{n,1})$ とし，次数1の比較のGalois閉包を $E/F$ とする。
+このとき $E^{\mathfrak A_5}=F(\sqrt{\mathscr D_1(I,J)})$ である。
+\end{corollary}
+\begin{proof}
+命題\ref{prop:degree-one-intrinsic-inverse-quintic}により，
+$\alpha$ は全同値商上で定まる原始元であり，その五次方程式の係数 $I,J$ は $F$ に属する。
+根を $\alpha_1,\ldots,\alpha_5$ とすると，
+$112^4\prod_{i<j}(\alpha_i-\alpha_j)$ の平方は
+$\mathscr D_1(I,J)$ である。この元は根の偶置換で固定され奇置換で符号が変わるので，
+符号二次体を生成する。一般Galois群が $\mathfrak S_5$ だから，この拡大は非自明である。
+\end{proof}
+
+\subsection{次数2の全モジュライへの移送}
+
+\begin{proposition}[対称最高活性切断から全モジュライへの移送]
+\label{prop:degree-two-symmetric-monodromy-transfer}
+最高活性二係数の拡大
+\[
+        \mathbb C(b,c)/\mathbb C(A,B)
+\]
+のGalois閉包の群が $\mathfrak S_4$ なら，全ての $n\ge2$ について
+\[
+ K(M^{\mathrm{nc}}_{n,2})/K(N_{n,2})
+\]
+のGalois閉包の群も $\mathfrak S_4$ である。
+\end{proposition}
+\begin{proof}
+$K$ を $n-1$ 次元の中央変数空間，$E=K\oplus\langle x,y\rangle$ とし，
+非零方向 $P_0$ を固定する。
+命題\ref{prop:central-presentation-shadow-degree-four}の同変写像を
+\[
+             \Psi_K:\mathcal T_K\dashrightarrow Y,
+             \qquad Y=\operatorname{Sym}^4E
+\]
+と書く。終域の最高活性四次式を対称形に制限し，
+全下位係数を自由にした部分多様体を
+\[
+ Y_S=S\times\bigoplus_{j=0}^3
+       \operatorname{Sym}^{4-j}K\otimes\operatorname{Sym}^j\langle x,y\rangle
+\]
+とする。その下位係数をまとめて $\boldsymbol v$ と書く。
+補題\ref{lem:binary-quartic-fixed-plane}から
+$\Gamma_K\cdot Y_S$ は $Y$ に稠密である。
+従って $Y_S$ の有理商 $Y/\Gamma_K$ への射は優勢である。
+ここでは $Y_S\to Y$ 自体の優勢性を主張していない。
+
+一般の点 $v\in Y_S$ の最高活性逆像は，
+命題\ref{prop:binary-shadow-full-five-coefficients}によりすべて $S$ に属し，
+四つの相異なる点からなる。
+各最高活性逆像を固定すると，系\ref{cor:binary-shadow-lower-triangular}と
+補題\ref{lem:controlled-center-torsor-coordinates}により全下位係数を一意に復元できる。
+ゆえに $\Psi_K$ の $Y_S$ への一般引戻しは整で，その関数体拡大は
+\[
+       \mathbb C(b,c,\boldsymbol v)
+          /\mathbb C(A,B,\boldsymbol v)
+\]
+である。純超越拡大は有限Galois拡大と線型無関連なので，
+この拡大のGalois閉包の群は仮定により $\mathfrak S_4$ である。
+
+全同値商との比較には，
+命題\ref{prop:intrinsic-center-full-groupoid}および
+系\ref{cor:controlled-center-common-intrinsic-open}を使う。
+必要な非可換開，Poisson開，有限\'{e}tale locusは一般点で考えればよい。
+その前像を $\Gamma_K$-不変な開として取り直せるので，
+$\Gamma_K\cdot Y_S$ の稠密性から $Y_S$ との交叉は非空である。
+特に，係数計算に使う特定の直線 $B=1$ が既存の非可換開と交わる，
+という追加の仮定はここでは用いない。
+
+同じ群の商に対するCartesian図式を $Y_S$ へ引き戻す。
+終域の一般安定化群は自明なので，商スタックは一般点で粗空間に一致する。
+従って $\overline\Theta$ の $Y_S$ への一般引戻しは，
+直前の関数体拡大そのものである。
+補題\ref{lem:degree-four-monodromy-base-change}によって，
+全モジュライのモノドロミー群は $\mathfrak S_4$ を部分群として含む。
+一方，定理\ref{thm:degree-two-shadow-degree-four}によりその次数は4なので，
+群全体が $\mathfrak S_4$ である。
+\end{proof}
+
+\begin{remark}[連結な座標群による別の確認]
+固定方向の群 $\Gamma_K$ は連結である。
+従って一般自由な終域の有理商 $Y\dashrightarrow Y/\Gamma_K$ の一般fiberは，
+幾何学的に整な $\Gamma_K$-torsorである。
+その関数体拡大 $K(Y)/K(Y/\Gamma_K)$ は正則であり，
+任意の有限分離拡大と線型無関連となる。
+よって全係数presentationとその粗商の間では，
+一般次数だけでなくGalois閉包の群も正確に保存される。
+ただし二係数正規形を取る段階のnormalizer商 $\mathfrak S_3$ は有限であり，
+その段階を連結群torsorと同一視してはならない。
+上の証明は，切断上ですでに最大の群 $\mathfrak S_4$ が得られるため，
+この有限商による群の拡大を個別に計算する必要がない。
+\end{remark}
+
+\subsection{次数2の符号二次体}
+
+\begin{proposition}[全比較の符号二次体]
+\label{prop:degree-two-monodromy-sign-field}
+注意\ref{rem:binary-shadow-invariant-discriminant}の $u,v,\mathscr D_2(u,v)$ を用い，
+$\Delta=u^3-27v^2$ と置く。$u,v$ は全座標商上の有理関数を定める。
+全比較の次数4拡大のGalois閉包を $E/F$，$F=K(N_{n,2})$ とすると，
+符号表現に対応する二次体は
+\[
+              E^{\mathfrak A_4}=F\bigl(\sqrt{\Delta \mathscr D_2(u,v)}\bigr)
+\]
+である。
+\end{proposition}
+\begin{proof}
+逆四次多項式を $f(b)$ とし，その最高係数を
+$a_4=27A^2-12(B+6)^2$ と書く。
+四つの根を順序付けたGalois閉包上で
+\[
+ Q=a_4^3\prod_{i<j}(b_i-b_j)
+\]
+と置く。これは根の奇置換で符号が変わるorientation座標であり，
+$Q^2=\operatorname{disc}_b(f)$ である。
+判別式恒等式を
+\[
+ \operatorname{disc}_b(f)=C A^2(B+3)^2\mathscr D_2(u,v),\qquad
+ C=944784\cdot136048896
+\]
+と書き，$k=11337408$ と置くと $k^2=C$ である。
+\[
+                    d=\frac{Q}{kA(B+3)}
+\]
+は対称係数空間上のorientation二次体の生成元で，$d^2=\mathscr D_2(u,v)$ を満たす。
+
+normalizer商 $W=N_G(H)/H\simeq\mathfrak S_3$ は，
+同変な最高活性写像の始域・終域だけでなく，
+四つの分枝を順序付ける被覆にも同時に作用する。
+$H$ は四つの最高活性逆像をそれぞれ固定するため，
+最高活性の順序付き被覆には真正な $W$ 作用がある。
+この作用は分枝のラベルを置換する $\mathfrak S_4$ と可換し，
+orientation二次体への真正な $W$ 作用を誘導する。
+$u,v$ は $W$-不変なので，$w(d)/d\in\{1,-1\}$ は $W$ の指標である。
+
+反射 $T:(A,B)\mapsto(-A,B)$ に対応する始域の変換は
+$(b,c)\mapsto(b,-c)$ である。
+従って各根 $b_i$ と $a_4$ は変わらず，$T(Q)=Q$ だが，
+分母の $A$ の符号が変わるため $T(d)=-d$ となる。
+$\mathfrak S_3$ の非自明な符号値指標は符号指標のみなので，
+$d$ は $W$ の符号指標で変換する。
+
+一方
+\[
+              p=A(A^2-4B^2)
+\]
+は二つの生成反射 $T,R$ のいずれでも $-p$ へ移り，
+\[
+                         p^2=64\Delta
+\]
+を満たす。従って $e=pd/8$ は $W$-不変で，$e^2=\Delta\mathscr D_2$ である。
+
+全下位係数を加えた場合も，三角復元が各最高活性分枝と全分枝との
+自然な一対一対応を与えるので，同じorientation座標を使える。
+一般の最高活性項がともに対称形である二つの終域presentationを結ぶ
+$\Gamma_K$ の元について，その活性射影部分は $N_G(H)$ に属する。
+実際，両方の最高活性四次式の安定化群は $H$ だから，
+それらを結ぶ射影変換は $H$ を正規化する。
+中央変数の線型変更，活性変数への中央一次式の加算，
+および活性スカラーは，最高活性係数と四つの最高活性逆像を変えない。
+$H$ も対称最高活性係数を固定する。
+従って正規形上の全同値関係に対して $e$ は不変である。
+
+最高活性正規形と全下位係数を持つ切断は全座標商を優勢に被覆する。
+全同値群oidとCartesian商の記述により，$e$ は全比較のorientation二次体へ降下する。
+一般モノドロミーが $\mathfrak S_4$ なので，この体は $F$ 上次数2である。
+また $d$ は係数体上平方根として非自明なので，$e$ も基底体へは降下しない。
+ゆえに $e$ がその二次体を生成する。
+\end{proof}
+
+\begin{remark}[判別式の使用範囲]
+対称係数切断では $\Delta=p^2/64$ が平方なので，符号二次体は
+$\sqrt{\mathscr D_2}$ だけを加えて得られる。
+全座標商ではnormalizerの符号指標を打ち消すため $\Delta$ が必要である。
+この式は関数体の二次拡大を同定するものであり，
+選択した非可換開の開像や，その外の全境界のスキーム構造を同定するものではない。
+\end{remark}
+
+\subsection{一般分枝の選択とGalois閉包}
+
+\begin{corollary}[一般分枝の選択とGalois閉包]
+\label{cor:shadow-symmetric-field-consequences}
+$d=1,2$ に対し $m_1=5,m_2=4$ とし，
+$F=K(N_{n,d})$，$L=K(M^{\mathrm{nc}}_{n,d})$ と置く。
+全ての $n\ge2$ について，次が成り立つ。
+\begin{enumerate}
+\item $L/F$ のGalois閉包の群は $\mathfrak S_{m_d}$ で，
+      次数は $m_d!$，すなわち次数1で120，次数2で24である。
+\item $F\subsetneq F'\subsetneq L$ となる中間体は存在しない。
+\item $\operatorname{Aut}_F(L)=1$ である。
+      従って一般の有限被覆に非自明なdeck変換はない。
+\item 有限拡大 $F'/F$ 上で一つの一般分枝を選べるなら，
+      $m_d\mid[F':F]$ である。最小次数 $m_d$ は $F'=L$ で実現する。
+\item 全ての一般分枝を個別に定義する有限拡大の次数は $m_d!$ の倍数であり，
+      最小次数 $m_d!$ はGalois閉包で実現する。
+\item 次数1では，一般の逆像を根号拡大によって選ぶことはできない。
+\end{enumerate}
+\end{corollary}
+\begin{proof}
+次数1は系\ref{cor:degree-one-moduli-monodromy-s5}，
+次数2は命題\ref{prop:binary-shadow-geometric-sfour}と
+命題\ref{prop:degree-two-symmetric-monodromy-transfer}による。
+$m=m_d$ と書き，Galois閉包を $E$ とする。
+$\operatorname{Gal}(E/F)=\mathfrak S_m$ であり，
+$L$ に対応する部分群は一点の安定化群 $H\simeq\mathfrak S_{m-1}$ である。
+この $H$ は $\mathfrak S_m$ の極大部分群で，自分自身をnormalizerとする。
+前者は一点の安定化群にその点を動かす置換を加えると
+全 $\mathfrak S_m$ を生成することから従う。
+後者は $H$ の共通固定点がその一点だけであることから従う。
+従ってGalois対応と
+$\operatorname{Aut}_F(L)=N_{\mathfrak S_m}(H)/H$ により前三項を得る。
+
+一分枝の選択は $F$-埋込み $L\hookrightarrow F'$ と同値なので，
+体の塔から $m$ が $[F':F]$ を割る。
+全分枝の個別の定義は原始元の最小多項式の分裂と同値であり，
+適切な埋込みの下で $E\subseteq F'$ を意味する。
+よって $m!$ が $[F':F]$ を割る。表示した拡大で等号が達成される。
+最後に $\mathfrak S_5$ は可解群でない。
+基礎体は複素数体を含み全ての1の冪根を含むので，
+根号で得られる有限拡大の正規閉包は可解である。
+$L$ をそのような拡大へ埋め込めれば $E$ も可解Galois拡大に含まれ，
+その商群 $\mathfrak S_5$ が可解となってしまう。
+\end{proof}

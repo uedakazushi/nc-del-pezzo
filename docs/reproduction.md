@@ -1,6 +1,6 @@
 # 再現手順と検証範囲
 
-2026-11-20（JST） / v0.15
+2026-11-20（JST） / v0.16
 
 ## 組版
 
@@ -12,7 +12,7 @@ latexmk
 
 または `make pdf`。主原稿は `papers/nc-del-pezzo.tex`、出力は `build/nc-del-pezzo.pdf`、SyncTeXも同じ場所。`.latexmkrc` はmainを基準に入力と文献の相対パスを解決する。
 
-必要な環境：LuaLaTeX、latexmk、BibTeX、luatexja、luatexja-preset、amsmath/amsfonts/amsthm、mathtools、geometry、booktabs、longtable、hyperref、原ノ味明朝・原ノ味角ゴシック（HaranoAji）。TeX Live相当の環境を想定する。主原稿は `\usepackage[haranoaji]{luatexja-preset}` を使い、システム側のNotoフォントを要求しない。TeXは外部PDFや非公開データを読み込まない。
+必要な環境：LuaLaTeX、latexmk、BibTeX、luatexja、luatexja-preset、amsmath/amsfonts/amsthm、mathtools、mathrsfs、geometry、booktabs、longtable、hyperref、原ノ味明朝・原ノ味角ゴシック（HaranoAji）。TeX Live相当の環境を想定する。主原稿は `\usepackage[haranoaji]{luatexja-preset}` を使い、システム側のNotoフォントを要求しない。TeXは外部PDFや非公開データを読み込まない。
 
 VS Codeでは推奨拡張LaTeX Workshopを入れる。recipeはworkspace rootを作業ディレクトリとして `.latexmkrc` を明示指定する。実質的に同じCLIは次の通り。
 
@@ -63,13 +63,15 @@ Python 3の標準ライブラリのみを使用する。`n=2,...,8` と両次数
 
 `verify_degree_two_shadow_top.py` はh=1の最高活性対称binary quarticについて、De Laet中心式の完全対称化、逆関係、次数4の有理式、互いに素性と平方拡大の奇数位数を厳密に検証する。さらにnormalizerの二反射によるS₃作用、shadow写像の全係数同変性、正規形とLie軌道の行列式 α(4β²−α²)/2 を有理数・多項式演算で確認する。既存 `verify_cubic_top.py` の演算と中心元の九項証明書も再利用・実行する。全Θの次数4には、原稿の中心torsor・全lower・共通開・全同値の商の証明を別に使う。有限計算だけでモジュライの主張を証明したとは扱わない。
 
+両shadow証明書はSylvester行列式を除算なしのsubset展開で厳密計算する。次数1は9×9行列から一般判別式のJ次数6・定数最高係数・I=0特殊化を検証し、法19のBézout恒等式で平方因子がないことを確かめる。全depressionとh尺度変更の係数恒等式も検算する。次数2は7×7行列による全二係数判別式、短いS₃不変式表示、B=1の八次分岐多項式と法11のBézout恒等式、smoothな分岐点の証人、符号二次体の反不変式を検算する。数値根や算術的Galois群の特殊化を幾何学的群の証明に代用しない。
+
 最初のスクリプトは有限範囲の数式確認、分離型とSklyanin中心の二つは指定した有限な関係式と中心公式の厳密な恒等式検証である。全Abel変形比較、一般nでの証明、モジュライの代数性、グラフ量子化の全高次積を機械的に証明するものではない。
 
 ## 検証の状態
 
-現在の証明点検の対象は `degree_two_shadow_degree.tex` の中心torsor、Casimir Jacobianからのétale写像、非被約基底を含むexact fullEq、制御中心の線型Casimir座標、共通nc開、V₄安定化群による全binary quarticへの拡張、全lower、同じ群のCartesian商と次数4である。開埋込み・有理切断の不存在、可換点近傍での非有限性も内部で独立に点検した。Böhningの著者公開稿のnormalizerと正規形、Okawa–Ueda (2025) のmarked AS曲面の定義とTheorem 6.4を一次本文で照合した。既存のPoisson shadow・平坦性・粗空間・解消、二係数中心式、lower三角復元の点検結果も保持するが、上流の全PBW・AS分類・Noether降下・全Abel比較を今回すべて再検証したとは扱わない。
+今回の証明点検は `degree_one_shadow_degree.tex` の全lower・中心torsor・全同値商と、`shadow_monodromy.tex` の一般S₅・S₄、内在的原始元、符号二次体と一般分枝の選択を対象とした。既存の `degree_two_shadow_degree.tex` の中心torsor、Casimir Jacobianからのétale写像、非被約基底を含むexact fullEq、制御中心の線型Casimir座標、共通nc開、V₄安定化群による全binary quarticへの拡張、全lower、同じ群のCartesian商と次数4の点検結果も保持する。開埋込み・有理切断の不存在、可換点近傍での非有限性も内部で独立に点検した。Böhningの著者公開稿のnormalizerと正規形、Okawa–Ueda (2025) のmarked AS曲面の定義とTheorem 6.4を一次本文で照合した。既存のPoisson shadow・平坦性・粗空間・解消、二係数中心式、lower三角復元の点検結果も保持するが、上流の全PBW・AS分類・Noether降下・全Abel比較を今回すべて再検証したとは扱わない。
 
-計算資産12本は2026-11-20に成功した結果を保持する。今回変更した `verify_degree_two_shadow_top.py` を実行し、追加したS₃作用・全係数同変性・Lie行列式を含め成功した。importされる既存 `verify_cubic_top.py` も同時に成功した。残る10本は未変更であり、今回再実行していない。形式証明器による検証は行っていない。
+計算資産12本は2026-11-20に成功した結果を保持する。今回変更した両shadow計算を実行し、一般判別式・有限体Bézout証明書・符号二次体の恒等式を含め成功した。importされる既存 `verify_cubic_top.py` も同時に成功した。残る9本は未変更であり、今回再実行していない。形式証明器による検証は行っていない。
 
 
 - 原稿の主要証明を直接点検した。全Artin比較は引用する一次定理の仮定・射・係数環に照合した。
@@ -84,11 +86,11 @@ Python 3の標準ライブラリのみを使用する。`n=2,...,8` と両次数
 - 楕円曲線の二重切断環のNoether性を、右イデアルの評価像の安定、Keeler Theorem 1.5とErratum Theorem E2.5による一様消滅、有限幅の行・列の有限生成から証明し、独立に点検した。評価元の係数加群のflat性やsaturationを仮定しないこと、任意の非被約noetherian基底にも適用できることを確認した。二つの中心正則拡大とfiltered PBWによる `B^op⊗B` の普遍的なNoether性も点検した。
 - 両次数の分離型族と一般楕円型族について、全n≥2で、各構成族内の任意の滑らかな可換点の有限型開近傍にsmooth proper性を証明した。二重tailsのMorita模型と対角、平坦syzygyを持つ有限部分解消、相対Serre双対による逆向きHomのperfect性、HH¹消滅による右逆の持上げと有限支持の除去を点検した。反標準豊富性の開条件との共通部分ではnc del Pezzo条件が成り立ち、幾何学的coherent圏のホモロジー次元はnである。任意の有限hでsmoothであるという主張ではない。
 - 一つのhを持つ中心商族のPoisson Kodaira–Spencer階数がh=0で高々1となる命題を点検した。全Poisson接空間の次元nまたはbinom(n+1,2)との比較により、これらの族自体は可換点のsmooth atlasではない。これは有限族の存在・smooth proper性と両立する。
-- 上記九つのPython計算は2026-11-20に実行して全件成功。分離型族の計算では167種類の単語簡約を使用した。Sklyanin中心元は全係数の自由代数恒等式、次数1の中心jetは明示したmod h⁶の全係数恒等式として検証した。全top曲線の二つの計算では、尖点・非被約ribbonを含む普遍恒等式を確認し、shiftの非自明性を検出する項目だけ有限jetと区別した。
+- 基礎的なPython計算資産について2026-11-20の成功確認を保持する。分離型族の計算では167種類の単語簡約を使用した。Sklyanin中心元は全係数の自由代数恒等式、次数1の中心jetは明示したmod h⁶の全係数恒等式として検証した。全top曲線の二つの計算では、尖点・非被約ribbonを含む普遍恒等式を確認し、shiftの非自明性を検出する項目だけ有限jetと区別した。
 - 次数1の有限開・相対CY・普遍PBW・23未知数の中心構成を独立に点検し、変数変換の全係数恒等式の計算を実行した。相対曲線の両chart、次数1線束、有限被覆の全逆像での縮小、全次数生成、中心の零像、忠実平坦降下、偶数Veroneseによる積Noether性、全nのtailsと有限窓も独立に点検した。
 - 両次数の同時ambient表示を独立に点検した。次数1のΔを除くAS開と明示的主開、次数2のMori–Ueyama条件と明示行列式g₂、全体ファイバーの一定Hilbert関数からの普遍平坦性、全一次中心商を確認した。行列式のtensor縮約・Hessian係数・活性3×3行列への帰着も照合した。続く同時中心の構成では、両次数の全可換係数・全方向について有限中心元と普遍正則性を証明した。有限基底上の相対tailsには、以下の独立したNoether性・相対対角の証明を用いる。
-- 主原稿v0.15をLuaLaTeX・latexmkで組版し、211頁のPDFとSyncTeXを生成した。未解決の参照・引用、欠落文字、overfull・underfull boxはない。1–210頁を7枚の一覧画像で確認し、1・6・10–14・199–211頁の20頁を拡大画像でも点検した。本文・数式・図式・文献のはみ出し、重なり、欠けは見つからなかった。
-- 使用したエンジンはLuaHBTeX 1.18.0。必要なluatexjaと和文フォントを備える環境で再生成できる。和文倍率とaddjfontfeatureに関する既存の設定警告、および既存の分数記法に対するamsmathの警告は残るが、欠落文字や組版の破綻はない。VS Code設定の検査とrecipe相当CLIは確認済みだが、VS Code UIのビルド操作とSyncTeXのクリック動作は実行していない。
+- 主原稿v0.16はLuaLaTeX・latexmkで222頁に組版成功。未解決参照・引用、欠落文字、overfull/underfull boxはない。全頁の一覧画像と、表紙・主定理・先行研究比較、新第37–38節（209–219頁）、残る問題と文献（219–222頁）の拡大画像を確認した。
+- 使用したエンジンはLuaHBTeX 1.18.0。必要なluatexjaと和文フォントを備える環境で再生成できる。和文倍率とaddjfontfeatureに関する既存の設定警告、および既存の分数記法に対するamsmathの警告、数式フォントのサイズ代替の警告は残るが、欠落文字や組版の破綻はない。VS Code設定の検査とrecipe相当CLIは確認済みだが、VS Code UIのビルド操作とSyncTeXのクリック動作は実行していない。
 - 相対中心持上げの同じambientへのgauge同定、中央差Koszulによる絶対CY、Dolgushevの絶対定理と体積の重み射影、有限余核の局所化を独立に点検した。次数2は普遍係数上の層の単射性・中心部分束・方向空間上のH¹消滅とproper降下を点検した。次数1は23未知数局所中心・普遍jet・高次H¹消滅・Artin–Reesによる有限代数化を点検した。普遍係数上の中心の計算と、特殊ファイバーの中心が増えることを区別している。
 - 同じ有限中心商族からの全Artin比較は、DDL Proposition 4.4の仮定、flatな構造対象、初交換子、同じ全形式環の自己写像という順で点検した。有限基底上のtailsのsmooth proper性は、このArtin比較に仮定していない。
 - 全top曲線の二つの節を独立に点検した。次数2の有限平坦二重被覆・trace分解・ribbonのO(−2)・任意基底変更、次数1の階数2被覆・尖点を含む曲線・無限遠Cartier因子と次数1線束を確認した。全次数生成と中心の零像、Keelerのample filter・訂正込みFujita消滅から、全top・全lower・全nの強・積Noether性へ移る論理を点検した。
@@ -112,6 +114,7 @@ Python 3の標準ライブラリのみを使用する。`n=2,...,8` と両次数
 - 任意M族の反標準環のNoether性・有限表示を周期Z-代数から導き、DDL Corollary 3.16のtails-projectivityを確認した。負のHomには相対Serreと有向ACMを使う。混合同値層、U→Mの表現可能な局所有限表示monomorphism、全Artin比較からの開埋込みを独立に点検した。任意剰余体K/Cには係数体切断と有限分離拡大による有限étale降下を使い、無限代数閉包をfppf被覆にしていない。
 - 普遍全同値スキームの被約性から重み付き線型性を延長する議論、対称化中心のmonic可換模型とsmoothな開条件、古典Isomへの有限閉条件による埋込みを独立に点検した。古典有限対角の入力はPoissonDP固定commitの定理9.2とLuna I §4 p.90で確認した。Keel–Mori、stabilizer preserving locus、粗空間のétale降下の適用条件を点検し、一般慣性の自明性・有限だが零切断では非平坦な慣性・実際の粗完備局所環を区別した。
 - Lowen–Van den Bergh (2005) Theorems 3.1・4.1.3・6.1、Corollary 6.8、Lowen (2008) characteristic morphismのTheorems 3.22・4.18とRemark 4.20、Yekutieli Theorem 11.1の係数体条件を一次資料で確認した。Stacks 0321・04SZ・05W5・0DUA・0DUS・0DUEと、既存の02HY・04TK・0DUT・0DUWの適用範囲を確認した。
+- 次数1の全lower復元、h=1での中心分母・線型ブロックの非消滅、depressed Poisson正規形と全同値商、両次数のS₅・S₄、次数2の符号二次体の捩れを内部で独立に点検した。次数1のαが全商の原始元であること、一般中間体・deck変換の不存在、分枝選択の最小拡大次数、次数1の根号復元の不存在も点検した。両shadow計算と依存するSklyanin中心証明書の計3スクリプトを再実行して成功。残り9スクリプトは未変更であり、同日の成功確認を保持するが今回は再実行していない。
 - 形式証明器は使っていない。追加の中心分母・Noether開・smoothな開集合の最小非消滅条件の明示、構成族外の全O同値・低次数中心の増大層での基本シフト認識、全Mの代数性・全対象の被覆・成分数、および包括的な優先権調査は未完了。Keelerのmultiple divisors論文は書誌とabstractのみ確認済みで、本文定理の仮定・番号を推測していない。
 
 ## 保存と外部依存

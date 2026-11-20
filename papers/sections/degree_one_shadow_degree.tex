@@ -1,0 +1,323 @@
+% !TeX root = ../nc-del-pezzo.tex
+% 2026-11-20 JST / v0.16
+\section{次数1のPoisson比較の一般次数}
+\label{sec:degree-one-shadow-degree}
+
+本節では，最高活性部分の次数5を全下位係数と全同値の商へ移す。
+源には $y^2$ 項を持たないWeierstrass型ambientを用い，
+中心のshadowだけを $y$ の二次平行移動で正規化する。
+この二つの正規化を混同しないことが要点である。
+
+\subsection{全下位係数の三角復元}
+
+$D=h\partial_x$ とし，$n-1$ 個の中心一次変数を $s$ と書く。
+まず $s$ の係数を独立な中央係数として扱い，
+\[
+ U=\frac{y^3}{3}+A_4(x)y+A_6(x),\quad
+ A_4(x)=\alpha x^4+\sum_{i=0}^3a_i x^i,\quad
+ A_6(x)=\beta x^6+\sum_{i=0}^5b_i x^i
+\]
+を考える。定理\ref{thm:degree-one-finite-central-family}の族で
+$y^2$ を含む二つのlower係数を零としたものに等しい。
+中心 $\Omega^{\mathrm{ord}}$ は整列語で $z^2$ 係数が $1/2$，定数項が $b_0$ となるよう選ぶ。
+完全対称化座標での $z^2$ 係数を $\kappa(\alpha,\beta,h)/2$ とし，
+$\kappa$ を可逆化して $\Omega=\kappa^{-1}\Omega^{\mathrm{ord}}$ とする。
+$\kappa$ は最高活性係数だけに依存し，$\kappa(\alpha,\beta,0)=1$ である。
+実際，活性filtrationに関する完全対称化の行列は三角であり，
+最高活性次数6の対角ブロックは下位係数に依存しない。
+従って最高次数にある $z^2$ の係数変換も最高活性係数だけに依存する。
+
+\begin{lemma}[次数1の中心shadowの正規化]
+\label{lem:degree-one-shadow-depression}
+上の中心は，一般点で
+\[
+ F^{\mathrm{sh}}=\operatorname{Sym}^{-1}\Omega
+ =\frac{z^2}{2}+\frac{y^3}{3}+B_2(x)y^2+C_4(x)y+D_6(x)
+\]
+と書ける。各添字は $x,s$ に関する次数を示す。
+$y=Y-B_2$ による正規化後の式は
+\begin{align*}
+ F^{\mathrm{dep}}&=\frac{z^2}{2}+\frac{Y^3}{3}+I_4Y+J_6,\\
+ I_4&=C_4-B_2^2,\qquad
+ J_6=D_6-B_2C_4+\frac23B_2^3.
+\end{align*}
+この座標変換は $D\wedge\partial_y\wedge\partial_z$ を保つので，
+実際のJacobian Poisson構造を保つ。
+\end{lemma}
+\begin{proof}
+反自己同型 $x\mapsto x,y\mapsto y,z\mapsto-z$ と中心の一意性による
+補題\ref{lem:shadow-even-z}の議論により，$F^{\mathrm{sh}}$ は $z$ について偶である。
+重みから残りの式は表示した形となる。ただしこの段階では $y^3$ の係数が未定である。
+最高活性部分は下位係数に依存しない。
+$h=1$ では命題\ref{prop:degree-one-shadow-top-center}の中心元が，
+$z^2$ 係数 $1/2$ の下で $y^3$ 係数 $1/3$ を持つ。
+$h\ne0$ で $x=h x'$ と置くと，表示関係式は厳密に
+\begin{equation}\label{eq:degree-one-shadow-h-scaling}
+ A(A_4(x),A_6(x),h)
+ \simeq A(A_4(hx'),A_6(hx'),1)
+\end{equation}
+へ移る。実際 $[x',y]=z$，
+$[z,x']=y^2+A_4(hx')$，
+$[y,z]=\operatorname{Sym}((\partial_{x'}A_4(hx'))y)+\partial_{x'}A_6(hx')$ であり，
+完全対称化の微分もこの線型尺度変更と両立する。
+従って一般の $h$ においても $y^3$ 係数は $1/3$ である。
+正規化式は可換三次式の展開から従う。
+$y$ 平行移動で $D$ に加わる成分は $\partial_Y$ の倍であり，
+$D\wedge\partial_y\wedge\partial_z$ への寄与は零である。
+\end{proof}
+
+\begin{proposition}[次数1の全下位係数の三角復元]
+\label{prop:degree-one-shadow-lower-triangular}
+最高活性係数の非空開上で，固定した最高活性逆像 $(\alpha,\beta)$ に対し，
+正規化したshadowの全下位係数から $a_0,\ldots,a_3,b_0,\ldots,b_5$ を
+一意に有理復元できる。したがって $h=1$ での全係数写像
+\[
+ (A_4,A_6)\dashrightarrow(I_4,J_6)
+\]
+の一般次数は5である。
+同じ結論は $a_i\in\operatorname{Sym}^{4-i}K$，
+$b_i\in\operatorname{Sym}^{6-i}K$ とする斉次族にも成立する。
+\end{proposition}
+\begin{proof}
+$a_i,b_i$ にそれぞれ重み $4-i,6-i$ を与える。
+最高活性の分母だけを用いる中心行列の構成により，$\Omega$，
+$B_2,C_4,D_6$，従って $I_4,J_6$ は，これらの下位係数に多項式的であり，
+指定した重みに斉次である。
+正の重み $r=1,\ldots,6$ ごとの入力ブロックを
+\[
+ u_r=
+ \begin{cases}(a_{4-r},b_{6-r})^{\mathsf t},&1\le r\le4,\\
+ b_{6-r},&r=5,6
+ \end{cases}
+\]
+とする。出力 $v_r$ は $I_4$ の $x^{4-r}$ 係数と $J_6$ の $x^{6-r}$ 係数，
+または $r=5,6$ では後者だけとする。
+重みから
+\[
+ v_r=L_r(\alpha,\beta,h)u_r+
+             Q_r(\alpha,\beta,h;u_1,\ldots,u_{r-1})
+\]
+となる。$u_r$ の二次以上の項，正の重みの下位係数と $u_r$ の積，
+$u_j$ ($j>r$) は現れない。
+$h=0$ では $\Omega=F$，$B_2=0$ だから全 $L_r(\alpha,\beta,0)=1$ である。
+
+$h=1$ での行列式の非消滅を別に示す。
+式\eqref{eq:degree-one-shadow-h-scaling}は
+\[
+ (\alpha,\beta,a_i,b_i)\mapsto
+    (h^4\alpha,h^6\beta,h^i a_i,h^i b_i)
+\]
+を与える。整列語の $z^2$ 係数と定数項はこの変更で変わらず，
+中心の一意性から $\Omega^{\mathrm{ord}}$ はこの尺度変更に両立する。
+完全対称化と $y$ の正規化も両立するため，同じ尺度変更が $(I_4,J_6)$ に作用する。
+$r\le4$ では $H_r=\operatorname{diag}(h^{4-r},h^{6-r})$，
+$r=5,6$ では $H_r=h^{6-r}$ と置けば
+\[
+ L_r(h^4\alpha,h^6\beta,1)H_r
+       =H_rL_r(\alpha,\beta,h).
+\]
+従って $\det L_r(\alpha,\beta,1)$ が零有理関数なら，
+$\det L_r(\alpha,\beta,h)$ も零となり，$h=0$ で1であることに反する。
+選んだ整列語 $x^iy^jz^k$ は尺度変更で $h^i$ 倍となり，
+中心行列の交換子の各成分にも生成元ごとの $h$ の冪が掛かる。
+従って選択した行・列の小行列は可逆な対角行列による変更を受ける。
+このことから，有限の整列基底・中心規格化に実際に使った小行列式と $\kappa$ は，
+$h=1$ で零有理関数とはならない。
+ゆえに最高活性パラメータの非空開で全 $L_r$ を可逆にできる。
+
+$r=1,\ldots,6$ の順に解けば全下位係数を一意復元できる。
+最高活性部分は命題\ref{prop:degree-one-shadow-top-degree-five}の写像で次数5であり，
+下位の有理座標変更はこの次数を変えない。
+中央変数を戻す場合，線型ブロックは
+$L_r\otimes1_{\operatorname{Sym}^rK}$ であり，同じ証明が適用される。
+\end{proof}
+
+\subsection{規格化中心のtorsorと全同値}
+
+$\mathcal C^\times=E^*\setminus0$ を非零方向 $D$ の空間とし，
+$K_D=\ker D$，$\mathcal C_6=\operatorname{Sym}^6K$ と置く。
+ambient基底は
+\[
+ \mathcal B_1=\operatorname{Tot}_{\mathcal C^\times}
+ \left(\operatorname{Sym}^4E\oplus
+          ((\operatorname{Sym}^6E\otimes\mathcal O)/\mathcal C_6)\right)
+\]
+であり，点は $(D,A_4,\overline A_6)$ である。
+関係式では $A_6$ は $DA_6$ としてだけ現れるので，ambientはこの基底上に定まる。
+既存の $W_1^\times$ の像とその $G_1$ 飽和の開集合を $\mathcal B_{1,0}^{\mathrm{sat}}$ とする。
+
+\begin{lemma}[次数1の中心torsorによる表示]
+\label{lem:degree-one-intrinsic-center-torsor}
+$\mathcal B_{1,0}^{\mathrm{sat}}$ 上の規格化中心
+\[
+ \mathcal T_1=\{\Omega\in Z(A)_6\mid
+       [z^2]\operatorname{Sym}^{-1}\Omega=1/2\}
+\]
+は $\mathcal C_6$ の整なaffine torsorである。
+既存の全方向中心は\'{e}tale射 $\sigma_1:W_1^\times\to\mathcal T_1$ を与える。
+その像を $O_1$ とすると，全同値の商には
+\[
+ \mathfrak U_{n,1}^\times\simeq[O_1^{\mathrm{sat}}/G_1]
+\]
+という同値がある。
+\end{lemma}
+\begin{proof}
+第\ref{sec:degree-two-shadow-degree}節の中心torsor構成と同じ有限行列の議論を，
+次数6の中心と $\operatorname{Sym}^6K$ に適用する。
+具体的には $A_6$ から $[v,x_i],[v,y],[v,z]$ を取る有限交換子行列の核を使う。
+$W_1^\times$ 上の補題\ref{lem:normalized-ambient-center-near-zero}は
+$Z(A)_6=\mathcal C_6\oplus\mathcal O\Omega$ を，任意基底変更と両立して与える。
+$W_1^\times\to\mathcal B_{1,0}$ はCasimir係数torsorの開制限なので滑らかな全射であり，
+この核と規格化完全列は忠実平坦降下する。座標変換で飽和へ貼り合わせる。
+Casimir方向の微分は既存の可逆な $J_\Omega$ なので $\sigma_1$ は\'{e}taleである。
+
+座標写像を $x\mapsto Mx'$，$y\mapsto t^2y'$，$z\mapsto t^3z'$ と書く。
+右作用の規約では
+\[
+ D'=tM^{-1}D,\quad A'_4=t^{-4}A_4(Mx'),\quad
+ \overline A'_6=[t^{-6}A_6(Mx')],\quad
+ \Omega'=t^{-6}\phi(\Omega).
+\]
+次数スカラー $(M,t)=(\lambda I,\lambda)$ は自明に作用するので，$G_1$ の作用となる。
+補題\ref{lem:all-graded-isom-weighted-linear}と
+補題\ref{lem:nonzero-graded-isom-weighted-linear}の次数1部分により，
+全 $\mathcal O$ 保存同値は，ambientの上の変換則と
+$\phi(\Omega)=t^6\Omega'$ を満たすこの座標写像そのものである。
+従って全同値群oidは
+\[
+ W_1^\times\times_{\mathcal T_1}(G_1\times\mathcal T_1)
+                           \times_{\mathcal T_1}W_1^\times
+\]
+に一致する。元のCasimir係数の余分な分枝はこの群oidに既に含まれる。
+$\sigma_1$ の\'{e}tale性と飽和の定義によって商表示を得る。
+\end{proof}
+
+\subsection{同じ座標群による商と次数5}
+
+$E=K\oplus\mathbb Cx$，$D_0=\partial_x$ を固定し，
+$\mathcal T_{1,K}$ を $\mathcal T_1$ のこの方向上のファイバーとする。
+$G_1$ は全非零方向上で推移的である。
+固定方向の座標群 $\Gamma_{1,K}$ の元は
+\[
+ s\longmapsto Bs',\qquad x\longmapsto tx'+\ell(s'),\qquad
+ y\longmapsto t^2y',\qquad z\longmapsto t^3z'
+\]
+を次数スカラーで割ったものであり，$B\in\operatorname{GL}(K)$，
+$t\in\mathbb G_m$，$\ell\in K^*$ である。
+従って方向固定は
+$[\mathcal T_1/G_1]\simeq[\mathcal T_{1,K}/\Gamma_{1,K}]$
+という商の同値を与え，有限次数を加えない。
+
+\begin{lemma}[制御中心の共通稠密開]
+\label{lem:degree-one-controlled-common-open}
+$h=1$ とした前項の制御中心族は，最高活性の適切な非空開上で
+$\mathcal T_{1,K}$ の非空開と同型になる。
+従って既存の $\mathfrak U_{n,1}$ に属する対象を与える非空稠密開があり，
+そこで正規化したshadowは既存の $\Theta$ をPoisson座標変更で表したものに等しい。
+\end{lemma}
+\begin{proof}
+ambientは $b_0\in\operatorname{Sym}^6K$ に依存しない。
+整列基底での中心の一意性から
+\[
+ \Omega^{\mathrm{ord}}(\boldsymbol a,b_0)
+  =\Omega^{\mathrm{ord}}(\boldsymbol a,0)+b_0,
+ \qquad
+ \Omega(\boldsymbol a,b_0)
+  =\Omega(\boldsymbol a,0)+\kappa(\alpha,\beta,1)^{-1}b_0.
+\]
+従って $b_0$ は中心torsorの可逆な線型座標である。
+その他の係数はambient基底の全係数を動かすので，制御族は
+最高活性の分母が可逆な基底へ引き戻した中心torsorそのものである。
+この基底開と $\mathcal B_{1,0}^{\mathrm{sat}}$ の交わりは非空である。
+実際，固定方向の全ambient係数空間は整で，それぞれ非空開だからである。
+後者の $D_0$ 上のファイバーの非空性には，$G_1$ の全非零方向上の推移性と
+$\mathcal B_{1,0}^{\mathrm{sat}}$ の不変性を用いる。
+同様に $\mathcal T_{1,K}$ の非空開 $(O_1^{\mathrm{sat}})_{D_0}$ と交わる。
+そこでは前補題のfull群oidにより，中心商はfppf局所的に元の $W_1^\times$ の模型と同型である。
+従って既存の非可換多様体条件を満たす。
+中心関係式と最低交換子が一致するのでshadowも一致し，
+$y$ 平行移動は補題\ref{lem:degree-one-shadow-depression}によるPoisson同型である。
+\end{proof}
+
+\begin{theorem}[次数1の全Poisson比較の一般次数]
+\label{thm:degree-one-shadow-degree-five}
+全ての $n\ge2$ について，構成済みの比較射の一般次数は
+\[
+       [K(M^{\mathrm{nc}}_{n,1}):K(N_{n,1})]=5
+\]
+である。
+\end{theorem}
+\begin{proof}
+規格化中心のshadowをdepressed形へ送る写像を
+\[
+ \Psi_{1,K}:\mathcal T_{1,K}\dashrightarrow
+           \operatorname{Sym}^4E\oplus\operatorname{Sym}^6E,
+ \qquad (A_4,\overline A_6,\Omega)\longmapsto(I_4,J_6)
+\]
+とする。中心の $y^3$ 係数と下位復元を既に証明したので，
+この写像は優勢で一般次数5である。
+ここで $I_4,J_6$ の源と終域は同じ固定方向 $D_0$ を持つ。
+
+この写像は $\Gamma_{1,K}$ 同変である。
+実際，上の線型座標変更は
+\[
+ B'_2=t^{-2}B_2(Mx'),\quad
+ C'_4=t^{-4}C_4(Mx'),\quad D'_6=t^{-6}D_6(Mx')
+\]
+を与え，従って
+$I'_4=t^{-4}I_4(Mx')$，$J'_6=t^{-6}J_6(Mx')$ となる。
+これは終域の標準Weierstrass係数の作用であり，始域ではambientと中心元そのものの作用を用いる。
+整列基底の定数項で選んだ中心切断が，素朴な $b_0$ 座標のまま同変であることは要求しない。
+終域の全族の正規形と全同型の商表示には，
+\cite[定理8.8]{PoissonDP}を用いる。
+depressed Weierstrass形の間の重み付き同型に
+$y\mapsto\beta y'+q_2$，$z\mapsto\gamma z'+\ell_1y'+q_3$ を許しても，
+$z'$ 線型項の比較で $\ell_1=q_3=0$，$y'^2$ 項の比較で $q_2=0$ となる。
+$y'^3,z'^2$ 係数とPoisson最低括弧を比べると
+$\gamma^2=\beta^3$，$\beta MD_0=\gamma D_0$ となり，
+$t=\gamma/\beta$ により同じ $\Gamma_{1,K}$ に一致する。
+従って正規化に使った $y$ 平行移動が終域に追加の同値を残すことはない。
+
+Poisson商の一般安定化群は既存のPoisson側の結果により自明である。
+補題\ref{lem:generically-free-quotient-preserves-degree}を同じ群の商へ適用すると，
+次数5は粗商へ移る。
+補題\ref{lem:degree-one-controlled-common-open}によりこの商は
+既存の $\Theta$ と一般点で一致するので，主張の関数体次数を得る。
+\end{proof}
+
+\begin{proposition}[内在的な最高活性係数と逆五次方程式]
+\label{prop:degree-one-intrinsic-inverse-quintic}
+$\alpha=A_4(D)$，$\beta=A_6(D)$ は始域の全同値商上の有理関数であり，
+$I=I_4(D)$，$J=J_6(D)$ は終域の全Poisson同型商上の有理関数である。
+$F=K(N_{n,1})$，$L=K(M^{\mathrm{nc}}_{n,1})$ と書くと，
+\[
+ L=F(\alpha),\qquad
+ N(\alpha,I)-75J(\alpha+1)(2\alpha+5)=0,
+\]
+ここで $N$ は式\eqref{eq:degree-one-shadow-top-numerator}の五次多項式である。
+\end{proposition}
+\begin{proof}
+変換則から $A'_4(D')=t^{-4}A_4(M(tM^{-1}D))=A_4(D)$ であり，
+同様に $\beta,I,J$ も不変となる。
+$A_6$ のCasimir係数の差は $D$ で評価すると零になるため，$\beta$ も中心torsor上で定まる。
+固定方向で全lowerを加えた係数体では，既存の最高活性の式により
+$\beta$ は $\alpha,I$ から有理復元され，$\alpha$ の最小多項式は表示した五次式である。
+全商で $\alpha$ の次数が5未満なら，係数体へ引き戻しても次数が5未満となるので矛盾する。
+前定理の $[L:F]=5$ により $L=F(\alpha)$ を得る。
+\end{proof}
+
+\begin{corollary}[五つの一般逆像と零切断近傍]
+\label{cor:degree-one-five-sheet-consequences}
+Poisson粗空間の非空稠密開上で，$\overline\Theta$ は整な次数5の有限\'{e}tale被覆となる。
+一般のPoisson対象の逆像は，構成近傍内の互いに全 $\mathcal O$ 保存Abel同値で
+結ばれない五つの対象である。
+非空Zariski開への縮小でも開埋込みとはならず，有理切断もない。
+また可換点を含む始域・終域のZariski開近傍で有限またはproperにはならない。
+\end{corollary}
+\begin{proof}
+系\ref{cor:degree-two-four-sheet-consequences}の証明で一般次数4を5に置き換える。
+有限\'{e}taleとなる稠密開への制限，次数の不変性，関数体拡大の切断の不存在は同じである。
+可換点のファイバー長は零切断のscheme論的保存とそこでの恒等性により1であり，
+その点を含む近傍で有限\'{e}taleなら一定階数5でなければならないことに反する。
+表現可能なproperかつquasi-finite射は有限なので，proper性も排除される。
+\end{proof}

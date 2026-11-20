@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Exact certificate for the degree-two highest-active Poisson shadow.
 
-2026-11-20 / v0.15. Standard library only; run from any working directory.
+2026-11-20 / v0.16. Standard library only; run from any working directory.
 Reuses the coefficient/free-word arithmetic and De Laet central-element
 certificate in verify_cubic_top.py (that module also runs its own checks).
 
@@ -14,7 +14,8 @@ Everything is an exact polynomial identity over Q, before specialization.
 The rational formulas hold where their displayed denominators are nonzero.
 
 This verifies coordinate identities, coprimality, the normalizer action,
-and the transverse Lie calculation used in the degree-four proof.
+the transverse Lie calculation, and the exact discriminant certificates
+used in the degree-four and S4 monodromy proofs.
 The passage to all lower coefficients, normalized-center torsors, and
 the quotient by all equivalences is proved in the paper, not by this
 finite computation. No assertion of novelty is made.
@@ -224,3 +225,147 @@ print('PASS: c^2=R(b,B) has odd valuation at b=0; supports the degree-four field
 print('PASS: binary quartic normalizer reflections, faithful S3 action, and exact shadow equivariance.')
 print('PASS: slice plus Lie orbit determinant = alpha*(4*beta^2-alpha^2)/2.')
 print('Scope: exact coefficient certificates; torsor, lower-term, and full moduli arguments are in the paper.')
+
+
+def power(poly, exponent):
+    result = const(1)
+    for _ in range(exponent):
+        result = mul(result, poly)
+    return result
+
+
+def coefficients(poly, name):
+    """Highest coefficient first, with the chosen variable removed."""
+    index = NAMES.index(name)
+    highest = max((e[index] for e in poly), default=-1)
+    result = [{} for _ in range(highest + 1)]
+    for exponent, coefficient in poly.items():
+        exp = list(exponent)
+        value = exp[index]
+        exp[index] = 0
+        result[highest-value][tuple(exp)] = coefficient
+    return result
+
+
+def derivative(poly, name):
+    index = NAMES.index(name)
+    result = {}
+    for exponent, coefficient in poly.items():
+        if exponent[index]:
+            exp = list(exponent)
+            degree = exp[index]
+            exp[index] -= 1
+            result[tuple(exp)] = coefficient * degree
+    return result
+
+
+def determinant_dp(matrix):
+    """Division-free determinant by subsets; exact coefficient arithmetic."""
+    size = len(matrix)
+    values = {0: const(1)}
+    for row in range(size):
+        new_values = {}
+        for mask, value in values.items():
+            for column in range(size):
+                if mask & (1 << column) or not matrix[row][column]:
+                    continue
+                inversions = (mask >> (column + 1)).bit_count()
+                term = mul(value, matrix[row][column], const((-1)**inversions))
+                new_mask = mask | (1 << column)
+                new_values[new_mask] = add(new_values.get(new_mask, {}), term)
+        values = new_values
+    return values.get((1 << size) - 1, {})
+
+
+def resultant(left, right, name):
+    f, g = coefficients(left, name), coefficients(right, name)
+    m, n = len(f)-1, len(g)-1
+    matrix = [[{} for _ in range(m+n)] for _ in range(m+n)]
+    for shift in range(n):
+        matrix[shift][shift:shift+m+1] = f
+    for shift in range(m):
+        matrix[n+shift][shift:shift+n+1] = g
+    return determinant_dp(matrix)
+
+
+F = add(mul(A, A, Q), neg(N))
+u = mul(const(Fraction(1, 12)),
+        add(mul(const(3), A, A), mul(const(4), B, B)))
+v = mul(const(Fraction(1, 108)), B,
+        add(mul(const(9), A, A), mul(const(-4), B, B)))
+disc_invariant = add(
+    mul(add(const(1), mul(const(-8), v)), power(u, 3)),
+    mul(const(3), power(add(mul(const(2), v), const(-1)), 2), u, u),
+    mul(add(mul(const(-6), power(v, 3)), mul(const(153), v, v),
+            mul(const(216), v), const(-24)), u),
+    power(v, 4), mul(const(-104), power(v, 3)),
+    mul(const(-615), v, v), mul(const(-266), v), const(1))
+disc = mul(const(944784*136048896), A, A,
+           add(B, const(3)), add(B, const(3)), disc_invariant)
+leading = coefficients(F, 'b')[0]
+# For a quartic, Res(F,F') = leading(F) * Disc(F).
+assert resultant(F, derivative(F, 'b'), 'b') == mul(leading, disc)
+
+reflection = {
+    'd': add(mul(const(Fraction(1, 2)), A), B),
+    'e': add(mul(const(Fraction(3, 4)), A),
+             mul(const(Fraction(-1, 2)), B)),
+}
+assert substitute(u, reflection) == u
+assert substitute(v, reflection) == v
+assert substitute(disc_invariant, reflection) == disc_invariant
+
+H = add(mul(const(820125), power(A, 8)),
+        mul(const(-17781768), power(A, 6)),
+        mul(const(-68102208), power(A, 4)),
+        mul(const(2738419200), A, A), const(20480000))
+assert substitute(disc, {'e': const(1)}) == mul(const(-15116544), A, A, H)
+bezout_u = add(mul(const(-2), power(A, 6)),
+               mul(const(-4), power(A, 4)), const(-5))
+bezout_v = add(mul(const(3), power(A, 7)),
+               mul(const(2), power(A, 5)), mul(const(2), power(A, 3)),
+               mul(const(5), A))
+bezout = add(mul(bezout_u, H), mul(bezout_v, derivative(H, 'd')), const(-1))
+assert all(value.denominator == 1 and value.numerator % 11 == 0
+           for value in bezout.values())
+assert 820125 % 11 != 0
+index_A = NAMES.index('d')
+assert all(e[index_A] % 2 == 0 for e in H)
+at_leading_zero = sum(value * Fraction(196, 9)**(e[index_A]//2)
+                      for e, value in H.items())
+assert at_leading_zero == 28171411200
+assert substitute(H, {'d': {}}) == const(20480000)
+
+quadratic = add(mul(const(3), b, b), mul(const(16), b), const(18))
+assert 16**2 - 4*3*18 == 40
+assert substitute(quadratic, {'b': {}}) == const(18)
+assert substitute(quadratic, {'b': const(Fraction(-4, 3))}) == const(2)
+assert substitute(quadratic, {'b': const(-3)}) == const(-3)
+branch_quartic = mul(b, add(mul(const(3), b), const(4)), quadratic)
+assert substitute(branch_quartic, {'b': const(-3)}) == const(-45)
+# A=2(7b+12)w/[3b(b+3)(3b+4)], w^2=branch_quartic.
+num_squared = mul(const(4), power(add(mul(const(7), b), const(12)), 2),
+                  branch_quartic)
+den_squared = mul(const(9), b, b, power(add(b, const(3)), 2),
+                  power(add(mul(const(3), b), const(4)), 2))
+assert mul(num_squared, substitute(Q, {'e': const(1)})) == (
+    mul(den_squared, substitute(N, {'e': const(1)})))
+
+print('PASS: full quartic discriminant, computed by a division-free Sylvester determinant.')
+print('PASS: compact invariant discriminant and exact normalizer invariance.')
+print('PASS: B=1 degree-eight branch polynomial, mod 11 Bezout certificate, leading coprimality.')
+print('PASS: connected genus-one witness curve identities and distinct branch factors.')
+print('Scope: exact identities; genus, ramification, S4 monodromy and descent are proved in the paper.')
+
+# The anti-invariant needed for descent of the orientation double cover.
+p_orientation = mul(A, add(mul(A, A), mul(const(-4), B, B)))
+delta_quartic = add(power(u, 3), mul(const(-27), v, v))
+assert mul(p_orientation, p_orientation) == mul(const(64), delta_quartic)
+assert substitute(p_orientation, reflection) == neg(p_orientation)
+assert substitute(p_orientation, {'d': neg(A)}) == neg(p_orientation)
+assert 11337408**2 == 944784*136048896
+for value, expected in [(Fraction(0), Fraction(-10368)),
+                        (Fraction(-3), Fraction(972)),
+                        (Fraction(-4, 3), Fraction(-512, 9))]:
+    assert substitute(F, {'e': const(1), 'b': const(value)}) == const(expected)
+print('PASS: normalizer anti-invariant, orientation square class, and smooth branch-plane witnesses.')

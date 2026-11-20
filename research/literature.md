@@ -1,6 +1,6 @@
 # 文献・依存関係・新規性の範囲
 
-2026-11-20（JST） / v0.2。完全な書誌は [references.bib](../references.bib)。以下は使用する一次資料の具体的な箇所を示す。外部論文のPDFは収録しない。
+2026-11-20（JST） / v0.3。完全な書誌は [references.bib](../references.bib)。以下は使用する一次資料の具体的な箇所を示す。外部論文のPDFは収録しない。
 
 ## 1. 他研究からの数学的入力
 
@@ -46,7 +46,7 @@
 - Mori–Ueyama, *A categorical characterization of quantum projective spaces*, [arXiv:1708.00167v4](https://arxiv.org/abs/1708.00167v4)。Definitions 2.1(5), 2.5, 3.4、Theorem 2.6(2)、Remark 3.5、§1.2を確認。豊富対からのsection環復元とcanonical bimoduleを使う。AS-GorensteinのパラメータだけではNakayama捻りを消せない。
 - [Stacks Project, Tag 0FY3, Lemma 57.3.5](https://stacks.math.columbia.edu/tag/0FY3)：双対構造を持つSerre関手のYoneda一意性。これ自体はAbel同値の全認識を述べる定理ではない。
 - Hong–Xu, *Poisson cohomology of del Pezzo surfaces*, J. Algebra 336 (2011), 378–390、[arXiv:1001.1082v2](https://arxiv.org/abs/1001.1082v2)、Theorem 3.9。5≤r≤8点の吹上げでdim H²_π=r+2、高次は消滅。次数1・2の曲面の10・9という接空間次元を新規結果と扱わない。
-- Etingof–Ginzburg, *Noncommutative del Pezzo surfaces and Calabi–Yau algebras*, JEMS 12 (2010), 1371–1416、[出版版](https://ems.press/content/serial-article-files/31746)。Theorem 3.3.2、Definition 3.4.3、Theorems 3.4.4–3.4.5、§3.5、Proposition 8.1.1。三変数potentialと中心商によるfiltered量子化・generic半普遍性は先行結果。genericを一つのZariski開集合と自動的に読み替えず、任意の中心多項式係数で同じ結果が成立すると推論しない。
+- Etingof–Ginzburg, *Noncommutative del Pezzo surfaces and Calabi–Yau algebras*, JEMS 12 (2010), 1371–1416、[出版版](https://ems.press/content/serial-article-files/31746)。Theorem 3.3.2、Definition 3.4.3、Theorems 3.4.4–3.4.5、§3.5、Proposition 8.1.1。三変数potentialと中心商によるfiltered量子化・generic半普遍性は先行結果。Definition 3.4.3とLemma 7.1.5のgeneric/CY条件は可算開条件。Proposition 7.3.1(ii)、Corollary 7.4.1(ii)は固定CY topへの全lower potentialのPBW・CYを与える。任意中央係数への拡張は基底の生成・独立性、または本稿の直接のfiltered証明を用いる。Proposition 8.1.1(i)の中心持上げ自体は孤立特異点を仮定しない。
 - Rains, *Filtered deformations of elliptic algebras*, [arXiv:2107.13540v2](https://arxiv.org/abs/2107.13540v2)。Introと中心拡張の枠組みを確認。楕円代数からのfiltered変形は有限パラメータ族を研究する次の出発点。全n・全O-markedモジュライの分類としては使わない。
 - Abdelgadir–Okawa–Ueda, *Compact moduli of marked noncommutative cubic surfaces*, [arXiv:2404.00175](https://arxiv.org/abs/2404.00175)。Introとquiver markingを確認。例外集合に対応するquiver関係のGITモジュライであり、本研究のOのみを残す同値関係とは異なる。
 - Okawa–Ueda, *AS-regular algebras from acyclic spherical helices*, [arXiv:2007.07620](https://arxiv.org/abs/2007.07620)。球面helixからの構成を比較した。一般次元での表示を検討する基礎であり、本稿で全変形のAS包絡存在を結論する根拠には用いていない。
@@ -67,6 +67,12 @@ Plücker座標環の正規性・Cohen–Macaulay性にはSvanes (1973) とDe Con
 
 上記一次資料の該当定理・係数環・射の定義を2026-11-20に確認した。相対Serre公式は本文のsmooth proper模型とHH¹対角剛性から証明し、AS-Gorenstein indexだけから結論していない。ambient CYはbimodule同型の主張であり、negative cyclic CY構造や中心商のbalanced dualizing complexの全公理を付加していない。
 
-## 5. 公表前に残る文献上の課題
+## 5. 有限パラメータ族とpotentialの対角複体
 
-一般nでの全Abel形式群oid、nc多様体条件のArtin持上げ、形式粗商、具体量子化の完全性、任意指数Veronese復元という組合せについて、包括的な優先権調査は未了。変形・compact持上げ・formalityの一般原理は既知と明記し、本件の重み付き模型とモジュライへの適用を区別する。既存の非可換del Pezzo曲面の様々な定義、AS Z-代数、marked quiver、非可換吹上げとの比較を深める必要がある。講演概要にある未公表の一般次数の主張は確立済み定理として引用していない。
+- Ginzburg, *Calabi–Yau algebras*, [arXiv:math/0612139v3](https://arxiv.org/abs/math/0612139v3)、2007。Proposition 5.1.9と式(5.1.8)のHessian対角複体、Theorem 5.3.1(iii)の完全性とCY、Proposition 8.1.3(ii)のtensor flip対称性を確認。原資料の半単純基底の設定を任意係数環へ無説明で拡張せず、本文ではPBW随伴次数のKoszul完全性と明示的な自己双対性を証明する。
+- Etingof–Ginzburgの上記一次定理を2026-11-20に再確認。negative auxiliary degreeによるfiltered量子化の一般原理は既知の枠組みと重なる。本稿では両次数・全nへの中央係数の付加、有限Casimir公式、商の普遍自由性と非零hの普遍中心を具体化した。明示式そのものの新規性は未確定。
+- 同論文の参考文献[R]が指す [RainsのMagma形式中心元](https://math.mit.edu/~etingof/delpezzocenter) は取得を確認。E6/E7/E8の式があり、E7は `xy−q yx=t z+c1` 等の規約でzを消去した式。本稿の定理には使用していない。一般elliptic topへの拡張時に、分母・関係式・正規化を厳密に照合する。
+
+## 6. 公表前に残る文献上の課題
+
+一般nでの全Abel形式群oid、nc多様体条件のArtin持上げ、形式粗商、具体量子化の完全性、任意指数Veronese復元、有限型部分族のCasimir・普遍中心という組合せについて、包括的な優先権調査は未了。変形・compact持上げ・formalityの一般原理は既知と明記し、本件の重み付き模型とモジュライへの適用を区別する。既存の非可換del Pezzo曲面の様々な定義、AS Z-代数、marked quiver、非可換吹上げとの比較を深める必要がある。講演概要にある未公表の一般次数の主張は確立済み定理として引用していない。

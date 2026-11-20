@@ -1,6 +1,6 @@
 # 研究方針：次数1・2の非可換del Pezzo n-fold
 
-**2026-11-20（JST） / v0.2。再開時に最初に読む。**
+**2026-11-20（JST） / v0.3。再開時に最初に読む。**
 
 正本は [uedakazushi/nc-del-pezzo](https://github.com/uedakazushi/nc-del-pezzo) のmain。研究全体の入口は [research-hub](https://github.com/uedakazushi/research-hub)。続いて [研究ノート](research/research_notes.md)、[主原稿](papers/nc-del-pezzo.tex)、[再現手順](docs/reproduction.md) を読む。
 
@@ -23,7 +23,7 @@
 
 主原稿 `def:ample-model` はHilbert関数を持つ豊富列型の問題A、`def:nc-dp-stack` は標準compact圏の相対Serre・反標準豊富性・Serre周期n−1・有向ACM条件を備えたnc多様体の問題Mを定義する。重み付きAS超曲面の表示を持つ部分問題は別に記号化する。fppf stack化によるモジュライ問題の定義と、代数スタック・有限型atlasの構成は別である。
 
-元の成分数決定という目標のうち、可換点における全Abel変形群oid、有限自己同型群による形式商、全Artin変形の中心超曲面表示とnc多様体条件、形式分枝数は解決した。相対Serre・反標準豊富性・section saturationの持上げが揃い、MのArtin完成を全Abel変形に同定できたため、次の重点を有限パラメータ族と一般nc点へ移す。全体の成分数には代数化・有限型atlasと、可換locusに接しない成分の検討が残る。
+元の成分数決定という目標のうち、可換点における全Abel変形群oid、有限自己同型群による形式商、全Artin変形の中心超曲面表示とnc多様体条件、形式分枝数は解決した。相対Serre・反標準豊富性・section saturationの持上げが揃い、MのArtin完成を全Abel変形に同定できたため、次の段階では、特殊な非空な部分族について有限型量子化、明示的PBW・Casimir公式、有限非零hの普遍中心、ambient CYまで得た。補助次数が負になることが証明を有限化する理由であり、一般の楕円的最高次項ではその不等式が成立しない。従って現在の重点は、一般の最高次項の代数化と、得られた有限h族のtailsのnc多様体条件である。全体の成分数には有限型atlasと、可換locusに接しない成分の検討が残る。
 
 ## C. 主要到達点と確実性
 
@@ -45,20 +45,25 @@
 | 冪零段階の中心商は左右で唯一のaugmentation Ext `R(n−1)` を次数n+1に持つ | R分裂Koszul持上げと平坦中心商のchange of ringsで証明。通常の絶対AS正則性やSerre公式ではない | `prop:nilpotent-weighted-as`, `prop:flat-central-hypersurface-ext` |
 | ambient量子化は無捩れな重み付き相対CY同型を持つ | Kontsevich–Shoikhetの対と体積形式を固定。発散零・有限鎖twist・有限自由対角分解による証明。任意冪零係数・任意基底変更 | `thm:nilpotent-ambient-cy`, `cor:dp-ambient-cy` |
 | 固定した全ての非零Poisson方向の形式一般ファイバーはCasimir多項式環を普遍中心に持つ | 古典generic active fiberの幾何学的整性とh係数帰納で証明。Artin商・有限複素hへの特殊化には適用しない | `thm:formal-generic-center`, `cor:formal-generic-veronese` |
+| 負の補助次数を持つJacobian括弧の有限パラメータ量子化 | 任意中央係数、任意基底変更、全有限hで有限表示・自由基底。グラフの補助次数評価とmonic商で証明 | `thm:negative-auxiliary-algebraization` |
+| 両次数の分離型potentialの明示的中心元と普遍PBW基底 | P≤5、Q≤3。d2はp5=0。唯一のoverlapと全係数多項式恒等式で証明し、厳密計算を実行 | `thm:explicit-finite-pbw-casimir` |
+| 全n≥2で滑らかな可換点を含む有限型平坦Abel族 | 明示的な偏微分検査と基底・Gabriel商で証明。有限hでMの全条件を満たす主張ではない | `prop:finite-family-smooth-points`, `prop:finite-pbw-abel-family` |
+| 規格化した有限型族の全非零hで中心はCasimir多項式環 | 最高記号のPoisson中心と次数別小行列式で任意基底変更まで証明。n≥3でVeronese持上げの代数的仮定が成立 | `thm:finite-parameter-universal-center`, `cor:finite-parameter-veronese-input` |
+| 分離型ambientは全有限hで相対bimodule CY | potential対角複体のfiltered Koszul完全性・自己双対性、中心差の正則列で証明。tails Serreとは区別 | `prop:finite-separated-relative-cy`, `prop:finite-separated-absolute-cy` |
 
 一般原理のLowen–Van den Bergh・Lowen・De Deken–Lowen・Yekutieli・Kontsevichと、入力となるPoisson構造定理は既知・既存の入力である。曲面の接空間次元10・9も先行研究で既知。一般nの適用・復元・降下の新規性について包括的な優先権確認は未了。
 
 ## D. 未解決の核心と次の一手
 
-1. **有限型族と代数化。** 活性三変数の重み(1,2,3)/(1,1,2)にn−1個の中心変数を加える模型で、EG型potentialの中心元・PBW平坦性を係数環全体で検査する。最初に次数2の(1,1,2)模型の関係式とoverlapを有限な計算へ落とす。形式パラメータ1への代入を行わない。
-2. **一般nc点と全同値。** 得られた有限型族で普遍中心の開条件、相対Serre、飽和性と反標準豊富性を確認し、条件付きVeronese復元を適用する。Artin局所のHH¹剛性を一般nc点へ流用しない。
-3. **全体の既約成分。** 有限型atlasと全O同値の商を構成した後、可換locusに接しない成分の不存在または存在を判定する。各可換点の一分枝性と次数1・2の開閉分離を出発点とする。
-4. **公表範囲と先行研究。** 現在の主結果は全Artin群oidとnc多様体条件の持上げで論理的に閉じる。既存のnc del Pezzo曲面・AS Z-代数・楕円代数の定義と比較し、一般nにおける優先権を確認する。未解決の大域分類を主定理に含めない。
+1. **一般の楕円的最高次項。** 次数2でx⁴,y⁴,z²を同時に含む活性模型には負の補助重みを与えられない。一般のcubic Sklyanin型topのPBW条件を有限な開集合で検証し、Etingof–Ginzburg/Rainsの中心元と比較する。固定CY topへの全lower termsの普遍係数拡大は、単項式基底の生成と全複素特殊化での独立性から処理できる。varying topの有限開条件が次の核心。
+2. **構成済み有限h族のnc多様体条件。** 全hでのPBW・中心商・Abel平坦性・ambient CYを入力とし、h≠0のtailsの飽和性、反標準豊富性、compact生成、smooth proper性と相対Serreを確認する。ArtinのHH¹帰納やambient CYだけで結論しない。中心の仮定は規格化族ですでに解決済み。
+3. **一般nc点・全体の既約成分。** 前二項から許容な表示族と全O同値の商を構成し、有限型atlas、一般点での復元、可換locusに接しない成分を調べる。形式一分枝性から全成分数を推論しない。
+4. **公表範囲と先行研究。** 全Artin群oid・nc多様体条件の持上げに、有限型部分族と適用範囲を統合した。既存のfiltered CY・Kleinian/elliptic量子化、nc del Pezzo曲面、AS Z-代数との比較を進め、明示式と一般nの応用の優先権を確認する。大域分類は未解決として明記する。
 
 ## E. 依存・再開・検証
 
 - 相対Poisson錐・商・自己同型：`poisson-del-pezzo` main `4834ea4f3e13bff4d6c5793cec9b169d8f1ad56f`、主原稿v1.4の定理7.3・8.8、補題8.7、注意8.5、命題9.4。
 - O-marked枠組み：`nc-cubic-threefold-moduli` main `6c35d2c84671c2538e61836a6bf3a511392eacce`、主原稿v22。三次三様体固有の次数一生成・指数2・残余圏の結論を無条件に輸入しない。
 - 一次資料・具体的な適用条件・優先権未確認点は [文献と依存](research/literature.md)。証明の重複は研究ノートへ置かない。
-- `make verify` はn=2,…,8のHilbert/monic基底・Euler差分・二次障害・符号粗商の接空間次元を正確整数計算で確認する。一般の証明を有限計算で代替していない。
+- `make verify` はn=2,…,8のHilbert/monic基底・Euler差分・二次障害・符号粗商の接空間次元と、有限型族の全係数PBW overlap・中心交換子・両内部次数・補助次数を厳密計算する。後者はhの有限jetではない。一般の証明を有限次元の数値例で代替していない。
 - 組版・PDF確認の実施状況と環境は [再現手順](docs/reproduction.md)。生成・証明点検・計算・組版・GitHub反映・hub更新はそれぞれ確認する。

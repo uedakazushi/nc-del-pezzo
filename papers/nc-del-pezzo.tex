@@ -43,7 +43,7 @@
 \newcommand{\Perf}{\operatorname{Perf}}
 \newcommand{\rank}{\operatorname{rank}}
 \newcommand{\HH}{\operatorname{HH}}
-\newcommand{\Version}{0.2}
+\newcommand{\Version}{0.3}
 \title{次数1・2の非可換del Pezzo多様体\texorpdfstring{\\}{ }構造対象付き変形とモジュライの局所構造}
 \author{}
 \date{2026年11月20日\quad v\Version\quad 公表用研究稿}
@@ -70,6 +70,9 @@ $HH^1(X)=0$ による剛性から相対Serre関手を $(-(n-1))[n]$ と同定し
 定義した非可換多様体のモジュライのArtin完成が全Abel変形と一致することを示す。
 特殊ファイバーの枠を忘れた形式商は $[\operatorname{Spf}R_X/\operatorname{Aut}(X)]$ であり、
 一般の可換点では被覆対合の符号作用による粗商が両次数とも特異になる。
+さらに負の補助次数を使って，両次数・全次元の特別な部分族に対する有限パラメータ量子化を構成する。
+分離型potentialには有限な中心元公式と普遍PBW基底を与え，ambientの相対bimodule CY性を証明する。
+この族の全ての有限非零パラメータにおける中心はCasimir多項式環であり，任意基底変更と両立する。
 形式的構成、代数的な族、全モジュライの代数性を区別して述べる。
 \end{abstract}
 \tableofcontents
@@ -193,6 +196,25 @@ section saturation、有向ACM、正周期の豊富性とsmooth proper性を証�
 この局所結論は普遍中心条件を使わず、可換点でも成立する。
 一方、大域モジュライの代数性と成分数には有限型族と一般nc点の解析が残る。
 
+第\ref{sec:finite-auxiliary-quantization}節では，特殊なPoisson方向について有限型の平坦Abel族を構成する。
+補助次数が真に下がるJacobian括弧では，グラフ量子化とCasimir持上げが各入力に対して有限和になる。
+別に，分離型potentialの関係式に対する唯一の重なりを解消し，
+次数1では $h^6$ まで，次数2ではWeyl対称化の $h^2$ 補正で書ける厳密な中心元を与える
+（定理\ref{thm:explicit-finite-pbw-casimir}）。
+これは形式級数の打切りではなく，任意の係数環・任意の有限 $h$ で成立する公式である。
+potentialの対角複体とその自己双対性によりambientは相対CYであり，
+定理\ref{thm:finite-parameter-universal-center}は $h\ne0$ における普遍中心を計算する。
+従って二つ以上の中心一次変数を用いるVeronese持上げの代数的仮定が，有限非零パラメータで実現する。
+
+この構成にはEtingof--Ginzburgの低次数potential変形
+\cite[Proposition~7.3.1(ii), Corollary~7.4.1(ii)]{EG2010}と共通するfiltered量子化の機構がある。
+対角複体はGinzburg\cite[Proposition~5.1.9, Theorem~5.3.1]{Ginzburg2007}の構成に基づき，
+ここでは中央多項式係数と任意基底変更を直接扱う。
+これらの一般原理や量子化の存在を新規性として主張しない。
+全次元への適用，明示式と普遍中心の整理についても包括的な優先権調査は未完了である。
+本節の部分族は一般の楕円的な最高次項を含まず，有限 $h\ne0$ のtailsが
+$\mathfrak M^{\OO}_{n,d}$ の全条件を満たすことも別途必要である。
+
 \input{sections/definitions}
 \input{sections/formal_moduli}
 \input{sections/recognition}
@@ -202,6 +224,7 @@ section saturation、有向ACM、正周期の豊富性とsmooth proper性を証�
 \input{sections/artin_geometry}
 \input{sections/relative_serre}
 \input{sections/generic_center}
+\input{sections/finite_families}
 
 \section{大域的なモジュライへ進むための問題}
 \label{sec:questions}
@@ -209,8 +232,11 @@ section saturation、有向ACM、正周期の豊富性とsmooth proper性を証�
 許容な表示の全 $\OO$ 保存同値による商、ならびに全モジュライの代数性である。
 各可換点の形式環が整であることから、可換点における形式分枝は一つと分かる。
 可換locusに接しない非可換成分が存在しないことまでは証明していない。
-また、形式量子化から実際の有限型族への代数化と、
+第\ref{sec:finite-auxiliary-quantization}節の有限型族は，滑らかな可換点を持つ特殊な部分族である。
+一般の楕円的な最高次項を許す形式量子化の代数化と、
 有限パラメータの非可換対象から古典Poisson多様体を自然に復元する射は別の課題である。
+次の具体的な課題は，一般の次数2の活性四次式に対するPBW族と中心元を有限な開集合上で構成し，
+既に得た有限型族ではtailsの相対Serre，飽和性，smooth proper性を確認することである。
 
 三次三様体の残余圏による幾何化を次数1・2へ移すには、
 例外部分と残余圏の相対構成、同じ古典多様体との比較を新たに証明する必要がある。

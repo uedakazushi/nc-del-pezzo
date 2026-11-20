@@ -1,0 +1,669 @@
+% !TeX root = ../nc-del-pezzo.tex
+\section{有限パラメータ量子化と普遍中心}
+\label{sec:finite-auxiliary-quantization}
+
+本節では，特殊な非空な部分族について形式パラメータを有限の値へ特殊化できることを証明する．
+方法は，通常の射影的な次数とは別に正の補助重みを与え，
+Poisson括弧が補助次数を厳密に下げることを用いる．
+これにより各グラフ式は多項式となる．
+一般の楕円的な最高次項はこの条件を満たさず，
+全Poisson方向の代数化や有限パラメータでの全モジュライ比較は結論しない．
+
+\subsection{有限性と普遍的なPBW基底}
+
+$R$ を任意の可換 $\C$-代数とし，$x,y,z$ に正整数の補助重み $(a,b,c)$ を与える．
+$R$ の補助重みは零とする．以下の仮定を置く：
+\begin{equation}
+ F=z^2/2+V(x,y)\in R[x,y,z],\qquad
+ \deg_{\mathrm{aux}}V\le L:=2c<a+b+c,
+ \qquad \delta:=a+b+c-L>0.
+ \label{eq:negative-auxiliary-hypothesis}
+\end{equation}
+$R$ には係数パラメータと，後でCasimirとする中央変数を含めてよい．
+微分は活性変数 $x,y,z$ だけについて行う．
+Jacobian二重ベクトル
+\begin{equation}
+ \pi_F=F_z\,\partial_x\wedge\partial_y
+       +F_x\,\partial_y\wedge\partial_z
+       +F_y\,\partial_z\wedge\partial_x
+ \label{eq:finite-jacobian-bivector}
+\end{equation}
+はPoissonであり，$F$ はCasimirである．
+グラフformality写像を一つ固定し，その正規化を
+$[u,v]_{\star}=\hbar\{u,v\}_{\pi_F}+O(\hbar^2)$ とする．
+
+\begin{theorem}[負の補助次数による代数化]
+\label{thm:negative-auxiliary-algebraization}
+仮定\eqref{eq:negative-auxiliary-hypothesis}の下で，次が成立する．
+\begin{enumerate}
+\item 固定したグラフ式による積
+\[
+ u\star v=uv+\sum_{r\ge1}\hbar^r B_r(u,v)
+\]
+は $R[\hbar,x,y,z]$ 上の結合的な $R[\hbar]$-代数 $A$ を定める．
+補助次数がそれぞれ $p,q$ 以下の入力に対して
+\[
+ \deg_{\mathrm{aux}}B_r(u,v)\le p+q-r\delta
+\]
+であり，特に $r>(p+q)/\delta$ の項は零である．
+\item 同じformalityのtwistにより中心元
+\[
+ \Omega=F+\sum_{r\ge1}\hbar^r\Omega_r\in A,
+ \qquad
+ \deg_{\mathrm{aux}}\Omega_r\le L-r\delta
+\]
+が定まり，$r>L/\delta$ の項は零である．
+その最高補助次数部分は
+$F_L=z^2/2+V_L(x,y)$ である．係数 $1/2$ は固定単元である．
+\item $A$ は三生成元と三つの交換子関係による有限表示を持つ．
+順序付きstar単項式
+\[
+ x^{\star i}\star y^{\star j}\star z^{\star k}
+ \qquad (i,j,k\ge0)
+\]
+が $R[\hbar]$-基底をなし，
+$\operatorname{gr}_{\mathrm{aux}}A\cong R[\hbar,x,y,z]$ である．
+\item $\Omega$ は左右の非零因子であり，中心商
+$B=A/(\Omega)$ は有限表示を持つ．その $R[\hbar]$-基底は
+\[
+ x^{\star i}\star y^{\star j}\star z^{\star\epsilon},
+ \qquad i,j\ge0,\quad\epsilon\in\{0,1\},
+\]
+である．さらに
+\[
+ \operatorname{gr}_{\mathrm{aux}}B
+ \cong R[\hbar,x,y,z]/(F_L).
+\]
+\item これらの構成，基底，有限表示は任意の係数変更と両立する．
+特に $\hbar$ は任意の値へ特殊化できる．
+係数環がnoetherianなら，$A$ と $B$ は左右noetherianである．
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+\eqref{eq:finite-jacobian-bivector}の各項の補助次数は $-\delta$ 以下である．
+定数係数のグラフ多重微分作用素は重み付き変数の拡大と可換するため，
+$r$ 個の $\pi_F$ を含む積の項は入力の補助次数を少なくとも $r\delta$ 下げる．
+多項式の補助次数は非負なので，(1)の有限性が従う．
+結合律は形式グラフ恒等式であるが，三つの固定した多項式に適用した両辺は
+$\hbar$ の多項式である．したがって形式的な恒等式は
+$R[\hbar,x,y,z]$ における恒等式となり，(1)を得る．
+
+$[\pi_F,F]=0$ なので，twisted formality写像はPoisson中心の元 $F$ を
+Hochschild零次cocycle，すなわち中心元へ送る\cite{Kontsevich}．
+その第 $r$ 項は $F$ 一つと $\pi_F$ を $r$ 個含むため，
+同じ重み評価により補助次数が $L-r\delta$ 以下となる．
+これは有限和であり，形式中心性は実際の多項式中心性を与える．
+$r\ge1$ の項は補助次数が $L$ 未満なので，最高次記号は $F_L$ のままである．
+
+補助次数による増大filtrationを $A$ に入れると，
+$u\star v-uv$ は $\deg_{\mathrm{aux}}u+\deg_{\mathrm{aux}}v$ より低い．
+したがって順序付きstar単項式は通常の順序付き単項式に対して三角的であり，
+対角成分は1である．各補助次数以下の多項式は
+$R[\hbar]$ 上有限自由なので，この三角変換は有限な帰納法で可逆である．
+これで(3)の基底とassociated gradedの同定を得る．
+
+有限表示もこの基底から直接得られる．
+$[y,x]_\star,[z,x]_\star,[z,y]_\star$ を順序付きstar基底で表すと，
+それぞれ補助次数 $a+b,a+c,b+c$ より低い有限な多項式になる．
+自由代数の対応する三つの交換子関係による商を $A'$ とする．
+逆順の隣接生成元を順序付きの積と低い補助次数の項へ置き換えると，
+補助次数と逆転数の辞書式順序が下がるため，置換は停止する．
+従って順序付き単項式は $A'$ を張る．
+自然な全射 $A'\to A$ によるそれらの像は既に基底なので，
+関係の重なりから追加の関係が生じることはなく，$A'\cong A$ である．
+
+次に，$2F_L$ は $z$ についてmonicなので，
+$R[\hbar,x,y,z]$ の非零因子である．
+最高補助次数記号を取ると，$\Omega$ による左右の乗法も単射となる．
+$W\subset A$ を $z$ の指数が0または1の順序付きstar単項式の張る自由部分加群とする．
+任意の元の最高次記号を $F_L$ でmonic除法し，商と余りを $A$ へ持ち上げる．
+商に $\Omega$ を掛けたものと $W$ の余りを引くと補助次数が下がるため，
+帰納法から $A=A\star\Omega+W$ を得る．
+もし $0\ne w=q\star\Omega\in W$ なら，最高次記号について
+$w_{\mathrm{top}}=q_{\mathrm{top}}F_L$ となる．
+左辺は $z$ の次数が2未満であり，monic除法の一意性に反する．
+従ってこの和は直和であり，(4)の基底とassociated gradedの記述を得る．
+中心性により二側idealも $A\star\Omega$ と一致する．
+
+グラフ式の微分は活性変数だけに作用し，係数は固定した複素グラフ重みである．
+三角変換とmonic除法はいずれも有限で，除算を要しない．
+従って全構成は任意の係数変更と可換する．
+noetherian性は，非負整数の補助次数filtrationのassociated gradedが
+noetherian可換環であることと，filtered--gradedの標準的な帰納法から従う．
+\end{proof}
+
+\begin{remark}[通常の次数と有限パラメータ]
+\label{rem:finite-ordinary-grading}
+別に正整数の通常の次数 $(w_x,w_y,w_z)$ があり，
+$F$ が通常の次数 $D=w_x+w_y+w_z=2w_z$ の斉次式であるとする．
+係数環 $R$ も通常の次数を持ってよい．
+このとき $\pi_F$ の通常の次数は零であり，
+$\deg\hbar=0$ とすればstar積は通常の次数を保ち，$\Omega$ も次数 $D$ である．
+補助次数は有限性とPBWのために用い，射影的な次数を置き換えない．
+また，ここでの $\hbar$ の特殊化は，各式が有限多項式であることを証明した後に行うものである．
+一般の形式級数へ $\hbar=1$ を代入する操作は用いていない．
+\end{remark}
+
+\subsection{分離型potentialの明示的な中心元}
+\label{subsec:explicit-finite-potential}
+
+グラフ式とは別に，関係式と中心元の全係数を有限に書ける模型を構成する．
+両者の量子化が同じ形式座標で一致するとは仮定しない．
+$R$ を任意の可換 $\C$-代数，$h\in R$ とし，
+\[
+ P(x)=\sum_{i=0}^{5}p_i x^i,\qquad
+ Q(y)=\sum_{j=0}^{3}q_j y^j
+\]
+と置く．係数は全て中央とする．巡回potential
+\[
+ \Phi=xyz-yxz-h\bigl(z^2/2+P(x)+Q(y)\bigr)
+\]
+のJacobian代数を
+\begin{equation}
+ A_R=R\langle x,y,z\rangle/
+ ([x,y]-hz,\ [y,z]-hP'(x),\ [z,x]-hQ'(y))
+ \label{eq:finite-potential-relations}
+\end{equation}
+と書く．$\operatorname{Sym}$ は可換単項式を，その文字の全ての異なる順序の単語の平均へ送る
+Weyl対称化であり，係数上線型に延長する．
+
+\begin{theorem}[両次数の普遍PBW族と有限Casimir公式]
+\label{thm:explicit-finite-pbw-casimir}
+代数\eqref{eq:finite-potential-relations}は
+$x^a y^b z^c$ ($a,b,c\ge0$) を $R$-基底に持つ．さらに
+\begin{align}
+ \Omega={}&\frac{z^2}{2}+P(x)+Q(y)
+       -\frac{h^2}{12}\operatorname{Sym}\bigl(P''(x)Q''(y)\bigr)\notag\\
+ &+\frac{2h^4}{3}p_5(3q_1q_3-q_2^2)x
+       -\frac{3h^6}{2}p_5q_3^2P'(x)
+ \label{eq:finite-casimir-explicit}
+\end{align}
+は中心元かつ左右非零因子である．商 $B_R=A_R/(\Omega)$ は
+\[
+ \{x^a y^b z^\epsilon\mid a,b\ge0,\ \epsilon=0,1\}
+\]
+を $R$-基底に持つ．これらの主張は任意の係数変更と両立し，
+$h$ の冪零性や可逆性を仮定しない．$R$ がnoetherianなら両代数は左右noetherianである．
+
+$p_5=0$ の場合，\eqref{eq:finite-casimir-explicit}の最後の二項は消える．
+これが次数2の模型であり，$p_5$ を許す場合を次数1に用いる．
+\end{theorem}
+
+\begin{proof}
+まず補助重みを $(x,y,z)=(6,10,15)$，$R$ の重みを0とする．
+次の規則を，重みの後に $z>y>x$ の辞書式で比較する整礎的な単語順序に対して用いる：
+\[
+ yx\longmapsto xy-hz,\qquad
+ zx\longmapsto xz+hQ'(y),\qquad
+ zy\longmapsto yz-hP'(x).
+\]
+交換項は同じ重みで辞書式に下がり，他の項は重みが真に下がる．
+唯一の重なり $zyx$ の二つの簡約は
+\[
+ xyz-hz^2+h\,yQ'(y)-hP'(x)x,
+ \qquad
+ xyz-hxP'(x)+hQ'(y)y-hz^2
+\]
+で一致する．包含重なりはない．従って各単語には一意な簡約形があり，
+係数1のDiamond補題によって順序付き単項式が基底となる．
+$p_5=0$ の場合は補助重み $(3,4,6)$ でも同じ証明が成立する．
+
+中心性を有限な恒等式で確認する．
+\[
+ H=\frac{z^2}{2}+P+Q-\frac{h^2}{12}\operatorname{Sym}(P''Q''),\quad
+ G=\frac{2h^4}{3}p_5(3q_1q_3-q_2^2)x
+       -\frac{3h^6}{2}p_5q_3^2P'
+\]
+と置く．$Q'''=6q_3$ が中央であることと三つの関係式から
+\[
+ \left[x,\frac{z^2}{2}+P+Q\right]
+       =-\frac{h^2Q'''}{12}[y,P'],\qquad
+ [x,\operatorname{Sym}(P''Q'')]=-Q'''[y,P']
+\]
+を得るので $[x,H]=[x,G]=0$ である．
+もう一つの交換子については
+\begin{equation}
+ [y,H]=\frac{2h^5}{3}p_5(3q_1q_3-q_2^2)z
+          +\frac{3h^6}{2}p_5q_3^2[y,P']=-[y,G].
+ \label{eq:finite-casimir-residual}
+\end{equation}
+これらは $P$ の次数5以下の各単項式と $Q$ の次数3以下の各単項式について，
+上の三規則で展開すれば得られる多項式恒等式である．
+対称化に現れる混合項は $\operatorname{Sym}(x^i y)$，$0\le i\le3$ だけであり，
+\[
+ \operatorname{Sym}(x^i y)=\frac{1}{i+1}\sum_{j=0}^{i}x^j yx^{i-j}
+\]
+を用いれば有限個の展開になる．
+$p_5=0$ の場合の $y$-交換子は，$E=[x,Q']$，$\{u,v\}_+=uv+vu$ と書けば
+\[
+ [y,z^2/2+P+Q]=-h^2\bigl(p_3E/2+p_4\{x,E\}_+\bigr),
+ \quad
+ [y,\operatorname{Sym}(P''Q'')]=-6p_3E-12p_4\{x,E\}_+
+\]
+で相殺する．$p_5x^5$ の追加分を同じ規則で簡約した残差が
+\eqref{eq:finite-casimir-residual}である．
+全係数を独立変数にした有理数係数の展開は
+\texttt{computations/verify\_finite\_families.py}にも収録した．
+
+以上より $[x,\Omega]=[y,\Omega]=0$．普遍係数環
+$\mathbb Q[h,p_0,\ldots,p_5,q_0,\ldots,q_3]$ 上ではPBW基底により $h$ は非零因子なので，
+\[
+ h[z,\Omega]=[[x,y],\Omega]=0
+\]
+から $[z,\Omega]=0$ を得る．この普遍多項式恒等式を特殊化するので，
+$h$ にtorsionがある係数環でも中心性が成立する．
+
+補助次数に関して全ての補正項は30未満であり，最高記号は
+\[
+ g=z^2/2+p_5x^5+q_3y^3
+\]
+である．$p_5=0$ の模型を重み $(3,4,6)$ で見ると，最高記号は
+$g=z^2/2+p_4x^4+q_3y^3$ となる．
+どちらも $2g$ は $z$ にmonicなので，任意の $R$ 上で正則である．
+従って $\Omega$ の乗法はstrictかつ単射であり，中央性から
+\[
+ \operatorname{gr}B_R=R[x,y,z]/(g)
+\]
+となる．monic除法の基底を有限なfiltration帰納法で持ち上げれば，
+主張の商基底を得る．同じ証明が係数変更後にも成立する．
+noetherian性は可換なassociated gradedから従う．
+\end{proof}
+
+\begin{remark}[通常の射影的次数]
+\label{rem:explicit-finite-internal-grading}
+$R=\Lambda[s_1,\ldots,s_{n-1}]$ とし，$\deg s_i=1$，$\deg h=0$ とする．
+次数2では $p_5=0$，$(\deg x,\deg y,\deg z)=(1,1,2)$，
+$\deg p_i=4-i$，$\deg q_j=4-j$ とする．
+次数1では $(\deg x,\deg y,\deg z)=(1,2,3)$，
+$\deg p_i=6-i$，$\deg q_j=6-2j$ とする．
+各係数は指定次数の $s$ の斉次式であり，その係数と $h$ を
+$\Lambda$ の有限個の独立変数に取れる．
+\eqref{eq:finite-casimir-explicit}はそれぞれ通常の次数4，6で斉次となる．
+従ってこれらは全 $n\ge2$ に対する有限表示次数付き代数の有限型係数族である．
+$h=0$ の商は $z^2/2+P+Q=0$，一次commutatorはこの式のJacobian括弧である．
+\end{remark}
+
+\subsection{全次元の次数1・2への適用}
+
+$k=n-1\ge1$，$P=\C[s_1,\ldots,s_k]$ とし，$s_i$ の通常の次数を1，補助次数を0とする．
+係数をさらに有限個のパラメータで動かす場合は，その多項式環 $P_0$ を付けて
+$R=P_0[s_1,\ldots,s_k]$ とする．
+
+\begin{corollary}[両次数の有限型係数族]
+\label{cor:finite-dp-coefficient-families}
+次の二種類の斉次式に定理\ref{thm:negative-auxiliary-algebraization}を適用できる．
+\begin{enumerate}
+\item 次数2では通常の重みを
+$(\deg x,\deg y,\deg z)=(1,1,2)$，補助重みを $(3,4,6)$ とし，
+\[
+ F=z^2/2+a_0x^4+\sum_{i+j\le3}f_{ij}(s)x^iy^j,
+ \qquad \deg f_{ij}=4-i-j.
+\]
+$a_0$ は通常の次数零の係数である．
+この場合 $L=12$，$\delta=1$ である．
+\item 次数1では通常の重みを $(1,2,3)$，補助重みを $(6,10,15)$ とし，
+\[
+ F=z^2/2+y^3+A_4(x,s)y+A_6(x,s),
+\]
+ただし $A_i$ は通常の次数 $i$ の斉次式で，
+$\deg_xA_4\le3$，$\deg_xA_6\le5$ とする．
+この場合 $L=30$，$\delta=1$ である．
+\end{enumerate}
+全ての係数と全ての $\hbar$ に対して中心商は次数ごとに係数環上自由であり，
+通常のHilbert級数はそれぞれ
+\[
+ H_{n,2}(t)=\frac{1-t^4}{(1-t)^{n+1}(1-t^2)},
+ \qquad
+ H_{n,1}(t)=\frac{1-t^6}{(1-t)^n(1-t^2)(1-t^3)}
+\]
+である．全係数を独立な座標とすると，これは有限個のパラメータによる
+有限表示次数付き代数とその中心商の族となる．
+\end{corollary}
+
+\begin{proof}
+次数2では $3i+4j\le12$ が $i+j\le3$ の全ての組と $(i,j)=(4,0)$ について成立する．
+次数1では $y^3$ と $x^5$ の補助次数は30，
+$x^iy$，$i\le3$，の補助次数は28以下である．
+従って定理の仮定を満たす．
+通常の次数に関しても注意\ref{rem:finite-ordinary-grading}の条件が成立する．
+基底を $s^\alpha x^iy^jz^\epsilon$，$\epsilon=0,1$，で数えればHilbert級数を得る．
+\end{proof}
+
+\begin{proposition}[滑らかな可換点の非空性]
+\label{prop:finite-family-smooth-points}
+両次数・全 $n\ge2$ について，系\ref{cor:finite-dp-coefficient-families}の
+$\hbar=0$ のファイバーには滑らかなdel Pezzo $n$-foldが存在する．
+具体例は
+\begin{align*}
+ F_{n,2}&=z^2/2+x^4+y^3s_1+\sum_{i=1}^{n-1}s_i^4,\\
+ F_{n,1}&=z^2/2+y^3+x^5s_1+\sum_{i=1}^{n-1}s_i^6
+\end{align*}
+で与えられる．従ってそれぞれの係数空間には，滑らかな可換点からなる非空なZariski開集合がある．
+\end{proposition}
+
+\begin{proof}
+次数2では $F_z=z$，$F_x=4x^3$，
+$F_y=3y^2s_1$，$F_{s_1}=y^3+4s_1^3$，
+$F_{s_i}=4s_i^3$ ($i\ge2$) である．
+これらが全て零なら全座標が零である．
+次数1でも $y,z,s_i$ ($i\ge2$) に関する偏微分からそれらの座標が零となり，
+$5x^4s_1=x^5+6s_1^5=0$ から $x=s_1=0$ を得る．
+従って両方のaffine coneは原点外で滑らかである．
+次数2の重み付き射影空間の非自明な安定化群を持つ点は $z$ 軸上にあり，
+次数1では $y$ 軸または $z$ 軸上にある．
+どちらの超曲面もこれらの点を含まないので，通常の射影多様体として滑らかである．
+重み付き超曲面の随伴公式と次数公式により
+$-K_X=(n-1)H$，$H^n=2$ または1となる．
+最後の主張は，固定された重み付き射影空間内の超曲面の滑らかさが係数の開条件であることによる．
+\end{proof}
+
+\subsection{分離型有限パラメータ模型の相対bimodule CY性}
+potentialから対角複体を作る構成と巡回Hessianの対称性は
+Ginzburgの構成である\cite[Proposition 5.1.9, Theorem 5.3.1,
+Proposition 8.1.3(ii)]{Ginzburg2007}．
+以下では任意の可換係数環を扱うため，複体・完全性・自己双対性を直接記述する．
+可換 $\mathbb C$-代数 $R$ と $h\in R$ に対し，
+\[
+ \Phi=xyz-yxz-h\bigl(z^2/2+P(x)+Q(y)\bigr),\qquad
+ A=R\langle x,y,z\rangle/(\partial_x\Phi,\partial_y\Phi,\partial_z\Phi)
+\]
+と置く．以下では $\deg P\le4$, $\deg Q\le3$ と補助重み $(3,4,6)$，
+または $\deg P\le5$, $\deg Q\le3$ と補助重み $(6,10,15)$ を用いる．
+$R$ の補助重みは0である．PBW定理により $A$ は $R$ 上自由で，
+補助随伴次数環は $R[x,y,z]$ である．
+
+内部次数も考える場合，$(x,y,z)$ の内部重みを $(a,b,c)$ とし，
+$m=a+b+c$，$\Phi$ は $R$ の次数を含めて内部斉次次数 $m$ と仮定する．
+対象となる二つの場合は
+\[
+ (a,b,c;m)=(1,1,2;4),\qquad (1,2,3;6)
+\]
+である．内部次数を忘れた主張にはこの斉次性の仮定は不要である．
+
+\begin{proposition}\label{prop:finite-separated-relative-cy}
+$A$ は $R$ 上homologically smoothであり，
+\[
+ A^!_R:=R\!\operatorname{Hom}_{A\otimes_R A^{\mathrm{op}}}
+          (A,A\otimes_R A^{\mathrm{op}})
+       \simeq A(m)[-3]
+\]
+という相対bimodule CY同型を持つ．
+この同型は選んだ生成元の順序とpotentialから構成され，
+任意の係数変更と両立する．$h$ は任意であり，冪零性を仮定しない．
+\end{proposition}
+\begin{proof}
+$x_1=x,x_2=y,x_3=z$，$w_1=a,w_2=b,w_3=c$，
+$r_i=\partial_{x_i}\Phi$ とする．
+自由代数の非可換微分を
+\[
+ \Delta_j(u)=\sum_{u=vx_jw}v\otimes w^{\mathrm{op}}
+\]
+で定め，$R$-線型に延長する．和は単語中の $x_j$ の各出現を走る．
+以下ではその $A^e_R=A\otimes_R A^{\mathrm{op}}$ への像を用いる．
+$\delta_i=x_i\otimes1-1\otimes x_i^{\mathrm{op}}$ と置く．
+
+有限自由 $A^e_R$-加群からなる列
+\[
+ 0\longrightarrow A^e_R(-m)
+ \xrightarrow{d_3}
+ \bigoplus_i A^e_R(-(m-w_i))
+ \xrightarrow{d_2}
+ \bigoplus_i A^e_R(-w_i)
+ \xrightarrow{d_1} A^e_R
+ \xrightarrow{\mu} A\longrightarrow0
+\]
+を考える．$e_i,f_i,\omega$ をそれぞれ第1，第2，第3項の基底とし，
+\[
+ d_1(e_i)=\delta_i,\qquad
+ d_2(f_i)=\sum_j\Delta_j(r_i)e_j,\qquad
+ d_3(\omega)=\sum_i\delta_i f_i
+\]
+と定める．ここで $u\otimes v^{\mathrm{op}}$ はbimoduleの元に
+$u(-)v$ として作用する．$d_1d_2=0$ は $r_i=0$ と
+\[
+ \sum_j\Delta_j(r_i)\delta_j
+       =r_i\otimes1-1\otimes r_i^{\mathrm{op}}
+\]
+から従う．また巡回微分の恒等式
+$\sum_i[x_i,r_i]=0$ を非可換微分すると，関係式 $r_i=0$ の下で
+$\sum_i\delta_i\Delta_j(r_i)=0$ を得るので $d_2d_3=0$ である．
+本件の $d_2$ の係数行列 $H_{ji}=\Delta_j(r_i)$ は特に
+\[
+ H=\begin{pmatrix}
+ -h\Delta_xP'(x)&\delta_z&-\delta_y\\
+ -\delta_z&-h\Delta_yQ'(y)&\delta_x\\
+ \delta_y&-\delta_x&-h
+ \end{pmatrix}
+\]
+である．$\Delta_xP'$，$\Delta_yQ'$ はそれぞれ左右の同じ生成元に関する
+差商であり，両tensor因子の交換に不変である．
+
+この複体に補助filtrationを入れる．$x_i$ の補助重みを $v_i$，
+$W=v_1+v_2+v_3$ とし，$e_i,f_i,\omega$ の補助次数を
+それぞれ $v_i,W-v_i,W$ とする．
+$xyz-yxz$ の補助次数は $W$，残るpotentialの項は高々 $W-1$ である．
+従って随伴次数で $r_i$ は順に $[y,z],[z,x],[x,y]$ となり，
+上の複体は $R[x,y,z]$ の対角を解消するKoszul複体になる．
+具体的には $R[x_L,y_L,z_L,x_R,y_R,z_R]$ の正則列
+$x_L-x_R,y_L-y_R,z_L-z_R$ のKoszul複体である．
+この列は任意の $R$ 上で正則である．
+全てのfiltrationは下に有界で，元は有限filtration次数を持つため，
+最高次数のcycleを随伴次数で境界として持ち上げ，次数を有限回下げることにより，
+元の複体も完全である．従ってこれは長さ3の有限自由対角解消である．
+
+最後に $\tau:A^e_R\to A^e_R$ を
+$\tau(u\otimes v^{\mathrm{op}})=v\otimes u^{\mathrm{op}}$ とする．
+これはanti-involutionであり，$\tau(\delta_i)=-\delta_i$．
+巡回単語の二つの切断箇所を交換することから，巡回Hessianの恒等式
+\[
+ \tau\bigl(\Delta_j(\partial_i\Phi)\bigr)
+       =\Delta_i(\partial_j\Phi)
+\]
+を得る．従って上の解消を $\operatorname{Hom}_{A^e_R}(-,A^e_R)$ で双対化し，
+$\tau$ によって右加群を左加群に読み替えると，逆順の同じ複体を内部次数 $m$ だけ
+ずらしたものになる．双対複体の次数 $0,1,2,3$ において
+それぞれ符号 $(1,-1,-1,1)$ を入れれば上の微分規約と一致する．
+よって双対複体のコホモロジーは次数3の $A(m)$ だけであり，主張の同型を得る．
+非可換微分，巡回Hessian，補助filtrationとPBW基底は全て係数変更で保たれる．
+変更後の任意の可換係数環に同じ完全性の証明を適用できるので，任意基底変更との両立も従う．
+\end{proof}
+
+\begin{proposition}\label{prop:finite-separated-absolute-cy}
+$\Lambda$ を任意の可換 $\mathbb C$-代数，
+$P_0=\Lambda[s_1,\ldots,s_k]$ とし，$\deg s_i=1$ とする．
+前命題の係数環を $R=P_0$ とし，$P,Q$ の係数はこの中央変数の斉次式であるとする．
+このとき $A$ は $\Lambda$ 上homologically smoothであり，
+\[
+ A^!_\Lambda\simeq A(m+k)[-3-k]
+\]
+である．従って $k=n-1$ のとき
+\[
+ A^!_\Lambda\simeq
+ \begin{cases}
+   A(n+3)[-n-2],&d=2,\\
+   A(n+5)[-n-2],&d=1.
+ \end{cases}
+\]
+これらは任意の $\Lambda$-代数への基底変更と両立する．
+\end{proposition}
+\begin{proof}
+$E=A\otimes_\Lambda A^{\mathrm{op}}$，
+$\overline E=A\otimes_{P_0}A^{\mathrm{op}}$ と置く．
+$s_i$ は $A$ の中央元なので
+\[
+ \overline E=E/(t_1,\ldots,t_k),\qquad
+ t_i=s_i\otimes1-1\otimes s_i^{\mathrm{op}}
+\]
+であり，各 $t_i$ は $E$ の中央元である．
+PBW基底により $A$ は $P_0$ 上自由であるから，$E$ は
+$P_0\otimes_\Lambda P_0$ 上自由である．
+多項式環 $P_0\otimes_\Lambda P_0$ における差の列 $(t_i)$ は正則なので，
+$E$ においても正則である．従って $\overline E$ は $E$ 上長さ $k$ の有限自由
+Koszul解消を持ち，
+\[
+ R\!\operatorname{Hom}_{E}(\overline E,E)
+      \simeq\overline E(k)[-k]
+\]
+を得る．この同型は $\overline E$--$E$ bimoduleの同型である．
+前命題から $A$ は $\overline E$ 上perfectであり，
+$\overline E$ 自体も $E$ 上perfectなので，$A$ は $E$ 上perfectである．
+導来随伴と前命題によって
+\begin{align*}
+ R\!\operatorname{Hom}_E(A,E)
+ &\simeq R\!\operatorname{Hom}_{\overline E}
+       \bigl(A,R\!\operatorname{Hom}_E(\overline E,E)\bigr)\\
+ &\simeq R\!\operatorname{Hom}_{\overline E}(A,\overline E)(k)[-k]\\
+ &\simeq A(m+k)[-3-k]
+\end{align*}
+を得る．差のKoszul列の順序 $s_1,\ldots,s_k$ を固定すれば，
+全ての同型は係数変更と両立する．
+\end{proof}
+
+\begin{remark}
+上の結果は有限非零パラメータを含むambient代数のbimodule CY性である．
+中央超曲面商のtailsのsmooth proper性やSerre公式を，この結果だけから結論しない．
+\end{remark}
+
+\subsection{有限非零パラメータの普遍中心とAbel族}
+\label{subsec:finite-universal-center}
+
+系\ref{cor:finite-dp-coefficient-families}の最高補助次数部分を次の形に固定する：
+\[
+ F_0=\begin{cases}
+ z^2/2+x^4+s_1y^3,&d=2,\\
+ z^2/2+y^3+s_1x^5,&d=1.
+ \end{cases}
+\]
+残る許された低い補助次数の係数は自由に動かしてよい．
+この規格化を施した係数空間を $T_d=\operatorname{Spec}\C[c_\alpha]$ と書く．
+定理\ref{thm:explicit-finite-pbw-casimir}の分離型族でも，同じ規格化
+$(p_4,q_3)=(1,s_1)$ または $(p_5,q_3)=(s_1,1)$ を用いる．
+以下の中心の定理は，この二つの量子化のいずれにも成立する．
+
+\begin{lemma}[最高記号のPoisson中心]
+\label{lem:finite-symbol-poisson-center}
+$P_0=\C[s_1,\ldots,s_{n-1}]$ とし，
+$T=P_0[x,y,z]/(F_0)$ にJacobian括弧を入れる．
+このとき $T$ は整域であり，Poisson中心は正確に $P_0$ である．
+\end{lemma}
+\begin{proof}
+$K=\operatorname{Frac}P_0$ とする．$K$ の代数閉包上でも
+$F_0$ は既約である．実際，$z$ に関する二次式が可約なら，残る $x,y$ の多項式が
+平方でなければならないが，その $y$-次数は3である．
+monic基底により $T\to T\otimes_{P_0}K$ は単射なので，$T$ も整域である．
+$L=\operatorname{Frac}(T\otimes_{P_0}K)$ とすると，幾何学的整性から
+$K$ は $L$ 内で相対代数閉である．Jacobian括弧は
+$\{x,y\}=z\ne0$ なので，二次元の $L/K$ 上でrank2である．
+Poisson中心の元 $f\in L$ は $df=0\in\Omega^1_{L/K}$ を満たし，
+標数0なので $K$ 上代数的，従って $K$ に属する．
+最後に，$x^ay^bz^\epsilon$，$\epsilon=0,1$，は $P_0$ 上でも $K$ 上でも基底なので，
+$T\cap K=P_0$ である．
+\end{proof}
+
+\begin{theorem}[全ての有限非零パラメータにおける普遍中心]
+\label{thm:finite-parameter-universal-center}
+上の規格化を施した族について
+$S=\C[c_\alpha,h,h^{-1}]$ と置く．任意の可換 $S$-代数 $U$ に対して
+\[
+ Z(B_S\otimes_S U)=U[s_1,\ldots,s_{n-1}]
+\]
+である．特に，各複素係数と各 $h\ne0$ で同じ中心公式が成立する．
+この結論には追加の例外パラメータの除外はない．
+\end{theorem}
+\begin{proof}
+まず $S$ の複素閉点を固定する．補助filtrationについて
+\[
+ \operatorname{gr}B_h=P_0[x,y,z]/(F_0),\qquad
+ \operatorname{gr}_{-1}[u,v]=h\{\operatorname{gr}u,\operatorname{gr}v\}_{F_0}
+\]
+が成り立つ．グラフ族では二次以上のグラフ項は補助次数を2以上下げるためであり，
+分離型族では三つの交換関係から直接従う．
+中心元 $b$ の最高記号は，$h\ne0$ よりPoisson中心に属する．
+補題\ref{lem:finite-symbol-poisson-center}から，この記号は補助次数0でなければならない．
+基底の $x,y,z$ は正の補助重みを持つので，$b$ 自身が $P_0$ に属する．
+逆包含は中央係数としての構成から従う．
+
+任意の基底変更には，内部次数ごとの有限行列を用いる．
+$C_m=(S[s])_m$ は基底の一部として $(B_S)_m$ の直和因子であり，
+両者は有限自由 $S$-加群である．三生成元との交換子写像が誘導する
+\[
+ \overline c_m:(B_S)_m/C_m
+ \longrightarrow\bigoplus_{u\in\{x,y,z\}}(B_S)_{m+\deg u}
+\]
+は，全ての複素閉点で単射である．従って，その列数と同じ大きさの小行列式が生成する
+idealはどの極大idealにも含まれず，単位idealである．
+各小行列式が可逆な開集合では写像はsplit injectionとなるので，
+任意の $S\to U$ 後も単射である．
+従って中心の内部次数 $m$ 部分は正確に $U[s]_m$ となる．
+斉次な生成元と可換する条件は次数別に分かれるので，全中心について主張を得る．
+次数ごとに開被覆を用いてよく，全次数に共通の新たな分母は不要である．
+\end{proof}
+
+\begin{corollary}[有限パラメータでのVeronese持上げの代数的仮定]
+\label{cor:finite-parameter-veronese-input}
+$n\ge3$ とする．定理\ref{thm:finite-parameter-universal-center}の族は，
+二つ以上の中心一次変数を持ち，その中心多項式環上自由である．
+従って定理\ref{thm:ncdp-veronese-lift}の普遍中心と平坦性に関する仮定を
+有限非零パラメータ上で満たす．従ってこのような二つの族の任意の $r\ge2$ の
+Veronese次数付き同型はfppf局所的に元の次数付き環へ持ち上がり，
+その持上げ層は $\mu_r$-torsorである．中心の追加標識は不要である．
+\end{corollary}
+\begin{proof}
+中心一次変数は $n-1\ge2$ 個であり，中心上の自由基底は
+$x^ay^bz^\epsilon$，$\epsilon=0,1$，である．普遍中心は前定理による．
+\end{proof}
+
+\begin{proposition}[有限型の平坦Abel族]
+\label{prop:finite-pbw-abel-family}
+上のグラフ族または分離型族の係数環をnoetherianな $\C$-代数 $\Lambda$ とする．
+$\QGr B_\Lambda$ と $\pi B_\Lambda$ は，それぞれ
+$\Lambda$-flatなGrothendieck圏とflatな構造対象を与え，
+許された任意の基底変更と両立する．
+$h=0$ の滑らかな可換点では $(\Qcoh X,\OO_X)$ を与え，
+その点におけるArtin完成は $\mathfrak M^{\OO,\mathrm{hyp}}_{n,d}$ に入る．
+\end{proposition}
+\begin{proof}
+各次数が $\Lambda$ 上自由であり，$B_\Lambda$ は有限生成noetherian次数付き代数である．
+補題\ref{lem:tails-arbitrary-base-change}と\ref{lem:tails-flat-deformation}の証明における
+作用付き加群のGabriel商およびinjectiveのcoflat性の議論は，
+ここでは冪零性を一切使わず適用できる．
+可換点の同定には滑らかな重み付き模型の自由locusを用いる．
+最後の主張は定理\ref{thm:all-artin-are-nc-dp}による．
+\end{proof}
+
+\subsection{先行研究との関係と適用範囲}
+
+\begin{remark}[既存のfiltered量子化との関係]
+Etingof--Ginzburg\cite[Proposition~7.3.1(ii), Corollary~7.4.1(ii)]{EG2010}は，
+homogeneous CY potentialへの低次数potentialの付加がPBW変形を与えることを証明する．
+同\cite[Proposition~8.1.1(i)]{EG2010}は，形式potentialのCasimir中心元の持上げを与える．
+本節ではそれらと共通する負次数の機構をグラフ式に直接適用し，
+中央多項式係数，任意の係数変更，中心商の自由基底を一つの証明で扱った．
+負次数の量子化という一般原理の新規性は主張しない．
+また，同\cite[Definition~3.4.3, Lemma~7.1.5]{EG2010}のgenericおよびCY条件は
+可算個の開条件に基づくので，それだけから有限個の分母で定義される開集合を推論しない．
+\end{remark}
+
+\begin{proposition}[一般の楕円的最高次項に対する補助重みの障害]
+\label{prop:elliptic-top-auxiliary-obstruction}
+次数2の活性式が $x^4,y^4,z^2$ を全て非零係数で含む場合，
+または次数1の活性式が $x^6,y^3,z^2$ を全て非零係数で含む場合，
+正の補助重みに関してその式の次数を重みの和より厳密に小さくすることはできない．
+\end{proposition}
+
+\begin{proof}
+次数2で $D=\max(4a,4b,2c)$ とすると，
+$a+b+c\le D/4+D/4+D/2=D$ である．
+次数1では $D=\max(6a,3b,2c)$ とし，
+$a+b+c\le D/6+D/3+D/2=D$ を得る．
+他の単項式を加えても式の補助次数は下がらない．
+\end{proof}
+
+次数2の上の族では $s=0$ へのrestrictionが $z^2/2+a_0x^4$ となる．
+次数1では $s=0$ へのrestrictionが $z^2/2+y^3$ となる．
+従ってこれらは特別な活性平面を持つ族であり，一般のPoisson方向を被覆するとは主張しない．
+有限パラメータの商 $B$ が存在し平坦であることと，
+そのtailsが本稿の $\mathfrak M^{\OO}_{n,d}$ の全条件を満たすことも区別する．
+滑らかな可換点におけるArtin厚化には定理\ref{thm:all-artin-are-nc-dp}を適用できるが，
+有限の非零 $\hbar$ における相対Serre，飽和性，smooth proper性は別途検証を要する．

@@ -1,5 +1,5 @@
 % !TeX root = ../nc-del-pezzo.tex
-% 2026-11-20 JST / v0.9
+% 2026-11-20 JST / v0.10
 \section{全方向族の相対双対とsmooth properな有限開近傍}
 \label{sec:simultaneous-relative-geometry}
 
@@ -318,12 +318,90 @@ Serre公式からホモロジー次元が $n$ となることは，
 その他の飽和性・ACM・周期・Hilbert関数と構造対象の平坦性は前定理と中心商の構成による。
 \end{proof}
 
+\subsection{低次数Hochschildコホモロジーの開近傍での剛性}
+
+\begin{proposition}\label{prop:simultaneous-hochschild-rigid-open}
+定理\ref{thm:simultaneous-smooth-ncdp-open}の開集合 $V$ は，
+滑らかな可換模型の零切断全体を保ってさらに縮小し，次の性質を満たすように取れる。
+有限窓のdg代数を $C$ とし，相対Hochschild複体を
+\[
+ \mathcal K=R\!\mathcal Hom_{C^{\mathrm{op}}\otimes^L_{\mathcal O_V}C}(C,C)
+\]
+と置くと，$\mathcal K$ は $\mathcal O_V$ 上perfectであり，
+任意の許された基底変更に両立する。
+任意のnoetherian affine基底変更 $\Spec R\to V$ に対して
+\begin{equation}\label{eq:simultaneous-low-hochschild}
+ HH_R^i(C_R)=0\quad(i<0),\qquad
+ R\xrightarrow{\sim}HH_R^0(C_R),\qquad HH_R^1(C_R)=0
+\end{equation}
+が成り立つ。中央の同型は恒等bimodule写像が与える標準写像である。
+非affine基底では，同じ主張を相対Hochschild複体のコホモロジー層について読む。
+また，$V$ は座標変換に関して不変に選べる。
+\end{proposition}
+\begin{proof}
+$C$ のsmoothnessは対角 $C$ が $C^{\mathrm{op}}\otimes^LC$ 上perfectであることを意味する。
+この有限coneと直和因子による表示に $R\!\mathcal Hom(-,C)$ を施し，
+$C$ の係数上のperfect性を使うと，$\mathcal K$ も係数上perfectである。
+同じ表示から，$\mathcal K$ とその単位写像
+$\eta:\mathcal O_V\to\mathcal K$ は任意の導来基底変更に両立する。
+
+単位写像のconeを $\mathcal F=\operatorname{Cone}(\eta)$ と置く。
+滑らかな可換零方向点 $s$ のファイバーでは，Morita不変性により
+$\mathcal K_s\simeq R\!\Hom_{X_s\times X_s}
+(\mathcal O_{\Delta_{X_s}},\mathcal O_{\Delta_{X_s}})$ である。
+従って負次数コホモロジーは零，零次数は $H^0(X_s,\mathcal O_{X_s})=\C(s)$ であり，
+一次はHKR，Kodaira消滅および \cite[補題8.7]{PoissonDP} により
+$H^0(X_s,T_{X_s})\oplus H^1(X_s,\mathcal O_{X_s})=0$ となる。
+ゆえに $H^i(\mathcal F_s)=0$ ($i<2$) である。
+
+perfect複体のファイバーのコホモロジー次元の上半連続性
+\cite[Tag 0BDI]{StacksProject}から
+\[
+ W=\{v\in V\mid H^i(\mathcal F\otimes^L\kappa(v))=0
+                 \text{ for all }i<2\}
+\]
+は開集合である。局所的に関係する次数は有限個だけであり，
+$W$ は滑らかな可換零切断全体を含む。
+さらに，任意の $v\in W$ の近傍で有限自由模型の微分から
+可縮な二項直和因子を順に消去すると，$\mathcal F$ は
+次数 $2$ 以上だけに項を持つ有界有限自由複体で表せる
+\cite[Tag 0BCD]{StacksProject}。
+従ってこの次数の下界は任意の非平坦な基底変更後も保たれる。
+$R\to\mathcal K_R\to\mathcal F_R$ のコホモロジー完全列から
+式\eqref{eq:simultaneous-low-hochschild}を得る。
+$\mathcal K$ と $\eta$ はMorita同値で保たれるので，$W$ の定義は座標変換に不変である。
+有限型基底の開部分 $W$ を新たな $V$ と取ればよい。
+\end{proof}
+
+\begin{corollary}\label{cor:noncommutative-diagonal-artin-rigidity}
+前命題の開集合 $V$ の任意の複素幾何学的点 $s$ を取る。
+$(R,\mathfrak m)$ を剰余体 $\C$ の局所Artin環とし，$A_R$ を $C_s$ の
+smooth properな $R$-線形dg持上げとする。
+$P,Q\in\Perf(A_R^{\mathrm e})$ の還元がともに標準対角 $C_s$ に同型であれば，
+還元上の任意の同型 $P_0\to Q_0$ は $P\simeq Q$ へ持ち上がる。
+特に，perfectな可逆bimoduleで表されたMorita自己同値が特殊ファイバーで恒等なら，
+それは持上げ上でも恒等Morita自己同値に同型である。
+\end{corollary}
+\begin{proof}
+前命題は $HH^1(C_s)=0$ を与えるので，
+補題\ref{lem:diagonal-bimodule-rigidity}を $A_R$ に適用する。
+最後の主張では $Q=A_R$ と取る。
+\end{proof}
+
+\begin{remark}
+ここで得たのは，構成した有限族の実際の非可換点でも成立する
+低次数Hochschildコホモロジーの消滅と，存在するperfect bimodule間の剛性である。
+一般のAbel変形に対するHochschild比較やdg模型の存在を，この命題だけから結論しない。
+また，自己同値群の有限型表現可能性や全モジュライのatlasを与えるものでもない。
+\end{remark}
+
+
 \begin{remark}\label{rem:simultaneous-geometric-scope}
 本節により，全独立Poisson方向を含む同じ有限中心商は，
 滑らかな可換零切断の有限型開近傍で実際の非可換del Pezzo族となる。
 定理\ref{thm:simultaneous-central-all-artin}と合わせれば，
 各可換点の横断slice上で全framed Abel Artin変形を実現する有限型nc族を得る。
-しかし全 $\mathcal O$ 保存同値による一般非可換点の認識，
+全 $\mathcal O$ 保存同値の有限表示による認識は第\ref{sec:finite-full-equivalences}節で行う。
 この族による全モジュライの被覆，有限型atlas，
 および可換locusに接しない成分の不存在は別の主張である。
 また，ここで選んだ追加の開集合は有限行列による存在証明であり，

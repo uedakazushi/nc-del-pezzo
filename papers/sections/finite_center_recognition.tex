@@ -1,0 +1,290 @@
+% !TeX root = ../nc-del-pezzo.tex
+% 2026-11-20 JST / v0.10
+\section{全方向有限族の低次数中心と通常次数付き表示の認識}
+\label{sec:simultaneous-low-center}
+
+固定次数の中心条件だけを用いることで，形式一般例にとどまらず，
+全方向有限族の非空稠密な開集合に
+定理\ref{thm:ncdp-veronese-lift}を適用できる。
+本節では全次数の中心が最小となる一つのZariski開集合の存在を主張しない。
+
+定理\ref{thm:simultaneous-degree-one-central-family}または
+定理\ref{thm:simultaneous-degree-two-central-family}の有限基底を $X_d$ と書く。
+中心元の次数を $e=6$ または $e=4$ とし，
+中心元の構成に用いた完全対称化
+\[
+ (\operatorname{Sym}V)_e\otimes\mathcal O_{X_d}\longrightarrow A_e
+\]
+が同型となる開集合への制限を含める。
+ここで $V$ はそれぞれ重み $(1^n,2,3)$ または $(1^{n+1},2)$ の生成空間である。
+さらに必要に応じて，定理\ref{thm:simultaneous-smooth-ncdp-open}の
+滑らかな可換零切断全体を含む開集合 $V_d\subset X_d$ へ制限してよい。
+方向が非零である部分を $X_d^\times$，$V_d^\times$ と書く。
+その上では
+\[
+ \mathcal K=
+ \begin{cases}
+  \ker(D:E\otimes\mathcal O\to\mathcal O),&d=1,\\
+  \ker(P:E\otimes\mathcal O\to E^*\otimes\mathcal O),&d=2
+ \end{cases}
+\]
+は階数 $k=n-1$ のベクトル束である。
+表示関係式からその切断は厳密に中央であり，
+$\mathcal P=\operatorname{Sym}_{\mathcal O}\mathcal K$ と置く。
+
+\subsection{中央多項式環上の普遍的平坦性}
+
+\begin{proposition}\label{lem:simultaneous-central-flatness}
+$X_d^\times$ 上の同じ中心商 $B=A/(\Omega)$ について，
+$\mathcal P\to B$ は単射であり，$B$ は $\mathcal P$ 上平坦である。
+より正確には
+\[
+ C=B/(\mathcal K)B
+\]
+の各 $C_m$ は有限局所自由であり，基底の各affine開集合上で
+非標準的な次数付き $\mathcal P$-加群同型
+\begin{equation}\label{eq:simultaneous-casimir-splitting}
+ B\simeq\mathcal P\otimes_{\mathcal O}C
+\end{equation}
+を取れる。この同型では $C_0=\mathcal O$ の単位元を $1\in B$ へ送れる。
+これらの単射性，平坦性，次数別有限局所自由性は任意の可換基底変更後も成立する。
+特に $B_m/\mathcal P_m$ は有限局所自由で，その形成は任意基底変更と可換する。
+\end{proposition}
+\begin{proof}
+\emph{閉ファイバーの活性最高次元。}
+まず任意の複素点 $x\in X_d^\times$ を固定し，
+$\mathcal K_x$ の基底を $s_1,\ldots,s_k$ とする。
+活性変数を次数1では $(u,y,z)$，次数2では $(u,v,z)$ とし，
+その活性重みをそれぞれ $(1,2,3)$，$(1,1,2)$ とする。
+中央変数 $s_i$ の活性重みは0とするが，内部次数は引き続き1である。
+定理\ref{thm:simultaneous-poisson-ambient}および
+定理\ref{thm:simultaneous-degree-one-ambient}のPBW証明から
+\[
+ \operatorname{gr}_{\mathrm{act}}A_x
+   \simeq P_x\otimes_{\mathbb C}A_x^{\mathrm{top}},
+ \qquad P_x=\mathbb C[s_1,\ldots,s_k]
+\]
+を得る。$A_x^{\mathrm{top}}$ はそれぞれの全最高次AS開条件を満たす整域であり，
+標準の三変数Hilbert級数を持つ。
+次数2の整域性には\cite[Corollary~3.8]{MoriUeyama2019}を用いる。
+この議論は活性最高次曲線の滑らかさを要求しない。
+
+$\Omega_x$ の活性最高次が文字通り $e$ であることを確認する。
+内部次数 $e$ の完全対称化写像は上の活性filtrationを保つ。
+その始域と終域について，各filtration部分の次元はPBW同型により等しい。
+従って，filtrationに適合した基底で完全対称化を表す行列は，
+正方な対角ブロックを持つ三角行列である。
+全体の写像は $X_d$ の選択により同型なので，全対角ブロックも同型である。
+特に活性次数 $e$ のブロック
+\[
+ \mathbb C[\text{活性変数}]_e
+      \longrightarrow (A_x^{\mathrm{top}})_e
+\]
+は同型である。
+完全対称化座標で $\Omega_x$ の $z^2$ 係数は $1/2$ であり，
+$z^2$ の活性次数は $e$ だから，その活性最高記号
+$\omega_x\in(A_x^{\mathrm{top}})_e$ は零でない。
+内部斉次性から，この最高記号に $s_i$ は現れない。
+
+$\Omega_x$ の中心性より $\omega_x$ も中央である。
+$A_x^{\mathrm{top}}$ は整域なので，$\omega_x$ は左右正則である。
+最高記号による次数降下を中央元の掛算に適用すると，
+その掛算はstrictであり，
+\begin{equation}\label{eq:simultaneous-casimir-fiber-gr}
+ \operatorname{gr}_{\mathrm{act}}B_x
+  \simeq P_x\otimes_{\mathbb C}Q_x,
+ \qquad Q_x=A_x^{\mathrm{top}}/(\omega_x)
+\end{equation}
+となる。
+各 $(Q_x)_j$ の基底を内部次数 $j$ の元へ持ち上げれば，
+活性次数の帰納法により，それらは $B_x$ の斉次 $P_x$-自由基底となる。
+従って $B_x$ は $P_x$ 上自由であり，
+$C_x=B_x/(s_1,\ldots,s_k)B_x$ のHilbert級数は
+\begin{equation}\label{eq:simultaneous-active-quotient-hilbert}
+ H_{C_x}(t)=
+ \begin{cases}
+ \dfrac{1-t^6}{(1-t)(1-t^2)(1-t^3)},&d=1,\\[6pt]
+ \dfrac{1-t^4}{(1-t)^2(1-t^2)},&d=2.
+ \end{cases}
+\end{equation}
+特にこの級数は $x$ に依存しない。
+
+\emph{普遍係数上の有限局所自由性。}
+基底のaffine開集合 $\operatorname{Spec}S\subset X_d^\times$ で作業する。
+$S$ は被約な有限型 $\mathbb C$-代数である。
+各 $C_m$ は $B_m$ の有限表示商であり，商の形成は基底変更と可換する。
+上で全閉ファイバーの次元が一定であることを示したので，
+有限表示行列の一定階数判定により $C_m$ は有限局所自由となる。
+ここで被約性を使う箇所を明記する。
+関係行列の所要階数より大きい小行列式は全閉点で零となるから，
+有限型被約環 $S$ 上で恒等的に零である。
+所要階数の非零小行列式を局所化して消去すれば残る行列は零となり，
+$C_m$ の自由性を得る。
+非被約基底上でファイバー次元だけからこの結論を推論してはいない。
+
+各 $C_m$ は $S$ 上有限射影なので，$B_m\twoheadrightarrow C_m$ の
+$S$-線型な分裂を次数ごとに選べる。
+次数0では $1$ を $1$ へ持ち上げる。
+これらを掛算により延長すると，次数付き $P=\operatorname{Sym}_S\mathcal K$-線型写像
+\[
+ \mu:P\otimes_SC\longrightarrow B
+\]
+を得る。
+内部次数の帰納法，すなわち正次数ideal $(\mathcal K)$ に関する
+次数付きNakayamaの議論により，$\mu$ は全射である。
+各次数の始域と終域は有限射影 $S$-加群であり，
+全閉ファイバーの階数は式\eqref{eq:simultaneous-active-quotient-hilbert}と
+$H_{B_x}=(1-t)^{-k}H_{C_x}$ により等しい。
+従って各 $\mu_m$ は同型であり，式\eqref{eq:simultaneous-casimir-splitting}を得る。
+この同型は $P$ を $C_0=S$ に対応する直和因子へ送るため，$P\to B$ も単射である。
+
+最後に式\eqref{eq:simultaneous-casimir-splitting}そのものを任意の $S$-代数へ
+基底変更すれば，非被約な基底を含めて主張が保たれる。
+$C=\bigoplus_{m\ge0}C_m$ は射影加群の直和なので，
+$P\otimes_SC$ は $P$ 上平坦である。
+各固定次数には有限個の直和因子だけが寄与することから，
+$B_m/P_m$ の有限局所自由性と任意基底変更との両立も従う。
+\end{proof}
+
+\subsection{一つの固定次数における普遍中心の稠密開集合}
+
+\begin{theorem}\label{thm:finite-low-center-open}
+正整数 $q$ を一つ固定する。
+$X_d^\times$ には有限行列の最大小行列式で定義される座標変換に不変な開集合 $U_{d,q}$ があり，
+任意の基底変更 $T\to U_{d,q}$ に対し
+\begin{equation}\label{eq:simultaneous-universal-low-center}
+ Z(B_T)_q=(\operatorname{Sym}_{\mathcal O_T}\mathcal K_T)_q
+\end{equation}
+が成り立つ。
+滑らかな可換方程式の係数 $f$ と任意の非零Poisson方向 $\xi$ を固定する。
+有限族の定義域に含まれる直線
+\[
+ h\longmapsto(f,h\xi)
+\]
+の非零部分は $U_{d,q}$ と非空Zariski開集合で交わる。
+同じ主張は $V_d^\times$ 内でも成立する。
+従って $U_{d,q}\cap V_d^\times$ は非空稠密開集合であり，
+有限の非零複素パラメータを持つ例を含む。
+\end{theorem}
+\begin{proof}
+生成元の重みを $w$，その生成空間の自明束を $\mathcal V_w$ とする。
+命題\ref{lem:simultaneous-central-flatness}により，有限局所自由加群の写像
+\begin{equation}\label{eq:simultaneous-low-center-matrix}
+ \delta_q:B_q/\mathcal P_q\longrightarrow
+       \bigoplus_w\operatorname{Hom}_{\mathcal O}
+          (\mathcal V_w,B_{q+w}),
+ \qquad [b]\longmapsto(v\mapsto[b,v])
+\end{equation}
+が定義される。
+これらは代数生成元全てとの交換子なので，中心の条件はその核が零であることに等しい。
+幾何学的ファイバーで $\delta_q$ が単射となるlocusを $U_{d,q}$ とする。
+これは有限な最大小行列式による開条件である。
+$\mathcal K$ と交換子写像の構成は座標変換に自然なので，この開集合は不変である。
+この開集合上では $\delta_q$ は局所分裂単射となるので，
+任意の非被約基底変更後も単射であり，
+式\eqref{eq:simultaneous-universal-low-center}を得る。
+
+\emph{各滑らかな可換点からの全非零方向。}
+$f$ と $\xi\ne0$ を固定する。
+次数2では $\xi$ はrank2のPl\"ucker方向であり，
+次数1では非零線型方向である。
+$h=0$ は有限族と $V_d$ の定義域に入るので，この直線の逆像は
+$\mathbb A^1$ の $0$ を含むZariski開集合である。
+$R=\mathbb C[[h]]$ へ引き戻し，$\mathcal B=B\otimes R$ とする。
+$\ker\xi$ に適合する固定された複素線型座標を選べば，
+$P_R=R[s_1,\ldots,s_k]$ の元は $h=0$ も含めて厳密に中央である。
+$\mathcal B_m$ は有限自由 $R$-加群である。
+また $P_{R,q}\to\mathcal B_q$ の $h=0$ での還元は単射である。
+実際，可換方程式は $z$ に関してmonicであり，
+その切断環は活性変数の単項式と $z$ の指数0または1を基底とする
+$\mathbb C[s_1,\ldots,s_k]$-自由加群である。
+有限行列の小行列式，または $R$ が局所環であることによるNakayamaの補題により，
+$P_{R,q}\to\mathcal B_q$ は分裂単射であり，その余核 $Q_q$ は有限自由である。
+
+ここで固定した中央部分 $P_R$ を用いて，$h=0$ も含む交換子写像を定める。
+$h\ne0$ ではこれは式\eqref{eq:simultaneous-low-center-matrix}の引戻しに一致する。
+$\mathcal B/h\mathcal B$ は可換なので，この交換子写像は $h$ で一意的に割れる。
+有限自由加群の写像
+\[
+ \overline\delta_q=h^{-1}\delta_q:
+  Q_q\longrightarrow\bigoplus_w\operatorname{Hom}_R
+          (\mathcal V_w\otimes R,\mathcal B_{q+w})
+\]
+の $h=0$ における還元は，古典Poisson括弧による交換子写像である。
+これは表示関係式および
+命題\ref{prop:simultaneous-first-order-center}から直接従う。
+量子化の一次括弧の確認には，異なる形式量子化との同型や
+形式パラメータの有限値への代入を用いていない。
+
+補題\ref{lem:classical-casimir-center}により，古典切断環のPoisson中心は
+ちょうど $\mathbb C[s_1,\ldots,s_k]$ である。
+従って $\overline\delta_q\bmod h$ は $Q_q/hQ_q$ 上単射である。
+ここで同補題が全方向へ適用できることを確認しておく。
+次数1では $y^3$ の係数が非零であるため，
+活性二変数の多項式は $\overline{\mathbb C(s)}[u,y]$ において平方でない。
+次数2では，平方であれば $f$ は活性変数に依存する因子を重複して持つか，
+中央変数だけに依存することになる。
+前者は滑らかな分岐四次超曲面の平方因子を，後者は活性射影直線上の特異点を与える。
+どちらも滑らかさに反する。
+従って活性二重被覆は $\mathbb C(s)$ 上幾何学的整であり，
+Jacobian括弧のgeneric rankは2，その体の中心は $\mathbb C(s)$ である。
+monicな $z$ 除法による自由基底から環の中心は $\mathbb C[s]$ となる。
+この確認は，活性最高次の楕円曲線が滑らかであることを必要としない。
+
+従って $\overline\delta_q$ には可逆な最大小行列式があり，
+$\delta_q$ は $\mathbb C((h))$ 上単射である。
+元の $\delta_q$ は有限型族上の有限行列であるから，
+その直線への引戻しのある最大小行列式は零でない正則関数となる。
+よって $h\ne0$ の直線上で所要の開集合は非空である。
+実際，既に定義されているこの直線内では例外となる複素数は有限個である。
+$V_d$ の逆像も $0$ を含む開集合なので，これとの交叉も非空となる。
+
+最後に，$V_d^\times$ はaffine空間（次数1）または
+affine空間と既約Pl\"ucker錐の積（次数2）の非空開である。
+従って既約であり，得られた非空開集合は稠密である。
+\end{proof}
+
+\begin{corollary}\label{cor:finite-full-graded-recognition}
+$n\ge3$，$r=n-1$ とし，$U=U_{d,r}\cap V_d^\times$ と置く。
+任意の基底 $T$ 上の二つの点 $a,b:T\to U$ とその中心商 $B_a,B_b$ に対して，
+制限写像
+\[
+ \underline{\operatorname{Isom}}_{\mathrm{gr},T}(B_a,B_b)
+ \longrightarrow
+ \underline{\operatorname{Isom}}_{\mathrm{gr},T}
+           (B_a^{(r)},B_b^{(r)})
+\]
+はfppf位相で $\mu_{r,T}$-torsorであり，
+\[
+ \underline{\operatorname{Isom}}_{\mathrm{gr},T}(B_a,B_b)/\mathbb G_m
+  \simeq
+ \underline{\operatorname{Isom}}_{\mathrm{gr},T}
+           (B_a^{(r)},B_b^{(r)})/\mathbb G_m
+\]
+である。両辺のスカラー作用の対応は $\lambda\mapsto\lambda^r$ である。
+さらに定理\ref{thm:finite-anticanonical-isom}により，これらの層は
+\begin{equation}\label{eq:finite-full-graded-recognition}
+ \underline{\operatorname{Eq}}_{\mathcal O}(\QGr B_a,\QGr B_b)
+ \simeq\underline{\operatorname{Isom}}_{\mathrm{gr},T}(B_a,B_b)/\Gm
+\end{equation}
+と同一視できる。これは $U\times U$ 上affineかつ有限表示である。
+$V_d$ を系\ref{cor:finite-equivalence-unramified}の開集合に取れば，
+この同値スキームはquasi-finiteかつunramifiedでもある。
+\end{corollary}
+\begin{proof}
+命題\ref{lem:simultaneous-central-flatness}が中央多項式環上の平坦性を，
+定理\ref{thm:finite-low-center-open}が任意基底変更後の次数 $r$ の中心条件を与える。
+$\operatorname{rank}\mathcal K=r\ge2$ なので，
+定理\ref{thm:ncdp-veronese-lift}の全代数的仮定を満たす。
+圏論的結論と表現可能性には定理\ref{thm:finite-anticanonical-isom}を用いる。
+\end{proof}
+
+\begin{remark}
+$n=2$ では $r=1$ なので，Veronese持上げは不要であり，
+通常の $B$ による認識は定理\ref{thm:finite-anticanonical-isom}の $V_d$ 全体で成立する。
+$n\ge3$ で使った中心条件は $q=r$ という一つの有限次数だけであり，
+全中心の最小性や全モジュライのatlasを結論していない。
+また通常の次数付き代数同型では，重み2以上の生成元に低い重みの生成元の
+同次数多項式を加える変換も許す。
+そのような変換を除外した線型生成元変換群だけで同型層を代用してはいけない。
+\end{remark}

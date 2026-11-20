@@ -1,0 +1,327 @@
+% !TeX root = ../nc-del-pezzo.tex
+% 2026-11-20 JST / v0.10
+\section{有限型族の全構造対象付き同値とアフィン同型スキーム}
+\label{sec:finite-full-equivalences}
+
+定理\ref{thm:simultaneous-smooth-ncdp-open}の有限型開集合を $V$ とし，
+その上の中心商を $B$ と書く。$r=n-1$ と置く。
+本節では反標準環 $B^{(r)}$ から，全ての構造対象付きAbel同値を認識する。
+その同型層は有限表示アフィンスキームとなる。
+
+\subsection{Veronese環と有限個の同型方程式}
+
+\begin{lemma}\label{lem:veronese-finite-presentation}
+$S$ を可換Noether環，$B=\bigoplus_{j\ge0}B_j$ を
+$B_0=S$ である右Noether次数付き $S$-代数とする。
+任意の正整数 $r$ に対して $R=B^{(r)}$ は右Noetherであり，
+有限個の正次数生成元と有限個の斉次関係式による $S$-代数表示を持つ。
+\end{lemma}
+\begin{proof}
+内部次数を $r$ で割った剰余類への分解により，
+$R$ への射影 $p:B\to R$ は $R$-bimodule写像である。
+$R$ の任意の右イデアル $I$ に対して
+\[
+  (IB)\cap R=I
+\]
+となる。実際，左辺の元へ $p$ を適用すれば $I$ に入る。
+右イデアルの昇鎖を $B$ へ拡大してから縮約することで，$R$ の右Noether性を得る。
+
+$R_+$ の有限個の斉次右生成元を $x_1,\ldots,x_a$，その次数を $d_i>0$ とする。
+次数についての帰納により，これらは $S$-代数としても $R$ を生成する。
+$T=S\langle X_1,\ldots,X_a\rangle$，$\deg X_i=d_i$ とし，
+$I=\ker(T\twoheadrightarrow R)$ と置く。
+有限自由右 $R$-加群の写像
+\[
+  \bigoplus_i R(-d_i)\longrightarrow R_+,
+  \qquad (a_i)_i\longmapsto\sum_i x_i a_i
+\]
+の核 $K$ は有限生成である。
+各 $f\in I$ を $f=\sum_i X_i f_i$ と一意に書いて係数を $R$ へ送ると，
+右 $R$-加群の同型
+\[
+  I/(T_+I)\simeq K
+\]
+を得る。$K$ の有限個の斉次生成元を $f_1,\ldots,f_b\in I$ へ持ち上げると，
+$I=\sum_j f_jT+T_+I$ である。
+後項に現れる $I$ の元の次数は元の関係式より小さいため，
+次数について帰納すれば $I$ は $f_1,\ldots,f_b$ が生成する両側イデアルに一致する。
+\end{proof}
+
+\begin{lemma}[相対Veroneseによるtailsの直接復元]
+\label{lem:finite-relative-veronese-tails}
+定理\ref{thm:simultaneous-smooth-ncdp-open}の $V$ から任意の許された
+Noether基底へ係数変更し，その上の代数を $B$ と書く。
+$r=n-1$，$R=B^{(r)}$ とすると，Veronese関手は同値
+\[
+ \QGr B\simeq\QGr R
+\]
+を誘導し，$\pi B$ と $r$ 倍シフトをそれぞれ $\pi R$ と基本シフトへ移す。
+この同値は任意の許された基底変更に両立する。
+\end{lemma}
+\begin{proof}
+基底をaffineとして証明する。
+補題\ref{lem:veronese-finite-presentation}により $R$ は右Noetherであり，
+反対環への適用から左Noetherでもある。
+$B$ の内部次数の剰余類 $i$ の部分を $M_i$ と書く。
+$M_iB$ は有限個の斉次元 $u_j\in M_i$ で生成される右イデアルであり，
+剰余類 $i$ へ射影すれば $M_i=\sum_j u_jR$ となる。
+左側も同様なので，$B$ は $R$ 上左右有限生成である。
+従って完全関手 $v:M\mapsto M^{(r)}$ はcoherent加群をcoherent加群へ送り，
+torsionを保つ。
+
+coherentな $B$-加群 $L$ に対して $v(L)=0$ ならば $\pi L=0$ である。
+そのために，命題\ref{prop:finite-full-shift-ample}の証明の
+局所コホモロジー計算を使う。
+定理\ref{thm:simultaneous-relative-tails}(2)の入力により，同じ計算が現在の $B$ に適用でき，
+$H^0_{B_+}(L),H^1_{B_+}(L)$ は内部次数について右有界である。
+局所化完全列から
+\[
+ L_j\simeq H^0(\QGr B,\pi L(j))\qquad(j\gg0)
+\]
+を得る。従って $a\gg0$ で $\Hom(\mathcal O(-ra),\pi L)=0$ であり，
+反標準列の相対豊富性から $\pi L=0$ となる。
+
+$u:N\mapsto N\otimes_R B$ を，$N$ の次数を $r$ 倍して定める。
+有限型 $R$-自由解消 $P^\bullet\to N$ に対して
+$v(P^\bullet\otimes_R B)=P^\bullet$ なので，
+$i>0$ では $\operatorname{Tor}_i^R(N,B)$ のVeronese部分は零である。
+これらは有限生成 $B$-加群であるから，前段によってtorsionである。
+従って $\pi_Bu$ はcoherent加群上完全である。
+有限生成torsion $R$-加群は内部次数について有界であり，
+$B$ の左 $R$-有限生成性からその $u$ による像も内部次数について有界である。
+従って $\pi_Bu$ はtorsionを殺し，tailsへ降りる。
+随伴の単位 $N\to v(uN)$ はもともと同型である。
+余単位 $u(vM)\to M$ の核・余核はcoherentでVeronese部分が零なのでtorsionである。
+よって $u,v$ はcoherent tailsの互いに逆の同値を与える。
+両者のGrothendieck圏はlocally Noetherianなので，
+coherent部分圏のInd圏へ延長して表示した同値を得る。
+
+この構成は $B(ra)$ を $R(a)$ へ移す。
+全ての入力は任意の許されたNoether基底変更後に成立する。
+Veroneseは次数の直和成分を取る操作であり，tensorによる $u$ も
+係数変更と両立するため，既存の相対tailsの基底変更同型の下で
+構成した同値は任意の許された基底変更に両立する。
+affine開上での構成は自然に一致するので一般の基底にも貼り合う。
+\end{proof}
+
+\begin{lemma}\label{lem:graded-isom-affine-quotient}
+$T$ をNoetherスキームとし，$R,R'$ を非負次数付き $\mathcal O_T$-代数とする。
+$R_0=R'_0=\mathcal O_T$，各次数部分は有限局所自由で，
+両代数は局所的に有限個の斉次生成元と関係式で表示されると仮定する。
+さらに $R_1,R'_1$ は同じ正の階数を持つとする。
+このとき
+\[
+ X=\underline{\Isom}_{\mathrm{gr},T}(R,R')
+\]
+は $T$ 上有限表示アフィンスキームである。
+次数スカラーの作用に対するfppf層商 $Y=X/\mathbb G_m$ も
+$T$ 上有限表示アフィンスキームであり，$X\to Y$ は $\mathbb G_m$-torsorである。
+これらの表示と商は任意の基底変更に両立する。
+\end{lemma}
+\begin{proof}
+基底をaffineにし，生成元 $x_i$ と斉次関係式を固定する。
+次数付き準同型 $R\to R'$ の生成元の像は有限個のベクトル束 $R'_{d_i}$ の積で動く。
+有限個の関係式の像が零であるという条件は，
+それぞれ有限局所自由な次数部分における有限個の多項式方程式である。
+従って次数付き準同型関手は有限表示アフィンスキームとなる。
+逆向き準同型も同様に取って，両合成がそれぞれの有限個の生成元上で恒等となる条件を課す。
+これで $X$ を有限表示アフィンスキームとして得る。
+逆写像は一意なので，余分な選択は残らない。
+
+$X=\Spec A$ と書く。次数スカラーの作用を
+\[
+ c\cdot(\phi,\psi)
+   =(\varepsilon_c\circ\phi,\psi\circ\varepsilon_c^{-1})
+\]
+とし，その指標による座標環の分解を $A=\bigoplus_{m\in\mathbb Z}A_m$ とする。
+ここで $\varepsilon_c$ は環次数 $j$ 上で $c^j$ を掛ける自己同型である。
+局所的に $R_1,R'_1$ の基底を選ぶ。
+$\phi_1$ と $\psi_1=\phi_1^{-1}$ の行列成分をそれぞれ $u_{ij},v_{ij}$ とすれば，
+これらの作用に関する重みは $1,-1$ であり，固定した $i$ に対して
+\[
+  1=\sum_j u_{ij}v_{ji}\in A_1A_{-1}
+\]
+となる。従って $A_mA_{m'}=A_{m+m'}$ であり，$A$ は強 $\mathbb Z$-次数付きである。
+各 $A_m$ は $A_0$ 上の可逆加群で，乗法 $A_m\otimes_{A_0}A_{m'}\to A_{m+m'}$ は同型となる。
+これは $1\in A_mA_{-m}$ を書いて局所的な互いに逆の生成元を取れば確認できる。
+従って
+\[
+  \Spec A\longrightarrow\Spec A_0
+\]
+は $\mathbb G_m$-torsorであり，$\Spec A_0$ がfppf層商を表す。
+
+$A$ の有限個の斉次代数生成元を取る。
+それらを変数とする多項式環の重み零部分は，
+非負整数指数で重みの総和が零となる単項式半群で生成される。
+この半群は有理多面錐の整数点半群なので有限生成である。
+次数零部分を取る操作は次数分解の直和因子を取る操作であるから，
+この多項式環の重み零部分は $A_0$ へ全射する。
+従って $A_0$ は有限型であり，基底のNoether性から有限表示である。
+
+任意の係数変更 $S\to S'$ に対して
+\[
+  (A\otimes_S S')_0=A_0\otimes_S S'
+\]
+であり，強次数付きの恒等式も保たれる。
+同型関手の表示自体も有限生成元・関係式の基底変更で与えられる。
+以上の構成は基底の局所化上で自然に一致するので，相対affineスキームとして貼り合う。
+\end{proof}
+
+\subsection{反標準軌道から全Abel同値を認識する}
+
+\begin{theorem}\label{thm:finite-anticanonical-isom}
+定理\ref{thm:simultaneous-smooth-ncdp-open}の同じ有限型開集合 $V$ 上で
+\[
+ R=B^{(r)},\qquad r=n-1
+\]
+と置く。$V\times V$ 上への二つの引戻しを $B_1,B_2$ および $R_1,R_2$ と書く。
+許されたlocally Noetherian基底のfppf site上で，自然な同型
+\begin{equation}\label{eq:finite-anticanonical-isom}
+ \underline{\operatorname{Eq}}_{\mathcal O}
+       (\QGr B_1,\QGr B_2)
+  \simeq
+ \underline{\Isom}_{\mathrm{gr}}(R_1,R_2)/\mathbb G_m
+\end{equation}
+があり，右辺は $V\times V$ 上有限表示アフィンスキームである。
+左辺は構造対象を保つ全ての線型完全Abel同値を，
+標識を保つ自然同型で割った同型層である。
+この同定は任意の許された基底変更，合成，逆射および単位と両立する。
+従って $V$ の二点を結ぶ全構造対象付き同値を射とする，
+有限表示アフィンな射スキームを持つ代数的群oidが得られる。
+\end{theorem}
+\begin{proof}
+\emph{相対反標準環。}
+定理\ref{thm:simultaneous-relative-tails}により，section環は飽和しており，
+全twistはcompactで，相対perfect Homと基底変更を持つ。
+またcompact圏上の相対Serre関手は
+$\mathsf S\simeq(-r)[n]$ である。
+従って $\mathsf H=(r)$ とし，$E_i=\mathsf H^{-i}\mathcal O=\mathcal O(-ri)$ と置けば，
+\[
+ \Hom(E_j,E_i)=
+ \begin{cases}B_{r(j-i)},&i\le j,\\0,&i>j.\end{cases}
+\]
+これらは有限局所自由で任意の許された基底変更に両立する。
+隣接Homの階数は $h_{n,d}(r)>0$ であり，$\End(E_i)=\mathcal O_T$ である。
+定理\ref{thm:simultaneous-smooth-ncdp-open}によってこの反標準列は相対的に豊富である。
+補題\ref{lem:finite-relative-veronese-tails}は，具体的なVeronese関手により
+$\QGr B\simeq\QGr R$ を与え，構造対象と反標準シフトを保つ。
+
+\emph{Serre比較はcompactな軌道上で行う。}
+完全Abel同値 $F$ は複体へ項ごとに作用して標準dg導来圏の同値を誘導する。
+同値は直和を保つためcompact対象を保存する。
+相対Serre双対の表現の一意性により，そのcompact部分圏上に
+$F\mathsf H\simeq\mathsf H'F$ がある。
+ここで必要なのは全整数 $i$ に対するcompact対象 $E_i$ と，
+それらの間の射だけである。
+非正則な基底上の全coherent対象をcompactとみなすことも，
+この比較を先にheart全体へ延長することも必要ない。
+一つの比較同型を整合的に正負に反復し，$F\mathcal O\simeq\mathcal O'$ と合わせると，
+全section $\mathbb Z$-代数上で合成と周期に両立する同型を得る。
+従ってこれは一つの通常の次数付き同型 $R\simeq R'$ から来る。
+
+二つの比較同型の差を各 $E_i$ 上で評価すると，$\End(E_i)=\mathcal O_T$ により単元となる。
+隣接Homは正階数局所自由で忠実なので，自然性からこれらの単元は全て同じ $c$ である。
+反復により，軌道環次数 $m$ 上の差は $c^m$ となる。
+豊富列による復元は，元の $F$ とこの環同型から得た同値を同一視する。
+逆に環同型は構造対象付きtails同値を与える。
+その核がちょうど次数スカラーであることは，
+命題\ref{prop:ncdp-anticanonical-hom}の隣接Homによる議論と同じである。
+この議論では $R$ の次数一生成を仮定しない。
+
+\emph{降下。}
+affine基底で有限個のaffine fppf被覆を一つの忠実平坦なaffine被覆 $S\to S'$ にまとめる。
+固定したNoetherなgraded模型のcoherentな代表 $N$ について，torsion部分 $\tau N$ は
+有限生成なので，十分大きい全次数で零である。この条件は忠実平坦局所的である。
+tailsにおける射は $M_{\ge m}\to N/\tau N$ で代表され，
+$m$ を上げれば $M_{\ge m}\to N_{\ge m}$ に直せる。
+$S^{(2)}=S'\otimes_SS'$ と $S^{(3)}=S'\otimes_SS'\otimes_SS'$ はNoetherである。
+有限表示性と準コンパクト性により，降下同型，その逆，両逆等式とcocycle等式の有限個のデータを，
+これらの基底上の一つの十分大きい切断次数でstrictに成立させられる。
+そこで一つの切断加群 $M'_{\ge m}$ に通常のgraded加群の忠実平坦降下を適用する。
+射とその等式も同様に降下する。
+従って局所同値と自然同型は対象ごとの降下で貼り合い，
+完全性と逆関手の存在は忠実平坦局所的に検査できる。
+locally Noetherian Grothendieck圏全体へはcoherent部分圏からfiltered colimitで延長する。
+さらに標識を保つ自然自己同型は，豊富列の各項上での同じスカラーが
+$\mathcal O$ 上で $1$ になるため恒等である。
+従って局所自然同型のcocycleには追加の障害がなく，
+上で得た対応はfppf同型層の同型\eqref{eq:finite-anticanonical-isom}となる。
+
+\emph{有限表示。}
+強Noether性と補題\ref{lem:veronese-finite-presentation}により，
+$R$ は局所的に有限個の斉次生成元と関係式を持つ。
+その次数部分は $B_{rm}$ で有限局所自由であり，次数一の階数は正である。
+補題\ref{lem:graded-isom-affine-quotient}を $V\times V$ 上で適用すれば結論を得る。
+section復元とSerre双対は既に任意の許された基底変更に両立しており，
+局所同型の合成・逆射・単位も上のスカラー同値と両立する。
+\end{proof}
+
+\begin{remark}[基本シフトとatlasの問題は残る]
+$n=2$ なら $r=1$ なので，定理の反標準環は元の $B$ そのものである。
+$n\ge3$ では，得た同値認識は $B^{(r)}$ によるものであり，
+任意の同型を $B$ の次数付き同型へ持ち上げたとは主張しない。
+その持上げには定理\ref{thm:ncdp-veronese-lift}の普遍中心条件などが別に必要である。
+本節の反標準認識と同型スキームの有限表示には，中心の一般性や非零方向の仮定は不要である。
+
+また，射スキームが有限表示であることは，群oidの始点・終点写像の平坦性や滑らかさを意味しない。
+この群oidから得る商の代数性，$V$ が全モジュライのatlasになること，
+可換locusに接しない成分の不存在は，ここでは結論しない。
+\end{remark}
+
+\subsection{有限自己同値群とunramifiedな同値スキーム}
+
+\begin{lemma}\label{lem:finite-type-equivalence-unramified-open}
+$V$ をnoetherianスキームとし，$\mathcal R\rightrightarrows V$ を
+$(s,t):\mathcal R\to V\times V$ がaffineかつ有限表示である群oidスキームとする。
+安定化群スキームを
+$G=\mathcal R\times_{V\times V,\Delta_V}V\to V$，単位切断を $e:V\to G$ と置く。
+部分集合 $Z\subset |V|$ の全幾何学的点 $z$ で $\operatorname{Lie}(G_z)=0$ なら，
+$Z$ を含む開集合 $W\subset V$ があり，
+$\mathcal R_W\to W\times W$ はaffine，有限表示，quasi-finiteかつunramifiedである。
+\end{lemma}
+\begin{proof}
+$e^*\Omega_{G/V}$ はcoherentなので，その支持を除いた開集合を $W$ と取る。
+微分の基底変更とLie代数との双対性により $Z\subset W$ である。
+任意の幾何学的点 $w$ において，$G_w$ の単位での余接空間は零である。
+群の平行移動により全閉点で余接空間が零となるので，
+$G_w$ は有限型のunramifiedな群スキーム，従って有限\'{e}taleである。
+$W\times W$ の幾何学的点 $(x,y)$ 上の $\mathcal R_W$ のファイバーは，
+空でなければその一点を選んで合成することにより $G_x$ と同型になる。
+従って全幾何学的ファイバーは有限かつreducedである。
+有限表示の射のunramified性はファイバーで判定できる
+\cite[Tags 02G8, 02GF]{StacksProject}ので，所望のunramified性を得る。
+有限型かつ全ファイバーが有限であることからquasi-finite性も得る。
+affine性と有限表示性は基底変更で保たれる。
+\end{proof}
+
+
+\begin{corollary}\label{cor:finite-equivalence-unramified}
+定理\ref{thm:finite-anticanonical-isom}の $V$ は，滑らかな可換零切断全体を保って
+さらに不変な開集合へ縮小し，その全同値スキーム
+\[
+ \mathcal E\longrightarrow V\times V
+\]
+がaffine，有限表示，quasi-finiteかつunramifiedとなるように取れる。
+従って任意の幾何学的点 $v$ で，構造対象を保つ全完全Abel自己同値の群は有限である。
+同じ性質は任意の許された基底変更後も保たれる。
+\end{corollary}
+\begin{proof}
+前定理の群oidに，補題\ref{lem:finite-type-equivalence-unramified-open}を適用する。
+古典零方向点 $v$ の安定化群のLie代数は，双対数環上の定値族の自己同値で，
+特殊ファイバー上で標識付き恒等に還元するものからなる。
+補題\ref{lem:abel-infinitesimal-aut-rigidity}と
+補題\ref{lem:marking-removes-two-aut}により，そのような自己同値は恒等である。
+従って古典点でLie代数が零となる。
+安定化群の余接加群の支持を除く開条件は圏の同値に不変なので，
+得られる開集合は座標変換に不変である。
+quasi-finite性，unramified性，affine性，有限表示性は基底変更で保たれる。
+\end{proof}
+
+\begin{remark}\label{rem:unramified-not-finite-atlas}
+ここでの有限性は幾何学的ファイバーの自己同値群についての主張である。
+$\mathcal E\to V\times V$ 自身の有限性，平坦性または\'{e}tale性は証明していない。
+例えば $S=\Spec k[t]$ 上で $S\amalg D(t)$ を取り，第二成分を
+$D(t)$ 上の $\mathbb Z/2$ の非自明元とする群構造を入れると，
+これはaffine，有限表示，quasi-finiteかつ\'{e}taleな群スキームであるが有限ではない。
+本節の群oidのsource・targetの滑らかさも別に検査する必要がある。
+\end{remark}

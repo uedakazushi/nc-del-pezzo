@@ -1,6 +1,6 @@
 # 文献・依存関係・新規性の範囲
 
-2026-11-20（JST） / v0.9。完全な書誌は [references.bib](../references.bib)。以下は使用する一次資料の具体的な箇所、現行論文での適用とその限界を示す。外部論文のPDFは収録しない。
+2026-11-20（JST） / v0.10。完全な書誌は [references.bib](../references.bib)。以下は使用する一次資料の具体的な箇所、現行論文での適用とその限界を示す。外部論文のPDFは収録しない。
 
 ## 1. 他研究からの数学的入力
 
@@ -52,6 +52,16 @@
 - Okawa–Ueda, *AS-regular algebras from acyclic spherical helices*, [arXiv:2007.07620](https://arxiv.org/abs/2007.07620)。球面helixからの構成を比較した。一般次元での表示を検討する基礎であり、本稿で全変形のAS包絡存在を結論する根拠には用いていない。
 
 Plücker座標環の正規性・Cohen–Macaulay性にはSvanes (1973) とDe Concini–Procesi (1981) の標準単項式理論を用いる。具体的書誌と一次資料URLはBibTeXに保持する。
+
+### 有限族の全同値とVeronese復元
+
+- Aitzhanova–Makar-Limanov–Umirbaev, *Automorphisms of Veronese subalgebras of polynomial algebras and free Poisson algebras*, J. Algebra Appl. **24** (2025), no.3, 2550095, DOI [10.1142/S0219498825500951](https://doi.org/10.1142/S0219498825500951)。[arXiv:2307.07823v1](https://arxiv.org/abs/2307.07823v1) §5、Corollaries 4–5、PDF p.11の本文を確認。二変数以上の多項式環について、全d乗根を取れる体上でVeroneseの全自己同型がd-graded自己同型へ持ち上がり、核がd乗根スカラーとなる。d-gradedは同論文のZ/d次数付けであり、通常のZ次数保存とは区別する。本稿の中央多項式部分の持上げと関連する既知結果である。本稿の `thm:ncdp-veronese-lift` は相対基底上の中央多項式環を内在的に認識し、二つの中央局所化から非可換Bを復元する。既知の多項式環の結論自体を新規としない。
+- [Stacks Tag 06PH](https://stacks.math.columbia.edu/tag/06PH)、Lemma 80.11.7を確認。flat locally finite presentation群の自由作用には代数空間としてのfppf商がある。本稿の `lem:graded-isom-affine-quotient` は、次数1の同型行列とその逆から座標環の強Z次数付けを直接作り、商がさらにaffine有限表示であることを証明する。
+- [Stacks Tag 02G8](https://stacks.math.columbia.edu/tag/02G8)、Lemma 29.36.12と [Tag 02GF](https://stacks.math.columbia.edu/tag/02GF)、Lemma 29.36.14を確認。有限型の射のunramified性をファイバーまたは余接加群で判定できる。`cor:finite-equivalence-unramified` では単位切断上の余接加群の支持を除き、群の平行移動から全同値スキームへ適用する。有限・flat・étaleな射やsmooth atlasとは同一視しない。
+
+`thm:finite-anticanonical-isom` は既存の相対Serre・反標準豊富性を、構成した有限型Vの全基底変更上で使う。Veronese環の有限斉次表示、具体的なVeronese/tensor関手によるtails同値、有限高切断によるfppf降下は本文で証明する。同型関手とトーラス商の一般原理自体は標準的であり、相対非可換族へのこの適用について包括的優先権は未確認である。
+
+`thm:finite-low-center-open` は既存の `lem:classical-casimir-center` と活性PBW filtrationを用いる。全次数の中心が最小であるというgeneric条件を、一つのZariski開へ読み替えない。固定qの有限行列だけを使い、δ_q/hの古典還元から各smooth f・各非零方向のray上で非空性を証明する。
 
 ## 4. Compact持上げ、Serre、鎖formality、降下
 
@@ -156,7 +166,7 @@ BWB消滅で規格化中心のtorsorを自明化する。局所中心が存在�
 
 `thm:simultaneous-central-all-artin` では、滑らかな可換点で係数の可換sliceを選ぶ。その有限族の完備局所環は、次数1では通常の形式円板、次数2では通常の形式円板とPlücker錐の完備化の積であり、既に求めた全Abel形式環と同じ表示を持つ。可換方向のKodaira–Spencer写像と一次交換子によるPoisson方向の写像がともに同型なので、自然変換に対応する完備局所環の自己写像は同型となる。HH¹によるframed自己同値の剛性と合わせ、同じ有限中心商族のArtin基底変更が全framed変形群oidを表す。次数2の二次Plücker関係を含む全形式環を使っており、接空間の一致だけから高次障害の消滅を結論していない。
 
-以上により、同じ有限代数族の全Artin変形に対する形式的完全性を得る。有限基底上の強・積Noether性、相対tails・Serre式、smooth properな有限開近傍は、次項の独立した証明による。全O保存同値による一般nc点の認識と全モジュライのatlasは未解決である。既存の比較理論の一般原理は先行研究であり、全方向の有限中心商の構成、有限jetによる貼合せ、同じ族の全Artin比較という組合せの包括的な優先権確認は未了である。
+以上により、同じ有限代数族の全Artin変形に対する形式的完全性を得る。有限基底上の強・積Noether性、相対tails・Serre式、smooth properな有限開近傍は、次項の独立した証明による。この有限族の全O保存同値の認識は§3に記した有限表示の結果で得た。全モジュライのatlasは未解決である。既存の比較理論の一般原理は先行研究であり、全方向の有限中心商の構成、有限jetによる貼合せ、同じ族の全Artin比較という組合せの包括的な優先権確認は未了である。
 
 ### 5.9. 全topの退化曲線、Noether降下、有限基底上のnc族
 
@@ -172,7 +182,13 @@ BWB消滅で規格化中心のtorsorを自明化する。局所中心が存在�
 
 `thm:simultaneous-relative-tails` は同じ有限族についてAbel平坦性、局所コホモロジー、飽和性・有向ACM・χ・豊富性、有限compact窓、相対proper性と無捩れSerre式 `S=(−(n−1))[n]` を与える。ここでは§5.3の既知の双対原理に加え、本稿の有限対角・相対局所双対の証明を使い、非正則基底に体上のbalanced dualizing定理を無条件に適用しない。さらに `thm:simultaneous-smooth-ncdp-open` は積代数上の有限部分対角解消、相対Serre双対、可換点のHH¹消滅を使い、**滑らかな全可換正規形の零切断を含む有限型開集合**で、同じ中心商がsmooth properなnc del Pezzo族となることを証明する。全係数の零切断では古典方程式自体が特異な場合もあるため、そこまでsmoothnessを主張しない。
 
-これらと§5.8を合わせ、全framed Abel Artin変形を実現する同じ有限型nc族を得る。双対・ample filter・THCR・Krull交叉・忠実平坦降下の一般原理は既知である。全topの退化曲線、全独立方向への降下、同じ有限中心商の相対圏論的性質と全Artin比較を組み合わせた範囲の包括的な優先権は未確認である。追加の開条件の明示、一般nc点の全O同値認識、全モジュライのatlasと成分数は残る。
+これらと§5.8を合わせ、全framed Abel Artin変形を実現する同じ有限型nc族を得る。双対・ample filter・THCR・Krull交叉・忠実平坦降下の一般原理は既知である。全topの退化曲線、全独立方向への降下、同じ有限中心商の相対圏論的性質と全Artin比較を組み合わせた範囲の包括的な優先権は未確認である。全同値認識は§3の有限型開上で得た。追加開条件の明示、低次数中心が増える層での基本シフト復元、全モジュライのatlasと成分数は残る。
+
+### 5.10. 同じ開近傍の低次数Hochschild剛性
+
+[Stacks Tag 0BDI](https://stacks.math.columbia.edu/tag/0BDI)、Lemma 36.31.1はpseudo-coherent複体のファイバーコホモロジー次元の上半連続性と基底変更を与える。[Tag 0BCD](https://stacks.math.columbia.edu/tag/0BCD)、Lemma 15.77.7はperfect複体をある点のファイバーBetti数と同じ階数の有限自由模型で表せることを述べる。両本文を確認した。
+
+`prop:simultaneous-hochschild-rigid-open` はsmooth properな有限窓dg模型の対角を使い、Hochschild複体が係数perfectで任意基底変更に可換することを直接証明する。単位のconeのTor振幅下界を2へ開化することで、非平坦基底でもHHの負次数消滅・HH⁰=基底・HH¹消滅を得る。可換点の入力は既存のHKR・Kodaira消滅・PoissonDP補題8.7である。nc点の対角Artin剛性には既存の `lem:diagonal-bimodule-rigidity` を適用する。一般のAbel変形とdg Hochschildの比較を追加仮定なしに結論していない。
 
 ## 6. 公表前に残る研究・文献上の課題
 
@@ -181,7 +197,7 @@ BWB消滅で規格化中心のtorsorを自明化する。局所中心が存在�
 1. **全方向中心構成の比較と明示化。** 同じambient上の全方向中心と有限中心商、同じ族のArtin完成を既存の形式中心持上げ・filtered楕円代数・全Abel変形理論と比較する。追加の主開条件の明示、中心元の選択の違い、既知の公式との関係を調べる。
 2. **全方向有限族と既存理論の比較。** 全topの退化曲線、強・積Noether性の零方向への降下、同じ族の相対tails・Serre・smooth proper開近傍を、既存のTHCR・filtered変形・圏の変形理論と比較する。Keelerのmultiple divisors論文の本文と正確な仮定を確認し、体上・相対基底上の適用範囲を整理する。同じ有限族の全Artin普遍性と、全O同値による有限型atlasを区別する。
 3. **滑らかな開集合の明示。** 得られた有限部分対角解消とHom複体から、具体的な係数の非消滅条件を計算する。開近傍の存在証明と、その判別式の明示は異なる状態である。
-4. **全O同値と大域モジュライ。** 有限表示族から一般nc点の全同値の商、全モジュライの有限型atlas、可換locusに接しない成分へ進む。Toën–Vaquiéの固定dg圏の対象モジュライを、可変な全O-marked圏のモジュライと同一視しない。
+4. **全O同値と大域モジュライ。** 得られたアフィン有限表示の全同値群oidのsource・targetの滑らかさ、全モジュライの有限型atlas、可換locusに接しない成分を調べる。Toën–Vaquiéの固定dg圏の対象モジュライを、可変な全O-marked圏のモジュライと同一視しない。
 5. **退化曲線を含む構成と新規性。** 解消point curve、次数1の尖点と次数2のribbonを含む相対THCR、二重切断環による積Noether性、smoothnessの有限開近傍を、既存の楕円代数・非可換del Pezzo・変形圏の構成と比較する。中心増大層を含む適用範囲と、各主張の優先権を確認する。
 
 一般nでの全Abel形式群oid、nc多様体条件のArtin持上げ、形式粗商、具体量子化の完全性、任意指数Veronese復元、有限型族のCasimir・普遍中心・相対双対、全topの退化曲線を含む相対THCRと積Noether性、全方向の同時中心商・相対tails・smooth proper開近傍・全Artin比較という組合せについて、包括的な優先権調査は未了。変形・compact持上げ・formality・CY potentialの中心存在・Sklyanin中心元・Borel–Weil–Bott・σ-ampleness・THCRのtensor積に関する一般結果は既知の研究として区別する。非可換del Pezzo曲面の各定義、AS Z-代数、marked quiver、非可換吹上げとの比較も継続する。講演概要にある未公表の一般次数の主張は確立済み定理として引用しない。

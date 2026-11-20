@@ -42,7 +42,7 @@
 \newcommand{\Perf}{\operatorname{Perf}}
 \newcommand{\rank}{\operatorname{rank}}
 \newcommand{\HH}{\operatorname{HH}}
-\newcommand{\Version}{0.9}
+\newcommand{\Version}{0.10}
 \title{次数1・2の非可換del Pezzo多様体\texorpdfstring{\\}{ }構造対象付き変形とモジュライの局所構造}
 \author{}
 \date{2026年11月20日\quad v\Version\quad 公表用研究稿}
@@ -80,6 +80,10 @@ smooth proper性と相対Serre公式 $(-(n-1))[n]$ を証明する。
 同じambientの無捩れな相対CY同型から，相対tails・Serre公式と有限compact生成窓を得る。
 対角の有限部分解消により，滑らかな全可換模型の零切断を含む有限型開近傍で，
 同じ族が実際のsmooth properな非可換del Pezzo族となる。
+この有限開上では，全 $\mathcal O$ 保存同値の層を反標準Veronese環の
+次数付き同型のスカラー商として同定し，有限表示のアフィンスキームで表す。
+さらに零切断を保って縮小すれば，この同値スキームはquasi-finiteかつunramifiedである。
+非零方向の稠密開上では，一つの低次数中心条件から通常の次数付き環まで復元できる。
 全モジュライのatlasと全既約成分数，追加開条件の明示公式は未解決として区別する。
 \end{abstract}
 \tableofcontents
@@ -125,6 +129,53 @@ $\mathfrak M^{\OO}_{n,d}$ とその重み付き超曲面部分問題のArtin完�
 これらは全ての通常の局所Artin係数環を対象とする主張であり、
 固定した一つの形式量子化族だけの接空間計算ではない。
 
+\subsection{有限型族と全同値の表現可能性}
+以下の結果は同じ全方向中心商族について成立する。
+$r=n-1$ とし，滑らかな可換模型の零切断全体を含む有限型開集合を $V$ と書く。
+定理\ref{thm:simultaneous-smooth-ncdp-open}により，その中心商 $B_V$ は
+相対smooth properな非可換del Pezzo族を与える。
+$R=B_V^{(r)}$ とし，$V\times V$ 上の二つの引戻しを $R_1,R_2$ と書く。
+第\ref{sec:finite-full-equivalences}節の主張は
+\begin{equation}\label{eq:intro-finite-equivalence}
+ \mathcal E:=\underline{\operatorname{Eq}}_{\mathcal O}
+       (\QGr B_1,\QGr B_2)
+ \simeq\underline{\operatorname{Isom}}_{\mathrm{gr}}(R_1,R_2)/\Gm
+\end{equation}
+であり，$\mathcal E\to V\times V$ はaffineかつ有限表示である。
+商はfppf層商であり，この表示は任意の許された基底変更と合成に両立する。
+基本シフトを標識した同値だけに射を制限していない。
+証明では相対Serre関手をcompactな反標準軌道上で比較し，豊富列から全Abel同値を復元する。
+Veronese環の有限生成・有限関係を右Noether性から証明し，
+同型と逆同型の次数1行列を使ってスカラー商のaffine性を得る。
+
+さらに，$V$ を全可換零切断を保って縮小すると，
+$\mathcal E\to V\times V$ はquasi-finiteかつunramifiedとなる
+（系\ref{cor:finite-equivalence-unramified}）。
+従って各幾何学的点の全 $\mathcal O$ 保存自己同値群は有限である。
+この主張は自己同値群の有限性であり，基底上での同値スキームの有限性や平坦性を含まない。
+別に，命題\ref{prop:simultaneous-hochschild-rigid-open}は，同じ種類の開近傍で
+任意の非平坦な係数変更後にも相対 $HH^{<0}=0$，$HH^0=\mathcal O$，$HH^1=0$ を与える。
+
+$n\ge3$ では，非零方向部分に非空稠密開集合 $U\subset V$ を構成でき，
+その上で式\eqref{eq:intro-finite-equivalence}を
+\[
+ \mathcal E|_{U\times U}
+ \simeq\underline{\operatorname{Isom}}_{\mathrm{gr}}(B_1,B_2)/\Gm
+\]
+へ強められる（系\ref{cor:finite-full-graded-recognition}）。
+$n=2$ では $r=1$ なので初めから $R=B$ である。
+稠密開の構成では，中央一次Casimir束 $\mathcal K$ に対する
+$\operatorname{Sym}\mathcal K$ 上の普遍平坦性を証明し，
+中心条件 $Z(B)_r=\operatorname{Sym}^r\mathcal K$ を一つの有限交換子行列で課す。
+任意の滑らかな可換係数 $f$ と非零Poisson方向 $\xi$ から出る直線
+$(f,h\xi)$ は，この開集合と非空な非零部分で交わる。
+全次数の中心が最小となる開集合の存在は用いない。
+
+これにより，構成した有限族の全同値は有限表示の代数的データとして扱える。
+一方，群oidのsourceとtargetの平坦性または滑らかさ，
+この族による全非可換対象の被覆は別に証明する必要がある。
+従って式\eqref{eq:intro-finite-equivalence}だけから全モジュライのatlasを結論しない。
+
 \subsection{先行研究と本稿の範囲}
 Lowenのalgebroidによる全Abel変形の比較\cite[Theorems 3.14, 3.26]{Lowen2008}と、
 Yekutieliのtwisted quantization\cite[Corollaries 7.5, 11.2]{Yekutieli2015}を用いる。
@@ -169,6 +220,12 @@ Abdelgadir--Okawa--Uedaの三次曲面のコンパクトモジュライ\cite{AOU
 Okawa--Uedaの球面helixからのAS正則代数の構成\cite{OkawaUeda2020}も、
 将来の全 $\mathbb Z$-代数型の表示を考える際の基礎となる。
 これらの先行研究を、一般次元の全ncモジュライの代数性・成分数の既知の解答とは扱わない。
+多項式環のVeronese自己同型の持上げと根のスカラー核には
+Aitzhanova--Makar-Limanov--Umirbaev\cite[Corollaries~4--5]{AMU2025}の結果がある。
+本稿では相対中央多項式環から非可換代数を二つの局所化で復元し，
+固定低次数の中心条件を全方向有限族の稠密開上で確認する。
+同型関手の有限表示・対角化可能群の不変環・微分によるunramified性の判定も標準的な手法であり，
+全方向族への適用とその範囲を本稿の主張として区別する。
 
 以下では、全Abel Artin変形、許容表示のモジュライ問題、
 Serre・豊富性条件を満たす部分問題を定義上区別し、可換点のArtin完成での一致を証明する。
@@ -379,7 +436,9 @@ $(-(n-1))[n]$ と長さ $n+5$（次数1），$n+3$（次数2）のcompact生成�
 定理\ref{thm:simultaneous-smooth-ncdp-open}により，
 滑らかな全可換模型の零切断を含む有限型開近傍で，
 この同じ全方向族が実際のsmooth properなnc del Pezzo族となる。
-全モジュライの被覆と全 $\mathcal O$ 保存同値の一般点での認識はなお残る。
+第\ref{sec:finite-full-equivalences}節と第\ref{sec:simultaneous-low-center}節は，
+この有限開上の全 $\mathcal O$ 保存同値を認識する。
+全モジュライの被覆とatlasの構成はなお残る。
 同時中心・退化曲線・頂点での降下・相対幾何のこの組合せについて，
 包括的な優先権確認は未了である。
 
@@ -409,43 +468,45 @@ $(-(n-1))[n]$ と長さ $n+5$（次数1），$n+3$（次数2）のcompact生成�
 \input{sections/noether_descent}
 \input{sections/simultaneous_relative_geometry}
 \input{sections/simultaneous_formal_comparison}
+\input{sections/finite_recognition}
+\input{sections/finite_center_recognition}
 
 \section{大域的なモジュライへ進むための問題}
 \label{sec:questions}
-主な残問は、一般の非可換点での有限表示と変形の局所完全性、
-許容な表示の全 $\OO$ 保存同値による商、ならびに全モジュライの代数性である。
-各可換点の形式環が整であることから、可換点における形式分枝は一つと分かる。
-可換locusに接しない非可換成分が存在しないことまでは証明していない。
-第\ref{sec:finite-auxiliary-quantization}節の分離型族では，
-第\ref{sec:finite-tails}節によりtailsの飽和性，proper性，相対Serre公式まで得られた。
-滑らかな可換点の開近傍では反標準列も豊富になる。
-第\ref{sec:elliptic-relative}節と第\ref{sec:elliptic-degree-one-finite}節により，両次数の一般楕円型族でも
-係数基底上の強Noether性，相対tailsと積のNoether性が得られる。
-両方の族について，第\ref{sec:finite-smoothness}節は滑らかな可換点を含む
-有限開近傍上のsmoothnessと非可換del Pezzo条件を証明した。
-次の課題は，この開集合を具体的な有限行列で記述し，
-より大きい表示族の局所完全性と全 $\OO$ 保存同値による商を調べることである。
-特に命題\ref{prop:one-parameter-atlas-obstruction}の接空間の障害により，
-共通因子 $h$ による表示を越えて独立なPoisson方向を同時に含める必要がある。
-第\ref{sec:simultaneous-poisson}--\ref{sec:simultaneous-formal-comparison}節では，
-両次数で独立Poisson方向を含む有限型中心商族を構成し，
-その同じ族の全Artin普遍性まで証明した。
-全方向族の強・積Noether性，相対tailsとSerre公式，
-滑らかな可換零切断の有限開近傍でのsmooth proper性も証明した。
-活性最高次式の特異・可約・非被約な曲線を扱い，
-完成と頂点外を合わせた忠実平坦被覆を使うことが必要だった。
-次の核心は，この有限型nc族について一般点の全 $\mathcal O$ 保存同値を認識し，
-商と被覆の範囲を確定することである。
-追加の中心分母・Noether性の開集合・smoothnessの有限行列を明示し，
-どの境界を残せるかも調べる。
-半古典極限で稠密なPoisson対を実現することと，全非可換対象を被覆することは異なる。
-有限パラメータの非可換対象から古典Poisson多様体を自然に復元する射も構成していない。
+全方向の有限中心商は，滑らかな可換零切断の有限開近傍でsmooth properな
+非可換del Pezzo族を与え，各可換点の横断sliceで全framed Abel Artin変形を実現する。
+その全 $\OO$ 保存同値の層はaffineかつ有限表示であり，
+零切断を保った開近傍ではquasi-finiteかつunramifiedでもある。
+非零方向の稠密開では通常の次数付き中心商から同値を認識できる。
+これらの結論を出発点として，次の問題を区別する。
 
-三次三様体の残余圏による幾何化を次数1・2へ移すには、
-例外部分と残余圏の相対構成、同じ古典多様体との比較を新たに証明する必要がある。
-接空間や形式環の一致だけでKuznetsov成分の同値を結論しない。
-公表に向けては、本稿の形式局所定理と条件を明示した復元定理を一つの論理単位とし、
-未解決の大域分類をその定理の仮定に紛れ込ませない。
+\begin{enumerate}
+\item \emph{表示族の局所完全性とatlas。}
+      $\mathcal E\rightrightarrows V$ のsource・targetの変形持上げ性を調べ，
+      どの範囲で滑らかな表示を与えるかを証明する。
+      $\mathcal E\to V\times V$ のunramified性は，sourceの滑らかさを意味しない。
+      また，構成族へfppf局所的に入る対象からなる部分問題と，
+      全 $\mathfrak M^{\OO}_{n,d}$ を区別する。
+\item \emph{低次数中心が増大する境界。}
+      $n\ge3$ の元の次数付き環の復元は
+      $Z(B)_{n-1}=\operatorname{Sym}^{n-1}\mathcal K$ 上で証明した。
+      この条件が破れる部分でも反標準環による全同値の表示は有効である。
+      基本シフトの根が一意か，追加の同値が現れるかを層ごとに調べる。
+      全中心の生成に関する可算個の条件を，一つの有限開条件と同一視しない。
+\item \emph{開集合の明示。}
+      中心元の追加分母，Noether開，相対CY線束の自明化，
+      対角の有限部分解消，低次数中心行列と微小自己同値の消滅条件を具体化する。
+      存在証明の有限性と最小の判別式の計算を区別し，
+      尖点・可約曲線・非被約ribbonを含む境界のどこまで残せるかを調べる。
+\item \emph{全成分と公表範囲。}
+      各可換点の形式環は整であるが，可換locusに接しない成分の不存在は未証明である。
+      全非可換対象の被覆や，全既約成分数を形式一分枝性から推論しない。
+      既知の変形・量子化・復元理論と，本稿の全方向族への適用の優先権を比較する。
+\end{enumerate}
+有限パラメータの非可換対象から古典Poisson多様体を自然に復元する射は構成していない。
+また，三次三様体の残余圏による幾何化を次数1・2へ移すには，
+例外部分と残余圏の相対構成および古典多様体との比較を新たに証明する必要がある。
+接空間や形式環の一致だけで残余圏の同値を結論しない。
 
 \begingroup
 \small

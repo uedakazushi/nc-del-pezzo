@@ -1,6 +1,6 @@
 # 文献・依存関係・新規性の範囲
 
-2026-11-20（JST） / v0.12。完全な書誌は [references.bib](../references.bib)。以下は使用する一次資料の具体的な箇所、現行論文での適用とその限界を示す。外部論文のPDFは収録しない。
+2026-11-20（JST） / v0.13。完全な書誌は [references.bib](../references.bib)。以下は使用する一次資料の具体的な箇所、現行論文での適用とその限界を示す。外部論文のPDFは収録しない。
 
 ## 1. 他研究からの数学的入力
 
@@ -12,6 +12,7 @@
 
 - 定理7.3、label `thm:relative-poisson`：任意基底変更と両立する二重ベクトル束とJacobi錐。次数1はA^n、次数2はGr(2,n+1)のPlücker錐。商で割る前のambient Jacobi/Casimir公式を含む。
 - 定理8.8、label `thm:poisson-moduli`：正規形の係数開集合と有効座標変換群による全族の商表示。
+- 定理9.2、label `thm:affine-coarse-moduli`：古典del PezzoおよびPoissonモジュライの有限対角・分離的アフィン粗空間。`coarse.tex` を上記固定commitで確認。判別式主開のaffine性、還元群と全有限stabilizer、Luna I §4 p.90が入力。本研究では対称化した中心方程式のshadowに適用し、全非可換Isomの閉埋込みから有限対角を得る。
 - 補題8.7：全ての対象XでH⁰(T_X)=0。注意8.5、label `rem:deck-action`：被覆対合はPoissonパラメータに−1で作用。命題9.4、label `prop:generic-deck-stabilizer`：両次数・全n≥2でAut(X)=μ₂となる稠密開。形式群oidと一般点の粗符号商の入力。命題9.4の非空性・開性の証明を確認した。
 - 定理8.13・命題8.14：古典Poissonモジュライの次数ごとの既約性と次数の区別。これは全ncモジュライの成分定理ではない。
 - `quantization.tex`：固定Poisson方向の形式量子化と重み付き次数の保存。今回の任意冪零基底でのmonic分裂、同変な圏の降下をこのrepoで進める。
@@ -39,7 +40,7 @@
 
 これらの比較・量子化原理は既知である。本研究では、次数1・2・一般nの相対錐への適用、monic商の任意基底での分裂、O-markedな圏の同変降下を示す。さらに初commutatorと完備局所環の自己写像を使い、構成した特定の量子化そのものが全Artin同型類に自然な全単射を与えることを証明した。`simultaneous_formal_comparison.tex` では、全方向の有限表示中心商族そのものにもこの比較を行う。可換sliceを選んだ各可換点で、その同じ有限族のArtin基底変更が全framed Abel変形群oidを表す。詳細と有限基底全体のtailsとの区別は§5.8に記す。既知の比較の逆と正確に同じ形式座標を持つことは、この結論に不要である。
 
-接空間と微小自己同値のHochschildによる説明には、Lowen–Van den Bergh, *Hochschild cohomology of abelian categories and ringed spaces*, Adv. Math. 198 (2005), 172–221, DOI 10.1016/j.aim.2004.11.010 の [著者稿](https://cantate.be/site/hochschild_ab.pdf)、Theorems 3.1, 6.1, 6.6、Corollaries 7.7.2・7.8.2と、Yekutieli, *The Continuous Hochschild Cochain Complex of a Scheme*, Canad. J. Math. 54 (2002), 1319–1337, DOI 10.4153/CJM-2002-051-8 の [修正版出版論文](https://www.math.bgu.ac.il/~amyekut/publications/diagonal/cjm.pdf)、Corollary 0.6を確認した。injective線型圏・Abel圏・幾何的Hochschild cohomologyの比較を用いる。HKRの積や括弧との両立は使わない。
+接空間と微小自己同値のHochschildによる説明には、Lowen–Van den Bergh, *Hochschild cohomology of abelian categories and ringed spaces*, Adv. Math. 198 (2005), 172–221, DOI 10.1016/j.aim.2004.11.010 の [著者稿](https://cantate.be/site/hochschild_ab.pdf)、Theorems 3.1, 4.1.3, 6.1, 6.6、Corollaries 6.8・7.7.2・7.8.2と、Yekutieli, *The Continuous Hochschild Cochain Complex of a Scheme*, Canad. J. Math. 54 (2002), 1319–1337, DOI 10.4153/CJM-2002-051-8 の [修正版出版論文](https://www.math.bgu.ac.il/~amyekut/publications/diagonal/cjm.pdf)、Corollary 0.6を確認した。injective線型圏・Abel圏・幾何的Hochschild cohomologyの比較を用いる。HKRの積や括弧との両立は使わない。
 
 ## 3. 反標準認識と曲面の先行研究
 
@@ -72,15 +73,29 @@ Plücker座標環の正規性・Cohen–Macaulay性にはSvanes (1973) とDe Con
 | [Stacks 07VH](https://stacks.math.columbia.edu/tag/07VH)、Lemma 15.39.6；[039M](https://stacks.math.columbia.edu/tag/039M)、Lemma 41.11.3 | Noether有限型射の形式的smoothness、完成局所環によるétale判定。全Artin比較からsource完成を計算して実際のsmoothnessへ移す |
 | [Stacks 052A](https://stacks.math.columbia.edu/tag/052A)、Proposition 29.28.1；[01V8](https://stacks.math.columbia.edu/tag/01V8)、Lemma 29.35.3 | generic flatnessとflat・有限表示・smooth fiberの判定。単位のfiberを群oid平行移動で全矢へ移す前に全sourceをflatにする。開集合が零切断を含むとはしない |
 | [Stacks 06FI](https://stacks.math.columbia.edu/tag/06FI)、Theorem 97.17.2；[04YW](https://stacks.math.columbia.edu/tag/04YW) | flat有限表示群oidの商の代数性とunramified diagonalによるDM性。本稿はsmoothなfull群oidを先に構成する |
-| [Stacks 0DUT](https://stacks.math.columbia.edu/tag/0DUT)、Theorem 106.13.9；[0DUW](https://stacks.math.columbia.edu/tag/0DUW)、Lemma 106.14.1 | finite inertiaによるKeel–Mori粗モジュライ代数空間と有限型性。各幾何安定化群が有限であるだけでは適用せず、inertia射自体をgenericにfinite化する |
+| [Stacks 0DUT](https://stacks.math.columbia.edu/tag/0DUT)、Theorem 106.13.9；[0DUW](https://stacks.math.columbia.edu/tag/0DUW)、Lemma 106.14.1 | finite inertiaによるKeel–Mori粗モジュライ代数空間と有限型性。各幾何安定化群が有限であるだけでは適用せず、inertia射自体の有限性を確認する。零切断近傍では古典Isomへの閉埋込みによる有限対角を使い、同Section 106.14のLemma 106.14.2から分離性を得る |
 | [Stacks 06QJ](https://stacks.math.columbia.edu/tag/06QJ)、Proposition 101.28.9 | flat locally finitely presented inertiaの代数stackは代数空間上のgerbe。さらにfinite étale inertiaなら、smooth DM部分問題の粗空間もsmoothと分かる。分離性は別に必要 |
 | [Stacks 02HY](https://stacks.math.columbia.edu/tag/02HY)、Lemma 37.12.2；[025G](https://stacks.math.columbia.edu/tag/025G)、Theorem 41.14.1 | Artin持上げ判定とétale monomorphismの開埋込み。HH¹剛性により通常graded矢H→Eに適用する |
 | [Stacks 06PL](https://stacks.math.columbia.edu/tag/06PL)、Lemma 97.18.3 | 自明作用のclassifying stackが代数的となるには群がflat lfpであることが必要十分。V=A²、D={x=0,y≠0}、G=V⊔Dの反例に適用し、可換形式近傍だけからの大域化を否定する |
-| [Stacks 07T0](https://stacks.math.columbia.edu/tag/07T0)、§98.1；[07XP](https://stacks.math.columbia.edu/tag/07XP)、§98.13、Example 98.13.2 | limit preservation、RS、effective formal objects、openness of versalityを分ける。本稿のeffectivityは可換特殊fiberと構成族の模型間に限定。全MのArtin基準を確認済みとはしない |
+| [Stacks 07T0](https://stacks.math.columbia.edu/tag/07T0)、§98.1；[07XP](https://stacks.math.columbia.edu/tag/07XP)、§98.13、Example 98.13.2 | limit preservation、RS、effective formal objects、openness of versalityを分ける。本稿の構成族のeffectivityと、混合Isomによる可換特殊fiberを持つ任意の既存M族との同値の有効化を区別。全M自体へのArtin代数化基準を確認済みとはしない |
 
-`thm:zero-neighborhood-full-dm` は、同じ有限型nc族の全同値スキームに、低次数のweighted-linear認識とCasimir Jacobianによる全source持上げを加えて上記の商原理を適用する。`thm:generic-full-dm-stack` はその非零開部分、`cor:generic-finite-inertia-coarse` はさらにinertiaをfinite化した開の粗空間である。一般平坦性だけから零切断を残すとはせず、方向解消上の有限中心行列とJΩ|Z=Idを使う。この具体的組合せの包括的優先権調査は未了であり、Uを全ncモジュライ内の開部分と同定していない。
+`thm:zero-neighborhood-full-dm` は、同じ有限型nc族の全同値スキームに、低次数のweighted-linear認識とCasimir Jacobianによる全source持上げを加えて上記の商原理を適用する。`thm:generic-full-dm-stack` はその非零開部分、`cor:generic-finite-inertia-coarse` はさらにinertiaをfinite化した開の粗空間である。一般平坦性だけから零切断を残すとはせず、方向解消上の有限中心行列とJΩ|Z=Idを使う。全点のAbel比較と任意の族の混合Isomを加えた `thm:zero-neighborhood-open-full-moduli` により、さらに零切断を保ってUを全M内の開部分と同定する。対称化中心の可換模型と古典対角を使う `thm:zero-neighborhood-finite-diagonal` が有限対角を与える。この具体的組合せの包括的優先権調査は未了である。
 
 [Stacks 02HM](https://stacks.math.columbia.edu/tag/02HM)、Lemma 37.8.10の有限表示かつ形式étaleの判定を、非零矢の(g,source)写像に使用する。[04YK](https://stacks.math.columbia.edu/tag/04YK) §100.9の不変開と商の対応により、対象開のfull restrictionはUの開部分スタックとなる。[04YY](https://stacks.math.columbia.edu/tag/04YY)、Lemma 101.6.2の相対inertia核によるrepresentability判定と、[04XB](https://stacks.math.columbia.edu/tag/04XB) §100.3の表示上の判定は、可換点の実際の有限型étale sliceに用いる。これらも一般原理として引用し、既存の形式商から未確認の大域商を推論しない。
+
+
+### 全非可換点のAbel比較・開埋込み・有限対角
+
+- Lowen–Van den Bergh (2005) の [arXiv原本](https://arxiv.org/pdf/math/0405227)、Theorem 4.1.3、Theorem 6.1、Corollary 6.8はB∞同値としてのMorita・有界導来・Ind比較を与える。各構成ファイバーのcoherent圏の有限ホモロジー次元とcompact窓を使って適用する。Theorem 3.1とRemark 3.5の全Abel障害理論からHH²-torsorと二次Maurer–Cartan障害を使う。全Abel変形が最初からdg窓を持つと仮定しない。
+- Lowen, *Hochschild cohomology, the characteristic morphism and derived deformations*, Compositio Math. **144** (2008), 1557–1580、DOI [10.1112/S0010437X08003655](https://doi.org/10.1112/S0010437X08003655)、[arXiv:0707.2602](https://arxiv.org/abs/0707.2602)。出版版と原本のTheorems 3.22・4.18、Remark 4.20を確認。実際に持ち上がる有限窓上でAbel変形類とdg変形類を合わせ、Hochschild複体の一次Bocksteinを[π,−]と同定する。任意の導来対象の無条件の持上げには使用しない。
+- 次数2の二次障害の成分がPlücker関係I₂をちょうど張ることを、任意の `Sym²(V*)/L` を核とする試験拡大で証明する。これにより `rank[π,−]=binom(n−1,2)` を得る。方向解消上で `d²=τA` と書く有限行列とproperな悪条件像の除去が、全係数・全方向の一様性を与える。HH³の一定次元性やHKRの括弧両立は仮定しない。
+- Yekutieli Theorem 11.1の体は実数体を含む任意Kを許すことを原文で確認した。[Stacks 0321](https://stacks.math.columbia.edu/tag/0321)、Lemma 10.158.8で係数体K/CをArtin環へ持ち上げ、有限分離拡大による有限étale降下で任意の剰余体を扱う。無限代数閉包をfppf被覆としない。
+- 任意M族の反標準環にはDDL §3.3・Corollary 3.16の豊富列復元を使う。NoetherなZ-代数から環のNoether性と有限表示を本文で導く。負の軌道Homは相対Serreと有向ACMから消滅させる。
+- [Stacks 04TK](https://stacks.math.columbia.edu/tag/04TK)、[04SZ](https://stacks.math.columbia.edu/tag/04SZ) により混合Isomの滑らかな群oid商が代数空間となる。局所有限表示monomorphismに全Artin持上げを適用し、[02HY](https://stacks.math.columbia.edu/tag/02HY) と代数空間版 [05W5](https://stacks.math.columbia.edu/tag/05W5) で開埋込みを得る。全Mの代数性を前提としない。
+- Luna, *Slices étales*, Mémoires SMF **33** (1973), 81–105、DOI [10.24033/msmf.110](https://doi.org/10.24033/msmf.110)、[一次PDF](https://www.numdam.org/article/MSMF_1973__33__81_0.pdf)、I §4 Corollaire p.90を確認。affineスキームへの還元群作用で全stabilizer有限なら作用射有限という結果を、古典モジュライに適用する。非可換の全同値群oidへ直接還元群作用の定理を適用せず、shadowの古典Isomへ閉埋込みする。
+- [Stacks 0DUA](https://stacks.math.columbia.edu/tag/0DUA) はproper inertiaの標的に対するstabilizer preserving locusの開性。[0DUS](https://stacks.math.columbia.edu/tag/0DUS) と [0DUE](https://stacks.math.columbia.edu/tag/0DUE) は粗空間のétale降下とwell-nigh affine被覆。可換点の実際の粗étale模型 `T/Aut(X)` と完成環 `R_X^Aut(X)` へ適用する。
+
+これらの一般比較・商定理は既知である。本研究では、全方向の有限中心商について全点のAbel接空間を制御し、全同値を保った開埋込みと有限対角へ結び付ける。優先権は未確認である。
 
 
 ## 4. Compact持上げ、Serre、鎖formality、降下
@@ -186,7 +201,7 @@ BWB消滅で規格化中心のtorsorを自明化する。局所中心が存在�
 
 `thm:simultaneous-central-all-artin` では、滑らかな可換点で係数の可換sliceを選ぶ。その有限族の完備局所環は、次数1では通常の形式円板、次数2では通常の形式円板とPlücker錐の完備化の積であり、既に求めた全Abel形式環と同じ表示を持つ。可換方向のKodaira–Spencer写像と一次交換子によるPoisson方向の写像がともに同型なので、自然変換に対応する完備局所環の自己写像は同型となる。HH¹によるframed自己同値の剛性と合わせ、同じ有限中心商族のArtin基底変更が全framed変形群oidを表す。次数2の二次Plücker関係を含む全形式環を使っており、接空間の一致だけから高次障害の消滅を結論していない。
 
-以上により、同じ有限代数族の全Artin変形に対する形式的完全性を得る。有限基底上の強・積Noether性、相対tails・Serre式、smooth properな有限開近傍は、次項の独立した証明による。この有限族の全O保存同値の認識は§3に記した有限表示の結果で得た。全モジュライのatlasは未解決である。既存の比較理論の一般原理は先行研究であり、全方向の有限中心商の構成、有限jetによる貼合せ、同じ族の全Artin比較という組合せの包括的な優先権確認は未了である。
+以上により、同じ有限代数族の全Artin変形に対する形式的完全性を得る。有限基底上の強・積Noether性、相対tails・Serre式、smooth properな有限開近傍は、次項の独立した証明による。この有限族の全O保存同値の認識は§3に記した有限表示の結果で得た。全可換零切断を含む開部分のatlasは構成した。全モジュライを被覆するatlasは未解決である。既存の比較理論の一般原理は先行研究であり、全方向の有限中心商の構成、有限jetによる貼合せ、同じ族の全Artin比較という組合せの包括的な優先権確認は未了である。
 
 ### 5.9. 全topの退化曲線、Noether降下、有限基底上のnc族
 
@@ -217,7 +232,7 @@ BWB消滅で規格化中心のtorsorを自明化する。局所中心が存在�
 1. **全方向中心構成の比較と明示化。** 同じambient上の全方向中心と有限中心商、同じ族のArtin完成を既存の形式中心持上げ・filtered楕円代数・全Abel変形理論と比較する。追加の主開条件の明示、中心元の選択の違い、既知の公式との関係を調べる。
 2. **全方向有限族と既存理論の比較。** 全topの退化曲線、強・積Noether性の零方向への降下、同じ族の相対tails・Serre・smooth proper開近傍を、既存のTHCR・filtered変形・圏の変形理論と比較する。Keelerのmultiple divisors論文の本文と正確な仮定を確認し、体上・相対基底上の適用範囲を整理する。同じ有限族の全Artin普遍性と、全O同値による有限型atlasを区別する。
 3. **滑らかな開集合の明示。** 得られた有限部分対角解消とHom複体から、具体的な係数の非消滅条件を計算する。開近傍の存在証明と、その判別式の明示は異なる状態である。
-4. **全O同値と大域モジュライ。** 一般点のfullなDM部分問題と粗空間は構成した。零切断を保った全sourceのsmoothnessとfullな有限型DM部分問題Uも構成した。次は全Mに対するversalityの開性、Uの被覆範囲と可換locusに接しない成分、零切断を含む粗空間を調べる。Toën–Vaquiéの固定dg圏の対象モジュライを、可変な全O-marked圏のモジュライと同一視しない。
+4. **全O同値と大域モジュライ。** 零切断を含む有限型DM開部分Uの全点Artin普遍性、有限対角、分離粗空間、一般自明安定化群、可換点の粗étale局所模型を得た。次はUの被覆範囲と可換locusに接しない成分、特殊安定化群の不変式、shadowのファイバーとPoisson構造の復元を調べる。Toën–Vaquiéの固定dg圏の対象モジュライを、可変な全O-marked圏のモジュライと同一視しない。
 5. **退化曲線を含む構成と新規性。** 解消point curve、次数1の尖点と次数2のribbonを含む相対THCR、二重切断環による積Noether性、smoothnessの有限開近傍を、既存の楕円代数・非可換del Pezzo・変形圏の構成と比較する。中心増大層を含む適用範囲と、各主張の優先権を確認する。
 
 一般nでの全Abel形式群oid、nc多様体条件のArtin持上げ、形式粗商、具体量子化の完全性、任意指数Veronese復元、有限型族のCasimir・普遍中心・相対双対、全topの退化曲線を含む相対THCRと積Noether性、全方向の同時中心商・相対tails・smooth proper開近傍・全Artin比較という組合せについて、包括的な優先権調査は未了。変形・compact持上げ・formality・CY potentialの中心存在・Sklyanin中心元・Borel–Weil–Bott・σ-ampleness・THCRのtensor積に関する一般結果は既知の研究として区別する。非可換del Pezzo曲面の各定義、AS Z-代数、marked quiver、非可換吹上げとの比較も継続する。講演概要にある未公表の一般次数の主張は確立済み定理として引用しない。

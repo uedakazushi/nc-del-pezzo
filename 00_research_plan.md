@@ -1,6 +1,6 @@
 # 研究方針：次数1・2の非可換del Pezzo n-fold
 
-**2026-11-20（JST） / v0.12。再開時に最初に読む。**
+**2026-11-20（JST） / v0.13。再開時に最初に読む。**
 
 正本は [uedakazushi/nc-del-pezzo](https://github.com/uedakazushi/nc-del-pezzo) のmain。研究全体の入口は [research-hub](https://github.com/uedakazushi/research-hub)。続いて [研究ノート](research/research_notes.md)、[主原稿](papers/nc-del-pezzo.tex)、[再現手順](docs/reproduction.md) を読む。
 
@@ -27,7 +27,13 @@
 
 有限基底上の圏論的性質も全方向族について得た。次数1の尖点を含む整なGorenstein曲線、次数2の可約・非被約曲線を含む有限平坦二重被覆から、全topの相対THCRとその積のNoether性を証明した。方向の頂点では、次数別有限性とKrull交叉、および完成と頂点外を合わせた忠実平坦被覆を使う。これにより任意Noether基底変更後の強・積Noether性が成立する。有限な次数零Hom複体から同じambientの相対projective対角と無捩れCY同型を構成し、全方向中心商の相対tails・Serre公式・有限compact窓を得た。さらに滑らかな全可換模型の零切断を含む有限型開近傍では、同じ族は実際のsmooth properなnc del Pezzo族となる。
 
-一方向族のPoisson Kodaira–Spencer像が高々1次元という障害は、全方向族と全Artin比較により解消した。分離型の明示的中心式・普遍中心と一般楕円型の具体的表示も保持する。この有限型nc族の全O保存同値は反標準Veronese環から認識でき、同値層はV×V上アフィン有限表示となる。可換零切断を保った開近傍でquasi-finite・unramified性と有限自己同値群を得た。方向のproper解消と基本シフトを保つ矢の開性により、通常Bによる全同値認識も可換零切断全体を含む一つの開近傍へ強化した。さらに可換矢の完成局所環を全Artin比較から計算し、source・targetの相対滑らかさを証明した。一般平坦性を組み合わせ、非零方向の非空稠密開Wのfullな部分問題に、滑らかな既約有限型DMスタックと滑らかな粗モジュライ代数空間を構成した。その次元はb(n,1)+n、b(n,2)+2n−1である。さらに非零矢を重み付き線型変換とCasimir係数へ分解し、中心元のCasimir Jacobianを零切断を保って可逆にした。これにより全source・targetの滑らかさを零切断近傍全体で証明し、全滑らかな可換模型と全Artin変形を含む整な有限型DM部分スタックUを得た。次数1と次数2のn=2では滑らか、次数2のn≥3では可換部分に特異性が残る。現在の核心はUの全モジュライ内での開性と被覆範囲である。形式的普遍性だけでは表示を代数化できない一般反例は、今回必要になった追加の中心Jacobian条件を理解するため保持する。元の全成分数決定には、可換locusに接しない成分の検討がなお必要である。追加開条件の最小明示式、一般安定化群・粗空間の分離性、全有限パラメータの境界分類も残る。
+一方向族のPoisson Kodaira–Spencer像が高々1次元という障害は、全方向族と全Artin比較により解消した。分離型の明示的中心式・普遍中心と一般楕円型の具体的表示も保持する。全O保存同値を反標準Veroneseから認識し、方向のproper解消と基本シフトを保つ矢の開性によって、通常Bによる全同値認識を可換零切断全体の一つの開近傍へ広げた。weighted-linear認識とCasimir Jacobianによる持上げで全source・targetの滑らかさを証明し、全滑らかな可換模型を含む整な有限型DMスタックUを得た。その次元はb(n,1)+n、b(n,2)+2n−1である。次数1と次数2のn=2では滑らか、次数2のn≥3では可換部分にPlücker特異性が残る。
+
+Uの全幾何学的点で全Abel Artin変形を同じ族が実現する。Abel Hochschildと有限窓dg模型を比較し、次数2・n≥3では二次Plücker障害の微分に一致する第一Bocksteinの階数を方向解消上で一様化する。任意のM族に対してもSerre周期・Noether性から有限表示反標準環とsection復元を得るため、全Mの対角は局所Noether site上でアフィン有限表示となる。混合同値層によりU→Mを表現可能な局所有限表示monomorphismとし、任意の剰余体を含む全点Artin比較から開埋込みを証明した。全Mの代数性を仮定せず、形式的普遍性だけから開性を結論しない。
+
+さらに中心方程式の完全対称化から可換模型を構成し、全同値層をその古典Isomへ閉埋込みする。零切断を保った一つの縮小上でUは有限対角を持ち、分離的で整な有限型粗空間M^ncを得る。可換モジュライDへのshadow射U→Dは代数空間で表現可能である。stabilizer preservingなétale sliceから、実際の粗空間のétale局所模型T/Aut(X)と完備局所環R_X^Aut(X)を得る。一般安定化群は自明であり、非零方向には稠密な滑らかな代数空間の開部分がある。
+
+現在の核心はUの全域的な被覆範囲と残る成分、特殊自己同型群を持つ点の粗空間、shadow射とPoisson構造の関係である。元の全成分数決定には、可換locusに接しない成分の検討が必要である。追加開条件の最小明示式と有限パラメータの境界分類も残る。形式的普遍性だけでは表示を代数化できない一般反例は、持上げと有限表示の追加条件が必要な理由として保持する。
 
 ## C. 主要到達点と確実性
 
@@ -45,7 +51,7 @@
 | Artin近傍の全O同値は通常のgraded同型を次数スカラーで割ったもの | 基本シフトをHH¹剛性で認識し、飽和性で復元。普遍中心条件不要 | `prop:artin-full-graded-recognition`, `thm:all-artin-are-nc-dp` |
 | 全O同値は反標準軌道環から認識可能 | 相対perfect/Serre、反標準豊富性、section復元等の追加仮定付き | `prop:ncdp-relative-anticanonical-hom` |
 | 同じ有限型nc族の全O同値は反標準VeroneseのIsom/G_m | smooth proper開V全体。compactなSerre軌道と豊富列の復元、tailsのfppf降下を証明。V×V上アフィン有限表示、任意基底変更と両立 | `thm:finite-anticanonical-isom`, `lem:veronese-finite-presentation`, `lem:graded-isom-affine-quotient` |
-| 全同値スキームは零切断を保った開近傍でquasi-finiteかつunramified | 安定化群の単位余接加群の支持を除く。各幾何学的自己同値群は有限。source・targetのsmoothnessは後述の別定理。V×Vへのanchorの有限性・flatnessは主張しない | `lem:finite-type-equivalence-unramified-open`, `cor:finite-equivalence-unramified` |
+| 全同値スキームは零切断を保った開近傍でquasi-finiteかつunramified | 安定化群の単位余接加群の支持を除く。各幾何学的自己同値群は有限。さらに下記の古典Isomへの閉埋込みによりanchorの有限性を証明。flatnessは要求しない | `lem:finite-type-equivalence-unramified-open`, `cor:finite-equivalence-unramified`, `thm:zero-neighborhood-finite-diagonal` |
 | 同じ開近傍の相対HHは負次数零・HH⁰=基底・HH¹=0 | smooth properな有限dg模型のHochschild複体と単位coneのTor振幅。任意非平坦affine基底変更。nc点の存在するperfect対角持上げにも剛性 | `prop:simultaneous-hochschild-rigid-open`, `cor:noncommutative-diagonal-artin-rigidity` |
 | 非零方向でBは中央Sym K上普遍平坦、固定q中心条件の非空稠密開が存在 | 被約普遍基底で活性filtrationと一定Hilbert関数からP-加群分裂を構成し任意基底へ移す。δ_q/hの古典Poisson中心で全smooth f・全非零rayとの交叉を証明 | `lem:simultaneous-central-flatness`, `thm:finite-low-center-open` |
 | 非零方向の稠密開で全O同値は通常BのIsom/G_m | n≥3でq=n−1の普遍中心条件と相対Veronese持上げを適用。n=2はV全体で成立。全中心最小性は不要 | `cor:finite-full-graded-recognition` |
@@ -53,12 +59,19 @@
 | 可換矢の完成はR_X[[u_g,v_g]]、sourceとtargetは相対次元gでsmooth | full coefficient基底。g=n²または(n+1)²。classifying mapに沿う形式積と全framed射の一意性を使用。Plücker特異性は残る | `lem:full-coefficient-formal-slice`, `thm:equivalence-source-formal-smooth` |
 | 可換零切断は全同値でschemeとして保存 | 非零方向の中央一次非零因子から幾何学的saturation、Artin graded認識とzの自由直和因子から方向イデアルの一致 | `lem:commutative-zero-equivalence-saturated`, `cor:zero-section-scheme-saturated` |
 | 零切断を保った一つの開で全source・targetが相対次元gでsmooth | 低次数Sym同型からweighted-linear化、中央係数差の同定、ambient中心の分裂核とCasimir Jacobianのproper一様化、小拡大補正。全矢を保持 | `lem:normalized-ambient-center-near-zero`, `prop:casimir-jacobian-zero-neighborhood`, `thm:full-source-smooth-zero-neighborhood` |
-| 全可換模型と全Artin変形を含む整な有限型DM部分スタックU | 次元b(n,1)+nまたはb(n,2)+2n−1。d1とd2・n=2はsmooth。d2・n≥3は可換locusが非smooth locusの被約構造。全M内での開性は未証明 | `thm:zero-neighborhood-full-dm` |
-| 可換点の実際の有限型étale slice [T/Aut(X)]→U | Aut(X)不変横断補空間とaffine縮小。完成環のu=0からétale性、任意基底の相対安定化群核からrepresentability。残余gerbe上で同型 | `cor:finite-etale-slice-near-classical` |
-| 非零方向の非空稠密開Wのfull部分問題にsmooth irreducible有限型DM表示 | 零切断近傍のDM表示から非零対象開へ制限する。得たUの開部分スタックであるが、全M内でopenとは未証明 | `thm:generic-full-dm-stack` |
-| さらにgenericにfinite étale inertiaとsmooth irreducibleな粗代数空間 | inertia座標環のgeneric有限性を分母払いで有限化。Keel–Moriとflat inertiaのgerbe判定。次元b(n,1)+nまたはb(n,2)+2n−1。分離性は未証明 | `cor:generic-finite-inertia-coarse` |
+| 全可換模型と全Artin変形を含む整な有限型DMスタックU | 次元b(n,1)+nまたはb(n,2)+2n−1。d1とd2・n=2はsmooth。d2・n≥3は可換locusが非smooth locusの被約構造。全M内での開性は下記の全点比較と混合同値層で証明 | `thm:zero-neighborhood-full-dm`, `thm:zero-neighborhood-open-full-moduli` |
+| 可換点の実際の有限型étale slice [T/Aut(X)]→U | Aut(X)不変横断補空間とaffine縮小。representable étaleで残余gerbe上同型。有限慣性のproper性により全点でstabilizer preservingとなる縮小を取れる | `cor:finite-etale-slice-near-classical`, `cor:stabilizer-preserving-slice-generic-trivial` |
+| 非零方向の非空稠密開のfull部分問題にsmooth irreducible有限型DM表示 | 零切断近傍のDM表示から非零対象開へ制限。Uおよび全Mの開部分スタック。さらに一般安定化群は自明で、稠密開は滑らかな代数空間 | `thm:generic-full-dm-stack`, `thm:zero-neighborhood-open-full-moduli`, `cor:stabilizer-preserving-slice-generic-trivial` |
+| genericにfinite étale inertiaとsmooth irreducibleな粗代数空間 | 全Uの有限慣性・分離粗空間へ強化。一般安定化群は自明。次元b(n,1)+nまたはb(n,2)+2n−1 | `cor:generic-finite-inertia-coarse`, `cor:zero-neighborhood-separated-coarse`, `cor:stabilizer-preserving-slice-generic-trivial` |
 | 基本シフトを保つ矢は全同値スキームの開部分群oid | H=Isom_gr(B)/G_m→Eはmonomorphismで、HH¹剛性とHH⁰による比較調整でformally étale。方向解消を加えることで、上記の零切断近傍全体のH=Eへ強める | `thm:ordinary-graded-arrows-open` |
-| 有限型群oid商はlimit preserving、可換特殊fiberの形式対象はeffective | 全scheme上の商stackとNoether site上の圏論的解釈を区別。形式同値のeffectivityは構成族の二模型間。全Mのformal GAGAではない | `lem:finite-groupoid-limit-preserving`, `prop:commutative-formal-family-effective` |
+| 有限型群oid商はlimit preserving、可換特殊fiberの形式対象はeffective | 全scheme上の商stackとNoether site上の圏論的解釈を区別。さらに任意の完備Noether局所基底上のM族も、可換閉fiberを持てば構成模型と実際に同値。混合同値層のaffine有限表示を使用 | `lem:finite-groupoid-limit-preserving`, `prop:commutative-formal-family-effective`, `cor:arbitrary-classical-family-effective` |
+| Uの全幾何学的点で全framed Abel Artin変形を同じ有限族が実現 | Abel Hochschild・有限窓dg比較、HH²の下限と上半連続性。d2・n≥3はPlücker二次障害の微分と第一Bockstein、方向解消による階数の一様化。任意剰余体を扱う | `thm:all-points-abel-artin-versality`, `lem:abel-versality-arbitrary-residue-field` |
+| 任意M族の反標準環は有限表示で圏を復元、全Mの対角はaffine有限表示 | 局所Noether C-schemeのfppf site。Serre周期による軌道環のNoether性、augmentationの有限syzygy、相対導来Serreと有向ACM、豊富列復元 | `lem:arbitrary-anticanonical-finite-presentation`, `prop:full-moduli-affine-diagonal` |
+| U→Mは全可換模型を含む開埋込み | 混合同値層からrepresentable lfp mono、全点Artin比較から形式的étale。全Mの代数性を仮定しない。任意M族の可換fiberの周囲にもZariski近傍を得る | `prop:constructed-substack-representable-lfp`, `thm:zero-neighborhood-open-full-moduli`, `cor:familywise-classical-neighborhood` |
+| 零切断近傍のUは有限対角を持つ分離的有限型DMスタック | 全graded同型のweighted-linear性を被約な全同値スキームへ延長。対称化した中心方程式の滑らかな古典Isomへ閉埋込み。古典対角の有限性を使用 | `lem:all-graded-isom-weighted-linear`, `lem:commutative-central-shadow`, `thm:zero-neighborhood-finite-diagonal` |
+| 可換モジュライDへのshadow射U→Dは表現可能 | 選んだ中心元と完全対称化に付随し、零切断では元の可換模型。全安定化群の単射から代数空間による表現可能性。Poisson構造の復元は未証明 | `prop:representable-commutative-shadow` |
+| Uは分離的で整な有限型粗空間M^ncを持ち、一般安定化群は自明 | 有限慣性とKeel–Mori。一般可換点のμ₂が方向に符号作用し、stabilizer preserving slice上の非零方向では自由。零切断での慣性の平坦性は要求しない | `cor:zero-neighborhood-separated-coarse`, `cor:stabilizer-preserving-slice-generic-trivial` |
+| 可換点の実際の粗空間はT/Aut(X)をétale局所模型に持ち、完備局所環はR_X^Aut(X) | 粗射との正方形はCartesian。可換点で正規CMかつ解析的一分枝。一般μ₂点は係数方向とPoisson錐の2次Veronese商の積の開部分 | `cor:algebraic-coarse-local-model` |
 | 任意指数rのVeronese同型の持上げはμr-torsor | 二つ以上の中心一次変数、中心多項式環上平坦、普遍的低次中心条件の下で証明 | `thm:ncdp-veronese-lift` |
 | dは反標準Euler多項式から内在的に復元でき、族で局所定数 | 一般には反標準ACM・相対perfect条件付き。定義したMでは条件を満たし次数1・2が開閉分解 | `prop:ncdp-intrinsic-degree`, `cor:defined-moduli-degree-separation` |
 | 冪零段階の中心商は左右で唯一のaugmentation Ext `R(n−1)` を次数n+1に持つ | R分裂Koszul持上げと平坦中心商のchange of ringsで証明。通常の絶対AS正則性やSerre公式ではない | `prop:nilpotent-weighted-as`, `prop:flat-central-hypersurface-ext` |
@@ -96,14 +109,14 @@
 
 ## D. 未解決の核心と次の一手
 
-1. **DM部分問題Uの全M内での開性と被覆。** 零切断を含むfullな有限型DM表示は構成した。次は有限窓dg模型のHochschild複体と実際の族のKodaira–Spencer写像を比較し、一般nc点の全Abel変形・障害を制御する。相対HHのperfect性だけからversalityの開性を結論せず、変形・障害理論の有限性とArtinの条件を具体的に確認する。UがM内でopenか、可換locusに接しない成分があるかは別の問題である。
-2. **零切断を含む粗空間。** 非零一般点のfinite étale慣性と滑らかな粗空間は得た。次は零切断近傍で慣性射がfiniteとなるか、全同値の対角がproperとなるかを調べ、可換点の形式粗商R_X/Aut(X)を実際の粗空間に結び付ける。慣性の平坦性を零切断まで要求しない。一般安定化群の具体的同定と分離性を検討する。
-3. **境界・粗空間・明示条件。** H→Eは開埋込みで、低次数中心開では同型である。今回得た零切断近傍の外側の中心増大層で、その補集合に追加同値があるかを調べる。一般安定化群の具体的同定と粗空間の分離性を調べ、中心行列・分母・Noether開・CY線束・smoothness・Casimir Jacobianの非消滅条件を具体化する。全次数の中心条件を一つの有限開条件へ置き換えない。
-4. **公表範囲と先行研究。** 全方向有限型nc族・全Artin普遍性・有限基底上の全同値認識を中心として整理する。変形比較・THCR・Fujita消滅・Noether降下・同型関手・トーラス商は既知の原理であり、組合せの包括的優先権は未確認。多項式Veroneseの持上げにはAMU2025の先行結果を明示し、相対非可換復元との差を説明する。Keelerのmultiple divisors論文の本文と一般基底への仮定は引き続き確認が必要。
+1. **全域被覆と残る成分。** Uの全M内での開性は証明した。次はUの外にあるM対象を、反標準環と許容豊富列から調べる。全可換locusがUに入ることと、可換locusに接しない成分の不存在は別である。中心超曲面表示の存在条件、他のHilbert一定な族、特殊化の可能性を具体的に調べ、全Mの代数性・被覆・成分数を段階的に判定する。
+2. **粗空間とshadow射の幾何。** 有限対角、分離粗空間、一般安定化群の自明性、可換点のétale局所模型T/Aut(X)は得た。次は特殊可換模型のAut(X)作用とR_X^Aut(X)を計算し、特異層を記述する。表現可能なshadow射U→Dの像・ファイバーとPoisson構造の復元可能性を調べる。shadowの存在だけからPoissonモジュライとの同値を結論しない。
+3. **境界と明示条件。** 零切断を含む開近傍ではH=Eである。その外側の中心増大層で追加同値があるか、smooth proper性や全点Artin比較がどこまで延長するかを調べる。中心行列・分母・Noether開・CY線束・smoothness・Casimir Jacobian・Hochschild階数の非消滅条件を具体化する。全次数の中心条件を一つの有限開条件へ置き換えない。
+4. **公表範囲と先行研究。** 全方向有限型nc族、全点Abel Artin比較、全M内の開性、有限対角と粗空間を一貫した中心結果として整理する。変形比較・THCR・Fujita消滅・Noether降下・同型関手・トーラス商・Keel–Mori・sliceは既知の原理であり、組合せの包括的優先権は未確認。多項式Veroneseの持上げにはAMU2025の先行結果を明示し、相対非可換復元との差を説明する。Keelerのmultiple divisors論文の本文と一般基底への仮定は引き続き確認が必要。
 
 ## E. 依存・再開・検証
 
-- 相対Poisson錐・商・自己同型：`poisson-del-pezzo` main `4834ea4f3e13bff4d6c5793cec9b169d8f1ad56f`、主原稿v1.4の定理7.3・8.8、補題8.7、注意8.5、命題9.4。
+- 相対Poisson錐・商・自己同型：`poisson-del-pezzo` main `4834ea4f3e13bff4d6c5793cec9b169d8f1ad56f`、主原稿v1.4の定理7.3・8.8・9.2、補題8.7、注意8.5、命題9.4。古典対角の有限性には定理9.2とLunaのaffine作用の結果を使用する。
 - O-marked枠組み：`nc-cubic-threefold-moduli` main `6c35d2c84671c2538e61836a6bf3a511392eacce`、主原稿v22。三次三様体固有の次数一生成・指数2・残余圏の結論を無条件に輸入しない。
 - 一次資料・具体的な適用条件・優先権未確認点は [文献と依存](research/literature.md)。証明の重複は研究ノートへ置かない。
 - `make verify` はn=2,…,8のHilbert/monic基底・Euler差分・二次障害・符号粗商の接空間次元と、分離型の全係数PBW overlap・中心交換子・内部次数・補助次数を検査する。さらに三次Sklyanin中心元の自由代数内の九項証明書、パラメータ置換と可換極限を厳密計算する。分離型とSklyanin中心の検算はhの有限jetではない。`verify_elliptic_curve.py` はpoint curveの行列式、blowup、分母を払ったshiftの恒等式を厳密検算し、σ⁴の非自明性だけは明示したmod h²計算で確認する。`verify_degree_one_top.py` はWeierstrassからStephensonへの変数変換、関係式のイデアル、AS開多項式、cyclic syzygyを有理係数の自由代数で厳密に検算する。`verify_degree_one_curve.py` は解消曲線の両chart・無限遠因子・shiftと関係式を全係数の恒等式で検算し、σ⁶の非自明性だけmod h²を使う。一般の証明を有限次元の数値例で代替していない。

@@ -42,7 +42,7 @@
 \newcommand{\Perf}{\operatorname{Perf}}
 \newcommand{\rank}{\operatorname{rank}}
 \newcommand{\HH}{\operatorname{HH}}
-\newcommand{\Version}{0.12}
+\newcommand{\Version}{0.13}
 \title{次数1・2の非可換del Pezzo多様体\texorpdfstring{\\}{ }構造対象付き変形とモジュライの局所構造}
 \author{}
 \date{2026年11月20日\quad v\Version\quad 公表用研究稿}
@@ -61,16 +61,13 @@ $\Gr(2,n+1)$ のPl\"ucker錐の頂点完備化の積となる。
 $[\operatorname{Spf}R_X/\operatorname{Aut}(X)]$ である。
 有限Ore被覆と対角のcompact持上げにより，全Artin変形の飽和性，豊富性，
 smooth proper性と相対Serre公式 $(-(n-1))[n]$ を証明する。
-さらに全構造対象付き同値の認識，反標準section環とVeronese復元を調べる。
 
 有限パラメータについては，両次数・全次元で独立な全Poisson方向を含む
 有限表示ambient族を明示的な主開集合上に構成する。
 同じ代数の中心を中央多項式係数上で持ち上げ，方向空間上で貼り合わせることにより，
 全可換係数の零切断全体を含む有限型開近傍上で
 普遍的に正則な中心元と次数別平坦な中心超曲面族を得る。
-次数2ではGrassmann多様体上のコホモロジー消滅と錐への降下を使う。
-次数1では4次までの座標不変な中心補正を厳密計算で与え，
-残る高次の貼合せ障害の消滅と有限線型方程式によって代数化する。
+方向空間上の中心持上げとコホモロジー消滅，有限線型方程式によって代数化する。
 この一つの有限型中心商族のArtin基底変更が，
 可換sliceを選んだ後の全framed Abel変形を実現することを証明する。
 
@@ -91,12 +88,17 @@ Casimir係数の可逆なJacobianによって矢の持上げを解く。
 全同値による有限型で整なDeligne--Mumfordスタックを構成する。
 次数1，および次数2の $n=2$ では滑らかであり，
 次数2の $n\ge3$ では可換部分にPl\"ucker錐の特異性が残る。
-非零方向の非空開へ制限すると，有限\'{e}taleな慣性と
-滑らかな粗モジュライ代数空間を持つように取れる。
+全非可換ファイバーのAbel Hochschild比較と二次Pl\"ucker障害から，
+零切断を含む一つの開近傍の全点で全Abel Artin普遍性を証明する。
+任意の許容族の反標準環を有限表示として復元し，混合同値層の表現可能性と合わせて，
+このDM部分問題が全モジュライ内の開部分スタックであることを示す。
+対称化した中心方程式から可換模型を作り，全同値層を古典同型層へ閉埋込みすることで，
+同じ零切断近傍の対角の有限性と，分離的な有限型粗モジュライの存在を得る。
+一般安定化群は自明で，可換点の粗局所環は上記の有限群不変環によって記述される。
 次元は次数1で $b_{n,1}+n$，次数2で $b_{n,2}+2n-1$ である。
-このfullな部分問題の全モジュライ内での開性と被覆範囲，全既約成分数，
-追加開条件の明示公式は未解決として区別する。
+この近傍の外側の対象の被覆，全既約成分数，追加開条件の明示公式は未解決である。
 \end{abstract}
+\clearpage
 \tableofcontents
 
 \section{問題と主結果}
@@ -163,7 +165,9 @@ Veronese環の有限生成・有限関係を右Noether性から証明し，
 $\mathcal E\to V\times V$ はquasi-finiteかつunramifiedとなる
 （系\ref{cor:finite-equivalence-unramified}）。
 従って各幾何学的点の全 $\mathcal O$ 保存自己同値群は有限である。
-この主張は自己同値群の有限性であり，基底上での同値スキームの有限性や平坦性を含まない。
+この段階の主張は幾何学的自己同値群の有限性である。
+基底上での同値スキームの有限性は第\ref{sec:separated-coarse-moduli}節で別に証明し，
+零切断上までの慣性の平坦性は仮定しない。
 別に，命題\ref{prop:simultaneous-hochschild-rigid-open}は，同じ種類の開近傍で
 任意の非平坦な係数変更後にも相対 $HH^{<0}=0$，$HH^0=\mathcal O$，$HH^1=0$ を与える。
 
@@ -242,20 +246,74 @@ $T\subset(f+N)\times C_{n,d}$ を取り，
 可換点の残余gerbe上で同型となり，既存の形式商
 $[\operatorname{Spf}R_X/\Gamma]$ と両立する。
 
-さらに非零方向の非空開部分スタック $\mathfrak N_{n,d}\subset\mathfrak U_{n,d}$ を取り，
-慣性を有限\'{e}taleにできる。
-その粗モジュライ代数空間 $M_{n,d}$ も滑らかで整，有限型となり，
-\begin{equation}\label{eq:intro-generic-moduli-dimension}
- \dim\mathfrak U_{n,d}=\dim\mathfrak N_{n,d}=\dim M_{n,d}=
- \begin{cases}b_{n,1}+n,&d=1,\\ b_{n,2}+2n-1,&d=2.\end{cases}
-\end{equation}
+\subsection{全モジュライ内の開性と分離的な粗空間}
+前節までに構成した全同値商を，零切断全体を保ってさらに縮める。
+第\ref{sec:noncommutative-abel-versality}節から
+第\ref{sec:separated-coarse-moduli}節の結論をまとめると，次を得る。
 
-有限型群oidの商のlimit preservationと，可換特殊ファイバーを持つ形式対象の
-完備Noether局所基底上での実現も証明する。
-一方，$\mathfrak U_{n,d}$ の全モジュライ $\mathfrak M^{\mathcal O}_{n,d}$ 内での開性，
-全非可換対象の被覆と全成分数は結論していない。
-全Artin普遍性だけでは有限型表示へ進めない一般群oidの反例も保持し，
-本稿で追加した中心Jacobianによる持上げとの違いを明示する。
+\begin{theorem}[零切断近傍の非可換モジュライ]
+\label{thm:main-open-coarse-moduli}
+各 $n\ge2$，$d=1,2$ に対し，全滑らかな可換模型を含む
+\[
+ \mathfrak U_{n,d}\hookrightarrow\mathfrak M^{\mathcal O}_{n,d}
+\]
+という開埋込みがあり，次の性質を持つ。
+\begin{enumerate}
+\item $\mathfrak U_{n,d}$ は整な有限型DMスタックであり，対角は有限である。
+      全ての幾何学的点で，全framed $\mathcal O$-marked Abel Artin変形を実現する。
+\item 分離的で整な有限型粗モジュライ代数空間 $M^{\mathrm{nc}}_{n,d}$ が存在する。
+      一般安定化群は自明で，非零方向に稠密な滑らかな代数空間の開部分を持つ。
+      次元は
+      \begin{equation}\label{eq:intro-generic-moduli-dimension}
+       \dim\mathfrak U_{n,d}=\dim M^{\mathrm{nc}}_{n,d}
+       =\begin{cases}b_{n,1}+n,&d=1,\\b_{n,2}+2n-1,&d=2\end{cases}
+      \end{equation}
+      である。
+\item 各可換点 $X$ では，$\Gamma_X=\operatorname{Aut}(X)$ とすると，
+      上記のsliceを縮めて $T/\Gamma_X\to M^{\mathrm{nc}}_{n,d}$ を\'{e}taleにでき，
+      \[
+       \widehat{\mathcal O}_{M^{\mathrm{nc}}_{n,d},[X]_{\mathrm c}}
+       \simeq R_X^{\Gamma_X}
+      \]
+      となる。この点で粗空間は正規，Cohen--Macaulayかつ解析的に一分枝である。
+\end{enumerate}
+\end{theorem}
+\begin{proof}
+開埋込みと全Artin比較は定理\ref{thm:zero-neighborhood-open-full-moduli}，
+有限対角は定理\ref{thm:zero-neighborhood-finite-diagonal}，
+粗空間，一般安定化群と局所模型は
+系\ref{cor:zero-neighborhood-separated-coarse}，
+\ref{cor:stabilizer-preserving-slice-generic-trivial}，
+\ref{cor:algebraic-coarse-local-model}による。
+\end{proof}
+
+全非可換点のArtin比較では，fullな部分問題の接空間が
+$HH^2_{\mathrm{Ab}}$ に単射となることを用いる。
+次数1と次数2の $n=2$ では，perfectな相対Hochschild複体の半連続性で
+接空間の次元が一致する。次数2の $n\ge3$ では，可換点の二次障害が
+Pl\"ucker関係をちょうど張ることから，非零分解可能方向 $\pi$ における
+\[
+ \operatorname{rank}[\pi,-]=\binom{n-1}{2}
+\]
+を得る。これを実際に持ち上がる有限窓のHochschild一次微分と同定し，
+方向解消上の有限行列とproperな悪条件像の除去によって一様化する。
+$HH^3$ の消滅や一定次元性は必要ない。
+任意の全モジュライ族と構成族の間の同値層をaffine有限表示として復元した後，
+全Artin持上げ判定により開埋込みへ移る。
+
+分離性には別の入力を使う。全同値スキーム上の被約性から，
+非零方向での重み付き線型性を零・冪零方向にも延長する。
+対称化した中心方程式
+$F^{\mathrm{sh}}=\operatorname{Sym}^{-1}(\Omega)$ の滑らかな可換模型を取り出すと，
+非可換同値はその古典同型層の中の有限個の閉条件で記述される。
+古典対角の有限性から非可換対角の有限性が従う。
+この構成は可換モジュライへの表現可能な射
+$\operatorname{sh}:\mathfrak U_{n,d}\to\mathcal D_{n,d}$ も与える。
+
+任意の実際の族において，滑らかな可換ファイバーの周りは上の開部分に入る。
+完備局所基底上では，任意の許容族と構成模型の形式同値も実際の同値になる。
+全モジュライの代数性，全対象の被覆，可換部分に接しない成分の不存在は，
+これらの近傍の結果からは結論しない。
 
 \subsection{先行研究と本稿の範囲}
 Lowenのalgebroidによる全Abel変形の比較\cite[Theorems 3.14, 3.26]{Lowen2008}と、
@@ -264,6 +322,23 @@ Yekutieliのtwisted quantization\cite[Corollaries 7.5, 11.2]{Yekutieli2015}を�
 De Deken--Lowen\cite[Theorem 4.5, Proposition 4.6]{DDL2011}は
 豊富列の持上げとsection $\mathbb Z$-代数による全Artin変形の表示を与える。
 これらの比較原理そのものは既知の結果である。
+
+非可換ファイバーでのHochschild比較には
+Lowen--Van den Bergh\cite[Theorem~4.1.3, Theorem~6.1, Corollary~6.8]{LowenVdBHochschild}を使い，
+実際の有限窓の持上げと一次変形類の整合性には
+Lowen\cite[Theorems~3.22, 4.18, Remark~4.20]{LowenCharacteristic2008}を用いる。
+後者は持ち上がる対象上のpartial dg deformationの定理であり，
+任意のAbel変形で全ての導来対象が持ち上がるとは仮定しない。
+Pl\"ucker二次障害の階数とproperな方向解消を合わせて非可換点の全Artin普遍性へ進む部分は，
+第\ref{sec:noncommutative-abel-versality}節で証明する。
+
+古典対角の有限性には\cite[定理9.2]{PoissonDP}を入力とし，
+その根拠であるLuna\cite[I, \S4, Corollaire, p.~90]{Luna1973}の
+還元群のaffine作用に関する定理を確認する。
+非可換対角への移行には，対称化した中心元と全同値の閉条件を別に証明する。
+Keel--Moriによる粗空間とstabilizer preservingな\'{e}tale降下は既知の一般定理
+\cite[Tags 0DUT, 0DUS, 0DUE]{StacksProject}である。
+
 
 Lowen--Van den BerghのAbel変形とinjective線型圏の比較
 \cite[Theorem~8.17, Appendix~B]{LowenVdBDeformation}を用い、
@@ -519,7 +594,8 @@ $(-(n-1))[n]$ と長さ $n+5$（次数1），$n+3$（次数2）のcompact生成�
 この同じ全方向族が実際のsmooth properなnc del Pezzo族となる。
 第\ref{sec:finite-full-equivalences}節と第\ref{sec:simultaneous-low-center}節は，
 この有限開上の全 $\mathcal O$ 保存同値を認識する。
-全モジュライの被覆とatlasの構成はなお残る。
+零切断近傍の全同値atlasと全モジュライ内の開性は後続の節で証明する。
+構成近傍の外側までの被覆はなお残る。
 同時中心・退化曲線・頂点での降下・相対幾何のこの組合せについて，
 包括的な優先権確認は未了である。
 
@@ -552,49 +628,54 @@ $(-(n-1))[n]$ と長さ $n+5$（次数1），$n+3$（次数2）のcompact生成�
 \input{sections/finite_recognition}
 \input{sections/finite_center_recognition}
 \input{sections/finite_moduli}
+\input{sections/noncommutative_abel_versality}
+\input{sections/open_full_moduli}
+\input{sections/separated_coarse_moduli}
 
-\section{大域的なモジュライへ進むための問題}
+\section{残る大域的なモジュライの問題}
 \label{sec:questions}
-全方向の有限中心商は，滑らかな可換零切断の有限開近傍でsmooth properな
-非可換del Pezzo族を与え，各可換点の横断sliceで全framed Abel Artin変形を実現する。
-その全 $\OO$ 保存同値の層はaffineかつ有限表示であり，
-零切断を保った開近傍ではquasi-finiteかつunramifiedでもある。
-零切断全体を含む一つの開近傍で，通常の次数付き中心商から全同値を認識できる。
-さらに全可換零切断を含むfullな部分問題に有限型DM表示と有限型\'{e}tale sliceを構成した。
-その非零方向の非空開には有限\'{e}taleな慣性と滑らかな粗モジュライ代数空間を得る。
-これらの結論を出発点として，次の問題を区別する。
+全滑らかな可換模型を含む有限型DM開部分スタック
+$\mathfrak U_{n,d}\subset\mathfrak M^{\mathcal O}_{n,d}$ を構成し，
+その全点で全Abel Artin普遍性を得た。
+同じ近傍は有限対角を持ち，分離的で整な粗モジュライが存在する。
+一般安定化群は自明であり，可換点では有限群による実際の\'{e}tale局所商を得る。
+任意の許容族の反標準環による復元は，全モジュライ問題の対角が
+affine有限表示であることも与える。
+これらを出発点として，次を今後の問題とする。
 
 \begin{enumerate}
-\item \emph{零切断近傍の粗空間と分離性。}
-      全矢のsource・targetの滑らかさと有限型DM表示は得た。
-      次は零切断を含む範囲で慣性射の有限性と粗空間の存在を調べ，
-      各可換点の有限群による形式粗商を実際の粗空間へ結び付ける。
-      非零一般点での有限\'{e}tale慣性を零切断まで平坦に延長するとは主張しない。
-      分離性と一般安定化群の具体的同定も別途検討する。
-\item \emph{全変形に対する局所完全性と被覆範囲。}
-      得たDM部分問題が全 $\mathfrak M^{\OO}_{n,d}$ の中で開か，
-      一般nc点の全Abel変形を実現するかを調べる。
-      構成族のlimit preservationと可換点での形式対象のeffectivityを，
-      全モジュライのversalityの開性や全対象の被覆と同一視しない。
-\item \emph{低次数中心が増大する境界。}
-      $n\ge3$ でも，零切断を含む開近傍では元の次数付き環による全同値認識を得た。
-      その外側で低次数中心条件が破れる部分にも，反標準環による全同値の表示は有効である。
-      基本シフトを保つ矢は開部分群oidをなすので，その補集合の像と閉包を調べる。
-      追加の同値が現れるかを層ごとに決定し，粗空間の分離性と一般安定化群も調べる。
-      全中心の生成に関する可算個の条件を，一つの有限開条件と同一視しない。
-\item \emph{開集合の明示。}
-      中心元の追加分母，Noether開，相対CY線束の自明化，
-      対角の有限部分解消，低次数中心行列と微小自己同値の消滅条件を具体化する。
-      存在証明の有限性と最小の判別式の計算を区別し，
-      尖点・可約曲線・非被約ribbonを含む境界のどこまで残せるかを調べる。
-\item \emph{全成分と公表範囲。}
-      各可換点の形式環は整であるが，可換locusに接しない成分の不存在は未証明である。
-      全非可換対象の被覆や，全既約成分数を形式一分枝性から推論しない。
-      既知の変形・量子化・復元理論と，本稿の全方向族への適用の優先権を比較する。
+\item \emph{構成近傍の外側と全既約成分。}
+      全モジュライの任意対象が構成近傍へ変形するか，
+      可換部分に接しない成分が存在するかを調べる。
+      全モジュライ自体の代数性や有限型性は未証明である。
+      近傍の開性と形式一分枝性だけで，全成分数を結論しない。
+      具体的には，反標準環の有限表示を出発点として，
+      全対象の有界性と通常の重み付き超曲面表示の存在条件を調べる。
+\item \emph{可換模型への射とPoisson構造の復元。}
+      $\operatorname{sh}:\mathfrak U_{n,d}\to\mathcal D_{n,d}$ は構成できた。
+      そのファイバー，平坦性，中心元の選択への依存と，
+      初交換子から得るPoisson方向との関係を調べる。
+      この可換模型上のPoisson構造の大域的復元や，
+      Poissonモジュライとの同値は未証明である。
+\item \emph{粗空間の特異性と安定化群の増大。}
+      可換点の局所環の完成は $R_X^{\operatorname{Aut}(X)}$ である。
+      一般可換点では符号商として明示できるが，
+      特殊自己同型群の不変式と非可換点の安定化群増大を具体的に分類したい。
+      慣性は有限でも，零切断に向かって平坦であるとは限らない。
+\item \emph{低次数中心の境界と開集合の明示。}
+      近傍の外側では低次数中心条件が破れ，基本シフトを保たない同値が現れる可能性がある。
+      全モジュライで有効な反標準認識を使い，これらの層と追加の同値を調べる。
+      中心元の分母，相対CYと対角の有限部分解消，低次数中心行列，
+      Hochschild階数，shadowの滑らかさを与える開条件を具体化する。
+      存在証明の有限性と最小判別式の計算を区別し，
+      尖点・可約曲線・非被約ribbonを含む境界で各条件を照合する。
+\item \emph{先行研究との比較と公表範囲。}
+      既知の変形・量子化・復元理論と，
+      全方向族・全同値・全点Artin比較・有限対角を組み合わせた本稿の成果との関係を詰める。
+      包括的な新規性確認は未了であり，公表時には主結果のまとまりに応じて構成を整理する。
 \end{enumerate}
-有限パラメータの非可換対象から古典Poisson多様体を自然に復元する射は構成していない。
-また，三次三様体の残余圏による幾何化を次数1・2へ移すには，
-例外部分と残余圏の相対構成および古典多様体との比較を新たに証明する必要がある。
+三次三様体の残余圏による幾何化を次数1・2へ移すには，
+例外部分と残余圏の相対構成および古典多様体との比較を別に証明する必要がある。
 接空間や形式環の一致だけで残余圏の同値を結論しない。
 
 \begingroup

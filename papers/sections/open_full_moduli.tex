@@ -1,0 +1,291 @@
+% !TeX root = ../nc-del-pezzo.tex
+\section{任意の族の復元と全モジュライ内での開性}
+\label{sec:open-full-moduli}
+
+\subsection{任意の許容族の反標準環と混合同値層}
+
+ここでは構成した有限族だけでなく，
+定義\ref{def:nc-dp-stack}の任意の族を扱う。
+この定義のSerre周期とNoetherな許容表示から，
+反標準環の有限表示性が従うことが要点である。
+
+\begin{lemma}[Serre周期からの有限表示反標準環]
+\label{lem:arbitrary-anticanonical-finite-presentation}
+$T$ を局所Noetherな複素スキームとし，
+$(\mathcal Q,\mathcal O)\in\mathfrak M^{\mathcal O}_{n,d}(T)$ とする。
+fppf局所的に反標準自己同値 $\mathsf H$ と許容豊富列を選び，
+\[
+ R^{\mathrm{can}}=\bigoplus_{m\ge0}
+ \operatorname{Hom}_{\mathcal Q}(\mathcal O,\mathsf H^m\mathcal O)
+\]
+と置く。この環は，各次数が階数 $h_{n,d}(rm)$ の有限局所自由な
+連結非負次数付き環であり，$r=n-1$ とする。
+affine基底上では右Noetherで，有限個の斉次生成元と有限個の斉次関係式を持つ。
+さらに
+\[
+ \mathcal Q\simeq\operatorname{QGr}R^{\mathrm{can}}
+\]
+であり，この同値は構造対象，反標準自己同値，
+任意の許されたNoether基底変更に両立する。
+\end{lemma}
+\begin{proof}
+基底を $\operatorname{Spec}S$ とし，定義の許容列 $(E_i)$ と
+Noetherな $\mathbb Z$-代数 $b$ を選ぶ。
+Serre周期の整合的な同型によって
+\[
+ E_{mr}\simeq\mathsf H^{-m}\mathcal O,
+ \qquad R^{\mathrm{can}}_m\simeq b_{0,mr}
+\]
+となり，積も一致する。次数部分の階数と基底変更は定義のHom条件から従う。
+
+\emph{Noether性。}
+$R=R^{\mathrm{can}}$ の斉次右イデアル $I=\bigoplus I_m$ に対し，
+Noetherな右 $b$-加群 $e_0b$ の部分加群を
+\[
+ (Ib)_j=\sum_{m\ge0}I_m b_{mr,j}\subset b_{0,j}
+\]
+で定める。各固定 $j$ では和は有限である。
+周期同型による積を使うと，$j=ar$ において
+\[
+                       (Ib)_{ar}=I_a
+\]
+となる。右からの包含は $I$ の右イデアル性，逆の包含は $b_{ar,ar}$ の単位による。
+従って斉次右イデアルの昇鎖を $e_0b$ へ拡大してから
+$r\mathbb Z$ に制限すると元の昇鎖を得る。
+$e_0b$ のNoether性から，$R$ は次数付き右Noetherである。
+通常の右イデアルの最高次数部分が生成する斉次右イデアルへ移り，
+その有限個の斉次生成元を持ち上げて次数に関する帰納を行えば，
+通常の右Noether性も得られる。
+
+\emph{有限表示。}
+補題\ref{lem:veronese-finite-presentation}の $r=1$ の場合を適用する。
+具体的には，$R_+$ の有限斉次生成元から自由代数 $F\twoheadrightarrow R$ を取り，
+関係イデアル $J$ に対して
+\[
+ J/(F_+J)\simeq
+ \ker\left(\bigoplus_iR(-d_i)\longrightarrow R_+\right)
+\]
+を用いる。右辺が有限生成なので，次数についての帰納により
+$J$ は有限個の斉次元で両側イデアルとして生成される。
+
+\emph{豊富列からの復元。}
+$(E_{mr})_{m\in\mathbb Z}=(\mathsf H^{-m}\mathcal O)_m$ は，
+定義\ref{def:nc-dp-stack}(2)の反標準豊富列である。
+各 $E_i$ はNoetherな $e_ib$ の像なのでNoetherであり，
+局所Noether Grothendieck圏では有限表示対象である。
+相対豊富性の全射条件は，この列が任意に大きい添字から生成することを与え，
+全射に対する十分大きい添字でのHom全射性はtails-projectivityを与える。
+任意の全射と有限表示対象からの一つの射については，
+その引戻しの中のNoether部分対象からの全射へ帰着すればよい。
+前段のNoether性により，対応する $\mathbb Z$-代数のtails被覆系は位相となる。
+従って\cite[\S3.3, Corollary~3.16]{DDL2011}の復元判定を適用でき，
+表示した同値を得る。
+section環は定義したHomそのものである。負の軌道Homの消滅は，
+許容 $\mathbb Z$-代数の負次数を切る規約だけからは推論しない。
+$m\ge1$ に対し，相対Serre双対と $\mathsf H$ の自己同値性から
+\[
+ \operatorname{RHom}(\mathcal O,\mathsf H^{-m}\mathcal O)
+ \simeq
+ \operatorname{RHom}(\mathcal O,\mathsf H^{m-1}\mathcal O)^\vee[-n]
+\]
+を得る。右辺の双対化前の複体は有向ACMにより次数0に集中し，
+有限局所自由である。従って左辺は次数 $n$ に集中し，その次数0のHomは零である。
+全ての入力は任意の許された基底変更後にも仮定されている。
+復元は同じ豊富列のHomと評価写像から作られるので，
+基底変更と構造対象・軌道自己同値に両立する。
+\end{proof}
+
+\begin{proposition}[任意の二族のアフィン有限表示同値層]
+\label{prop:full-moduli-affine-diagonal}
+局所Noether基底 $T$ 上の任意の二対象
+$\xi,\eta\in\mathfrak M^{\mathcal O}_{n,d}(T)$ に対し，
+全構造対象付きAbel同値のfppf層
+$\underline{\operatorname{Eq}}_{\mathcal O}(\xi,\eta)$ は
+$T$ 上affineかつ有限表示である。
+この表示は任意の許された基底変更に両立する。
+従って全モジュライ問題の対角は，このsite上でaffine有限表示である。
+\end{proposition}
+\begin{proof}
+前補題を両方の族に適用する。
+相対perfect圏上のSerre比較と豊富列による復元により，
+命題\ref{prop:ncdp-relative-anticanonical-hom}と同じ証明は
+\[
+ \underline{\operatorname{Eq}}_{\mathcal O}(\xi,\eta)
+ \simeq
+ \underline{\operatorname{Isom}}_{\mathrm{gr}}
+       (R^{\mathrm{can}}_\xi,R^{\mathrm{can}}_\eta)/\mathbb G_m
+\]
+を与える。比較はcompactな反標準軌道上で行い，
+全coherent対象を相対perfectとみなす必要はない。
+隣接Homは正階数局所自由なので，核はちょうど次数スカラーである。
+同値とその比較の降下は，任意の基底変更に両立するsection復元と
+有限表示次数付き加群のfppf降下による。
+
+前補題の有限表示性と各次数の局所自由性により，
+補題\ref{lem:graded-isom-affine-quotient}を適用できる。
+次数一部分の階数は両方とも $h_{n,d}(r)>0$ である。
+従って右辺はaffine有限表示スキームである。
+表示や反標準自己同値の選択を変えても，左辺の内在的な同値層を表すので，
+affine射と有限表示性のfppf降下によって一般の $T$ 上へ降下する。
+\end{proof}
+
+\begin{proposition}[構成部分問題の包含の表現可能性]
+\label{prop:constructed-substack-representable-lfp}
+定理\ref{thm:zero-neighborhood-full-dm}の包含
+\[
+ j:\mathfrak U_{n,d}\longrightarrow\mathfrak M^{\mathcal O}_{n,d}
+\]
+は，局所Noether基底のsite上で代数空間によって表現可能な
+局所有限表示のmonomorphismである。
+\end{proposition}
+\begin{proof}
+$T\to\mathfrak M^{\mathcal O}_{n,d}$ を任意の族とし，
+$P=T\times_{\mathfrak M^{\mathcal O}_{n,d}}\mathfrak U_{n,d}$ と置く。
+包含がfullなので $P\to T$ はmonomorphismであり，$P$ の自己同型は自明である。
+既存の滑らかな表示 $W_d\to\mathfrak U_{n,d}$ を使い，
+\[
+ F=T\times_{\mathfrak M^{\mathcal O}_{n,d}}W_d
+\]
+を取る。前命題から $F\to T\times W_d$ はaffine有限表示であり，
+$F$ は局所Noetherなスキームである。
+$F\to P$ は $W_d\to\mathfrak U_{n,d}$ の基底変更なので
+表現可能，滑らか，全射である。
+さらに $P\to T$ がmonomorphismなので
+$F\times_PF\simeq F\times_TF$ はスキームである。
+同じく $F\times_PF\rightrightarrows F$ は滑らかなスキーム群oidとなり，
+その商はfppf降下により $P$ に一致する。
+商定理\cite[Tag~04TK]{StacksProject}により $P$ は代数スタックであり，
+自己同型が自明なので代数空間である\cite[Tag~04SZ]{StacksProject}。
+$F\to T$ は局所有限表示であり，$F\to P$ は滑らかな全射だから，
+$P\to T$ の局所有限表示性も降下する。
+\end{proof}
+
+\subsection{全Artin比較から開埋込みへの判定}
+
+\begin{proposition}[形式比較が全幾何学的点で成立する場合の開性]
+\label{prop:all-point-formal-comparison-open}
+$\mathfrak V\subset\mathfrak U_{n,d}$ を開部分スタックとする。
+任意の体拡大 $K/\mathbb C$ と $x\in\mathfrak V(K)$ について，
+次の形式比較条件を仮定する。
+剰余体 $K$ の任意の局所Artin $\mathbb C$-代数上で，
+$x$ を特殊ファイバーとする $\mathfrak M^{\mathcal O}_{n,d}$ のframed変形は，
+$\mathfrak V$ のframed変形によってすべて実現される。
+このとき
+\[
+                 \mathfrak V\longrightarrow\mathfrak M^{\mathcal O}_{n,d}
+\]
+は開埋込みである。
+この仮定は，全ての代数閉拡大体上で比較を確認すれば十分である。
+\end{proposition}
+\begin{proof}
+任意の $T\to\mathfrak M^{\mathcal O}_{n,d}$ に対し
+$P=T\times_{\mathfrak M^{\mathcal O}_{n,d}}\mathfrak V$ とする。
+前命題により $P\to T$ は代数空間の局所有限表示monomorphismである。
+局所Artin環の小拡大 $A'\twoheadrightarrow A$ と持上げ問題
+\[
+ \operatorname{Spec}A\longrightarrow P,
+ \qquad \operatorname{Spec}A'\longrightarrow T
+\]
+を取る。共通の剰余体を $K$ とする。
+後者が定める対象は，前者の特殊ファイバー $x$ の
+$\mathfrak M^{\mathcal O}_{n,d}$ 内での変形である。
+仮定によって $\mathfrak V(A')$ の対象を選べる。
+その $A$ 上の還元と既定の $\mathfrak V(A)$ の対象との比較同型は，
+$\mathfrak M^{\mathcal O}_{n,d}$ 内で存在する。
+$\mathfrak V$ の包含はfullなので，それは $\mathfrak V$ 内の同型となり，
+$P$ への所要の持上げを与える。monomorphismにより持上げは一意である。
+
+従って $P\to T$ は局所Artin小拡大に対する形式的\'{e}tale条件を満たす。
+局所Noether基底上の有限型射の判定\cite[Tag~02HY]{StacksProject}を
+\'{e}tale表示上で適用すれば，$P\to T$ は滑らかである。
+monomorphismは形式的unramifiedなので，この射は\'{e}taleである。
+\'{E}taleなmonomorphismは開埋込みである
+\cite[Tag~05W5]{StacksProject}。
+これは全ての試験基底 $T$ で成立するので結論を得る。
+\end{proof}
+
+\begin{remark}[剰余体の拡大と有限降下]
+前命題では，閉じた複素点の双対数だけの比較では足りない。
+任意の小拡大と任意の剰余体に対する比較を使っている。
+ただし代数閉拡大体上の比較から，この条件を次のように導ける。
+標数0では $K/\mathbb C$ は形式的滑らかである
+\cite[Tag~0321]{StacksProject}。
+従って小拡大 $A'\twoheadrightarrow A$ の中に
+$\mathbb C$ と両立する係数体 $K\hookrightarrow A'$ を取り，
+その $A$ への像と合わせて両者を $K$-代数にできる。
+$\overline K$ を代数閉包とすると，$A'\otimes_K\overline K$ も局所Artin環であり，
+代数閉体上の仮定により $P$ への持上げが存在する。
+$P\to T$ は局所有限表示の代数空間なので，この持上げと既定の還元との一致は
+有限部分拡大 $L/K$ 上へ降下する。
+標数0では $L/K$ は有限分離であり，
+$A'\to A'\otimes_K L$ は有限\'{e}taleな忠実平坦被覆である。
+$P\to T$ のmonomorphism性により二つの引戻しは一致し，
+三重積上のcocycle条件も自動的に成立するため，持上げは $A'$ へ降下する。
+この被覆の全\v Cech環はArtinである。
+無限次数の代数閉包そのものをfppf被覆として扱ってはいない。
+\end{remark}
+
+\begin{theorem}[全モジュライ内の零切断を含む開部分スタック]
+\label{thm:zero-neighborhood-open-full-moduli}
+各 $n\ge2$，$d=1,2$ に対し，可換零切断全体を含む
+有限型開近傍 $W_d^{\mathrm v}$ を選ぶと，その全同値商
+\[
+ \mathfrak U_{n,d}^{\mathrm v}
+ =[W_d^{\mathrm v}/\mathcal E_{W_d^{\mathrm v}}]
+ \longrightarrow\mathfrak M^{\mathcal O}_{n,d}
+\]
+は開埋込みである。この有限型DMスタックの全幾何学的点で，
+構成族のframed Artin変形群oidは全 $\mathcal O$-marked Abel変形群oidに一致する。
+全モジュライ問題自体の代数性は，この定理の仮定に含まれない。
+\end{theorem}
+\begin{proof}
+定理\ref{thm:all-points-abel-artin-versality}と
+補題\ref{lem:abel-versality-arbitrary-residue-field}により，
+任意の剰余体と局所Artin試験環について前命題の形式比較条件が成立する。
+任意の $\mathfrak M^{\mathcal O}_{n,d}$ 内の変形はAbel変形なので，
+全Abel比較はこの条件を含む。
+命題\ref{prop:constructed-substack-representable-lfp}と
+命題\ref{prop:all-point-formal-comparison-open}を適用すればよい。
+\end{proof}
+
+以後，この零切断保持縮小を行った $W_d^{\mathrm v}$ と
+$\mathfrak U_{n,d}^{\mathrm v}$ を再び $W_d$，$\mathfrak U_{n,d}$ と書く。
+さらに有限個の零切断保持開条件を加えても，この開埋込みの結論は保たれる。
+
+\begin{corollary}[任意の族における構成近傍の開性]
+\label{cor:familywise-classical-neighborhood}
+$T$ を局所Noetherな複素スキーム，
+$\xi\in\mathfrak M^{\mathcal O}_{n,d}(T)$ とする。
+幾何学的ファイバー $\xi_{\bar t}$ が $\mathfrak U_{n,d}$ に属するならば，
+$t$ を含むZariski開近傍 $T^0\subset T$ があり，
+$\xi|_{T^0}$ は $\mathfrak U_{n,d}(T^0)$ に属する。
+特に，この仮定は任意の滑らかな可換ファイバーで成立する。
+$T$ が局所スキームで $t$ が閉点なら，族全体が $\mathfrak U_{n,d}(T)$ に属する。
+\end{corollary}
+\begin{proof}
+$T\times_{\mathfrak M^{\mathcal O}_{n,d}}\mathfrak U_{n,d}$ は前定理によって
+$T$ の開部分スキームであり，仮定から $t$ を含む。
+局所スキームの閉点を含む開集合は全体である。
+\end{proof}
+
+\begin{corollary}[完備局所基底上の任意の族への形式比較の有効性]
+\label{cor:arbitrary-classical-family-effective}
+$R$ を剰余体 $\mathbb C$ の完備Noether局所環とする。
+$\xi\in\mathfrak M^{\mathcal O}_{n,d}(R)$ の特殊ファイバーが滑らかな可換模型であるとき，
+既存の全Artin比較から構成した有限中心商模型と $\xi$ は，
+$R$ 上で構造対象を保つAbel同値である。
+\end{corollary}
+\begin{proof}
+命題\ref{prop:commutative-formal-family-effective}の構成により，
+各 $R/\mathfrak m^{a+1}$ 上で $\xi$ と同値になる構成族の $R$ 上の模型 $\eta$ を得る。
+framed自己同値の剛性によって，これらの同値は両立させられる。
+命題\ref{prop:full-moduli-affine-diagonal}により
+$\underline{\operatorname{Eq}}_{\mathcal O}(\xi,\eta)$ は $R$ 上affineである。
+その座標環を $A$ とすれば
+\[
+ \operatorname{Hom}_{R\text{-alg}}(A,R)
+ \simeq\varprojlim_a
+ \operatorname{Hom}_{R\text{-alg}}(A,R/\mathfrak m^{a+1})
+\]
+であるから，両立する形式同値は実際の同値になる。
+\end{proof}

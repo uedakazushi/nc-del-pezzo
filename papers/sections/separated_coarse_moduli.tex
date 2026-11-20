@@ -1,0 +1,290 @@
+% !TeX root = ../nc-del-pezzo.tex
+\section{有限対角と分離的な粗モジュライ}
+\label{sec:separated-coarse-moduli}
+
+\subsection{対称化した中心方程式と全同値の有限性}
+
+以下では定理\ref{thm:zero-neighborhood-open-full-moduli}の開集合を用いる。
+その全同値群oidは，定理\ref{thm:full-source-smooth-zero-neighborhood}の性質を保つ。
+滑らかな可換零切断 $Z$ の全体を含む $W$ 上で，
+全同値は通常の次数付き同型を次数スカラーで割ったものであり，
+$s,t:\mathcal E_W\to W$ は滑らかである。
+ambientの重み付き生成元の自由加群を $L$ とし，$e_1=6,e_2=4$ と書く。
+既存の有限個の開条件により，$m\le e_d$ に対して
+\[
+ \operatorname{Sym}:(\operatorname{Sym}_{\mathcal O_W}L)_m
+                  \xrightarrow{\sim} A_m
+\]
+は同型である。
+
+\begin{lemma}[零方向も含む全同値の重み付き線型化]
+\label{lem:all-graded-isom-weighted-linear}
+補題\ref{lem:nonzero-graded-isom-weighted-linear}の生成元に関する結論は，
+$W\times W$ 上の普遍的な通常次数付き同型スキーム上で成立する。
+従って零方向・冪零方向を含む任意の基底変更後にも成立する。
+特に全同値の各矢は，有効な重み付き線型変換 $g\in G_d$ を一意に定める。
+\end{lemma}
+\begin{proof}
+未商化の通常次数付き同型スキームを $\widetilde{\mathcal E}$ と書く。
+補題\ref{lem:graded-isom-affine-quotient}と
+系\ref{cor:zero-neighborhood-full-graded-recognition}によって
+$\widetilde{\mathcal E}\to\mathcal E_W$ は $\mathbb G_m$-torsorである。
+$W$ は被約であり，$\mathcal E_W\to W$ は滑らかなので，
+$\mathcal E_W$ と $\widetilde{\mathcal E}$ は被約である。
+さらに，滑らかな射は開写像であり，$W\setminus Z$ は $W$ の稠密開集合なので，
+$\widetilde{\mathcal E}^{\times}=s^{-1}(W\setminus Z)$ は
+$\widetilde{\mathcal E}$ の稠密開集合である。
+零切断の同値不変性により，この開上のtargetも非零方向にある。
+
+普遍的同型の生成元の像を，次数2・3の完全対称化の基底で展開する。
+一般には，次数2では $z$ の像に $q_2(x)$ が，次数1では
+$y$ の像に $q_2(x)$，$z$ の像に
+$\operatorname{Sym}(\ell_1(x)y)+q_3(x)$ が現れる。
+これらの係数は $\widetilde{\mathcal E}$ 上の正則関数である。
+非零方向の補題により，これらは稠密開上で消える。
+被約性から全体で消える。
+同じ議論で，次数1の $\gamma^2=\beta^3$ も全体で成立する。
+対角係数の可逆性は，次数2では純粋な $x$ の完全対称化部分束，
+次数1の次数3ではさらに $\operatorname{Sym}(xy)$ を加えた部分束を使い，
+同型がそれらを可逆に保つことと，対応する階数1の商から従う。
+ここで全ての低次数の積からなる部分加群を取るのではない。
+次数スカラーで割ると，得た重み付き線型変換は一意な $G_d$ の元となる。
+この全ては普遍スキーム上の恒等式であるから，非被約な基底変更にも保たれる。
+\end{proof}
+
+
+\begin{lemma}[対称化した中心元の可換模型]
+\label{lem:commutative-central-shadow}
+全可換零切断を保って $W$ をさらに不変開へ縮めると，
+\[
+ F^{\mathrm{sh}}=\operatorname{Sym}^{-1}(\Omega),\qquad
+ C^{\mathrm{sh}}=\operatorname{Sym}_{\mathcal O_W}L/(F^{\mathrm{sh}})
+\]
+によって滑らかな可換del Pezzo族
+\[
+ X^{\mathrm{sh}}=\operatorname{Proj}_W C^{\mathrm{sh}}\longrightarrow W
+\]
+が定まる。零切断上では元の可換族に一致する。
+全 $\mathcal O$ 保存同値の矢は自然にこの可換族の同型を誘導し，
+従って群oidと両立する射
+\[
+ \iota:\mathcal E_W\longrightarrow
+ J:=\underline{\operatorname{Isom}}_{W\times W}
+        (X^{\mathrm{sh}}_1,X^{\mathrm{sh}}_2)
+\]
+がある。
+\end{lemma}
+\begin{proof}
+$F^{\mathrm{sh}}$ は正則な係数を持つ重み $e_d$ の可換多項式で，
+$z^2$ 係数は $1/2$ である。次数1では $y^3$ の係数が零切断上で
+$1/3$ なので，その可逆な開集合へ制限する。
+このとき重み付き射影空間の特異な座標点を避ける。
+$z$ に関するmonic二次式による除算から $C^{\mathrm{sh}}$ は
+残る変数の多項式環上で基底 $1,z$ を持ち，各重み成分は基底上有限局所自由である。
+従って相対Projも基底上平坦で，有限表示かつ射影的である。
+可換超曲面の非smooth locusの射影的な像を除けば，
+零切断を失わず，$X^{\mathrm{sh}}\to W$ を滑らかにできる。
+この開条件は重み付き線型変換に不変である。
+重み付き超曲面の随伴公式とHilbert多項式から，
+$-K=(n-1)H$，$H^n=d$ が成り立つ。
+
+次数2では $z$ の平方完成を行い，次数1ではこれに加えて
+$y$ の三次式の二次項を除く。
+最高係数は可逆なので，fppf局所的な単元の根を使って通常の正規形に直せる。
+従ってこの族は，入力文献\cite[定理8.8]{PoissonDP}の
+内在的な可換モジュライ $\mathcal D_{n,d}$ の対象である。
+
+前補題により，任意の次数付き同型は重み付き線型変換による。
+ambientの関係式の次数は $e_d$ 未満なので，$B_m=A_m$ ($m<e_d$) から，
+この変換はambientの同型にも持ち上がる。
+中心関係式のイデアルの次数 $e_d$ 成分を比較すると
+$\Omega_1$ は $\Omega_2$ の単元倍へ移る。
+完全対称化は重み付き線型変換に可換するので，
+$F^{\mathrm{sh}}_1$ は $F^{\mathrm{sh}}_2$ の同じ単元倍へ移る。
+これが可換次数付き環の同型，従って $\operatorname{Proj}$ の同型を与える。
+次数スカラーは $\operatorname{Proj}$ 上恒等であり，
+構成は合成・逆射・基底変更と両立する。
+\end{proof}
+
+\begin{theorem}[全可換零切断を含む近傍の有限対角]
+\label{thm:zero-neighborhood-finite-diagonal}
+前補題の $W$ において，$\iota:\mathcal E_W\to J$ は閉埋込みである。
+従って
+\[
+ (s,t):\mathcal E_W\longrightarrow W\times W
+\]
+は有限であり，$\mathfrak U_{n,d}=[W/\mathcal E_W]$ は
+有限対角を持つ分離的な有限型DMスタックである。
+\end{theorem}
+\begin{proof}
+\emph{古典同型層の有限性。}
+可換del Pezzoモジュライ $\mathcal D_{n,d}$ の対角は有限である
+\cite[定理9.2，\texttt{thm:affine-coarse-moduli}]{PoissonDP}。
+従って，その対角を上の二つの可換族によって基底変更した $J$ は
+$W\times W$ 上有限である。
+この入力では，滑らかな正規形係数領域は判別式の主開でありaffine，
+有効座標変換群は還元的，その全stabilizerは有限である。
+その作用射の有限性はLunaの結果\cite[I, \S4, Corollaire, p.~90]{Luna1973}
+による。非可換族の全同値についてこの結果を直接適用してはいない。
+
+\emph{有限個の閉条件。}
+古典同型は基本偏極のクラスを保つ。
+そのためfppf局所的には，切断環 $C^{\mathrm{sh}}_1,C^{\mathrm{sh}}_2$ の
+次数付き同型として一意的に次数スカラーを法として表せる。
+これは可換正規形の全族の認識\cite[定理8.8]{PoissonDP}による。
+従って
+\[
+ \widetilde J=\underline{\operatorname{Isom}}_{\mathrm{gr}}
+          (C^{\mathrm{sh}}_1,C^{\mathrm{sh}}_2)\longrightarrow J
+\]
+は $\mathbb G_m$-torsorである。
+
+$\widetilde J$ 上の普遍的な可換同型を生成元に展開し，
+前補題で消えた $q_2,\ell_1,q_3$ の係数を零とする閉条件を課す。
+次数1ではさらに $\gamma^2=\beta^3$ を課す。
+残る変換は可逆な重み付き線型変換である。
+この変換とその逆が，それぞれ $B_1,B_2$ の有限個の斉次定義関係式を零へ送る条件を課す。
+各条件は有限局所自由な $B_m$ の中の有限個の係数の消滅であり，閉条件である。
+得られた閉部分スキームは，その関手的定義から
+$\underline{\operatorname{Isom}}_{\mathrm{gr}}(B_1,B_2)$ に一致する。
+正逆の生成元写像が可逆であることは $\widetilde J$ の中で既に保証されている。
+逆に非可換同型は前補題によってこの閉部分に入るので，条件の取りこぼしはない。
+全ての条件は次数スカラーに不変であり，忠実平坦降下によって
+$\mathcal E_W\to J$ は閉埋込みとなる。
+有限射との合成は有限であり，商の対角を表示 $W\times W$ に引き戻すと
+$(s,t)$ になるので，対角の有限性が降下する。
+\end{proof}
+
+\begin{proposition}[可換模型への表現可能な射]
+\label{prop:representable-commutative-shadow}
+定理\ref{thm:zero-neighborhood-finite-diagonal}の近傍上で，
+対称化した中心方程式は自然な射
+\[
+ \operatorname{sh}:\mathfrak U_{n,d}\longrightarrow\mathcal D_{n,d}
+\]
+を定める。この射は代数空間によって表現可能であり，
+零切断上では元の可換模型を返す。
+\end{proposition}
+\begin{proof}
+補題\ref{lem:commutative-central-shadow}は，表示 $W$ 上に
+$\mathcal D_{n,d}$ の族を与え，全同値群oidの矢に
+合成・逆射・基底変更と両立する可換模型の同型を割り当てる。
+可換族の降下によって，この構成は商 $\mathfrak U_{n,d}$ からの射となる。
+定理\ref{thm:zero-neighborhood-finite-diagonal}の閉埋込み
+$\mathcal E_W\hookrightarrow J$ は任意の基底上で単射である。
+従って $\operatorname{sh}$ の相対自己同型の核は自明であり，
+代数スタックの表現可能性判定
+\cite[Lemma 101.6.2, Tag 04YY]{StacksProject}から結論を得る。
+零切断上の一致は $F^{\mathrm{sh}}=F$ による。
+\end{proof}
+
+\begin{remark}
+射 $\operatorname{sh}$ は，ここで構成した中心元と完全対称化に付随して，
+非可換対象から滑らかな\emph{可換多様体}を取り出す。
+ここでその可換模型上のPoisson構造の復元や，
+Poissonモジュライとの同値を結論してはいない。
+\end{remark}
+
+\begin{corollary}[零切断を含む分離的な粗モジュライ]
+\label{cor:zero-neighborhood-separated-coarse}
+定理\ref{thm:zero-neighborhood-finite-diagonal}の $\mathfrak U_{n,d}$ は，
+分離的で整な有限型代数空間 $M^{\mathrm{nc}}_{n,d}$ を粗モジュライとして持つ。
+次元は $\mathfrak U_{n,d}$ と同じである。
+\end{corollary}
+\begin{proof}
+有限対角から慣性は有限である。
+Keel--Mori定理\cite[Tag 0DUT]{StacksProject}により粗空間が存在し，
+有限型性と分離性は\cite[Section 106.14, Tag 0DUW]{StacksProject}による。
+既約性は粗射の全射性から，被約性は局所商の不変環の記述から従う。
+有限慣性の粗射は幾何学的同型類を一点に移すため，次元も保つ。
+\end{proof}
+
+\begin{corollary}[安定化群を保つsliceと一般安定化群]
+\label{cor:stabilizer-preserving-slice-generic-trivial}
+定理\ref{thm:zero-neighborhood-finite-diagonal}の開近傍を用いると，
+系\ref{cor:finite-etale-slice-near-classical}の
+$[T/\Gamma]\to\mathfrak U_{n,d}$ は，
+可換点を保った $\Gamma$ 不変affine縮小により
+全点でstabilizer preservingにできる。
+さらに $\mathfrak U_{n,d}$ の一般安定化群は自明であり，
+非零方向には稠密な滑らかな代数空間の開部分が存在する。
+\end{corollary}
+\begin{proof}
+有限慣性はproperである。
+representable unramified射のstabilizer preserving locusは，
+targetの慣性がproperなら開である\cite[Tag 0DUA]{StacksProject}。
+可換点で既にstabilizer同型なので，この開集合を取り，
+系\ref{cor:finite-etale-slice-near-classical}と同じ有限群のnormによって
+$\Gamma$ 不変affine開へ縮める。
+
+一般の可換模型 $X$ には $\Gamma=\mu_2$ しかなく，
+この群は古典係数空間には自明，Poisson方向には符号で作用する
+\cite[命題9.4と注意8.5]{PoissonDP}。
+従って $T\subset(f+N)\times C_{n,d}$ の非零方向の部分では
+$\Gamma$ のstabilizerは自明である。
+この部分は $T$ の非空開集合であり，その像も $\mathfrak U_{n,d}$ の非空開集合である。
+stabilizer preserving性から，像の全安定化群も自明である。
+自明慣性を持つDMスタックは代数空間であり，非零方向では滑らかである。
+$\mathfrak U_{n,d}$ は整なので，この開は稠密である。
+\end{proof}
+
+\begin{corollary}[粗空間の代数的局所模型]
+\label{cor:algebraic-coarse-local-model}
+前系のstabilizer preservingなsliceを用いると，粗空間の射
+\[
+ T/\Gamma_X\longrightarrow M^{\mathrm{nc}}_{n,d}
+\]
+は\'{e}taleであり，粗射との正方形
+\[
+\begin{array}{ccc}
+[T/\Gamma_X]&\longrightarrow&\mathfrak U_{n,d}\\
+\downarrow&&\downarrow\\
+T/\Gamma_X&\longrightarrow&M^{\mathrm{nc}}_{n,d}
+\end{array}
+\]
+はCartesianである。
+特に，可換点の粗像を $[X]_{\mathrm c}$ と書けば，
+\[
+ \widehat{\mathcal O}_{M^{\mathrm{nc}}_{n,d},[X]_{\mathrm c}}
+ \simeq R_X^{\Gamma_X}
+\]
+となる。この点で粗空間は正規，Cohen--Macaulayかつ解析的に一分枝である。
+
+$\Gamma_X=\mu_2$ の場合には，この\'{e}tale局所模型は
+\[
+ \mathbb A^{b_{n,d}}\times
+ \operatorname{Spec}\bigl(\mathbb C[C_{n,d}]^{(2)}\bigr)
+\]
+の原点を含む開部分である。
+従って系\ref{cor:generic-nc-formal-sign-quotient}の接空間次元と特異性は，
+実際の粗空間の代数的局所環についての結論でもある。
+\end{corollary}
+\begin{proof}
+有限群商 $[T/\Gamma_X]$ は分離的であり，標的の対角も有限なので，
+sliceの射はseparatedである。
+有限慣性を持つスタックへのseparated，\'{e}tale，
+stabilizer preservingな射は粗空間上の\'{e}tale射からの基底変更である。
+これはwell-nigh affineな標的に対する
+\cite[Lemma 106.13.7, Tag 0DUS]{StacksProject}を，
+\cite[Lemma 106.13.8, Tag 0DUE]{StacksProject}の
+stabilizer preservingな\'{e}tale被覆上で適用し，
+Keel--Moriの構成における粗空間の\'{e}tale降下を行ったものである。
+$T$ はaffineなので，その粗商は通常の有限不変式商 $T/\Gamma_X$ である。
+これで最初の主張を得る。
+
+sliceの中心点 $x$ は $\Gamma_X$ の固定点であり，
+$\widehat{\mathcal O}_{T,x}\simeq R_X$ は同変な同型である。
+有限群の平均化により不変式と完備化は可換するので，
+$T/\Gamma_X$ の対応する点での完備局所環は $R_X^{\Gamma_X}$ である。
+上の\'{e}tale射は両点で剰余体 $\mathbb C$ を保つので，
+粗空間の完備局所環もこれに等しい。
+系\ref{cor:formal-coarse-normal}の正規Cohen--Macaulay整域性を適用し，
+excellentな局所環とその完備化の関係から実際の局所環の主張を得る。
+
+$\Gamma_X=\mu_2$ のとき，係数方向 $N_X$ への作用は恒等で，
+錐方向への作用は符号である。
+$T$ は $(f+N_X)\times C_{n,d}$ の不変開集合であり，
+有限商は不変閉集合を閉集合へ送るので，
+$T/\Gamma_X$ は表示した積の開部分となる。
+一般の $\Gamma_X$ の場合と異なり，この場合には係数方向との積も保たれる。
+\end{proof}

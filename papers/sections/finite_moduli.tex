@@ -1,5 +1,5 @@
 % !TeX root = ../nc-del-pezzo.tex
-% 2026-11-20 JST / v0.12
+% 2026-11-20 JST / v0.13
 \section{全同値群oidと可換零切断近傍の有限型モジュライ}
 \label{sec:finite-moduli}
 \label{sec:source-near-commutative-zero}
@@ -307,15 +307,17 @@ $s$ の代わりに $t$ を用いても同じ開集合となる。
 最後の主張は，座標変換がこの群oidのsource・targetと単位を保つ自己同型を与えることによる。
 \end{proof}
 
-\begin{remark}[次に必要な大域化]
+\begin{remark}[単位近傍の滑らかさと全矢の制御]
 以上は，$\mathcal E$ の中のsourceとtargetの共通smooth locusが，
 零切断に接する全ての矢を含むことを証明する。
-まだ，$Z$ を含む一つの基底開集合 $W\subset V$ を選び，
+この議論だけでは，$Z$ を含む一つの基底開集合 $W\subset V$ を選び，
 $\mathcal E_W$ の全ての矢でsource・targetを滑らかにできたとは結論しない。
 非smoothな矢の閉集合が零切断に接しなくても，そのsource像の閉包は零切断へ達し得る。
-sourceはproperと分かっていないため，その像を閉集合として除くことはできない。
-群oidの全矢を保つ開制限，商の代数性，モジュライの被覆範囲は，
-この局所結果とは分けて検討する必要がある。
+ここでsourceのproper性は仮定していないため，その像を閉集合として除くことはできない。
+全矢の制御には後の定理\ref{thm:full-source-smooth-zero-neighborhood}の
+Casimir Jacobianを用い，その後に商の代数性を証明する。
+全モジュライ内での開性は定理\ref{thm:zero-neighborhood-open-full-moduli}による別の結論であり，
+全非可換対象の被覆は未解決である。
 
 単位での滑らかさだけから全矢の滑らかさを結論することもできない。
 例えば節点曲線の正規化 $\widetilde C\to C$ のkernel群oid
@@ -525,11 +527,15 @@ $\mathbb G_m\to\mathbb G_m$，$\lambda\mapsto c\lambda^r$
 \begin{remark}[結論の範囲]
 以上で，滑らかな可換零切断の一つの開近傍において，
 基本シフトを標識に追加せず全 $\mathcal O$ 保存同値を通常の $B$ から認識できる。
-通常の次数付き同型には，重みの大きい生成元へ低い重みの生成元の
-同次数多項式を加える変換も含める。
+通常の次数付き同型の定義は，重みの大きい生成元へ低い重みの生成元の
+同次数多項式を加える変換も許す。
+実際の全同値についてこれらの付加項が消えることは，
+後の定理\ref{thm:zero-neighborhood-finite-diagonal}の準備で証明する。
 全同値群oidのsource・targetのsmoothnessには，次項以降の中心Jacobianによる
 独立した持上げの証明を使う。
-その商が全モジュライ内で開であることや，全nc対象を被覆することは結論しない。
+その商の全モジュライ内での開性には
+定理\ref{thm:zero-neighborhood-open-full-moduli}の独立した比較を用いる。
+全nc対象を被覆するかどうかは未解決である。
 方向解消のproper性は悪い閉集合の像を閉にするために用いており，
 その射を平坦降下の被覆として使ってはいない。
 \end{remark}
@@ -1062,7 +1068,11 @@ $\mathfrak U_{n,d}$ の非空開部分スタックとして取れる。
 $\mathfrak M^{\mathcal O}_{n,d}$ のfullな部分スタックであり，
 対象はfppf局所的に $W_d$ 上の構成族から来る族，射はその間の全構造対象付きAbel同値である。
 全ての滑らかな可換模型と，その全framed Abel Artin変形を含む。
-この部分スタックが全モジュライ内で開であることや，全非可換対象を被覆することは主張しない。
+この包含の開性は後の定理\ref{thm:zero-neighborhood-open-full-moduli}で証明する。
+さらに，零切断全体を保つ縮小後の有限対角は
+定理\ref{thm:zero-neighborhood-finite-diagonal}，
+可換模型への表現可能な射は命題\ref{prop:representable-commutative-shadow}による。
+全非可換対象の被覆は主張しない。
 \end{theorem}
 \begin{proof}
 前定理と滑らかな群oidの商定理\cite[Tag 04TK]{StacksProject}により代数スタックを得る。
@@ -1140,7 +1150,8 @@ $f$ の安定化群と同一視する。
 \end{enumerate}
 ここでrepresentableとは代数空間によって表現可能という意味である。
 この系は構成済みのfullな部分スタックの内部での幾何学的局所表示であり，
-その部分スタックが全 $\mathfrak M^{\mathcal O}_{n,d}$ の中で開であるとは主張しない。
+全 $\mathfrak M^{\mathcal O}_{n,d}$ の中での開性には
+後の定理\ref{thm:zero-neighborhood-open-full-moduli}を用いる。
 \end{corollary}
 \begin{proof}
 \emph{有限群に不変な横断slice。}
@@ -1259,7 +1270,11 @@ $[\operatorname{Spf}R_X/\Gamma]$ と両立する。
 \begin{remark}
 このsliceは，抽象的な形式変形環の代数化を別に仮定して得たものではない。
 元の全係数有限族の線型横断面を方向錐と掛け，有限個の開条件を課した実際の族である。
-この幾何学的局所表示と，全モジュライに対する被覆性または開性は別の主張である。
+全モジュライ内での開性には定理\ref{thm:zero-neighborhood-open-full-moduli}を用いる。
+有限対角を得た後には，系\ref{cor:stabilizer-preserving-slice-generic-trivial}によって
+sliceを全点で安定化群を保つように縮められ，
+系\ref{cor:algebraic-coarse-local-model}によって粗空間上の\'{e}tale局所模型も得られる。
+これらは全非可換対象を被覆するという主張ではない。
 また，この\'{e}tale射をZariski開埋込み，あるいは全構成族の大域的な有限群商とはしていない。
 \end{remark}
 
@@ -1302,9 +1317,11 @@ $[\operatorname{Spf}R_X/\Gamma]$ と両立する。
 \begin{remark}[部分問題の範囲]\label{rem:generic-dm-scope}
 対象開 $W$ 自体が同値で飽和している必要はない。
 $\mathfrak N_{n,d}$ は有限型DM部分問題 $\mathfrak U_{n,d}$ の開部分スタックである。
-一方，$\mathfrak U_{n,d}$ または $\mathfrak N_{n,d}$ の全モジュライ
-$\mathfrak M^{\mathcal O}_{n,d}$ 内での開性は証明していない。
-全非可換対象の被覆や，可換locusに接しない成分の不存在も別の問題である。
+定理\ref{thm:zero-neighborhood-open-full-moduli}により，
+零切断を保つ必要な縮小後の $\mathfrak U_{n,d}$ は全モジュライ
+$\mathfrak M^{\mathcal O}_{n,d}$ 内で開となり，
+その非零開部分 $\mathfrak N_{n,d}$ も同様である。
+全非可換対象の被覆と，可換locusに接しない成分の有無は未解決である。
 \end{remark}
 
 \subsection{一般安定化群と粗モジュライ空間}
@@ -1321,7 +1338,10 @@ $\mathfrak N_{n,d}$ のinertiaを有限\'{e}taleにできる。
 を持ち，$M_{n,d}$ は $\mathbb C$ 上滑らか，整，有限型である。
 特に正規であり，次元は系\ref{thm:generic-full-dm-stack}の次元式と同じである。
 ここで帯は局所的に定まる有限\'{e}tale群であり，大域的に固定した群やgerbeの中立性は要求しない。
-$M_{n,d}$ の分離性は主張しない。
+定理\ref{thm:zero-neighborhood-finite-diagonal}の縮小を先に行えば，
+$M_{n,d}$ は分離的でもある。
+さらに系\ref{cor:stabilizer-preserving-slice-generic-trivial}により，
+この非空開部分を慣性自明な滑らかな代数空間として選べる。
 \end{corollary}
 \begin{proof}
 まず $W=\Spec A$ を非空affine開集合に制限する。
@@ -1352,8 +1372,25 @@ $T\to[T/G]$ は有限\'{e}tale全射なので，$[T/G]\to T$ は相対次元零�
 この性質を降下すると $\pi$ も相対次元零で滑らかかつ全射となる。
 従って $\mathfrak N_{n,d}$ の $\mathbb C$ 上の滑らかさは $M_{n,d}$ に降下する。
 また $\pi$ は幾何学的同型類を一つの点に移す全射であり，
-既約性と次元も保たれる。これで粗空間の全ての主張を得る。
+既約性と次元も保たれる。
+分離性は有限対角と
+系\ref{cor:zero-neighborhood-separated-coarse}から従い，
+慣性自明な開部分の存在は
+系\ref{cor:stabilizer-preserving-slice-generic-trivial}で別に証明する。
 \end{proof}
+
+\begin{remark}[有限慣性と平坦な慣性の違い]
+上のgeneric flatnessの議論は，一般のquasi-finiteな慣性を
+有限\'{e}taleへ制限するための判定として有用である。
+本族ではさらに定理\ref{thm:zero-neighborhood-finite-diagonal}と
+系\ref{cor:zero-neighborhood-separated-coarse}により，
+全可換零切断を含む近傍で有限慣性と分離的な粗空間を得る。
+ただし可換点には被覆対合があり，
+系\ref{cor:stabilizer-preserving-slice-generic-trivial}の一般点では安定化群が自明なので，
+慣性の次数は零切断で跳ぶ。
+従って零切断全体を保つ近傍で慣性を平坦または有限\'{e}taleとすることはできない。
+一般開部分のgerbe表示をこの全近傍へ延長してはいない。
+\end{remark}
 
 
 \subsection{有限型群oidのlimit preservationと可換点での形式対象のeffectivity}
@@ -1364,7 +1401,9 @@ $\mathcal X_V=[V/\mathcal E]$ を，有限型の全同値群oidのfppf stackific
 その対角はアフィンかつ有限表示であり，$\mathcal X_V$ はlimit preservingである。
 許されたNoether基底上では，構成族へfppf局所的に入る対象からなる
 全 $\mathcal O$ 保存同値付きのfullな部分問題を表す。
-ここでは $\mathcal X_V$ が代数stackであるとは主張しない。
+一般の $V$ について $\mathcal X_V$ の代数性はこの補題の結論に含めない。
+零切断近傍 $W_d$ への制限では，既に
+定理\ref{thm:zero-neighborhood-full-dm}によって代数性を得ている。
 \end{lemma}
 \begin{proof}
 二つの対象をfppf局所的に $V$ の点で表せば，その同型層は
@@ -1427,14 +1466,17 @@ $\mathcal E$ の基底変更として $R$ 上affine有限表示である。
 その自然自己同型も既存の剛性により自明である。
 \end{proof}
 
-\begin{remark}[Artinの代数化条件との関係]
+\begin{remark}[形式対象のeffectivityと全モジュライの比較]
 前二結果は，構成族の像の有限型群oidについてのlimit preservationと，
 可換特殊ファイバーを持つ形式対象のeffectivityを与える。
-任意の $\mathfrak M^{\mathcal O}_{n,d}(R)$ の対象をその形式完備化から復元したこと，
-また任意のその二対象間の形式同値をeffectivizeしたことではない。
-一般nc点における全変形の比較，Rim--Schlessinger条件，
-およびversalityの開性もこれだけから従わない。
-Artinの基準ではこれらを分けて確認する必要がある
+これらの証明だけでは任意の $\mathfrak M^{\mathcal O}_{n,d}(R)$ の対象や，
+任意の二対象間の形式同値を扱っていない。
+定理\ref{thm:zero-neighborhood-open-full-moduli}では，
+任意のadmissible族との混合同値層と，構成族の全点での変形比較を別に用いて，
+構成した近傍の全モジュライ内での開性を証明する。
+全非可換対象の被覆や，可換locusに接しない部分の代数性はこの結論に含まれない。
+一般にArtinの基準では，変形の比較，Rim--Schlessinger条件，effectivity，
+versalityの開性などを分けて確認する必要がある
 \cite[Tags 07T0, 07XP]{StacksProject}。
 特に有限表示の射スキーム，有限な自己同値群，limit preservationだけを，
 source・targetの平坦性や商stackの代数性の代用にはしない。

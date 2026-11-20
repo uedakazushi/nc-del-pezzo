@@ -1,6 +1,6 @@
 # 研究ノート：次数1・2のnc del Pezzo n-fold
 
-2026-11-20（JST） / v0.12。証明本文は主原稿、一次資料の位置は [文献と依存](literature.md)。この文書は現在有効な知識と障害を整理する。
+2026-11-20（JST） / v0.13。証明本文は主原稿、一次資料の位置は [文献と依存](literature.md)。この文書は現在有効な知識と障害を整理する。
 
 ## 1. 形式局所環と数値
 
@@ -32,7 +32,7 @@ b_{n,1}=\binom{n+3}{4}+\binom{n+5}{6}-n^2,
 
 構造対象の標識忘却は、自然同型類で切断したframed 1群oidでは同値になる。全Abel同値はOの一意な持上げを保ち、標識同型の差はスカラー自然同型で吸収できる。標識を忘れた未切断2群oidにはスカラー自然変換が残る。一方、O標識を保つ自然自己同型は恒等だけである。
 
-全形式環は、compact生成・相対smooth proper性・Serre公式・反標準豊富性・飽和性を持ち上げた `thm:all-artin-are-nc-dp` によって、定義したMと重み付き超曲面部分問題のArtin完成に同定される。一般の基底で両問題が一致するとは主張しない。
+全形式環は、compact生成・相対smooth proper性・Serre公式・反標準豊富性・飽和性を持ち上げた `thm:all-artin-are-nc-dp` によって、定義したMと重み付き超曲面部分問題のArtin完成に同定される。さらに第4項の全点Abel変形比較と混合同値層により、全可換locusを含むMの開部分Uが同じ有限型中心商族で表される。Mの全対象がこの表示を持つという大域的主張はしていない。
 
 ## 3. 任意基底上の量子化で確定したこと
 
@@ -106,21 +106,53 @@ Isomの座標環Aにおいて、次数1の同型行列と逆行列の成分は�
 
 一般の有限型群oidについては、単位smooth開とgeneric flatnessを用いれば非空稠密開で同じ結論に達する（`lem:generic-flat-full-groupoid`）。全sourceをflatにしてから幾何fiberの単位を平行移動する順序が必要であり、この一般論だけではZを残せない。本族のZ近傍全体の構成には上のCasimir補正を用いる。
 
-可換点XではΓ=Aut(X)不変な軌道接空間の補空間Nを選ぶ。実slice `T⊂(f+N)×C_(n,d)` の完成はR_Xであり、矢の完成R_X[[u,v]]にsourceのu=0を入れるとtargetのR_X[[v]]となる。従ってT→Uは可換点でétale。Γ不変なaffine開へ縮小し、次数スカラーの核とΓ↪G_dの有効性により `[T/Γ]→U` はrepresentable étaleとなる（`cor:finite-etale-slice-near-classical`）。可換点の残余gerbe上で同型、その形式完備化は既存の[Spf R_X/Γ]である。U内での幾何学的局所表示であり、全M内のopen性とは別である。
+可換点XではΓ=Aut(X)不変な軌道接空間の補空間Nを選ぶ。実slice `T⊂(f+N)×C_(n,d)` の完成はR_Xであり、矢の完成R_X[[u,v]]にsourceのu=0を入れるとtargetのR_X[[v]]となる。従ってT→Uは可換点でétale。Γ不変なaffine開へ縮小し、次数スカラーの核とΓ↪G_dの有効性により `[T/Γ]→U` はrepresentable étaleとなる（`cor:finite-etale-slice-near-classical`）。可換点の残余gerbe上で同型、その形式完備化は既存の[Spf R_X/Γ]である。以下の全点変形比較でUのM内での開性を、有限対角でsliceのstabilizer preserving性と粗空間上のétale性を得る。
 
-慣性はaffine有限表示quasi-finiteで、generic fiberの座標環は有限次元である。有限代数生成元のmonic関係と誤差の分母を払うと、さらに非空開でfiniteにでき、generic flatnessとunramified性からfinite étaleとなる。flat inertiaのgerbe判定とKeel–Moriにより、粗空間Mはsmooth irreducibleな有限型代数空間であり、Nと同次元である（`cor:generic-finite-inertia-coarse`）。分離性、一般安定化群の同定、全M内での開性は別問題。
+### 非可換点の全Abel Artin変形
+
+主原稿 `sec:noncommutative-abel-versality`。各幾何学的ファイバーで `Q=Ind(coh Q)`、`D^b(coh Q)=Perf(C)` を用い、Lowen–Van den BerghのAbel Hochschild比較とMorita不変性から `C_Ab(Q)≃C(C)` をB∞代数として得る（`prop:noncommutative-abel-hochschild`）。従って全Abel変形の接空間はHH²(C)、障害空間はHH³(C)であり、相対剛性開上ではHH¹=0である。有向ACMと豊富列により構造対象Oは一意に持ち上がり、標識の差はスカラー自然同型で調整できる。任意のAbel変形自体に有限窓dg模型の持上げが存在すると仮定していない。
+
+Uが全同値に関してfullであることから `T_u U→HH²_Ab(Q_u)` は単射である。滑らかな部分ではその次元は `D₁=b(n,1)+n`、`D₂=b(n,2)+2n−1` なので、HH²の下界はD_dとなる（`lem:full-substack-hochschild-lower-bound`）。d1とd2・n=2では古典点のHH²が既にD_dであり、perfect HH複体の上半連続性によって零切断全体を含む開上で等号となる（`prop:smooth-types-abel-versal`）。
+
+d2・n≥3では古典点の `m=dim HH²=b(n,2)+binom(n+1,2)` はD₂より大きい。全古典変形環の二次関係を全小拡大で調べると、普遍一次障害の成分の張る空間はPlücker二次式の空間に一致する。その双対のHH³への単射を通じて、非零可分解πにおける `[π,−]:HH²→HH³` の階数は `c=binom(n−1,2)=m−D₂` となる（`lem:quadratic-relations-hochschild-rank`）。これは一次元変形族の実際のHH複体の第一Bocksteinであり、Lowenのcharacteristic morphismと変形した導来圏の比較を使う（`lem:hochschild-first-bockstein`）。
+
+この階数を全方向で一様化するにはproperな方向解消を使う。被約な例外因子τ=0の近くで単位coneを次数2以上の有限自由複体に取り、可逆ブロックを消去して次数2の階数をmにする。例外因子上でHH²=mなので次の微分は `d²=τA` と書け、Aの階数cの小行列式は例外因子の各点近くで非零となる。頂点外のHH²>D₂という悪条件の閉包は例外因子を避けるため、そのproper像を除いて、**全零切断を保つ一つの開**で非零方向のHH²=D₂を得る（`prop:degree-two-uniform-minimal-hochschild`）。HH³の次元一定性は要らない。
+
+滑らかなsourceとKodaira–Spencer写像の全射性があれば、小拡大上の任意のAbel持上げと構成族の持上げとの差はHH²⊗Iのtorsorで測られ、パラメータの一次補正で消せる（`lem:smooth-source-abel-versal`）。HH³の消滅を要求しない。非零点のこの議論と、特異な可換点も含む既存の全Artin比較を合わせて、同じ零切断近傍の**全ての点**でUのframed Artin変形群oidと全O標識Abel変形群oidが同値となる（`thm:all-points-abel-artin-versality`）。
+
+この比較は任意の剰余体拡大K/Cに対しても成立する（`lem:abel-versality-arbitrary-residue-field`）。変形比較とformalityをK上で直接適用し、有限型HH複体・階数条件・proper方向解消は基底変更する。無限個の変形データを有限生成体へ降下させる議論は使わない。局所Artin C環の小拡大には、K/Cの形式的滑らかさから整合的な係数体を取れる（Stacks Lemma 10.158.8, Tag 0321）。atlasの点は有限分離剰余体拡大後に取り、全忠実性とfppf降下で元の小拡大へ戻す。
+
+### 全モジュライの対角と開埋込み
+
+主原稿 `sec:open-full-moduli`。任意の許容されるNoether基底T上のMの対象について、Serre反周期から復元した反標準環Rは右Noetherかつ斉次有限表示である（`lem:arbitrary-anticanonical-finite-presentation`）。有限表示は選んだ豊富Z代数の周期性と増大列条件から得る。Rの有限生成元・有限関係式と逆写像の条件により、構成族同士に限らない全O同値を `Isom_gr(R,R′)/G_m` として表す。従って**全Mの対角はaffine有限表示**である（`prop:full-moduli-affine-diagonal`）。M全体にatlasが存在することをこの時点で仮定しない。
+
+混合同値層を用いると、fullな射 `U→M` は表現可能な局所有限表示monomorphismとなる（`prop:constructed-substack-representable-lfp`）。任意T→Mとの積は、構成族WとTの間の同値スキームをsmoothな群oidで割った代数空間である。全剰余体でのArtin比較によりこの積の射は形式的étale、局所有限表示性からétaleとなり、monomorphismなので開埋込みである（`prop:all-point-formal-comparison-open`）。よってUは全滑らかな可換模型を含むMの開部分スタックである。
+
+任意の既存のM族が一つの可換ファイバーを持てば、その点のZariski開近傍でUに入る。局所基底で閉ファイバーが可換なら基底全体でUに入る（`cor:familywise-classical-neighborhood`）。これは全Mの被覆、全成分数、可換locusに接しない対象の分類を結論しない。
+
+### 有限対角・分離粗空間・一般安定化群
+
+主原稿 `sec:separated-coarse-moduli`。全sourceがsmoothでWが被約であることから全同値スキームも被約であり、非零方向で成り立つ重み付き線型化の係数恒等式が零方向まで延長される（`lem:all-graded-isom-weighted-linear`）。従って `F^sh=Sym⁻¹(Ω)` による可換超曲面は全同値に関して自然である。全零切断を保って滑らかな可換族へ縮め、可換模型への射 `sh:U→D_(n,d)` を得る（`lem:commutative-central-shadow`, `prop:representable-commutative-shadow`）。この射は代数空間で表現可能で、零切断上では元の可換模型を返す。Poisson構造の復元やPoissonモジュライとの同値はまだ結論していない。
+
+全同値スキームEは、二つの可換模型間の同型スキームJの閉部分スキームである。閉条件は、生成元の非線型加算の消滅と、正逆変換が有限個の非可換関係式を保つ条件である。入力 `poisson-del-pezzo` v1.4・定理9.2の可換モジュライの有限対角からJは有限であり、Eも有限となる（`thm:zero-neighborhood-finite-diagonal`）。従って**全可換locusを含むUは有限対角を持つ分離的な有限型DMスタック**であり、Keel–Moriにより分離的・整・同次元の有限型粗代数空間 `M^nc_(n,d)` を持つ（`cor:zero-neighborhood-separated-coarse`）。慣性の平坦性を零切断まで要求していない。
+
+有限慣性によって、可換点のétale slice `[T/Γ_X]→U` は縮小後に全点でstabilizer preservingとなる。一般の可換模型のΓ_X=μ₂は係数方向に自明、Poisson方向に符号で作用するので、非零方向のstabilizerは自明となる。よってUの一般安定化群は自明であり、非零部分に滑らかな代数空間の稠密開が存在する（`cor:stabilizer-preserving-slice-generic-trivial`）。一般論としては、affine quasi-finite慣性のgeneric有限性をmonic関係の分母払いで有限化し、generic flatnessからfinite étale慣性と滑らかな粗空間を得る方法も有効である（`cor:generic-finite-inertia-coarse`）。本族では上の有限対角と符号作用によって、零切断近傍と一般安定化群まで確定する。
+
+粗空間上でも `T/Γ_X→M^nc_(n,d)` はétaleで、スタックと粗空間の正方形はCartesianとなる。従って実際の粗空間の可換点での完備局所環は `R_X^(Γ_X)` であり、その局所環は正規・Cohen–Macaulay・解析的に一分枝である（`cor:algebraic-coarse-local-model`）。Γ_X=μ₂ならétale局所模型は `A^b×Spec(C[C_(n,d)]^(2))` の原点近傍で、既存の符号商の接空間次元と特異性は実際の粗空間にも適用できる。特殊なΓ_Xの不変式の明示、可換点から離れた粗空間の特異性、shのファイバーと像は次の問題である。
 
 ### 基本シフトの開条件と形式対象
 
 通常のgraded同型をスカラーで割った `H→E` はmonomorphismである。全シフト上の自然同型の成分λ_iと忠実な隣接Homから `λ_(i+1)/λ_i=c` が一定となり、核が次数スカラーに一致する。HH¹=0開上では、EのArtin矢Fに対する `s₂⁻¹Fs₁F⁻¹` をperfect可逆bimoduleで表し、対角剛性で恒等化する。指定した還元比較との差はHH⁰=Rの単元なので持ち上げて調整できる。従って `H→E` はétale monomorphism、すなわち開埋込みである（`thm:ordinary-graded-arrows-open`）。この矢の開性だけでは、一つの対象開W上の全矢がHに入るとは言えない。
 
-抽象商 `[V/E]` は有限fppf被覆上のV点・E矢と有限cocycleで記述でき、limit preservingでaffine有限表示対角を持つ。これはsourceのflatnessなしで成立する。可換特殊ファイバーを持つ完備Noether局所R上の形式対象は、一意なslice写像の両立系 `C_X→R/m^a` を逆極限して同じ有限族B_Rで実現できる。構成族の二模型間の形式同値もaffine同型スキームにより一意に実現される。任意M(R)の対象・形式同値に対するformal GAGAは未証明である。
+抽象商 `[V/E]` は有限fppf被覆上のV点・E矢と有限cocycleで記述でき、limit preservingでaffine有限表示対角を持つ。これはsourceのflatnessなしで成立する。可換特殊ファイバーを持つ完備Noether局所R上の形式対象は、一意なslice写像の両立系 `C_X→R/m^a` を逆極限して同じ有限族B_Rで実現できる。構成族の二模型間の形式同値もaffine同型スキームにより一意に実現される。さらに全Mのaffine対角により、**任意の既存のM(R)対象で特殊ファイバーが可換なら**、その形式比較は構成族との実際の同値へ一意に実現される（`cor:arbitrary-classical-family-effective`）。可換特殊ファイバーを仮定しない全Mのformal GAGAを主張するものではない。
 
 ### 形式普遍性だけからの大域化を阻む一般反例
 
 一般の有限型群oidでは、sourceの非smooth locus N⊂EがZに接しなくても、s(N)の閉包がZと交わる可能性がある。sourceはproperとは分からないため、像を閉集合として除くことはできない。generic flatnessで取ったWがZを含むことも保証されない。
 
 この不足を示す一般反例は `V=A²_(x,y)`, `D={x=0,y≠0}`, `G=V⊔D`。D上だけZ/2の非自明元を加え、Vに自明に作用させる。G→Vはaffine有限表示quasi-finite unramifiedで単位上étale。原点を特殊点とする全Artin基底ではDが空となり、変形はVの形式環で完全に表される。しかし原点の任意の開近傍はDと交わり、Gはそこでは非flatで、`[V/G]` は代数スタックにならない（Stacks 06PL）。従って有限表示対角・全Artin普遍性・単位smoothnessだけでは零切断近傍のatlasを導けない。詳細な群構造と証明は `ex:formal-versality-not-open`。
+
+本族でこの障害を避ける追加の入力は、Casimir Jacobianによる全sourceのsmooth性、非可換点を含む全点でのAbel Artin比較、および任意M族との混合同値層の有限表示性である。可換点だけの形式普遍性から開性を推論する一般原理を使ったわけではない。
 
 ## 5. Veronese持上げの有効範囲
 
@@ -463,17 +495,17 @@ augmentationの有限projective解消を係数基底で自由化し、零方向�
 
 積Noether性により二重次数付き対角は有限部分解消を持つ。滑らかな可換点Xで長さq>2nまで取ると、X×Xのホモロジー次元とHH¹(X)=0により右逆とそのExt¹消滅が得られる。相対Serreにより対応するHom複体は係数perfectなので、この右逆を有限開へ持ち上げ、合成のconeの支持を除く。対角は有限perfect複体の直和因子となる。正周期n−1の豊富性の有限開条件を加えて、全滑らかな可換零切断の近傍に `𝔐_(n,d)^(O,hyp)` の族を得る（`thm:simultaneous-smooth-ncdp-open`）。幾何学的ファイバーではDb(coh)がcompact圏に一致し、ホモロジー次元はnである。
 
-これらの証明は原稿に記述し、曲線、降下、相対解消、有限窓と対角持上げの入力を独立に点検した。補助計算の実行は幾何学的証明や形式証明器による検証とは区別する。有限型開近傍の存在と全Artin普遍性は同じ族について成立するが、全O同値によるatlasや全成分数を結論するものではない。
+これらの証明は原稿に記述し、曲線、降下、相対解消、有限窓と対角持上げの入力を独立に点検した。補助計算の実行は幾何学的証明や形式証明器による検証とは区別する。有限型開近傍の存在と全Artin普遍性だけでは全O同値によるatlasを結論しないが、第4項の全群oidのsmooth性と全点比較を加えると、全可換locusを含むMの開部分Uのatlasを得る。全Mの被覆と全成分数は未解決である。
 
 ### 有限開近傍の相対Hochschild剛性
 
 smooth properな有限窓dg代数Cでは、`HH=RHom_(C^e)(C,C)` が係数perfectで任意基底変更に可換する。単位cone `F=Cone(O→HH)` は全滑らかな可換零方向点で次数2未満のコホモロジーが消える。有限自由複体の消去でこの条件を開化し、局所的にFを次数2以上だけの複体へ取れる。任意の非平坦基底変更でも同じ下界を保つため、相対コホモロジー層で `HH^{<0}=0, HH⁰=O, HH¹=0` となる（`prop:simultaneous-hochschild-rigid-open`）。非affine基底の大域HH群とは区別する。
 
-その開内のnc点では、既存の対角bimoduleのArtin剛性を適用できる（`cor:noncommutative-diagonal-artin-rigidity`）。これは既に存在するperfect持上げ同士の同型を持ち上げる主張であり、あらゆるAbel変形のdg模型や全モジュライのatlasをこの消滅だけから結論しない。
+その開内のnc点では、既存の対角bimoduleのArtin剛性を適用できる（`cor:noncommutative-diagonal-artin-rigidity`）。これは既に存在するperfect持上げ同士の同型を持ち上げる主張であり、あらゆるAbel変形のdg模型や全モジュライのatlasをこの消滅だけから結論しない。全Abel変形との比較には第4項のB∞比較・HH²の上下界・小拡大torsorを用いる。
 
 ## 19. 優先する未解決点
 
-1. **構成DM部分問題の全M内での開性。** 零切断近傍全体のfullな有限型DM表示は得た。有限窓dg模型のHH複体と実際の族のKodaira–Spencer写像から、一般nc点の全Abel変形と障害を比較する。versalityの開性、形式対象の有効性、全Mの代数性は別々に確認する。
-2. **粗空間と大域成分。** 非零一般開の粗空間を零切断近傍へ拡張するため、慣性射のfinite性と対角のproper性を調べる。一般安定化群と分離性、可換locusに接しない成分の有無と全成分数を検討する。
-3. **低次数中心が増える境界。** 得た零切断近傍の外側でも反標準環による同値認識は有効である。基本シフトの根と追加の同値を調べ、交換子行列・中心元の追加分母・smoothness等の有限開条件を明示する。
-4. **公表と文献比較。** 全方向有限族・全Artin普遍性・全同値の表現可能性を軸に主張を整理する。AMU2025の多項式Veronese結果と相対非可換復元を区別し、Keelerのmultiple divisors論文の本文と包括的優先権を確認する。
+1. **全Mの被覆と大域成分。** 全可換locusを含む整な有限型開Uと、全Mのaffine有限表示対角は得た。Uの閉包と補集合、可換locusに接しない対象・成分の有無を調べ、全Mの代数性と全成分数へ進む。Uの開性と一分枝性から全Mの既約性を推論しない。
+2. **粗空間の特異性と可換模型への射。** Uの有限対角・分離粗空間・一般安定化群の自明性、および可換点のétale粗模型は確定した。特殊自己同型群Γ_Xに対する不変式環の明示、非可換点の局所商と特異性、`sh:U→D_(n,d)` のファイバー・像・平坦性を調べる。shが与える可換模型上のPoisson構造を内在的に復元できるかも未解決である。
+3. **低次数中心が増える境界と明示条件。** 得た零切断近傍の外側でも反標準環による同値認識は有効である。基本シフトの根と追加の同値を調べ、交換子行列・中心元の追加分母・smoothness・Casimir Jacobian・HH²階数・可換模型の判別式による有限開条件を具体化する。全次数の中心最小性を一つの有限条件で保証したとはみなさない。
+4. **公表と文献比較。** 全可換locusを含む分離的な有限型開DMモジュライ、全点Abel Artin比較、有限対角と粗空間を主軸に成果をまとめる。一般変形理論・既存Poisson結果・THCR・Keel–Mori等の入力と本稿の適用を区別する。AMU2025の多項式Veronese結果、Keelerのmultiple divisors論文の本文と適用範囲、および組合せの包括的優先権の確認は継続する。

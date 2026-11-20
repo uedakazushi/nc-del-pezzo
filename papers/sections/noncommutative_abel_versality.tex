@@ -1,0 +1,447 @@
+% !TeX root = ../nc-del-pezzo.tex
+\section{非可換点の全Abel変形とHochschild接空間}
+\label{sec:noncommutative-abel-versality}
+
+以下では定理\ref{thm:zero-neighborhood-full-dm}の
+$\mathfrak U_{n,d}=[W_d/\mathcal E_{W_d}]$ を用いる。
+対象側の開集合をさらに縮めるときも，滑らかな可換模型の零切断全体を残す。
+全Abel変形とは，通常の局所Artin複素代数上の平坦Grothendieck圏の変形をいい，
+基本シフト，通常の次数付き表示，有限窓の持上げをあらかじめ要求しない。
+
+\subsection{各非可換ファイバーにおけるAbel Hochschild比較}
+
+\begin{proposition}\label{prop:noncommutative-abel-hochschild}
+$w\in W_d(\mathbb C)$ とし，
+$\mathcal Q_w=\operatorname{QGr}B_w$，
+$\mathcal A_w=\operatorname{coh}\mathcal Q_w$ と置く。
+有限窓のcompact生成元のdg自己準同型代数を $C_w$ とする。
+このとき，$B_\infty$代数のホモトピー圏において
+\[
+ C_{\mathrm{Ab}}(\mathcal Q_w)
+ \simeq C_{\mathrm{Ab}}(\mathcal A_w)
+ \simeq C_{\mathrm{dg}}\bigl(D^b_{\mathrm{dg}}(\mathcal A_w)\bigr)
+ \simeq C_{\mathrm{dg}}(C_w).
+\]
+従ってAbel変形の接空間と障害群はそれぞれ
+$HH^2(C_w)$ と $HH^3(C_w)$ であり，
+$HH^1_{\mathrm{Ab}}(\mathcal Q_w)=0$ である。
+
+さらに，$\mathcal O_w$ を平坦に持ち上げる標識は，
+自然同型を法とするframed変形の$1$-群oidを変えない。
+各Artin環上のframed変形群oidの自己同型は自明である。
+\end{proposition}
+\begin{proof}
+$\mathcal Q_w$ は局所noetherianであるから，
+$\mathcal Q_w=\operatorname{Ind}(\mathcal A_w)$ である。
+Lowen--Van den Bergh \cite[Corollary~6.8]{LowenVdBHochschild}により第一の比較を得る。
+同論文Theorem~6.1は，Abel圏のHochschild複体を，
+標準的な有界導来dg圏のHochschild複体と比較する。
+定理\ref{thm:simultaneous-smooth-ncdp-open}は，幾何学的ファイバー上で
+$D^b(\mathcal A_w)=D(\mathcal Q_w)^c$ を証明している。
+この同定は標準dg enhancementと有限窓のMorita模型で実現される。
+従って同論文Theorem~4.1.3のMorita不変性を使い，最後の比較を得る。
+これらの比較はGerstenhaber括弧を含む$B_\infty$構造を保つ。
+接空間・障害群は同論文Theorem~3.1による。
+一次群の消滅は命題\ref{prop:simultaneous-hochschild-rigid-open}による。
+
+標識については，$E_i=\mathcal O_w(-i)$ と取る。
+有向ACM条件と全シフトの豊富性により，
+命題\ref{prop:directed-section-deformation}と同じ
+De Deken--Lowen \cite[Theorem~4.5, Proposition~4.6]{DDL2011}の仮定を満たす。
+従って任意のAbel Artin変形で各 $E_i$ は平坦に持ち上がり，
+そのHomは所定階数の自由加群となる。
+特に $\mathcal O_w$ の持上げは同型を除いて一意で，
+その自己準同型環は基底環である。
+標識を保つ同型の選択差は全関手のスカラー自然同型で消せるから，
+同命題の標識忘却の証明がそのまま適用できる。
+最後に $HH^1_{\mathrm{Ab}}=0$ と
+補題\ref{lem:abel-infinitesimal-aut-rigidity}を使えば，
+特殊ファイバーで恒等な全Abel自己同値の自然同型類は自明となる。
+\end{proof}
+
+\begin{remark}
+この命題は，任意のAbel Artin変形に対し最初から有限窓dg模型が
+平坦に持ち上がると仮定するものではない。
+Hochschild比較を行うのは特殊ファイバー上であり，
+任意の変形とその持上げの差にはAbel圏自身の障害理論を使う。
+非正則基底上の全有界coherent導来圏をcompact圏と同一視していない。
+\end{remark}
+
+\subsection{滑らかな部分での接空間の下界と持上げ原理}
+
+\begin{lemma}\label{lem:full-substack-hochschild-lower-bound}
+$\mathfrak U_{n,d}$ の滑らかな点 $u=[w]$ について，
+そのframed変形の接空間からの自然な写像
+\[
+ T_u\mathfrak U_{n,d}\longrightarrow HH^2_{\mathrm{Ab}}(\mathcal Q_w)
+ =HH^2(C_w)
+\]
+は単射である。
+従って $D_{n,1}=b_{n,1}+n$，
+$D_{n,2}=b_{n,2}+2n-1$ と置くと，
+\[
+ \dim HH^2(C_w)\ge D_{n,d}.
+\]
+\end{lemma}
+\begin{proof}
+$\mathfrak U_{n,d}$ は構成族の間の全$\mathcal O$保存同値を射とする。
+従って，このスタックの二つの一次変形がAbel変形として同値であれば，
+その同値は既に$\mathfrak U_{n,d}$の射である。
+同じ特殊ファイバーの枠を保つという条件も両者で一致する。
+従って一次変形の同型類の写像は単射である。
+この写像は標準的なKodaira--Spencer写像であり線型である。
+$\mathfrak U_{n,d}$ はDMであり，滑らかな点の接空間次元は
+$D_{n,d}$ であるから不等式が従う。
+\end{proof}
+
+\begin{lemma}[滑らかな表示と全射な接写像によるAbel持上げ]
+\label{lem:smooth-source-abel-versal}
+$w\in W_d(\mathbb C)$ において $W_d$ が滑らかであり，
+\[
+ T_wW_d\longrightarrow HH^2_{\mathrm{Ab}}(\mathcal Q_w)
+\]
+が全射であると仮定する。
+すると任意の局所Artin複素代数 $R$ 上の
+$\mathcal Q_w$ のframedな全Abel変形は，
+特殊点 $w$ を持つ $W_d(R)$ の点から来る。
+その結果，$\mathfrak U_{n,d}$ の $[w]$ におけるframed変形群oidから
+全Abel変形群oidへの関手は同値となる。
+\end{lemma}
+\begin{proof}
+Artin環の長さに関して帰納する。
+小拡大 $R'\twoheadrightarrow R$ の核を $I$ とし，
+$\mathfrak m_{R'}I=0$ とする。
+与えられた全Abel $R'$-変形の $R$ 上の還元を，
+帰納法によって $a\in W_d(R)$ の構成族と同定する。
+$W_d$ は $w$ で滑らかなので，$a$ はある $a'_0\in W_d(R')$ に持ち上がる。
+
+いま二つの $R'$-変形は，その $R$ 上の還元と同定されている。
+Lowen--Van den Bergh \cite[Theorem~3.1]{LowenVdBHochschild}により，
+同じ $R$-変形の持上げの同型類は
+$HH^2_{\mathrm{Ab}}(\mathcal Q_w)\otimes_{\mathbb C}I$ のtorsorをなす。
+一方，$a$ のパラメータ持上げ全体は $T_wW_d\otimes I$ のtorsorであり，
+二つのtorsorへの写像の差分はKodaira--Spencer写像である。
+その全射性を使い，$a'_0$ を適切な接ベクトルだけ変えると，
+与えられたAbel持上げと同値な構成族を得る。
+この同値は還元上で指定した同値を誘導する。
+$\mathcal O$標識は前命題により合わせることができる。
+
+この議論は，対象となる持上げと構成族の持上げが既に存在するところで
+その差を補正している。$HH^3$ 全体の消滅は用いない。
+本質的全射はこの帰納法から従い，完全忠実性は全同値を用いた
+$\mathfrak U_{n,d}$ の定義から従う。
+\end{proof}
+
+\begin{proposition}[滑らかな二つの場合の零切断近傍]
+\label{prop:smooth-types-abel-versal}
+$d=1$，または $(n,d)=(2,2)$ とする。
+零切断全体を含む不変開近傍 $W_d^{\mathrm v}\subset W_d$ を取り，
+その全ての幾何学的点 $w$ において
+\[
+ \dim HH^2_{\mathrm{Ab}}(\mathcal Q_w)=D_{n,d}
+\]
+となるようにできる。
+同じ近傍の全ての点で，構成族は全framed Abel Artin変形を実現する。
+\end{proposition}
+\begin{proof}
+この二つの場合には$\mathfrak U_{n,d}$と$W_d$は滑らかである。
+可換零点 $z$ では既存の全Artin比較と形式環の計算より
+$\dim HH^2(C_z)=D_{n,d}$ である。
+相対Hochschild複体はperfectで基底変更と両立するから，
+\[
+ W_d^{\mathrm v}
+   =\{w\in W_d\mid\dim H^2(\mathcal K\otimes^L\kappa(w))\le D_{n,d}\}
+\]
+は零切断全体を含む開集合である。
+前補題の下界と合わせれば，この開集合上で等号が成り立つ。
+Hochschild次元は全Abel同値に不変なので，この開集合は群oidに関して不変である。
+$T_wW_d\to T_{[w]}\mathfrak U_{n,d}$ はsmooth atlasの接写像として全射であり，
+後者と $HH^2(C_w)$ は同じ次元で，前補題の写像は単射である。
+従って合成は全射となり，補題\ref{lem:smooth-source-abel-versal}を適用できる。
+\end{proof}
+
+
+
+\subsection{二次Pl\"ucker関係からHochschild一次微分の階数を得る}
+
+\begin{lemma}[形式環の二次関係と一次微分]
+\label{lem:quadratic-relations-hochschild-rank}
+可換零点 $z=(f,0)$ に対応する圏を $\mathcal Q_z$ とし，
+$V=HH^2_{\mathrm{Ab}}(\mathcal Q_z)$ と置く。
+framed変形環の接空間と $V$ を既存の全Artin比較に沿って同定する。
+次数2では
+\[
+ V\simeq\mathbb C^{b_{n,2}}\oplus\bigwedge^2\mathbb C^{n+1},
+ \qquad
+ \widehat R=\mathbb C[[t,p]]/(q_{ijk\ell}).
+\]
+任意の非零decomposable方向
+$\pi\in\bigwedge^2\mathbb C^{n+1}$ に対して，
+Gerstenhaber括弧の写像
+\[
+ [\pi,-]:HH^2_{\mathrm{Ab}}(\mathcal Q_z)
+          \longrightarrow HH^3_{\mathrm{Ab}}(\mathcal Q_z)
+\]
+の階数は
+\[
+ c_n=\binom{n-1}{2}
+\]
+である。
+\end{lemma}
+\begin{proof}
+$S_2=\operatorname{Sym}(V^*)/\mathfrak m^3$，
+$S_1=S_2/\mathfrak m^2$ と置く。
+$S_1$ 上の普遍一次Abel変形を取る。
+任意の線型部分空間 $L\subset\operatorname{Sym}^2(V^*)$ に対し，
+小拡大 $S_2/L\twoheadrightarrow S_1$ への持上げの障害は，
+普遍一次classを $\kappa$ と書けば
+\[
+ \tfrac12[\kappa,\kappa]\ \in\
+ HH^3_{\mathrm{Ab}}(\mathcal Q_z)
+       \otimes\bigl(\operatorname{Sym}^2(V^*)/L\bigr)
+\]
+である。これはHochschild複体によるAbel変形のMaurer--Cartan記述
+\cite[Theorem~3.1, Remark~3.5]{LowenVdBHochschild}の二次項である。
+従ってこの障害の成分が張る部分空間 $J_2$ について，
+持上げが存在する条件は $J_2\subset L$ と同値になる。
+
+一方，同じ変形関手を表す $\widehat R$ を使えば，
+普遍一次変形が持ち上がる条件は
+二次Pl\"ucker関係の張る部分空間 $I_2$ が $L$ に含まれることである。
+実際，変数の持上げを二次項だけ変えても，
+関係式の二次部分は変化しない。
+全ての $L$ について二つの条件が一致するから $J_2=I_2$ である。
+同じことを双対的に書けば，二次障害写像は，Pl\"ucker二次写像
+$q:V\to I_2^*$ と単射 $I_2^*\hookrightarrow HH^3_{\mathrm{Ab}}(\mathcal Q_z)$
+の合成に等しい。
+
+$\tfrac12[v,v]$ を $\pi$ で微分した写像は $[\pi,-]$ である。
+従ってその階数は，Pl\"ucker二次関係のJacobianの階数に等しい。
+線型座標変換で $\pi=e_0\wedge e_1$ としてよい。
+$q_{01ij}$，$2\le i<j\le n$ の微分は，非零な共通係数を除いて
+$\delta p_{ij}$ であり，これらは独立である。
+それ以外の微分はこの線型包に入る。
+従って階数は $\binom{n-1}{2}$ となる。
+この議論は可換係数 $f$ の任意性を保つ。
+\end{proof}
+
+\begin{lemma}[実際の族のHochschild一次微分]
+\label{lem:hochschild-first-bockstein}
+滑らかな可換模型と非零Poisson方向を固定し，
+同じ有限中心商族を直線 $h\mapsto(f,h\pi)$ に制限する。
+相対Hochschild複体 $\mathcal K_h$ の $h$ に関する一次Bockstein
+\[
+ H^2(\mathcal K_0)\longrightarrow H^3(\mathcal K_0)
+\]
+は，命題\ref{prop:noncommutative-abel-hochschild}のAbel Hochschild比較を通して
+$[\pi,-]$ に一致する。
+\end{lemma}
+\begin{proof}
+有限窓の生成元はこの実際の族の上で持ち上がっている。
+そのdg代数を $h$-平坦なcofibrant模型で表す。
+その一次の構造を $m_h=m_0+h\mu\pmod{h^2}$ と書けば，
+Hochschild複体の全微分は
+\[
+ [m_h,-]=[m_0,-]+h[\mu,-]\pmod{h^2}
+\]
+である。従って一次Bocksteinは $[\mu,-]$ で与えられる。
+有限perfect模型への移行はこの一次微分を変えない。
+
+$\mu$ は実際のAbel族の一次classの，持ち上がった生成元上のdg表示である。
+この整合性は，Lowen
+\cite[Theorems~3.22, 4.18, Remark~4.20]{LowenCharacteristic2008}
+の，持ち上がった対象上への導来変形の制限による。
+ここでは有限窓の持上げが実際に存在するので，
+任意の対象が無条件にdg変形すると仮定していない。
+既存の具体的全Artin比較は直線族の一次Abel classを $\pi$ と同定している。
+また命題\ref{prop:noncommutative-abel-hochschild}の比較はGerstenhaber括弧を保つ。
+従って $[\mu,-]$ は $[\pi,-]$ に一致する。
+\end{proof}
+
+\subsection{方向解消によるHochschild接空間の一様化}
+
+\begin{proposition}[次数2の非零部分における最小Hochschild接空間]
+\label{prop:degree-two-uniform-minimal-hochschild}
+$d=2$，$n\ge3$ とする。
+可換零切断全体を含む不変開近傍
+$W_2^{\mathrm v}\subset W_2$ が存在し，
+その全ての非零方向点 $w$ で
+\[
+ \dim HH^2_{\mathrm{Ab}}(\mathcal Q_w)
+ =b_{n,2}+2n-1=D_{n,2}
+\]
+となる。
+従ってその全ての非零方向点で，構成族は全framed Abel Artin変形を実現する。
+\end{proposition}
+\begin{proof}
+定理\ref{thm:low-center-zero-neighborhood}と同じproper方向解消
+\[
+ \nu:Y\longrightarrow W_2
+\]
+を取る。例外因子 $D=\nu^{-1}(Z_2)$ は滑らかな可換係数空間と
+$\operatorname{Gr}(2,n+1)$ の積であり，被約である。
+局所的にその方程式を $\tau=0$ と書く。
+$Y$ は直線束の全空間の開部分であるため，$\tau$ は非零因子である。
+
+相対Hochschild複体の単位写像のcone
+$\mathcal F=\operatorname{Cone}(\mathcal O\to\mathcal K)$ を $Y$ へ引き戻す。
+命題\ref{prop:simultaneous-hochschild-rigid-open}により，
+これは任意基底変更に両立するperfect複体で，
+局所的に次数2以上の有限自由複体で表せる。
+任意の $a\in D$ を固定し，次数2から3への微分の可逆な小行列を消去する。
+$a$ の開近傍で，複体の始まりを
+\[
+ \mathcal F^2\xrightarrow{d^2}\mathcal F^3\xrightarrow{d^3}\cdots,
+ \qquad
+ \operatorname{rk}\mathcal F^2=m:=b_{n,2}+\binom{n+1}{2}
+\]
+とし，$d^2(a)=0$ とできる。
+
+$D$ 上の全てのファイバーの $H^2$ は同じ次元 $m$ を持つ。
+従って上の近傍では $d^2|_D=0$ である。
+ここでは $D$ が被約であり，行列成分が全幾何学的点で零になることを使う。
+したがって，有限自由加群の間の写像 $A$ によって
+\[
+ d^2=\tau A
+\]
+と書ける。$\tau$ が非零因子であることから
+$d^3A=0$ であり，$A|_D$ は
+\[
+ H^2(\mathcal F|_D)\longrightarrow H^3(\mathcal F|_D)
+\]
+への一次Bocksteinを誘導する。
+補題\ref{lem:hochschild-first-bockstein}と
+補題\ref{lem:quadratic-relations-hochschild-rank}により，
+その階数は任意の $a\in D$ で $c_n=\binom{n-1}{2}$ である。
+従って行列 $A(a)$ 自体の階数は少なくとも $c_n$ である。
+適切な $c_n$ 次小行列式を可逆にすれば，
+$a$ を含む開近傍 $N_a$ 上で $\operatorname{rk}A\ge c_n$ となる。
+$N_a\setminus D$ では $\tau$ が可逆なので，
+\[
+ \dim H^2(\mathcal K_w)
+ =\dim\ker d^2(w)
+ \le m-c_n
+ =b_{n,2}+2n-1.
+\]
+この局所議論では $HH^3$ の次元一定性を必要としない。
+
+$Y\setminus D$ における
+$\dim H^2(\mathcal K_w)>D_{n,2}$ の閉集合を $B$ とする。
+いま各 $a\in D$ は $B$ と交わらない開近傍 $N_a$ を持つので，
+$Y$ における閉包 $\overline B$ も $D$ と交わらない。
+$\nu$ はproperであり，$\nu^{-1}(Z_2)=D$ だから，
+$\nu(\overline B)$ は $Z_2$ と交わらない閉集合である。
+その像を除けば，零切断全体を保った開近傍上で上の不等式を得る。
+非零方向では $\mathfrak U_{n,2}$ が滑らかなので，
+補題\ref{lem:full-substack-hochschild-lower-bound}の逆不等式と合わせて等号となる。
+この性質は座標変換で保たれるため，得た開集合の座標群による移動の合併を取り，
+不変な開近傍にできる。
+
+最後に滑らかな表示の接写像と下界補題により，
+$T_wW_2^{\mathrm v}\to HH^2_{\mathrm{Ab}}(\mathcal Q_w)$ は全射である。
+非零方向では $W_2^{\mathrm v}$ も滑らかであるから，
+補題\ref{lem:smooth-source-abel-versal}を適用する。
+\end{proof}
+
+\begin{theorem}[零切断近傍の全点における全Abel Artin普遍性]
+\label{thm:all-points-abel-artin-versality}
+各 $n\ge2$，$d=1,2$ について，
+可換零切断全体を含む一つの不変開近傍
+$W_d^{\mathrm v}\subset W_d$ を取り，
+\[
+ \mathfrak U_{n,d}^{\mathrm v}
+ =[W_d^{\mathrm v}/\mathcal E_{W_d^{\mathrm v}}]
+ \subset\mathfrak U_{n,d}
+\]
+の任意の幾何学的点において，framed変形群oidを
+全framed $\mathcal O$-marked Abel Artin変形群oidと同一視できる。
+従って，この開近傍の非可換点を特殊ファイバーとする全Abel Artin変形も，
+同じ有限中心商族の基底変更から得られる。
+\end{theorem}
+\begin{proof}
+次数1と次数2の $n=2$ では
+命題\ref{prop:smooth-types-abel-versal}を使う。
+次数2の $n\ge3$ の非零方向では
+命題\ref{prop:degree-two-uniform-minimal-hochschild}を使う。
+残る可換零点では既存の全Artin比較を使う。
+新しい開集合はその特殊点を含むため，
+既存のArtin点は全体としてもこの開集合を通る。
+射の同定は全同値群oidを用いる定義から従う。
+任意の係数体への拡張と，剰余体が複素数体でないArtin試験環の扱いは，
+補題\ref{lem:abel-versality-arbitrary-residue-field}で確認する。
+\end{proof}
+
+\begin{remark}
+この定理だけから，$\mathfrak U_{n,d}^{\mathrm v}$ が
+全モジュライ $\mathfrak M^{\mathcal O}_{n,d}$ の開部分スタックであるとは結論しない。
+第\ref{sec:open-full-moduli}節で，任意の全モジュライ族と構成族の間の同値関手の
+相対表現可能性・有限表示を証明し，形式的持上げから実際の開埋込みへ進む。
+\end{remark}
+
+
+\subsection{任意の剰余体と全Artin試験環}
+
+\begin{lemma}[係数体の拡大と任意のArtin試験環]
+\label{lem:abel-versality-arbitrary-residue-field}
+本節の全Abel Artin比較は，任意の体拡大 $K/\mathbb C$ と
+$w\in W_d^{\mathrm v}(K)$ に対し，
+剰余体 $K$ の局所Artin $K$-代数について成立する。
+さらに，局所Artin複素代数の冪零全射 $R'\twoheadrightarrow R$ に対し，
+$\mathfrak U_{n,d}^{\mathrm v}(R)$ の対象と，
+その像を還元として持つ $\mathfrak M^{\mathcal O}_{n,d}(R')$ の対象が与えられれば，
+後者は $\mathfrak U_{n,d}^{\mathrm v}(R')$ へ持ち上がる。
+ここで $R/\mathfrak m_R$ が $\mathbb C$ と等しいことは仮定しない。
+持上げは，相対群oidの意味で同型を除いて一意である。
+\end{lemma}
+\begin{proof}
+まず，$K$-有理なパラメータ点でのframed比較を確認する。
+Lowen--Van den BerghのAbel障害理論・Hochschild比較と，
+De Deken--Lowenの豊富列の変形比較は，体 $K$ 上でも同じ仮定で適用できる。
+有限窓，その相対Hochschild複体，中心商族の定義式，方向解消は
+すべて既存の複素基底からの係数変更で定まる。
+perfect性，任意基底変更，消滅と有限行列の階数条件はこの係数変更で保たれる。
+よって非零方向のHochschild次元の等式と
+滑らかな表示を使う持上げの証明は $K$ 上で同じように成立する。
+
+可換点の全Artin比較については，使用する量子化定理自体を $K$ 上で適用する。
+Yekutieli \cite[Theorem~11.1, Corollaries~7.5, 11.2]{Yekutieli2015}は
+実数体を含む任意の体を許すため，$K\supset\mathbb C$ はその仮定を満たす。
+同じ実係数のformalityを $K$ へ拡張して使う。
+可換模型の有向コホモロジー消滅，正規形と相対Poisson錐の表示は
+体変更と両立する。
+従って横断面の接写像の同型，初交換子の比較，
+完全局所環の形式自己写像の逆写像による証明も $K$ 上で成立する。
+ここで無限個の変形データを有限生成部分体へ降ろす主張は用いていない。
+
+次に $R'\twoheadrightarrow R$ の共通剰余体を $K$ とする。
+標数0の体拡大 $K/\mathbb C$ は形式的に滑らかである
+\cite[Lemma~10.158.8, Tag~0321]{StacksProject}。
+したがって $R'\twoheadrightarrow K$ の切断
+$K\to R'$ を，既存の複素代数構造と両立するように選べる。
+その合成で $R$ にも $K$-代数構造が入り，
+$R'\twoheadrightarrow R$ は剰余体 $K$ のArtin $K$-代数の射となる。
+
+与えられた $\mathfrak U_{n,d}^{\mathrm v}(R)$ の対象の特殊ファイバーを $u$ とする。
+smooth atlas $W_d^{\mathrm v}\to\mathfrak U_{n,d}^{\mathrm v}$ の $u$ 上のファイバーは
+空でない有限型 $K$-スキームである。
+従って有限体拡大 $K'/K$ 上の点を持つ。
+標数0なので $K'/K$ は有限分離であり，
+$R_1=R\otimes_KK'$，
+$R'_1=R'\otimes_KK'$ は局所Artin環で，
+元の環に対して有限\'etaleである。
+atlasのsmoothnessにより，この特殊ファイバーの点は，
+$R_1$ 上の与えられた対象を表す
+$W_d^{\mathrm v}(R_1)$ の点へ持ち上がる。
+
+その特殊点に上で証明した $K'$ 上の全framed Artin比較を適用すると，
+$R'_1$ 上の対象が $\mathfrak U_{n,d}^{\mathrm v}$ から来る。
+全同値を射として用いることにより，
+その $R_1$ 上の還元は指定した元の対象と同一視できる。
+有限\'etale被覆 $R'\to R'_1$ の重なり上で，
+元の $\mathfrak M$-対象の降下同値を，
+完全忠実な包含 $\mathfrak U^{\mathrm v}\to\mathfrak M$ によって一意に引き戻す。
+そのcocycle条件も完全忠実性によって保たれる。
+$\mathfrak U^{\mathrm v}$ はfppf stackなので，この降下データは $R'$ 上で有効である。
+一意性も同じ完全忠実性による。
+有限体拡大だけを使っているので，すべての被覆環と重なりの環はNoetherである。
+\end{proof}

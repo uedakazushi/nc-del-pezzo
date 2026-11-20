@@ -1,6 +1,6 @@
 # 研究方針：次数1・2の非可換del Pezzo n-fold
 
-**2026-11-20（JST） / v0.4。再開時に最初に読む。**
+**2026-11-20（JST） / v0.5。再開時に最初に読む。**
 
 正本は [uedakazushi/nc-del-pezzo](https://github.com/uedakazushi/nc-del-pezzo) のmain。研究全体の入口は [research-hub](https://github.com/uedakazushi/research-hub)。続いて [研究ノート](research/research_notes.md)、[主原稿](papers/nc-del-pezzo.tex)、[再現手順](docs/reproduction.md) を読む。
 
@@ -23,7 +23,7 @@
 
 主原稿 `def:ample-model` はHilbert関数を持つ豊富列型の問題A、`def:nc-dp-stack` は標準compact圏の相対Serre・反標準豊富性・Serre周期n−1・有向ACM条件を備えたnc多様体の問題Mを定義する。重み付きAS超曲面の表示を持つ部分問題は別に記号化する。fppf stack化によるモジュライ問題の定義と、代数スタック・有限型atlasの構成は別である。
 
-元の成分数決定という目標のうち、可換点における全Abel変形群oid、有限自己同型群による形式商、全Artin変形の中心超曲面表示とnc多様体条件、形式分枝数は解決した。有限パラメータでは、両次数の分離型族の普遍PBW・Casimir・中心・ambient CYに加え、tailsの飽和性、ACM、compact生成、proper性、相対Serre公式を得た。反標準豊富性も滑らかな可換点の有限型開近傍で成立する。さらに次数2の一般楕円型最高次項は、三次Sklyanin代数の有限正則開集合と有限中心行列により代数化でき、任意低次係数・全次元への展開が可能になった。負の補助次数の方法に固有の障害は残るが、次数2の一般topの存在問題は別の方法で解決した。現在の重点は有限hでの圏のsmooth性、一般楕円型族の強Noether性・相対tails、および次数1の一般topである。有限型atlasと可換locusに接しない成分の検討はなお残る。
+元の成分数決定という目標のうち、可換点における全Abel変形群oid、有限自己同型群による形式商、全Artin変形の中心超曲面表示とnc多様体条件、形式分枝数は解決した。有限パラメータでは、両次数の分離型族の普遍PBW・Casimir・中心・ambient CYに加え、tailsの飽和性、ACM、compact生成、proper性、相対Serre公式を得た。反標準豊富性も滑らかな可換点の有限型開近傍で成立する。さらに次数2の一般楕円型最高次項は、三次Sklyanin代数の有限正則開集合と有限中心行列により代数化でき、任意低次係数・全次元への展開が可能になった。負の補助次数の方法に固有の障害は残るが、次数2の一般topの存在問題は別の方法で解決した。一般楕円型族では、最高次point curveを解消し相対twisted homogeneous coordinate ringと同定して、全lower係数・全nで強Noether性と相対tailsも証明した。現在の重点は有限hでの圏のsmooth性、および次数1の一般topである。有限型atlasと可換locusに接しない成分の検討はなお残る。
 
 ## C. 主要到達点と確実性
 
@@ -55,13 +55,14 @@
 | 正周期rの相対豊富性は滑らかな可換点の有限型開近傍で成立 | 有限個の次数の余核の消滅と相対Serre消滅で証明。任意の許される基底変更 | `prop:finite-periodic-generation`, `cor:finite-periodic-ampleness` |
 | 次数2の一般楕円型topと任意lower項を持つ普遍PBW・ambient CY・中心商族 | 各古典楕円型点の有限型開近傍。中心元の分母はtop係数だけに依存。任意非被約基底変更でも平坦・中心元正則 | `lem:elliptic-universal-lower-pbw`, `thm:elliptic-finite-central-family` |
 | 上記次数2族は全nで稠密開の古典Poisson対を半古典極限に持つ | lower係数へn−1個の中央変数の斉次多項式を代入。全nc点のatlasではない | `cor:elliptic-general-dimension`, `prop:elliptic-semiclassical-coverage` |
+| 次数2の一般楕円型族の強Noether性、相対tails、有限compact生成元 | 各古典楕円型topの有限開近傍。二重対角線の解消・相対THCR・Keelerの定理・中心/filtered持上げにより任意noetherian基底変更で証明 | `thm:elliptic-relative-thcr`, `cor:elliptic-strong-noetherian`, `thm:elliptic-relative-tails` |
 
 一般原理のLowen–Van den Bergh・Lowen・De Deken–Lowen・Yekutieli・Kontsevichと、入力となるPoisson構造定理は既知・既存の入力である。曲面の接空間次元10・9も先行研究で既知。一般nの適用・復元・降下の新規性について包括的な優先権確認は未了。
 
 ## D. 未解決の核心と次の一手
 
 1. **有限hでのsmooth性。** 分離型族の有限compact生成元E=⊕_{j=0}^{W−1}O(j)、W=n+3またはn+5、を用い、C=REnd(E)の対角を有限完全分解する。Cは基底上perfectで基底変更に両立するが、対角のC^e-perfect性は未証明。Artin smooth性やSerre公式だけで有限型開性を結論しない。coherent圏の有限ホモロジー次元も別に確認する。
-2. **一般楕円型族の相対幾何と次数1。** 次数2の構成済み有限開族について、強Noether性を証明して相対tailsを扱い、分離型の相対局所コホモロジーの議論を拡張する。全体の中心は楕円曲線上の有限位数パラメータで増大し得るため、分離型の普遍中心定理を転用しない。次数1では活性重み(1,2,3)の一般topの有限開条件と正規化中心元を構成する。
+2. **一般楕円型族のsmooth性と次数1。** 次数2では強Noether性・相対tails・有限生成元を得たので、その対角のperfect性へ進む。強Noether性は可換係数の変更についての条件であり、二つの非可換代数のtensor積のNoether性を自動的に与えない。全体の中心は有限位数パラメータで増大し得るため、分離型の普遍中心定理を転用しない。次数1では活性重み(1,2,3)の一般topの有限開条件と正規化中心元を構成する。
 3. **一般nc点・全体の既約成分。** 前二項から許容な表示族と全O同値の商を構成し、有限型atlas、一般点での復元、可換locusに接しない成分を調べる。半古典Poisson方向の稠密被覆と全nc点の被覆を区別し、形式一分枝性から全成分数を推論しない。
 4. **公表範囲と先行研究。** 全Artin群oid、分離型の相対tails、一般楕円型の有限量子化を現在の論理順序で統合した。既存のfiltered CY・楕円量子化・AS Z-代数との比較を進める。Sklyanin中心元や固定topのPBW性は既知であり、普遍係数・有限分母・一般nへの適用の優先権は未確認。大域分類は未解決として明記する。
 
@@ -70,5 +71,5 @@
 - 相対Poisson錐・商・自己同型：`poisson-del-pezzo` main `4834ea4f3e13bff4d6c5793cec9b169d8f1ad56f`、主原稿v1.4の定理7.3・8.8、補題8.7、注意8.5、命題9.4。
 - O-marked枠組み：`nc-cubic-threefold-moduli` main `6c35d2c84671c2538e61836a6bf3a511392eacce`、主原稿v22。三次三様体固有の次数一生成・指数2・残余圏の結論を無条件に輸入しない。
 - 一次資料・具体的な適用条件・優先権未確認点は [文献と依存](research/literature.md)。証明の重複は研究ノートへ置かない。
-- `make verify` はn=2,…,8のHilbert/monic基底・Euler差分・二次障害・符号粗商の接空間次元と、分離型の全係数PBW overlap・中心交換子・内部次数・補助次数を検査する。さらに三次Sklyanin中心元の自由代数内の九項証明書、パラメータ置換と可換極限を厳密計算する。後二者はhの有限jetではない。一般の証明を有限次元の数値例で代替していない。
+- `make verify` はn=2,…,8のHilbert/monic基底・Euler差分・二次障害・符号粗商の接空間次元と、分離型の全係数PBW overlap・中心交換子・内部次数・補助次数を検査する。さらに三次Sklyanin中心元の自由代数内の九項証明書、パラメータ置換と可換極限を厳密計算する。分離型とSklyanin中心の検算はhの有限jetではない。`verify_elliptic_curve.py` はpoint curveの行列式、blowup、分母を払ったshiftの恒等式を厳密検算し、σ⁴の非自明性だけは明示したmod h²計算で確認する。一般の証明を有限次元の数値例で代替していない。
 - 組版・PDF確認の実施状況と環境は [再現手順](docs/reproduction.md)。生成・証明点検・計算・組版・GitHub反映・hub更新はそれぞれ確認する。

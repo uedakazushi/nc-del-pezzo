@@ -186,14 +186,23 @@ $K=R\operatorname{Hom}_{A^{\mathrm e}}(P,Q)$ は $R$-perfect である．
 これは任意の導来基底変更と可換し，
 $K\otimes_R^{\mathbf L}\mathbb C\simeq
  R\operatorname{Hom}_{A_0^{\mathrm e}}(A_0,A_0)$ である．
-$R/\mathfrak m^{a+1}\to R/\mathfrak m^a$ の核
-$I_a=\mathfrak m^a/\mathfrak m^{a+1}$ に対する写像持上げの障害は，
-テンソルした複体の三角から
+$R/\mathfrak m^{a+1}\to R/\mathfrak m^a$ の核を
+$I_a=\mathfrak m^a/\mathfrak m^{a+1}$ と置く．
+$\mathfrak m I_a=0$ なので，導来テンソル積の結合律から
+\[
+ I_a\otimes_R^{\mathbf L}K
+ \simeq I_a\otimes_{\mathbb C}
+       (\mathbb C\otimes_R^{\mathbf L}K)
+\]
+である．従って写像持上げの障害は，
+この小拡大を $K$ とテンソルした三角から
 \[
  H^1(I_a\otimes_R^{\mathbf L}K)
  =I_a\otimes_{\mathbb C}HH^1(A_0)=0
 \]
 に入る．従って $H^0(K)$ の元として所望の射を帰納的に持ち上げられる．
+ここでは $P,Q$ の存在は仮定済みであり，その間の射だけを持ち上げている．
+未構成の対象の持上げに現れる $HH^2$ の障害の消滅を主張していない．
 その cone は $R$-perfect で還元が零なので，導来 Nakayama により零である．
 よって得られた射は同型である．
 \end{proof}

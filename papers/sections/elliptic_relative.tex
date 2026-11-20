@@ -1,0 +1,347 @@
+% !TeX root = ../nc-del-pezzo.tex
+\section{楕円型族の相対曲線表示と強Noether性}
+\label{sec:elliptic-relative}
+
+第\ref{sec:elliptic-degree-two-finite}節の次数2の族について，
+可換楕円型点を含む有限開近傍上で強Noether性を証明する．
+ここで強Noether性とは，係数環から任意のnoetherianな可換環への変更後にも
+左右noetherianであることをいう．
+体上のSklyanin代数のNoether性を特殊ファイバーごとに使うのではなく，
+最高次中心商を相対twisted homogeneous coordinate ringとして構成する．
+この構成は $h=0$ で二重対角線へ退化するpoint curveを一度blow upすることにより，
+重み2の生成元 $z$ を保持したまま可換点まで延長される．
+
+\subsection{二重対角線の解消とpoint shift}
+
+以下では $a,b,c,T$ は補題\ref{lem:elliptic-top-as-open}の記号とする．
+特に
+\[
+ a=1+\frac23\beta h^2,\qquad
+ b=-2+\frac23\beta h^2,\qquad c=\alpha h^2,
+ \qquad 2a+b=2\beta h^2.
+\]
+可換点 $p=(\alpha_0,\beta_0,0)$ は
+$\alpha_0(4\beta_0^2-\alpha_0^2)\ne0$ を満たすとし，
+定理\ref{thm:elliptic-finite-central-family}の有限開近傍と交わって作業する．
+以下の近傍の縮小は最高次パラメータだけに依存する．
+
+\begin{lemma}[可換極限を持つ相対point curve]
+\label{lem:elliptic-resolved-point-curve}
+$p$ のあるアフィン開近傍 $V$ 上に，滑らかで射影的な種数1の曲線族
+$f:\mathcal E\to V$，自己同型 $\sigma$，および相対次数2の線束
+$L$ が存在し，次を満たす．
+\begin{enumerate}
+ \item $h\ne0$ では $\mathcal E$ は三次関係式のpoint curveであり，
+       $\sigma$ は隣接する二点から次の二点へ移るshiftである．
+ \item $h=0$ では
+       \[
+        \mathcal E_0:
+        \frac12z^2+\frac\alpha4(x^4+y^4)+\beta x^2y^2=0
+        \quad\subset\mathbb P(1,1,2),
+        \qquad L_0=\mathcal O_{\mathcal E_0}(1),\quad \sigma_0=1.
+       \]
+ \item $x,y$ は $f_*L$ の基底であり，
+       $z$ は $L\otimes\sigma^*L$ の切断として定義され，
+       twisted積について $xy-yx=hz$ が成り立つ．
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+$\mathbb P^1_T\times_T\mathbb P^1_T$ の座標を
+$(u:v),(U:V)$ とする．三次関係式を三点について多重線型化すると，
+第三点は次の行列の核で与えられる：
+\[
+ M=\begin{pmatrix}
+ avV+cuU&auV+bvU\\
+ avU+buV&auU+cvV
+ \end{pmatrix}.
+\]
+その行列式は
+\begin{equation}\label{eq:elliptic-point-determinant}
+ H=ac(u^2U^2+v^2V^2)-ab(u^2V^2+v^2U^2)+(c^2-b^2)uvUV.
+\end{equation}
+$\delta=uV-vU$ と置くと，厳密な恒等式
+\begin{align}
+ H&=-ab\delta^2+h^2Q,\label{eq:elliptic-point-blowup}\\
+ Q&=\alpha a(u^2U^2+v^2V^2)+(\alpha^2h^2-2\beta b)uvUV\notag
+\end{align}
+を得る．従って $h=0$ のpoint curveは二重対角線 $2\delta^2=0$ である．
+
+周囲を理想層 $(h,\delta)$ でblow upし，$H=0$ のstrict transformを
+$\mathcal E$ とする．これは基底上射影的である．
+$h$-chartで $w=\delta/h$ と書く．$u=U=1$ のアフィン表示では
+$t=v/u$，$q=V/U=t+hw$ であり，strict transformの式は
+\begin{equation}\label{eq:elliptic-resolved-affine}
+ G=-ab w^2+\alpha a(1+t^2q^2)+(\alpha^2h^2-2\beta b)tq=0.
+\end{equation}
+このchartの周囲は座標 $(t,w)$ を持つ基底上の滑らかな曲面である．
+$h=0$ の式は
+\[
+ 2w^2+\alpha(1+t^4)+4\beta t^2=0.
+\]
+逆座標のchartでは $t'=1/t$，$q'=1/q$，$w'=-w/(tq)$ で貼り合わさる．
+ここで $w'=(q'-t')/h$ としたので，大域切断 $\delta/h$ の局所成分は
+元のchartで $w$，逆chartで $-w'$ である．
+従って特殊ファイバーは表示した重み付き四次曲線であり，判別式の仮定から滑らかである．
+blow upのもう一方のchartでは $h=k\delta$ と書き，strict transformは
+$-ab+k^2Q=0$ となる．$h=0$ で $k=0$ なら $ab=-2$ と矛盾するので，
+特殊ファイバーの全点は先の $h$-chartに入る．
+特に，特殊ファイバーを見落としたり，二重対角線そのものを楕円曲線と扱ったりしていない．
+
+特殊ファイバーの各点で相対Jacobian判定を適用すると，$f$ はその近くで滑らかである．
+非滑らかな点の閉集合の像はproper性により閉で，$p$ を含まない．
+この像を除き，さらに必要なら幾何学的連結性の開近傍へ制限すると，
+全幾何ファイバーが滑らかで幾何学的整な種数1曲線となる．
+以下でも同じように有限個の閉集合のproperな像を除き，最後に $p$ を含む主開近傍を選ぶ．
+
+行列 $M$ は特殊ファイバー上で階数1である．例えば有限座標では
+$M|_{h=0}=\bigl(\begin{smallmatrix}t^2&-t\\-t&1\end{smallmatrix}\bigr)$ であり，
+無限遠のchartでも同様である．階数0の閉集合の像を除くと，
+その核は第三点への射を定める．有限座標ではその座標は
+\[
+ r=-\frac{at+bq}{a+ctq}.
+\]
+$\mathcal H(t,q)=H(1,t,1,q)$ と置くと，多項式恒等式
+\begin{equation}\label{eq:elliptic-shift-identity}
+ (a+ctq)^2\mathcal H\left(q,-\frac{at+bq}{a+ctq}\right)
+       =(a^2-bcq^2)\mathcal H(t,q)
+\end{equation}
+が成り立つ．左辺は分母を払った多項式として読む．
+従って $(t,q)\mapsto(q,r)$ は $h\ne0$ の曲線を保つ．
+さらに $q=t+hw$ を代入すると
+\begin{equation}\label{eq:elliptic-resolved-shift}
+ t_{\mathrm{new}}=q,\qquad
+ w_{\mathrm{new}}=\frac{r-q}{h}
+       =\frac{aw-h(2\beta q+\alpha tq^2)}{a+ctq}.
+\end{equation}
+分母は $h=0$ で1なので，この式は有限座標の特殊ファイバー全体で正則であり，
+そこでは $(t_{\mathrm{new}},w_{\mathrm{new}})=(t,w)$ となる．
+$x,y$ を同時に交換した逆座標の式が無限遠を覆う．
+また第三点への射は $h=0$ で第二点と一致するから，
+新しい行列式 $\delta_{\mathrm{new}}$ は $h$ で割り切れる．
+これがblow upの $h$-chartへの持上げを与え，上の局所式は貼り合わさる．
+式\eqref{eq:elliptic-shift-identity}と $h$-平坦性により像はstrict transformに入る．
+三次関係式は語順の反転で保たれる．従って二点の交換を $\iota$ と書くと，
+$\iota\sigma\iota$ が逆shiftである．核の一意性による逆写像の恒等式は
+$h\ne0$ で成立し，平坦な族上の等式として全体へ延長される．
+以上で $\sigma\in\Aut_V(\mathcal E)$ と $\sigma_0=1$ を得る．
+
+二つの射影を $p_1,p_2$ と書き，$L=p_1^*\mathcal O_{\mathbb P^1}(1)$ と置く．
+$p_1\sigma=p_2$ なので，$\sigma^*L=p_2^*\mathcal O(1)$ である．
+切断 $\delta/h$ は $L\otimes\sigma^*L$ の大域切断となる．
+これを $z$ と書き，$u,v$ の引戻しを $x,y$ と書くと，twisted積では
+$xy-yx=uV-vU=hz$ である．
+特殊ファイバーで $p_1$ は次数2の写像なので $L$ の相対次数は2である．
+種数1曲線の正次数線束の $H^1$ は零であり，$f_*L$ は階数2で基底変更に両立する．
+$x,y$ は特殊ファイバーで基底なので，必要なら二次元の行列の非零行列式による
+有限開近傍へ制限し，族全体で基底にできる．
+\end{proof}
+
+\subsection{最高次中心商と相対twisted homogeneous coordinate ring}
+
+\begin{theorem}\label{thm:elliptic-relative-thcr}
+前補題の $V$ をさらに有限回縮小し，$T_V=\Gamma(V,\mathcal O_V)$ と置く．
+$L_m=L\otimes\sigma^*L\otimes\cdots\otimes(\sigma^{m-1})^*L$，$L_0=\mathcal O$ とする．
+積 $s\cdot t=s\otimes(\sigma^m)^*t$ によって定まる次数付き代数を
+\[
+ D=\bigoplus_{m\ge0}H^0(\mathcal E,L_m)
+\]
+と書く．このとき同型
+\[
+ A^{\mathrm{top}}/(\Omega^{\mathrm{top}})\simeq D
+\]
+が存在し，任意の可換 $T_V$-代数への係数変更に両立する．
+特に，この最高次中心商と $A^{\mathrm{top}}$ は $T_V$ 上強Noetherである．
+\end{theorem}
+\begin{proof}
+各 $m>0$ について $L_m$ のファイバー次数は $2m$ なので，
+$H^1(\mathcal E_s,(L_m)_s)=0$ である．
+従って $D_m$ は階数 $2m$ の有限局所自由加群で，任意基底変更に両立する．
+$D_0=T_V$ についても，properで幾何学的連結な滑らかな曲線族の
+$f_*\mathcal O=\mathcal O_V$ とその基底変更を用いる．
+
+前補題の $x,y,z$ は $A^{\mathrm{top}}$ の関係式を満たす．
+第一の関係式は既に確認した．残りの二つは $h\ne0$ で $z=(xy-yx)/h$ を
+消去すると，行列 $M$ を定めた二つの三次関係式そのものである．
+$D$ の各次数が $T_V$-平坦なので，これらの等式は $h=0$ まで成立する．
+従って準同型 $A^{\mathrm{top}}\to D$ を得る．
+
+この写像 $A^{\mathrm{top}}\to D$ は，
+$h=0$ の次数1と2で同型である．次数2では
+$x^2,xy,y^2,z$ が重み付き楕円曲線の四つの基底切断となる．
+有限個の行列式を可逆化すれば，この写像は $V$ 上で次数1と2において全射となる．
+さらに $m\ge2$ に対して
+\[
+ D_m\otimes_{T_V}D_1\longrightarrow D_{m+1}
+\]
+は全射である．これは次数2の線束 $(\sigma^m)^*L$ の評価完全列を $L_m$ で
+tensorした後に $f_*$ を取って分かる．核の線束は基底からの線束のtensor因子を除けば
+$L_m\otimes((\sigma^m)^*L)^{-1}$ で，そのファイバー次数は $2m-2>0$ である．
+従ってその $R^1f_*$ は零で，この全射は任意基底変更後にも成立する．
+ゆえに $D$ は次数1と2で生成され，写像は全次数で全射である．
+必要な開条件は次数1と2だけから選んでおり，無限個の行列式の同時可逆化ではない．
+
+この写像が $\Omega^{\mathrm{top}}$ を零に送ることを確かめる．
+まず $T_V$ の分数体上で考える．整な曲線のtwisted homogeneous coordinate ringに
+次数 $e>0$ の非零中心切断 $g$ があれば，$\sigma^e=1$ である．
+実際，同じ次数 $m$ の二つの非零切断 $s,t$ と $g$ の可換性を比較すると
+$\sigma^e(s/t)=s/t$ となる．$m\ge2$ なら $L_m$ の次数は4以上であり非常に豊富なので，
+これらの比は曲線の函数体を生成する．従って $\sigma^e$ は恒等写像である．
+一方，式\eqref{eq:elliptic-resolved-shift}から
+\[
+ t\circ\sigma^4=t+4hw\pmod {h^2}
+\]
+である．$w$ は特殊楕円曲線上の零でない有理函数であり，標数は0であるから，
+$\sigma^4$ は族の一般点で恒等写像ではない．
+よって一般点の $D$ には非零の次数4中心切断がなく，
+$\Omega^{\mathrm{top}}$ の像は零である．$D_4$ は整域 $T_V$ 上局所自由なので，
+同じ消滅が $V$ 上で成立する．ここでは中心全体が全ての特殊化で一定であるとは主張していない．
+
+以上により $\Omega^{\mathrm{top}}$ を零に送る全射
+$A^{\mathrm{top}}\to D$ を得た．従って中心商からも全射が誘導される．
+源と標的は各次数で同じ階数の有限局所自由加群だから，これは同型である．
+同型と切断環の任意基底変更の性質を合わせれば，主張した普遍的な比較を得る．
+
+任意のnoetherianな可換 $T_V$-代数 $R$ を固定する．上の基底変更により
+$D_R$ は $(\mathcal E_R,L_R,\sigma_R)$ のtwisted homogeneous coordinate ringである．
+$L_R$ は全ファイバーで正次数なので相対的に豊富である．
+$\sigma_R$ は基底上の自己同型で，各幾何ファイバーは整な曲線だから，
+全ての基底へ収縮される積分曲線上で線束の次数を保存する．
+従って相対的な数値同値類の群への作用は恒等である．
+Keelerの相対 $\sigma$-ampleness判定
+\cite[Theorems 7.13--7.14]{Keeler2003}から，$L_R$ は左右 $\sigma_R$-ampleであり，
+$D_R$ は左右noetherianである．この定理は基底を体に限定しない．
+非被約な $R$ でも，数値同値と豊富性の判定は幾何ファイバー上で同じように適用できる．
+
+最後に $A_R^{\mathrm{top}}$ のNoether性を持ち上げる．
+$\Omega^{\mathrm{top}}$ は任意基底変更後も正則で，正の次数4を持つ中央元なので，
+その冪による随伴次数環は $D_R[\zeta]$ である．
+これはnoetherianである．斉次イデアルの随伴次数イデアルの有限個の斉次生成元を
+$A_R^{\mathrm{top}}$ へ持ち上げると，最初の非零 $\Omega$-進記号を順に消去できる．
+固定した内部次数では $\Omega$-進次数に上限があるため，この消去は有限回で終わる．
+従って全斉次イデアルが有限生成となる．一般のイデアルも内部次数の最高項を
+用いる通常の帰納法で有限生成となる．反対環にも同じ証明を適用でき，
+$A_R^{\mathrm{top}}$ の左右Noether性を得る．
+\end{proof}
+
+\begin{corollary}[任意lower項と全次元での強Noether性]
+\label{cor:elliptic-strong-noetherian}
+前定理の有限開集合上で，任意のlower係数を持つ
+定理\ref{thm:elliptic-finite-central-family}の $A,B$ は強Noetherである．
+さらに系\ref{cor:elliptic-general-dimension}で
+$c_{ij}=c_{ij}(s_1,\ldots,s_{n-1})$ と置いた全 $n\ge2$ の斉次族も，
+その有限型係数環上で強Noetherである．
+\end{corollary}
+\begin{proof}
+任意のnoetherianな係数環 $R$ 上で，補題\ref{lem:elliptic-universal-lower-pbw}は
+$\operatorname{gr}_{\mathrm{act}}A=A^{\mathrm{top}}_R$ を与える．
+右辺がnoetherianなので，増大filtrationの最高記号を消去する帰納法から
+$A$ は左右noetherianであり，その商 $B$ も同様である．
+中央変数を加える場合は，まず係数環をnoetherian環 $R[s_1,\ldots,s_{n-1}]$ として
+同じ証明を適用する．これは任意のnoetherian係数変更後にも使えるので，主張は強Noether性である．
+局所化したのはtop係数だけであり，lower多項式の選択に新たな制限は課していない．
+\end{proof}
+
+\subsection{相対tailsと有限生成元}
+
+\begin{theorem}\label{thm:elliptic-relative-tails}
+前系の全次元の斉次族をnoetherianな可換係数環 $\Lambda$ へ変更したものを考える．
+$A$ をambient，$B=A/(\Omega)$，$\mathcal Q=\QGr B$，
+$r=n-1$，$l=n+3$ とする．このとき
+\begin{enumerate}
+ \item $A$ は $\Lambda$ 上homologically smoothで，
+       $A^!_\Lambda\simeq A(n+3)[-n-2]$ である．
+ \item $B$ の左右の相対局所コホモロジーは
+       $R\Gamma_{\ge1}(B)\simeq B^\vee(r)[-n-1]$ である．
+       第\ref{sec:finite-tails}節の飽和性，有向ACM，相対 $\chi$，
+       全シフトの豊富性，compact生成，proper性，相対Serre公式が成立する．
+       特にcompact圏のSerre関手は $S_\Lambda\simeq(-r)[n]$ である．
+ \item $E=\bigoplus_{j=0}^{n+2}\mathcal O(j)$ はcompact生成元であり，
+       $R\!\operatorname{End}(E)$ は $\Lambda$ 上perfectである．
+\end{enumerate}
+これらの構成・公式は許される任意のnoetherian係数変更と両立する．
+さらに，滑らかな可換del Pezzo模型を与える係数点の有限開近傍では，
+正周期 $r=n-1$ の列自体も相対的に豊富である．
+\end{theorem}
+\begin{proof}
+まず $P_0=\Lambda[s_1,\ldots,s_{n-1}]$ と置く．
+補題\ref{lem:elliptic-universal-lower-pbw}により，$A$ は $P_0$ 上平坦で
+相対3-CYであり，相対双対の内部shiftは4である．
+命題\ref{prop:finite-separated-absolute-cy}の証明は，係数環上の自由性を平坦性に
+弱めても成り立つ．実際，$A\otimes_\Lambda A^{\mathrm{op}}$ は
+$P_0\otimes_\Lambda P_0$ 上平坦であり，中央差
+$s_i\otimes1-1\otimes s_i$ の正則性とそのKoszul解消を保つ．
+この長さ $n-1$ の解消と相対potential対角解消を組み合わせ，導来随伴を適用すると
+\[
+ A^!_\Lambda\simeq A(4+n-1)[-3-(n-1)]
+\]
+を得る．中央差の順序を固定しているので追加の基底線束やNakayama捻りは現れず，
+構成は任意基底変更に両立する．
+
+系\ref{cor:elliptic-strong-noetherian}により，$A,B$ は全ての許される基底上で
+左右noetherianである．各内部次数は有限射影で，$\Omega$ は普遍的に正則な次数4の中央元である．
+従って第\ref{sec:finite-tails}節の相対双対と局所コホモロジーの証明を適用できる．
+その証明で次数部分の有限自由性を用いた箇所は，有限射影性だけで十分である：
+切断加群 $A/A_{\ge q}$，$B/B_{\ge q}$ は係数環上perfectであり，
+次数別双対は基底変更に可換する．
+ambientの有限projective対角解消から有限係数加群の双対性を得て，
+中央元のchange of ringsと切断次数についての帰納極限を取ると，
+\[
+ R\Gamma_{\ge1}(B)=B^\vee(n-1)[-n-1]
+\]
+となる．torsionの比較で現れる $\operatorname{Tor}_1$ は長さ4の次数帯に支持を持ち，
+その遷移は十分離れた切断間で零となる．従って同節のsmashing表示も成立する．
+これに続く局所化三角，有限型自由解消，左右の局所化bimoduleの双対の議論は
+分離型の関係式に依存しない．飽和性，ACM，$\chi$，Serre消滅，compact生成，
+proper性，および $S=(-r)[n]$ が従う．
+
+有限windowについては，有限なaugmentation解消を別に確認する．
+整数 $M>1$ を固定し，中央変数の補助重みを1，
+$(x,y,z)$ の補助重みを $(M,M,2M)$ とする．
+$c_{ij}(s)$ の内部次数は $4-i-j$ なので，lower potentialの補助次数は
+\[
+ M(i+j)+(4-i-j)<4M\qquad (i+j\le3).
+\]
+従ってlower関係式はこのfiltration次数を真に下げ，
+\[
+ \operatorname{gr}_{\mathrm{aux}}A
+       =\Lambda[s_1,\ldots,s_{n-1}]\otimes_\Lambda A^{\mathrm{top}}_\Lambda.
+\]
+実際，内部次数 $d$ を固定すると補助次数は $d+(M-1)\deg_{\mathrm{act}}$ であり，
+この随伴次数の同型は既に証明した活性PBW同型からも従う．
+最高次代数のaugmentation解消は，potential対角複体の片側をaugmentationした
+\[
+ 0\longrightarrow A^{\mathrm{top}}(-4)
+ \longrightarrow A^{\mathrm{top}}(-3)^2\oplus A^{\mathrm{top}}(-2)
+ \longrightarrow A^{\mathrm{top}}(-1)^2\oplus A^{\mathrm{top}}(-2)
+ \longrightarrow A^{\mathrm{top}}\longrightarrow\Lambda\longrightarrow0
+\]
+であり，補題\ref{lem:elliptic-top-relative-cy}により普遍的に完全である．
+これと $s_1,\ldots,s_{n-1}$ のKoszul解消をtensorする．
+得られる自由解消を，内部shiftと自由基底を固定したままfilteredに持ち上げる．
+微分の合成の誤差を最高記号の完全性によって消去し，次にcycleの最高記号を消去する
+命題\ref{prop:finite-window-proper}の手順がそのまま適用できる．
+全補助重みが正なので，各基底ベクトルに対する補正は有限回で終わる．
+普遍係数環上で一度構成すれば，任意係数変更後にも随伴次数の完全性が保たれる．
+解消の両端は $A(-n-3)$ と $A$ が一つずつであり，
+他の項の内部shiftは $1,\ldots,n+2$ に入る．
+
+この解消を $B$ とtensorした際のTorは
+$\Lambda$ と $\Lambda(-4)$ だけであり，いずれもtorsionである．
+従ってtailsでは有限完全複体となり，長さ $n+3$ の連続したtwistから
+両方向に全てのtwistを生成できる．これで表示した有限compact生成元を得る．
+最後に，滑らかな可換点では $\mathcal O(r)$ が豊富である．
+命題\ref{prop:finite-periodic-generation}の有限個の生成条件と，上で得た
+全noetherian係数変更後のSerre消滅を用いれば，有限開近傍上で周期 $r$ の相対豊富性を得る．
+\end{proof}
+
+\begin{remark}[適用範囲]
+\label{rem:elliptic-relative-scope}
+相対曲線表示を用いたのは活性最高次中心商である．
+一般lower項を含む $n$ 次元のtailsそのものを曲線のcoherent圏と同一視していない．
+また $\sigma$ が有限位数となる特殊点を除外しておらず，中心全体の次元が跳ぶ可能性も残る．
+上の結論は各古典楕円型最高次点の有限開近傍で成立し，
+初めに取ったAS正則領域全体に一つの曲線表示が存在するという主張ではない．
+compact圏の対角のperfect性としてのsmoothness，
+全 $\mathcal O$ 保存同値の認識，および全モジュライの有限型atlasは，
+相対proper性とSerre公式から自動的に従うものではない．
+\end{remark}

@@ -1,6 +1,6 @@
 # 文献・依存関係・新規性の範囲
 
-2026-11-20（JST） / v0.4。完全な書誌は [references.bib](../references.bib)。以下は使用する一次資料の具体的な箇所を示す。外部論文のPDFは収録しない。
+2026-11-20（JST） / v0.5。完全な書誌は [references.bib](../references.bib)。以下は使用する一次資料の具体的な箇所を示す。外部論文のPDFは収録しない。
 
 ## 1. 他研究からの数学的入力
 
@@ -47,7 +47,7 @@
 - [Stacks Project, Tag 0FY3, Lemma 57.3.5](https://stacks.math.columbia.edu/tag/0FY3)：双対構造を持つSerre関手のYoneda一意性。これ自体はAbel同値の全認識を述べる定理ではない。
 - Hong–Xu, *Poisson cohomology of del Pezzo surfaces*, J. Algebra 336 (2011), 378–390、[arXiv:1001.1082v2](https://arxiv.org/abs/1001.1082v2)、Theorem 3.9。5≤r≤8点の吹上げでdim H²_π=r+2、高次は消滅。次数1・2の曲面の10・9という接空間次元を新規結果と扱わない。
 - Etingof–Ginzburg, *Noncommutative del Pezzo surfaces and Calabi–Yau algebras*, JEMS 12 (2010), 1371–1416、DOI 10.4171/JEMS/235、[出版版](https://ems.press/content/serial-article-files/31746)。三変数potentialと中心商によるfiltered量子化・generic半普遍性は先行結果。**Theorem 3.3.2は、正の生成重み `(a,b,c)`、`d=a+b+c`、斉次CY potential `Φ_d`を仮定すれば、任意のlower potential `Φ_<d`に適用できる。** (i)はCY性とHilbert級数、(ii)はfiltration次数d以下の非定数中心元の存在を与える。Proposition 7.3.1(ii)は同じ固定CY topに対するPBW同型 `gr A(Φ_d+Φ_<d)≅A(Φ_d)` を与える。一方、Definition 3.4.3、Lemma 7.1.5、Theorems 3.4.4–3.4.5のgeneric条件は可算個の開条件を伴い、そのまま一つの有限型開集合の主張に置き換えない。本稿の次数2の有限型族では、topのCY性を三次type-A代数の具体的な有限開条件から先に確認し、上の全lowerの定理、被約な普遍係数環での特殊化、活性次数6以下の中心方程式の行列を組み合わせる。低次係数に依存しない分母と任意中央係数への基底変更は本稿の証明である。Proposition 8.1.1(i)の形式中心持上げ自体は孤立特異点を仮定しない。
-- Rains, *Filtered deformations of elliptic algebras*, [arXiv:2107.13540v2](https://arxiv.org/abs/2107.13540v2)。Introと中心拡張の枠組みを確認。次数1の一般楕円型topと、楕円族の相対強Noether性を調べる出発点である。全n・全O-markedモジュライの分類としては使わない。
+- Rains, *Filtered deformations of elliptic algebras*, [arXiv:2107.13540v2](https://arxiv.org/abs/2107.13540v2)。Introと中心拡張の枠組みを確認。次数1の一般楕円型topと、楕円族のfiltered表示を比較する出発点である。全n・全O-markedモジュライの分類としては使わない。
 - Abdelgadir–Okawa–Ueda, *Compact moduli of marked noncommutative cubic surfaces*, [arXiv:2404.00175](https://arxiv.org/abs/2404.00175)。Introとquiver markingを確認。例外集合に対応するquiver関係のGITモジュライであり、本研究のOのみを残す同値関係とは異なる。
 - Okawa–Ueda, *AS-regular algebras from acyclic spherical helices*, [arXiv:2007.07620](https://arxiv.org/abs/2007.07620)。球面helixからの構成を比較した。一般次元での表示を検討する基礎であり、本稿で全変形のAS包絡存在を結論する根拠には用いていない。
 
@@ -97,12 +97,18 @@ Sklyanin代数、四次中心元、固定CY topのfiltered変形の存在は既�
 
 上記三論文の指定箇所を2026-11-20に一次資料で確認した。分離型有限族について本文が証明する飽和性、有向ACM、χ、compact生成、相対proper性、perfect圏のSerre双対と、対角のperfect性としてのsmoothnessを区別する。Serre双対が存在することから全coherent対象のperfect性や有限ホモロジー次元を推論しない。
 
+### 5.4. 相対楕円曲線と強Noether性
+
+- Keeler, *Ample filters of invertible sheaves*, J. Algebra 259 (2003), no.1, 243–283、DOI 10.1016/S0021-8693(02)00557-4；Corrigendum, J. Algebra 507 (2018), 592–598、DOI 10.1016/j.jalgebra.2018.03.024。[訂正を含むarXiv:math/0108068v5](https://arxiv.org/abs/math/0108068v5) のTheorems 7.13–7.14と末尾Erratumを一次資料で確認した。可換noetherian環上のproper schemeについて、数値的quasi-unipotenceとあるL_mの豊富性からσ-amplenessを判定し、左右Noetherなtwisted homogeneous coordinate ringを得る。体上だけの定理ではない。
+- 本稿では、点曲線の二重対角線を理想(h,δ)で解消し、σ₀=idの滑らかな相対種数1曲線を構成する。最高次中心商の相対THCR同定を先に証明し、任意noetherian基底変更後に上の定理を適用する。σは基底上で各曲線の次数を保ち、相対数値同値類に恒等に作用する。中心正則拡大とfiltered PBWにより全lower・全nに拡張する。
+- 上記のσ-ampleness/Noether原理や体上のSklyanin表示自体は既知である。本稿の可換極限を含む有限な開近傍、任意基底変更、中央多項式係数、全nの相対tailsへの適用という組合せの優先権は未確認。曲線表示は活性最高次商のものであり、n次元tails全体が曲線のcoherent圏になるとは主張しない。
+
 ## 6. 公表前に残る文献上の課題
 
 優先順位の高い比較・調査は次の三点である。
 
 1. **次数1の一般楕円型top。** x⁶・y³・z²を同時に含む重み(1,2,3)の模型について、Etingof–GinzburgとRainsの結果から固定topの存在以上に何が従うかを確認し、有限な開条件と中央多項式係数に依存しない分母を検証する。次数2の三次Sklyanin計算を次数1に移したとは扱わない。
-2. **次数2楕円型族の強Noether性と相対表示。** 複素ファイバーのAS正則性・Noether性、次数別平坦性、有限表示だけでは、有限型係数環上の強Noether性は未証明である。相対twisted homogeneous coordinate ring、中心拡張、filtered変形の文献について、任意の係数変更を含む仮定を照合する。
+2. **次数2楕円型族の相対表示の位置づけ。** 得られた解消point curve・相対THCR・強Noether性の構成を、既存の楕円代数とfiltered変形の相対理論に比較する。一般lower項のtailsを最高次の曲線表示と混同せず、中心増大層と非可換tensor積のNoether性を調べる。
 3. **有限パラメータtailsのsmoothnessとモジュライ。** 分離型で得られた相対proper性・Serre双対と、対角のperfect性、coherent圏の有限ホモロジー次元を区別し、追加の有限性・開性を検証する。Toën–Vaquiéのfinite type仮定を満たす前に対象モジュライの代数性を使用しない。全O-marked圏のatlasと可換locusに接しない成分はさらに別の課題である。
 
 一般nでの全Abel形式群oid、nc多様体条件のArtin持上げ、形式粗商、具体量子化の完全性、任意指数Veronese復元、有限型族のCasimir・普遍中心・相対双対、および一般楕円型topの有限基底への適用という組合せについて、包括的な優先権調査は未了。変形・compact持上げ・formality・Sklyanin中心元の一般結果は既知と明記する。非可換del Pezzo曲面の各定義、AS Z-代数、marked quiver、非可換吹上げとの比較も継続する。講演概要にある未公表の一般次数の主張は確立済み定理として引用しない。

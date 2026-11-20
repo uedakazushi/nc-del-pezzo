@@ -43,7 +43,7 @@
 \newcommand{\Perf}{\operatorname{Perf}}
 \newcommand{\rank}{\operatorname{rank}}
 \newcommand{\HH}{\operatorname{HH}}
-\newcommand{\Version}{0.4}
+\newcommand{\Version}{0.5}
 \title{次数1・2の非可換del Pezzo多様体\texorpdfstring{\\}{ }構造対象付き変形とモジュライの局所構造}
 \author{}
 \date{2026年11月20日\quad v\Version\quad 公表用研究稿}
@@ -79,6 +79,8 @@ proper性と相対Serre関手 $(-(n-1))[n]$ を全有限パラメータで証明
 さらに次数2では，三次Sklyanin代数の正則領域と中心方程式の有限行列を用いて，
 一般楕円型最高次項と任意の低次項を持つ普遍的に平坦な中心超曲面族を構成する。
 この構成は全次元で稠密開集合の古典Poisson対を半古典極限に持つ。
+最高次point curveの二重対角線を解消し，相対twisted homogeneous coordinate ringと比較することで，
+一般楕円型族の強Noether性と，その全次元の相対tails・有限compact生成元も得る。
 形式的構成、代数的な族、全モジュライの代数性を区別して述べる。
 \end{abstract}
 \tableofcontents
@@ -243,7 +245,15 @@ Etingof--Ginzburg\cite[Proposition~7.3.1(ii), Theorem~3.3.2(ii)]{EG2010}の既�
 最高次中心元にはDe Laet\cite[\S5.2, Theorem~5.3]{DeLaet2017}の公式を用い，
 自由代数内の恒等式と可換極限を別に検算する。
 一般の量子化やSklyanin中心元の存在自体は新規性の主張ではない。
-この族の強Noether性，有限非零 $h$ でのtailsの全条件と，全ncモジュライのatlasは未証明である。
+第\ref{sec:elliptic-relative}節では，二重対角線に退化するpoint curveを解消し，
+最高次中心商を滑らかな相対種数1曲線のtwisted homogeneous coordinate ringと同定する。
+Keeler\cite[Theorems~7.13--7.14]{Keeler2003}の相対Noether性を任意のnoetherian基底変更後に適用し，
+中心拡大とfiltered持上げから，全lower係数・全次元の強Noether性を得る。
+相対CYと有限augmentation解消を合わせ，飽和性，ACM，proper性，Serre公式と
+有限compact生成元を一般楕円型族へ拡張する。
+既知の $\sigma$-ampleness原理そのものは新規結果ではなく，
+ここでの有限開近傍・可換極限・普遍係数との比較が本稿の構成である。
+tailsのsmoothness，全ncモジュライのatlas，およびこの構成の包括的な優先権確認は残る。
 
 \input{sections/definitions}
 \input{sections/formal_moduli}
@@ -257,6 +267,7 @@ Etingof--Ginzburg\cite[Proposition~7.3.1(ii), Theorem~3.3.2(ii)]{EG2010}の既�
 \input{sections/finite_families}
 \input{sections/finite_tails}
 \input{sections/elliptic_top}
+\input{sections/elliptic_relative}
 
 \section{大域的なモジュライへ進むための問題}
 \label{sec:questions}
@@ -269,8 +280,8 @@ Etingof--Ginzburg\cite[Proposition~7.3.1(ii), Theorem~3.3.2(ii)]{EG2010}の既�
 滑らかな可換点の開近傍では反標準列も豊富になる。
 次の課題は有限compact生成元のdg自己準同型代数の対角がperfectであることを確認し，
 有限パラメータでのsmooth性を証明することである。
-第\ref{sec:elliptic-degree-two-finite}節の一般楕円型族には，
-さらに係数基底上の強Noether性と相対tailsの検証が残る。
+第\ref{sec:elliptic-relative}節により，一般楕円型族でも
+係数基底上の強Noether性と相対tailsの同じ条件が得られたが，smooth性は別途必要である。
 次数1の一般楕円型最高次項についても，有限開集合上の同様の構成が必要である。
 半古典極限で稠密なPoisson対を実現することと，全非可換対象を被覆することは異なる。
 有限パラメータの非可換対象から古典Poisson多様体を自然に復元する射も構成していない。

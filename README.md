@@ -1,43 +1,53 @@
 # 次数1・2の非可換del Pezzo n-fold
 
-**2026-11-20（JST） / v0.7 — 現行研究一式**
+**2026-11-20（JST） / v0.8 — 現行研究一式**
 
-最初に [研究方針](00_research_plan.md) を読む。対象は一般の `n ≥ 2`、次数 `d=1,2`。構造対象 **Oだけを標識**し、豊富列や基本偏極の選択を忘れ、射には全てのO保存完全Abel同値を採用する。
+最初に [研究方針](00_research_plan.md) を読む。対象は一般の `n ≥ 2`、次数 `d=1,2`。構造対象 **Oだけを標識**し、射には全てのO保存完全Abel同値を採用する。GitHub mainが正本である。
 
-## 現在の到達点
+## 中心となる到達点
 
-- **全Abel Artin変形群oidを計算。** 滑らかな可換点で、framed形式環R_Xは次数1で `b(n,1)+n` 変数の冪級数環、次数2で `b(n,2)` 次元の形式円板と `Gr(2,n+1)` のPlücker錐の頂点完備化の積となる。HH¹(X)=0によりframed自己同値は消え、枠を忘れると `[Spf R_X/Aut(X)]` となる。
-- **各可換点の形式分枝は一つ。** 次数2・`n≥3`では特異であり、一次Poisson方向の二次障害は `Q∧Q`。通常の多様体の変形方向では相殺できない。全ncモジュライの成分数は未決定。
-- **Poisson零切断の完備化への量子化の降下。** 任意の冪零係数上でmonic中心商が次数ごとに自由。座標変換同変性と次数スカラーの自然恒等化により、O-markedなtailsの形式族が得られる。
-- **具体的量子化が全Artin変形を実現。** 固定したグラフ量子化そのものが、各可換点のframed変形の同型類関手に自然な全単射を与える。全てのAbel Artin変形が通常の非負次数付き代数の中心超曲面商で表示でき、相対augmentation Ext条件も満たす。
-- **全Artin変形が定義したnc多様体になる。** 有限Ore被覆から切断環の飽和性、有向ACM、任意の正周期の豊富性、compact生成とproper性を証明。対角dg加群のcompact性を持ち上げてsmooth性を得て、HH¹剛性から `S_R≅(−(n−1))[n]` を同定する。従ってM・重み付き超曲面部分問題・全Abel変形のArtin完成が一致する。
-- **Artin近傍での全O同値の認識。** 通常の次数付き環同型を次数スカラーで割ったものと一致する。特殊ファイバーのHH¹剛性と飽和性を使うため、可換点でも成立する。別に、一般の基底で反標準軌道環から復元する条件付き定理と、二つ以上の中心一次変数による任意指数Veronese持上げを保持する。
-- **一般の可換点の形式粗商。** Aut(X)=μ₂の稠密開では、Poisson錐の第二Veroneseによる符号商。両次数・全n≥2で特異だが、正規Cohen–Macaulay整域で一分枝。粗商のArtin点と変形同型類は区別する。
-- **両次数・全次元の有限パラメータ族。** 特別なPoisson方向で、負の補助次数によりグラフ量子化とCasimir持上げを有限多項式化。別に分離型potentialの普遍PBW基底と、次数1ではh⁶までの有限な中心元公式を証明した。全係数・全有限hで平坦であり、各n≥2で滑らかな可換点を含む。一般の楕円的最高次項を被覆するとは主張しない。
-- **有限非零hの普遍中心とambient CY。** 最高補助式を規格化した族では、任意基底変更後も中心はちょうどn−1個の一次Casimirの多項式環。n≥3では任意指数Veronese持上げの代数的仮定を満たす。分離型ambientの無捩れな相対bimodule CY同型も全有限hで証明。
-- **分離型の有限hにおける相対tails。** 任意のnoetherian基底上で局所コホモロジーを計算し、飽和性・有向ACM・χ・全シフト豊富性・compact生成・proper性を証明。局所化bimoduleの双対から、perfect圏の相対Serre関手は `S=(−(n−1))[n]`。有限個のtwistの和がcompact生成元となる。反標準列も滑らかな可換点の有限型開近傍で相対的に豊富になる。
-- **次数2の一般楕円型最高次項の有限量子化。** 三次Sklyanin代数の正則開集合を使い、任意の古典楕円型topの有限型開近傍で、任意lower項を持つ普遍PBW・ambient CY・中心商族を構成。中心元の分母はtop係数だけに依存し、任意非被約基底変更で正則・平坦。lower係数へn−1個の中央変数の斉次多項式を代入でき、全nで稠密開の古典Poisson対を半古典極限に持つ。さらにpoint curveの解消と相対twisted homogeneous coordinate ringの比較により、任意のnoetherian基底変更後の左右Noether性を証明。全lower係数・全nで相対tails、Serre公式、有限compact生成元を得た。全nc点の被覆は未証明。
-- **次数1の一般楕円型最高次項の有限量子化。** Weierstrass型potentialを階数6の有限忠実平坦被覆上でStephenson代数へ移し、`Δ=4α³+9β²≠0` の下で `(1+αh⁴)(5+αh⁴)≠0` という明示的AS正則開条件を得た。次数9以下・23未知数の中心方程式により、低次係数に依存しない有限分母で普遍PBW・ambient CY・正則な中心商を構成。全n≥2へ中央斉次係数を代入でき、稠密開の古典Poisson対を半古典極限に持つ。有限被覆上で解消した楕円曲線と次数1線束によるTHCR表示を構成し、強Noether性・積Noether性を元の基底へ降下した。相対tails、Serre公式、長さn+5のcompact生成窓も得た。
-- **積代数のNoether性と有限開近傍のsmoothness。** 両次数の分離型・一般楕円型族の全n≥2で `Bᵒᵖ⊗B` のNoether性を証明。楕円型では曲線の積上の評価イデアルと相対Fujita消滅を用いる。二重次数付き対角の有限部分解消、相対Serre双対、可換ファイバーのHH¹消滅から、滑らかな全可換模型の有限型開近傍でsmooth proper性を得た。反標準豊富性の開集合と交わらせると、実際の重み付き超曲面型nc del Pezzo族となる。幾何学的coherentファイバーのホモロジー次元はn。開集合の判別式は未計算であり、全有限hのsmoothnessは主張しない。
-- **一方向の中心商族をsmooth atlasにする際の障害。** 共通の量子化パラメータhを使う中心商族は、可換点でPoisson方向のKodaira–Spencer像が高々1次元。一方、全変形の通常の可換変形による接空間商は次数1でn、次数2で `binom(n+1,2)` 次元なので、そのままsmooth atlasにはならない。独立なPoisson方向の同時中心商族が必要である。
-- **独立Poisson方向を同時に含む有限型ambient族。** 両次数の全方向を関係式へ直接入れ、可換係数の零切断全体を含む明示的な有限主開上で普遍的な次数別平坦性を証明。次数1の開条件は `(1+A₄(D))(5+A₄(D))≠0`。次数2は四次式の偏極と交代形式から定まる作用素Tについて `g₂=det(1+4T)≠0` であり、活性binary quarticの不変量I,Jを使うと `g₂=1−16Ih⁴+128Jh⁶` と書ける。両次数とも特異な最高次式を許す。零切断の第一平方零近傍では全一次方向の中心商も構成した。有限基底全体での中心元の同時持上げと、この族のtails・atlasは未解決。
-- **次数の圏論的識別。** 反標準Euler多項式の第n差分から `d(n−1)^n` を復元する。Serre周期n−1・有向ACM条件を課した本稿のMでは次数1・2が開閉に分かれる。
-- **相対Ext・ambient CY・形式一般ファイバーの中心。** 中心商は `Ext_B^(n+1)(R,B)=R(n−1)` を持つ。Kontsevich–Shoikhetの対と体積形式を固定すれば、任意の冪零係数上で無捩れなambient CY同型が得られる。固定した任意の非零Poisson方向では、`C((h))` 上の中心はn−1変数のCasimir多項式環となり、Veronese持上げの代数的仮定が実現する。
+**全独立Poisson方向を同時に含む有限表示中心商族を構成し、この同じ族が全framed Abel Artin変形を実現することを証明した。** 両次数の全可換係数の零切断を含む有限型主開上で、中心元は任意の非被約基底変更後にも正則であり、商は次数別に有限局所自由となる。
 
-証明本文と依存する一次定理の適用条件を点検した研究稿であり、形式証明器による検証や包括的な優先権確認は未了。**未解決の核心は同時ambient族の有限基底全体での中心元、全方向を含む有限型atlas、全体の既約成分数**。smoothnessを保証する有限開集合の明示も残る。Artin完成の一致や古典Poisson方向の稠密被覆を大域の一致へ拡張していない。相対Serreの対象はperfect圏であり、非正則基底上の全有界coherent導来圏とは区別する。
+- **次数1：** 方向空間は `E* ≅ A^n`。ambientの明示的開条件は `g₁=(1+A₄(D))(5+A₄(D))≠0`。4次までの座標不変な中心jetを全係数の厳密計算で与え、`P(E*)` 上の `H¹(Sym⁶K(m))=0 (m≥5)` により全高次へ持ち上げ、有限線型方程式で代数化する。
+- **次数2：** 方向空間は `Gr(2,n+1)` のPlückerアフィン錐。ambientの明示的開条件は `g₂=det(1+4T)≠0`。中央多項式係数上の形式中心と `H¹(Sym⁴K(m))=0 (m≥0)` から、錐の頂点を含めて中心元を構成する。全四次係数を許すが、退化ファイバーの中心全体が一定階数とは主張しない。
+- **全Artin普遍性：** 滑らかな可換点で係数空間の横断sliceを選ぶと、この有限中心商のArtin基底変更が全framed変形を分類する。DDLの線型変形とAbel変形の比較、初交換子、既存の全完備局所環を使う。全方向族の有限基底上の相対tails・smooth proper性やatlasは、ここから自動的には従わない。
+
+中心元のためには、ambientの明示条件に加えて零切断上で1となる有限な追加分母を選ぶ。その存在を証明した段階であり、最小行列式や中心元の全方向に共通する閉じた公式は未計算である。次数1の4次jetを有限パラメータでの厳密な中心公式とは扱わない。
+
+## 形式モジュライと圏論的結果
+
+framed形式環は、次数1では `b(n,1)+n` 変数の冪級数環、次数2では `b(n,2)` 次元の形式円板とPlücker錐の頂点完備化の積である。各可換点の形式分枝は一つ。次数2・`n≥3` は特異で、二次障害は `Q∧Q`。通常の多様体の変形方向では相殺できない。
+
+HH¹(X)=0によってframed自己同値は消え、枠を忘れた形式群oidは `[Spf R_X/Aut(X)]` となる。一般点での被覆対合の符号粗商は両次数とも特異であり、正規Cohen–Macaulay整域である。粗商のArtin点と変形同型類は区別する。
+
+全Abel Artin変形について、通常の重み付き中心超曲面表示、飽和性・有向ACM・全正周期の豊富性・compact生成・smooth proper性と、perfect圏のSerre公式 `S=(−(n−1))[n]` を証明した。Artin近傍の全O保存同値は、通常のgraded環同型を次数スカラーで割ったものとして認識できる。別に、条件を明示した反標準section復元と、中心一次変数による任意指数Veronese持上げを保持する。
+
+## 有限基底上で圏論まで確立した部分族
+
+両次数の分離型族・一般楕円型の一方向族では、全n≥2で普遍PBW、ambientの無捩れな相対CY、普遍正則な中心商を得ている。分離型では中心元を有限式で与え、非零パラメータの普遍中心も計算した。一般楕円型では有限中心行列と、次数1・2の線束を持つ相対曲線のtwisted homogeneous coordinate ringを使う。
+
+これらの部分族には、任意noetherian基底変更後の強Noether性・積Noether性、相対tails・Serre公式・有限compact生成窓を証明した。対角の有限部分解消を用いることで、滑らかな可換点の有限型開近傍で実際のsmooth properなnc del Pezzo族となる。全有限パラメータでのsmoothnessは主張しない。
+
+一方向族のPoisson Kodaira–Spencer像は高々1次元であり、それだけでは全変形のatlasにならない。上の同時中心商がこの接空間不足を解消し、その全Artin普遍性も得た。次は全方向族への有限基底上の圏論的結果の拡張に取り組む。
+
+## 残る核心と確実性
+
+**次の課題は全方向中心商族の強・積Noether性、相対tailsとsmoothness、全O同値による有限型atlas、大域的な全既約成分数である。** 特異な活性最高次式を持つ方向も扱う必要があり、滑らかな楕円曲線の表示だけでは尽くせない。
+
+原稿に証明を記述し、主要部分を独立に点検した研究稿である。有限計算の証明書は実行しているが、形式証明器による検証と包括的な優先権調査は未了。各定理の仮定・依存と確認範囲は方針・文献・再現手順に記載する。
 
 ## 読む順序
 
 | 資料 | 役割 |
 |---|---|
 | [研究方針](00_research_plan.md) | 一般原則と保存許可、現目標、到達点、次の着手方法 |
-| [研究ノート](research/research_notes.md) | 有効な計算、適用条件、反例・障害、残問 |
+| [研究ノート](research/research_notes.md) | 有効な補題、計算、反例・障害、残問 |
 | [文献と依存](research/literature.md) | 一次資料の参照箇所、他repoの固定commit、既知結果との比較 |
 | [主原稿](papers/nc-del-pezzo.tex) | 日本語LuaLaTeXによる本文と証明。分割節は `papers/sections/` |
 | [再現手順](docs/reproduction.md) | 組版、計算、依存関係、検証の実施範囲 |
 
-`latexmk` または `make pdf` で `build/nc-del-pezzo.pdf` とSyncTeXを生成する。数式の有限チェックは `make verify`。PDF・ZIP・組版中間物はGitで追跡しない。
+`latexmk` または `make pdf` で `build/nc-del-pezzo.pdf` とSyncTeXを生成する。有限チェックは `make verify`。PDF・ZIP・組版中間物はGitで追跡しない。
 
 ## 研究間の関係
 
-[poisson-del-pezzo](https://github.com/uedakazushi/poisson-del-pezzo) の相対Jacobi錐・Poisson商スタックを入力とし、[nc-cubic-threefold-moduli](https://github.com/uedakazushi/nc-cubic-threefold-moduli) のO-marked Abel圏の枠組みを重み付きの次数1・2へ展開する。本repoがこのnc研究の正本であり、研究全体の入口は [research-hub](https://github.com/uedakazushi/research-hub)。
+[poisson-del-pezzo](https://github.com/uedakazushi/poisson-del-pezzo) の相対Jacobi錐・Poisson商スタックを入力とし、[nc-cubic-threefold-moduli](https://github.com/uedakazushi/nc-cubic-threefold-moduli) のO-marked Abel圏の枠組みを重み付きの次数1・2へ展開する。研究全体の入口は [research-hub](https://github.com/uedakazushi/research-hub)。

@@ -9,6 +9,7 @@ verify:
 	python3 computations/verify_elliptic_curve.py
 	python3 computations/verify_degree_one_top.py
 	python3 computations/verify_degree_one_curve.py
+	python3 computations/verify_degree_one_center_jet.py
 
 clean:
 	latexmk -C

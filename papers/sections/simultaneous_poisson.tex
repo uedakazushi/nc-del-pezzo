@@ -1,5 +1,5 @@
 % !TeX root = ../nc-del-pezzo.tex
-% 2026-11-20 JST / v0.7
+% 2026-11-20 JST / v0.8
 \section{独立Poisson方向を含む有限型ambient族}
 \label{sec:simultaneous-poisson}
 
@@ -7,9 +7,10 @@
 次数2のPl\"ucker錐の全座標を関係式の係数として用いる。
 全ての可換点を含む一つの有限型開集合上で，通常の次数付きambient代数の
 有限表示と普遍的平坦性を証明する。
-この段階の結論はambientについてのものであり，有限パラメータにおける
-中心超曲面商，係数基底上の強Noether性，相対smoothnessや
-全Abel変形に対するatlasは含まない。
+本節ではambientと第一平方零近傍の中心商を扱う。
+有限パラメータの同時中心商とその全Artin普遍性は，
+続く第\ref{sec:relative-center-lift}--\ref{sec:simultaneous-formal-comparison}節で証明する。
+係数基底上の強Noether性，相対smoothnessやatlasは別の問題である。
 
 \subsection{次数2における座標を分離しない関係式}
 
@@ -453,7 +454,7 @@ $(1-t)^{n-1}$ で割ったものになる。
 有限局所自由性と任意の非被約基底変更への両立が従う。
 \end{proof}
 
-\subsection{両次数の一次中心商と残る代数化問題}
+\subsection{両次数の一次中心商と方向の退化}
 
 \begin{proposition}[全一次Poisson方向の中心商]
 \label{prop:simultaneous-first-order-center}
@@ -530,14 +531,14 @@ $\mathbb P^{n-1}$ 上の正次数斉次式であり，$n\ge2$ なら零点を持
 補題\ref{lem:degree-one-all-top-as-open}のCY条件である。
 \end{remark}
 
-\begin{remark}[証明されていない部分]
-本節は両次数の全一次Poisson方向を含む有限型ambient族を与えるが，
-その全有限基底上で $F$ を中心元 $\Omega$ に持ち上げることはまだ証明していない。
-一方向ごとの中心元の存在から，方向空間の零切断を含む同時持上げは従わない。
+\begin{remark}[ambientから中心商への論理]
+本節は両次数の全独立Poisson方向を含む有限型ambient族を与える。
+一方向ごとの中心元の存在だけから，方向空間の零切断を含む同時持上げは従わない。
+この貼合せと有限代数化を後続の中心構成で証明する。
 また，有限生成元と有限関係式を持つ任意の表示族で，
 全次数の平坦性が有限開条件になるという一般原理も用いていない。
 本節では明示的な有限行列式と具体的CY判定から全複素ファイバーの
 Hilbert級数を先に固定したことが，普遍的平坦性の根拠である。
-中心商，相対tails，smoothness，全Abel変形への形式的完全性を
-さらに確認するまでは，このambient族をモジュライのatlasとは呼ばない。
+後続の全Artin普遍性を合わせても，有限基底上の相対tails，smoothnessと
+大域的な全同値の商を確認するまでは，モジュライのatlasとは呼ばない。
 \end{remark}

@@ -1,0 +1,147 @@
+% !TeX root = ../nc-del-pezzo.tex
+% 2026-11-20 JST / v0.8
+\section{同時中心商による全Artin変形の有限代数的表示}
+\label{sec:simultaneous-formal-comparison}
+
+本節では，直前の二つの有限型中心商族そのものを全Abel Artin変形と比較する。
+比較のために，有限型基底全体での強Noether性や相対tailsのsmoothnessを
+先に仮定する必要はない。Artin基底上の平坦な線型変形の理論と，
+既に求めた全形式環を使う。
+
+滑らかな可換次数 $d\in\{1,2\}$ のdel Pezzo多様体 $X$ を固定する。
+その標準方程式を表す係数点を $f$ とし，係数空間の中で
+座標変換群の軌道の接空間に相補的なaffine線型切断を取る。
+$f$ の開近傍へ制限したものを $T$ と書く。
+これは滑らかな次元 $b_{n,d}$ の有限型スキームであり，
+その可換族のKodaira--Spencer写像は同型である。
+実際，標準方程式の係数表示から通常のdel Pezzoスタックへの射は滑らかで，
+$H^0(X,T_X)=0$ であるから，その微分の核が座標軌道の接空間に等しい
+\cite[定理7.3，定理8.8]{PoissonDP}
+（定理\ref{thm:abel-formal-ring}の証明も参照）。
+有限な自己同型群を割らず，特殊ファイバーの同一視を固定する。
+
+方向スキームを
+\[
+ C_1=E^*\quad(\dim E=n),\qquad
+ C_2=\operatorname{Cone}(\Gr(2,E^*))\quad(\dim E=n+1)
+\]
+と書く。定理\ref{thm:simultaneous-degree-one-central-family}または
+定理\ref{thm:simultaneous-degree-two-central-family}の族を
+$T\times C_d$ に引き戻し，得られる零切断の有限型開近傍を $V$ とする。
+その同じambientと中心商を $A_V$，$B_V=A_V/(\Omega)$ と書く。
+追加の開条件は零方向で可逆なので，$(f,0)$ における完備局所環は
+\begin{equation}\label{eq:simultaneous-family-formal-ring}
+ C_X=\widehat{\mathcal O}_{V,(f,0)}\simeq
+ \begin{cases}
+  \mathbb C[[t_1,\ldots,t_{b_{n,1}},D_1,\ldots,D_n]],&d=1,\\[2pt]
+  \mathbb C[[t_1,\ldots,t_{b_{n,2}},p_{ij}]]/I_{\mathrm{Pl}},&d=2.
+ \end{cases}
+\end{equation}
+ここで $I_{\mathrm{Pl}}$ は全Pl\"ucker二次式のイデアルである。
+
+\begin{lemma}[Artin中心商の平坦Abel変形]
+\label{lem:simultaneous-artin-abel-family}
+任意の局所Artin $\mathbb C$-代数 $R$ と，$(f,0)$ を特殊点とする射
+$a:\Spec R\to V$ に対し，
+\[
+ (\operatorname{QGr}(B_a),\pi B_a),\qquad B_a=a^*B_V,
+\]
+は $X$ のframedな構造対象付き平坦Abel変形を与える。
+この構成は任意のArtin基底変更と両立する。
+\end{lemma}
+\begin{proof}
+中心商の普遍的な次数別有限局所自由性から，各 $(B_a)_q$ は有限自由であり，
+その還元は $X$ の重み付き切断環 $B_0$ の次数 $q$ 部分である。
+従って
+\[
+ b_{ij}=(B_a)_{j-i}\quad(i\le j),\qquad b_{ij}=0\quad(i>j)
+\]
+は，$X$ の切断 $\mathbb Z$-代数の平坦線型変形である。
+De Deken--Lowen \cite[Proposition~4.4, p.~495]{DDL2011}により
+$\operatorname{Qmod}(b)$ は $\operatorname{Qcoh}(X)$ の平坦Abel変形となる。
+同文献Proposition~4.6は有限生成性とNoether性をArtin変形へ持ち上げる。
+従ってtails topologyによる $\operatorname{Qmod}(b)$ は
+通常のtorsion商 $\operatorname{QGr}(B_a)$ に等しい
+\cite[\S3.1, \S3.3]{DDL2011}。
+
+構造対象 $\pi B_a$ は $R$-平坦である。
+実際，$B_a$ の次数別平坦性はgraded加群としての $R$-平坦性を意味し，
+その係数tensor関手に完全な商関手 $\pi$ を合成しても完全性は保たれる。
+還元後の構造対象は $\mathcal O_X$ である。
+基底変更との両立は上の線型変形の自然性，または
+補題\ref{lem:tails-arbitrary-base-change}から従う。
+\end{proof}
+
+\begin{theorem}[同じ有限型中心商の全Artin普遍性]
+\label{thm:simultaneous-central-all-artin}
+上で選んだ可換sliceと中心元に対し，自然変換
+\[
+ Q^{\mathrm{fin}}_X:
+ \operatorname{Hom}_{\mathrm{cont},\mathrm{loc}}(C_X,-)
+ \longrightarrow\mathrm{Def}^{\mathcal O}_X,
+ \qquad a\longmapsto[(\operatorname{QGr}B_a,\pi B_a)]
+\]
+は全ての局所Artin環上で全単射である。
+従って，任意のframedな構造対象付き平坦Abel Artin変形は，
+一つの固定した有限表示中心商族 $B_V$ のArtin基底変更として実現される。
+自然同型類を射とするframed群oidについても，左辺を離散群oidと見て同値となる。
+各変形は定理\ref{thm:all-artin-are-nc-dp}のnc del Pezzo条件を満たす。
+\end{theorem}
+\begin{proof}
+前補題により，表示した自然変換が定まる。
+その接写像を，命題\ref{prop:quantization-tangent-isomorphism}の完全列
+\[
+ 0\longrightarrow H^1(X,T_X)
+  \longrightarrow T\mathrm{Def}^{\mathcal O}_X
+  \xrightarrow{\beta}H^0(X,\wedge^2T_X)\longrightarrow0
+\]
+によって調べる。
+零方向では $\Omega=F$ であり，ambientも可換多項式環である。
+従って可換方向での接写像は $T$ のKodaira--Spencer同型である。
+
+Poisson方向では，ambientの定義関係の一次交換子が
+方向パラメータ $D_i$ または $p_{ij}$ に対応するJacobian括弧を与える。
+この対応は，標準方程式の規格化に由来する非零定数を座標へ吸収して，
+$H^0(X,\wedge^2T_X)$ の恒等写像とできる。
+中心元は第一平方零近傍で $\operatorname{Sym}F$ に等しく，
+その中心商の一次交換子も同じ括弧である。
+これがtails上の $\beta$ と一致する点は，次の局所化で確認できる。
+一次変形では二重交換子が零であり，非零斉次被覆元の冪は左右Ore条件を満たす。
+次数2の $D_+(x_i)$，次数1のそれらと $D_+(yz)$ 上で局所化し，
+次数零を取れば，商則による同じPoisson括弧が得られる。
+これらの局所化は次数1の可逆元を持つため強次数付きであり，
+tailsの対応する局所化と一致する。
+これは命題\ref{prop:quantization-tangent-isomorphism}のOre被覆の議論を
+同じ一次交換子に適用したものであり，有限パラメータ上のOre性は要求していない。
+従って接写像は完全列の核と商で同型を誘導し，全体として同型である。
+
+定理\ref{thm:abel-formal-ring}により，標的の全変形関手は $R_X$ で
+prorepresentされる。
+その環と\eqref{eq:simultaneous-family-formal-ring}の $C_X$ は同じ表示を持つので，
+一つの同型 $R_X\simeq C_X$ を選べる。
+Yoneda対応によって $Q^{\mathrm{fin}}_X$ をこの環の連続局所自己写像と見れば，
+直前の接写像の同型性は余接写像の同型性を意味する。
+補題\ref{lem:formal-endomorphism-inverse}からこの自己写像は同型である。
+これで全Artin環上の全単射を得る。
+次数2ではPl\"ucker関係を持つ\emph{全形式環}を比較しており，
+二次障害を接空間だけの議論で消してはいない。
+
+最後に，補題\ref{lem:abel-infinitesimal-aut-rigidity}と
+定理\ref{thm:quantization-framed-groupoid}によりframed自己同型群は自明である。
+従って同型類の自然な全単射は群oidの同値へ一意に持ち上がる。
+nc del Pezzo条件は，全Abel Artin変形について既に証明した
+定理\ref{thm:all-artin-are-nc-dp}を適用すれば従う。
+\end{proof}
+
+\begin{remark}[有限型族の形式的完全性とatlas]
+本定理の有限型族は，その完備化で全変形を表すという意味で
+一方向族の接空間の不足を解消する。
+中心元の選択や可換sliceの変更は，形式パラメータの自己同型を変え得る。
+グラフ量子化の既存の対応と厳密に同じ座標を与えることは主張しない。
+
+また，本定理は有限型基底 $V$ 全体のtailsがsmooth properな族をなすことや，
+全O保存同値によるモジュライのatlasを与えることとは異なる。
+全方向族の強Noether性・積Noether性，相対tailsと相対Serre式，
+有限開近傍へのsmoothness，および大域的な射の認識を引き続き確認する必要がある。
+ここで証明したのは，同じ有限表示代数族のArtin基底変更に関する完全性である。
+\end{remark}

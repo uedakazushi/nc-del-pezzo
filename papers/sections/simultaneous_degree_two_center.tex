@@ -1,0 +1,359 @@
+% !TeX root = ../nc-del-pezzo.tex
+% 2026-11-20 JST / v0.8
+\section{次数2の全方向中心商の有限代数化}
+\label{sec:simultaneous-degree-two-center}
+
+本節では次数2について，四次式の全係数と全Pl\"ucker方向を
+同時に扱う中心元を構成する。
+第\ref{sec:relative-center-lift}節の有限局所持上げを方向空間上で貼り合わせ，
+Pl\"ucker錐の頂点まで降ろす。
+係数を特殊化した後の中心の次元が増えても，普遍係数環上の中心の核を
+先に計算すれば，この構成を全係数について行える。
+得られる主開集合は可換零切断全体を含むが，その追加の非消滅多項式の
+明示公式は計算していない。
+
+$N=n+1\ge3$，$E=\C^N$，$\mathcal F=\Sym^4E=\Spec R$ とする。
+$F=z^2/2+U$ はこの全係数上の次数2の可換方程式である。
+射影四次超曲面 $U=0$ が滑らかである係数の開集合を
+$\mathcal T\subset\mathcal F$ と書く。
+第\ref{sec:simultaneous-poisson}節のPl\"ucker錐を $\mathcal C$，
+その頂点のイデアルを $J$ と書き，$X=\mathcal F\times\mathcal C$ と置く。
+まず $g_2\ne0$ の主開 $X_0\subset X$ 上で，同節の代数 $A=A_{U,P}$ を使う。
+
+\subsection{方向空間上の古典中心と消滅}
+
+$G=\Gr(2,E^*)$ 上の標準完全列を
+\[
+ 0\longrightarrow K\longrightarrow E\otimes\mathcal O_G
+        \longrightarrow Q\longrightarrow0,
+ \qquad \rank Q=2
+\]
+とし，$L=\det Q^*=\mathcal O_G(-1)$ と置く。
+方向解消
+\[
+ q:Y=\mathcal F\times\operatorname{Tot}(L)\longrightarrow X
+\]
+はproperであり，頂点の外で同型である。
+実際，$Y$ は $\mathcal F\times G\times\mathcal C$ 内の
+閉incidence部分で，$G$ への射影は線束 $L$ の全空間である。
+以下，$K,L$ の $Y$ への引戻しも同じ記号で書く。
+零切断を $Z=\mathcal F\times G$，$L$ のtautological sectionを $\tau$ とする。
+局所的には $\tau=h\ell$ であり，普遍形式は $P=hP_0$ となる。
+
+\begin{lemma}[全方向での次数4の古典中心]
+\label{lem:simultaneous-degree-two-classical-kernel}
+$\mathcal F\times G$ 上の普遍係数環で，
+$h^{-1}[-,-]\bmod h$ により得られるPoisson括弧を考える。
+その内部次数4の中心の層は
+\[
+ \operatorname{Sym}^4K\oplus\mathcal O F
+\]
+である。$U\in\mathcal T$ における全方向のファイバーについても同じ式が成立する。
+$z^2$ の係数を取る写像は，第二の直和因子で非零である。
+全四次式の特殊化に関して，kernelの形成が基底変更と可換するとは主張しない。
+\end{lemma}
+\begin{proof}
+$K$ の基底を $s_1,\ldots,s_{N-2}$，活性商の基底を $u,v$ とし，
+$P_0(u,v)=1$ と規格化する。
+次数4の元は一意的に
+\[
+ w=f_4(s,u,v)+zf_2(s,u,v)+cz^2
+\]
+と書ける。ここで $f_i$ は通常の次数 $i$ の多項式で，
+$c$ は内部次数0の係数である。
+$\{w,u\}=\{w,v\}=0$ の $z$ に関する各係数を比較すると
+\[
+ f_2U_u=f_2U_v=0,\quad
+ (f_2)_u=(f_2)_v=0,\quad
+ (f_4)_u=2cU_u,\quad (f_4)_v=2cU_v
+\]
+を得る。
+普遍係数の各Grassmann chartは整域であり，$U_u$ は零多項式ではない。
+従ってまず普遍係数環上で $f_2=0$ が従う。
+最後の二式より $f_4-2cU$ は中央変数 $s_i$ だけに依存する。
+この計算はchartの任意の非空開への局所化でも保たれるので，中心の層を与える。
+
+滑らかな射影四次式は非零の線型方向に沿って恒等的に定数にはならない。
+実際，その変数を含まない斉次四次式は，対応する射影座標軸の点で特異になる。
+従って少なくとも $U_u,U_v$ の一方は零でなく，整域性から $f_2=0$ である。
+従って滑らかな四次式の各ファイバーでも同じ核の計算が成立する。
+逆に $F$ と $s_i$ はPoisson中心に属するので，これで全てである。
+\end{proof}
+
+\begin{lemma}[中心の差を貼り合わせるための消滅]
+\label{lem:simultaneous-degree-two-bwb}
+全ての $m\ge0$ に対して
+\[
+ H^1(G,\operatorname{Sym}^4K\otimes\mathcal O_G(m))=0,
+ \qquad H^0(G,\operatorname{Sym}^4K)=0
+\]
+である。従って，$X$ の任意の主開 $D(g)$ の逆像 $Y_g$ でも
+\[
+ H^1(Y_g,\operatorname{Sym}^4K)=0
+\]
+となる。
+\end{lemma}
+\begin{proof}
+$N\ge4$ の場合，Borel--Weil--Bottの重み規約を
+\cite[Theorem~2.3]{GuoLuSharpe2017}に合わせる。
+同文献の標準商束の双対が本稿の $K$ であり，重みは
+\[
+ (m,m,4,0,\ldots,0)
+\]
+である。$\rho=(N-1,N-2,\ldots,0)$ を加えると，
+$m=0,1$ では長さ2の置換で優越重みになり，$m=2,3$ では成分が重複し，
+$m\ge4$ では既に優越重みである。
+従って非零コホモロジーが現れ得る次数は順に2，なし，0である。
+特に上記の二つの消滅を得る。
+$N=3$ では $G\simeq\PP^2$，$K$ は定数直線のtensorを除いて
+$\mathcal O_{\PP^2}(-1)$ であるから，
+$\mathcal O_{\PP^2}(m-4)$ の通常のコホモロジーから同じ結論が従う。
+
+$\operatorname{Tot}(L)\to G$ はaffineであり，構造層の押出しは
+$\bigoplus_{m\ge0}\mathcal O_G(m)$ である。
+$\mathcal F$ はaffineなので，上の消滅を係数環 $R$ とtensorして
+$H^1(Y,\operatorname{Sym}^4K)=0$ を得る。
+有限affine被覆の\v{C}ech複体を使えば，このコホモロジーは
+直和およびfiltered colimitと可換する。
+主開への制限は，その複体を $q^*g$ で局所化することに等しい。
+従って $Y_g$ 上でも消滅は保たれる。
+\end{proof}
+
+\subsection{普遍係数上の有限中心層}
+
+次数4の完全対称化写像を
+\[
+ V_4\otimes\mathcal O_{X_0}\longrightarrow A_4,
+ \qquad
+ V_4=\operatorname{Sym}^4E\oplus z\operatorname{Sym}^2E\oplus\C z^2
+\]
+と書く。ここで中央でない $z$ を含む語も全ての文字について対称化する。
+この写像は零切断上で同型である。
+両辺は同じ階数の有限局所自由加群なので，その同型 locus は
+零切断を含む $\operatorname{GL}(E)$-不変な開集合である。
+以下ではまずこの開集合へ制限し，$\lambda:A_4\to\mathcal O$
+をこの座標における $z^2$ 係数とする。
+整列基底での係数は用いない。
+
+\begin{lemma}[規格化中心元の局所構造]
+\label{lem:simultaneous-degree-two-central-torsor}
+$Z=\mathcal F\times G$ の $\operatorname{GL}(E)$-不変な開近傍
+$V\subset q^{-1}(X_0)$ が存在し，
+その上の次数4中心の層 $\mathcal Z_4$ は有限局所自由で，
+\begin{equation}\label{eq:simultaneous-degree-two-center-extension}
+ 0\longrightarrow\operatorname{Sym}^4K
+ \longrightarrow\mathcal Z_4
+ \xrightarrow{\lambda}\mathcal O_V\longrightarrow0
+\end{equation}
+を満たす。この列は任意の基底変更に対して完全なままである。
+従って $\lambda(\Omega)=1/2$ を満たす局所中心元の集合は，
+$\operatorname{Sym}^4K$ の加法的torsorである。
+ここで基底変更後の $\mathcal Z_4$ は中心の部分加群であり，
+基底変更後の交換子のkernel全体との一致は主張しない。
+滑らかな係数の零切断 $Z_{\mathcal T}=\mathcal T\times G$ の近傍では，
+以下の除した交換子 $\mathcal D$ のkernelの形成は任意基底変更と両立する。
+この場合でも，零切断の通常の交換子は零となるため，その中心はより大きい。
+\end{lemma}
+\begin{proof}
+$\widetilde A=q^*A$ と置く。
+$h=0$ では可換になるから，各交換子は局所的に $h\widetilde A$ に属する。
+各次数の平坦性により $h$-torsionはなく，局所的な割算は一意的である。
+局所フレームの変更まで含めると，この割算は大域的には
+\[
+ \mathcal D:\widetilde A_4\longrightarrow
+ \bigl(E^*\otimes\widetilde A_5\oplus\widetilde A_6\bigr)\otimes L^*
+\]
+を定める。すなわち，$\mathcal D$ に $\tau$ を掛けると
+全ての $x_i$ と $z$ に対する交換子の組になる。
+この $L^*$ の捩れは，フレーム $\ell'=a\ell$ の下で
+$h'=a^{-1}h$，$h'^{-1}[-,-]=a h^{-1}[-,-]$ となることから分かる。
+従って $\ker\mathcal D$ は通常の中心の層である。
+
+$K$ の切断は関係式から厳密に中央である。
+完全対称化による $\operatorname{Sym}^4K\subset\widetilde A_4$ は
+部分束で，$\mathcal D$ と $\lambda$ により零に送られる。
+商束 $\mathcal C_4=\widetilde A_4/\operatorname{Sym}^4K$ 上の写像
+\[
+ (\overline{\mathcal D},\overline\lambda):
+ \mathcal C_4\longrightarrow
+ \bigl(E^*\otimes\widetilde A_5\oplus\widetilde A_6\bigr)\otimes L^*
+       \oplus\mathcal O
+\]
+を $j$ と書く。
+補題\ref{lem:simultaneous-degree-two-classical-kernel}から，
+滑らかな四次式の零方向点では $j$ はファイバー上単射である。
+従ってある最大小行列式は零でなく，整スキーム $Y$ の一般点で単射となる。
+$\mathcal C_4$ は局所自由であるから，$\ker j$ はtorsion部分加群として零である。
+これにより，$j$ は普遍係数上の\emph{層の写像として}単射である。
+ここでは全ファイバー上の単射性を要求していない。
+
+各Grassmann chartでは $K$ と $Q$ の基底を選べる。
+このとき $\widetilde A$ は中央多項式係数を持つ
+\eqref{eq:simultaneous-active-presentation}そのものである。
+命題\ref{prop:relative-finite-center-lift}を適用すると，
+$h=0$ の全点の近傍に，次数4，$z^2$ 係数 $1/2$ の中心元が存在する。
+この適用では，Grassmann chartと四次式の係数を内部次数0，
+中央変数 $s_i$ を内部次数1として扱う。
+最高次CY条件は $g_2\ne0$ により満たされる。
+
+開集合を不変に選ぶ点も明記する。
+上の単射 $j$ の余核における $(0,1/2)$ の類が生成する
+coherent部分加群を取り，その支持を除く。
+これはその類が\emph{茎で零になる} locusであり，
+ファイバーだけで零になる条件とは異なる。
+局所中心の存在から，この開集合は $Z$ を含む。
+全ての写像は自然なので，得られる開集合 $V$ は
+$\operatorname{GL}(E)$-不変である。
+ここでは $\overline\lambda=1/2$，$\overline{\mathcal D}=0$ を満たす
+商束の切断が一意的に存在し，局所的に $\widetilde A_4$ へ持ち上がる。
+その二つの持上げの差は $\operatorname{Sym}^4K$ に属する。
+
+得られた商束の切断を $e$ とすると，$j(e)=(0,1/2)$ である。
+$j$ の単射性から $\ker\overline{\mathcal D}=\mathcal O e$ となり，
+$\overline\lambda(e)=1/2$ によりこの直線は $\mathcal C_4$ の直和因子である。
+従って $\mathcal Z_4$ はこの直線の逆像であり，
+$\operatorname{Sym}^4K\oplus\mathcal O$ と局所同型で，
+$\widetilde A_4$ の部分束でもある。
+この分裂により，表示した短完全列自体は任意基底変更後も完全である。
+
+さらに $Z_{\mathcal T}$ の近傍では，$j$ の最大小行列式により
+$j$ を分裂単射とできる。
+$\mathcal C_4=\mathcal O e\oplus\ker\overline\lambda$ と分けると，
+$\operatorname{coker}j$ は
+$\overline{\mathcal D}|_{\ker\overline\lambda}$ の余核に等しい。
+従ってこの近傍では $\mathcal D$ の像も部分束であり，
+$\ker\mathcal D$ の形成は任意基底変更と可換する。
+退化した四次式の係数において，この最後の性質までは主張しない。
+\end{proof}
+
+\subsection{錐への降下と普遍的に正則な中心商}
+
+\begin{theorem}[次数2の全方向の有限型中心商]
+\label{thm:simultaneous-degree-two-central-family}
+$X=\mathcal F\times\mathcal C$ 上に
+$g(U,0)=1$ を満たす $\operatorname{GL}(E)$-不変な正則関数 $g$ が存在する。
+その主開 $X_g$ は $g_2\ne0$ に含まれ，$S=\mathcal O(X_g)$ 上の
+第\ref{sec:simultaneous-poisson}節の同じambient代数 $A_S$ は，
+次の性質を持つ次数4の中心元 $\Omega$ を持つ。
+\begin{enumerate}
+\item 完全対称化座標で $\lambda(\Omega)=1/2$ であり，
+      $\Omega\bmod J=F$ である。
+      $\Omega$ は $\operatorname{GL}(E)$ と両立するように選べる。
+\item さらに $g(U,-P)=g(U,P)$ および
+      $\Omega\equiv z^2/2+\operatorname{Sym}U\pmod{J^2A_S}$ を要求できる。
+\item 任意の可換 $S$-代数への基底変更後も $\Omega$ は左右の非零因子である。
+      有限表示代数 $B=A_S/(\Omega)$ は次数ごとに有限局所自由で，
+\[
+ H_B(t)=\frac{1-t^4}{(1-t)^{n+1}(1-t^2)}
+\]
+      の係数を階数に持つ。
+\end{enumerate}
+特にこれは，四次式の全係数の零切断と，その全Pl\"ucker方向を
+一つの有限型開近傍で扱う中心超曲面族である。
+\end{theorem}
+\begin{proof}
+\emph{錐側の不変な主開集合。}
+補題\ref{lem:simultaneous-degree-two-central-torsor}の $V$ の閉補集合を
+properな $q$ で写し，その像を $X_0$ から除く。
+得られる $W\subset X$ は全係数の零切断を含む不変な開集合であり，
+$q^{-1}(W)\subset V$ となる。
+$X$ はaffineなので，閉補集合のイデアル $I_0$ と零切断のイデアル $J$ は
+$I_0+J=\mathcal O(X)$ を満たす。
+従って $g\in I_0$，$g\equiv1\pmod J$ を選べる。
+$\operatorname{GL}(E)$ は標数0で線型簡約であり，$I_0,J$ は不変だから，
+Reynolds作用素を適用して $g$ を不変に選び直せる。
+この操作は $g\in I_0$ と $g-1\in J$ をともに保つ。
+座標環の作用は代数的であるため，ここで使う表現はrationalかつ局所有限である。
+必要なら $g(U,P)g(U,-P)$ に替え，主開を符号反転でも保つ。
+
+\emph{貼合せと零切断での規格化。}
+$Y_g=q^{-1}(X_g)$ 上で
+\eqref{eq:simultaneous-degree-two-center-extension}を考える。
+補題\ref{lem:simultaneous-degree-two-bwb}の $H^1$ 消滅により，
+定数切断 $1/2$ は大域中心切断 $\widetilde\Omega$ へ持ち上がる。
+零切断上の $\widetilde\Omega-F$ は
+補題\ref{lem:simultaneous-degree-two-classical-kernel}の普遍係数上の計算から，
+$\operatorname{Sym}^4K$ の大域切断である。
+補題\ref{lem:simultaneous-degree-two-bwb}の $H^0$ 消滅からこの差は零となる。
+
+\emph{錐への降下と同変性。}
+Pl\"ucker錐は正規であり，$\mathcal F$ はaffine空間である。
+従って $X_g$ は正規整スキームである。
+$q:Y_g\to X_g$ はproper birationalで，$Y_g$ は被約整スキームなので，
+\cite[Tag~0AY8, Lemma~37.53.6]{StacksProject}により
+$q_*\mathcal O_{Y_g}=\mathcal O_{X_g}$ である。
+$A_4$ の有限局所自由性とprojection formulaから
+\[
+ q_*q^*A_4=A_4
+\]
+となり，$\widetilde\Omega$ は一意的に $\Omega\in(A_S)_4$ へ降下する。
+その交換子の引戻しは零である。
+同じprojection formulaを次数5と6に適用すれば，交換子自体も零となる。
+規格化と零切断での等式も保たれる。
+
+同変性のために，まず
+\[
+ \Gamma(Y_g,\mathcal Z_4)\xrightarrow{\lambda}
+ \Gamma(Y_g,\mathcal O_{Y_g})
+\]
+の全射にrational表現の不変部分を取る。
+代数的な同変準連接層の大域切断は局所有限なrational表現であり，
+線型簡約性により不変部分を取る関手は完全である。
+ここでは有限affine被覆の\v{C}ech複体と体上の平坦性により
+\[
+ \Gamma(\operatorname{GL}(E)\times Y_g,\operatorname{pr}_2^*\mathcal Z_4)
+ \simeq\mathcal O(\operatorname{GL}(E))\otimes\Gamma(Y_g,\mathcal Z_4)
+\]
+となり，同変構造が通常のcoactionを与えることからrational性が従う。
+従って不変な切断 $1/2$ の不変な持上げを取れる。
+$q$ とprojection formulaは同変なので，降下した $\Omega$ も同変である。
+この選択の一意性は主張しない。
+
+\emph{第一平方零近傍との一致。}
+生成元を固定して語の順序を反転すると，関係式から
+$A_{U,P}^{\mathrm{op}}\simeq A_{U,-P}$ を得る。
+この反転は完全対称化座標を固定し，中心を中心へ送る。
+$\Omega$ と反転後の $\Omega(U,-P)$ の平均を取れば，
+同変性，$\lambda=1/2$，古典極限を保ったまま，係数を $P$ に関して偶にできる。
+$J/J^2$ 上では $P\mapsto-P$ が $-1$ として作用するから，
+古典極限と偶性により主張(2)を得る。
+
+\emph{正則性と全次数の平坦性。}
+各複素ファイバーのambientは整域である。
+$P=0$ では多項式環であり，$P\ne0$ では活性最高次代数が
+Mori--Ueyama\cite[Corollary~3.8]{MoriUeyama2019}により整域である。
+中央多項式変数の添加と，全lower項に対するPBW filtrationを使えば，
+全内部次数のambientも整域となる。
+完全対称化写像が同型で $\lambda(\Omega)=1/2$ であるため，
+$\Omega$ は各ファイバーで非零である。
+従って全ての内部次数 $m$ で，掛算
+\[
+ (A_S)_{m-4}\xrightarrow{\ \Omega\ }(A_S)_m
+\]
+は全閉点のファイバー上単射である。
+これは有限局所自由加群の写像であるから，最大小行列式によって
+局所的に分裂単射となり，余核も有限局所自由になる。
+この議論は各 $m$ に対して既に選んだ同じ基底 $X_g$ 上で成立し，
+無限個の開集合の共通部分を取る必要はない。
+分裂は任意基底変更を保つので，$\Omega$ の普遍正則性，
+$B$ の普遍的平坦性と所要のHilbert級数を得る。
+\end{proof}
+
+\begin{remark}[適用範囲と残る圏論的問題]
+本節は最高次binary quarticの楕円判別式を反転していない。
+従って滑らかな全四次式 $U$ の接線方向を含む，全ての方向を零切断で扱う。
+中心元の存在と普遍正則性は，退化した四次式も含む全係数空間で成立する。
+一方，特殊化後の中心全体が普遍中心の基底変更で得られるとは限らない。
+例えば $U$ が二つの活性変数に全く依存しない場合，古典中心に
+$z\operatorname{Sym}^2K$ も入り，
+特殊ファイバーのkernelの次元は増える。
+普遍係数上での層の単射性と，ファイバー上での単射性を区別したことが，
+この中心の増加を許しながら全係数を扱える理由である。
+
+また，得られたのは同じambient上の有限表示・普遍的に正則な中心商である。
+この全方向族の強Noether性，積Noether性，相対tailsのsmooth proper性は
+別の入力を要する。一方，全Abel Artin変形に対する形式的完全性は，
+後の定理\ref{thm:simultaneous-central-all-artin}で証明する。
+有限基底上の圏論的性質と大域的な射を確認するまでは，
+本定理を全モジュライのatlasの構成とは呼ばない。
+\end{remark}

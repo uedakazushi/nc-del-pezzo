@@ -1,0 +1,356 @@
+% !TeX root = ../nc-del-pezzo.tex
+\section{中央多項式係数上の同じ ambient 代数における中心持上げ}
+\label{sec:relative-center-lift}
+
+ここでは，既に得た平坦な potential 代数の中心を持ち上げる．
+別に選んだ星積の中心を，代数の同定なしに利用することはしない．
+Etingof--Ginzburg の Proposition~8.1.1(i) は，形式 potential の中心持上げに
+孤立特異点条件を課さず，その証明も Rees 変数を中央係数とする相対形式を用いる
+\cite[\S8.1--8.2]{EG2010}．
+以下では中央変数を任意個許し，同じ代数への同定，内部次数，
+および有限パラメータへの移行を明記する．
+使用する unimodularity 定理は複素数上の滑らかな affine 多様体についての
+Dolgushev の定理であり，その未確認の相対版を仮定しない．
+
+\subsection{形式中心と内部次数}
+
+内部次数零の係数環と，正次数の中央変数を
+\[
+ R_0=\mathbb C[c_1,\ldots,c_N,\rho(c)^{-1}],\qquad
+ R=R_0[s_1,\ldots,s_m],\qquad \deg s_j=v_j>0
+\]
+とする．$\rho=1$ を許し，$N,m$ は零でもよい．
+$h$ の内部次数は零とし，活性変数の重みを
+\[
+ (w_x,w_y,w_z)=(1,1,2)\quad\text{または}\quad(1,2,3),
+ \qquad d=w_x+w_y+w_z=2w_z
+\]
+とする．$Q=R[x,y,z]$ と置き，
+\begin{equation}\label{eq:relative-center-classical-potential}
+ F=\frac12z^2+U(s,x,y)\in Q_d,\qquad
+ \Phi=xyz-yxz-h\operatorname{Sym}(F)
+\end{equation}
+を考える．$\operatorname{Sym}$ は活性変数の完全対称化であり，
+$R$ に関して線型に延長する．
+potential は巡回語として読み，その関係式は
+\begin{equation}\label{eq:relative-center-potential-relations}
+ [x,y]=hz,\qquad
+ [y,z]=h\partial_x\operatorname{Sym}(U),\qquad
+ [z,x]=h\partial_y\operatorname{Sym}(U)
+\end{equation}
+である．右辺の微分は巡回微分であり，可換化すると通常の偏微分となる．
+
+\begin{lemma}[同じ相対 potential 代数の規格化形式中心]
+\label{lem:relative-formal-center-lift}
+$\widehat A$ を\eqref{eq:relative-center-potential-relations}の
+$h$ 進完備な代数とする．次を仮定する．
+\begin{enumerate}
+ \item $\widehat A$ は $h$ 進分離完備かつ $h$-torsion-free であり，
+       与えられた生成元による還元は $\widehat A/h\widehat A=Q$ である．
+ \item $R[[h]]$ に相対的な対角は perfect であり，連続な完備包絡代数
+       $\widehat A^{\mathrm e}_{R[[h]]}$ に関して
+       \[
+        \underline{R\operatorname{Hom}}_{\widehat A^{\mathrm e}_{R[[h]]}}
+          (\widehat A,\widehat A^{\mathrm e}_{R[[h]]})
+          \simeq\widehat A(d)[-3]
+       \]
+       という無捩れな相対 Calabi--Yau 同型を持つ．
+\end{enumerate}
+このとき，同じ $\widehat A$ の中に内部次数 $d$ の中心元
+\[
+ \widehat\Omega\in Z(\widehat A)_d,\qquad
+ \widehat\Omega\bmod h=F
+\]
+が存在する．完全対称化による形式 PBW 座標で，その $z^2$ 係数を
+ちょうど $1/2$ とすることができる．
+各 $h$ 係数は $s_1,\ldots,s_m$ の多項式であり，中央変数の有理関数への
+係数拡大は行わない．$U$ の最高次部分の判別式や $F$ の滑らかさは仮定しない．
+\end{lemma}
+
+\begin{proof}
+\emph{形式 PBW 座標と相対 formality．}
+完全対称化による連続な $R[[h]]$-線型写像
+\[
+ \sigma:Q[[h]]\longrightarrow\widehat A
+\]
+は還元後に恒等写像となる．全射性は $h$ 係数を順次持ち上げることで従い，
+単射性は $h$-torsion-free 性と $h$ 進分離性から従う．
+従って $\sigma$ は内部次数を保つ同型である．
+ここでは平坦性を中心の存在から導いておらず，仮定1を先に使用している．
+この座標で乗法を $Q[[h]]$ へ移すと，$R$ に関して線型で
+内部次数零の形式的結合変形 $\mu_h$ を得る．
+
+活性三変数の Kontsevich 写像を $R$-線型に延長して用いる
+\cite[\S4, \S6]{Kontsevich}．
+そのグラフは $x,y,z$ のみを微分し，係数 $c,s$ を微分しない．
+相対多重微分作用素から全相対 Hochschild cochain への包含は
+多項式 HKR の擬同型である．さらにこの擬同型と formality は
+内部次数零の部分に制限しても擬同型である．
+実際，相対 bar 分解と多項式 Koszul 分解の比較およびホモトピーを
+次数を保つものに取ると，その比較は各内部次数で成立する．
+多重微分作用素上では，線型な重み付き $\mathbb G_m$ 作用に関する
+Kontsevich の同変性により全ての構造写像が内部次数を保存する．
+従って $h$ 進 Maurer--Cartan 対応を内部次数零の複体に適用できる．
+単位を保つ正規化 cochain を使えば，
+\begin{equation}\label{eq:relative-center-formality-identification}
+ \pi_h\in h\bigwedge^2_Q\operatorname{Der}_R(Q)[[h]],\qquad
+ [\pi_h,\pi_h]=0,\qquad\deg\pi_h=0
+\end{equation}
+と，内部次数を保ち $R$ を固定する gauge 同型
+\[
+ T=1+O(h):(Q[[h]],\star_{\pi_h})
+       \xrightarrow{\ \sim\ }(Q[[h]],\mu_h)
+       \xrightarrow[\sigma]{\ \sim\ }\widehat A
+\]
+を得る．以下の $T$ はこの合成を表す．
+一階交換子の規約を $[a,b]_{\star}=h\{a,b\}+O(h^2)$ と取ると，
+\eqref{eq:relative-center-potential-relations}により
+\[
+ \pi_h=h\pi_F+O(h^2),\qquad
+ \pi_F=F_x\partial_y\wedge\partial_z
+        +F_y\partial_z\wedge\partial_x
+        +F_z\partial_x\wedge\partial_y .
+\]
+以上は形式的な同型類の対応だけでなく，中心元を元の代数へ戻す
+具体的な存在同型 $T$ を与える．
+
+\emph{相対 CY から複素数上の絶対 CY へ．}
+$\ell=N+m$ と置き，完備包絡代数を
+\[
+ B=\widehat A\widehat\otimes_{\mathbb C[[h]]}\widehat A^{\mathrm{op}},
+ \qquad
+ B_R=\widehat A\widehat\otimes_{R[[h]]}\widehat A^{\mathrm{op}}
+\]
+とする．$B_R$ は $B$ を中央差
+\[
+ c_i\otimes1-1\otimes c_i\quad(1\le i\le N),\qquad
+ s_j\otimes1-1\otimes s_j\quad(1\le j\le m)
+\]
+で割ったものである．これらは中央正則列をなす．
+実際，$h$ による還元後には局所化した多項式環の独立な中央差であり，
+途中の各商も $h$-torsion-free となることを，形式 PBW 座標と
+$h$ 係数による帰納法で確認できる．
+この正則列の Koszul 分解により $B_R$ は $B$ 上 perfect であり，
+内部次数のずれを省略すれば
+\[
+ R\operatorname{Hom}_B(B_R,B)\simeq B_R[-\ell]
+\]
+である．Koszul 最上外積は列挙した中央差の順序で自明化する．
+導来 change of rings と仮定2から
+\[
+ \begin{split}
+ R\operatorname{Hom}_B(\widehat A,B)
+ &\simeq R\operatorname{Hom}_{B_R}
+       (\widehat A,R\operatorname{Hom}_B(B_R,B))\\
+ &\simeq\widehat A[-\ell-3]
+ \end{split}
+\]
+を得る．対角の perfect 性もこの合成から従う．
+内部次数を戻したずれは $d+\sum_jv_j$ であり，
+左右の作用に自己同型の捻りはない．
+
+\emph{絶対 unimodularity と体積形式の重み零成分．}
+$X=\Spec Q$ は滑らかな複素 affine 多様体であり，
+標準体積形式
+\[
+ \omega=dc_1\wedge\cdots\wedge dc_N
+       \wedge ds_1\wedge\cdots\wedge ds_m
+       \wedge dx\wedge dy\wedge dz
+\]
+はその正準束を自明化する．
+\eqref{eq:relative-center-formality-identification}の $\pi_h$ を
+$X$ 上の絶対二重ベクトルとも読む．
+全変数についての Kontsevich グラフ公式は，この $\pi_h$ 上では
+相対グラフ公式と一致する．各辺の微分添字は二重ベクトルの成分から来るため，
+$\partial_{c_i}$ または $\partial_{s_j}$ を含む項が一つも生じないからである．
+従って $\pi_h$ は，先ほどの絶対 CY 代数と同型な星積の
+絶対 Kontsevich 類でもある．
+
+Dolgushev の Theorem~3 は，正準束が自明な滑らかな複素 affine 多様体の
+一変数形式量子化について，無捩れな Van den Bergh 双対化 bimodule と
+その形式 Poisson 類の unimodularity が同値であることを述べる
+\cite[Theorem~3]{DolgushevModular2009}．
+同論文の Definition~1 と Proposition~1 により，この条件は
+可逆元 $f\in Q[[h]]^\times$ が存在して
+\begin{equation}\label{eq:relative-center-invariant-volume}
+ L_{\pi_h}(f\omega)=0
+\end{equation}
+となることと同値である．今の場合は直前で全ての仮定を満たしている．
+
+$Q$ の内部次数は非負であり，$Q_0=R_0$ である．
+$f$ の各 $h$ 係数を内部次数零へ射影したものを
+$f_0\in R_0[[h]]$ とする．$f\bmod h$ が $Q$ の単元であることから
+$f_0\bmod h\in R_0^\times$ であり，$f_0$ は可逆である．
+$\pi_h$ は内部次数零なので，\eqref{eq:relative-center-invariant-volume}の
+内部次数 $\deg\omega=d+\sum_jv_j$ 成分は
+\[
+ 0=L_{\pi_h}(f_0\omega)=f_0L_{\pi_h}\omega
+\]
+となる．最後の等号では $\pi_h$ が $R$ に相対的であることを使った．
+従って $L_{\pi_h}\omega=0$ であり，活性成分以外を持たないことから
+\[
+ L_{\pi_h}(dx\wedge dy\wedge dz)=0
+ \quad\text{in }\Omega^\bullet_{Q/R}[[h]]
+\]
+を得る．この重み射影によって，未知の体積形式を
+標準の相対体積形式へ取り替えられる．
+
+\emph{相対 Poincar\'e ホモトピーと Casimir．}
+相対一形式
+\[
+ \alpha_h=\iota_{\pi_h}(dx\wedge dy\wedge dz)
+     \in h\Omega^1_{Q/R}[[h]]
+\]
+は閉じており，内部次数 $d$ を持つ．
+活性三変数の多項式 de Rham 複体において，通常の活性次数
+（$x,y,z,dx,dy,dz$ をそれぞれ次数1とする）を使う．
+その正次数 $r$ の成分上で，Euler 場
+$E=x\partial_x+y\partial_y+z\partial_z$ による
+$r^{-1}\iota_E$ は Poincar\'e ホモトピーを与える．
+一形式の各単項式では $r>0$ なので，必要な割算は正整数だけである．
+このホモトピーは中央係数を固定し，重み付き内部次数も保存する．
+従って
+\[
+ \psi_h\in hQ_d[[h]],\qquad d_{Q/R}\psi_h=\alpha_h
+\]
+を取れる．$\alpha_h/h\bmod h=d_{Q/R}F$ なので，
+$\psi_h$ に $hR_d$ の元を加えることにより
+$\psi_h/h\bmod h=F$ とできる．
+活性次元が3であるため，$\pi_h$ と $d_{Q/R}\psi_h$ の双対表示から
+$[\pi_h,\psi_h]=0$ となり，$h$-torsion-free 性により
+$\psi_h/h$ も $\pi_h$ の Casimir である．
+
+\emph{中心へ戻す操作と規格化．}
+$\pi_h$ で twist した Kontsevich の cochain 写像は，
+Poisson cohomology の次数零を星積の Hochschild cohomology の次数零，
+すなわちその中心へ送る．その $h$ による還元は HKR の恒等写像である．
+従って Casimir $\psi_h/h$ の像を同型 $T$ で戻すと，
+同じ $\widehat A$ の内部次数 $d$ の中心元で，還元が $F$ となるものを得る．
+完全対称化座標での $z^2$ 係数を $a(h)$ とすれば，
+$2w_z=d$ と全ての $s_j$ の正次数性により
+\[
+ a(h)\in R_0[[h]],\qquad a(h)\equiv\frac12\pmod h .
+\]
+$2a(h)$ は中央単元なので，得た元をこれで割れば所要の
+$\widehat\Omega$ となる．
+全ての段階で係数環は $R_0[s]$ のままであり，$s$ の分母は導入していない．
+\end{proof}
+
+\begin{remark}[平坦性・CY 性の入力と判別式]
+前補題は，任意の potential 代数の平坦性を中心持上げから証明するものではない．
+本稿の適用では，定理\ref{thm:simultaneous-degree-one-ambient}と
+定理\ref{thm:simultaneous-poisson-ambient}の平坦な同時 ambient 族を，
+Poisson 方向を自明化した chart に引き戻す．
+その表示は\eqref{eq:relative-center-potential-relations}であり，
+次数別平坦性から仮定1を満たす．
+仮定2は既存の相対 potential 対角複体から得られる．
+形式段階だけなら，先に確立した平坦性の下でこの複体と各項を $h$ 進完備化し，
+還元後の三変数 Koszul 分解から cycle を順次持ち上げても完全性が従う．
+巡回 Hessian の自己双対性は係数環上の恒等式であるため，無捩れな CY 同型を与える．
+これは補題\ref{lem:elliptic-top-relative-cy}，
+\ref{lem:degree-one-elliptic-top-relative-cy}および
+普遍低次項の補題\ref{lem:elliptic-universal-lower-pbw}，
+\ref{lem:degree-one-elliptic-universal-lower-pbw}と同じ機構であり，
+楕円判別式を使わない形式段階の論法である．
+とくに活性最高次式に重根がある場合にも，上の入力が満たされる限り
+中心持上げを適用できる．
+\end{remark}
+
+\subsection{有限中心方程式による代数化}
+
+\begin{proposition}[規格化中心の有限局所化による代数化]
+\label{prop:relative-finite-center-lift}
+$g\in R_0[h]$ は $g(c,0)\in R_0^\times$ を満たすとし，
+$S=R_0[h,g^{-1}]$ とする．
+中央変数 $s_1,\ldots,s_m$ と活性変数 $x,y,z$ による
+同じ関係式\eqref{eq:relative-center-potential-relations}の
+次数付き $S$-代数を $A$ とする．
+各 $A_q$ は有限射影 $S$-加群であり，$h$ 進完備化は
+補題\ref{lem:relative-formal-center-lift}の仮定を満たすと仮定する．
+このとき，$f\in S$，$f\equiv1\pmod h$ と
+\[
+ \Omega\in Z(A_f)_d,\qquad
+ \Omega\bmod h=\operatorname{Sym}(F)
+\]
+が存在する．有限個の必要次数で完全対称化を座標に取ることができ，
+その座標における $\Omega$ の $z^2$ 係数は $1/2$ となる．
+中心性，次数，還元および規格化の恒等式は，任意の可換 $S_f$-代数への
+基底変更後にも成立する．基底変更の平坦性や被約性は必要ない．
+追加の局所化は係数 $c,h$ だけに依存し，中央変数 $s$ は全ての値を許す．
+\end{proposition}
+
+\begin{proof}
+$s$ も正次数の代数生成元として扱い，基底環 $S$ に含めないことが重要である．
+各内部次数の可換多項式空間は有限自由 $S$-加群であり，
+完全対称化はそれから $A_q$ への写像を与える．
+必要な有限個の次数
+\[
+ q=d,\quad d+w_x,\quad d+w_y,\quad d+w_z
+\]
+でこの写像は $h=0$ 上の同型である．
+有限射影加群間の写像が同型でない locus は閉集合であり，$V(h)$ と交わらない．
+従って $1\bmod h$ となる一つの元を可逆化すれば，これらを同時に同型にできる．
+実際，その閉集合の定義イデアル $I$ に対して $I+(h)=S$ なので，
+$I$ 内に $1\bmod h$ となる元がある．
+この局所化を済ませ，なお係数環を $S$ と書く．
+$z^2$ 係数を読む $S$-線型写像を
+$\lambda:A_d\to S$ とする．
+
+$A/hA$ は可換であり，各次数の射影性により $A$ は $h$-torsion-free だから，
+\[
+ \begin{gathered}
+ M=A_d,\qquad N'=A_{d+w_x}\oplus A_{d+w_y}\oplus A_{d+w_z},\\
+ D:M\longrightarrow N',\qquad
+ D(a)=h^{-1}([a,x],[a,y],[a,z])
+ \end{gathered}
+\]
+は正則な $S$-線型写像である．ここで $h^{-1}$ は $hA$ 内での一意な割算を表し，
+係数環では $h$ を可逆化していない．
+$F_{\mathrm{sym}}=\operatorname{Sym}(F)\in A_d$ と書く．
+一階交換子が Jacobian 括弧であり $F$ がその Casimir であることから
+$D(F_{\mathrm{sym}})\in hN'$ である．
+
+求める元を $\Omega=F_{\mathrm{sym}}+h\eta$ と置くと，
+中心性と規格化は有限線型方程式
+\begin{equation}\label{eq:relative-center-finite-linear-system}
+ D\eta=-h^{-1}D(F_{\mathrm{sym}}),\qquad\lambda(\eta)=0
+\end{equation}
+になる．$s_j$ は既に中央なので，これら以外の交換子方程式は不要である．
+写像と右辺を
+\[
+ L=(D,\lambda):M\longrightarrow N'\oplus S,\qquad
+ b=\bigl(-h^{-1}D(F_{\mathrm{sym}}),0\bigr)
+\]
+と置く．前補題の規格化形式中心から
+$\widehat\eta=(\widehat\Omega-F_{\mathrm{sym}})/h$ を作ると，
+これは\eqref{eq:relative-center-finite-linear-system}の $h$ 進形式解である．
+
+有限 $S$-加群 $C=\operatorname{coker}L$ における $b$ の像を $\bar b$ とする．
+任意の素イデアル $\mathfrak p\supset(h)$ に対し，形式解は
+$S_{\mathfrak p}$ の $h$ 進完備化へ写る．
+Noether 局所環 $S_{\mathfrak p}$ のこの完備化は忠実平坦なので，
+$\bar b_{\mathfrak p}=0$ となる．
+従って有限巡回加群 $S\bar b$ の台は $V(h)$ と交わらず，
+\[
+ \operatorname{Ann}_S(\bar b)+(h)=S
+\]
+である．よって消滅イデアルの中に $f_1\equiv1\pmod h$ を取れ，
+$S_{f_1}$ 上では $b$ は $L$ の像に入る．
+その有限線型解 $\eta$ により所要の $\Omega$ を得る．
+最初の座標のための局所化と合わせ，分母を払えば，元の $S$ の
+$f\equiv1\pmod h$ による一回の主開局所化にまとめられる．
+
+得られた中心性と規格化は有限表示代数内の実際の恒等式である．
+従って任意の基底変更後にも保たれる．
+この証明は形式級数への $h=1$ の代入ではなく，
+有限加群の一つの余核類を消すことで有限パラメータの元を得るものである．
+\end{proof}
+
+\begin{remark}[この命題が与える範囲]
+上の結果は，全内部次数4または6の中心元を，元の ambient 族の
+零切断全体を含む有限主開集合上で与える．
+局所的に選んだ Poisson 方向を変えたときの貼合せ，中心商の普遍正則性，
+Noether 性，相対 tails および変形の完全性は，この命題の結論には含めない．
+また，退化した古典 potential の Poisson 中心全体が $F$ で生成されるとは
+主張していない．証明が使うのは一つの規格化 Casimir の存在だけである．
+\end{remark}

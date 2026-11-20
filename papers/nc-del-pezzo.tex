@@ -42,7 +42,7 @@
 \newcommand{\Perf}{\operatorname{Perf}}
 \newcommand{\rank}{\operatorname{rank}}
 \newcommand{\HH}{\operatorname{HH}}
-\newcommand{\Version}{0.7}
+\newcommand{\Version}{0.8}
 \title{次数1・2の非可換del Pezzo多様体\texorpdfstring{\\}{ }構造対象付き変形とモジュライの局所構造}
 \author{}
 \date{2026年11月20日\quad v\Version\quad 公表用研究稿}
@@ -50,49 +50,36 @@
 \begin{document}
 \maketitle
 \begin{abstract}
-滑らかな複素del Pezzo多様体 $X$、$n=\dim X\ge2$、
-$-K_X=(n-1)H$、$H^n\in\{1,2\}$ を可換点に持つ非可換変形を扱う。
-構造対象 $\OO_X$ だけを標識し、射には全ての標識を保つ完全Abel同値を採用する。
-既知のAbel変形・algebroid変形・量子化の比較と、次数1・2の相対Poisson構造定理を組み合わせ、
-特殊ファイバーを固定した全Abel Artin変形の群oidを計算する。
-次数1では形式的に滑らかであり、次数2では滑らかな形式基底と
+滑らかな複素del Pezzo多様体 $X$，$n=\dim X\ge2$，
+$-K_X=(n-1)H$，$H^n\in\{1,2\}$ の非可換変形を扱う。
+構造対象 $\OO_X$ だけを標識し，全ての標識を保つ完全Abel同値を射とする。
+既知の変形・量子化の比較と相対Poisson構造定理を組み合わせ，
+特殊ファイバーを固定した全Abel Artin変形群oidを計算する。
+次数1の形式環は正則であり，次数2では滑らかな形式基底と
 $\Gr(2,n+1)$ のPl\"ucker錐の頂点完備化の積となる。
-各可換点の形式分枝は一つであるが、大域的な全非可換モジュライの成分数は未決定である。
-さらに、反標準section代数による構造対象付き同値の認識と、
-中心的な一次変数を持つ次数付き代数のVeronese復元を調べる。
-一つのグラフformality写像を固定すると、中心商量子化は任意の冪零係数上で次数ごとに平坦であり、
-構造対象付き圏の形式族としてPoissonモジュライの零切断の完備化へ降下する。
-この具体的量子化は全Artin変形を実現する。
-有限Ore被覆と対角dg加群のcompact持上げを用いて、そのperfect圏の相対的な滑らかさと固有性、
-切断環の飽和性、任意の正周期の豊富性を証明する。
-$HH^1(X)=0$ による剛性から相対Serre関手を $(-(n-1))[n]$ と同定し、
-定義した非可換多様体のモジュライのArtin完成が全Abel変形と一致することを示す。
-特殊ファイバーの枠を忘れた形式商は $[\operatorname{Spf}R_X/\operatorname{Aut}(X)]$ であり、
-一般の可換点では被覆対合の符号作用による粗商が両次数とも特異になる。
-さらに負の補助次数を使って，両次数・全次元の特別な部分族に対する有限パラメータ量子化を構成する。
-分離型potentialには有限な中心元公式と普遍PBW基底を与え，ambientの相対bimodule CY性を証明する。
-この族の全ての有限非零パラメータにおける中心はCasimir多項式環であり，任意基底変更と両立する。
-分離型族のtailsについて，相対局所コホモロジーを計算し，飽和性，ACM，compact生成，
-proper性と相対Serre関手 $(-(n-1))[n]$ を全有限パラメータで証明する。
-正周期の豊富性も滑らかな可換点の有限型開近傍で成立する。
-さらに次数2では，三次Sklyanin代数の正則領域と中心方程式の有限行列を用いて，
-一般楕円型最高次項と任意の低次項を持つ普遍的に平坦な中心超曲面族を構成する。
-この構成は全次元で稠密開集合の古典Poisson対を半古典極限に持つ。
-最高次point curveの二重対角線を解消し，相対twisted homogeneous coordinate ringと比較することで，
-一般楕円型族の強Noether性と，その全次元の相対tails・有限compact生成元も得る。
-次数1についても，Weierstrass型potentialをStephensonの重み付き正則代数に移すことで，
-可換楕円型点を含む明示的なAS正則開条件を得る。
-23未知数の中心方程式から，任意lower係数と任意基底変更を許す中心超曲面族を構成し，
-全次元の稠密開の古典Poisson対を半古典極限として実現する。
-有限忠実平坦被覆上で次数1の線束を持つ相対楕円曲線を構成し，
-その偶数Veroneseを用いて強Noether性と積Noether性を証明する。
-さらに二重次数付き対角の有限部分解消と $HH^1(X)=0$ を用い，
-両次数の分離型族と一般楕円型族は，滑らかな可換点を含む有限型開近傍で
-smooth properとなり，定義した非可換del Pezzoの条件を満たすことを証明する。
-さらに，両次数の独立Poisson方向を同時に含む有限表示のambient族を構成し，
-零切断全体を含む明示的な有限主開集合上で普遍的な次数別平坦性を得る。
-その中心商は全ての一次方向について構成できるが，有限基底全体での中心持上げは未解決である。
-形式的構成、代数的な族、全モジュライの代数性を区別して述べる。
+各可換点の形式分枝は一つで，枠を忘れた形式商は
+$[\operatorname{Spf}R_X/\operatorname{Aut}(X)]$ である。
+有限Ore被覆と対角のcompact持上げにより，全Artin変形の飽和性，豊富性，
+smooth proper性と相対Serre公式 $(-(n-1))[n]$ を証明する。
+さらに全構造対象付き同値の認識，反標準section環とVeronese復元を調べる。
+
+有限パラメータについては，両次数・全次元で独立な全Poisson方向を含む
+有限表示ambient族を明示的な主開集合上に構成する。
+同じ代数の中心を中央多項式係数上で持ち上げ，方向空間上で貼り合わせることにより，
+全可換係数の零切断全体を含む有限型開近傍上で
+普遍的に正則な中心元と次数別平坦な中心超曲面族を得る。
+次数2ではGrassmann多様体上のコホモロジー消滅と錐への降下を使う。
+次数1では4次までの座標不変な中心補正を厳密計算で与え，
+残る高次の貼合せ障害の消滅と有限線型方程式によって代数化する。
+この一つの有限型中心商族のArtin基底変更が，
+可換sliceを選んだ後の全framed Abel変形を実現することを証明する。
+
+別に，分離型と一般楕円型の一方向族については，
+普遍PBW・相対CY，明示的中心または有限中心方程式，相対曲線の切断環表示を与える。
+これらの族は任意のnoetherian基底変更後に強・積Noether性，相対tailsとSerre公式を持ち，
+滑らかな可換点の有限型開近傍で実際の非可換del Pezzo族となる。
+全方向中心商族へのこれらの有限基底上の圏論的性質の拡張，
+全モジュライのatlasおよび全既約成分数は未解決として区別する。
 \end{abstract}
 \tableofcontents
 
@@ -309,7 +296,7 @@ Poisson Kodaira--Spencer像が高々1次元であり，可換点でsmooth atlas�
 全ncモジュライのatlasには独立なPoisson方向の同時中心商族が必要であり，
 これらの構成の包括的な優先権確認も残る。
 
-\subsection{独立Poisson方向の同時ambient代数化}
+\subsection{全方向の有限中心商とその全Artin普遍性}
 第\ref{sec:simultaneous-poisson}節では，次数1の $n$ 個の線型方向，
 次数2のPl\"ucker錐の全座標を直接関係式へ入れる。
 次数1では，Weierstrass最高次代数のAS条件に楕円判別式は不要であることを示し，
@@ -322,10 +309,37 @@ $g_2(U,0)=1$ であり，最高次四次式に重根があっても適用でき�
 これにより，両次数で可換係数の零切断全体を含む有限主開集合上の
 普遍的に次数別平坦なambient族を得る
 （定理\ref{thm:simultaneous-degree-one-ambient}，\ref{thm:simultaneous-poisson-ambient}）。
-零切断の一次厚化では古典方程式自体が中心元となり，
-全Poisson接方向の普遍的に正則な中心商を与える。
-同じambient族上の全有限パラメータでの中心元，
-相対tailsと形式的完全性は，この結果からさらに進むべき課題である。
+この同じambient族に，第\ref{sec:relative-center-lift}節は中央多項式係数上の
+規格化形式中心元を構成する。Etingof--Ginzburgの形式中心持上げ
+\cite[Proposition~8.1.1(i)]{EG2010}を踏まえ，相対formalityのgauge同型によって
+中心元を元の代数へ戻す。中央差のKoszul分解から絶対CY性へ移り，
+Dolgushev\cite[Theorem~3, Proposition~1]{DolgushevModular2009}の絶対定理を適用する。
+不変体積の重み零成分と相対多項式Poincar\'eホモトピーを使うため，
+中央変数の分母や活性最高次式の楕円判別式は必要ない。
+有限中心方程式の余核を使えば，零切断全体を含む有限主開へ代数化できる。
+
+方向間の貼合せは両次数で異なる。
+次数2では $\Gr(2,n+1)$ 上の $\operatorname{Sym}^4K(m)$ の $H^1$ が
+全 $m\ge0$ で消滅する。
+Borel--Weil--Bott\cite[Theorem~2.3]{GuoLuSharpe2017}とproperな方向解消から，
+全四次係数の零切断を含む錐上へ中心を降下する。
+退化ファイバーで中心が増える場合も，普遍係数環上の核を先に扱うことで含められる。
+次数1では $\mathbb P^{n-1}$ 上の $\operatorname{Sym}^6K(m)$ の消滅は
+$m\ge5$ で用い，それ以前の障害を
+式\eqref{eq:degree-one-fourth-center-jet}の普遍的な4次中心jetによって越える。
+従って定理\ref{thm:simultaneous-degree-two-central-family}と
+\ref{thm:simultaneous-degree-one-central-family}は，全 $n\ge2$ で
+有限かつ任意基底変更後も正則な中心超曲面族を与える。
+追加の主開条件は存在を証明したもので，その最小行列式は未計算である。
+
+定理\ref{thm:simultaneous-central-all-artin}では，この同じ有限型族を
+可換係数の横断sliceへ制限すると，全framed Abel Artin変形を表すことを示す。
+De Deken--Lowen\cite[Proposition~4.4]{DDL2011}でArtin基底上のAbel平坦性を得て，
+初交換子による全接空間の同型と，式\eqref{eq:main-formal-ring}の
+全完備局所環の比較から証明する。
+有限基底全体の相対tails・smooth proper性と，全モジュライのatlasは，
+この形式的完全性とは別に残る問題である。
+上の同時中心の構成と有限代数的表示についても，包括的な優先権確認は未了である。
 
 \input{sections/definitions}
 \input{sections/formal_moduli}
@@ -345,6 +359,10 @@ $g_2(U,0)=1$ であり，最高次四次式に重根があっても適用でき�
 \input{sections/elliptic_degree_one_relative}
 \input{sections/finite_smoothness}
 \input{sections/simultaneous_poisson}
+\input{sections/relative_center_lift}
+\input{sections/simultaneous_degree_two_center}
+\input{sections/simultaneous_degree_one_center}
+\input{sections/simultaneous_formal_comparison}
 
 \section{大域的なモジュライへ進むための問題}
 \label{sec:questions}
@@ -363,9 +381,13 @@ $g_2(U,0)=1$ であり，最高次四次式に重根があっても適用でき�
 より大きい表示族の局所完全性と全 $\OO$ 保存同値による商を調べることである。
 特に命題\ref{prop:one-parameter-atlas-obstruction}の接空間の障害により，
 共通因子 $h$ による表示を越えて独立なPoisson方向を同時に含める必要がある。
-第\ref{sec:simultaneous-poisson}節では，両次数で独立Poisson方向を含む
-有限型ambient族と全一次中心商まで構成した。
-その同じambient族上での中心元の同時持上げを，次の核心とする。
+第\ref{sec:simultaneous-poisson}--\ref{sec:simultaneous-formal-comparison}節では，
+両次数で独立Poisson方向を含む有限型中心商族を構成し，
+その同じ族の全Artin普遍性まで証明した。
+次の核心は，全方向族について強Noether性と積Noether性を確認し，
+相対tails・Serre公式と有限開近傍のsmoothnessを構成することである。
+活性最高次式が特異な方向も零切断で含むため，
+滑らかな楕円曲線のTHCR表示だけではこの問題を覆えない。
 半古典極限で稠密なPoisson対を実現することと，全非可換対象を被覆することは異なる。
 有限パラメータの非可換対象から古典Poisson多様体を自然に復元する射も構成していない。
 

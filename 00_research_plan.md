@@ -1,6 +1,6 @@
 # 研究方針：次数1・2の非可換del Pezzo n-fold
 
-**2026-11-20（JST） / v0.7。再開時に最初に読む。**
+**2026-11-20（JST） / v0.8。再開時に最初に読む。**
 
 正本は [uedakazushi/nc-del-pezzo](https://github.com/uedakazushi/nc-del-pezzo) のmain。研究全体の入口は [research-hub](https://github.com/uedakazushi/research-hub)。続いて [研究ノート](research/research_notes.md)、[主原稿](papers/nc-del-pezzo.tex)、[再現手順](docs/reproduction.md) を読む。
 
@@ -25,7 +25,7 @@
 
 元の成分数決定という目標のうち、可換点における全Abel変形群oid、有限自己同型群による形式商、全Artin変形の中心超曲面表示とnc多様体条件、形式分枝数は解決した。有限パラメータでは、両次数の分離型族と一般楕円型族について、普遍PBW・ambient CY・正則な中心商・強Noether性・相対tails・Serre公式を得た。一般楕円型では最高次point curveの解消と相対twisted homogeneous coordinate ringを使い、さらに曲線の積の評価イデアルから積代数のNoether性も証明した。この入力と相対Serre双対により、対角の有限部分解消を可換ファイバーで分裂させ、その分裂を有限開近傍へ持ち上げた。従って両族とも、全n≥2で滑らかな全可換模型の有限型開近傍に実際のsmooth properなnc del Pezzo族を与える。
 
-一方、これらの一方向の中心商族は共通量子化パラメータhを持つため、可換点でのPoisson Kodaira–Spencer像が高々1次元となり、全変形に対するsmooth atlasではない。この具体的障害を踏まえ、次数1の一般topについても、Stephensonの分類から明示的な有限AS開条件を得て、23未知数の中心構成、次数1線束による相対THCR、有限被覆からの強・積Noether性の降下まで進んだ。さらに両次数の全独立Poisson方向を直接含む有限型ambient族と全一次中心商を構成した。次数1の開条件は `(1+A₄(D))(5+A₄(D))≠0`、次数2は四次式の偏極と交代形式から定まる作用素Tについて `g₂=det(1+4T)≠0` と明示できる。これらのambient条件は楕円判別式を可逆化せず全零切断を含む。現在の核心は、この同じambient族上での中心元の同時持上げである。元の全体の成分数決定には、全O同値による商、可換locusに接しない成分の検討がなお必要である。中心商のsmoothnessの開集合は存在を証明した段階であり、具体的な判別式や全有限hのsmoothnessは得ていない。
+一方、これらの一方向の中心商族は共通量子化パラメータhを持つため、可換点でのPoisson Kodaira–Spencer像が高々1次元となり、全変形に対するsmooth atlasではない。この具体的障害を踏まえ、次数1の一般topについても、Stephensonの分類から明示的な有限AS開条件を得て、23未知数の中心構成、次数1線束による相対THCR、有限被覆からの強・積Noether性の降下まで進んだ。さらに両次数の全独立Poisson方向を直接含む有限型ambient族と全一次中心商を構成した。次数1の開条件は `(1+A₄(D))(5+A₄(D))≠0`、次数2は四次式の偏極と交代形式から定まる作用素Tについて `g₂=det(1+4T)≠0` と明示できる。これらのambient条件は楕円判別式を可逆化せず全零切断を含む。この同じambient上の中心元を、両次数の全可換係数・全方向について、零切断全体を含む有限主開で構成した。次数2はGrassmann方向空間上の全次数のH¹消滅、次数1は普遍4次中心jetと5次以後のH¹消滅を使い、有限線型方程式の余核から代数化する。任意基底変更後の正則性・次数別平坦性と、同じ有限族の全framed Abel Artin変形への普遍性まで得た。現在の核心は、全方向族の有限基底上の強・積Noether性、相対tailsとsmoothnessを確立することである。元の全体の成分数決定には、全O同値による商、可換locusに接しない成分の検討がなお必要である。中心商のsmoothnessの開集合は存在を証明した段階であり、具体的な判別式や全有限hのsmoothnessは得ていない。
 
 ## C. 主要到達点と確実性
 
@@ -63,18 +63,21 @@
 | 上記開近傍を縮めれば実際の重み付き超曲面型nc del Pezzo族、幾何学的coherent次元はn | 反標準豊富性の開集合と交わらせる。任意の許されるnoetherian基底変更。非正則基底上の全Db(coh)と相対perfect圏の同一視はしない | `cor:finite-family-ncdp-open` |
 | 次数1の一般楕円型top・任意lower係数の普遍PBW・ambient CY・正則中心商 | Stephensonの分類から `Δ(1+αh⁴)(5+αh⁴)≠0` の有限AS開を具体化。中心は次数9以下・23未知数、追加分母はtopだけに依存。任意基底変更・全nの中央係数代入を許す | `lem:degree-one-elliptic-top-as-open`, `thm:degree-one-finite-central-family`, `cor:degree-one-elliptic-general-dimension` |
 | 次数1一般楕円型の相対THCR、強・積Noether性、相対tails・Serre・有限窓 | 次数1線束の曲線表示は階数6の有限忠実平坦被覆上。Noether性は元の最高次開集合へ降下。全lower・全n・任意noetherian係数変更 | `thm:degree-one-relative-thcr`, `cor:degree-one-product-noetherian`, `thm:degree-one-relative-tails` |
-| 両次数の全独立Poisson方向を含む有限型ambient族 | 全可換係数の零切断を含む明示的な有限主開で普遍的に次数別平坦。d1は `(1+A₄(D))(5+A₄(D))≠0`、d2は `g₂=det(1+4T)≠0`。活性binary quarticでは `g₂=1−16Ih⁴+128Jh⁶`。有限中心元・相対tailsは未証明 | `thm:simultaneous-degree-one-ambient`, `thm:simultaneous-poisson-ambient` |
+| 両次数の全独立Poisson方向を含む有限型ambient族 | 全可換係数の零切断を含む明示的な有限主開で普遍的に次数別平坦。d1は `(1+A₄(D))(5+A₄(D))≠0`、d2は `g₂=det(1+4T)≠0`。活性binary quarticでは `g₂=1−16Ih⁴+128Jh⁶`。特異な最高次式も許す | `thm:simultaneous-degree-one-ambient`, `thm:simultaneous-poisson-ambient` |
 | 上の同時ambient族の一次厚化における全Poisson方向の中心商 | 古典方程式の対称化が中心かつ普遍正則。全有限基底への持上げとは区別 | `prop:simultaneous-first-order-center` |
+| 同じambient族の内部次数4・6の中心元と普遍正則な有限中心商 | 全可換係数・全方向の零切断を含むGL不変な有限主開。追加分母は存在証明。任意非被約基底変更後も正則・次数別有限局所自由 | `thm:simultaneous-degree-two-central-family`, `thm:simultaneous-degree-one-central-family` |
+| 次数1の普遍4次中心jetと全高次の貼合せ | 全係数有理式の3交換子をmod h⁶で厳密検証。H¹(Sym⁶K(m))=0 (m≥5)と局所中心から全高次を構成。jetだけを全中心公式としない | `lem:degree-one-fourth-center-jet`, `lem:degree-one-center-high-cohomology` |
+| 同じ有限中心商族が全framed Abel Artin変形を実現 | 滑らかな可換点の横断sliceに制限。DDL Proposition 4.4、初交換子、全形式環の自己同型を比較。全方向族の有限基底上のtailsとは別 | `thm:simultaneous-central-all-artin` |
 | 一つのhを持つ中心商族は可換点でsmooth atlasにならない | Poisson Kodaira–Spencer像は高々1次元、全変形の通常の可換変形による接空間商はnまたはbinom(n+1,2)次元 | `prop:one-parameter-atlas-obstruction` |
 
 一般原理のLowen–Van den Bergh・Lowen・De Deken–Lowen・Yekutieli・Kontsevichと、入力となるPoisson構造定理は既知・既存の入力である。曲面の接空間次元10・9も先行研究で既知。一般nの適用・復元・降下の新規性について包括的な優先権確認は未了。
 
 ## D. 未解決の核心と次の一手
 
-1. **同時ambient族の中心元。** 両次数の全独立Poisson方向を含む普遍的に平坦な有限表示を得た。次はその同じ代数上で、内部次数6または4の古典方程式を中心元へ持ち上げる。次数1はD方向、次数2はPlücker錐の頂点を含める。一次厚化の中心元を出発点とし、有限個の次数の中心方程式とその可解性を調べる。次数2の降下候補は研究ノート第17項にあり、最初にEtingof–Ginzburg Proposition 8.1.1(i)の中央多項式係数への相対化と、同じambient内での次数4の規格化解を確認する。貼合せのH¹消滅と、未証明の局所中心持上げを区別する。別の形式量子化に中心があることを、現在のambientの解と読み替えない。
-2. **同時中心商から圏の局所完全性へ。** 中心元が得られた後、その普遍正則性、相対tails・smoothnessと全Artin変形への写像を証明する。既存の一方向族には強・積Noether性と対角分裂の方法が揃ったが、全方向ambientへの移植には改めて入力が必要である。全一次接方向の実現だけで高次の形式的完全性やsmooth atlasを結論しない。
-3. **有限開集合の明示と大域的な復元。** 有限生成元から作る対角の部分解消・持上げ射を低次元で具体化し、smoothnessを保証する有限個の行列条件を求める。一般楕円型の中心は有限位数パラメータで増大し得るため、分離型の普遍中心定理を転用しない。全O同値による商、一般nc点の被覆、可換locusに接しない成分を別々に調べる。形式一分枝性から全成分数を推論しない。
-4. **公表範囲と先行研究。** 全Artin群oid、両次数の相対楕円曲線、積Noether性、有限開近傍のsmoothness、全方向ambient族を現在の論理順序で統合した。既存のfiltered CY・楕円量子化・AS Z-代数との比較を進める。Sklyanin中心元、固定topのPBW性、σ-amplenessとFujita消滅は既知であり、普遍係数の比較・一般nへの適用・対角分裂の組合せの優先権は未確認。大域分類は未解決として明記する。
+1. **全方向族の強・積Noether性。** 中心元と普遍正則性、全Artin普遍性は得た。次は方向空間上で活性最高次代数の幾何を解析し、特異・可約なpoint schemeを含む全topに対して任意noetherian基底変更後のNoether性を確保する。まず次数2の三次CY分類と、次数1のStephenson型およびOre型の退化を分け、既存の相対THCR・二重切断環のどの仮定が保持されるか確認する。体ファイバーのNoether性から普遍Noether性を推論せず、零方向での降下も別に証明する。
+2. **有限基底上の相対tailsとsmoothness。** 上記のNoether入力が揃った部分から、既存の相対potential対角、局所コホモロジー、Serre公式と有限生成窓を同時中心商へ拡張する。積Noether性と対角の有限部分解消を用いて、滑らかな可換模型の零切断を含む有限開近傍でsmooth proper性を示す。同じ族の全Artin普遍性は既に証明済みだが、それだけで有限基底全体のnc多様体条件やatlasを結論しない。
+3. **有限開条件の明示と大域的な復元。** 中心方程式の余核を消す追加分母と、対角の部分解消・持上げ射から得るsmoothnessの条件を具体化する。全O同値による商、一般nc点の被覆、可換locusに接しない成分を別々に調べる。中心が増大する特殊ファイバーがあるため、分離型の普遍中心定理を転用しない。形式一分枝性から全成分数を推論しない。
+4. **公表範囲と先行研究。** 同時有限中心商と全Artin普遍性を中心結果として、形式モジュライと有限基底上の圏論的部分族を区別して記述する。EGの形式中心・filtered中心、Dolgushevの絶対unimodularity、Borel–Weil–Bott、DDLの比較は既知の入力である。中央多項式係数・方向間の貼合せ・次数1の普遍jet・有限代数化・一般nの全Artin実現という組合せを既存文献と比較し、包括的な優先権は引き続き未確認とする。
 
 ## E. 依存・再開・検証
 
@@ -82,4 +85,5 @@
 - O-marked枠組み：`nc-cubic-threefold-moduli` main `6c35d2c84671c2538e61836a6bf3a511392eacce`、主原稿v22。三次三様体固有の次数一生成・指数2・残余圏の結論を無条件に輸入しない。
 - 一次資料・具体的な適用条件・優先権未確認点は [文献と依存](research/literature.md)。証明の重複は研究ノートへ置かない。
 - `make verify` はn=2,…,8のHilbert/monic基底・Euler差分・二次障害・符号粗商の接空間次元と、分離型の全係数PBW overlap・中心交換子・内部次数・補助次数を検査する。さらに三次Sklyanin中心元の自由代数内の九項証明書、パラメータ置換と可換極限を厳密計算する。分離型とSklyanin中心の検算はhの有限jetではない。`verify_elliptic_curve.py` はpoint curveの行列式、blowup、分母を払ったshiftの恒等式を厳密検算し、σ⁴の非自明性だけは明示したmod h²計算で確認する。`verify_degree_one_top.py` はWeierstrassからStephensonへの変数変換、関係式のイデアル、AS開多項式、cyclic syzygyを有理係数の自由代数で厳密に検算する。`verify_degree_one_curve.py` は解消曲線の両chart・無限遠因子・shiftと関係式を全係数の恒等式で検算し、σ⁶の非自明性だけmod h²を使う。一般の証明を有限次元の数値例で代替していない。
+- `verify_degree_one_center_jet.py` は独立な全係数上で4次補正の三つの交換子がmod h⁶で零となること、内部次数6と完全対称化のz²規格化を厳密に検証する。この有限jet証明書に、論文のH¹消滅と有限余核の議論を組み合わせて全中心元を得る。
 - 組版・PDF確認の実施状況と環境は [再現手順](docs/reproduction.md)。生成・証明点検・計算・組版・GitHub反映・hub更新はそれぞれ確認する。

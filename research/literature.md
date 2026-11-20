@@ -1,6 +1,6 @@
 # 文献・依存関係・新規性の範囲
 
-2026-11-20（JST） / v0.7。完全な書誌は [references.bib](../references.bib)。以下は使用する一次資料の具体的な箇所を示す。外部論文のPDFは収録しない。
+2026-11-20（JST） / v0.8。完全な書誌は [references.bib](../references.bib)。以下は使用する一次資料の具体的な箇所、現行論文での適用とその限界を示す。外部論文のPDFは収録しない。
 
 ## 1. 他研究からの数学的入力
 
@@ -32,12 +32,12 @@
 |---|---|---|
 | Lowen, *Algebroid prestacks and deformations of ringed spaces*, Trans. AMS 360 (2008), 1631–1660, DOI 10.1090/S0002-9947-07-04354-1 | [著者掲載出版版](https://win.uantwerpen.be/~wlowen/pdf%20papers/TAMS-AlgebroidPrestacksRingedSpaces.pdf)、Theorems 3.14, 3.26 | acyclic affine basis・localizationを介する全Abel変形とalgebroid変形の比較 |
 | Yekutieli, *Twisted deformation quantization of algebraic varieties*, Adv. Math. 268 (2015), 241–305, DOI 10.1016/j.aim.2014.09.003 | [arXiv:0905.0488v5](https://arxiv.org/abs/0905.0488v5)、Corollaries 7.5, 11.2, Theorem 11.1 | H¹(O)=H²(O)=0によりordinaryな変形同値類へ降ろす。可換積も動くCor.11.2を使い、固定sheaf星積を扱うCor.11.3の追加仮定を省略しない |
-| De Deken–Lowen, *Abelian and derived deformations in the presence of Z-generating geometric helices*, JNCG 5 (2011), 477–505, DOI 10.4171/JNCG/83 | [出版版](https://ems.press/content/serial-article-files/30497)、Proposition 4.4、Theorem 4.5、Proposition 4.6 | m≤nの有向Ext¹,²消滅、豊富列持上げとQmod、局所有限・noetherianの持上げ。全ての正負捻りの高次Ext消滅は不要 |
+| De Deken–Lowen, *Abelian and derived deformations in the presence of Z-generating geometric helices*, JNCG 5 (2011), 477–505, DOI 10.4171/JNCG/83 | [出版版](https://ems.press/content/serial-article-files/30497)、Proposition 4.4 (p.495)、Theorem 4.5、Proposition 4.6 (p.496) | Proposition 4.4は平坦な線型Z-代数変形bからのAbel変形がQmod(b)であることを同定する。Theorem 4.5はm≤nの有向Ext¹,²消滅の下で逆方向との同値を与える。Proposition 4.6は局所有限・有限生成・noetherian性等を冪零変形へ持ち上げる。全ての正負捻りの高次Ext消滅は不要 |
 | Lowen–Van den Bergh, *Deformation theory of abelian categories*, Trans. AMS 358 (2006), 5441–5483, DOI 10.1090/S0002-9947-06-03871-2 | [arXiv:math/0405226](https://arxiv.org/pdf/math/0405226)、取得したv1のPropositions 3.4, 3.7 | injective/coflatによる圏の平坦性、Hom-flatな線型圏の加群圏。出版版とは番号が異なる。本文のAbel平坦性はnoetherian基底に限定 |
 | 同上の[出版版](https://win.uantwerpen.be/~wlowen/pdf%20papers/TAMS-DeformationTheory.pdf) | Definition 8.2、Theorem 8.17、Appendix BのPropositions B.1, B.3 | 射が自然同型類である群oid擬関手の比較。B.1/B.3は対象集合を固定した代表と自己同値のstrictな代表に使用。B.4の同型類全単射を群oid同値と読み替えない |
 | Kontsevich, *Deformation quantization of Poisson manifolds*, LMP 66 (2003), 157–216, DOI 10.1023/B:MATH.0000027508.00421.bf | [著者最終稿](https://www.ihes.fr/~maxim/TEXTS/DefQuant_final.pdf)、§§4.6.2,6,8、§7のP3 | graph formality、twisted mapによる中心元、GL同変性。一般の非線型座標変換への厳密同変性ではない |
 
-これらの比較・量子化原理は既知である。本研究では、次数1・2・一般nの相対錐への適用、monic商の任意基底での分裂、O-markedな圏の同変降下を示す。さらに初commutatorと完備局所環の自己写像を使い、構成した特定の量子化そのものが全Artin同型類に自然な全単射を与えることを証明した。既知の比較の逆と正確に同じ正規化を持つことは、この結論に不要である。
+これらの比較・量子化原理は既知である。本研究では、次数1・2・一般nの相対錐への適用、monic商の任意基底での分裂、O-markedな圏の同変降下を示す。さらに初commutatorと完備局所環の自己写像を使い、構成した特定の量子化そのものが全Artin同型類に自然な全単射を与えることを証明した。`simultaneous_formal_comparison.tex` では、全方向の有限表示中心商族そのものにもこの比較を行う。可換sliceを選んだ各可換点で、その同じ有限族のArtin基底変更が全framed Abel変形群oidを表す。詳細と有限基底全体のtailsとの区別は§5.8に記す。既知の比較の逆と正確に同じ形式座標を持つことは、この結論に不要である。
 
 接空間と微小自己同値のHochschildによる説明には、Lowen–Van den Bergh, *Hochschild cohomology of abelian categories and ringed spaces*, Adv. Math. 198 (2005), 172–221, DOI 10.1016/j.aim.2004.11.010 の [著者稿](https://cantate.be/site/hochschild_ab.pdf)、Theorems 3.1, 6.1, 6.6、Corollaries 7.7.2・7.8.2と、Yekutieli, *The Continuous Hochschild Cochain Complex of a Scheme*, Canad. J. Math. 54 (2002), 1319–1337, DOI 10.4153/CJM-2002-051-8 の [修正版出版論文](https://www.math.bgu.ac.il/~amyekut/publications/diagonal/cjm.pdf)、Corollary 0.6を確認した。injective線型圏・Abel圏・幾何的Hochschild cohomologyの比較を用いる。HKRの積や括弧との両立は使わない。
 
@@ -62,7 +62,7 @@ Plücker座標環の正規性・Cohen–Macaulay性にはSvanes (1973) とDe Con
 | Lowen–Van den Bergh, *On compact generation of deformed schemes*, Adv. Math. 244 (2013), 441–464、DOI 10.1016/j.aim.2013.04.024、[著者稿](https://win.uantwerpen.be/~wlowen/pdf%20papers/compactgen.pdf) | Proposition 3.7、Proposition 5.1。後者はample line bundleとH²(O)=0を持つ射影スキームの全Abel infinitesimal deformationのcompact生成。一般的先行結果として比較。本稿の任意基底変更・飽和性・proper性は有限Ore Čechで直接証明 |
 | Shoikhet, *A proof of the Tsygan formality conjecture for chains*, Adv. Math. 179 (2003), 7–37、DOI 10.1016/S0001-8708(02)00023-3、[arXiv:math/0010321v2](https://arxiv.org/abs/math/0010321v2) | Theorem 2.2.7、§2.2.8、§§3.2–3.3。Kontsevich写像と対をなす鎖formality、零次項HKR、Poisson twist。本稿では多項式graphに制限して冪零係数上の有限和とし、任意基底変更を証明する |
 | Dolgushev, *A formality theorem for Hochschild chains*, Adv. Math. 200 (2006), 51–101、DOI 10.1016/j.aim.2004.10.017、[arXiv:math/0402248v4](https://arxiv.org/abs/math/0402248v4) | Theorem 3。局所鎖formalityの線型座標変換に関する同変性。非線型座標変換の厳密同変性を仮定しない |
-| Dolgushev, *The Van den Bergh duality and the modular symmetry of a Poisson variety*, Selecta Math. 14 (2009), 199–228、DOI 10.1007/s00029-008-0062-z、[arXiv:math/0612288v3](https://arxiv.org/abs/math/0612288v3) | Theorem 3。一変数h進・滑らかなaffine複素多様体・自明なcanonicalという設定でunimodularityと無捩れ双対性を比較。本稿の任意Artin係数はこの定理の直接適用ではなく、有限鎖twistと有限自由対角分解で証明 |
+| Dolgushev, *The Van den Bergh duality and the modular symmetry of a Poisson variety*, Selecta Math. 14 (2009), 199–228、DOI 10.1007/s00029-008-0062-z、[arXiv:math/0612288v3](https://arxiv.org/abs/math/0612288v3) | Theorem 3、Definition 1、Proposition 1。一変数h進・滑らかなaffine複素多様体・自明なcanonicalという設定で、無捩れVan den Bergh双対化bimoduleと形式Poisson構造のunimodularityを比較する。Proposition 1は先頭項が至る所非零の形式体積の存在を与える。任意Artin係数上のambient CYは有限鎖twistで別に証明する。一方、`relative_center_lift.tex` は中央差Koszulで絶対CYへ移してこの絶対定理を適用し、体積密度の重み零成分から相対発散零を導く |
 | Stacks Project、[Tag 0572](https://stacks.math.columbia.edu/tag/0572)、Lemma 37.23.6 | fppf被覆の局所準有限細分。局所Artin C基底では有限忠実平坦な局所Artin被覆に細分でき、全Čech環も局所Artinになる。この帰結から形式関手の等化子降下を証明し、stack化後のArtin完成を同定 |
 
 上記一次資料の該当定理・係数環・射の定義を2026-11-20に確認した。Artin近傍の相対Serre公式はsmooth proper模型とHH¹対角剛性から証明する。分離型の有限パラメータ族では、相対局所コホモロジーと局所化bimoduleの双対から別に証明する。いずれもAS-Gorenstein indexだけから無捩れなSerre公式を結論していない。ambient CYはbimodule同型の主張であり、negative cyclic CY構造や非正則基底上のbalanced dualizing complexの全公理を付加していない。
@@ -73,7 +73,7 @@ Plücker座標環の正規性・Cohen–Macaulay性にはSvanes (1973) とDe Con
 
 - Ginzburg, *Calabi–Yau algebras*, [arXiv:math/0612139v3](https://arxiv.org/abs/math/0612139v3)、2007。Proposition 5.1.9と式(5.1.8)のHessian対角複体、Theorem 5.3.1(iii)の完全性とCY、Proposition 8.1.3(ii)のtensor flip対称性を確認。原資料の半単純基底の設定を任意係数環へ無説明で拡張しない。分離型では随伴次数のKoszul完全性、楕円型では三次AS正則代数の極小解消とファイバーごとの完全性を用い、自己双対性と任意基底変更を本文で証明する。
 - Etingof–Ginzburgの上記一次定理を2026-11-20に再確認。負の補助次数によるfiltered量子化の一般原理は既知の枠組みと重なる。本稿は両次数・全nへの中央係数の付加、分離型の有限Casimir式、商の普遍自由性と規格化族の非零hでの普遍中心を具体化する。分離型の明示式そのものの新規性は未確定である。
-- 同論文の参考文献[R]が指す [RainsのMagma形式中心元](https://math.mit.edu/~etingof/delpezzocenter) は取得を確認。E6/E7/E8の式があり、E7は `xy−q yx=t z+c1` 等の規約でzを消去した式。本稿の証明入力には使っていない。次数1の一般楕円型topへの拡張では、分母、関係式、正規化と中央係数の扱いを照合する。
+- 同論文の参考文献[R]が指す [RainsのMagma形式中心元](https://math.mit.edu/~etingof/delpezzocenter) は取得を確認。E6/E7/E8の式があり、E7は `xy−q yx=t z+c1` 等の規約でzを消去した式。本稿の証明入力には使っていない。本稿の次数1中心との明示式の比較では、分母、関係式、正規化と中央係数の扱いの照合が残る。
 
 ### 5.2. 次数2の一般楕円型topと有限型係数への適用
 
@@ -118,22 +118,53 @@ Stephenson, *Algebras associated to elliptic curves*, Trans. AMS 349 (1997), no.
 
 証明は、Noetherな二重次数付き積上の平坦な対角、その有限部分解消、相対Serre双対による逆向きのHom複体のperfect性を用いる。特殊ファイバーの `HH¹(X)=0` と `X×X` の有限ホモロジー次元から得る射を、有限自由複体の消去によって開近傍へ持ち上げ、対角をcompact対象の直和因子にする。properなdg代数一般についてsmoothnessの開性を引用したものではない。反標準列の豊富性の開条件と交わらせると、任意の許されるnoetherian基底変更で非可換del Pezzo条件が成り立つ。幾何学的ファイバーのcoherent圏のホモロジー次元はnで、その有界導来圏はcompact圏と一致する（`cor:finite-family-ncdp-open`）。非正則基底上の全有界coherent導来圏までこの一致を拡張しない。
 
-一方、`prop:one-parameter-atlas-obstruction` は、現在の表示族のPoisson成分のKodaira–Spencer階数がh=0で高々1であることを示す。全変形のPoisson接空間次元は次数1でn、次数2でbinom(n+1,2)なので、全n≥2で接写像が不足する。係数や座標枠を動かしても共通因子hのため一次のPoisson方向は増えず、これらの族は可換点で形式的にsmoothではない。半古典方向を稠密に実現することとsmooth atlasを与えることを区別する。
+一方、`prop:one-parameter-atlas-obstruction` は、一つの共通量子化パラメータhを持つ表示族のPoisson成分のKodaira–Spencer階数がh=0で高々1であることを示す。全変形のPoisson接空間次元は次数1でn、次数2でbinom(n+1,2)なので、全n≥2で接写像が不足する。係数や座標枠を動かしても共通因子hのため一次のPoisson方向は増えず、これらの一方向族は可換点で形式的にsmoothではない。全方向の同時中心商はこの不足を解消し、そのArtin完成の完全性を§5.8の方法で証明する。有限型基底全体でのsmooth atlasは引き続き別の問題である。
 
 ### 5.6. 全方向を含む同時ambient族
 
-Mori–Ueyama, *The classification of 3-dimensional noetherian cubic Calabi–Yau algebras*, J. Pure Appl. Algebra 223 (2019), no.5, 1946–1965、DOI 10.1016/j.jpaa.2018.08.009。[arXiv:1606.00183v3](https://arxiv.org/abs/1606.00183v3) のTheorem 3.4を一次資料で確認した。二生成元四次cyclic tensorの二つの一次端点微分が独立で、二階端点微分の四成分の共通零点がP¹×P¹にないことが3-CYの必要十分条件である。この有限次元の条件を、properな射の閉像の補集合として使う。曲線の滑らかさやbinary quarticの判別式非零は要求しない。
+Mori–Ueyama, *The classification of 3-dimensional noetherian cubic Calabi–Yau algebras*, J. Pure Appl. Algebra 223 (2019), no.5, 1946–1965、DOI 10.1016/j.jpaa.2018.08.009。[arXiv:1606.00183v3](https://arxiv.org/abs/1606.00183v3) のTheorem 3.4とCorollary 3.8を一次資料で確認した。前者は、二生成元四次cyclic tensorの二つの一次端点微分が独立で、二階端点微分の四成分の共通零点がP¹×P¹にないことを3-CYの必要十分条件とする。後者は二生成元四次potentialのJacobian代数について3-CY性と整域性の同値を与える。最高次の正則開集合と、同時中心商の普遍正則性を示す際の全複素ファイバーの整域性に使う。曲線の滑らかさやbinary quarticの判別式非零は要求しない。
 
-本稿はこの判定から、四次式の偏極と交代形式Pを縮約する作用素 `T_(U,P)(ab)=Ũ(P♭a,P♭b,−,−)` による明示的十分条件 `g₂=det(1+4T)≠0` を得る。g₂(U,0)=1なので、全四次係数の零切断を含む有限主開である。活性binary quarticでは `g₂=1−16Ih⁴+128Jh⁶` となる。次数1ではStephensonの例外点と分離型Ore拡大によりΔ条件をambientから除き、`(1+A₄(D))(5+A₄(D))≠0` を得る。これらはambientの正則性の十分条件であり、相対楕円曲線の構成には別に楕円判別式が必要である。両次数とも全体ファイバーのHilbert関数を固定してから、被約普遍係数環の関係行列で任意基底変更の平坦性を証明する。一次中心商まで構成したが、全有限基底での中心元・tails・atlasは未解決である。この同時構成の新規性・先行する全方向量子化との一致は未確認。
+本稿はこの判定から、四次式の偏極と交代形式Pを縮約する作用素 `T_(U,P)(ab)=Ũ(P♭a,P♭b,−,−)` による明示的十分条件 `g₂=det(1+4T)≠0` を得る。g₂(U,0)=1なので、全四次係数の零切断を含む有限主開である。活性binary quarticでは `g₂=1−16Ih⁴+128Jh⁶` となる。次数1ではStephensonの例外点と分離型Ore拡大によりΔ条件をambientから除き、`(1+A₄(D))(5+A₄(D))≠0` を得る。これらはambientの正則性の十分条件であり、相対楕円曲線の構成には別に楕円判別式が必要である。両次数とも全体ファイバーのHilbert関数を固定してから、被約普遍係数環の関係行列で任意基底変更の平坦性を証明する。全方向の中心元と普遍正則な有限中心商は次項、同じ有限族のArtin完成は§5.8で扱う。追加の中心構成用主開は存在を示したもので、その明示的な非消滅多項式は未計算である。
+
+### 5.7. 同じambientの規格化中心と全方向の貼合せ
+
+**相対局所中心。** `relative_center_lift.tex` の `lem:relative-formal-center-lift` と `prop:relative-finite-center-lift` は、正次数の中央変数sと内部次数0の係数cを持つ同じpotential表示について、次数4または6、完全対称化座標のz²係数1/2、可換極限Fという規格化を保つ中心元を与える。入力は先に証明したh-flat性と無捩れ相対3-CY性である。中心の存在を使って平坦性を示す循環はない。
+
+- [Etingof–Ginzburg, Proposition 8.1.1(i), pp.1407–1408](https://ems.press/content/serial-article-files/31746) は、先頭potentialがxyz−yxz、正の生成重みの和がd、potentialの重み付き次数がd以下という形式設定で中心持上げを与える。(i)には孤立特異点条件がなく、後続の中心全体やcohomologyに関する主張の仮定と区別する。証明はRees変数を中央とするR=C[u]上の相対微分形式を用いている。本稿は中央変数の任意個数、全内部次数、z²係数の規格化、同じ代数への帰還、sの分母を導入しない有限代数化を明記する。
+- [Dolgushev, Theorem 3、Definition 1、Proposition 1](https://arxiv.org/pdf/math/0612288) の適用では、中央係数c,sも座標に含めた滑らかな複素affine空間を使う。中央差のKoszul分解で相対CYから絶対CYへ移し、相対Kontsevich写像を内部次数0の部分に制限して元のambientとgauge同定する。相対二重ベクトル上では絶対グラフ公式と相対公式が一致する。得られた不変体積fωの密度の重み0部分f₀(c,h)は中央単元なので、標準相対体積の発散零が従う。活性多項式Poincaréホモトピーとtwisted H⁰写像から所要の中心を作る。Dolgushevの未確認の相対定理を仮定していない。
+- 有限代数化はΩ=Sym(F)+hηという有限線型方程式の余核類を扱う。零切断の各局所環での完備化の忠実平坦性により、その類を消すf≡1 mod hが存在する。形式級数にh=1を代入する操作ではない。中心性と規格化は多項式恒等式なので、非平坦・非被約を含む任意の基底変更で保たれる。退化potentialの中心全体がFで生成されるとは主張しない。
+
+**次数2の全係数・全方向中心。** `simultaneous_degree_two_center.tex` の `thm:simultaneous-degree-two-central-family` は、四次式の全係数と全Plücker方向を含む零切断の有限主開近傍で、規格化した中心元と普遍的に正則な中心商を与える。退化した四次式の個々のファイバーでPoisson中心が増えることと、整な普遍係数chart上の中心の核が `Sym⁴K⊕OF` であることを区別する。パラメータで除した交換子とz²係数を組み合わせた商束上の写像は、generic点で単射である。普遍方向空間が整で商束が局所自由なので、これは層として全体で単射となる。全零切断近傍の局所有限中心を入力にして、規格化中心の差をSym⁴Kとする短完全列を得る。全ファイバーでのkernelの一定性は要求しない。
+
+| 一次資料 | 確認箇所と本稿での役割 |
+|---|---|
+| Guo–Lu–Sharpe, *Classical sheaf cohomology rings on Grassmannians*, [arXiv:1605.01410v2](https://arxiv.org/pdf/1605.01410), 2017 | Theorem 2.3、PDF pp.5–6。標準商束の双対が本稿のKに対応する。Borel–Weil–Bottの重み `(m,m,4,0,…,0)` から `H¹(Gr(2,E*),Sym⁴K(m))=0` が全m≥0で成立し、`H⁰(Sym⁴K)=0` となる。dim E=3はP²上のO(m−4)として直接処理する |
+| Svanes, *Arithmetic Normality for Projective Embeddings of Flag Manifolds*, Math. Scand. 33 (1973), 55–68、[DOI 10.7146/math.scand.a-11471](https://doi.org/10.7146/math.scand.a-11471) | Theorem (3.7)は標準線束の切断乗法の全射、Theorems (4.3), (4.5)は旗多様体の射影埋込みの算術的正規性を与える。Plücker錐の正規性に使う。次数別切断環の同定 `H⁰(G,O_G(m))=C[C]_m` も得られ、研究ノートの形式jetによる別証明の入力となる |
+| Stacks Project、[Tag 0AY8, Lemma 37.53.6](https://stacks.math.columbia.edu/tag/0AY8) | proper射、正規整な標的、被約な源、源の既約成分が標的を支配しgeneric fiberのH⁰が標的の関数体であることを仮定して `q_*O_Y=O_X` を与える。本稿の方向解消のproper birational射はこの条件を満たす。A₄の有限局所自由性とprojection formulaにより、方向空間上の有限中心切断を同じambientの切断へ降ろす |
+| Mori–Ueyama (2019)、上記一次本文 | Corollary 3.8。最高次CY代数の整域性を全複素ファイバーに適用し、中央多項式拡大とPBW filtrationでambient全体へ移す。z²係数1/2により中心元が各ファイバーで非零であるため、次数別の掛算が局所分裂単射となり、任意基底変更後の正則性と商の平坦性を得る |
+
+BWB消滅で規格化中心のtorsorを自明化する。局所中心が存在しない閉集合のproper像を除き、零切断を含むGL(E)不変主開をReynolds作用素で選ぶ。その逆像上の中心を正規錐へ降ろし、中心自身も同変に選ぶ。主開と中心をP↦−Pでも対称にすれば、中心はJ²を法としてSym(F)に一致する。中心の短完全列は局所分裂するので任意基底変更後も完全だが、その基底変更後の層が除した交換子のkernel全体であるとは主張しない。滑らかな係数の開近傍では、さらに像が部分束となりkernelの基底変更との両立も得られる。上の一次資料の指定箇所と、普遍係数の核・有限中心持上げの適用条件を2026-11-20に確認した。全係数への構成と既知の中心公式との一致・優先権は未確認である。
+
+**次数1の全方向中心。** `simultaneous_degree_one_center.tex` の `lem:degree-one-all-top-finite-center` は、楕円判別式を使わず、`((1+αh⁴)(5+αh⁴))≠0` 上のWeierstrass topと全12個のlower係数に既存の23未知数中心行列を適用する。Etingof–Ginzburg Theorem 3.3.2(ii)の入力は固定した斉次CY topと任意lower potentialであり、genericまたは孤立特異点を仮定しない。この局所中心の分母はtop係数とhだけに依存する。これは共通の相対形式補題とは別の局所証明である。
+
+大域的な主張 `thm:simultaneous-degree-one-central-family` は、全四次・六次係数と全D方向を扱う。GL(E)と両立する方向次数4までの中心jetを全係数の有理数恒等式で検算し、除した交換子についてI⁵を法とする中心jetを得る。方向空間P(E*)の `H¹(Sym⁶K(m))=0 (m≥5)` は偏極微分とその明示的な右逆から証明する。この高次消滅で全形式jetを貼り合わせ、blowup上の切断から同じambientのJ進完成へ降ろし、有限余核とArtin–Rees・Reynoldsにより有限中心元へ代数化する。有限jetの計算だけを厳密な中心性の証明とはしていない。全ファイバーの整域性と次数別局所分裂により、中心商の任意基底変更に対する正則性・平坦性を得る。
+
+### 5.8. 同じ有限中心商族の全Artin比較
+
+`simultaneous_formal_comparison.tex` の `lem:simultaneous-artin-abel-family` は、同時中心商を局所Artin環へ基底変更し、その次数別有限自由性から平坦な切断Z-代数変形を作る。De Deken–Lowen [Proposition 4.4, p.495](https://ems.press/content/serial-article-files/30497)によりQmodが平坦Abel変形を与え、Proposition 4.6と§§3.1、3.3により通常のQGrと一致する。有限型基底全体の強Noether性や相対tailsのsmoothnessを、このArtin比較の前提にはしていない。
+
+`thm:simultaneous-central-all-artin` では、滑らかな可換点で係数の可換sliceを選ぶ。その有限族の完備局所環は、次数1では通常の形式円板、次数2では通常の形式円板とPlücker錐の完備化の積であり、既に求めた全Abel形式環と同じ表示を持つ。可換方向のKodaira–Spencer写像と一次交換子によるPoisson方向の写像がともに同型なので、自然変換に対応する完備局所環の自己写像は同型となる。HH¹によるframed自己同値の剛性と合わせ、同じ有限中心商族のArtin基底変更が全framed変形群oidを表す。次数2の二次Plücker関係を含む全形式環を使っており、接空間の一致だけから高次障害の消滅を結論していない。
+
+以上により、同じ有限代数族の全Artin変形に対する形式的完全性は証明した。一方、全有限基底での強Noether性・積Noether性、相対tailsとSerre式、smooth properな有限開近傍、全O保存同値によるatlasは未解決である。既存の比較理論の一般原理は先行研究であり、全方向の有限中心商の構成、有限jetによる貼合せ、同じ族の全Artin比較という組合せの包括的な優先権確認は未了である。
 
 ## 6. 公表前に残る研究・文献上の課題
 
 優先順位の高い比較・調査は次の五点である。
 
-1. **同時ambientの中心元。** 両次数の有限型ambient族と全一次中心商は得た。同じ代数上の全高次の中心方程式を、既存の形式中心持上げ・filtered楕円代数の結果と比較し、零切断を含む有限解を構成する。
-2. **全方向の相対tailsと局所完全性。** 一方向族で得た強/積Noether性・Serre・smoothnessを、同時中心商の構成後に拡張する。全Artin形式環と全一次接方向の一致だけでatlasを結論しない。
+1. **全方向中心構成の比較と明示化。** 同じambient上の全方向中心と有限中心商、同じ族のArtin完成を既存の形式中心持上げ・filtered楕円代数・全Abel変形理論と比較する。追加の主開条件の明示、中心元の選択の違い、既知の公式との関係を調べる。
+2. **全方向の有限基底上の相対tails。** 一方向族で得た強/積Noether性・相対Serre・smoothnessを同時中心商へ拡張する。同じ有限族のArtin完成が全変形を表すことと、有限型基底全体での族・atlasの存在を区別する。
 3. **滑らかな開集合の明示。** 得られた有限部分対角解消とHom複体から、具体的な係数の非消滅条件を計算する。開近傍の存在証明と、その判別式の明示は異なる状態である。
 4. **全O同値と大域モジュライ。** 有限表示族から一般nc点の全同値の商、全モジュライの有限型atlas、可換locusに接しない成分へ進む。Toën–Vaquiéの固定dg圏の対象モジュライを、可変な全O-marked圏のモジュライと同一視しない。
 5. **相対楕円構成と新規性。** 解消point curve、相対THCR、二重切断環による積Noether性、smoothnessの有限開近傍を、既存の楕円代数・filtered変形・変形圏の相対理論に比較する。中心増大層を含む適用範囲と、各主張の優先権を確認する。
 
-一般nでの全Abel形式群oid、nc多様体条件のArtin持上げ、形式粗商、具体量子化の完全性、任意指数Veronese復元、有限型族のCasimir・普遍中心・相対双対、一般楕円型topの相対曲線表示・積Noether性、およびsmooth properな有限開近傍という組合せについて、包括的な優先権調査は未了。変形・compact持上げ・formality・Sklyanin中心元・σ-amplenessの一般結果は既知と明記する。非可換del Pezzo曲面の各定義、AS Z-代数、marked quiver、非可換吹上げとの比較も継続する。講演概要にある未公表の一般次数の主張は確立済み定理として引用しない。
+一般nでの全Abel形式群oid、nc多様体条件のArtin持上げ、形式粗商、具体量子化の完全性、任意指数Veronese復元、有限型族のCasimir・普遍中心・相対双対、一般楕円型topの相対曲線表示・積Noether性、smooth properな有限開近傍、全方向の同時中心商とその全Artin比較という組合せについて、包括的な優先権調査は未了。変形・compact持上げ・formality・CY potentialの中心存在・Sklyanin中心元・Borel–Weil–Bott・σ-amplenessの一般結果は既知と明記する。非可換del Pezzo曲面の各定義、AS Z-代数、marked quiver、非可換吹上げとの比較も継続する。講演概要にある未公表の一般次数の主張は確立済み定理として引用しない。

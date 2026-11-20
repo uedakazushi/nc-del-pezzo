@@ -1,0 +1,359 @@
+% !TeX root = ../nc-del-pezzo.tex
+% 2026-11-20 JST / v0.8
+\section{次数1の同時中心元と有限型中心商}
+\label{sec:simultaneous-degree-one-center}
+
+定理\ref{thm:simultaneous-degree-one-ambient}のambient族について，
+独立な全方向 $D$ を同時に含む中心元を構成する。
+次数1では方向空間上の $H^1$ は自動的に消えないが，
+その障害が現れる次数まで中心元のjetを明示し，残る高次を貼り合わせる。
+この有限jetは完成した中心元の公式ではなく，
+全高次の中心元の存在証明を開始する入力である。
+
+\subsection{座標に依存しない四次までの中心jet}
+
+$E=\langle x_1,\ldots,x_n\rangle$，$A=A_4(x)$，$B=A_6(x)$ と書き，
+$D=\sum_iD_i\partial_{x_i}$ は $x$ だけに作用させる。
+$A^{(j)}=D^jA$，$B^{(j)}=D^jB$ と置く。
+以下の $\operatorname{Sym}$ は $x_i,y,z$ の完全対称化であり，
+$x$ だけの多項式の積は既に可換なので対称化を省略する。
+零切断のイデアルを $J=(D_1,\ldots,D_n)$ とする。
+
+\begin{lemma}[四次の中心jet]
+\label{lem:degree-one-fourth-center-jet}
+次の全内部次数6の元を考える。
+\begin{align}
+ \Omega_{\le4}={}&\frac12z^2+\frac13y^3+\operatorname{Sym}(Ay)+B
+   -\frac16\operatorname{Sym}\bigl(A^{(2)}y^2+B^{(2)}y\bigr)
+   +\frac1{12}\bigl(A^{(1)}\bigr)^2\notag\\
+ &+\operatorname{Sym}\!\left(
+       \left(\frac{AA^{(4)}}{180}
+                  +\frac{A^{(1)}A^{(3)}}{72}\right)y\right)\notag\\
+ &+\frac{AB^{(4)}}{180}
+       +\frac{A^{(1)}B^{(3)}}{120}
+       -\frac{A^{(2)}B^{(2)}}{120}
+       -\frac{A^{(3)}B^{(1)}}{180}.
+ \label{eq:degree-one-fourth-center-jet}
+\end{align}
+これは $\operatorname{GL}(E)$ と両立し，完全対称化座標での
+$z^2$ 係数は $1/2$ である。
+全生成元 $a\in E\cup\{y,z\}$ に対し
+\[
+ [\Omega_{\le4},a]\in J^6A_1
+\]
+が成り立つ。
+\end{lemma}
+\begin{proof}
+方向を分離して $D=h\partial_u$ とし，$\ker D$ の変数を中央係数へ含める。
+このとき $A=\sum_{i=0}^4a_i u^i$，$B=\sum_{i=0}^6b_i u^i$ と書ける。
+関係式は
+\[
+ yu=uy-hz,\quad
+ zu=uz+h(y^2+A),\quad
+ zy=yz-h\bigl(\operatorname{Sym}(A'y)+B'\bigr)
+\]
+である。ここだけ $'$ は $u$ 微分を表す。
+各置換の交換子補正は $h$ を一つ増やすので，
+$h^6$ 以上の項を捨てながら順序 $u<y<z$ に整列する操作は有限回で終わる。
+同じ $h$ 次数の項では通常の隣接交換によって転倒数が下がり，
+補正項では残りの許容 $h$ 次数が下がることが停止性の根拠である。
+
+\eqref{eq:degree-one-fourth-center-jet}を $F+h^2C_2+h^4C_4$ と書き，
+上の三置換で全交換子を展開すると，$h$ 次数0から5の各係数が零となる。
+これは $\mathbb Q[a_0,\ldots,a_4,b_0,\ldots,b_6]$ 上の恒等式であり，
+低次係数や最高次係数の特殊化を用いない。
+三つの交換子と全係数の厳密な有限証明書を
+\texttt{computations/verify\_degree\_one\_center\_jet.py}に収録する。
+この計算が示すのは $h^6$ を法とした恒等式であって，
+$\Omega_{\le4}$ 自体の厳密な中心性ではない。
+
+全ての項が $D$ による導分と完全対称化で定義されるため，
+線型座標変換と両立する。
+従って任意の非零方向のchartで同じ恒等式が成り立つ。
+ambientの次数別局所自由性と零切断上の可換性により，
+完全対称化は零切断の任意の有限冪零厚化上で同型である。
+方向の斉次次数5以下の各係数が全方向で零になることから，
+元の普遍係数環で表示した $J^6$ への包含を得る。
+$z^2$ を含む項は最初の項だけなので規格化も従う。
+\end{proof}
+
+\subsection{高次の貼合せ障害の消滅}
+
+$G=\mathbb P(E^*)$ 上の完全列を
+\[
+ 0\longrightarrow K\longrightarrow E\otimes\mathcal O_G
+       \longrightarrow\mathcal O_G(1)\longrightarrow0
+\]
+とし，$Y=\operatorname{Tot}(\mathcal O_G(-1))\to E^*$ を零切断のblowupとする。
+例外因子のイデアルを $I$ とすると，
+$I^m/I^{m+1}\simeq\mathcal O_G(m)$ である。
+
+\begin{lemma}\label{lem:degree-one-center-high-cohomology}
+$n\ge2$，$m\ge5$ に対し
+\[
+ H^1(G,\operatorname{Sym}^6K\otimes\mathcal O_G(m))=0.
+\]
+この消滅は，四次式と六次式の任意のaffine係数空間との積でも保たれる。
+\end{lemma}
+\begin{proof}
+商が線束で標数が0なので，偏極微分による完全列
+\[
+ 0\longrightarrow\operatorname{Sym}^6K(m)
+  \longrightarrow\operatorname{Sym}^6E\otimes\mathcal O_G(m)
+  \xrightarrow{\delta}
+       \operatorname{Sym}^5E\otimes\mathcal O_G(m+1)
+  \longrightarrow0
+\]
+がある。$m\ge0$ では $H^1(G,\mathcal O_G(m))=0$ だから，
+全切断上の $\delta$ の全射性を示せばよい。
+二組の変数 $u_i,t_i$ を使って
+\[
+ \delta=\sum_i t_i\partial_{u_i},\qquad
+ \varepsilon=\sum_i u_i\partial_{t_i}
+\]
+と書く。標的の元 $p$ の二重次数は $(5,m+1)$ であり，
+$w=m-4\ge1$ と置けば $[\delta,\varepsilon]p=wp$ である。
+直接の交換子計算から，
+\[
+ q=\sum_{j=0}^{5}
+    \frac{(-1)^j\varepsilon^{j+1}\delta^jp}
+    {(j+1)!\,w(w+1)\cdots(w+j)}
+ \quad\text{は}\quad \delta q=p
+\]
+を満たす。実際，隣接する項が相殺し，末尾は $\delta^6p=0$ で消える。
+従って全射である。affine係数環とのtensorは $\mathbb C$ 上完全であり，
+同じ有限affine被覆の\v{C}ech複体を使えば最後の主張も従う。
+\end{proof}
+
+\begin{lemma}[判別式条件を除いた有限局所中心]
+\label{lem:degree-one-all-top-finite-center}
+補題\ref{lem:degree-one-all-top-as-open}の環
+$T_1=\mathbb C[\alpha,\beta,h,((1+\alpha h^4)(5+\alpha h^4))^{-1}]$
+を用い，
+\[
+ R=T_1[c_{ij}:i+2j<6],\qquad
+ U=\frac13y^3+\alpha u^4y+\beta u^6
+       +\sum_{i+2j<6}c_{ij}\operatorname{Sym}(u^iy^j)
+\]
+とする。任意の $p=(\alpha_0,\beta_0,0)\in\operatorname{Spec}T_1$ に対し，
+$p$ の主開近傍 $V$ 上で，potential
+$uyz-yuz-h(z^2/2+U)$ の同じ代数に中心元 $\Omega_V$ がある。
+その活性filtration次数は6以下で，$\Omega_V\bmod h=z^2/2+U^{\mathrm{ab}}$ である。
+局所化の分母は $\alpha,\beta,h$ だけに依存する。
+$\deg c_{ij}=6-i-2j$ とすると $\Omega_V$ は全内部次数6である。
+特に $\Delta=4\alpha^3+9\beta^2$ が零でもこの結論は成立する。
+\end{lemma}
+\begin{proof}
+定理\ref{thm:degree-one-finite-central-family}の23未知数の構成を使う。
+その証明で判別式条件が必要だった入力は最高次potentialのCY性であり，
+今回は補題\ref{lem:degree-one-all-top-as-open}がこれを全ての $p$ で与える。
+全lower項へのPBW性とCY性は
+\cite[Proposition~7.3.1(ii)]{EG2010}から従い，
+普遍係数環への移行は
+補題\ref{lem:degree-one-elliptic-universal-lower-pbw}と同じ有限関係行列の議論による。
+
+以下，中心行列の仮定も確認する。
+次数9以下で整列語を基底にする局所化は，最高次の有限関係行列を使って選べる。
+その分母は $h=0$ で非零であり，最高次係数だけに依存する。
+低次係数を加えても活性次数に関する三角性により同じ局所化でよい。
+従って
+\[
+ \mathcal D:F_6A\longrightarrow F_7A\oplus F_8A\oplus F_9A,
+ \qquad v\longmapsto h^{-1}([v,u],[v,y],[v,z])
+\]
+は正則な有限行列である。
+$h=0$ で $v=g_0(u,y)+zg_1(u,y)+kz^2$ と書けば，
+$\partial_yU^{\mathrm{ab}}$ の最高 $y$ 次数の項が $y^2$ なので，
+定理\ref{thm:degree-one-finite-central-family}の計算は任意の
+$\alpha,\beta,c_{ij}$ に対し
+\[
+ \ker\mathcal D=\mathbb C\cdot1
+              \oplus\mathbb C\cdot(z^2/2+U^{\mathrm{ab}})
+\]
+を与える。従ってlower項が零の $p$ では，活性次数1から6のブロックの階数は
+$1,2,3,4,5,6$ である。
+各ブロックから合計21本の独立な行を選び，定数項と整列基底の
+$z^2$ 係数を読む二行を加えると，$p$ で可逆な23次行列を得る。
+lower項を戻しても行列は三角で対角ブロックが変わらないので，
+その可逆化は最高次係数だけの主開集合 $V$ で実現できる。
+
+選んだ交換子成分を零，定数項を $c_{00}$，$z^2$ 係数を $1/2$ とする
+唯一の解を $\Omega_V$ とする。
+$h\ne0$ の各複素点で，\cite[Theorem~3.3.2(ii)]{EG2010}は
+非定数中心元を $F_6A$ 内に与える。
+この定理の仮定は重みの和 $1+2+3=6$ の斉次CY最高次potentialと
+任意のlower potentialであり，generic性や楕円曲線の滑らかさではない。
+従って $\dim\ker\mathcal D\ge2$ であり，23次行列の可逆性から
+定数項と $z^2$ 係数を読む $\ker\mathcal D\to\mathbb C^2$ は同型となる。
+解 $\Omega_V$ は未選択の交換子方程式も全て満たす。
+$h=0$ では表示した古典核から解は $z^2/2+U^{\mathrm{ab}}$ となる。
+普遍係数環は被約な有限型環なので，全複素点での恒等式は環上の恒等式である。
+最後に低次係数の重みを含むスカラー作用と解の一意性から，全内部次数6を得る。
+\end{proof}
+
+\begin{lemma}[規格化中心jetの局所持上げ]
+\label{lem:degree-one-normalized-center-jets}
+$Y$ の例外因子に沿う形式完成上で，完全対称化座標の
+$z^2$ 係数を $1/2$ に規格化した次数6の中心元は局所的に存在する。
+局所座標 $h$ で $I=(h)$ としたとき，$h^{-1}\operatorname{ad}$ の核を使って
+規格化中心jetを定める。
+その $I^{r+1}$ を法とするjetから $I^r$ を法とするjetへの射は局所全射であり，
+同じjetを持つ持上げの差は
+\[
+ \operatorname{Sym}^6K\otimes I^r/I^{r+1}
+        \simeq\operatorname{Sym}^6K(r)
+\]
+である。
+\end{lemma}
+\begin{proof}
+各方向chartで $D=h\partial_u$ とし，$K$ の基底を中央変数 $s$ とする。
+$A_4(s,u)$ と $A_6(s,u)$ の最高活性係数をそれぞれ $\alpha,\beta$ とする。
+補題\ref{lem:degree-one-all-top-finite-center}の低次係数に
+$s$ の所要次数の斉次多項式を代入する。
+その分母は $\alpha,\beta,h$ だけに依存するため，$s$ の多項式の可逆化は生じない。
+得られた中心元は内部次数6で，$h=0$ では
+$F=z^2/2+y^3/3+A_4(s,u)y+A_6(s,u)$ となる。
+完全対称化座標の $z^2$ 係数を $\lambda$ とすれば
+$\lambda=1/2\pmod h$ だから，形式単元 $2\lambda$ で割って所要の規格化を得る。
+これは活性変数や $s$ に依存しない内部次数0の中央単元である。
+以上は楕円判別式を用いない有限行列による証明である。
+局所的な形式中心元の存在は，補題\ref{lem:relative-formal-center-lift}を
+同じpotentialに適用しても得られる。
+
+古典側の次数6のPoisson中心は
+\[
+ \operatorname{Sym}^6K\oplus\mathcal O\,F
+\]
+である。実際，中心候補を $g_0(s,u,y)+zg_1(s,u,y)+cz^2$ と書く。
+$\{-,u\}$ の $z^0$ 係数から $(y^2+A_4)g_1=0$ を得るが，
+この因子は $y$ に関してmonicなので任意の係数環上で $g_1=0$ である。
+残りの式は $\partial_y g_0=2c\partial_yF$，
+$\partial_u g_0=2c\partial_uF$ を与え，
+$g_0-2c(F-z^2/2)$ は $s$ だけの次数6多項式となる。
+
+局所的な規格化形式中心元を一つ $\Omega$ とする。
+別の規格化中心jetとの差の最低 $h$ 係数は，上の古典核のうち
+$z^2$ 係数が零の部分，すなわち $\operatorname{Sym}^6K$ に属する。
+この多項式は量子代数でも厳密に中央なので，それを引いて $h$ で割る操作を反復できる。
+従って任意の規格化中心jetは $\Omega$ のjetに中央な $s$ 多項式のjetを加えたものであり，
+局所全射性と表示した差の層を得る。
+ここで $[A_1,A_1]\subset hA_1$ なので，
+$h^{-1}\operatorname{ad}$ は $h^r$ を法とする元にも良定義である。
+別の例外因子座標への変更は $h$ の単元倍であり，その核を変えない。
+\end{proof}
+
+\subsection{形式中心の降下と有限線型方程式による代数化}
+
+\begin{theorem}[次数1の全方向の有限型中心超曲面族]
+\label{thm:simultaneous-degree-one-central-family}
+定理\ref{thm:simultaneous-degree-one-ambient}の基底環を
+\[
+ S=\mathcal O(\mathcal F_1\times E^*)[g_1^{-1}],
+ \qquad g_1=(1+A_4(D))(5+A_4(D)),\qquad J=(D_i)S
+\]
+とする。$g\equiv1\pmod J$ を満たす
+$\operatorname{GL}(E)$-不変な $g\in S$ があり，$S_g$ 上の同じambient代数に
+全内部次数6の中心元 $\Omega$ を構成できる。
+$\Omega$ は $\operatorname{GL}(E)$ と両立し，
+完全対称化座標の $z^2$ 係数は $1/2$，
+\[
+ \Omega-\Omega_{\le4}\in J^5(A_1)_6
+\]
+である。特に零切断上では $\Omega=F$ となる。
+
+$\Omega$ は任意の基底変更後も左右の非零因子であり，
+$B_1=A_1/(\Omega)$ は有限表示かつ次数別に有限局所自由である。
+任意の非被約基底変更にも両立し，Hilbert級数は
+\[
+ H_{B_1}(t)=\frac{1-t^6}{(1-t)^n(1-t^2)(1-t^3)}
+\]
+である。各幾何学的ファイバーは左右Noetherである。
+\end{theorem}
+\begin{proof}
+\emph{全高次の形式中心。}
+係数空間 $\mathcal F_1$ との積を暗黙に取る。
+補題\ref{lem:degree-one-fourth-center-jet}より，
+$\Omega_{\le4}$ は $I^5$ を法とする大域的な規格化中心jetである。
+交換子が $I^6$ に入ることを，$h^{-1}\operatorname{ad}$ の方程式に用いている。
+$I^r$ を法とするjetが得られたとし，$r\ge5$ とする。
+補題\ref{lem:degree-one-normalized-center-jets}により局所的には次のjetへ持ち上がり，
+その貼合せ障害は
+$H^1(G,\operatorname{Sym}^6K(r))$ に属する。
+補題\ref{lem:degree-one-center-high-cohomology}でこれは零である。
+従って帰納的に，互いに両立する全次数の中心jetを得る。
+
+\emph{方向のblowupからの形式降下。}
+$W_6=(\operatorname{Sym}(E\oplus\mathbb Cy\oplus\mathbb Cz))_6$
+を可換重み付き多項式の次数6部分とする。
+完全対称化 $W_6\otimes S\to(A_1)_6$ は零切断上で同型だから，
+任意の冪零厚化，従って形式完成上でも同型である。
+一方，$Y=\operatorname{Tot}(\mathcal O_G(-1))$ について
+\[
+ \mathcal O_Y/I^r=\bigoplus_{m=0}^{r-1}\mathcal O_G(m),\qquad
+ H^0(G,\mathcal O_G(m))=\operatorname{Sym}^mE
+\]
+である。
+従って上で得た大域jetは，文字通り $(A_1)_6/J^r(A_1)_6$ の元を与え，
+逆極限は $J$-進完成 $\widehat{(A_1)_6}$ 内の中心元 $\widehat\Omega$ となる。
+これは別のstar代数への移送ではなく，同じ有限表示代数の完成内の中心元である。
+
+\emph{有限な方程式。}
+必要なら，零切断全体を含む不変な主開集合へさらに縮め，
+上の完全対称化を完成前にも同型にする。
+この操作は可能である。非同型となる閉集合は不変かつ零切断と交わらないので，
+その定義イデアルには $1\pmod J$ となる元がある。
+$\operatorname{GL}(E)$ のReynolds作用素で平均すれば，同じ性質を持つ不変元を選べる。
+$z^2$ 係数を読む写像を $\lambda:(A_1)_6\to S$ とし，
+$N=J^5\ker\lambda$ と置く。
+有限 $S$-加群の射
+\[
+ L:N\longrightarrow
+       E^*\otimes(A_1)_7\oplus(A_1)_8\oplus(A_1)_9,
+ \qquad \nu\longmapsto([\nu,x_i]_i,[\nu,y],[\nu,z])
+\]
+を使うと，求める補正は
+$L\nu=-\operatorname{ad}(\Omega_{\le4})$ という有限線型方程式の解である。
+この方程式は $\widehat\Omega-\Omega_{\le4}\in\widehat N$ によって完成上で解を持つ。
+
+この有限余核を $M$，右辺の類を $m\in M$ とする。
+Noether環上の有限加群の完成の完全性から，
+$m\in\bigcap_{k\ge0}J^kM$ である。
+この交叉を $N_\infty$ とすると，Artin--Rees補題により
+$N_\infty=JN_\infty$ となる。
+有限生成加群への行列式の議論から，ある $a\in J$ について
+$(1-a)N_\infty=0$ を得る。
+従って $1-a$ を可逆化すれば元の有限線型方程式が解ける。
+この論法は，$S$ 全体の $J$-進完成を忠実平坦と仮定していない。
+
+右辺は不変で $L$ は同変なので，$\operatorname{Ann}(m)$ は不変イデアルである。
+$1-a$ をReynolds作用素で平均して，$g\equiv1\pmod J$ となる不変元を得る。
+既に行った主開への縮小もこの $g$ に含める。
+$g$ の可逆化後に得た解 $\nu$ 自体も平均すれば，
+$\Omega=\Omega_{\le4}+\nu$ は全ての規格化と合同式を保つ同変な中心元となる。
+係数環の元と解はいずれも有限な式であり，形式級数への有限値代入は行っていない。
+
+\emph{正則性と商の平坦性。}
+任意の複素ファイバーで，$D=0$ のambientは多項式環である。
+$D\ne0$ では，$\ker D$ の中央多項式環と活性三生成元のPBW filtrationを用いる。
+その最高次代数は補題\ref{lem:degree-one-all-top-as-open}のAS正則整域の
+中央多項式拡大なので，ambientファイバーも左右Noether整域である。
+完全対称化が同型で $\lambda(\Omega)=1/2$ だから，$\Omega$ は全ファイバーで非零である。
+従って各次数の掛算
+\[
+ (A_1)_{m-6}\xrightarrow{\ \Omega\ }(A_1)_m
+\]
+は全ファイバーで単射となる。
+有限局所自由加群の一定階数判定により，これは局所分裂単射で余核も有限局所自由である。
+全ての次数でこの議論が成立するため，任意基底変更後の正則性と表示したHilbert級数を得る。
+有限表示とファイバーのNoether性は中心商を取っても保たれる。
+\end{proof}
+
+\begin{remark}
+本定理の追加の主開条件 $g$ は存在を示したもので，その明示的な最小行列式は計算していない。
+$g_1\ne0$ というambientの明示条件だけで全中心構成が完成したとは主張しない。
+また，この全方向の中心商族について強Noether性，積Noether性，
+有限型基底全体での相対tailsのsmooth proper性はここでは証明していない。
+同じ中心商族の全Abel Artin変形に対する形式的完全性は
+定理\ref{thm:simultaneous-central-all-artin}で証明する。
+それも有限型基底全体のtails族や，全モジュライのatlasの構成とは区別される。
+\end{remark}

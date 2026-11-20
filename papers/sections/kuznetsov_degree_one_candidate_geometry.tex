@@ -1,0 +1,277 @@
+% !TeX root = ../nc-del-pezzo.tex
+\section{次数1の候補の一般階数と滑らかな零方向}
+\label{sec:ku-d1-candidate-geometry}
+
+本節は次数1の多項式候補
+\[
+                    T_s:=\mathcal H_1+s\mathcal R_1,
+                    \qquad s\in\C
+\]
+の幾何を調べる。
+実際の $\delta_2$ との同定には，命題\ref{prop:ku-d1-polynomial-classification}の
+多項式延長仮定が引き続き必要である。
+候補の一般階数は $s$ によらず最大である一方，
+$s\ne-7/8$ の全ての値で滑らかな曲面上の零方向を構成できる。
+例外値 $s=-7/8$ については，本節では零方向の存在も不存在も結論しない。
+
+\subsection{補正係数によらない一般階数}
+
+\begin{proposition}[次数1の候補の一般階数3]
+\label{prop:ku-d1-candidate-generic-rank}
+各 $s\in\C$ に対して，滑らかな次数1曲面の非空稠密開集合上で
+\[
+               T_{s,X}:\Sym^2H^0(X,-K_X)\longrightarrow H^1(X,T_X)
+\]
+の階数は3である。
+さらに一つの滑らかな曲面
+\begin{equation}\label{eq:ku-d1-candidate-rank-witness}
+ X_*:\quad \frac{z^2}{2}+\frac{y^3}{3}
+                     +x^6+x^3u^3+u^6=0
+\end{equation}
+が，全ての $s$ に対する階数3の証人になる。
+\end{proposition}
+\begin{proof}
+$B=x^6+x^3u^3+u^6$ は平方因子を持たない。
+実際，$u=1$ で $x^6+x^3+1$ と
+$3x^2(2x^3+1)$ に共通零点はなく，$u=0$ でも零にならない。
+式\eqref{eq:ku-d1-candidate-rank-witness}の錐の臨界点では
+$z=y=0$ と $B_x=B_u=0$ が必要なので，原点以外に臨界点はない。
+重み付き射影空間の二つの特異点も避けるため，$X_*$ は滑らかである。
+
+$A=0$ では $\mathcal R_1=0$ であり，
+式\eqref{eq:ku-d1-reduced-jacobian}のJacobian関係は純六次式の直和因子に入る。
+従って $y\Sym^4\C^2{}^*$ はそのまま商に埋め込まれ，
+$T_s$ はこの因子に値を持つ $[yD^2B]/4$ である。
+三つの偏微分
+\[
+ B_{xx}=30x^4+6xu^3,\qquad B_{xu}=9x^2u^2,
+ \qquad B_{uu}=6x^3u+30u^4
+\]
+は一次独立である。
+$x^4,x^2u^2,u^4$ の係数小行列式は $30\cdot9\cdot30=8100$ である。
+sourceは3次元なので階数は3となる。
+滑らかな全係数空間は整であり，束射の最大階数条件は開条件なので，
+各固定 $s$ に対して主張する稠密開を得る。
+\end{proof}
+
+\begin{corollary}[多項式延長の下での一般交わりの長さ3]
+\label{cor:ku-d1-conditional-generic-intersection}
+実際の $\delta_2$ が命題\ref{prop:ku-d1-polynomial-classification}の意味で
+共変多項式へ延長すると仮定する。
+このとき，次数1の一般の滑らかな古典曲面では $\delta_2$ の階数は3であり，
+Kuとshadowを同時に固定する標識付き形式交わりの局所環は
+\[
+                         \C[p_0,p_1]/(p_0,p_1)^2
+\]
+である。従って長さは3，Hilbert関数は $(1,2)$ である。
+\end{corollary}
+\begin{proof}
+延長仮定の下では $\delta_2=T_s$ となる一つの定数 $s$ が存在する。
+前命題により一般階数は3である。
+これは $\Sym^2P_X$ 上で単射であるから，非零の $p$ に対し
+$\delta_2(p,p)\ne0$ である。
+定理\ref{thm:ku-fixed-shadow-intersection}の二次有限決定性を適用すると，
+二次イデアルは二変数の全二次式で生成される。
+\end{proof}
+
+\subsection{一つの短い族による零方向}
+
+\begin{proposition}[nilpotentな線型ベクトル場による零方向族]
+\label{prop:ku-d1-short-null-family}
+$t=8s+7$ と置き，
+\begin{equation}\label{eq:ku-d1-short-null-family}
+ \begin{split}
+ A_t&=x^3u-3tu^4,\\
+ B_t&=\frac{x^6}{60}-t x^3u^3+6t(15-2t)u^6,\\
+ X_t&:\quad z^2/2+y^3/3+A_ty+B_t=0
+ \end{split}
+\end{equation}
+とする。このとき全ての $t$ に対し
+\[
+                       T_{(t-7)/8,X_t}(\partial_x)=0
+\]
+がJacobian商で成立する。
+曲面 $X_t$ が滑らかであるための必要十分条件は
+\begin{equation}\label{eq:ku-d1-short-family-smooth-locus}
+                         t\notin\{0,8,25/3,27/4\}
+\end{equation}
+である。この滑らかな部分では
+\[
+ \mathcal R_{1,X_t}(\partial_x)
+                      =[-3x^4u^2-72t xu^5]\ne0
+\]
+である。
+\end{proposition}
+\begin{proof}
+線型ベクトル場 $V=x\partial_u$ に対し，直接微分すると
+\begin{equation}\label{eq:ku-d1-short-null-syzygy}
+ \begin{split}
+ 2(B_t)_{xx}&=V(A_t),\\
+ (4t-30)A_t(A_t)_{xx}+(20-3t)(A_t)_x^2&=V(B_t)
+ \end{split}
+\end{equation}
+となる。一方，$y^2=-A_t$ による簡約後の $8T_s(\partial_x)$ の代表元は
+\[
+ 2y(B_t)_{xx}+(32s-2)A_t(A_t)_{xx}-(1+24s)(A_t)_x^2
+\]
+なので，$t=8s+7$ を代入すると $V(A_t)y+V(B_t)=V(f_t)$ に一致する。
+従ってJacobian商で零になる。
+
+滑らかさを確認する。$u=0$ の錐の臨界点では $z=y=0$ が必要だが，
+$x\ne0$ なら $(f_t)_x=x^5/10\ne0$ なので臨界点はない。
+$x=u=0$ にも原点以外の臨界点はなく，曲面はambientの特異点を避ける。
+従って $u=1$ のchartを調べれば十分である。
+そこでは
+\[
+ (f_t)_x=3x^2\left(y+x^3/30-t\right),\qquad
+ (f_t)_y=y^2+x^3-3t.
+\]
+$x=0$ では $y^2=3t$ であり，この関係の下で
+\[
+                  f_t=2t(45-6t-y).
+\]
+従って特異点があるのは $t=0$，または
+\[
+            (45-6t)^2-3t=3(3t-25)(4t-27)=0
+\]
+のときである。
+
+$x\ne0$ の場合には $v=x^3=3t-y^2$ と書け，残る臨界条件は
+\[
+ h(y):=y^2-30y+27t=0.
+\]
+代入後の $f_t$ を $h$ で割った剰余は
+\[
+                    3(-3t+2y)(3t-25)
+\]
+である。この一次式と $h$ のresultantは
+\[
+                       81t(t-8)(3t-25)^2
+\]
+となる。$t=0$ では共通解は $y=0,v=0$ であり $x\ne0$ に反する。
+$t=8$ では $y=12,v=-120$，$t=25/3$ では $y=15,v=-200$ が
+実際に特異点を与える。$x=0$ の場合と合わせて
+式\eqref{eq:ku-d1-short-family-smooth-locus}を得る。
+
+最後に，表示した $\mathcal R_1$ の代表元は直接微分から従う。
+$t\ne0$ では $V\mapsto V(A_t)$ は単射である。
+実際，$V=(a x+b u)\partial_x+(c x+d u)\partial_u$ とすると
+\[
+ V(A_t)=c x^4+(3a+d)x^3u+3b x^2u^2-12ct xu^3-12dt u^4.
+\]
+これが零なら $c=b=d=a=0$ である。
+式\eqref{eq:ku-d1-reduced-jacobian}より，純六次式がJacobian商で零になるためには
+$V(A_t)=0$ かつ $V(B_t)$ がその六次式に等しい必要がある。
+表示した非零六次式はこれを満たさないため，その類は非零である。
+\end{proof}
+
+\begin{corollary}[Hessian候補を判別する短い滑らかな例]
+\label{cor:ku-d1-short-hessian-null}
+\[
+ X:\quad \frac{z^2}{2}+\frac{y^3}{3}
+ +(x^3u-21u^4)y+\frac{x^6}{60}-7x^3u^3+42u^6=0
+\]
+は滑らかであり，
+\[
+ \mathcal H_{1,X}(\partial_x)=0,
+ \qquad
+ \mathcal R_{1,X}(\partial_x)=-3[x^4u^2+168xu^5]\ne0
+\]
+である。
+\end{corollary}
+\begin{proof}
+前命題で $t=7$，従って $s=0$ とすればよい。
+\end{proof}
+
+\subsection{一つの値を除く全ての補正係数}
+
+\begin{theorem}[ほぼ全ての候補に対する滑らかな零方向]
+\label{thm:ku-d1-candidate-smooth-null}
+任意の $s\in\C\setminus\{-7/8\}$ に対して，
+滑らかな次数1 del Pezzo曲面 $X$ と非零の $D\in H^0(X,-K_X)$ が存在し，
+\[
+                             T_{s,X}(D)=0
+\]
+となる。
+\end{theorem}
+\begin{proof}
+命題\ref{prop:ku-d1-short-null-family}は
+$t=8s+7\notin\{0,8,25/3,27/4\}$ を扱う。
+残る三つの非零値には，別の多項式族
+\begin{equation}\label{eq:ku-d1-long-null-family}
+ \begin{split}
+ \widetilde A_t={}&x^3u-\frac{3t}{2}x^2u^2
+       +\frac{3t^2}{7}xu^3-\frac{t^2(t-3)}{14}u^4,\\
+ \widetilde B_t={}&-\frac{x^5u}{20}+\frac t2x^4u^2
+       -\frac{t^2}{2}x^3u^3+\frac{5t^2(t-3)}{14}x^2u^4\\
+       &-\frac{t^2(t^2+6t-45)}{28}xu^5
+       -\frac{t^3(5t^2-87t+315)}{490}u^6
+ \end{split}
+\end{equation}
+を使う。$\widetilde V=x\partial_x-5u\partial_u$ に対し
+\[
+ \begin{split}
+ 2(\widetilde B_t)_{xx}&=\widetilde V(\widetilde A_t),\\
+ (4t-30)\widetilde A_t(\widetilde A_t)_{xx}
+ +(20-3t)(\widetilde A_t)_x^2&=\widetilde V(\widetilde B_t)
+ \end{split}
+\]
+が全 $t$ の多項式恒等式として成立する。
+従ってこちらも $T_{(t-7)/8}(\partial_x)=0$ である。
+$t=7$ は既存の例\eqref{eq:ku-d1-hessian-null-example}に一致する。
+
+$t=8,25/3,27/4$ での滑らかさには，$u=1$ の判別式
+\[
+ P_t(x)=400\bigl(4\widetilde A_t(x,1)^3+9\widetilde B_t(x,1)^2\bigr)
+\]
+を使う。これは次数10，最高次係数9である。
+三つの値における係数の分母は11で可逆で，$t$ の剰余はそれぞれ $8,1,4$ となる。
+以下のベクトルは $x$ の昇べき順の係数を表す。
+$\mathbf F_{11}[x]$ における $P_t$ の還元 $\overline P$ と
+$U\overline P+W\overline P'=1$ の証明書は
+\[
+ \begin{aligned}
+ \overline P_8&=(-3,-2,-3,0,-3,-5,0,-5,3,-5,-2),\\
+ U_8&=(-4,0,1,4,-3,-4,5,0,-3),\\
+ W_8&=(0,4,-2,-1,-5,1,0,-3,2,-3),
+ \end{aligned}
+\]
+\[
+ \begin{aligned}
+ \overline P_1&=(1,-3,3,4,-5,-1,5,0,-4,1,-2),\\
+ U_1&=(5,5,-3,-5,5,-2,-5,1,-5),\\
+ W_1&=(5,3,3,5,3,-3,-3,2,4,-5),
+ \end{aligned}
+\]
+\[
+ \begin{aligned}
+ \overline P_4&=(-1,-2,4,-4,-3,0,1,3,-3,0,-2),\\
+ U_4&=(2,0,3,-1,-2,1,1),\\
+ W_4&=(4,3,-4,-4,-5,-5,1,1)
+ \end{aligned}
+\]
+である。従って三つの $P_t$ は $\mathbb Q$ 上平方因子を持たない。
+命題\ref{prop:ku-d1-hessian-null-direction}の証明と同様に，
+これは $u=1$ 上の特異点の不存在を示す。
+$u=0$ での唯一の候補は $y=z=0,x\ne0$ だが，
+そこで $F_u=-x^5/20\ne0$ となる。
+従って三つの曲面も滑らかであり，全ての $s\ne-7/8$ を覆う。
+\end{proof}
+
+\begin{remark}[残る値と実際の二次差]
+\label{rem:ku-d1-exceptional-coefficient-scope}
+本節の二つの零方向族は $s=-7/8$ で特異になる。
+この事実だけから，$T_{-7/8}$ が全滑らか点で全非零方向に非零であるとは言えない。
+また，その性質は実際の $\delta_2$ についても未証明であり，
+既存の結果はFermatを含む稠密開上の非消滅である。
+仮に多項式延長と全滑らか点・全非零方向の非消滅を両方証明できれば，
+前定理により係数は $s=-7/8$ に限られる。
+これは二つの追加仮定を置いた帰結であり，現時点での係数決定ではない。
+
+系\ref{cor:ku-d1-short-hessian-null}の短い曲面で実際の内在的周期を二次まで計算すれば，
+多項式延長の下では $\delta_2(\partial_x,\partial_x)=s\mathcal R_1(\partial_x)$
+の係数を一回の計算で判別できる。
+候補の一般階数と零方向の証明書は
+\path{computations/verify_degree_one_candidate_geometry.py}で再現する。
+これは非可換乗法や実際の周期を計算するコードではない。
+\end{remark}

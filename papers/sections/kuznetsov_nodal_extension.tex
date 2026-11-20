@@ -1,0 +1,248 @@
+% !TeX root = ../nc-del-pezzo.tex
+\section{次数2の延長条件と一般の一節点退化}
+\label{sec:kuznetsov-nodal-extension}
+
+本節では前節の普遍Jacobian加群 $M$ の延長条件を，判別式の一般点における
+一つの離散付値の条件へ帰着する。さらに，巡回族での値を保ち，判別式に沿って
+高々単純極しか持たない異なる自然テンソルを構成する。
+これらは延長条件の具体化であり，実際のカテゴリー的二次差の極が消えることを
+証明したという主張ではない。
+
+\subsection{普遍Jacobian加群の反射性}
+
+$W=\Sym^4V^*$，$\dim V=3$，$R=\Sym(W^*)$ とし，
+$\mathcal F$ を普遍四次式とする。
+式\eqref{eq:ku-universal-quartic-jacobian-module}の表示を
+\[
+ \Phi:R(-1)\otimes\mathfrak{gl}(V)\longrightarrow R\otimes W,
+ \qquad A\longmapsto A\mathcal F
+\]
+と書く。符号の選択は像に影響しない。
+
+\begin{lemma}[四次式の無限小安定化群の次元評価]
+\label{lem:ku-quartic-stabilizer-codimension}
+$\Phi_F$ の階数が9未満になる $F\in W$ の閉集合は，$W$ 内で余次元が少なくとも6である。
+\end{lemma}
+\begin{proof}
+閉incidence
+\[
+ I=\{(F,[A])\in W\times\PP(\mathfrak{gl}(V)):AF=0\}
+\]
+の次元が高々9であることを示す。射影因子が固有なので，その像はちょうど求める閉集合となる。
+$A$ のJordan分解を $S+N$ とする。四次式上の誘導作用について，$S$ の非零固有値空間では
+$S+N$ は可逆だから，$\ker A$ は $\ker S\cap\ker N$ である。
+零weightがない部分では $F=0$ のみが許され，行列の射影空間は8次元なので，
+そのincidenceの次元も高々8である。
+
+まず $A$ が相異なる三つの固有値 $\lambda_0,\lambda_1,\lambda_2$ を持つとする。
+四次単項式の零weightは
+\[
+ a\lambda_0+b\lambda_1+c\lambda_2=0,
+ \qquad a+b+c=4,\quad a,b,c\ge0
+\]
+で与えられる。零weightが一つだけなら，固有値比は $\PP^2$ 内の有限個の直線上にあり，
+行列の射影的族は共役軌道の6次元と合わせて高々7次元である。
+従ってこの部分のincidenceは高々8次元となる。
+二つ以上の零weightがあれば，相異なる指数三つ組は線型独立なので固有値比は有限個に限られる。
+この場合，零weightは高々3個である。実際，指数の三角形内の一直線に4個以上の格子点があるなら，
+その原始方向ベクトルの各成分の絶対値は高々1で，成分和は零である。
+従って方向は $(1,-1,0)$ の置換と符号変更になり，二つの固有値が等しくなるから矛盾する。
+よってこの部分の次元も $6+3=9$ 以下である。
+
+次に $A$ が二次元の固有空間を持つ半単純行列で，固有値を $\lambda,\mu$ とする。
+二次元の固有空間の変数に関する次数を $k$ とすると，零weightの条件は
+\[
+ k\lambda+(4-k)\mu=0,\qquad 0\le k\le4.
+\]
+$\lambda\ne\mu$ なので該当する $k$ は高々一つであり，核の次元は $k+1\le5$ である。
+非零の核を持つ固有値比は有限個で，共役軌道の次元は4だから，incidenceの次元は高々9である。
+非零のスカラー行列の場合，四次式上では非零スカラーとして作用するので核は零である。
+
+半単純でない場合も全て確認する。
+異なる二固有値を持ち，重複固有値に大きさ2のJordan blockがある場合は，
+上記の次数 $k$ の零weight空間の上で $N=x_0\partial_{x_1}$ が作用する。
+その核は $x_0^kx_2^{4-k}$ の一次元である。
+非零の核を持つ固有値比は有限個，共役軌道は6次元なので，
+射影的行列族も6次元であり，incidenceは高々7次元である。
+固有値が一つだけで非零なら，$4\lambda+N$ は可逆である。
+残る非零冪零行列のJordan型は $(2,1)$ と $(3)$ である。
+前者の射影的軌道は3次元で，核は $\C[x_0,x_2]_4$ の5次元だから，合計は8である。
+後者の射影的軌道は5次元で，$N=x_0\partial_{x_1}+x_1\partial_{x_2}$ と取れる。
+係数比較により，その四次式上の核は
+\[
+ x_0^4,\qquad x_0^2(x_1^2-2x_0x_2),\qquad
+ (x_1^2-2x_0x_2)^2
+\]
+で生成される三次元空間であり，合計は8である。
+例えば $F=\sum_{j=0}^4f_j(x_0,x_1)x_2^j$ と展開し，
+$x_0\partial_{x_1}f_j+(j+1)x_1f_{j+1}=0$ を高い $j$ から解けば，
+自由係数がちょうど三つとなり，上の表示を得る。
+これで全Jordan型に対して $\dim I\le9$ が示された。
+$\dim W=15$ なので結論が従う。
+\end{proof}
+
+\begin{proposition}[普遍四次Jacobian加群の反射性]
+\label{prop:ku-universal-jacobian-reflexive}
+$M=\operatorname{coker}\Phi$ は階数6の有限反射的 $R$-加群である。
+従って $K=\operatorname{Frac}(R)$ とすると，$M_K$ の中で
+\[
+ M=\bigcap_{\operatorname{ht}\mathfrak p=1}M_{\mathfrak p}
+\]
+が成り立つ。
+\end{proposition}
+\begin{proof}
+Fermat点では九つの $x_i\partial_jF$ が一次独立なので，$\Phi$ は一般点で単射である。
+$R$ は整域，その始域は自由加群なので，$\Phi$ 自身が単射となる。従って
+\[
+ 0\longrightarrow R(-1)^9\xrightarrow{\Phi}R^{15}
+ \longrightarrow M\longrightarrow0
+\]
+は完全である。前補題により，$M$ は少なくとも余次元5以下の全点で局所自由である。
+それ以外の素点 $\mathfrak p$ では，正則局所環 $R_{\mathfrak p}$ と上の完全列に深さ補題を適用して
+\[
+ \operatorname{depth}M_{\mathfrak p}
+ \ge\operatorname{ht}\mathfrak p-1\ge5
+\]
+を得る。従って $M$ は $(S_2)$ を満たし，正の高さの随伴素点を持たないので無捩れである。
+反射性と高さ1の局所化の交叉による表示は
+\cite[Tag 0AVB]{StacksProject}による。
+\end{proof}
+
+\subsection{一般の一節点における一つの付値条件}
+
+判別式 $\Delta$ は既約で，その一般点は一つのordinary nodeを持つ平面四次曲線を表す。
+これは，特異点を付けた普遍超曲面のincidenceがベクトル束となることと，
+判別式への射の双有理性による既知の事実である
+\cite[\S2, Propositions 5.1--5.2]{PoonenStoll2025}。
+以下，$R_{(\Delta)}$ はこの高さ1の素イデアルでの離散付値環を表す。
+
+\begin{theorem}[一般一節点での延長判定]
+\label{thm:ku-degree-two-nodal-extension-criterion}
+$E=\Sym^2(\bigwedge^2V)$ とする。
+任意の $T\in M[\Delta^{-1}]\otimes E^*$ について，次は同値である。
+\begin{enumerate}
+ \item $T$ は $M\otimes E^*$ の元に延長する。
+ \item $T$ は $(M\otimes E^*)\otimes_R R_{(\Delta)}$ に属する。
+\end{enumerate}
+延長は存在すれば一意である。特に，実際の二次差についての
+系\ref{cor:ku-degree-two-hessian-conditional}の多項式延長条件は，
+一般の一節点退化においてこの普遍加群の格子に極を持たないことと同値である。
+各滑らかな点で任意の多項式代表を選ぶ条件ではない。
+\end{theorem}
+\begin{proof}
+$E^*$ をテンソルしても有限直和なので反射性は保たれる。
+高さ1の素点 $\mathfrak p\ne(\Delta)$ では $\Delta$ が可逆であり，
+$T$ は既に $(M\otimes E^*)_{\mathfrak p}$ に属する。
+従って命題\ref{prop:ku-universal-jacobian-reflexive}の交叉表示において残る条件は
+$\mathfrak p=(\Delta)$ のものだけである。
+一意性は $M$ の無捩れ性による。
+\end{proof}
+
+\begin{corollary}[一般Hessian公式と節点での極の消滅]
+\label{cor:ku-degree-two-nodal-hessian-criterion}
+実際の $\delta_2$ が一般判別式点で上の格子に極を持たないことと，
+全滑らかな四次式・全Poisson方向で
+\[
+ \delta_{2,X_F}(P,P)=\frac18[Q(F,P)]
+\]
+となることは同値である。
+\end{corollary}
+\begin{proof}
+極がなければ前定理で多項式延長を得て，
+系\ref{cor:ku-degree-two-hessian-conditional}を適用する。
+逆に右辺は普遍加群の多項式類なので，極を持たない。
+\end{proof}
+
+判定のための具体的な横断族も書ける。
+$q_i(x_0,x_1)$ ($i=2,3,4$) の係数を独立とし，
+\begin{equation}\label{eq:ku-generic-nodal-transverse-family}
+ F_t=t x_2^4+x_2^2q_2(x_0,x_1)+x_2q_3(x_0,x_1)+q_4(x_0,x_1)
+\end{equation}
+と置く。$q_2$ が非退化で，$F_0$ がそれ以外に特異点を持たない開集合を取る。
+さらに $x_0\mapsto x_0+a x_2$，$x_1\mapsto x_1+b x_2$ という二つの独立な平行移動を加えると，
+得られる15パラメータから $W$ への射は $t=0$ の一般点で\'etaleである。
+実際，$a,b$ に関する微分の $x_0x_2^3,x_1x_2^3$ 係数の行列は $q_2$ のHessianであり，
+残る13係数は $q_2,q_3,q_4,t$ によって独立に与えられる。
+節点以外では族が滑らかで，節点では $\partial_tF_t=x_2^4$ が単元だから全空間は正則である。
+従って
+\[
+ \operatorname{ord}_t\Delta(F_t)=1
+\]
+である\cite[Theorem 1.1]{PoonenStoll2025}。
+これにより一般判別式の付値を，独立係数の関数体上の $t$-進付値として計算できる。
+同変なテンソルの場合は上の平行移動を戻し，式\eqref{eq:ku-generic-nodal-transverse-family}の表示で調べてよい。
+この横断族上の実際のカテゴリー的周期計算は，なお未実行である。
+
+\subsection{単純極でも残る曖昧さ}
+
+$F=\sum a_{i_1i_2i_3i_4}x_{i_1}x_{i_2}x_{i_3}x_{i_4}$ と対称テンソルで表す。
+$\varepsilon^{ijk}$ を $\varepsilon^{012}=1$ の交代テンソルとし，全添字を $0,1,2$ で和を取って
+\begin{equation}\label{eq:ku-cubic-contraction-invariant}
+ I_3(F)=
+ \varepsilon^{i_1j_1k_1}\cdots\varepsilon^{i_4j_4k_4}
+ a_{i_1i_2i_3i_4}a_{j_1j_2j_3j_4}a_{k_1k_2k_3k_4}
+\end{equation}
+と定める。これは係数次数3の相対不変式である。
+この規格化ではFermat点の値は6である。
+
+\begin{proposition}[一節点境界で単純極を持つ自然な補正]
+\label{prop:ku-simple-pole-ambiguity}
+$C(F)$ を前節のcatalecticant行列式として
+\[
+ h_1(F)=\frac{C(F)^4I_3(F)}{\Delta(F)},\qquad
+ T_{\lambda,F}(P,P)=\frac{1+\lambda h_1(F)}8[Q(F,P)]
+\]
+と置く。
+$T_\lambda$ は滑らかな係数空間上で自然かつ正則であり，係数次数2とPoisson二次性を持つ。
+全ての巡回型 $F=f(x_0,x_1)+a x_2^4$ とその座標変換上で $[Q]/8$ に一致する。
+しかし異なる $\lambda$ は異なるテンソルを与え，$\lambda\ne0$ なら
+一般判別式点において $M\otimes E^*$ の格子にちょうど単純極を持つ。
+従って，極の位数を高々1に制限するだけでは一般式は一意にならない。
+\end{proposition}
+\begin{proof}
+四つの交代テンソルの縮約から
+\[
+ I_3(b^2F\circ A^{-1})=b^6(\det A)^{-4}I_3(F)
+\]
+を得る。$C^4I_3$ の係数次数は $4\cdot6+3=27$ であり，
+その指標は $b^{54}(\det A)^{-36}$，すなわち $\Delta$ の指標に一致する。
+よって $h_1$ は座標不変で係数次数0である。
+巡回型では $C=0$ なので，そこでの一致も従う。
+
+分子と $[Q]$ が一般判別式点で消えないことを一つの具体例で確かめる。
+\begin{equation}\label{eq:ku-nodal-quartic-witness}
+ F_N=x_0^4+x_1^4+x_0^2x_1^2+x_0^2x_2^2+x_1^2x_2^2
+\end{equation}
+は $p=[0:0:1]$ を唯一の特異点とし，そこでordinary nodeを持つ。
+実際，偏導関数は
+\[
+ 2x_0(2x_0^2+x_1^2+x_2^2),\quad
+ 2x_1(x_0^2+2x_1^2+x_2^2),\quad
+ 2x_2(x_0^2+x_1^2)
+\]
+である。$x_2=0$ の場合は前二式から全座標が零になる。
+$x_2\ne0$ なら最後の式から $x_0^2+x_1^2=0$ であり，
+$x_0x_1\ne0$ とすると前二式の和から $2x_2^2=0$ となって矛盾する。
+従って特異点は $p$ のみである。$x_2=1$ の二次部分は $x_0^2+x_1^2$ なので節点となる。
+直接計算すると
+\[
+ C(F_N)=-40960,\qquad I_3(F_N)=\frac76,
+ \qquad Q(F_N,e_0\wedge e_1)(p)=4.
+\]
+九つの $x_i\partial_jF_N$ は一次独立で，その係数行列には行列式1024の小行列がある。
+従って $M$ はこの点で局所自由である。
+節点での評価はJacobian関係を全て零にするため，最後の値は $[Q]$ がこのファイバーで非零であることを示す。
+以上と判別式の既約性から，$C^4I_3$ と $[Q]$ は一般判別式点でも零ではない。
+分母が $\Delta$ の一乗だけなので極はちょうど単純であり，$T_\lambda$ の相異性も従う。
+\end{proof}
+
+上の証人の横断族 $F_N+t x_2^4$ では，厳密に
+\[
+ C(F_N+t x_2^4)=40960(21t-1),\qquad
+ I_3(F_N+t x_2^4)=\frac{39t+7}{6}
+\]
+となる。有限計算は \path{computations/verify_degree_two_nodal_extension.py} に収録する。
+ここで示したのは，多項式延長を一般の一節点で検査できることと，
+単純極の上界だけでは十分でないことである。
+Gauss--Manin接続の正則特異性から実際の $\delta_2$ のこの格子に対する極の上界を得た，
+あるいは極を消した，とは主張しない。

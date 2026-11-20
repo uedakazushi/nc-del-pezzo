@@ -1,0 +1,277 @@
+% !TeX root = ../nc-del-pezzo.tex
+\section{残余圏を固定する変形の有限行列正規形}
+\label{sec:kuznetsov-gluing-normal-form}
+
+本節は $n=2$，$d=1,2$ とし，
+$X=\operatorname{Bl}_{p_1,\ldots,p_r}\PP^2$，$r=9-d$ を固定する。
+残余圏を固定する形式ファイバーが滑らかな $d+1$ 次元であることは
+第\ref{sec:kuznetsov-surface}節で既に得た。
+ここではその\emph{全ての通常Artin変形}を，固定点 $p_i$ で評価する
+$3\times3$ 行列の行列式により表示する。
+その有限代数から本稿の中心超曲面表示への係数変換は，依然として計算課題である。
+
+\subsection{既知の三頂点模型とその相対化}
+
+三次元空間 $V$ の射影化を blow-down の平面とし，体積形式を一つ固定する。
+Auroux--Katzarkov--Orlov \cite[Theorem~2.5, \S\S2.1, 2.3]{AKO2006}
+の強例外列
+\[
+ (F_0,F_1,F_2,L_1,\ldots,L_r)
+ =
+ (\OO_X,\pi^*T_{\PP^2}(-1),\pi^*\OO_{\PP^2}(1),
+   \OO_{E_1},\ldots,\OO_{E_r})
+\]
+を用いる。最初の三対象のHomを
+\[
+ U=\Hom(F_0,F_1),\qquad V=\Hom(F_1,F_2),\qquad
+ W=\Hom(F_0,F_2)
+\]
+と書くと，各空間の次元は3である。
+可換点では $U=V$，$W=\Lambda^2V\simeq V^*$ と同定でき，
+積 $\mu_0:V\otimes U\to W$ は交代積である。
+基底を選んで
+\[
+ C(v)=
+ \begin{pmatrix}
+ 0&-v_2&v_1\\ v_2&0&-v_0\\-v_1&v_0&0
+ \end{pmatrix},
+ \qquad \mu_0(v,u)=C(v)u
+\]
+とする。
+
+局所Artin $\C$-代数 $R$ 上で $\mu_0$ を持ち上げた積 $\mu$ を取り，
+$\mu(p_i):U_R\to W_R$ の階数が2であるとする。
+この条件は，特殊ファイバーで非零の二次小行列式を一つ反転した上で，
+$\det\mu(p_i)=0$ と課すことに等しい。
+非被約基底でもSchur補元により像・核・余核は直和因子となる。
+tailのHomと積は
+\begin{equation}\label{eq:ku-gluing-tail}
+ \begin{aligned}
+ \Hom(F_2,L_i)&=R,&
+ \Hom(F_1,L_i)&=V_R/Rp_i,&
+ \Hom(F_0,L_i)&=\operatorname{coker}\mu(p_i),\\
+ (V_R/Rp_i)\otimes_R U_R&\longrightarrow
+       \operatorname{coker}\mu(p_i),&
+ (\bar v,u)&\longmapsto[\mu(v,u)]
+ \end{aligned}
+\end{equation}
+で与えられる。
+最後の写像は $v$ の代表によらず，これが全ての結合律を満たす。
+こうして得る有限自由代数を $A_{\mu,p}$ と書く。
+その階数は $5r+12$，すなわち次数1で52，次数2で47である。
+
+頂点冪等元による相対規格化bar複体は，
+非単位射の合成列の長さが高々3であるため有限である。
+各cornerは $R$ 上自由なので，これは有限射影な相対bimodule解消を与える。
+従って $\Perf(A_{\mu,p}/R)$ はsmooth properである。
+$F_0$ を除いた部分代数は
+\[
+ \Hom(F_1,F_2)=V_R,\qquad
+ \Hom(F_2,L_i)=R,\qquad
+ \Hom(F_1,L_i)=V_R/Rp_i
+\]
+と商写像だけで定まり，$\mu$ に依存しない。
+これは左直交 $ {}^{\perp}F_0$ を表示する。
+相対Serre関手は $ {}^{\perp}F_0$ を $F_0^\perp$ へ同値に移すから，
+右直交も特殊ファイバーの標識を保つ相対Morita同値類として一定である。
+
+逆に，この強例外列を持ち上げた有限自由代数の変形で，
+左直交の点配置が $p_i$ に固定されていれば，
+全射 $\Hom(F_2,L_i)\otimes W_R\to\Hom(F_0,L_i)$ は
+結合律により $\mu(p_i)$ を消す。
+余核の階数は1なので，この全射の核は $\operatorname{im}\mu(p_i)$ と一致し，
+式\eqref{eq:ku-gluing-tail}の模型を回復する。
+これは既知の体上の記述を，二次小行列式と自由cornerを用いて
+非被約Artin基底へ移したものである。
+
+\subsection{三次形式による唯一の形式正規形}
+
+\begin{lemma}[固定した $V$ に対する横断slice]
+\label{lem:ku-gluing-tensor-slice}
+$V$ の基底を固定し，$U,W$ の基底変更だけを許す。
+特殊ファイバーで $\mu_0$ に還元する積の形式的同型類は，一意に
+\begin{equation}\label{eq:ku-gluing-hessian-slice}
+ \mu_P(v,u)=\bigl(C(v)+\operatorname{Hess}(P)(v)\bigr)u,
+ \qquad
+ P\in\mathfrak m_R\otimes_\C\Sym^3V^*
+\end{equation}
+と表される。
+ここで基底変更も特殊ファイバーで恒等に還元すると要求する。
+\end{lemma}
+
+\begin{proof}
+テンソル空間 $\Hom(V\otimes U,W)$ は27次元である。
+作用を $(g_U,g_W)\mu(v)=g_W\mu(v)g_U^{-1}$ とすると，
+$\mu_0$ における軌道の接写像は
+\[
+ (A,B)\longmapsto \bigl(v\longmapsto BC(v)-C(v)A\bigr).
+\]
+その核は $(aI,aI)$ だけである。
+実際，$BC(v)=C(v)A$ を $v$ に適用すると $Av\in\C v$ となる。
+全ての $v$ が固有ベクトルだから $A=aI$，
+各 $C(v)$ の像が $W$ を張ることから $B=aI$ である。
+
+体積形式を用いてテンソル空間を $(V^*)^{\otimes3}$ と同定する。
+軌道接ベクトルの各項は三添字のいずれか二つについて交代的なので，
+完全対称化すると零になる。
+軌道の次元は17，完全対称化の核の次元も $27-10=17$ である。
+一方，$P\mapsto\operatorname{Hess}(P)(v)u$ は
+完全対称な三次テンソル全体を与える。
+従って軌道接空間とこの10次元空間は直和補空間である。
+
+共通スカラーの冗長性は，$\operatorname{SL}(U)\times\operatorname{GL}(W)$
+を使って除く。還元が恒等な任意の $g_U$ の行列式は
+$1+\mathfrak m_R$ 内に一意の三乗根を持つので，
+この規格化は形式的な基底変更を失わない。
+作用と式\eqref{eq:ku-gluing-hessian-slice}を合わせた27次元空間間の射は
+$(1,0)$ で微分が同型である。
+形式逆写像定理により完成環の同型となるので，
+存在と一意性が全Artin基底で従う。
+\end{proof}
+
+三次形式のHessian行列式を $\mathcal H(P)=\det\operatorname{Hess}(P)$ とし，
+\begin{equation}\label{eq:ku-gluing-psi}
+ \Psi(P)=P+\frac16\mathcal H(P),\qquad
+ L_p=\{Q\in\Sym^3V^*:Q(p_i)=0\ \text{for all }i\}
+\end{equation}
+と置く。
+
+\begin{lemma}[行列式条件の線型化]
+\label{lem:ku-gluing-determinant}
+任意の対称三次行列 $H$ について
+\[
+ \det(C(v)+H)=v^{\mathsf T}Hv+\det H.
+\]
+従って
+\begin{equation}\label{eq:ku-gluing-determinant-cubic}
+ \det\mu_P(v)=6P(v)+\mathcal H(P)(v)=6\Psi(P)(v).
+\end{equation}
+有限型スキーム
+\[
+ Z_p=\{P\in\Sym^3V^*:\Psi(P)(p_i)=0\ \text{for all }i\}
+\]
+は原点で滑らかな $d+1$ 次元であり，
+$\Psi$ は形式同型 $\widehat Z_{p,0}\simeq\widehat L_{p,0}$ を与える。
+\end{lemma}
+
+\begin{proof}
+$\det(C(v)+hH)$ は，転置と三次行列式の符号から $h$ の奇関数である。
+一次係数は $\operatorname{tr}(\operatorname{adj}(C(v))H)=v^{\mathsf T}Hv$，
+三次係数は $\det H$ なので最初の式を得る。
+Euler公式 $v^{\mathsf T}\operatorname{Hess}(P)(v)v=6P(v)$ から
+式\eqref{eq:ku-gluing-determinant-cubic}が従う。
+
+$\mathcal H$ は $P$ の係数について三次なので $d\Psi_0=1$ である。
+点配置の一般位置と $H^1(X,-K_X)=0$ により，
+三次形式を各 $p_i$ で評価する写像は全射である。
+その核は $H^0(X,-K_X)$ で次元 $10-r=d+1$ だから，
+Jacobian判定と形式逆写像定理が残りを与える。
+\end{proof}
+
+\subsection{標識付きAbel変形の全称性}
+
+特殊ファイバーを固定した本稿の $\OO$-marked Abel変形のうち，
+残余圏の通常Morita変形類が定数となるものの同値類関手を
+$\mathfrak F_X$ と書く。
+残余圏の恒等関手のスカラー自然自己同型は除去せず，
+関手の値は通常の同値類集合とする。
+
+\begin{theorem}[Ku固定ファイバーの有限行列正規形]
+\label{thm:ku-gluing-formal-universality}
+選んだblow-down，体積形式，古典基底に対し，自然な同型
+\[
+ \mathfrak F_X
+ \simeq \widehat Z_{p,0}
+ \xrightarrow[\ \Psi\ ]{\ \sim\ }\widehat L_{p,0}
+\]
+がある。
+左の同型は，持ち上げた強例外列の積を
+式\eqref{eq:ku-gluing-hessian-slice}に規格化して得られる。
+従って任意の $Q\in\mathfrak m_R\otimes L_p$ について，
+$P=\Psi^{-1}(Q)$ と式\eqref{eq:ku-gluing-tail}から構成した有限代数は，
+一意の標識付きKu固定Abel変形の導来圏を表示する。
+\end{theorem}
+
+\begin{proof}
+本稿のArtin幾何と補題\ref{lem:surface-ku-artin-tilting}と同じ
+例外対象の持上げを，全強例外列に適用する。
+各因子の自己Extの次数1・2は零なので，
+全因子は同型類として一意に持ち上がる。
+相対Homは古典点で次数0に集中し，有限自由である。
+相対変異とderived Nakayamaにより列は充満なままである。
+従って任意のAbel変形から，特殊ファイバーで既定の有限代数を得る。
+
+相対Serre関手により，右直交を固定する条件は左直交を固定する条件と同値である。
+左直交内の例外因子も一意に持ち上がるので，
+その定数表示を選べば $V$ と点 $p_i$ を固定できる。
+異なる選択の差は，$\HH^1(\operatorname{Ku}(X))=0$ と
+点配置に含まれる射影frameにより，恒等へ還元する内自己同型だけである。
+実際，例外因子の一意持上げにより自己同値はtilting和を保ち，通常代数の自己同型になる。
+各小拡大での差は導分であり，$\HH^1=0$ により内導分として順に消去できる。
+頂点冪等元を共役で揃えた後のスカラー変更は
+$U,W$ の基底変更とtailの基底変更へ吸収できる。
+従って前二補題により，自然な形式射
+\[
+ \Phi:\mathfrak F_X\longrightarrow\widehat Z_{p,0}
+\]
+が得られる。特殊ファイバーで恒等でない自己同値による商は取っていない。
+
+定理\ref{thm:surface-ku-formal}と
+式\eqref{eq:surface-ku-shadow-first-order}により，
+$\mathfrak F_X$ は次元 $d+1$ の滑らかな形式スキームである。
+$\widehat Z_{p,0}$ も前補題により同じ次元で滑らかである。
+$d\Phi$ が単射であることを確認すればよい。
+その核の一次変形では $\mu$ は基底変更で $\mu_0$ に戻り，
+tailも式\eqref{eq:ku-gluing-tail}によって定数に戻る。
+従って全tilting代数のHochschild二次類は零である。
+Abel変形の接空間とスキームのHochschild群の比較
+\cite[Theorems~3.1, 4.1.3, 6.1, Corollaries~7.7.2, 7.8.2]{LowenVdBHochschild}
+およびtilting Morita不変性を用いる。
+この比較はenhanced導来圏から持ち上げたtilting対象への
+Hochschild cocycleの制限と両立するので，ここで得た接写像そのものを同定する。
+従って元のAbel変形の二次類も零となる。
+これは一次変形の自明性を意味する。
+従って $d\Phi$ は同型で，形式逆写像定理により $\Phi$ も同型である。
+
+最後の存在主張はこの同型の逆から従う。
+任意の有限な非可換代数から反標準heartが存在すると仮定したのではない。
+実際のAbel変形の形式ファイバーと比較して，その全Artin商上で存在を得ている。
+\end{proof}
+
+\begin{corollary}[固定Ku族の任意次数の計算入力]
+\label{cor:ku-gluing-formal-ray}
+$Q\in L_p$ に対し
+\[
+ P(h)=\Psi^{-1}(hQ)
+   =hQ-\frac{h^3}{6}\mathcal H(Q)+O(h^5)
+\]
+と取ると，$\det\mu_{P(h)}(v)=6hQ(v)$ が全形式次数で成り立つ。
+特に $R=\C[h]/(h^3)$ 上のKu固定変形を表示する積は
+\[
+ \mu_h(v,u)=\bigl(C(v)+h\operatorname{Hess}(Q)(v)\bigr)u
+\]
+だけで計算できる。
+特殊ファイバー $h=0$ の行列式スキームは平面全体なので，
+固定した三次曲線という表現は，$h$ で割った式または $h\ne0$ の意味で用いる。
+\end{corollary}
+
+\begin{remark}[既知の模型と未計算の係数変換]
+\label{rem:ku-gluing-shadow-gap}
+三頂点とtailの表示は \cite[\S2.3]{AKO2006} の既知の模型であり，
+本節はそのArtin基底上の正規形と，本稿のAbel変形への全称性を示した。
+同論文pp.~13--14の反標準heartの議論には存在条件が付いているため，
+そこから無条件のAbel復元を引用していない。
+
+補助的なblow-downと基底の選択は形式座標に影響する。
+$Q$ はこのgluing正規形の座標であり，既存shadowのPoisson座標と
+高次まで同一とは主張しない。
+実際の $\delta_2$ を得るには，この明示的有限代数から
+\[
+ \bigoplus_{m\ge0}
+ \Hom(F_0,S^{-m}[2m]F_0)
+\]
+の積を必要次数まで復元し，規格化した中心超曲面の完全対称化を計算する必要がある。
+本節はその計算入力を全称的に確定したもので，その乗法計算の完了ではない。
+有限パラメータ全体でのAbel heartや，粗モジュライ上の大域的なファイバー表示も
+本節の結論には含めない。
+\end{remark}

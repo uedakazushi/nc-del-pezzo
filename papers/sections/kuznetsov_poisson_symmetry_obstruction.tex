@@ -1,0 +1,242 @@
+% !TeX root = ../nc-del-pezzo.tex
+\section{有限Poisson対称性による周期検出の限界}
+\label{sec:kuznetsov-poisson-symmetry-obstruction}
+
+巡回族の計算を拡張する一つの方法は，Poisson方向を保つ有限群を増やし，
+その固定曲線の周期を比較することである。
+本節では，Poisson零因子が滑らかな場合のこの方法の限界を記述する。
+次数1の補正項 $\mathcal R_1$ は，非自明な古典変形を与える場合でも，
+\emph{同じPoisson方向を保つ全ての幾何学的有限群の奇数同変周期}から見えない。
+内在的Bertini対合による周期はこの変形を検出するので，
+幾何学的なPoisson対称性と残余圏の内在的対称性を区別する必要がある。
+
+\subsection{固定曲線と反標準零因子}
+
+\begin{lemma}[有限Poisson自己同型の固定曲線]
+\label{lem:ku-poisson-fixed-curves}
+$X$ を連結な滑らかな複素曲面，$\pi$ を非零Poisson二ベクトルとする。
+非恒等な有限位数自己同型 $g$ が $g_*\pi=\pi$ を満たすなら，
+$X^g$ の全ての曲線成分は $Z(\pi)$ に含まれる。
+\end{lemma}
+\begin{proof}
+固定曲線の点 $x\notin Z(\pi)$ が存在すると仮定する。
+$g$ は $\pi^{-1}$ を保つので，$d g_x$ の行列式は1である。
+曲線の接方向の固有値は1であり，残る固有値も1となる。
+有限位数の線型変換は半単純なので $d g_x=1$ である。
+
+有限位数の形式自己同型が恒等な線型部分を持てば，自己同型自体が恒等である。
+実際，恒等写像との差の最初の非零斉次項が次数 $m\ge2$ なら，
+$N$ 回反復した写像の同じ項は元の項の $N$ 倍となり，標数零で有限位数性に反する。
+従って $g$ は $x$ の形式近傍で恒等であり，滑らかな局所環の完成への単射性から
+ある開近傍で恒等となる。連結な滑らかな $X$ は整なので $g=1$ であり，矛盾する。
+\end{proof}
+
+\begin{proposition}[滑らかな楕円零因子を持つ有限Poisson群]
+\label{prop:ku-finite-poisson-group}
+$X$ を滑らかな射影曲面とし，非零Poisson二ベクトル $\pi$ の零因子
+$E=Z(\pi)$ は滑らかかつ連結とする。
+$E^2=d>0$，$G\subset\operatorname{Aut}(X,\pi)$ を有限群と置く。
+$E$ は楕円曲線であり，$K=\ker(G\to\operatorname{Aut}(E))$ とすると，
+\[
+ 1\longrightarrow K\longrightarrow G\longrightarrow H\longrightarrow1,
+ \qquad H\subset E[d]
+\]
+という完全列がある。$K$ は巡回群で，$G$ の中心に含まれる。
+特に $d=1$ なら $G=K$ は巡回群であり，$E$ を点ごとに固定する。
+$d=2$ なら $G/K$ は $E[2]$ の部分群である。
+\end{proposition}
+\begin{proof}
+随伴公式より $K_E=(K_X+E)|_E\simeq\OO_E$ である。
+$\pi^{-1}$ は $E$ に単純極を持つ対数的2形式であり，その留数は
+零点を持たない1形式 $\omega_E$ となる。
+$G$ はこの留数を保つので，$E$ 上では平行移動として作用する。
+平行移動 $t_a$ が次数 $d$ の法線束 $N_{E/X}$ を保つ条件は
+$d a=0$ であるから，作用の像は $E[d]$ に含まれる。
+
+$K$ の各元は $E$ を点ごとに固定するので，法線束には単元倍で作用する。
+$E$ は射影かつ連結なので，その単元は定数であり，指標
+\[
+ \chi_N:K\longrightarrow\C^\times
+\]
+を得る。この指標の核の元は，$E$ の点で両接固有値が1となる。
+有限位数性と前補題の形式局所的議論から，その元は恒等である。
+従って $\chi_N$ は単射で，$K$ は巡回群である。
+任意の $a\in G$ による共役は，$E$ 上の点を平行移動して法線作用を移すだけなので，
+定数である $\chi_N$ を保つ。
+単射性から $a k a^{-1}=k$ となり，$K$ は中心に含まれる。
+\end{proof}
+
+\subsection{固定点公式の相対化と奇数周期}
+
+以下では有限群 $G$ 自体を固定し，基底上で同じ幾何学的作用を用いる。
+相対周期ホモロジーの2周期化変数の表示は省略する。
+
+\begin{lemma}[相対固定点比較]
+\label{lem:ku-relative-orbifold-period}
+$R=\C[[t]]$ とし，$\mathcal X\to\operatorname{Spf}R$ は，
+滑らかな複素代数曲線上の滑らかな射影族を一点で形式完成したものとする。
+有限群 $G$ の作用も同じ代数族上で定義され，基底には自明に作用するとする。
+固定点族を $\mathcal X^g$ と書く。このとき
+\begin{equation}\label{eq:ku-relative-orbifold-period}
+ HP_*(\Perf(\mathcal X)^G/R)
+ \simeq
+ \left(\bigoplus_{g\in G}
+ H^*_{\mathrm{dR}}(\mathcal X^g/R)\right)^G
+\end{equation}
+は，偶奇次数，Hodge filtration，基底方向の接続と両立する。
+右辺には通常のde Rhamコホモロジーの2周期化とそのHodge filtrationを用いる。
+ここで $G$ は固定点成分の添字に共役で作用する。
+この比較を滑らかな形式基底上で作ってからArtin商へ制限する。
+\end{lemma}
+\begin{proof}
+体上のmixed complexの固定点公式は
+\cite[Theorem~1, Proposition~4]{Baranovsky2002}，
+および\cite[Theorem~1.1, Corollary~1.5(ii), Example~1.11]{TabuadaVanDenBergh2018}
+による。前者の番号はarXiv v2のものである。
+後者の式(1.12)は，引戻しと指標のidempotentから作られる比較であることを明記している。
+ここでは体上の同型を単に各ファイバーで貼るのではなく，同じ比較写像を相対的に作る。
+
+各 $g$ について，$G$-同変perfect対象を $\langle g\rangle$-同変対象とみなし，
+$i_g:\mathcal X^g\hookrightarrow\mathcal X$ で導来引戻しを行う。
+固定点上では $g$ が底に自明に作用するので，対象を $g$ の固有値ごとに分解できる。
+この各dg関手が誘導する相対mixed complexの写像に，対応する固有値を掛けて足す。
+全 $g$ を集め，$G$ の平均化を用いると，体上の指標による固定点比較を相対化した
+写像を得る。部分群への制限，引戻し，固有部分への射影，平均化は全て係数変更と両立する。
+
+$|G|$ が可逆なので，各 $\mathcal X^g$ は $R$ 上滑らかである。
+相対perfect圏とその有限群同変化はsmooth properであり，
+比較写像のconeの基礎Hochschild複体は $R$-perfectである。
+特殊ファイバーでは引用した固定点公式によりconeが零になるため，
+導来Nakayamaにより相対mixed complexの比較も擬同型となる。
+そのnegative cyclicおよびperiodic cyclic実現から，Hodge filtrationを保つ比較を得る。
+
+使った写像は全て $R$-線型dg関手の誘導写像と定数係数の線型結合なので，
+\cite[Theorem~3.32, Corollary~4.13]{Sheridan2020}の自然性により
+Getzler接続とも両立する。
+幾何学的Gauss--Manin接続との同定には，代数族の解析化の小円板上で
+\cite[Theorem~0.1(3)]{Tu2024}を適用してから形式完成する。
+modified Todd類の平方根で補正したHochschild--Kostant--Rosenberg比較を用いる。
+この補正も基底変更と両立し，
+以下で用いる曲線の $H^1$ 上には非自明な補正を残さない。
+これで式\eqref{eq:ku-relative-orbifold-period}を得る。
+\end{proof}
+
+\begin{proposition}[反標準曲線を固定した有限Poisson群の奇数周期]
+\label{prop:ku-finite-poisson-period-constant}
+$\mathcal X/R$ は補題\ref{lem:ku-relative-orbifold-period}の代数族から得られ，
+そのファイバーがdel Pezzo曲面であるとする。
+固定した有限群 $G$ の作用は特殊ファイバーで忠実であり，
+相対Poisson二ベクトルを保つと仮定する。
+その零因子 $\mathcal E$ は滑らかな楕円曲線族であり，
+$G$-同変かつ標識付きで $E\times\operatorname{Spf}R$ と同一視されているとする。
+$K=\ker(G\to\operatorname{Aut}(E))$ と置けば，
+\begin{equation}\label{eq:ku-finite-poisson-constant-odd-period}
+ HP_{\mathrm{odd}}(\operatorname{Ku}(\mathcal X)^G/R)
+ \simeq
+ \bigl(H^1_{\mathrm{dR}}(E/\C)\otimes_\C R\bigr)^{\oplus(|K|-1)}
+\end{equation}
+は標識付きHodge filtrationとGauss--Manin接続を保つ同型である。
+従ってこの奇数同変周期は定数である。
+\end{proposition}
+\begin{proof}
+補題\ref{lem:ku-poisson-fixed-curves}より，非単位元の固定曲線は
+Poisson零因子に含まれる。
+零因子は滑らかな連結曲線なので，正次元固定成分は $\mathcal E$ だけであり，
+それが現れるのは $g\in K\setminus\{1\}$ の場合に限る。
+固定点族の相対smoothnessとproper性により，残る成分は有限\'etaleである。
+単位元の固定点族は $\mathcal X$ 自身で，del Pezzo曲面の有理性から
+奇数de Rhamコホモロジーは零である。
+
+前命題より $K$ は $G$ の中心に含まれ，$G$ は $E$ に平行移動で作用する。
+従って各 $g\in K\setminus\{1\}$ の共役類は一点であり，
+中心化群 $G$ は $H^1(E)$ に自明に作用する。
+補題\ref{lem:ku-relative-orbifold-period}の奇数部分は，従って
+式\eqref{eq:ku-finite-poisson-constant-odd-period}の右辺になる。
+構造対象の同変化 $\operatorname{Rep}(G)\otimes\Perf(R)$ は
+既約表現に対応する例外対象で生成され，奇数周期を持たない。
+これを半直交分解から除いても奇数部分は変わらないので，残余圏についても同じ式を得る。
+固定点族の楕円成分とその $G$-作用は標識付きで定数であり，
+上の比較は接続とfiltrationを保つから，周期そのものが定数となる。
+\end{proof}
+
+\subsection{次数1の補正項を検出できないこと}
+
+\begin{theorem}[全ての幾何学的有限Poisson群に見えない補正方向]
+\label{thm:ku-poisson-period-blindness}
+滑らかな次数1曲面を
+\[
+ X:\quad F=\frac{z^2}{2}+\frac{y^3}{3}+A(x,u)y+B(x,u)=0
+\]
+と書き，$D=d_x\partial_x+d_u\partial_u\ne0$，
+$\ell_D=d_xu-d_ux$，$\pi_D$ を対応するPoisson方向とする。
+$E=X\cap\{\ell_D=0\}$ は滑らかと仮定する。
+\[
+ R_D=4A D^2A-3(DA)^2
+     =\frac13\ell_D^2\det\operatorname{Hess}_{x,u}(A)
+\]
+と置く。任意の有限部分群 $G\subset\operatorname{Aut}(X,\pi_D)$ に対して，
+古典形式変形
+\begin{equation}\label{eq:ku-invisible-classical-family}
+ \mathcal X:\quad F+tR_D=0
+ \quad\text{over }R=\C[[t]]
+\end{equation}
+には同じ重み付き座標作用による $G$-作用があり，
+その奇数同変周期 $HP_{\mathrm{odd}}(\operatorname{Ku}(\mathcal X)^G/R)$ は定数である。
+一方，$[R_D]\ne0\in H^1(X,T_X)$ なら，
+内在的Bertini対合による標識付き周期の微分は非零である。
+\end{theorem}
+\begin{proof}
+反標準環の重み付き生成元を使い，$z$-線型項と $y^2$ 項を消した上の表示では，
+自己同型は
+\[
+ (x,u)\longmapsto M(x,u),\qquad y\longmapsto cy,
+ \qquad z\longmapsto\eta z,\qquad \eta^2=c^3
+\]
+という形になる。実際，$z$ の低次数平行移動は $z$-線型項を，
+$y$ の二次平行移動は $y^2$ 項を生むため，ともに零である。
+命題\ref{prop:ku-d1-full-hessian-covariant}と
+命題\ref{prop:ku-d1-polynomial-covariant-ambiguity}の変換則は，
+Jacobian商を取る前の多項式の恒等式である。
+従って $\pi_D$ を保つ自己同型について，$R_D$ は $F$ と同じ指標で変換する。
+これで同じ座標作用が式\eqref{eq:ku-invisible-classical-family}を保つ。
+特殊ファイバーのsmoothnessにより，形式族もsmoothである。
+
+対応する相対Poisson構造の零因子は $\ell_D=0$ である。
+$R_D$ は $\ell_D^2$ で割り切れるため，この零因子は
+方程式も $G$-作用も変えずに $E\times\operatorname{Spf}R$ となる。
+命題\ref{prop:ku-finite-poisson-period-constant}を適用すれば，
+全ての指定した $G$ に対する奇数同変周期が定数と分かる。
+一方，族の古典Kodaira--Spencer類は $[R_D]$ である。
+定理\ref{thm:surface-ku-formal}と定理\ref{thm:ku-intrinsic-formal-torelli}により，
+この類が非零なら内在的Bertini周期の微分も非零である。
+\end{proof}
+
+この現象は非零方向で実際に起こる。
+命題\ref{prop:ku-d1-polynomial-covariant-ambiguity}の滑らかな曲面
+\[
+ X_0:\quad z^2/2+y^3/3+(x^4+u^4)y+x^6+u^6=0,
+ \qquad D=\partial_x
+\]
+では $[R_D]=48[x^2u^4]\ne0$ である。
+$E=\{u=0\}$ のWeierstrass判別式は，非零定数を除いて
+$4A(1,0)^3+9B(1,0)^2=13$ なので $E$ は滑らかである。
+また $u\mapsto-u$ は非自明な有限Poisson自己同型である。
+従ってこの例では，非自明な有限対称性を含めて前定理が適用できる。
+
+\begin{remark}[内在的対合との区別と計算上の帰結]
+\label{rem:ku-poisson-symmetry-limit}
+本節は，$\mathcal R_1$ 方向の\emph{古典}変形が
+幾何学的な有限Poisson群の\emph{奇数filtered flat周期}に見えないことを示している。
+同変圏自体や高次近傍が定数であるという主張ではなく，
+実際の非可換二次差が $\mathcal H_1+s\mathcal R_1$ に一致するという主張でもない。
+多項式延長を仮定した分類で残る係数 $s$ を求めるには，
+この種の有限対称性の固定曲線の周期以外の情報が必要である。
+
+命題\ref{prop:surface-ku-parity}の通り，Bertini対合は
+曲面のPoisson方向に $-1$ で作用する。
+従って非零方向を保つ本節の $G$ には属さない。
+残余圏内の $S^3[-5]$ による内在的作用は
+第\ref{sec:kuznetsov-intrinsic-period}節で別に構成しており，
+上の非自明な変形を検出する。
+次数2のGeiser対合についても，幾何学的Poisson対称性との同じ区別が必要である。
+\end{remark}

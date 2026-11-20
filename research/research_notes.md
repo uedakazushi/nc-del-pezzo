@@ -1,6 +1,6 @@
 # 研究ノート：次数1・2のnc del Pezzo n-fold
 
-2026-11-21（JST） / v0.20。証明本文は主原稿、一次資料の位置は [文献と依存](literature.md)。この文書は現在有効な知識と障害を整理する。
+2026-11-21（JST） / v0.21。証明本文は主原稿、一次資料の位置は [文献と依存](literature.md)。この文書は現在有効な知識と障害を整理する。
 
 ## 1. 形式局所環と数値
 
@@ -386,42 +386,35 @@ Fは平方因子を持たず、全j分母・楕円判別式・中心式の分母
 
 計算資産は `verify_kuznetsov_quadratic_symmetry.py`、`verify_degree_one_period_quadratic.py`、`verify_degree_one_period_fibres.py`。いずれも標準ライブラリの整数・有理数演算で実行済み。これはカテゴリー的period定理や内在的部分群の証明とは別の検証である。binary quartic不変式の一次資料はFisher, *On binary quartics and the Cassels–Tate pairing*, Research in Number Theory8,74(2022)、[§2 equations(1)–(2)](https://link.springer.com/article/10.1007/s40993-022-00376-z)。二次のmarked比較自体には上の直接座標変換も用いる。
 
-**Kuを固定する有限gluing模型。** 以下は一般復元式を計算するための別の入口であり、今回の中央超曲面presentationとの同定はまだ行っていない。$r=9-d$、$X=\operatorname{Bl}_{p_1,\ldots,p_r}\mathbf P^2$ とし、上の残余tilting対象Gの代数Bを固定する。全体のtilting対象はG⊕Oであり、一頂点拡大の加群M=RHom(G,O)は各例外点で階数1、O(−2L),O(−L)で階数6,3を持つ。全代数の階数は4r+15、すなわち47・43である。V=Hom(G_a,G_b)、U=M_b、W=M_aを取ると、積のデータは
+**Kuを固定する有限gluing模型。** 以下は反標準乗法の計算に使える二つの有限代数模型である。全称的なArtin正規形は後述のAKO型で得たが、中央超曲面presentationへの係数変換は未計算。$r=9-d$、$X=\operatorname{Bl}_{p_1,\ldots,p_r}\mathbf P^2$ とし、上の残余tilting対象Gの代数Bを固定する。全体のtilting対象はG⊕Oであり、一頂点拡大の加群M=RHom(G,O)は各例外点で階数1、O(−2L),O(−L)で階数6,3を持つ。全代数の階数は4r+15、すなわち47・43である。V=Hom(G_a,G_b)、U=M_b、W=M_aを取ると、積のデータは
 \[
 q:U\otimes V\to W,\quad e_i:W\to L_i,\quad\lambda_i:U\to L_i,
 \qquad e_i(q(u,v))=\lambda_i(u)p_i(v)
 \]
 となる。可換点ではqは対称積、e_iとλ_iは点評価である。この有限な加群変形が、残余代数を固定したまま全体を変形するための計算模型を与える。
 
-Auroux–Katzarkov–Orlov, *Mirror symmetry for del Pezzo surfaces*, §2.1・§2.3（[著者本文](https://homepage.mi-ras.ru/~orlov/papers/hmsratl.pdf)）の三頂点模型では、μ:V⊗U→Wを変形し、固定p_iでμ_(p_i)の階数を2に保てばtailを付けられる。最初の頂点Oを除いた代数は固定点p_iだけに依存するため左直交が一定で、相対Serre関手により右直交Kuも一定となる。次の式はそのための有限型族を与える。
+**全Artin変形を与えるAKO正規形。** 主原稿 `thm:ku-gluing-formal-universality` は、別のtilting列 `(O,T_(P²)(−1),O(1),O_E₁,…,O_Er)` を用いて、Ku固定ファイバー全体を分類する。こちらの全代数の階数は5r+12（52・47）であり、直前の4r+15の模型と混同しない。固定p_iについて
 
-三次元の交代行列C(v)u=v×uと任意の対称行列Hについて
 \[
-\det(C(v)+hH)=h\,v^{\mathsf T}Hv+h^3\det H.
+\mu_P(v)=C(v)+\operatorname{Hess}(P)(v),\qquad
+\Psi(P)=P+\tfrac16\det\operatorname{Hess}(P),\qquad
+Z_p=\{\Psi(P)(p_i)=0\}.
 \]
-転置によりhの奇数冪しか現れず、一次項はvᵗHv、三次項はdet Hなので恒等式となる。三次形式PにH=Hess(P)(v)を入れ、Euler式vᵗHess(P)(v)v=6P(v)を使うと
-\[
-\det\mu_P(v)=6P(v)+\det\operatorname{Hess}(P)(v),\qquad
-\mu_P(v,u)=(C(v)+\operatorname{Hess}(P)(v))u.
-\]
-従って三次形式の空間上の多項式写像Ψ(P)=P+det Hess(P)/6は原点で微分が恒等、
-\[
-Z=\{P:\Psi(P)(p_i)=0\quad\text{for all }i\}
-\]
-は原点で滑らか、次元10−r=d+1である。評価写像の全射性はdel Pezzo一般位置から従う。原点で非零の2×2小行列式を反転すれば、各μ_(p_i)は厳密に階数2を保つ。これでKuが相対Morita同値類として一定の有限代数族を得る。
 
-F(p_i)=0の三次形式に対して
-\[
-P_h=\Psi^{-1}(hF)=hF-\frac{h^3}{6}\det\operatorname{Hess}(F)+O(h^5)
-\]
-とすればdet μ_(P_h)=6hFが全形式次数で成立する。determinantal schemeそのものはh=0で平面全体であるから、「point cubicが固定」と述べる場合はhで割った式F=0またはh≠0に限定する。二次jetのμはC+h Hess(F)でよい。各p=p_iについてnᵗp=1、a=n×Hp、b=n×Haとすれば
+Ku固定の標識付き通常Artin Abel変形は原点での完成 \(\widehat Z_p\) と同型になり、Ψでp_iを通る三次形式の形式空間へ移る。証明は、27次元tensorに対する17次元基底変更軌道と10次元Hessian補空間、定数tailのtrivialization、自然なAbel Hochschild比較から接写像を同型にする議論である。AKO §2.3の有限代数模型と、その反標準heartの条件付き議論は区別し、全Artin存在は実際のAbel変形空間から得る。完全な証明と先行研究比較は本文へ集約した。
+
+任意のQ(p_i)=0に対し、P_h=Ψ⁻¹(hQ)とすればdet μ_(P_h)=6hQが全形式次数で成立する。h=0の行列式スキームは平面全体なので、point cubicという表現にはhで割る操作が必要。mod h³ではμ=C+h Hess(Q)だけでよい。
+
+**tailを計算する二次jet。** 各p=p_iについてH=Hess(Q)(p)、nᵗp=1、a=n×Hp、b=n×Haとすれば
+
 \[
 \ker\mu_h(p)=R(p+ha+h^2b)\pmod{h^3},\qquad
 \ell^{\mathsf T}=p^{\mathsf T}-ha^{\mathsf T}+h^2b^{\mathsf T}
 \]
-が左右の核・余核座標となり、tailの積はℓᵗ(C(v)+h Hess(F)(v))uで計算できる。ここではpᵗHp=6F(p)=0からC(p)a=−Hp、C(p)b=−Haとなることを使う。
 
-**残る橋渡し。** この有限代数族から反標準環を再構成し、本稿の実際の中心商と同定して、完全対称化した中心方程式を取り出す必要がある。その計算を実行したとは扱わず、今回のHess/8・一般5/4分離の証明にも使用していない。
+が左右の核・余核座標となる。tailの積はℓᵗ(C(v)+h Hess(Q)(v))uで計算できる。pᵗHp=6Q(p)=0とpᵗHa=(Hp)ᵗ(n×Hp)=0からC(p)a=−Hp、C(p)b=−Haが従う。`verify_kuznetsov_gluing_normal_form.py` は普遍行列式、sliceの階数、三次Eulerに加え、有理一般配置で三次形式の基底と二つの和を用いたpolarizationにより、このjetを検算する。
+
+**残る橋渡し。** 有限代数から `⊕Hom(F₀,S^(−m)[2m]F₀)` の乗法を必要次数まで復元し、本稿の中心超曲面へ規格化して、完全対称化したshadowを取り出す。この計算は未実行である。gluingの三次座標Qは補助的blow-downに依存し、高次まで既存Poisson座標に一致するとは主張しない。有限パラメータ全体のheart存在・大域的な粗ファイバー表示も別問題。
 
 **未完了の内在的乗法計算。** 一般曲面の全方向公式を得るため、点配置代数の積μ_iを非可換中心商から二次まで復元する方法と、内在的Hochschild–Serre積を計算する方法が残る。後者にはLRZ Propositions 3.4–3.5の次の古典公式が目標となる。
 
@@ -465,9 +458,30 @@ Q₁=0なら `span(B₀₀,B₀₁,B₁₁)⊂{v(A):v(B)=0}` となる。B=0はA
 
 滑らかな係数部分の正則性から多項式延長は従わない。d2ではmiddle catalecticant行列式C(F)と判別式Δ(F)に対してh=C⁹/Δ²が尺度・GL₃不変、巡回型で零、滑らか部分で正則かつ非定数である。(1+λh)Q₂/8は全巡回計算を保つ異なる候補となる。Klein四次式ではQ₂の階数は6、Fermatでは3であるが、実際のδ₂の一般階数を決めたとは扱わない。
 
+**次数2の一般節点判定。** 普遍四次Jacobian加群Mは、9×15表示行列のrank-drop locusの余次元が6以上であることから反射的となる。従ってΔを四次判別式とすると、M[Δ⁻¹]の元の多項式延長はR_(Δ)の普遍格子に属することだけで判定できる（`thm:ku-degree-two-nodal-extension-criterion`）。他の高さ1点では既に正則で、より高い余次元の境界条件を追加する必要はない。
+
+次数3の相対不変式I₃を用いる `h₁=C⁴I₃/Δ` は、先のC⁹/Δ²をさらに単純極へ強める障害である。`(1+λh₁)Q₂/8` は巡回族の値を保つが、λ≠0なら一般判別式点で極が残る。証人は `F_N=x₀⁴+x₁⁴+x₀²x₁²+x₀²x₂²+x₁²x₂²` で、唯一の節点[0:0:1]においてC=−40960、I₃=7/6、Q(e₀∧e₁)=4、Jacobian小行列式1024。実際のδ₂が高々単純極を持つことさえ証明したのではなく、その仮定だけでも公式は強制されないという結果である。
+
+着手する横断族は `F_t=t x₂⁴+x₂²q₂+x₂q₃+q₄`。q₂,q₃,q₄の独立な12係数、t、二つの節点位置を合わせると一般節点でétaleな15パラメータとなる。非退化q₂の下でord_tΔ=1。本文 `eq:ku-generic-nodal-transverse-family` の格子に実際のδ₂が属することが残る条件。
+
 d1ではR₁はA=αℓ⁴で恒等的に零となる一方、一般には非零である。さらにℓ_D=d_xu−d_uxとすると、多項式として R₁=ℓ_D² det Hess_(x,u)(A)/3。このため中央一次divisorへの方程式の制限だけではsを検出できない。高い近傍や周期全体まで一致するという主張ではない。
 
-**候補の滑らかな零方向と次の検査点。** `eq:ku-d1-hessian-null-example` の有理係数A,BとD=∂xでは、V=x∂x−5u∂uに対し2B_xx=V(A)、−2AA_xx−A_x²=V(B)。従ってHessianはxF_x−5uF_u+2A_xxF_yとなり、H₁(D)=0である。法11の明示的Bézout証明書でu=1の判別式が平方因子を持たず、u=0ではF_u=−x⁵/20なので曲面は滑らか。同じ点でR₁(D)≠0はV→V(A)の小行列式−378から分かる。実際のδ₂(D,D)の値は未計算であり、H₁の反例を実際の二次差の消滅や一般Hessian式の否定と読み替えない。全式・証明・証明書を主原稿と新計算2本へ収録しているので、ノートには巨大な係数式を重複しない。
+**次数1候補の一般階数と零方向。** 全sに共通の滑らかな証人は `A=0, B=x⁶+x³u³+u⁶` であり、R₁=0、三つの二階微分がJacobian商で独立（小行列式8100）。従ってT_s=H₁+sR₁の一般階数は全sで3となる。実際のδ₂については多項式延長を仮定したときだけ、一般階数3および同時固定交わり `C[p₀,p₁]/(p₀,p₁)²`、長さ3を得る。
+
+具体的な零方向族はt=8s+7として
+
+\[
+A_t=x^3u-3tu^4,\qquad
+B_t=x^6/60-tx^3u^3+6t(15-2t)u^6.
+\]
+
+V=x∂uのJacobian syzygyによりT_s(∂x)=0であり、曲面が滑らかな条件は厳密に `t∉{0,8,25/3,27/4}`。この範囲ではR₁(∂x)≠0でもある。s=0には短い例 `A=x³u−21u⁴, B=x⁶/60−7x³u³+42u⁶` を用いる。既存の長い有理係数例（`eq:ku-d1-hessian-null-example`）はV=x∂x−5u∂uを用いる別の普遍族のt=7に一致し、その族のt=8,25/3,27/4は法11Bézout証明書で滑らかと判定できる。従って全s≠−7/8に滑らかな零方向が存在する。全式・平滑性証明・証明書は `kuznetsov_degree_one_candidate_geometry.tex` にあり、ノートに巨大な係数式を重複しない。
+
+s=−7/8では両構成族が特異になるが、これを普遍的な全方向非消滅の証拠とはしない。既存の実際のδ₂の全方向非消滅は稠密開上の結果であり、全古典曲面で成立すると仮定してsを決定してはならない。
+
+**有限の幾何学的Poisson対称性の検出限界。** 主原稿 `thm:ku-poisson-period-blindness` により、E=Z(π_D)が滑らかなとき、古典変形F+tR_Dは任意の有限G⊂Aut(X,π_D)の同じ作用を保ち、全ての奇数同変filtered flat周期が定数となる。有限Poisson群は中心巡回群KとE[d]の部分群の拡大であり、奇数周期はH¹(E)の|K|−1コピーだけである。R_Dはℓ_D²で割り切れるのでEは方程式・作用・標識を含めて固定される。内在的Bertini周期は[R_D]≠0なら非零の微分を持つため、これは残余圏の不変性ではなく、指定した周期による不検出である。証人 `A=x⁴+u⁴,B=x⁶+u⁶,D=∂x` ではEの判別式13、[R_D]=48[x²u⁴]≠0で、非自明なu↦−uもPoisson対称性となる。
+
+従って、有限Poisson群を増やして固定楕円曲線を調べる方法だけでは補正係数sは決まらない。BertiniはPoisson方向の符号を変えるので、量子化の非零方向上に同じ底線型の幾何学的作用を持つわけではない。未完成の別案として、h↦−hを伴う半線型対合と残余圏の内在的対合を比較し、q=h²へ降下する方法がある。ただし分岐点h=0での降下とHodge filtrationの積分格子を扱う必要があり、通常の有限群平均化だけではこの比較は済まない。現段階では着想として保持し、定理の入力にはしない。
 
 **三様体への注意と未完了の候補。** n=3の二対象blockについて、Kuznetsov Theorem 8.9はd1でHH²=35・HH⁴=7、d2でHH²=20・HH⁴=1を与える。古典変形34・19次元との違いだけからPoisson制限の非零性を結論しない。d2のbivector接空間は6次元でJacobi錐の次元5とは異なる。
 

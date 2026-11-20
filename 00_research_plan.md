@@ -1,6 +1,6 @@
 # 研究方針：次数1・2の非可換del Pezzo n-fold
 
-**2026-11-21（JST） / v0.20。再開時に最初に読む。**
+**2026-11-21（JST） / v0.21。再開時に最初に読む。**
 
 正本は [uedakazushi/nc-del-pezzo](https://github.com/uedakazushi/nc-del-pezzo) のmain。研究全体の入口は [research-hub](https://github.com/uedakazushi/research-hub)。続いて [研究ノート](research/research_notes.md)、[主原稿](papers/nc-del-pezzo.tex)、[再現手順](docs/reproduction.md) を読む。
 
@@ -45,7 +45,11 @@ Uの全幾何学的点で全Abel Artin変形を同じ族が実現する。Abel H
 
 保存性と一般ファイバーの比較は上記の範囲で解決した。さらに、全方向で二次差が非零となる古典開集合では、Kuとshadowを同時に固定する標識付き形式変形の交わりは二次イデアルだけで完全に決まる。Fermat点の局所環は二変数・三変数の各二乗を零とする環で、長さは4・8。二次差の階数による全ての可能なHilbert関数も決定した。全滑らかな古典点で、Serre関手から認識する対合の同変周期は通常Morita変形を検出し、次数2で6次元形式円板の同型、次数1で8次元から10次元への閉埋込みを与える。
 
-現在の核心は、その内在的周期を一般NC表示から二次まで計算することと、普遍Jacobian加群への多項式延長である。次数2は延長を仮定すればHessian/8が一意に強制されるが、catalecticantと判別式による補正が、滑らか部分の自然性と巡回族の値だけでは決まらないことを示す。次数1は多項式延長を仮定しても `H₁+sR₁` の一つの定数が残り、既存の巡回族はこの定数を検出しない。H₁の値が零になる滑らかな曲面・非零方向も構成した。従って、特殊族の補間よりも巡回族外の内在的周期計算を優先する。一般Hessian等式・候補の零方向での実際のδ₂・一般階数は未解決であり、既存の非保存性・一般全枝分離は維持する。境界・全成分・高次復元の課題も保持し、包括的な優先権は未確認とする。
+現在の核心は、明示的なKu固定有限代数から反標準環の積とshadowを二次まで取り出すこと、および次数2の一般節点DVRで極を消すことである。固定blow-down点に対するAKO三頂点模型を全通常Artin変形の形式正規形へ強め、μ=C+Hess(P)、Ψ(P)=P+det Hess(P)/6、Ψ(P)(p_i)=0を得た。これによりKu固定変形の計算入力自体は全称的に確定したが、既存中心超曲面への係数変換は未計算である。
+
+次数2の普遍Jacobian加群は反射的であるため、多項式延長は一般の一節点四次曲線に沿う正則性だけで判定できる。滑らか部分での自然性と巡回族の値は、単純極を許す補正でも保たれるので、実際の極消滅が必要である。次数1の候補H₁+sR₁は全sで一般階数3となり、延長を仮定すれば実際の同時固定交わりの一般長さ3を得る。s≠−7/8の各候補には滑らかな零方向があり、s=0については短い有理係数例を得た。実際の係数s、延長、s=−7/8の全方向非消滅は未解決である。
+
+方針上の障害として、滑らかなPoisson零因子を固定する古典変形F+tR₁(D)は、全ての有限の幾何学的Poisson群の奇数filtered flat周期に見えないことを証明した。非零変形類は内在的Bertini周期なら検出できる。従って有限Poisson群を増やす周期計算から、内在的周期・反標準環・HS積を直接計算する方向へ重点を置く。元の保存性と一般全枝分離は解決済みであり、一般二次差・高次復元と境界・全成分の課題を保持する。包括的な優先権は未確認である。
 
 ## C. 主要到達点と確実性
 
@@ -64,6 +68,11 @@ Uの全幾何学的点で全Abel Artin変形を同じ族が実現する。Abel H
 | d2は多項式延長の下で全二次差がHessian/8に限る | 普遍Jacobian加群への延長は追加仮定。Schur分解による一意性を証明。catalecticant/判別式の補正が滑らか部分の自然性だけの不足を示す | `prop:ku-degree-two-polynomial-rigidity`, `cor:ku-degree-two-hessian-conditional`, `prop:ku-catalecticant-ambiguity` |
 | d1は多項式延長の下でもH₁+sR₁の定数が残る | 三次元の共変式空間と巡回較正を証明。R₁は巡回族で消え、一般には非零。延長とsの値は未証明 | `prop:ku-d1-polynomial-classification` |
 | d1のHessian候補に滑らかな零方向の例、d2の候補は一般階数6 | 候補だけの証明済み結果。d1はJacobian syzygyと法11Bézoutによる滑らかさ、d2はKlein四次式での厳密階数。実際のδ₂の値・一般階数は未確定 | `prop:ku-d1-hessian-null-direction`, `prop:ku-hessian-klein-rank` |
+| d2の多項式延長は一般節点での正則性と同値 | 普遍Jacobian加群のrank-drop余次元≥6と反射性を証明。実際のδ₂の極消滅は未証明。単純極の曖昧さも明示 | `thm:ku-degree-two-nodal-extension-criterion`、`prop:ku-simple-pole-ambiguity` |
+| d1候補H₁+sR₁は全sで一般階数3 | 係数に共通のA=0の証人で証明。多項式延長の下で実際の同時固定交わりの一般長さ3 | `prop:ku-d1-candidate-generic-rank`、`cor:ku-d1-conditional-generic-intersection` |
+| d1候補にはs≠−7/8の全てで滑らかな零方向がある | 普遍syzygy、短い族の完全な平滑性判定、例外3点の法11証明書。s=−7/8は未決定 | `thm:ku-d1-candidate-smooth-null` |
+| 有限の幾何学的Poisson群の奇数周期はR₁方向を検出しない | Poisson零因子が滑らか。代数曲線上の滑らかな射影族の形式完成について相対固定点比較を証明。内在的Bertini周期とは区別 | `prop:ku-finite-poisson-group`、`thm:ku-poisson-period-blindness` |
+| Ku固定の全通常Artin Abel変形は3×3行列の形式正規形を持つ | blow-down・体積形式・特殊ファイバー標識を選ぶ。AKO模型、tensor slice、自然なHH²比較による形式同型。反標準環の積は未計算 | `thm:ku-gluing-formal-universality` |
 | 既存shadowはKuznetsov成分を一般には保存しない | 非零二次差から粗射の不一致、等化子の閉性と古典Torelliを使用 | `cor:ku-shadow-nonpreservation` |
 | 一般Poissonファイバーの5・4個の残余圏は全て相互に非同値 | 楕円固定曲線の内在性・j非降下の厳密証明書・全非対角積の整性とS₅・S₄の二重推移性 | `thm:ku-generic-poisson-fibres-separated` |
 | framed全Abel Artin形式環は、d1で滑らかな形式円板、d2で通常の形式円板×Plücker錐の完備化 | 証明を記述し、一次比較定理の適用条件を点検。通常の局所Artin環全体 | `thm:abel-formal-ring` |
@@ -154,7 +163,9 @@ Uの全幾何学的点で全Abel Artin変形を同じ族が実現する。Abel H
 
 両次数の一般次数5・4と一般モノドロミーS₅・S₄は、全lower、規格化中心torsor、全同値商を経た結果である。有限族のCasimir係数に余分な分枝があっても全同値群oidで同一視される。次数1のy正規化と全座標商の比較も完了し、係数次数だけからの推測ではない。自由語中心証明書、逆式、S₃同変性、Sylvester判別式と有限体Bézout証明書を再現資産として保持する。
 
-0. **優先：巡回族外での二次差の一回の計算と境界制御。** 次数1の `eq:ku-d1-hessian-null-example` の曲面とD=∂xでは `H₁(D)=0`、`R₁(D)≠0` である。ここで内在的対合 `S³[−5]` による相対HPの二次Hodge変化を計算すれば、多項式延長の下で残る定数sを決めるための一つの検査となる。次数2は `cor:ku-degree-two-hessian-conditional` の延長仮定を境界で証明するか、`S²[−3]` による同変周期または低次数HS積を直接計算する。一般の反標準楕円切断の周期はKu単独の不変量ではないので、その置換は使わない。固定点配置のKu一定gluing模型から反標準環を復元する経路も保持する。HS積では次数2の3次関係、次数1の重み4・5の関係を計算し、PBW対称化の乗法互換性を仮定しない。実際のδ₂の一般階数・特殊locusと高次復元式全体も残る。
+0. **優先：Ku固定正規形の反標準環と一般節点での極消滅。** `thm:ku-gluing-formal-universality` の有限代数について、Q(p_i)=0の三次形式を選び、mod h³の積 `μ=C+h Hess(Q)` と明示的tailから `⊕Hom(F₀,S^(−m)[2m]F₀)` の低次数乗法を計算する。これを本稿の中心超曲面へ規格化し、完全対称化したshadowを取り出す。gluing座標Qを高次までPoisson shadowの座標と同一視しない。次数1の最小の検査例は `A=x³u−21u⁴, B=x⁶/60−7x³u³+42u⁶, D=∂x`（`cor:ku-d1-short-hessian-null`）で、H₁(D)=0、R₁(D)≠0。内在的Bertini周期またはHS積の二次計算も並行する。有限の幾何学的Poisson群の奇数周期はR₁方向を検出できないので、この方法だけによるsの決定は目標にしない。
+
+   次数2では `thm:ku-degree-two-nodal-extension-criterion` の一般節点DVRに絞り、`F_t=t x₂⁴+x₂²q₂+x₂q₃+q₄` と節点位置の二変数による横断chart上で実際のδ₂が極を持たないことを示す。単純極の上界だけでは不足する。次数1の多項式延長も別に必要であり、一般階数3・一般交わり長さ3はその仮定付き帰結として扱う。s=−7/8の特殊性は未解決で、全候補に対する非消滅の結論を先取りしない。HS積では次数2の3次関係、次数1の重み4・5の関係が目標で、PBW対称化の乗法互換性は仮定しない。
 
 1. **具体的な開像と境界全体。** 有限正規化Zと最大有限locus N\ν(B)、次数1の全零切断上の欠落四枚、次数2の各零点上の欠落分岐点は得た。次は正規化上で中心分母・smooth proper開・Casimir Jacobianの消滅条件を比較し、選んだ構成近傍M^ncの像とB全体を同定する。次数1の明示的monic五次式と正則I,J,αを具体的な着手点とする。境界自身の形式完備化を四つの形式近傍と同一視せず、係数判別式だけで全境界を決めない。
 2. **次数2の零切断上の局所模型。** 接線因子Hに沿う符号分岐は証明済みだが、高余次元の零切断上の分岐指数、全ファイバーの長さ、欠落点の個数、正規化の平坦性は未決定である。最高活性逆写像の1+3型を出発点に、全lower係数の復元行列と全座標商を含む整閉包・付値を計算する。最高活性部分の模型を全モジュライの局所模型とするには追加の証明が必要である。
@@ -169,6 +180,9 @@ Uの全幾何学的点で全Abel Artin変形を同じ族が実現する。Abel H
 - O-marked枠組み：`nc-cubic-threefold-moduli` main `6c35d2c84671c2538e61836a6bf3a511392eacce`、主原稿v22。三次三様体固有の次数一生成・指数2・残余圏の結論を無条件に輸入しない。
 - 曲面の残余圏：Kuznetsov 0904.4330 Theorem 8.5、Orlovのblow-up公式、Toën–Vaquié Theorem 3.6 / Corollaries 3.15・3.17・3.21–3.24、Perry Lemma 4.15(4)。古典Torelliは Lin–Rampazzo–Zhang 2609.10344v1 Theorem 1.2、内在的対合と分岐曲線の同変周期は同論文Proposition 4.1・Theorem 4.2、周期微分はLandesman 1911.02187v1 Theorem 4.3。主証明は `kuznetsov_surface.tex`、`kuznetsov_relative.tex`、`kuznetsov_shadow_obstruction.tex`、`kuznetsov_cyclic_fibres.tex`、`kuznetsov_intrinsic_period.tex`。相対同変周期にはKeller、Elagin、Sheridan、Tuを用いる。これらの曲面結果を高次元へ自動的に移さない。
 - 普遍Jacobian加群とHessian候補：`kuznetsov_hessian_rigidity.tex` と `kuznetsov_hessian_counterexample.tex`。Dimca–Sticlaru (2015) の式(1.2)・Remark 3.3(iii) はHessian minorsとJacobian商の既知の枠組み、Gurevich–Howe 2105.11520 Proposition 3.2.1 は複素GLのPieri則に用いる。これらを実際のカテゴリー的二次差の一般Hessian公式の出典とはしない。
+- 有限Poisson群の周期限界：`kuznetsov_poisson_symmetry_obstruction.tex`。Baranovsky math/0206256v2 Theorem 1・Proposition 4、Tabuada–Van den Bergh (2018) Theorem 1.1・Corollary 1.5(ii)・Example 1.11を用い、相対traceと導来Nakayamaで相対化する。接続にはSheridan・Tuを使い、代数曲線上の族の形式完成に限定する。
+- Ku固定の全Artin正規形：`kuznetsov_gluing_normal_form.tex`。AKO (2006) Theorem 2.5・§§2.1,2.3の既知模型とLowen–Van den Berghの自然なHH²比較が入力。AKOの反標準heartの存在を無条件には引用しない。
+- 一般節点判定：`kuznetsov_nodal_extension.tex`。Poonen–Stoll arXiv:2510.14434v1 §2・Propositions 5.1–5.2・Theorem 1.1、Stacks 0AVB。d1候補の族・一般階数は`kuznetsov_degree_one_candidate_geometry.tex`。
 - 一次資料・具体的な適用条件・優先権未確認点は [文献と依存](research/literature.md)。証明の重複は研究ノートへ置かない。
 - 有限正規化と零切断上の分枝の主証明は `papers/sections/finite_normalization_boundary.tex`。有限性・開埋込み・DVR特殊化はStacksの03GR・02LR・054F、形式分裂は0ALJ・09ZLの一次本文で仮定を確認した。次数1の正則不変量には上記PoissonDP固定commitの全群作用とaffine粗商を用いる。
 - `make verify` はn=2,…,8のHilbert/monic基底・Euler差分・二次障害・符号粗商の接空間次元と、分離型の全係数PBW overlap・中心交換子・内部次数・補助次数を検査する。さらに三次Sklyanin中心元の自由代数内の九項証明書、パラメータ置換と可換極限を厳密計算する。分離型とSklyanin中心の検算はhの有限jetではない。`verify_elliptic_curve.py` はpoint curveの行列式、blowup、分母を払ったshiftの恒等式を厳密検算し、σ⁴の非自明性だけは明示したmod h²計算で確認する。`verify_degree_one_top.py` はWeierstrassからStephensonへの変数変換、関係式のイデアル、AS開多項式、cyclic syzygyを有理係数の自由代数で厳密に検算する。`verify_degree_one_curve.py` は解消曲線の両chart・無限遠因子・shiftと関係式を全係数の恒等式で検算し、σ⁶の非自明性だけmod h²を使う。一般の証明を有限次元の数値例で代替していない。
@@ -177,4 +191,5 @@ Uの全幾何学的点で全Abel Artin変形を同じ族が実現する。Abel H
 - `verify_degree_two_gorenstein_curve.py` と `verify_degree_one_integral_curve.py` は全独立係数のpoint行列・blowup・分母を払ったshiftと関係式を厳密検算する。d2の非被約ribbon、d1の尖点を除外しない。σ⁴・σ⁶の非自明性だけは明示したmod h²の検査である。強・積Noether性、相対CY・tails・smoothnessは論文の証明により、これらの計算だけから推論しない。
 - 両shadow計算は中心の自由語証明書と逆有理式に加え、Sylvester判別式・有限体Bézout証明書を厳密検算する。次数1はdepressionとh尺度変更、次数2はnormalizer商S₃、全係数同変性、Lie行列式と符号二次体の反不変式も確認する。全モジュライの次数5・4とモノドロミーには、論文の中心torsor・共通開・全同値群oid・単純分岐の証明を別に用いる。
 - 曲面の周期・対称性の4本は `verify_kuznetsov_quadratic_symmetry.py`、`verify_degree_one_period_quadratic.py`、`verify_degree_one_period_fibres.py`、`verify_degree_two_period.py`。有限群指標、二次jetとmarked座標変換、五次・四次ファイバー上のj非降下を標準ライブラリの有理数演算で検算する。候補の新しい2本 `verify_degree_two_hessian_rigidity.py`、`verify_degree_one_hessian_counterexample.py` はKlein階数6、catalecticant、d1の厳密syzygy・平方因子不存在・共変式分類を検算する。本文の同変周期・内在的固定曲線・Torelliの証明や実際のδ₂の一般式を計算で代替しない。
+- 新しい有限証明書は `verify_degree_two_nodal_extension.py`、`verify_degree_one_candidate_geometry.py`、`verify_kuznetsov_gluing_normal_form.py`。一般の圏論的主張や実際のδ₂の延長・係数決定を機械的に証明するものではない。
 - 組版・PDF確認の実施状況と環境は [再現手順](docs/reproduction.md)。生成・証明点検・計算・組版・GitHub反映・hub更新はそれぞれ確認する。

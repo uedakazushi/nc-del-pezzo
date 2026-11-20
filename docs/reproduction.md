@@ -1,6 +1,6 @@
 # 再現手順と検証範囲
 
-2026-11-21（JST） / v0.20
+2026-11-21（JST） / v0.21
 
 ## 組版
 
@@ -34,6 +34,9 @@ python3 computations/verify_degree_one_period_fibres.py
 python3 computations/verify_degree_two_period.py
 python3 computations/verify_degree_two_hessian_rigidity.py
 python3 computations/verify_degree_one_hessian_counterexample.py
+python3 computations/verify_degree_two_nodal_extension.py
+python3 computations/verify_degree_one_candidate_geometry.py
+python3 computations/verify_kuznetsov_gluing_normal_form.py
 python3 computations/verify_formal_geometry.py
 python3 computations/verify_finite_families.py
 python3 computations/verify_cubic_top.py
@@ -80,9 +83,17 @@ Python 3の標準ライブラリのみを使用する。`n=2,...,8` と両次数
 
 ## 検証の状態
 
-現行v0.20では、標識付き同時固定交わりの二次有限決定性・階数別Hilbert関数、内在的対合による全古典点の形式的局所Torelli、普遍Jacobian加群への多項式延長を仮定したd2の一意性とd1の三次元候補・較正直線を本文へ記述し、内部で独立に論理点検した。内在的周期はLRZ Proposition4.1・Theorem4.2、Landesman Theorem4.3、相対HP/GM比較へ照合した。d2のcatalecticant補正とKlein階数、d1の滑らかな零方向例・非零補正項は候補の結果であり、実際のδ₂の一般式とは区別する。形式証明器・外部査読・包括的新規性確認は実施していない。
+現行v0.21では、Ku固定の全通常Artin Abel変形の有限行列正規形、有限Poisson群の構造と補正方向の奇数周期による不検出、d2の普遍Jacobian加群の反射性・一般節点での延長判定・単純極の曖昧さ、d1の全候補の一般階数3・s≠−7/8の滑らかな零方向を本文へ記述し、内部で独立に論理点検した。一般節点判定は実際の極消滅の証明ではなく、d1の実際の一般階数3・一般交わり長さ3は多項式延長の仮定付きである。AKOの既知模型と条件付きheart、Lowen–Van den Berghの自然HH比較、Baranovsky・Tabuada–Van den Berghの固定点公式、Sheridan・Tuの接続比較、Poonen–Stoll arXiv v1とStacks 0AVBの適用条件を確認した。形式証明器・外部査読・包括的新規性確認は実施していない。
 
-新計算2本 `verify_degree_two_hessian_rigidity.py` と `verify_degree_one_hessian_counterexample.py` を標準ライブラリのみで実行し成功した。前者はKleinのJacobian関係・階数6、Fermat階数3、catalecticantの巡回消滅と行列式819200、曖昧さの非零類を検算する。後者は有理係数の厳密Jacobian syzygy、判別式、法11のBézout証明書、小行列式−378、共変式のHessian恒等式と表現重複度・較正を検算する。別のSymPy 1.14.0による厳密計算で、d1のJacobian syzygy、判別式のQ上のgcd、R₁とbinary Hessianの恒等式、固定Fermat曲面上の別の反標準切断のj=46656/25も再導出した。再現資産はPython 3の標準ライブラリだけで動き、SymPyは追加の独立点検にのみ使用した。これは非可換乗法・実際の周期変化を計算したという主張ではない。
+新しい有限証明書3本はPython 3標準ライブラリのみで実行する。
+
+- `verify_degree_two_nodal_extension.py`：節点証人のJacobian小行列式1024、Hessian評価4、C(F_N+t x₂⁴)=40960(21t−1)、I₃=(39t+7)/6、零weightの有限候補と冪零Jordan型の核を厳密検算する。
+- `verify_degree_one_candidate_geometry.py`：二つの族の普遍syzygy、短い族の剰余とresultant、三つの例外値に対する法11Bézout、既存の長い例との一致、一般階数3の小行列式8100を厳密検算する。
+- `verify_kuznetsov_gluing_normal_form.py`：9変数の普遍行列式、三次Eulerの10基底、27×18 gauge微分の階数17、Hessian補空間を加えた階数27、規格化Jacobianの行列式−181398528、一般7・8点配置の評価階数、tail左右核のh² jetを検算する。
+
+これら3本の担当者による実行は全て成功した。d1のsyzygy・平滑性例外・補完3点の判別式とBézoutについては別のSymPyによる独立点検も成功した。最終統合後の再実行と組版は、この保存時点では確認中である。実際の反標準乗法・NC周期・δ₂の一般値を計算したという主張ではない。既存helpersをimportするため関連コードを同じcomputations/に保つ。
+
+既存の候補計算2本 `verify_degree_two_hessian_rigidity.py`、`verify_degree_one_hessian_counterexample.py` は新コードからimportされ、その証明書も再実行された。Klein階数6、Fermat階数3、catalecticant、d1の長い有理例・共変式分類の検証を保持する。再現資産自体にSymPy依存はない。
 
 既存の同変古典復元・中央巡回分解・相対周期・Fermat全tensor・一般全枝分離の証明点検と計算成功の状態は維持する。今回、上流の全構成を再検証したとは扱わない。
 
@@ -90,7 +101,7 @@ Python 3の標準ライブラリのみを使用する。`n=2,...,8` と両次数
 
 これらは多項式・有理式と有限群表現の厳密検算であり、Morita同値・周期比較・古典Torelliを機械的に証明するものではない。五次・四次の特殊化証明書は関数体上の非降下を証明するためのもので、その特定の有限hで全対象がsmooth proper開に入るとは主張しない。一般ファイバーの全残余圏の分離には、内在的な楕円固定曲線と非対角積の整性を用いた本文の証明を別に使う。
 
-現行v0.20は `latexmk -g -norc -r .latexmkrc papers/nc-del-pezzo.tex` により276頁へ組版できた。使用環境はLuaHBTeX 1.18.0、LaTeX2e 2024-11-01、latexmk 4.86、luatexja 20250208.0とHaranoAjiである。PDFとSyncTeXは既定のbuild/に生成された。47個のTeXソース・552ラベルを静的検査し、重複ラベル・参照切れ・未定義の文献キーはなかった。最終ログにも未解決参照・引用、Overfull/Underfull box、欠落文字はない。BibTeXは56件を処理し警告なし。PDFの1・2・14・218–220・227–239・273–276頁の計23頁を画像化して実見し、今回の主要定理・証明・数式・表・反例・新文献の表示を確認した。全276頁を目視したという主張ではない。TeXのformat・font map・和文依存を整備した環境で再生成でき、repo内に追加のバイナリ依存は収録していない。VS Code UIの操作・SyncTeXクリックは未実行である。
+現行ソースの全体組版・静的参照検査・新節のPDF表示確認は統合後に実施して結果へ置き換える。組版環境はLuaHBTeX 1.18.0、LaTeX2e 2024-11-01、latexmk 4.86、luatexja 20250208.0とHaranoAji。PDFとSyncTeXはbuild/へ生成する。TeXのformat・font map・和文依存を整備した環境を用い、repo内にバイナリ依存を収録しない。VS Code UIの操作・SyncTeXクリックは未実行である。
 
 既存の証明点検の対象は `finite_normalization_boundary.tex` であり、一般有限正規化・最大有限locus・粗零切断の逆像、次数1の正則不変量とmonic五次模型・零切断上の五枚・形式分裂、次数2のtrace不変量・接線素因子・符号二次体からの欠落分岐点を内部で独立に点検した。接線因子から古典係数空間への優勢性と、余接加群の支持の有限像によって全零切断へ結論を延ばす段階も確認した。正規化と粗射の基底変更を無条件に交換できない反例を含める。最高活性二係数商の形式模型1+3は研究ノートで証明し、全モジュライへの移送は未証明と区別した。Stacksの正規化・Zariski主定理・DVR特殊化・Hensel持上げの一次本文と、固定PoissonDPの全商表示・一般自己同型群を照合した。
 

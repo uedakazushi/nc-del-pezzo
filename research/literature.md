@@ -1,6 +1,6 @@
 # 文献・依存関係・新規性の範囲
 
-2026-11-21（JST） / v0.20。完全な書誌は [references.bib](../references.bib)。以下は使用する一次資料の具体的な箇所、現行論文での適用とその限界を示す。外部論文のPDFは収録しない。
+2026-11-21（JST） / v0.21。完全な書誌は [references.bib](../references.bib)。以下は使用する一次資料の具体的な箇所、現行論文での適用とその限界を示す。外部論文のPDFは収録しない。
 
 ## 1. 他研究からの数学的入力
 
@@ -59,12 +59,13 @@ Plücker座標環の正規性・Cohen–Macaulay性にはSvanes (1973) とDe Con
 
 ### Kuznetsov成分：曲面の変形、局所幾何化、古典Torelli
 
-2026-11-20〜21に以下の一次本文と適用条件を確認した。主証明はkuznetsov_surface.tex、kuznetsov_relative.tex、kuznetsov_shadow_obstruction.tex、kuznetsov_cyclic_fibres.tex、kuznetsov_intrinsic_period.tex。候補の条件付き分類と障害はkuznetsov_hessian_rigidity.tex、kuznetsov_hessian_counterexample.tex。
+2026-11-20〜21に以下の一次本文と適用条件を確認した。主証明はkuznetsov_surface.tex、kuznetsov_relative.tex、kuznetsov_shadow_obstruction.tex、kuznetsov_cyclic_fibres.tex、kuznetsov_intrinsic_period.tex。Ku固定の全Artin正規形はkuznetsov_gluing_normal_form.tex、一般一節点での延長判定はkuznetsov_nodal_extension.tex、有限Poisson群の周期による検出限界はkuznetsov_poisson_symmetry_obstruction.texに記す。候補の条件付き分類と零方向はkuznetsov_hessian_rigidity.tex、kuznetsov_hessian_counterexample.tex、kuznetsov_degree_one_candidate_geometry.tex。
 
 | 一次資料と参照箇所 | この研究で使う内容と限界 |
 |---|---|
 | Kuznetsov, *Hochschild homology and semiorthogonal decompositions*, [arXiv:0904.4330v1](https://arxiv.org/abs/0904.4330), Proposition 8.1・Theorem 8.5、PDF p.23 | Oの右直交のHHは最高polyvectorを除く。証明のAt(O)=0から制限写像そのものを同定する。未確認の刊行先を付けない。Theorem 8.9の三様体の数値と曲面の計算は分ける |
 | Orlov, *Projective bundles, monoidal transformations, and derived categories of coherent sheaves*, Izv. Math. 41 (1993), 133–141, DOI 10.1070/IM1993v041n01ABEH002182、[著者掲載PDF](https://homepage.mi-ras.ru/~orlov/papers/1992_Izv_Math.pdf)、§4 | 点blow-upの例外対象O_E(−1)と平面の引戻しによるSOD。J_i[−1]とO(−2L),O(−L)のHom・積は本稿で直接計算。Lは平面の直線で、基本偏極Hと区別する |
+| Auroux–Katzarkov–Orlov, *Mirror symmetry for Del Pezzo surfaces: Vanishing cycles and coherent sheaves*, Invent. Math. 166(3) (2006), 537–582, DOI 10.1007/s00222-006-0003-4、[arXiv:math/0506166v1](https://arxiv.org/abs/math/0506166v1)・[著者PDF](https://homepage.mi-ras.ru/~orlov/papers/hmsratl.pdf)、Theorem 2.5、§§2.1・2.3、Construction 2.9、Remark 2.10 | 40頁の著者稿のp.7、pp.11–14を確認。三頂点の積とrank 2条件を持つtailによる有限代数模型を使う。pp.13–14の反標準heartの存在は条件付きであり、任意の有限代数からの無条件のAbel復元として引用しない |
 | Toën–Vaquié, *Moduli of objects in dg-categories*, Ann. Sci. ENS 40 (2007), 387–444, [著者稿](https://www.math.univ-toulouse.fr/~btoen/ttt.pdf), Theorem 3.6、Corollaries 3.15・3.17・3.21–3.24、Lemma 3.25 | smooth proper dg圏のperfect対象のモジュライ、接複体RHom(E,E)[1]、simple対象のGm-gerbeと同型類の代数空間。同値が開条件であることは二圏の単位・余単位coneを使って記述する。全dg圏のモジュライの代数性の定理ではない |
 | Lowen, *Obstruction theory for objects in abelian and derived categories*, Comm. Algebra 33 (2005), 3195–3223, [math/0407019v1](https://arxiv.org/abs/math/0407019), Theorem B・Theorem 6.10 | Abel変形での導来対象の持上げ。有限coflat次元の定式化と有限Tor次元の双対を区別し、perfect対象に用いる。自己Ext²の障害とExt¹のtorsor |
 | Keller–Lowen, *On Hochschild cohomology and Morita deformations*, IMRN 2009(17), 3221–3235, DOI [10.1093/imrn/rnp050](https://doi.org/10.1093/imrn/rnp050), [著者掲載本文](https://win.uantwerpen.be/~wlowen/pdf%20papers/KellerLowenHochDefo.pdf) | 一般のHH²は非曲率Morita変形だけでは捉えられないという制約。今回はtilting対象を実際に持ち上げ、通常代数へ還元する |
@@ -72,20 +73,35 @@ Plücker座標環の正規性・Cohen–Macaulay性にはSvanes (1973) とDe Con
 | Lin–Rampazzo–Zhang, *Categorical reconstruction of del Pezzo surfaces: Hochschild–Serre algebras and spinor modifications*, [2609.10344v1](https://arxiv.org/abs/2609.10344), 2026-09-09、Theorem 1.2・§2.3・Propositions 3.4–3.5・Proposition 4.1・Theorem 4.2 | 次数≤4の滑らかな複素古典del Pezzo曲面はenhanced O^perpから復元される。古典曲面の一意性の入力であり、非可換族の幾何化の存在は別に証明。可換weighted MFのHS積は一般計算の目標。§4のSerre関手によるGeiser/Bertini認識と同変分岐周期も一次本文で確認。相対化・Artin復元と形式的局所Torelliへの適用は本稿で記述 |
 | Keller, *On differential graded categories*, ICM Madrid 2006, Vol. II, 151–190, [刊行本文](https://www.imj-prg.fr/wp-content/uploads/2020/prix/keller2006.pdf), §5.1、Theorem 5.2(a) | mixed complexのMorita不変性・加法性。係数基底Rに対する相対HPに適用し、例外成分の奇数部分を除く。絶対HP(-/C)と混同しない |
 | Elagin, *On equivariant triangulated categories*, [arXiv:1403.7027v2](https://arxiv.org/abs/1403.7027v2), Theorem 7.1 | 有限群位数が可逆なときのAbel圏と導来圏の同変化の比較。coherentな作用とdg模型を先に構成する |
+| Baranovsky, *Orbifold Cohomology as Periodic Cyclic Homology*, [arXiv:math/0206256v2](https://arxiv.org/abs/math/0206256v2) (2002)、Theorem 1 (p.2)、Proposition 4 (p.5) | 体上の有限群同変mixed complexを固定点成分の直和で計算する既知の公式と引戻し自然性。番号は2002年6月30日のv2に固定し、出版版の番号と混同しない。相対基底方向の接続までこの定理単独から結論しない |
+| Tabuada–Van den Bergh, *Additive invariants of orbifolds*, Geom. Topol. 22(5) (2018), 3003–3048, DOI 10.2140/gt.2018.22.3003、[刊行PDF](https://msp.org/gt/2018/22-5/gt-v22-n5-p12-s.pdf)、Theorem 1.1、Corollary 1.5(ii)、Example 1.11、式(1.12)、pp.3005–3007 | 引戻しと指標による固定点比較をmixed complexに適用し、係数変更との両立を確認する。本稿の相対化では同じtrace写像を構成し、特殊ファイバーの同型とperfectなconeへの導来Nakayamaを使う |
 | Sheridan, *Formulae in noncommutative Hodge theory*, J. Homotopy Relat. Struct. 15 (2020), 249–299, DOI 10.1007/s40062-019-00251-2, [著者掲載PDF](https://www.pure.ed.ac.uk/ws/portalfiles/portal/144440775/1510.03795.pdf), Theorem 3.32、Corollary 4.13 | cyclic homologyにおけるMorita不変性とGetzler接続の自然性。接続とHodge filtrationの両方を残し、特殊ファイバー恒等という標識を利用する |
-| Tu, *A remark on the B-model Comparison of Hodge structures*, [arXiv:2404.13805v1](https://arxiv.org/html/2404.13805v1), Theorem 0.1(3)、Lemma 0.1 | 幾何Gauss–ManinとGetzler接続の族での比較。楕円曲線のTodd補正は1。滑らかな形式基底上で比較し、Artin商単独の水平自明化は使わない |
+| Tu, *A remark on the B-model Comparison of Hodge structures*, [arXiv:2404.13805v1](https://arxiv.org/html/2404.13805v1), Theorem 0.1(3)、Lemma 0.1 | modified Todd類の平方根で補正したHKRによる、幾何Gauss–ManinとGetzler接続の族での比較。曲線のH¹上に非自明なTodd補正は残らない。有限Poisson群の節では滑らかな代数族の解析化に適用してから形式完成し、Artin商単独の水平自明化は使わない |
 | Fisher, *On binary quartics and the Cassels–Tate pairing*, Res. Number Theory 8, 74 (2022), [DOI 10.1007/s40993-022-00376-z](https://link.springer.com/article/10.1007/s40993-022-00376-z), §2、(1)–(2) | 四次式の不変量I,JとJacobianのWeierstrass式。marked二次類の同定は不変量だけに依存せず、恒等へ還元するMöbius変換も直接記述する |
 | Landesman, *The infinitesimal Torelli problem*, [arXiv:1911.02187v1](https://arxiv.org/abs/1911.02187v1), Theorem4.3, pp.5–6 | 曲線の周期写像の微分がSym²H⁰K→H⁰K²の双対である既知の公式の詳しい証明。本稿は分岐曲線の乗法を直接計算し、全古典点のKu変形の形式的閉埋込みへ適用 |
 | Dimca–Sticlaru, *Hessian ideals of a homogeneous polynomial and generalized Tjurina algebras*, Documenta Math.20 (2015),689–705, [本文](https://emis.de/ft/9451), (1.2), Remark3.3(iii), DOI10.4171/DM/502 | Hessian小行列式をJacobian idealに加えたHessian algebra。d2候補の階数計算の既存の枠組み。Kuの二次差との同定を述べた文献ではない |
 | Gurevich–Howe, *The Pieri Rule for GLn over Finite Fields*, [arXiv:2105.11520](https://arxiv.org/abs/2105.11520), §3.2 Proposition3.2.1 | 複素GLnの古典Pieri則を一次本文で確認。d2の一意な共通Schur因子とd1の重複度に用いる。有限体の主定理を用いるのではない |
+| Poonen–Stoll, *The valuation of the discriminant of a hypersurface*, [arXiv:2510.14434v1](https://arxiv.org/abs/2510.14434v1) (2025)、Theorem 1.1 (p.1)、§2 (p.2)、Propositions 5.1–5.2 (pp.5–6) | 判別式の既約性、一般特異超曲面の一節点性、全空間が正則な一節点平滑化で判別式付値が1となることを使う。本稿の普遍Jacobian加群の反射性やカテゴリー的二次差の延長は同論文の結論ではない。番号はv1に固定する。著者の2026年6月30日版では該当命題が5.2–5.3に移動している |
 
 基本公式、blow-up、tilting変形、perfect対象のモジュライ、同変化、巡回ホモロジーと接続、古典Torelliは先行研究の結果である。本稿はそれらを全O同値を含む具体的非可換族に適用する。中央巡回被覆の分解はstratifying idealを直接構成し、非可換・weightedの場合へ他論文の定理を無条件に拡張していない。巡回族のHess/8、Fermat全tensor、一般ファイバーの分離は本稿の具体計算と既存原理の組合せであり、包括的な優先権確認は未了である。
 
 LRZの低次数HS積は**可換**重み付き多項式環上のgraded matrix factorizationsとdiagonalに依存する。非可換AS環上の積やPBW完全対称化との乗法互換性は同論文に含まれない。今回の非保存性の証明は、その未確認の乗法互換性を使わず、標識付き同変周期と楕円曲線の局所Torelliで行う。非可換HS積、一般の全方向二次公式、三様体の未完了候補は研究ノートに保持する。
 
-Kuを固定したgluing模型には Auroux–Katzarkov–Orlov, *Mirror symmetry for del Pezzo surfaces: vanishing cycles and coherent sheaves*, [著者PDF](https://homepage.mi-ras.ru/~orlov/papers/hmsratl.pdf), §2.1・§2.3 の有限代数模型を用いる。今回の中央超曲面presentationへの移送は未実行であり、一般二次差の証明とはしない。次数2のHessian共変候補の非消滅には、Eisenbud–Ulrich, *Duality and socle generators for residual intersections*, J. Reine Angew. Math. 756 (2019), 183–226, Appendix A, Theorem A.5（[著者稿](https://www.math.purdue.edu/~bulrich/papers/Duality-and-Socle-180119.pdf) Theorem 8.5）のArtin完全交叉のJacobian socle定理を使う。これは候補の性質であり、実際のδ₂との一般同定ではない。
+**Ku固定のArtin正規形とAKOの範囲。** 三頂点とtailの有限代数はAKOの既知の模型である。本稿の [kuznetsov_gluing_normal_form.tex](../papers/sections/kuznetsov_gluing_normal_form.tex) は、可換交代積の近傍でU・Wの基底を変更し、積を `C(v)+Hess(P)(v)` に一意に規格化する。行列式条件は `Ψ(P)(p_i)=0`、`Ψ(P)=P+det Hess(P)/6` であり、Ψの形式逆によって三次形式の線型空間 `L_p=H⁰(X,−K_X)` と同一視される。持ち上げた強例外列・固定corner・Abel変形のHochschild比較・形式逆写像定理を用い、これがKuを固定する**全ての通常Artin Abel変形の標識付き同値類**を表すことを証明した。次元は次数1で2、次数2で3である。
 
-**今回の範囲と既知入力の区別。** 二次有限決定性は少数変数の偶写像とArtin完全交叉の初等的な帰結として証明し、既存のδ₂へ適用する。内在的対合そのものと周期微分公式は上記の既知結果である。d2の普遍Jacobian加群への多項式延長を仮定した剛性、catalecticantによる曖昧さ、d1のH₁+sR₁分類・滑らかな零方向例は本文の直接証明と厳密計算による。実際のδ₂の全係数公式、多項式延長、d1の定数sの値、包括的な優先権は未確認である。
+AKOの条件付きheartの議論からこの全称性を引用してはいない。本稿では既に存在するAbel変形の形式ファイバーから積への写像を構成し、その形式同型の逆によって全Artin商上の存在を得る。有限パラメータ全体でのAbel heart、未切断の高次群oid、大域的な粗ファイバー表示はこの結論に含まない。gluing座標から規格化した中心超曲面表示への積・係数変換は未計算であり、Ψの式を実際のshadowやδ₂の式と同一視しない。
+
+**一般一節点での延長判定。** [kuznetsov_nodal_extension.tex](../papers/sections/kuznetsov_nodal_extension.tex) では、普遍四次式の無限小安定化群のJordan型を調べ、Jacobian加群Mの非局所自由locusの余次元が少なくとも6であることを示す。長さ1の自由分解と深さ評価から無捩れ性・S₂を得て、反射的加群の高さ1交叉表示（[Stacks Tag 0AVB](https://stacks.math.columbia.edu/tag/0AVB)）を適用する。その結果、判別式を反転したMの切断の多項式延長は、既約判別式の一般点における一つのDVR格子への所属と同値になる。Poonen–Stollの入力は、その点を一節点として表し、横断平滑化の判別式付値を1と同定する部分である。
+
+本稿の単純極補正 `C(F)^4 I₃(F)[Q]/Δ(F)` は巡回型locusで零となり、一般判別式点では零にならない。その非消滅と普遍加群の反射性は本文の証明および厳密な有限計算による。実際のδ₂がこのDVR格子に極を持たなければ全係数Hess/8が従うが、極の上界・消滅をGauss–Manin接続の正則特異性から導いたとは主張しない。
+
+**有限Poisson群の奇数周期による検出限界。** [kuznetsov_poisson_symmetry_obstruction.tex](../papers/sections/kuznetsov_poisson_symmetry_obstruction.tex) は、非零Poisson構造の零因子Eが滑らかな楕円曲線である場合に限る。固定した有限群 `G⊂Aut(X,π)` に対し、非単位元の固定曲線はEに含まれ、`K=ker(G→Aut(E))` は中心巡回群、商は `E[d]` の部分群となる。滑らかな代数曲線上の射影族の形式完成について、上記固定点公式を相対trace・導来Nakayama・Sheridan/Tuの接続比較で相対化する。EとG作用を標識付きで固定すれば、Kuの奇数相対周期は `H¹_dR(E)^(⊕(|K|−1))` という定数のfiltered flat moduleになる。
+
+次数1では `R_D=4A D²A−3(DA)²=(ℓ_D²/3) det Hess(A)` に沿う古典族 `F+tR_D=0` が、元の全ての有限Poisson群について同じ幾何作用とEを保つ。この族は各群の奇数同変周期には見えないが、`[R_D]≠0` なら内在的Bertini周期には局所Torelliにより見える。Bertini作用はPoisson方向に−1で作用し、ここで許した群には属さない。この結論は同変圏自体・全ての高次近傍・実際のNC二次差の不変性を述べない。
+
+次数2のHessian共変候補の非消滅には、Eisenbud–Ulrich, *Duality and socle generators for residual intersections*, J. Reine Angew. Math. 756 (2019), 183–226, Appendix A, Theorem A.5（[著者稿](https://www.math.purdue.edu/~bulrich/papers/Duality-and-Socle-180119.pdf) Theorem 8.5）のArtin完全交叉のJacobian socle定理を使う。これは候補の性質であり、実際のδ₂との一般同定ではない。
+
+**本稿の範囲と未解決点。** 二次有限決定性は少数変数の偶写像とArtin完全交叉の初等的な帰結として証明し、既存のδ₂へ適用する。内在的対合、曲線の周期微分、固定点公式、反射的加群の一般原理は上記の既知結果である。d2の多項式延長を仮定した剛性と一般節点DVR判定、単純極の曖昧さ、d1のH₁+sR₁分類と滑らかな零方向、有限Poisson群による検出限界、Ku固定の全Artin有限行列正規形は本文で証明する。実際のδ₂の全係数公式、一般節点での極消滅、d1の定数sの値、gluing模型からshadowへの係数変換、これらの組合せの包括的な優先権は未確認である。
 
 ### 逆被覆の分岐とモノドロミー
 
@@ -298,12 +314,13 @@ BWB消滅で規格化中心のtorsorを自明化する。局所中心が存在�
 
 ## 6. 公表前に残る研究・文献上の課題
 
-優先順位の高い比較・調査は次の五点である。
+優先順位の高い比較・調査は次の六点である。
 
-1. **全方向中心構成の比較と明示化。** 同じambient上の全方向中心と有限中心商、同じ族のArtin完成を既存の形式中心持上げ・filtered楕円代数・全Abel変形理論と比較する。追加の主開条件の明示、中心元の選択の違い、既知の公式との関係を調べる。
-2. **全方向有限族と既存理論の比較。** 全topの退化曲線、強・積Noether性の零方向への降下、同じ族の相対tails・Serre・smooth proper開近傍を、既存のTHCR・filtered変形・圏の変形理論と比較する。Keelerのmultiple divisors論文の本文と正確な仮定を確認し、体上・相対基底上の適用範囲を整理する。同じ有限族の全Artin普遍性と、全O同値による有限型atlasを区別する。
-3. **滑らかな開集合の明示。** 得られた有限部分対角解消とHom複体から、具体的な係数の非消滅条件を計算する。開近傍の存在証明と、その判別式の明示は異なる状態である。
-4. **全O同値と大域モジュライ。** 零切断を含む有限型DM開部分Uの全点Artin普遍性、有限対角、Poissonモジュライへのétale比較、正規CM準アフィン粗空間、shadowの平坦性と粗射の正確な平坦locusを得た。次は比較射の次数・開像、Uの被覆範囲と可換locusに接しない成分、特殊安定化群の不変式を調べる。Toën–Vaquiéの固定dg圏の対象モジュライを、可変な全O-marked圏のモジュライと同一視しない。
-5. **退化曲線を含む構成と新規性。** 解消point curve、次数1の尖点と次数2のribbonを含む相対THCR、二重切断環による積Noether性、smoothnessの有限開近傍を、既存の楕円代数・非可換del Pezzo・変形圏の構成と比較する。中心増大層を含む適用範囲と、各主張の優先権を確認する。
+1. **Kuznetsov成分の一般二次差と既存模型の比較。** Ku固定の全Artin有限行列正規形から反標準軌道の積を復元し、中心超曲面の係数へ移す。次数2の一般一節点DVR格子での極消滅、次数1の多項式延長と定数sを検査する。有限Poisson群の奇数周期では残存R₁方向を検出できないため、内在的Serre対合の周期またはgluingの積を使う。AKOの有限代数、Artin普遍性、非可換吹上げ・marked quiverの既存構成との対応と優先権を調べる。
+2. **全方向中心構成の比較と明示化。** 同じambient上の全方向中心と有限中心商、同じ族のArtin完成を既存の形式中心持上げ・filtered楕円代数・全Abel変形理論と比較する。追加の主開条件の明示、中心元の選択の違い、既知の公式との関係を調べる。
+3. **全方向有限族と既存理論の比較。** 全topの退化曲線、強・積Noether性の零方向への降下、同じ族の相対tails・Serre・smooth proper開近傍を、既存のTHCR・filtered変形・圏の変形理論と比較する。Keelerのmultiple divisors論文の本文と正確な仮定を確認し、体上・相対基底上の適用範囲を整理する。同じ有限族の全Artin普遍性と、全O同値による有限型atlasを区別する。
+4. **滑らかな開集合の明示。** 得られた有限部分対角解消とHom複体から、具体的な係数の非消滅条件を計算する。開近傍の存在証明と、その判別式の明示は異なる状態である。
+5. **全O同値と大域モジュライ。** 零切断を含む有限型DM開部分Uの全点Artin普遍性、有限対角、Poissonモジュライへのétale比較、正規CM準アフィン粗空間、shadowの平坦性と粗射の正確な平坦locus、比較射の次数5・4とS₅・S₄モノドロミーを得た。次は比較射の開像と有限正規化の境界、Uの被覆範囲と可換locusに接しない成分、特殊安定化群の不変式を調べる。Toën–Vaquiéの固定dg圏の対象モジュライを、可変な全O-marked圏のモジュライと同一視しない。
+6. **退化曲線を含む構成と新規性。** 解消point curve、次数1の尖点と次数2のribbonを含む相対THCR、二重切断環による積Noether性、smoothnessの有限開近傍を、既存の楕円代数・非可換del Pezzo・変形圏の構成と比較する。中心増大層を含む適用範囲と、各主張の優先権を確認する。
 
 一般nでの全Abel形式群oid、nc多様体条件のArtin持上げ、形式粗商、具体量子化の完全性、任意指数Veronese復元、有限型族のCasimir・普遍中心・相対双対、全topの退化曲線を含む相対THCRと積Noether性、全方向の同時中心商・相対tails・smooth proper開近傍・全Artin比較という組合せについて、包括的な優先権調査は未了。変形・compact持上げ・formality・CY potentialの中心存在・Sklyanin中心元・Borel–Weil–Bott・σ-ampleness・THCRのtensor積に関する一般結果は既知の研究として区別する。非可換del Pezzo曲面の各定義、AS Z-代数、marked quiver、非可換吹上げとの比較も継続する。講演概要にある未公表の一般次数の主張は確立済み定理として引用しない。

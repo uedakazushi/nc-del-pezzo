@@ -1,6 +1,6 @@
 # 次数1・2の非可換del Pezzo n-fold
 
-**2026-11-21（JST） / v0.20 — 現行研究一式**
+**2026-11-21（JST） / v0.21 — 現行研究一式**
 
 最初に [研究方針](00_research_plan.md) を読む。対象は一般の `n ≥ 2`、次数 `d=1,2`。構造対象 **Oだけを標識**し、射には全てのO保存完全Abel同値を採用する。GitHub mainが正本である。
 
@@ -31,16 +31,22 @@ Fermatでは自己同型群の指標から全二次テンソルを決定した�
 
 全ての滑らかな古典点では、内在的対合 `S_Ku²[−3]`（次数2）・`S_Ku³[−5]`（次数1）の同変周期が残余圏の通常Artin変形を検出する。分岐曲線の種数は3・4であり、形式周期写像は次数2で6次元同士の同型、次数1で8次元から10次元への閉埋込みとなる。Lin–Rampazzo–Zhangの内在的対合とLandesmanの既知の周期微分公式に、相対HPと本稿の形式復元を組み合わせた帰結である。
 
-一般Hessian公式については、未解決の条件を次のように絞った。
+一般二次差の計算は、境界への延長と具体的な有限代数の二つから進める。
 
-| 次数 | 証明した条件付き分類・障害 | 残る入力 |
+| 次数 | 証明した分類・障害 | 残る入力 |
 |---|---|---|
-| 2 | 普遍Jacobian加群へ多項式延長できれば `δ₂=[qᵗ adj(Hess F₄)q]/8` に限る。catalecticant/判別式による補正は滑らか部分で正則かつ巡回族で零なので、滑らか部分の自然性だけでは不足 | 実際のδ₂の判別式境界への延長、または一般NC表示からの直接計算 |
-| 1 | 多項式延長の下でも `δ₂=H₁+sR₁` という一つの定数が残る。`R₁=[4A₄D²A₄−3(DA₄)²]` は巡回族で消える。H₁が非零方向で零となる滑らかな有理係数曲面も構成した | 多項式延長と定数sの決定。候補の零方向で実際のδ₂が零かどうかは未判定 |
+| 2 | 普遍Jacobian加群は反射的。実際のδ₂の多項式延長は一般の一節点四次曲線における正則性と同値で、それが成立すれば `δ₂=[qᵗ adj(Hess F₄)q]/8`。単純極まで許すと巡回族の値を保つ補正が残る | 一般節点DVRでの実際のδ₂の極消滅 |
+| 1 | 多項式延長の下では `δ₂=H₁+sR₁`。全sについて候補の一般階数は3、従って延長を仮定すれば実際の同時固定交わりの一般長さは3。s≠−7/8の全てに滑らかな零方向の例を構成 | 多項式延長と定数s。s=−7/8の全方向非消滅も未証明 |
+
+次数1の短い検査例は `A=x³u−21u⁴`、`B=x⁶/60−7x³u³+42u⁶`、`D=∂x` であり、滑らかな曲面上で `H₁(D)=0`、`R₁(D)≠0` となる。ただし、この候補の零方向を実際のδ₂の零方向とはまだ同定していない。
+
+**有限の幾何学的Poisson対称性による奇数周期には、明確な検出限界がある。** 滑らかな反標準零因子Eを持つ有限Poisson群Gは、中心巡回群KとE[d]の部分群Hによる拡大となる。EとG作用を固定する族では、残余圏の奇数同変周期はH¹(E)の |K|−1 個のコピーで一定である。次数1の古典変形 `F+tR₁(D)=0` はこの周期では検出できず、非零の変形類なら内在的Bertini周期は検出する。群の取り方を増やすだけでは残存係数sは決まらない。
+
+**Kuを固定する全ての標識付き通常Artin変形には、3×3行列による形式正規形を与えた。** 固定blow-down点p_iと三次形式Pについて `μ_P(v)=C(v)+Hess(P)(v)`、`Ψ(P)=P+det Hess(P)/6` とすると、Ku固定ファイバーは `Ψ(P)(p_i)=0` の原点での完成であり、Ψによってp_iを通る三次形式の形式空間と同型になる。Auroux–Katzarkov–Orlovの既知の有限代数模型を非被約Artin基底へ移し、テンソルsliceとAbel Hochschild比較から全称性を証明した。反標準heartを任意の有限代数に仮定していない。この代数から反標準環の積と既存shadowを抽出する計算は未了であり、現在の優先課題である。
 
 一般の全係数・全Poisson方向に対するHessian公式、高次復元式、古典モジュライstackへの大域的な射、全近傽での一つのMorita同値、n≥3の長い例外blockの幾何化は未解決である。
 
-証明は [曲面の形式復元](papers/sections/kuznetsov_surface.tex)、[相対構成・étale局所幾何化](papers/sections/kuznetsov_relative.tex)、[二次差・同時固定交わり](papers/sections/kuznetsov_shadow_obstruction.tex)、[一般Poissonファイバーの分離](papers/sections/kuznetsov_cyclic_fibres.tex)、[内在的周期](papers/sections/kuznetsov_intrinsic_period.tex)、[次数2の条件付き剛性](papers/sections/kuznetsov_hessian_rigidity.tex)、[次数1の分類・反例](papers/sections/kuznetsov_hessian_counterexample.tex)。各主張の既知入力と追加仮定を本文で明示する。一次資料・論理の独立点検と有理数・多項式の厳密計算を実施した。形式証明器による検証と包括的な新規性確認はしていない。
+証明は [曲面の形式復元](papers/sections/kuznetsov_surface.tex)、[相対構成・étale局所幾何化](papers/sections/kuznetsov_relative.tex)、[二次差・同時固定交わり](papers/sections/kuznetsov_shadow_obstruction.tex)、[一般Poissonファイバーの分離](papers/sections/kuznetsov_cyclic_fibres.tex)、[内在的周期](papers/sections/kuznetsov_intrinsic_period.tex)、[次数2の条件付き剛性](papers/sections/kuznetsov_hessian_rigidity.tex)、[次数1の分類・反例](papers/sections/kuznetsov_hessian_counterexample.tex)、[一般節点での延長判定](papers/sections/kuznetsov_nodal_extension.tex)、[次数1候補の幾何](papers/sections/kuznetsov_degree_one_candidate_geometry.tex)、[有限Poisson対称性の限界](papers/sections/kuznetsov_poisson_symmetry_obstruction.tex)、[Ku固定ファイバーの有限行列正規形](papers/sections/kuznetsov_gluing_normal_form.tex)。各主張の既知入力と追加仮定を本文で明示する。一次資料・論理の独立点検と有理数・多項式の厳密計算を実施した。形式証明器による検証と包括的な新規性確認はしていない。
 
 ## 形式モジュライと圏論的結果
 

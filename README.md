@@ -25,6 +25,8 @@
 
 `rho_Ku` と対称化中心からの `sh` は可換零切断と一次微分で一致するが、**一般には異なり、shadowはKuznetsov成分を保存しない。** 両次数の巡回対称族 `z²/2+f(x,y)+u^m=0`、`[x,y]=hz` で、二次差は `δ₂(π,π)=[det Hess_(x,y)(f)]/8≠0` となる。次数2のFermat模型では `18[x²y²]`、次数1の `z²/2+y³/3+x⁶+u⁶=0` では `(15/2)[x⁴y]` である。群同変化した残余圏の奇数周期から、point curveと復元曲面の楕円固定曲線の標識付き変形を同定する。
 
+Fermatでは自己同型群の指標から全二次テンソルを決定した。さらに二次差の代数性とPoisson方向の射影束の固有性により、Fermat点を含む稠密開の古典曲面上で、**全ての非零Poisson方向について二次差が非零**となる。
+
 一般の全係数・全Poisson方向に対するHessian公式、高次復元式、古典モジュライstackへの大域的な射、全近傽での一つのMorita同値、n≥3の長い例外blockの幾何化は未解決である。
 
 証明は [曲面の形式復元](papers/sections/kuznetsov_surface.tex)、[相対構成・étale局所幾何化](papers/sections/kuznetsov_relative.tex)、[同変周期と非零二次差](papers/sections/kuznetsov_shadow_obstruction.tex)、[一般Poissonファイバーの分離](papers/sections/kuznetsov_cyclic_fibres.tex)。既存の相対THCR、幾何化、Lin–Rampazzo–Zhangの古典Torelliを入力とする。一次資料・論理の独立点検と有理数・多項式の厳密計算を実施した。形式証明器による検証と包括的な新規性確認はしていない。

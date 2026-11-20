@@ -56,6 +56,7 @@ Uの全幾何学的点で全Abel Artin変形を同じ族が実現する。Abel H
 | 全古典零切断の開近傍でétale局所的な古典曲面族と相対残余圏同値 | Toën–Vaquiéの対象・同値bimodule空間と全小拡大の持上げで証明。局所射は滑らか相対次元2・3 | `thm:surface-ku-etale-companion` |
 | 残余圏から定まる古典粗モジュライへの標準射 | Lin–Rampazzo–Zhang 2609.10344v1 Theorem 1.2を入力。被約な重なりでの下降を証明。古典stackへの大域的持上げは別 | `cor:surface-ku-coarse-companion` |
 | 巡回対称族でδ₂=活性Hessian行列式のJacobian類/8≠0 | 相対THCR・同変復元・相対周期/GM比較を入力とし、両次数で証明。一般全係数への同じ公式は未証明 | `thm:ku-degree-two-quadratic-obstruction`, `thm:ku-degree-one-quadratic-obstruction` |
+| Fermat点の全tensorと一般曲面の全非零方向でδ₂(π,π)≠0 | 自然Poisson線型化と有限群指標で係数18・15/2を決定。二次jetの代数性と方向射影束の固有性からFermatを含む稠密開へ拡張 | `prop:ku-fermat-full-quadratic-tensor`, `cor:ku-generic-all-directions-quadratic` |
 | 既存shadowはKuznetsov成分を一般には保存しない | 非零二次差から粗射の不一致、等化子の閉性と古典Torelliを使用 | `cor:ku-shadow-nonpreservation` |
 | 一般Poissonファイバーの5・4個の残余圏は全て相互に非同値 | 楕円固定曲線の内在性・j非降下の厳密証明書・全非対角積の整性とS₅・S₄の二重推移性 | `thm:ku-generic-poisson-fibres-separated` |
 | framed全Abel Artin形式環は、d1で滑らかな形式円板、d2で通常の形式円板×Plücker錐の完備化 | 証明を記述し、一次比較定理の適用条件を点検。通常の局所Artin環全体 | `thm:abel-formal-ring` |
@@ -167,4 +168,5 @@ Uの全幾何学的点で全Abel Artin変形を同じ族が実現する。Abel H
 - `verify_poisson_shadow.py` はFの1階・2階jetを独立変数とし、n=2,…,6でJacobian括弧のJacobiatorとPlücker関係による表示を厳密に検算する。一般n・任意基底の証明は主原稿の添字計算と全同値の変換則に置き、有限個の検算で置き換えない。
 - `verify_degree_two_gorenstein_curve.py` と `verify_degree_one_integral_curve.py` は全独立係数のpoint行列・blowup・分母を払ったshiftと関係式を厳密検算する。d2の非被約ribbon、d1の尖点を除外しない。σ⁴・σ⁶の非自明性だけは明示したmod h²の検査である。強・積Noether性、相対CY・tails・smoothnessは論文の証明により、これらの計算だけから推論しない。
 - 両shadow計算は中心の自由語証明書と逆有理式に加え、Sylvester判別式・有限体Bézout証明書を厳密検算する。次数1はdepressionとh尺度変更、次数2はnormalizer商S₃、全係数同変性、Lie行列式と符号二次体の反不変式も確認する。全モジュライの次数5・4とモノドロミーには、論文の中心torsor・共通開・全同値群oid・単純分岐の証明を別に用いる。
+- 曲面の新計算4本は `verify_kuznetsov_quadratic_symmetry.py`、`verify_degree_one_period_quadratic.py`、`verify_degree_one_period_fibres.py`、`verify_degree_two_period.py`。有限群指標、全係数の二次jetとmarked座標変換、五次・四次ファイバー上のj非降下を標準ライブラリの有理数演算で検算する。本文の同変周期・内在的固定曲線・Torelliの証明を計算で代替しない。
 - 組版・PDF確認の実施状況と環境は [再現手順](docs/reproduction.md)。生成・証明点検・計算・組版・GitHub反映・hub更新はそれぞれ確認する。

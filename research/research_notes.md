@@ -1,6 +1,6 @@
 # 研究ノート：次数1・2のnc del Pezzo n-fold
 
-2026-11-20（JST） / v0.19。証明本文は主原稿、一次資料の位置は [文献と依存](literature.md)。この文書は現在有効な知識と障害を整理する。
+2026-11-21（JST） / v0.19。証明本文は主原稿、一次資料の位置は [文献と依存](literature.md)。この文書は現在有効な知識と障害を整理する。
 
 ## 1. 形式局所環と数値
 
@@ -361,7 +361,7 @@ X_1:z^2/2+y^3/3+x_0^6+x_1^6=0
 
 **一般5・4枝の分離の論理。** S₅・S₄の二重推移性から、Poisson基底の正規性とΘのétale性を用いた非対角ファイバー積Wは整となる。二つのρ_Kuの値の等化子は閉である。巡回部分族でρ_Kuの値が異なる一組をW内に得れば、等化子は真の閉集合である。有限étale領域へ制限してその有限像を除くと、一般ファイバーの全五枝・四枝のρ_Ku値が相異なり、古典Torelliにより残余圏は全て相互に非同値となる。
 
-この接続には、巡回古典模型の正の種数の曲線を点ごとに固定する位数mの部分群の一意性を使う。d2では `c=4β/α∉{0,±2,±6}` のHessianの唯一の二重直線がu=0を認識し、d1では `αβ(4α³+9β²)≠0` のgraded環の自己同型比較を使う。得られるjは巡回復元locus上の内在的不変量であり、全古典moduli上の有理関数とは主張しない。形式G作用のétale局所代数化、巡回locusへのρ制限、hによる尺度変更後の全枝がUgeomへ入ることを含む接続の証明は `sec:kuznetsov-cyclic-fibres` に集約する。これらの幾何学的接続の監査が終わるまでは、次の係数体計算だけから非標識Kuの一般分離を断定しない。
+この接続には、巡回古典模型の正の種数の曲線を点ごとに固定する位数mの部分群の一意性を使う。d2では `c=4β/α∉{0,±2,±6}` のHessianの唯一の二重直線がu=0を認識し、d1では `αβ(4α³+9β²)≠0` のgraded環の自己同型比較を使う。得られるjは巡回復元locus上の内在的不変量であり、全古典moduli上の有理関数とは主張しない。形式G作用のétale局所代数化、巡回locusへのρ制限、hによる尺度変更後の全枝がUgeomへ入ることを含む接続の証明は `sec:kuznetsov-cyclic-fibres` に集約する。これらの幾何学的接続を独立に点検し、一般5・4枝の非標識Kuの全相異を得た。係数体計算だけでこの結論を出しているのではない。
 
 **五枝の厳密な係数体証人。** h=1でpoint四次式から得る不変式を𝓘,𝓙とし、Ī=9𝓘,J̄=27𝓙とすると、これらは `k²=−α,γ=6β−4k³` の代入後にkの偶多項式となる。`j_E=6912 Ī³/(4Ī³−J̄²)` はC(α,β)の元である。shadow値I_sh=J_sh=−5には源(α₀,β₀)=(0,1)があり、逆五次式は
 
@@ -373,6 +373,43 @@ F(T)=T(112T^4+340T^3+120T^2-1025T-1125),\qquad
 Fは平方因子を持たず、全j分母・楕円判別式・中心式の分母が全五点で単元。T=0で𝓘=−11,𝓙=151、`j_E=1022208/3125` となる。`gcd(F,num(j_E(T)−1022208/3125))=T` を有理数上で確認した。読みやすい補助証明書はmod101で、F/Tは `11T⁴+37T³+19T²+86T+87`、equal-j剰余/Tは単元倍を除き `T³+31T²+46T+18`。Euclid剰余列は `49T²+35T+4,82T+17,53` である。従ってj_Eはshadow係数体に属さず、拡大次数5が素数なのでj_Eが全拡大を生成する。**最高活性の一般五枝のpoint-jは全て相異なる。** d2の四枝については `sec:kuznetsov-cyclic-fibres` の対応する証明書を使う。
 
 計算資産は `verify_kuznetsov_quadratic_symmetry.py`、`verify_degree_one_period_quadratic.py`、`verify_degree_one_period_fibres.py`。いずれも標準ライブラリの整数・有理数演算で実行済み。これはカテゴリー的period定理や内在的部分群の証明とは別の検証である。binary quartic不変式の一次資料はFisher, *On binary quartics and the Cassels–Tate pairing*, Research in Number Theory8,74(2022)、[§2 equations(1)–(2)](https://link.springer.com/article/10.1007/s40993-022-00376-z)。二次のmarked比較自体には上の直接座標変換も用いる。
+
+**Kuを固定する有限gluing模型。** 以下は一般復元式を計算するための別の入口であり、今回の中央超曲面presentationとの同定はまだ行っていない。$r=9-d$、$X=\operatorname{Bl}_{p_1,\ldots,p_r}\mathbf P^2$ とし、上の残余tilting対象Gの代数Bを固定する。全体のtilting対象はG⊕Oであり、一頂点拡大の加群M=RHom(G,O)は各例外点で階数1、O(−2L),O(−L)で階数6,3を持つ。全代数の階数は4r+15、すなわち47・43である。V=Hom(G_a,G_b)、U=M_b、W=M_aを取ると、積のデータは
+\[
+q:U\otimes V\to W,\quad e_i:W\to L_i,\quad\lambda_i:U\to L_i,
+\qquad e_i(q(u,v))=\lambda_i(u)p_i(v)
+\]
+となる。可換点ではqは対称積、e_iとλ_iは点評価である。この有限な加群変形が、残余代数を固定したまま全体を変形するための計算模型を与える。
+
+Auroux–Katzarkov–Orlov, *Mirror symmetry for del Pezzo surfaces*, §2.1・§2.3（[著者本文](https://homepage.mi-ras.ru/~orlov/papers/hmsratl.pdf)）の三頂点模型では、μ:V⊗U→Wを変形し、固定p_iでμ_(p_i)の階数を2に保てばtailを付けられる。最初の頂点Oを除いた代数は固定点p_iだけに依存するため左直交が一定で、相対Serre関手により右直交Kuも一定となる。次の式はそのための有限型族を与える。
+
+三次元の交代行列C(v)u=v×uと任意の対称行列Hについて
+\[
+\det(C(v)+hH)=h\,v^{\mathsf T}Hv+h^3\det H.
+\]
+転置によりhの奇数冪しか現れず、一次項はvᵗHv、三次項はdet Hなので恒等式となる。三次形式PにH=Hess(P)(v)を入れ、Euler式vᵗHess(P)(v)v=6P(v)を使うと
+\[
+\det\mu_P(v)=6P(v)+\det\operatorname{Hess}(P)(v),\qquad
+\mu_P(v,u)=(C(v)+\operatorname{Hess}(P)(v))u.
+\]
+従って三次形式の空間上の多項式写像Ψ(P)=P+det Hess(P)/6は原点で微分が恒等、
+\[
+Z=\{P:\Psi(P)(p_i)=0\quad\text{for all }i\}
+\]
+は原点で滑らか、次元10−r=d+1である。評価写像の全射性はdel Pezzo一般位置から従う。原点で非零の2×2小行列式を反転すれば、各μ_(p_i)は厳密に階数2を保つ。これでKuが相対Morita同値類として一定の有限代数族を得る。
+
+F(p_i)=0の三次形式に対して
+\[
+P_h=\Psi^{-1}(hF)=hF-\frac{h^3}{6}\det\operatorname{Hess}(F)+O(h^5)
+\]
+とすればdet μ_(P_h)=6hFが全形式次数で成立する。determinantal schemeそのものはh=0で平面全体であるから、「point cubicが固定」と述べる場合はhで割った式F=0またはh≠0に限定する。二次jetのμはC+h Hess(F)でよい。各p=p_iについてnᵗp=1、a=n×Hp、b=n×Haとすれば
+\[
+\ker\mu_h(p)=R(p+ha+h^2b)\pmod{h^3},\qquad
+\ell^{\mathsf T}=p^{\mathsf T}-ha^{\mathsf T}+h^2b^{\mathsf T}
+\]
+が左右の核・余核座標となり、tailの積はℓᵗ(C(v)+h Hess(F)(v))uで計算できる。ここではpᵗHp=6F(p)=0からC(p)a=−Hp、C(p)b=−Haとなることを使う。
+
+**残る橋渡し。** この有限代数族から反標準環を再構成し、本稿の実際の中心商と同定して、完全対称化した中心方程式を取り出す必要がある。その計算を実行したとは扱わず、今回のHess/8・一般5/4分離の証明にも使用していない。
 
 **未完了の内在的乗法計算。** 一般曲面の全方向公式を得るため、点配置代数の積μ_iを非可換中心商から二次まで復元する方法と、内在的Hochschild–Serre積を計算する方法が残る。後者にはLRZ Propositions 3.4–3.5の次の古典公式が目標となる。
 

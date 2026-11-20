@@ -1,6 +1,6 @@
 % !TeX root = ../nc-del-pezzo.tex
-% 2026-11-20 JST / v0.11
-\section{全同値群oidの局所構造と一般点のモジュライ}
+% 2026-11-20 JST / v0.12
+\section{全同値群oidと可換零切断近傍の有限型モジュライ}
 \label{sec:finite-moduli}
 \label{sec:source-near-commutative-zero}
 
@@ -328,223 +328,6 @@ $\widetilde C\times_C\widetilde C\rightrightarrows\widetilde C$ を考える。
 それ自身を滑らかなpresentationの完成とみなしてはいけない。
 \end{remark}
 
-\subsection{全同値を保つ稠密開上の滑らかな群oid}
-
-ここでいう群oidの制限は，対象だけを開集合へ制限し，その間の全ての矢を保つものとする。
-滑らかでない矢を個別に除く操作は用いない。
-
-\begin{lemma}[generic flatnessと単位の滑らかさ]
-\label{lem:generic-flat-full-groupoid}
-$k$ を体，$V$ を整な有限型 $k$-スキームとし，
-$\mathcal E\rightrightarrows V$ を有限型群oidスキームとする。
-ある非空開集合 $V^0\subset V$ と整数 $g\ge0$ について，
-$s:\mathcal E\to V$ は各 $v\in V^0$ の単位 $e(v)$ で滑らか，相対次元 $g$ と仮定する。
-このとき非空稠密開集合 $W\subset V^0$ があり，全制限
-\[
- \mathcal E_W:=\mathcal E\times_{V\times V}(W\times W)
-       \underset{t}{\overset{s}{\rightrightarrows}}W
-\]
-の $s,t$ は全ての点で滑らか，相対次元 $g$ である。
-$W$ は，あらかじめ指定した任意の非空開集合 $H\subset V$ の中に取れる。
-\end{lemma}
-\begin{proof}
-整な基底 $V$ に対して $s:\mathcal E\to V$ にgeneric flatnessを適用する
-\cite[Tag 052A]{StacksProject}。
-ある非空開集合 $F\subset V$ 上で
-$s:s^{-1}(F)\to F$ は平坦かつ有限表示となる。
-$W\subset F\cap V^0\cap H$ を非空開集合に取る。
-$V$ は整なのでこの共通部分は非空である。
-対象の両端を $W$ に制限することは，基底変更と定義域の開制限の合成であるから，
-$s:\mathcal E_W\to W$ は平坦かつ有限表示である。
-
-幾何学的点 $x\in W(\Omega)$ と，そのsourceファイバーの幾何学的点
-$\alpha:x\to y$ を取る。ここで $\Omega$ は代数的閉体とし，必要なら拡大する。
-$y$ も $W(\Omega)$ に属する。
-固定した $\alpha$ との右合成は $\Omega$-スキームの同型
-\[
- R_\alpha:(\mathcal E_W)_{s=y}\xrightarrow{\ \sim\ }
-                 (\mathcal E_W)_{s=x},
- \qquad h\longmapsto h\circ\alpha
-\]
-を与え，$e_y$ を $\alpha$ へ送る。
-逆写像は $\alpha^{-1}$ との右合成である。
-全制限を取っているため，この合成と逆写像はともに $\mathcal E_W$ の中に留まる。
-単位での仮定により左辺のファイバーは $e_y$ で滑らか，局所次元 $g$ である。
-従って右辺は $\alpha$ で滑らか，局所次元 $g$ である。
-これを全幾何学的矢に適用すると，$s$ の全幾何学的ファイバーは滑らかで純次元 $g$ となる。
-平坦かつ有限表示の射のファイバー判定
-\cite[Tag 01V8]{StacksProject}から，$s$ は滑らかで相対次元 $g$ である。
-逆射が $s,t$ を交換するため，$t$ にも同じ結論が従う。
-\end{proof}
-
-\begin{remark}\label{rem:flatness-before-fiber-translation}
-平行移動で運んだのは幾何学的\emph{ファイバー}の滑らかさである。
-射自体の滑らかさを得るための平坦性は，その前にgeneric flatnessで別に確保した。
-この二段階を省いて，単位での滑らかさだけから全矢の滑らかさを結論してはいけない。
-またgeneric flatnessの開集合 $F$ が可換零切断を含むとは限らない。
-\end{remark}
-
-\begin{theorem}[全構造対象付き同値による一般非可換部分のDMモジュライ]
-\label{thm:generic-full-dm-stack}
-$n\ge2$，$d\in\{1,2\}$ とする。
-系\ref{cor:finite-equivalence-unramified}の全係数基底を $V_d$ とし，
-非零方向の部分を $V_d^\times$ と書く。
-$n\ge3$ では
-\[
- H_d=V_d^\times\cap U_{d,n-1},
-\]
-$n=2$ では $H_d=V_d^\times$ と置く。
-ここで $U_{d,n-1}$ は定理\ref{thm:finite-low-center-open}の一つの低次数中心条件による開集合である。
-非空稠密開集合
-\[
- W_d\subset H_d\cap V_d^{\mathrm{unit}}
-\]
-を選び，次を同時に満たすようにできる。
-\begin{enumerate}
-\item 全構造対象付き同値群oidの制限 $\mathcal E_{W_d}\rightrightarrows W_d$ の
-      sourceとtargetは滑らかで，相対次元は
-      $g_1=n^2$，$g_2=(n+1)^2$ である。
-\item 商スタック
-      \[
-       \mathfrak N_{n,d}:=[W_d/\mathcal E_{W_d}]
-      \]
-      は $\mathbb C$ 上滑らか，整，有限型のDeligne--Mumfordスタックであり，
-      $W_d\to\mathfrak N_{n,d}$ は相対次元 $g_d$ の滑らかな全射である。
-      対角はaffine，有限表示，quasi-finiteかつunramifiedである。
-\item 局所Noether複素スキームのfppf siteに制限すると，$\mathfrak N_{n,d}$ は
-      $\mathfrak M^{\OO}_{n,d}$ の中の次のfullな部分スタックと同値である：
-      その対象は，fppf局所的に $W_d$ 上の構成族の引戻しと同値になる全ての族であり，
-      射はそれらの間の全 $\OO$ 保存完全Abel同値である。
-\item この部分スタックの次元は
-      \begin{align*}
-       \dim\mathfrak N_{n,1}
-          &=b_{n,1}+n
-            =\binom{n+3}{4}+\binom{n+5}{6}-n^2+n,\\
-       \dim\mathfrak N_{n,2}
-          &=b_{n,2}+2n-1
-            =\binom{n+4}{4}-(n+1)^2+2n-1.
-      \end{align*}
-\item $W_d$ 上の任意の二つの族について，全同値層は通常の次数付き代数を用いて
-      \[
-       \underline{\operatorname{Eq}}_{\OO}(\QGr B_a,\QGr B_b)
-          \simeq
-       \underline{\operatorname{Isom}}_{\mathrm{gr}}(B_a,B_b)/\Gm
-      \]
-      と表示できる。
-\end{enumerate}
-\end{theorem}
-\begin{proof}
-$V_d$ は古典係数空間の開集合 $U_d$ と方向錐 $C_{n,d}$ の積の非空開集合である。
-$U_d$ はaffine空間の非空開集合，$C_{n,1}$ はaffine空間，
-$C_{n,2}$ はGrassmann多様体のPl\"ucker錐なので，$V_d$ は整で有限型である。
-命題\ref{prop:unit-source-smooth-open}により
-$V_d^{\mathrm{unit}}$ は可換零切断全体を含む非空開集合である。
-定理\ref{thm:finite-low-center-open}により $H_d$ も非空開集合である。
-従って補題\ref{lem:generic-flat-full-groupoid}を
-$V^0=V_d^{\mathrm{unit}}$，$H=H_d$ として適用でき，(1)を得る。
-以後はこの $W_d$ と全矢の制限だけを使う。
-
-滑らかな群oidの商定理\cite[Tag 04TK]{StacksProject}により
-$\mathfrak N_{n,d}$ は代数スタックであり，表示 $W_d\to\mathfrak N_{n,d}$ は滑らかで全射である。
-その対角を $W_d\times W_d$ に引き戻したものは
-$\mathcal E_{W_d}\to W_d\times W_d$ である。
-系\ref{cor:finite-equivalence-unramified}のaffine性，有限表示性，
-quasi-finite性，unramified性を忠実平坦降下すると，対角の表示した性質を得る。
-特にこの代数スタックはDeligne--Mumfordである
-\cite[Tag 06N3]{StacksProject}。
-$W_d$ は有限型かつ準コンパクトであるから，商も有限型である。
-
-次数2の非零錐 $C_{n,2}\setminus\{0\}$ は
-$\mathcal O_{\Gr(2,n+1)}(-1)$ の零切断を除いた全空間であり，滑らかである。
-次数1も同様に $C_{n,1}\setminus\{0\}$ は滑らかである。
-従って $W_d$ は滑らかかつ整である。
-滑らかさは滑らかな表示上で検査できるため，商は $\mathbb C$ 上滑らかである。
-$|W_d|\to|\mathfrak N_{n,d}|$ は全射なので商は既約でもあり，従って整である。
-これで(2)を得た。
-
-(3)の対象条件は，既存のfppfスタック内で局所的に定めた存在条件であるから，
-fullなfppf部分スタック $\mathfrak M_{W_d}$ を定める。
-構成族は $W_d\to\mathfrak M_{W_d}$ を与える。
-定理\ref{thm:finite-anticanonical-isom}は，任意の許された基底上で
-その二つの引戻しの\emph{全}同型層が $\mathcal E_{W_d}$ であることを与える。
-従って構成族と全矢による商からの自然射
-\[
-  [W_d/\mathcal E_{W_d}]\longrightarrow\mathfrak M_{W_d}
-\]
-は完全忠実である。このことは両側の対象を $W_d$ から引き戻せるfppf被覆上で検査でき，
-そこでの射と等式の降下は同じ定理のtails降下により有効である。
-対象についての局所本質的全射性は $\mathfrak M_{W_d}$ の定義そのものである。
-両側ともスタックなので自然射は同値である。
-全scheme上には左辺の有限型代数スタックが定まるが，
-全Grothendieck圏のモジュライ問題との同定は，定義\ref{def:nc-dp-stack}と同じ
-局所Noetherな基底のsite上で述べている。
-
-係数空間の次元は $b_{n,d}+g_d$ であり，方向錐の次元は
-$\dim C_{n,1}=n$，$\dim C_{n,2}=2n-1$ である。
-滑らかな表示 $W_d\to\mathfrak N_{n,d}$ の相対次元 $g_d$ を引けば(4)を得る。
-(5)は $n\ge3$ では系\ref{cor:finite-full-graded-recognition}，
-$n=2$ では $r=n-1=1$ と定理\ref{thm:finite-anticanonical-isom}による。
-\end{proof}
-
-\begin{remark}[部分問題の範囲]\label{rem:generic-dm-scope}
-この商には，選んだ $W_d$ の二つの対象間の全ての同値を入れている。
-$W_d$ 自体が同値に関して飽和していることや，座標変換に不変であることは必要ない。
-対象はfppf局所的に構成族と同値である全ての族を含む。
-
-一方，$\mathfrak M_{W_d}\to\mathfrak M^{\OO}_{n,d}$ がopen immersionであることは証明していない。
-また $W_d$ は非零方向へ制限しており，可換零切断を含むatlasではない。
-構成族全体のfullな商の代数性，可換点を含む開部分スタック，全モジュライの被覆，
-可換locusに接しない成分の不存在は本定理の結論に含まれない。
-\end{remark}
-
-\subsection{一般安定化群と粗モジュライ空間}
-
-\begin{corollary}[有限\'{e}taleなinertiaと滑らかな粗空間]
-\label{cor:generic-finite-inertia-coarse}
-定理\ref{thm:generic-full-dm-stack}の $W_d$ をさらに非空開集合へ縮小することで，
-$\mathfrak N_{n,d}$ のinertiaを有限\'{e}taleにできる。
-このとき $\mathfrak N_{n,d}$ は有限\'{e}tale群を帯とするgerbeとして
-粗モジュライ代数空間
-\[
-       \pi:\mathfrak N_{n,d}\longrightarrow M_{n,d}
-\]
-を持ち，$M_{n,d}$ は $\mathbb C$ 上滑らか，整，有限型である。
-特に正規であり，次元は前定理(4)と同じである。
-ここで帯は局所的に定まる有限\'{e}tale群であり，大域的に固定した群やgerbeの中立性は要求しない。
-$M_{n,d}$ の分離性は主張しない。
-\end{corollary}
-\begin{proof}
-まず $W_d=\Spec A$ を非空affine開集合に制限する。
-その安定化群スキーム $I\to W_d$ はaffine，有限表示，quasi-finiteかつunramifiedである。
-$I=\Spec B$，$K=\operatorname{Frac}(A)$ と書く。
-有限型で零次元の $K$-代数 $B\otimes_AK$ は有限次元である。
-$B$ の有限個の $A$-代数生成元 $b_i$ は，$K$ 上でmonic関係式を満たす。
-その有限個の係数の分母を払い，さらに関係式の値として残る $A$-torsion元を殺す
-非零元をinvertすれば，$B_f$ の各生成元は $A_f$ 上整となる。
-従って $B_f$ は有限 $A_f$-加群である。
-さらにgeneric flatnessにより非空開へ縮小し，$B_f$ を平坦にもできる。
-有限表示かつunramifiedであることと合わせて，$I\to W_d$ は有限\'{e}taleとなる。
-
-開集合への全群oid制限は前定理のsource・targetの滑らかさを保つ。
-新しい商のinertiaをその滑らかな表示 $W_d$ に引き戻すと上の $I$ になるから，
-有限\'{e}tale性は降下して $\mathcal I_{\mathfrak N_{n,d}}\to\mathfrak N_{n,d}$ に成立する。
-Keel--Mori定理\cite[Tag 0DUT]{StacksProject}により粗モジュライ代数空間が存在し，
-有限型性は\cite[Tag 0DUW]{StacksProject}から従う。
-
-さらにflatかつ有限表示のinertiaを持つ代数スタックは，ある代数空間上のgerbeである
-\cite[Tag 06QJ]{StacksProject}。
-このgerbeの基底は幾何学的同型類と代数空間への射を分類するので，
-粗空間の普遍性により $M_{n,d}$ と同一視される。
-fppf局所的には $[T/G]\to T$ であり，$G\to T$ は有限\'{e}taleである
-\cite[Tag 06QH]{StacksProject}。
-$T\to[T/G]$ は有限\'{e}tale全射なので，$[T/G]\to T$ は相対次元零の滑らかな射である。
-この性質を降下すると $\pi$ も相対次元零で滑らかかつ全射となる。
-従って $\mathfrak N_{n,d}$ の $\mathbb C$ 上の滑らかさは $M_{n,d}$ に降下する。
-また $\pi$ は幾何学的同型類を一つの点に移す全射であり，
-既約性と次元も保たれる。これで粗空間の全ての主張を得る。
-\end{proof}
-
-
 \subsection{基本シフトを保つ矢の開部分群oid}
 
 以下では有限型開集合 $V$ を
@@ -744,14 +527,836 @@ $\mathbb G_m\to\mathbb G_m$，$\lambda\mapsto c\lambda^r$
 基本シフトを標識に追加せず全 $\mathcal O$ 保存同値を通常の $B$ から認識できる。
 通常の次数付き同型には，重みの大きい生成元へ低い重みの生成元の
 同次数多項式を加える変換も含める。
-この結果だけから，その全同値群oidのsource・targetが開近傍全体で
-平坦またはsmoothであること，その商が全モジュライ内で開であること，
-あるいは全nc対象を被覆することは結論しない。
+全同値群oidのsource・targetのsmoothnessには，次項以降の中心Jacobianによる
+独立した持上げの証明を使う。
+その商が全モジュライ内で開であることや，全nc対象を被覆することは結論しない。
 方向解消のproper性は悪い閉集合の像を閉にするために用いており，
 その射を平坦降下の被覆として使ってはいない。
 \end{remark}
 
-\subsection{有限群oidのlimit preservationと可換点での形式対象のeffectivity}
+\subsection{方向解消上の規格化中心とCasimir係数の微分}
+
+本項では，選択した有限中心元のCasimir係数方向の変化を調べる。
+中心元の選択が係数の線型平行移動と厳密に可換することは仮定しない。
+必要なのは，その変化の微分が可換零切断で恒等となることである。
+
+中心元の内部次数を $e_1=6$，$e_2=4$ とする。
+滑らかな可換係数の開集合を $U_d$ とし，
+既存の同時中心族の定義域を $U_d\times C_{n,d}$ に制限する。
+さらに，各 $m\le e_d$ の完全対称化
+\[
+ (\operatorname{Sym}\mathcal V)_m\longrightarrow A_m
+\]
+が同型となる有限個の開条件を課す。
+両辺は同じ階数の有限局所自由加群であり，零切断では同型なので，
+これは可換零切断全体を含む不変開集合である。
+ここで $\mathcal V$ は重み付き生成空間であり，完全対称化には $y,z$ も含める。
+この段階の開集合を $V$，その零切断を $Z$ と書く。
+選択した中心元を $\Omega$ とし，完全対称化座標の $z^2$ 係数を読む写像を
+\[
+       \lambda:A_{e_d}\longrightarrow\mathcal O_V
+\]
+と書けば，既存の規格化は $\lambda(\Omega)=1/2$ である。
+
+方向解消を
+\[
+ q:Y\longrightarrow V
+\]
+と書く。次数1では $\mathbb P(E^*)$ 上の $\mathcal O(-1)$，
+次数2では $\operatorname{Gr}(2,E^*)$ 上の $\mathcal O(-1)$ の全空間に
+係数空間を掛け，$V$ へ引き戻したものである。
+$q$ はproperで，零方向の外では同型である。
+例外因子を $E_0=q^{-1}(Z)$，tautological sectionを $\tau$ と書く。
+線束の局所フレームでは $\tau=h\ell$ であり，
+方向は $D=hD_0$ または $P=hP_0$ と書ける。
+方向空間上の標準核束を $K$ とし，
+\[
+            \mathcal P_{e_d}=\operatorname{Sym}^{e_d}K
+\]
+と置く。これは $Y$ 上の係数束であると同時に，
+ambient代数の中央な内部次数 $e_d$ の部分束を与える。
+以下では $A,\Omega,\lambda$ の $Y$ への引戻しに同じ記号を用いる。
+
+\begin{lemma}[規格化したambient中心の普遍的な核]
+\label{lem:normalized-ambient-center-near-zero}
+$V$ を $Z$ 全体を保った不変開集合へさらに縮小して，次を成立させられる。
+生成元との交換子を $\tau$ で割った写像を
+\[
+ \mathcal D:A_{e_d}\longrightarrow
+   \bigoplus_w\operatorname{Hom}
+       (\mathcal V_w,A_{e_d+w})\otimes L^*
+\]
+と書くと，任意の可換基底変更 $T\to Y$ に対して
+\begin{align}
+ \ker(\mathcal D_T,\lambda_T)&=(\mathcal P_{e_d})_T,
+       \label{eq:normalized-ambient-center-kernel}\\
+ \ker\mathcal D_T
+       &=(\mathcal P_{e_d})_T\oplus\mathcal O_T\Omega_T
+       \label{eq:normalized-ambient-center-splitting}
+\end{align}
+が成立する。
+両右辺は $(A_{e_d})_T$ の部分束である。
+$\tau$ が可逆な基底では，第二式の左辺は通常のambient中心の次数 $e_d$ 部分に等しい。
+零切断では通常の交換子の核はより大きく，第二式は除した交換子についての主張である。
+\end{lemma}
+\begin{proof}
+$Y$ は滑らかな係数空間と方向空間上の線束の全空間の開部分であり，
+例外因子は有効Cartier因子である。
+$A_m$ は $Y$ 上有限局所自由なので，局所方程式 $h$ は各次数部分の非零因子である。
+交換子は $h=0$ で消えるため，一意的に $h$ で割れる。
+フレーム変更の下でこれらは $L^*$ の捩れを付けて貼り合い，$\mathcal D$ を与える。
+この写像をまず普遍基底上で定めてから引き戻すので，
+基底変更後に $h$ が零因子となる場合にも $\mathcal D_T$ は定義される。
+
+$K$ の元は関係式により厳密に中央である。
+完全対称化の同型から $\mathcal P_{e_d}\subset A_{e_d}$ は部分束であり，
+$\mathcal D$ と $\lambda$ はその上で零である。
+従って商束上の有限行列
+\[
+ j:\ A_{e_d}/\mathcal P_{e_d}\longrightarrow
+   \left(\bigoplus_w\operatorname{Hom}
+       (\mathcal V_w,A_{e_d+w})\otimes L^*\right)\oplus\mathcal O_Y,
+ \qquad j=(\overline{\mathcal D},\overline\lambda)
+\]
+を得る。
+
+例外因子の全幾何学的点で $\mathcal D$ は古典Poisson交換子である。
+その内部次数 $e_d$ の中心は
+\[
+            \operatorname{Sym}^{e_d}K\oplus\mathcal O F,
+ \qquad \lambda(F)=1/2
+\]
+である。これには，滑らかな可換中心商 $B_f=A_f/(F)$ の
+Poisson中心が $\operatorname{Sym}K$ であることを用いればよい
+（補題\ref{lem:classical-casimir-center}および
+定理\ref{thm:low-center-zero-neighborhood}の全方向での確認）。
+実際，Poisson中央な $a\in(A_f)_{e_d}$ の像は
+$p\in\operatorname{Sym}^{e_d}K$ に属し，従って
+$a-p=cF$，$c\in\mathbb C$ となる。
+$\lambda(F)=1/2$ により規格化係数は残る $F$ 方向を検出する。
+従って $j$ は例外因子の全点でファイバー上単射である。
+
+有限行列の最大小行列式によって，$j$ が局所分裂単射となる開集合
+$Y^{\mathrm{cen}}\subset Y$ は $E_0$ 全体を含む。
+その閉補集合のproperな像を $V$ から除くと，零切断を失わずに
+$q^{-1}(V)\subset Y^{\mathrm{cen}}$ とできる。
+全ての写像が座標変換に自然なので，この開集合は不変に取れる。
+以後この開集合へ制限する。
+
+分裂単射は任意の基底変更後も単射であるから，
+$\mathcal D_T a=0$ かつ $\lambda_T(a)=0$ ならば $a\in(\mathcal P_{e_d})_T$ である。
+これが第一式を与える。
+中心元 $\Omega$ は普遍基底上で $\mathcal D\Omega=0$ を満たす。
+実際，通常の交換子は零であり，普遍基底では $h$ を消去できる。
+この等式は任意基底変更後も成り立つ。
+$\lambda(\Omega)=1/2$ なので，任意の $a\in\ker\mathcal D_T$ について
+$a-2\lambda_T(a)\Omega_T\in(\mathcal P_{e_d})_T$ となり，第二式を得る。
+部分束であることは，$\mathcal P_{e_d}\subset A_{e_d}$ が部分束であり，
+商束上の $\Omega$ が $\lambda$ によって分裂することから従う。
+\end{proof}
+
+\begin{proposition}[Casimir係数の可逆なJacobianを持つ零切断近傍]
+\label{prop:casimir-jacobian-zero-neighborhood}
+前補題の開集合をさらに $Z$ 全体を保って不変に縮小すると，
+次の係数方向微分は任意の方向解消点で同型となる：
+\[
+          J_\Omega:\mathcal P_{e_d}\xrightarrow{\ \sim\ }\mathcal P_{e_d}.
+\]
+この写像は，次数1では $A_4,D$ を固定して $A_6$ に
+$c\in\operatorname{Sym}^6K$ を加える変化，次数2では $P$ を固定して
+$U$ に $c\in\operatorname{Sym}^4K$ を加える変化に対する $\Omega$ の微分である。
+その例外因子上の制限は恒等写像であり，同型性は任意の非被約基底変更後も保たれる。
+\end{proposition}
+\begin{proof}
+まずこれらの係数変化の下でambient代数が文字通り不変であることを確認する。
+次数1の表示関係式では $A_6$ は $DA_6$ としてだけ現れる。
+$c\in\operatorname{Sym}^6K$ ならば $D_0c=0$ なので，$D(A_6+c)=DA_6$ である。
+次数2では $U$ は $\sum_jp_{ij}\partial_{x_j}U$ としてだけ現れ，
+$c\in\operatorname{Sym}^4K$ に対してこの方向微分は零である。
+従って両次数とも，生成元を恒等に送るambient代数の標準同一視がある。
+これは多項式の恒等式であり，$h=0$ や非被約基底でも成立する。
+完全対称化写像と $\lambda$ もこの同一視で一致する。
+
+係数変化を定義域に留める条件は開条件である。
+特に平方零の変化 $c\varepsilon$ は同じ位相的点にあるので，
+全ての既存の開条件を自動的に保つ。
+上の標準同一視を用い
+\[
+ \Omega(f+\varepsilon c)
+       =\Omega(f)+\varepsilon\,\partial_c\Omega,
+       \qquad\varepsilon^2=0
+\]
+と定義すると，$\partial_c\Omega$ は $c$ に関して線型であり，
+束の射 $\mathcal P_{e_d}\to A_{e_d}$ を与える。
+
+除した交換子 $\mathcal D$ もこの係数変化に沿って一定である。
+これはambientの同一視と交換子の一致を，普遍係数変化の空間上で $h$ により割って確認できる。
+その普遍空間は $Y$ 上のベクトル束の開部分なので $h$ はなお非零因子であり，
+その後に任意基底へ引き戻せる。
+従って $\mathcal D\Omega=0$ と $\lambda(\Omega)=1/2$ を微分すると
+\[
+       \mathcal D(\partial_c\Omega)=0,
+       \qquad\lambda(\partial_c\Omega)=0
+\]
+となる。前補題から $\partial_c\Omega\in\mathcal P_{e_d}$ であり，
+これが内在的なendomorphism $J_\Omega$ を定める。
+基底変更後に $h$ を改めて割っているのではない。
+
+例外因子上では選択した中心元は
+\[
+ \Omega=F=
+ \begin{cases}
+ z^2/2+y^3/3+A_4y+A_6,&d=1,\\
+ z^2/2+U,&d=2.
+ \end{cases}
+\]
+従って上の係数方向微分は $c\mapsto c$ であり，
+$J_\Omega|_{E_0}=\operatorname{Id}$ である。
+$\det J_\Omega\ne0$ は $E_0$ 全体を含む開条件である。
+再びその閉補集合のproperな像を $V$ から除くことで，
+零切断を保ち，その全逆像で $J_\Omega$ を可逆にできる。
+中心元を含む全構成は $\operatorname{GL}$ 同変であり，
+このendomorphismの行列式条件も同変なので，開集合は不変に取れる。
+得た束の同型を任意の基底へ引き戻せば，最後の主張も従う。
+\end{proof}
+
+\begin{lemma}[小拡大上の規格化中心差の一意な補正]
+\label{lem:casimir-center-small-extension-correction}
+前命題の開集合の非零方向部分で作業する。
+$R'\twoheadrightarrow R$ を局所Artin $\mathbb C$-代数の平方零拡大，
+$I$ をその核とし，$a':\Spec R'\to V^\times$ を一つの係数持上げとする。
+そのambientを $A_{a'}$ とする。
+同じambientの中心に属する内部次数 $e_d$ の元 $\Theta$ が
+\[
+          \lambda(\Theta)=1/2,
+          \qquad \Theta\bmod I=\Omega_{a'\bmod I}
+\]
+を満たすならば，一意的な $\xi\in I(\mathcal P_{e_d})_{a'}$ があり，
+Casimir係数だけを $\xi$ だけ動かした持上げ $a'+\xi$ に対して
+\[
+                    \Omega_{a'+\xi}=\Theta
+\]
+となる。両ambientは生成元を恒等とする標準同一視で比較する。
+\end{lemma}
+\begin{proof}
+非零方向上では $q$ は同型であり，例外因子の局所方程式 $h$ は単元である。
+従って通常の中心と除した交換子の核は一致する。
+差を $\Delta=\Theta-\Omega_{a'}$ と置くと，
+任意基底変更に両立する式\eqref{eq:normalized-ambient-center-kernel}より
+\[
+          \Delta\in(\mathcal P_{e_d})_{a'}.
+\]
+また還元が零なので $\Delta\in I(A_{e_d})_{a'}$ である。
+$\mathcal P_{e_d}\subset A_{e_d}$ は部分束であり，商も有限局所自由であるため，
+\[
+ (\mathcal P_{e_d})_{a'}\cap I(A_{e_d})_{a'}
+             =I(\mathcal P_{e_d})_{a'}.
+\]
+実際，局所Artin環上でこの部分束を直和因子として分裂すれば明らかである。
+従って $\Delta$ は単に中心的な $I$-係数元というだけでなく，
+厳密に $I(\mathcal P_{e_d})_{a'}$ に属する。
+
+$J_{\Omega,a'}$ は同型なので
+\[
+               \xi=J_{\Omega,a'}^{-1}(\Delta)
+                   \in I(\mathcal P_{e_d})_{a'}
+\]
+と取れる。
+$I^2=0$ であるから，正則関数のTaylor公式は一次で厳密に止まり，
+ambientの標準同一視の下で
+\[
+       \Omega_{a'+\xi}
+          =\Omega_{a'}+J_{\Omega,a'}(\xi)
+          =\Theta
+\]
+となる。
+係数変化は平方零であり，既存の全ての開条件を保つ。
+また方向と $K$ は変わらず，ambientの表示関係式も変わらない。
+同じ等式を満たす別の補正との差は $J_{\Omega,a'}$ の核に入るので零である。
+\end{proof}
+
+\begin{remark}[この補正が与える範囲]
+この議論は，有限中心元がCasimir係数に線型であることを示してはいない。
+異なる有限係数点が同じ規格化中心元を与える離散的な分枝も排除しない。
+示したのは，全可換零切断を保った一つの有限開近傍で，
+この係数方向の方程式が\'{e}taleであり，平方零持上げを一意に補正できることである。
+従って全同値群oidのsource持上げには利用できるが，
+それだけから座標作用群oidの全射性・同型性を結論することはしない。
+\end{remark}
+
+\subsection{非零方向における次数付き同型と中央係数の差}
+
+以下では全可換零切断を保った不変開集合 $W\subset V$ を取り，
+系\ref{cor:zero-neighborhood-full-graded-recognition}の通常次数付き認識と，
+補題\ref{lem:normalized-ambient-center-near-zero}，
+命題\ref{prop:casimir-jacobian-zero-neighborhood}を同時に満たすようにする。
+前項の有限個の完全対称化同型の条件も含める。
+特にambientの各次数 $m\le e_d$ は，完全対称化によって
+固定された可換重み付き多項式の次数 $m$ の部分と同一視できる。
+$m<e_d$ では $B_m=A_m$ である。
+係数環は局所Artin $\mathbb C$-代数 $\Lambda$ とし，
+非零方向とは剰余体で方向が非零，従ってある方向座標が $\Lambda$ の単元であることを意味する。
+
+\begin{lemma}[非零方向上の重み付き線型化]
+\label{lem:nonzero-graded-isom-weighted-linear}
+非零方向の二点 $a,b:\operatorname{Spec}\Lambda\to W^\times$ と
+次数付き同型 $\phi:B_a\xrightarrow{\sim}B_b$ を取る。
+その生成元上の写像は次の形である。
+\begin{enumerate}
+\item 次数2では，$M\in\operatorname{GL}_{n+1}(\Lambda)$ と
+      $c\in\Lambda^\times$ によって
+      $\phi(x)=Mx'$，$\phi(z)=cz'$ と書ける。
+\item 次数1では，$M\in\operatorname{GL}_n(\Lambda)$ と
+      $\beta,\gamma\in\Lambda^\times$ によって
+      \[
+       \phi(x)=Mx',\qquad \phi(y)=\beta y',\qquad
+       \phi(z)=\gamma z',\qquad \gamma^2=\beta^3
+      \]
+      と書ける。特に $t=\gamma/\beta$ とすれば
+      $(\beta,\gamma)=(t^2,t^3)$ である。
+\end{enumerate}
+これらは有効座標変換群 $G_d$ の元 $g$ を定める。
+次数スカラーで $\phi$ を変更しても $g$ は変わらない。
+標準の座標同型によってsourceを $ga$ へ移し，生成元上の写像を恒等に直すと，
+targetとの差は次の中央係数だけとなる：
+\[
+ \begin{array}{c|c|c}
+ d&\text{一致するパラメータ}&\text{残る係数差}\\\hline
+ 1&D,\ A_4&A_{6,b}-A_{6,ga}\in\operatorname{Sym}^6K,\\
+ 2&P&U_b-U_{ga}\in\operatorname{Sym}^4K.
+ \end{array}
+\]
+両ambientは生成元を恒等とする同一視を持ち，その下で
+\begin{equation}\label{eq:central-coefficient-arrow-equation}
+                       \Omega_b=\Omega_{ga}
+\end{equation}
+となる。逆に，このパラメータの一致，中央係数差，中心元の等式は，
+その重み付き線型座標写像から通常の次数付き同型を与える。
+\end{lemma}
+\begin{proof}
+\emph{次数2。}
+次数1では生成元 $x_i$ だけがあるため，$\phi(x)=Mx'$，$M$ は可逆である。
+次数2の完全対称化分解から
+\[
+                \phi(z)=cz'+\operatorname{Sym}(q_2(x'))
+\]
+と書ける。
+$\phi$ は $\operatorname{Sym}^2\langle x_i\rangle$ の部分加群を
+$\operatorname{Sym}^2M$ によって可逆に保つ。
+従ってその商 $\Lambda z$ に誘導する写像も可逆であり，$c\in\Lambda^\times$ である。
+これは $z$ が非零方向で代数的に分解可能であることとは別の，線型部分空間の議論である。
+関係式 $[x_i,x_j]=p_{ij}z$ に $\phi$ を適用すると
+\[
+       (MP_bM^{\mathsf t})_{ij}z'
+            =p_{a,ij}\bigl(cz'+\operatorname{Sym}(q_2)\bigr)
+\]
+となる。
+ある $p_{a,ij}$ は単元であり，次数2の直和分解から $q_2=0$ が従う。
+
+\emph{次数1。}
+同様に $\phi(x)=Mx'$ であり，次数2と3の完全対称化分解を使うと
+\[
+ \phi(y)=\beta y'+q_2(x'),\qquad
+ \phi(z)=\gamma z'+\operatorname{Sym}(\ell_1(x')y')+q_3(x')
+\]
+と書ける。
+純粋な $x$ の次数2部分を $\phi$ は可逆に保つから，その商により $\beta$ は単元である。
+次数3の部分
+$\operatorname{Sym}^3\langle x_i\rangle\oplus
+\operatorname{Sym}(\langle x_i\rangle y)$ も
+$M$ と $\beta$ による三角な可逆写像で保たれる。
+その商は $\Lambda z$ なので，$\gamma$ も単元である。
+
+関係式 $[x_i,y]=D_i z$ から
+\[
+ \beta(MD_b)_i z'
+   =D_{a,i}\bigl(\gamma z'+\operatorname{Sym}(\ell_1y')+q_3\bigr)
+\]
+を得る。ある $D_{a,i}$ は単元なので
+$\ell_1=q_3=0$，$\beta MD_b=\gamma D_a$ となる。
+次に $[z,x_i]=D_i(y^2+A_4)$ を比較し，その単元 $D_{a,i}$ を消去すると
+\begin{equation}\label{eq:weighted-linear-degree-four-comparison}
+ \frac{\gamma^2}{\beta}\bigl((y')^2+A_{4,b}(x')\bigr)
+   =(\beta y'+q_2(x'))^2+A_{4,a}(Mx')
+\end{equation}
+となる。
+
+量子並べ替えの補正を省略せずに $q_2=0$ を確認する。
+targetの導分を $D_b$ とすると，任意の二次式 $q=q_2(x')$ に対し
+\[
+ y'q+qy'
+  =2\operatorname{Sym}(qy')
+       -\frac{D_b^2q}{6}\bigl((y')^2+A_{4,b}\bigr).
+\]
+これは $q=x_i'x_j'$ について三つの置換位置を平均し，
+$[x_i',y']=D_{b,i}z'$ と
+$[z',x_i']=D_{b,i}((y')^2+A_{4,b})$ を二回使えば得られ，一般の場合は線型性による。
+従って\eqref{eq:weighted-linear-degree-four-comparison}の
+$\operatorname{Sym}(\operatorname{Sym}^2\langle x_i'\rangle\, y')$ 成分は
+右辺の $2\beta q_2$ だけである。
+完全対称化は次数4で同型，$2\beta$ は単元なので $q_2=0$ となる。
+その後に $(y')^2$ 成分を比較して $\gamma^2=\beta^3$ を得る。
+
+\emph{残るCasimir係数。}
+得た写像はいずれも正規形に許された重み付き線型座標変換である。
+第\ref{sec:definitions}節の作用の規約に従い，それが誘導する同型を
+$B_a\to B_{ga}$ と書く。
+その逆を合成すれば，全生成元を恒等に送る同型の問題となる。
+次数スカラーは $G_d$ を定義する中央部分群に一致するから，$g$ はその商に依存しない。
+
+次数2ではまず $P$ が一致し，残る関係式から
+\[
+     \sum_jp_{ij}\partial_{x_j}(U_b-U_{ga})=0
+\]
+を得る。
+この等式はまず $\operatorname{Sym}$ による像についての等式だが，
+関係式の次数3は中央関係式の次数4より小さく，
+ambientの次数3の完全対称化は単射なので，多項式として成立する。
+局所的に $K$ の基底と活性座標 $u,v$ を選べば，
+$P(u,v)$ は単元であり，上式は $\partial_u(U_b-U_{ga})=
+\partial_v(U_b-U_{ga})=0$ と同値である。
+係数環は $\mathbb C$-代数なので，非被約でも
+$U_b-U_{ga}\in\operatorname{Sym}^4K$ となる。
+
+次数1では順に $D,A_4$ が一致する。
+最後の関係式 $[y,z]=\operatorname{Sym}((DA_4)y)+DA_6$ を比較すると
+$D(A_{6,b}-A_{6,ga})=0$ となる。
+次数5の完全対称化の単射性を用いて多項式の等式に戻し，
+活性座標に沿う導分の核を取れば
+$A_{6,b}-A_{6,ga}\in\operatorname{Sym}^6K$ を得る。
+いずれもこの係数差はambientの全表示関係式を変えない。
+
+ambient関係式の次数は全て $e_d$ より小さい。
+従って生成元の恒等写像は共通ambientの恒等写像へ持ち上がり，
+quotientの同型は二つの中心元が生成するイデアルの一致を意味する。
+内部次数 $e_d$ のそのイデアルはそれぞれ $\Lambda\Omega_b$ と
+$\Lambda\Omega_{ga}$ である。
+従って中心元は単元倍で一致するが，両者の $z^2$ 係数が $1/2$ なのでその単元は1である。
+これが\eqref{eq:central-coefficient-arrow-equation}である。
+逆向きは共通ambientの同じ中心商を取ることから従う。
+\end{proof}
+
+\subsection{全ての矢を保った零切断近傍でのsourceの持上げ}
+
+\begin{theorem}[可換零切断近傍の全同値群oidの滑らかさ]
+\label{thm:full-source-smooth-zero-neighborhood}
+滑らかな可換零切断全体を含む不変な有限型開集合 $W_d\subset V_d$ を選び，
+次を同時に満たすようにできる。
+\begin{enumerate}
+\item 通常のgraded同型による全認識
+      $\mathcal H_{W_d}\simeq\mathcal E_{W_d}$ が成立する。
+\item 全ての矢を保った群oid
+      $\mathcal E_{W_d}\rightrightarrows W_d$ のsource・targetは滑らかであり，
+      相対次元は $g_1=n^2$，$g_2=(n+1)^2$ である。
+\item 非零方向を結ぶ矢上で，前補題の重み付き線型成分を記録する射
+      \[
+       \Psi:\mathcal E_{W_d^\times}\longrightarrow G_d\times W_d^\times,
+       \qquad \alpha\longmapsto(g(\alpha),s(\alpha))
+      \]
+      は\'{e}taleである。
+\end{enumerate}
+\end{theorem}
+\begin{proof}
+系\ref{cor:zero-neighborhood-full-graded-recognition}，
+補題\ref{lem:normalized-ambient-center-near-zero}，
+命題\ref{prop:casimir-jacobian-zero-neighborhood}および低次数完全対称化の
+有限個の開集合の共通部分を $W_d$ とする。
+いずれも零切断全体を保つため，その共通部分も同じ性質を持つ。
+(1)は系\ref{cor:zero-neighborhood-full-graded-recognition}による。
+前補題の低次数直和比較はArtin性を使わず，任意の基底の方向座標が局所的に可逆なchartで成立する。
+従って普遍的な通常次数付きIsom上でも非線型成分は恒等的に零であり，
+低次数係数を読む操作は全基底に自然な代数的操作である。
+これは次数スカラーを法として $G_d$ に値を取る。
+従って (3) の射 $\Psi$ が定義される。
+その形式的\'{e}tale性を，閉点を特殊点とする局所Artin環の小拡大で確認する。
+
+$\Lambda'\twoheadrightarrow\Lambda$ を小拡大，$I$ をその核とする。
+非零方向の矢 $\alpha:a\to b$ と，
+$\Psi(\alpha)=(g,a)$ の持上げ $(g',a')\in(G_d\times W_d^\times)(\Lambda')$ を与える。
+$a_0'=g'a'$ と置く。
+座標群の作用と開集合の不変性により，$a_0'$ も同じ有限族の定義域に入る。
+前補題から $b-ga$ は共通方向のCasimir係数
+$\zeta\in\operatorname{Sym}^{e_d}K_\Lambda$ だけである。
+この束は $\Lambda'$ 上自由なので，$\zeta$ を
+$\zeta_0'\in\operatorname{Sym}^{e_d}K_{\Lambda'}$ へ持ち上げ，
+\[
+                   b_0'=a_0'+\zeta_0'
+\]
+とする。
+この点は $b$ へ還元するから，全ての開条件を満たす。
+また $A_{a_0'}=A_{b_0'}$ は生成元を恒等とする共通ambientである。
+
+このambient内で $\Theta=\Omega_{a_0'}$ と置く。
+元の矢に対する\eqref{eq:central-coefficient-arrow-equation}より
+$\Theta\bmod I=\Omega_b$ であり，$\lambda(\Theta)=1/2$ である。
+補題\ref{lem:casimir-center-small-extension-correction}を実際のtargetの持上げ $b_0'$ に適用すると，
+一意的な $\xi\in I\operatorname{Sym}^{e_d}K_{\Lambda'}$ があり，
+\[
+              b'=b_0'+\xi,
+              \qquad\Omega_{b'}=\Theta
+\]
+となる。
+従って座標同型 $B_{a'}\simeq B_{a_0'}$ と共通ambientの恒等を合成して，
+$\alpha$ を持ち上げる矢 $a'\to b'$ を得る。
+
+同じ $(g',a')$ を持つ別の持上げがあれば，前補題によりそのtargetとの差は
+$I\operatorname{Sym}^{e_d}K$ に限られる。
+中心差の補正の一意性からtargetは $b'$ と一致する。
+その生成元上の写像は $g'$ で決まり，残る次数スカラーは既に割っているので，
+矢の類も一致する。
+従って $\Psi$ は閉点で形式的\'{e}taleである。
+有限型射の閉点Artin持上げ判定では，存在が滑らかさを与え，一意性が相対接空間の消滅を与える。
+よって $\Psi$ は全閉点で\'{e}taleであり，非\'{e}tale locusが閉であるため全点で\'{e}taleである
+\cite[Tags 02HY, 02HM]{StacksProject}。
+
+$s=\operatorname{pr}_{W_d^\times}\circ\Psi$ なので，
+非零方向を結ぶ全矢でsourceは滑らか，相対次元は $\dim G_d=g_d$ である。
+零切断に接する矢は補題\ref{lem:commutative-zero-equivalence-saturated}により両端が零切断にあり，
+定理\ref{thm:equivalence-source-formal-smooth}が同じ滑らかさと相対次元を与える。
+これで全複素閉矢においてsourceが滑らかであり，
+非smooth locusが閉であることから全ての点で滑らかである。
+逆射がsourceとtargetを交換するため，targetにも同じ結論が従う。
+\end{proof}
+
+\begin{remark}[座標作用への全射性は必要ない]
+\label{rem:central-coefficient-branches}
+ここで証明したのは $\Psi$ が\'{e}taleであることであり，
+任意の矢のtargetが厳密に $ga$ と一致することではない。
+選んだ有限中心元は中央係数に非線型に依存してよく，
+同じ規格化中心を与える離散的な別の係数分枝が残り得る。
+その分枝はsourceの小拡大持上げを妨げない。
+持上げで使ったのはtarget側のCasimir Jacobianの可逆性であり，
+中央係数の大域的単射性や全係数域での一意性ではない。
+\end{remark}
+
+\subsection{全可換零切断とその形式変形を含むDM部分スタック}
+
+\begin{theorem}[全可換零切断を含む有限型DM部分スタック]
+\label{thm:zero-neighborhood-full-dm}
+前定理の全同値群oidの商
+\[
+             \mathfrak U_{n,d}
+                      =[W_d/\mathcal E_{W_d}]
+\]
+は，有限型で整なDeligne--Mumfordスタックである。
+その対角はaffine，有限表示，quasi-finiteかつunramifiedであり，
+$W_d\to\mathfrak U_{n,d}$ は相対次元 $g_d$ の滑らかな全射である。
+次元は
+\[
+ \dim\mathfrak U_{n,1}=b_{n,1}+n,
+ \qquad
+ \dim\mathfrak U_{n,2}=b_{n,2}+2n-1
+\]
+である。
+次数1，および次数2の $n=2$ ではこのスタックは $\mathbb C$ 上滑らかである。
+次数2の $n\ge3$ では，滑らかでない点の集合は可換零切断の像と一致し，
+その被約閉部分スタックは $[Z/\mathcal E_Z]$ である。
+この主張は非smooth locusの被約構造についてのものであり，Jacobianイデアルによる構造との一致は主張しない。
+
+任意の非空対象開 $W'\subset W_d$ に対して，全群oidを制限した商
+$[W'/\mathcal E_{W'}]$ は $\mathfrak U_{n,d}$ の非空開部分スタックとなる。
+従って後述の系\ref{thm:generic-full-dm-stack}の一般非零部分 $\mathfrak N_{n,d}$ は，
+$\mathfrak U_{n,d}$ の非空開部分スタックとして取れる。
+
+許された局所Noether基底のsite上では，この商は
+$\mathfrak M^{\mathcal O}_{n,d}$ のfullな部分スタックであり，
+対象はfppf局所的に $W_d$ 上の構成族から来る族，射はその間の全構造対象付きAbel同値である。
+全ての滑らかな可換模型と，その全framed Abel Artin変形を含む。
+この部分スタックが全モジュライ内で開であることや，全非可換対象を被覆することは主張しない。
+\end{theorem}
+\begin{proof}
+前定理と滑らかな群oidの商定理\cite[Tag 04TK]{StacksProject}により代数スタックを得る。
+系\ref{cor:finite-equivalence-unramified}を表示へ引き戻し，忠実平坦降下すると，
+対角の性質を得る。特に商はDeligne--Mumfordである
+\cite[Tag 06N3]{StacksProject}。
+有限型性は $W_d$ の有限型性と準コンパクト性から従う。
+
+$W_d$ はaffine係数空間の開集合と既約方向錐の積の非空開集合であり，整である。
+既約性は表示の全射性から商へ移り，被約性も滑らかな表示上で検査できるため商は整である。
+係数空間の次元は $b_{n,d}+g_d$，方向錐の次元は次数1で $n$，次数2で $2n-1$ である。
+表示の相対次元 $g_d$ を引けば表示した次元を得る。
+
+次数1の方向空間はaffine空間である。
+次数2で $n=2$ のPl\"ucker錐もaffine空間であり，$n\ge3$ では頂点だけが特異である。
+従って $W_d$ が滑らかでない点は，後者の場合に限ってちょうど零切断である。
+基底体上の滑らかさは滑らかな表示上で検査できるので，商についての主張が従う。
+系\ref{cor:zero-section-scheme-saturated}により零切断のイデアルは群oid上で一致し，
+$Z$ は閉部分スタック $[Z/\mathcal E_Z]$ へ降下する。
+その表示 $Z$ は滑らかであるためこの閉部分スタックは被約であり，
+述べた非smooth locusの被約構造との一致を得る。
+
+sourceとtargetは滑らかであるから開写像であり，任意の対象開 $W'$ の飽和
+$s(t^{-1}(W'))$ は開集合である。
+fullな群oid制限の商はこの飽和開集合の商と同じであるから，
+$[W'/\mathcal E_{W'}]\to\mathfrak U_{n,d}$ は開埋込みとなる。
+
+fullな部分問題との同定には，定理\ref{thm:finite-anticanonical-isom}の
+全同値層とtailsのfppf降下を用いる。
+局所的な対象は定義によって $W_d$ の点となり，その間の全射が
+$\mathcal E_{W_d}$ であるから，商のスタック化はちょうど述べたfullな部分スタックである。
+零切断全体が $W_d$ に含まれ，全Artin変形は
+定理\ref{thm:simultaneous-central-all-artin}のsliceのArtin点から来る。
+その特殊点が $W_d$ に入れば，Artin点全体もこの開集合を通る。
+従って最後の包含も得られる。
+\end{proof}
+
+\subsection{可換点における有限型の\'{e}tale slice}
+
+\begin{corollary}[有限自己同型群を保つ幾何学的slice]
+\label{cor:finite-etale-slice-near-classical}
+定理\ref{thm:zero-neighborhood-full-dm}の有限型DMスタックを
+\[
+ \mathfrak U_{n,d}=[W_d/\mathcal E_{W_d}]
+\]
+とし，滑らかな可換点 $x=(f,0)\in W_d(\mathbb C)$ の多様体を $X$ とする。
+有限群 $\Gamma=\operatorname{Aut}(X)$ を，正規形の有効座標変換群 $G_d$ における
+$f$ の安定化群と同一視する。
+全係数空間の軌道接空間に対し，$\Gamma$ 不変な補空間
+\[
+ T_f\mathcal F_d=(\operatorname{Lie}G_d)\cdot f\oplus N,
+ \qquad \dim N=b_{n,d}
+\]
+を選べる。
+さらに $(f,0)$ を含む $\Gamma$ 不変なaffine開近傍
+\[
+ T\subset (f+N)\times C_{n,d}
+\]
+を取り，次を満たすようにできる。
+\begin{enumerate}
+\item $T\subset W_d$ であり，同じ有限中心商族の制限は
+      representableな\'{e}tale射
+      \[
+       \eta_X:[T/\Gamma]\longrightarrow\mathfrak U_{n,d}
+      \]
+      を定める。
+\item $(f,0)$ の安定化群から像の安定化群への射は
+      $\Gamma\xrightarrow{\sim}\operatorname{Aut}(X)$ である。
+      従って残余gerbe $B\Gamma$ 上で同型を与える。
+\item $\eta_X$ の像は $[X]$ を含む
+      $\mathfrak U_{n,d}$ の開部分スタックであり，
+      $[T/\Gamma]$ はその有限型\'{e}tale被覆となる。
+      その $B\Gamma$ に沿う形式完備化は，既存の
+      $[\operatorname{Spf}R_X/\Gamma]$ と両立する。
+\end{enumerate}
+ここでrepresentableとは代数空間によって表現可能という意味である。
+この系は構成済みのfullな部分スタックの内部での幾何学的局所表示であり，
+その部分スタックが全 $\mathfrak M^{\mathcal O}_{n,d}$ の中で開であるとは主張しない。
+\end{corollary}
+\begin{proof}
+\emph{有限群に不変な横断slice。}
+正規形の商表示と可換点での全 $\mathcal O$ 保存同値の認識により，
+$\Gamma$ は $G_d$ における $f$ の有限な安定化群である。
+$H^0(X,T_X)=0$ なので軌道接写像は単射である。
+軌道接空間は $\Gamma$ 不変であり，標数0の有限群の平均化によって
+その不変な補空間 $N$ を選べる。
+これは命題\ref{prop:equivariant-formal-product}と同じ補空間の選択である。
+$G_d$ の係数空間への作用は線型で $\Gamma$ は $f$ を固定するので，
+$f+N$ は $\Gamma$ 不変なaffine部分空間である。
+
+滑らかな可換係数開集合を $U_d$ とし，
+\[
+ S=(f+N)\cap U_d,\qquad
+ T_0=(S\times C_{n,d})\cap W_d
+\]
+と置く。
+これは $\Gamma$ 不変で，$x=(f,0)$ を含む。
+座標作用の射\eqref{eq:coordinate-action-to-equivalences}を $\Gamma$ へ制限すると，
+同じ有限族の写像
+\[
+ p:T_0\longrightarrow\mathfrak U_{n,d}
+\]
+には積と両立する $\Gamma$ 同変構造がある。
+従って $[T_0/\Gamma]$ からの射 $\overline p$ を得る。
+次数スカラーが与える自然同型のcoherenceは，既存の有効群作用の構成に含まれている。
+
+\emph{sliceからの射の\'{e}tale性。}
+滑らかな表示 $W_d\to\mathfrak U_{n,d}$ で基底変更すると，
+\[
+ P=T_0\times_{\mathfrak U_{n,d}}W_d
+   \simeq\mathcal E_{W_d}\times_{s,W_d}T_0
+\]
+を得る。これはスキームであり，$P\to W_d$ はtargetから誘導される。
+単位矢に対応する点を $e_x\in P$ とする。
+補題\ref{lem:full-coefficient-formal-slice}と
+定理\ref{thm:equivalence-source-formal-smooth}の，同じsliceに適合した同型を使うと
+\[
+ \widehat{\mathcal O}_{W_d,x}=R_X[[u_1,\ldots,u_{g_d}]],
+ \qquad
+ \widehat{\mathcal O}_{T_0,x}=R_X
+\]
+であり，sliceの埋込みは $u=0$ に対応する。
+また矢の完備局所環は，sourceとtargetの写像に両立して
+\[
+ \widehat{\mathcal O}_{\mathcal E,e_x}
+       =R_X[[u_1,\ldots,u_{g_d},v_1,\ldots,v_{g_d}]]
+\]
+である。
+従って $P$ の単位点における完成は
+\[
+ \widehat{\mathcal O}_{P,e_x}
+   =R_X[[u,v]]\widehat\otimes_{R_X[[u]]}R_X
+   \simeq R_X[[v]],
+\]
+となり，$P\to W_d$ はtargetの完成
+$\widehat{\mathcal O}_{W_d,x}=R_X[[v]]$ からの同型を誘導する。
+
+この完成計算は，局所Artin環に対する関手としても確認できる。
+任意のtargetのパラメータ持上げに対し，そのframed変形類は
+$T_0$ の完備化の一意な点で表され，特殊ファイバーで恒等となる矢も一意である。
+従って上の同型は抽象的な環同型ではなく，実際のtarget写像に沿う同型である。
+特に，次数2のPl\"ucker錐が特異でもこの議論は有効である。
+
+$P\to W_d$ は有限型複素スキームの射であるから，
+完備局所環の判定\cite[Lemma~41.11.3, Tag~039M]{StacksProject}により
+$e_x$ で\'{e}taleである。
+representableな射の\'{e}tale性は滑らかな表示によって検査できるため，
+$p$ は $x$ で\'{e}taleである
+\cite[Section~100.3, Tag~04XB]{StacksProject}。
+従って $x$ を含む開近傍 $T_1\subset T_0$ で $p$ は\'{e}taleとなる。
+
+有限群による全ての移動の共通部分を取れば，$T_1$ を $\Gamma$ 不変にできる。
+さらに $(f+N)\times C_{n,d}$ はaffineであり，
+$T_1$ はその $\Gamma$ 固定点 $x$ を含む開集合である。
+$x\in D(a)\subset T_1$ となる正則関数 $a$ を選び，
+\[
+                         a_\Gamma=\prod_{\gamma\in\Gamma}\gamma(a)
+\]
+と置けば，$T=D(a_\Gamma)$ は $x$ を含む $\Gamma$ 不変なaffine開集合で，
+$T\subset T_1$ となる。
+
+\emph{商からの射のrepresentability。}
+$\eta_X:[T/\Gamma]\to\mathfrak U_{n,d}$ の
+相対的な自己同型の核が自明であることを示す。
+任意の基底上で，$\Gamma$-torsorをfppf局所的に自明化すれば，
+$[T/\Gamma]$ の対象は $t:T'\to T$ として表され，
+その自己同型は $t$ を固定する $\gamma\in\Gamma(T')$ である。
+その像が $\mathcal O$-marked tails上で恒等なら，
+補題\ref{lem:ordinary-graded-recognition-injective}の核の計算により，
+対応する次数付き座標変換はfppf局所的に次数スカラーである。
+次数スカラーは有効群 $G_d$ で恒等である。
+$\Gamma\hookrightarrow G_d$ は単射なので $\gamma=1$ であり，
+相対自己同型の核は任意基底で自明である。
+従って $\eta_X$ は代数空間によって表現可能である
+\cite[Lemma~101.6.2, Tag~04YY]{StacksProject}。
+
+$T\to[T/\Gamma]$ は有限\'{e}taleな全射であり，
+その後の合成は既に\'{e}taleと示した $p|_T$ である。
+representableな射の\'{e}tale性の降下から，$\eta_X$ 自身が\'{e}taleとなる。
+固定点 $x$ では始域の安定化群は $\Gamma$ 全体であり，
+終域の安定化群も古典的認識により $\operatorname{Aut}(X)=\Gamma$ なので，
+残余gerbe上の主張を得る。
+
+\'{E}tale射は開射であるから，その像は $[X]$ を含む
+$\mathfrak U_{n,d}$ の開部分スタックとなる。
+その像へ制限すれば $\eta_X$ は全射な\'{e}tale射である。
+また $T$ への縮小は $x$ における完成を変えず，
+同じ有限族のclassifying mapは $\Gamma$ 同変である。
+従って形式完備化は
+定理\ref{thm:unframed-formal-quotient}の
+$[\operatorname{Spf}R_X/\Gamma]$ と両立する。
+\end{proof}
+
+\begin{remark}
+このsliceは，抽象的な形式変形環の代数化を別に仮定して得たものではない。
+元の全係数有限族の線型横断面を方向錐と掛け，有限個の開条件を課した実際の族である。
+この幾何学的局所表示と，全モジュライに対する被覆性または開性は別の主張である。
+また，この\'{e}tale射をZariski開埋込み，あるいは全構成族の大域的な有限群商とはしていない。
+\end{remark}
+
+
+\subsection{非零方向の滑らかな開部分スタック}
+
+\begin{corollary}[全同値による一般非可換部分のDMモジュライ]
+\label{thm:generic-full-dm-stack}
+定理\ref{thm:zero-neighborhood-full-dm}の対象空間の非零方向部分で
+任意の非空開集合 $W$ を取る。
+全同値による商
+\[
+             \mathfrak N_{n,d}=[W/\mathcal E_W]
+                 \longrightarrow\mathfrak U_{n,d}
+\]
+は非空開埋込みであり，$\mathfrak N_{n,d}$ は滑らかで整な有限型DMスタックである。
+表示 $W\to\mathfrak N_{n,d}$ は相対次元 $g_d$ の滑らかな全射で，
+対角はaffine，有限表示，quasi-finiteかつunramifiedである。
+その次元は
+\begin{align*}
+ \dim\mathfrak N_{n,1}
+   &=b_{n,1}+n=\binom{n+3}{4}+\binom{n+5}{6}-n^2+n,\\
+ \dim\mathfrak N_{n,2}
+   &=b_{n,2}+2n-1=\binom{n+4}{4}-(n+1)^2+2n-1.
+\end{align*}
+局所Noether fppf site上では，対象はfppf局所的に $W$ の構成族に同値な族であり，
+射には全ての $\mathcal O$ 保存完全Abel同値を含める。
+これらは通常の次数付き代数の同型を次数スカラーで割ったものとして認識できる。
+\end{corollary}
+\begin{proof}
+定理\ref{thm:zero-neighborhood-full-dm}の対象開に関する結論を適用する。
+全同値の制限であるため，同型層とfull essential imageも同じである。
+非零方向空間は，次数1では $\mathbb A^n\setminus\{0\}$，
+次数2では $\mathcal O_{\operatorname{Gr}(2,n+1)}(-1)$ の零切断を除いた全空間である。
+従って $W$ は滑らかで，商も滑らかな表示上でこの性質を持つ。
+次元と対角の性質は同定理から継承される。
+通常の次数付き認識は系\ref{cor:zero-neighborhood-full-graded-recognition}による。
+\end{proof}
+
+\begin{remark}[部分問題の範囲]\label{rem:generic-dm-scope}
+対象開 $W$ 自体が同値で飽和している必要はない。
+$\mathfrak N_{n,d}$ は有限型DM部分問題 $\mathfrak U_{n,d}$ の開部分スタックである。
+一方，$\mathfrak U_{n,d}$ または $\mathfrak N_{n,d}$ の全モジュライ
+$\mathfrak M^{\mathcal O}_{n,d}$ 内での開性は証明していない。
+全非可換対象の被覆や，可換locusに接しない成分の不存在も別の問題である。
+\end{remark}
+
+\subsection{一般安定化群と粗モジュライ空間}
+
+\begin{corollary}[有限\'{e}taleなinertiaと滑らかな粗空間]
+\label{cor:generic-finite-inertia-coarse}
+系\ref{thm:generic-full-dm-stack}の $W$ をさらに非空開集合へ縮小することで，
+$\mathfrak N_{n,d}$ のinertiaを有限\'{e}taleにできる。
+このとき $\mathfrak N_{n,d}$ は有限\'{e}tale群を帯とするgerbeとして
+粗モジュライ代数空間
+\[
+       \pi:\mathfrak N_{n,d}\longrightarrow M_{n,d}
+\]
+を持ち，$M_{n,d}$ は $\mathbb C$ 上滑らか，整，有限型である。
+特に正規であり，次元は系\ref{thm:generic-full-dm-stack}の次元式と同じである。
+ここで帯は局所的に定まる有限\'{e}tale群であり，大域的に固定した群やgerbeの中立性は要求しない。
+$M_{n,d}$ の分離性は主張しない。
+\end{corollary}
+\begin{proof}
+まず $W=\Spec A$ を非空affine開集合に制限する。
+その安定化群スキーム $I\to W$ はaffine，有限表示，quasi-finiteかつunramifiedである。
+$I=\Spec B$，$K=\operatorname{Frac}(A)$ と書く。
+有限型で零次元の $K$-代数 $B\otimes_AK$ は有限次元である。
+$B$ の有限個の $A$-代数生成元 $b_i$ は，$K$ 上でmonic関係式を満たす。
+その有限個の係数の分母を払い，さらに関係式の値として残る $A$-torsion元を殺す
+非零元をinvertすれば，$B_f$ の各生成元は $A_f$ 上整となる。
+従って $B_f$ は有限 $A_f$-加群である。
+さらにgeneric flatnessにより非空開へ縮小し，$B_f$ を平坦にもできる。
+有限表示かつunramifiedであることと合わせて，$I\to W$ は有限\'{e}taleとなる。
+
+開集合への全群oid制限は，定理\ref{thm:full-source-smooth-zero-neighborhood}の
+source・targetの滑らかさを保つ。
+新しい商のinertiaをその滑らかな表示 $W$ に引き戻すと上の $I$ になるから，
+有限\'{e}tale性は降下して $\mathcal I_{\mathfrak N_{n,d}}\to\mathfrak N_{n,d}$ に成立する。
+Keel--Mori定理\cite[Tag 0DUT]{StacksProject}により粗モジュライ代数空間が存在し，
+有限型性は\cite[Tag 0DUW]{StacksProject}から従う。
+
+さらにflatかつ有限表示のinertiaを持つ代数スタックは，ある代数空間上のgerbeである
+\cite[Tag 06QJ]{StacksProject}。
+このgerbeの基底は幾何学的同型類と代数空間への射を分類するので，
+粗空間の普遍性により $M_{n,d}$ と同一視される。
+fppf局所的には $[T/G]\to T$ であり，$G\to T$ は有限\'{e}taleである
+\cite[Tag 06QH]{StacksProject}。
+$T\to[T/G]$ は有限\'{e}tale全射なので，$[T/G]\to T$ は相対次元零の滑らかな射である。
+この性質を降下すると $\pi$ も相対次元零で滑らかかつ全射となる。
+従って $\mathfrak N_{n,d}$ の $\mathbb C$ 上の滑らかさは $M_{n,d}$ に降下する。
+また $\pi$ は幾何学的同型類を一つの点に移す全射であり，
+既約性と次元も保たれる。これで粗空間の全ての主張を得る。
+\end{proof}
+
+
+\subsection{有限型群oidのlimit preservationと可換点での形式対象のeffectivity}
 
 \begin{lemma}\label{lem:finite-groupoid-limit-preserving}
 $\mathcal X_V=[V/\mathcal E]$ を，有限型の全同値群oidのfppf stackificationとする。
@@ -823,7 +1428,7 @@ $\mathcal E$ の基底変更として $R$ 上affine有限表示である。
 \end{proof}
 
 \begin{remark}[Artinの代数化条件との関係]
-前二結果は，構成族の像の有限群oidについてのlimit preservationと，
+前二結果は，構成族の像の有限型群oidについてのlimit preservationと，
 可換特殊ファイバーを持つ形式対象のeffectivityを与える。
 任意の $\mathfrak M^{\mathcal O}_{n,d}(R)$ の対象をその形式完備化から復元したこと，
 また任意のその二対象間の形式同値をeffectivizeしたことではない。
@@ -835,7 +1440,67 @@ Artinの基準ではこれらを分けて確認する必要がある
 source・targetの平坦性や商stackの代数性の代用にはしない。
 \end{remark}
 
+\subsection{一般平坦性による補助判定}
+
+ここでいう群oidの制限は，対象だけを開集合へ制限し，その間の全ての矢を保つものとする。
+滑らかでない矢を個別に除く操作は用いない。
+
+\begin{lemma}[generic flatnessと単位の滑らかさ]
+\label{lem:generic-flat-full-groupoid}
+$k$ を体，$V$ を整な有限型 $k$-スキームとし，
+$\mathcal E\rightrightarrows V$ を有限型群oidスキームとする。
+ある非空開集合 $V^0\subset V$ と整数 $g\ge0$ について，
+$s:\mathcal E\to V$ は各 $v\in V^0$ の単位 $e(v)$ で滑らか，相対次元 $g$ と仮定する。
+このとき非空稠密開集合 $W\subset V^0$ があり，全制限
+\[
+ \mathcal E_W:=\mathcal E\times_{V\times V}(W\times W)
+       \underset{t}{\overset{s}{\rightrightarrows}}W
+\]
+の $s,t$ は全ての点で滑らか，相対次元 $g$ である。
+$W$ は，あらかじめ指定した任意の非空開集合 $H\subset V$ の中に取れる。
+\end{lemma}
+\begin{proof}
+整な基底 $V$ に対して $s:\mathcal E\to V$ にgeneric flatnessを適用する
+\cite[Tag 052A]{StacksProject}。
+ある非空開集合 $F\subset V$ 上で
+$s:s^{-1}(F)\to F$ は平坦かつ有限表示となる。
+$W\subset F\cap V^0\cap H$ を非空開集合に取る。
+$V$ は整なのでこの共通部分は非空である。
+対象の両端を $W$ に制限することは，基底変更と定義域の開制限の合成であるから，
+$s:\mathcal E_W\to W$ は平坦かつ有限表示である。
+
+幾何学的点 $x\in W(\Omega)$ と，そのsourceファイバーの幾何学的点
+$\alpha:x\to y$ を取る。ここで $\Omega$ は代数的閉体とし，必要なら拡大する。
+$y$ も $W(\Omega)$ に属する。
+固定した $\alpha$ との右合成は $\Omega$-スキームの同型
+\[
+ R_\alpha:(\mathcal E_W)_{s=y}\xrightarrow{\ \sim\ }
+                 (\mathcal E_W)_{s=x},
+ \qquad h\longmapsto h\circ\alpha
+\]
+を与え，$e_y$ を $\alpha$ へ送る。
+逆写像は $\alpha^{-1}$ との右合成である。
+全制限を取っているため，この合成と逆写像はともに $\mathcal E_W$ の中に留まる。
+単位での仮定により左辺のファイバーは $e_y$ で滑らか，局所次元 $g$ である。
+従って右辺は $\alpha$ で滑らか，局所次元 $g$ である。
+これを全幾何学的矢に適用すると，$s$ の全幾何学的ファイバーは滑らかで純次元 $g$ となる。
+平坦かつ有限表示の射のファイバー判定
+\cite[Tag 01V8]{StacksProject}から，$s$ は滑らかで相対次元 $g$ である。
+逆射が $s,t$ を交換するため，$t$ にも同じ結論が従う。
+\end{proof}
+
+\begin{remark}\label{rem:flatness-before-fiber-translation}
+平行移動で運んだのは幾何学的\emph{ファイバー}の滑らかさである。
+射自体の滑らかさを得るための平坦性は，その前にgeneric flatnessで別に確保した。
+この二段階を省いて，単位での滑らかさだけから全矢の滑らかさを結論してはいけない。
+またgeneric flatnessの開集合 $F$ が可換零切断を含むとは限らない。
+\end{remark}
+
 \subsection{形式的普遍性だけでは零切断近傍を代数化できない}
+
+本族の零切断近傍のDM表示には，規格化中心のCasimir Jacobianによる
+全矢の持上げを用いた。以下の一般反例は，その追加の構造を使わず，
+可換点の全Artin普遍性と有限表示対角だけから同じ結論を推論することを妨げる。
 
 \begin{example}[消える安定化群とfullな商の障害]
 \label{ex:formal-versality-not-open}

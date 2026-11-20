@@ -42,7 +42,7 @@
 \newcommand{\Perf}{\operatorname{Perf}}
 \newcommand{\rank}{\operatorname{rank}}
 \newcommand{\HH}{\operatorname{HH}}
-\newcommand{\Version}{0.11}
+\newcommand{\Version}{0.12}
 \title{次数1・2の非可換del Pezzo多様体\texorpdfstring{\\}{ }構造対象付き変形とモジュライの局所構造}
 \author{}
 \date{2026年11月20日\quad v\Version\quad 公表用研究稿}
@@ -85,12 +85,17 @@ smooth proper性と相対Serre公式 $(-(n-1))[n]$ を証明する。
 さらに零切断を保って縮小すれば，この同値スキームはquasi-finiteかつunramifiedである。
 方向解消と一つの低次数中心条件，基本シフトを保つ矢の開性を組み合わせ，
 可換零切断全体を含む一つの開近傍で，通常の次数付き環から全同値を復元する。
-全同値群oidの可換点上の完成を計算し，そのsourceとtargetの相対滑らかさを証明する。
-一般平坦性を加えると，非零方向の非空稠密開上で全同値による商は
-滑らかな既約有限型Deligne--Mumfordスタックとなり，
-さらに有限\'{e}taleな慣性と滑らかな粗モジュライ代数空間を持つように取れる。
-その次元は次数1で $b_{n,1}+n$，次数2で $b_{n,2}+2n-1$ である。
-全モジュライのatlasと全既約成分数，追加開条件の明示公式は未解決として区別する。
+全同値群oidの可換点上の完成を計算し，非零方向では重み付き生成元変換と
+Casimir係数の可逆なJacobianによって矢の持上げを解く。
+これにより，滑らかな可換零切断全体を含む一つの開近傍で，
+全同値による有限型で整なDeligne--Mumfordスタックを構成する。
+次数1，および次数2の $n=2$ では滑らかであり，
+次数2の $n\ge3$ では可換部分にPl\"ucker錐の特異性が残る。
+非零方向の非空開へ制限すると，有限\'{e}taleな慣性と
+滑らかな粗モジュライ代数空間を持つように取れる。
+次元は次数1で $b_{n,1}+n$，次数2で $b_{n,2}+2n-1$ である。
+このfullな部分問題の全モジュライ内での開性と被覆範囲，全既約成分数，
+追加開条件の明示公式は未解決として区別する。
 \end{abstract}
 \tableofcontents
 
@@ -183,7 +188,7 @@ $V^\circ\setminus Z\subset U$ とできる。
 $V^\circ\times V^\circ$ 全体で成立する
 （系\ref{cor:zero-neighborhood-full-graded-recognition}）。
 
-\subsection{全同値による一般点の有限型モジュライ}
+\subsection{可換零切断を含む全同値の有限型モジュライ}
 第\ref{sec:finite-moduli}節では，式\eqref{eq:intro-finite-equivalence}の
 全同値群oidのsourceとtargetを調べる。
 可換零切断の矢 $\alpha:x\to y$ で，$g_1=n^2$，$g_2=(n+1)^2$ と置くと
@@ -198,29 +203,59 @@ $V^\circ\times V^\circ$ 全体で成立する
 次数2のPl\"ucker錐の特異点でも相対滑らかさが成立する。
 また，可換零切断は全同値でschemeとして保たれる。
 
-この局所計算に一般平坦性を組み合わせ，非零方向の非空稠密開 $W\subset V$ を取ると，
-全同値を射とする商
+非零方向では，通常graded同型の低次数成分を比較すると，
+生成元の写像は重み付き線型変換に限られ，残る係数差は
+$\operatorname{Sym}^6K$ または $\operatorname{Sym}^4K$ の中央係数だけとなる。
+その係数方向における有限中心元の微分を $J_\Omega$ と書くと，
+方向解消の例外因子上で $J_\Omega=1$ である。
+有限行列の階数条件とproperな悪条件像の除去により，
+零切断を保って $J_\Omega$ を可逆にできる。
+平方零拡大の中心差 $\Delta$ を
 \[
- \mathfrak N_{n,d}:=[W/\mathcal E_W]
+                     \xi=J_\Omega^{-1}\Delta
 \]
-は滑らかな既約有限型Deligne--Mumfordスタックとなる。
-これは構成族へfppf局所的に入る対象を，\emph{全ての} $\mathcal O$ 保存同値で割った
-fullな部分問題であり，基本偏極を保つ射だけの商へ置き換えていない。
-さらに $W$ を縮めれば慣性を有限\'{e}taleにでき，
-粗モジュライ代数空間 $M_{n,d}$ も滑らかで既約，有限型となる。
-両者の次元は
+で一意に補正することで，非零方向の全矢についてsourceの持上げを得る。
+これは中心元の係数依存が線型であることや，大域的に単射であることを要求しない。
+
+従って，滑らかな可換零切断全体を含む不変な有限型開集合 $W_d$ 上で，
+全同値群oid $\mathcal E_{W_d}\rightrightarrows W_d$ のsourceとtargetは
+相対次元 $g_d$ で滑らかとなる。
+その商
+\[
+             \mathfrak U_{n,d}=[W_d/\mathcal E_{W_d}]
+\]
+は有限型で整なDeligne--Mumfordスタックである
+（定理\ref{thm:zero-neighborhood-full-dm}）。
+局所Noether fppf site上では，これは構成族へfppf局所的に入る対象の
+\emph{全ての} $\mathcal O$ 保存完全Abel同値を射とするfullな部分問題であり，
+全滑らかな可換模型とその全framed Abel Artin変形を含む。
+次数1，および次数2の $n=2$ では滑らかである。
+次数2の $n\ge3$ では，非smoothな点の集合は可換部分に一致する。
+
+各可換点 $X$ では，$\Gamma=\operatorname{Aut}(X)$ 不変な実際の横断slice
+$T\subset(f+N)\times C_{n,d}$ を取り，
+\[
+                   [T/\Gamma]\longrightarrow\mathfrak U_{n,d}
+\]
+をrepresentableな\'{e}tale射にできる
+（系\ref{cor:finite-etale-slice-near-classical}）。
+可換点の残余gerbe上で同型となり，既存の形式商
+$[\operatorname{Spf}R_X/\Gamma]$ と両立する。
+
+さらに非零方向の非空開部分スタック $\mathfrak N_{n,d}\subset\mathfrak U_{n,d}$ を取り，
+慣性を有限\'{e}taleにできる。
+その粗モジュライ代数空間 $M_{n,d}$ も滑らかで整，有限型となり，
 \begin{equation}\label{eq:intro-generic-moduli-dimension}
- \dim\mathfrak N_{n,d}=\dim M_{n,d}=
+ \dim\mathfrak U_{n,d}=\dim\mathfrak N_{n,d}=\dim M_{n,d}=
  \begin{cases}b_{n,1}+n,&d=1,\\ b_{n,2}+2n-1,&d=2.\end{cases}
 \end{equation}
 
-別に，通常の次数付き同型をスカラーで割った矢は，
-相対 $HH^1=0$ によって $\mathcal E$ の開部分群oidをなす。
-有限群oidの商はlimit preservingであり，可換特殊ファイバーを持つ形式対象は
-同じ有限族の完備Noether局所基底への引戻しとして実現できる。
-これらの結果と，零切断を含む一つの開近傍での全矢の滑らかさは区別する。
-$W$ が零切断を含むこと，$\mathfrak N_{n,d}$ が全モジュライ内で開であること，
+有限型群oidの商のlimit preservationと，可換特殊ファイバーを持つ形式対象の
+完備Noether局所基底上での実現も証明する。
+一方，$\mathfrak U_{n,d}$ の全モジュライ $\mathfrak M^{\mathcal O}_{n,d}$ 内での開性，
 全非可換対象の被覆と全成分数は結論していない。
+全Artin普遍性だけでは有限型表示へ進めない一般群oidの反例も保持し，
+本稿で追加した中心Jacobianによる持上げとの違いを明示する。
 
 \subsection{先行研究と本稿の範囲}
 Lowenのalgebroidによる全Abel変形の比較\cite[Theorems 3.14, 3.26]{Lowen2008}と、
@@ -525,18 +560,17 @@ $(-(n-1))[n]$ と長さ $n+5$（次数1），$n+3$（次数2）のcompact生成�
 その全 $\OO$ 保存同値の層はaffineかつ有限表示であり，
 零切断を保った開近傍ではquasi-finiteかつunramifiedでもある。
 零切断全体を含む一つの開近傍で，通常の次数付き中心商から全同値を認識できる。
-さらに非空稠密開へ制限したfullな部分問題には，滑らかな有限型DM表示と
-有限\'{e}taleな慣性，滑らかな粗モジュライ代数空間を構成した。
+さらに全可換零切断を含むfullな部分問題に有限型DM表示と有限型\'{e}tale sliceを構成した。
+その非零方向の非空開には有限\'{e}taleな慣性と滑らかな粗モジュライ代数空間を得る。
 これらの結論を出発点として，次の問題を区別する。
 
 \begin{enumerate}
-\item \emph{可換零切断を保つ全同値の表示。}
-      sourceとtargetは零切断に接する全矢で滑らかだが，
-      一般平坦性で得た $W$ は零切断を含むとは限らない。
-      非smoothな矢のsource像の閉包が零切断に達しないこと，
-      または零切断近傍での全sourceの平坦性を，この族固有の性質から証明する。
-      形式的普遍性だけでは足りないことは
-      例\ref{ex:formal-versality-not-open}に示す。
+\item \emph{零切断近傍の粗空間と分離性。}
+      全矢のsource・targetの滑らかさと有限型DM表示は得た。
+      次は零切断を含む範囲で慣性射の有限性と粗空間の存在を調べ，
+      各可換点の有限群による形式粗商を実際の粗空間へ結び付ける。
+      非零一般点での有限\'{e}tale慣性を零切断まで平坦に延長するとは主張しない。
+      分離性と一般安定化群の具体的同定も別途検討する。
 \item \emph{全変形に対する局所完全性と被覆範囲。}
       得たDM部分問題が全 $\mathfrak M^{\OO}_{n,d}$ の中で開か，
       一般nc点の全Abel変形を実現するかを調べる。

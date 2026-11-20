@@ -1,6 +1,6 @@
 # 文献・依存関係・新規性の範囲
 
-2026-11-20（JST） / v0.11。完全な書誌は [references.bib](../references.bib)。以下は使用する一次資料の具体的な箇所、現行論文での適用とその限界を示す。外部論文のPDFは収録しない。
+2026-11-20（JST） / v0.12。完全な書誌は [references.bib](../references.bib)。以下は使用する一次資料の具体的な箇所、現行論文での適用とその限界を示す。外部論文のPDFは収録しない。
 
 ## 1. 他研究からの数学的入力
 
@@ -63,7 +63,7 @@ Plücker座標環の正規性・Cohen–Macaulay性にはSvanes (1973) とDe Con
 
 `thm:finite-low-center-open` は既存の `lem:classical-casimir-center` と活性PBW filtrationを用いる。全次数の中心が最小であるというgeneric条件を、一つのZariski開へ読み替えない。固定qの有限行列だけを使う。`thm:low-center-zero-neighborhood` は方向解消上のδ_q/τを使い、全smooth係数・全射影方向の例外因子で単射性を確認する。properな悪条件像を除き、零切断近傍の非零部分全体で中心条件を得る。H→Eの開性と組み合わせた `cor:zero-neighborhood-full-graded-recognition` は、零方向・冪零基底を含めて通常Bからの全同値認識を与える。
 
-### 有限群oid・粗モジュライ・Artinの条件
+### 有限型群oid・粗モジュライ・Artinの条件
 
 以下は一次本文を確認した一般原理であり、それ自体を本研究の新規結果とはしない。
 
@@ -78,7 +78,10 @@ Plücker座標環の正規性・Cohen–Macaulay性にはSvanes (1973) とDe Con
 | [Stacks 06PL](https://stacks.math.columbia.edu/tag/06PL)、Lemma 97.18.3 | 自明作用のclassifying stackが代数的となるには群がflat lfpであることが必要十分。V=A²、D={x=0,y≠0}、G=V⊔Dの反例に適用し、可換形式近傍だけからの大域化を否定する |
 | [Stacks 07T0](https://stacks.math.columbia.edu/tag/07T0)、§98.1；[07XP](https://stacks.math.columbia.edu/tag/07XP)、§98.13、Example 98.13.2 | limit preservation、RS、effective formal objects、openness of versalityを分ける。本稿のeffectivityは可換特殊fiberと構成族の模型間に限定。全MのArtin基準を確認済みとはしない |
 
-`thm:generic-full-dm-stack` は、同じ有限型nc族の全同値スキームと全Artin普遍性を上記の群oid原理へ適用する。`cor:generic-finite-inertia-coarse` ではinertiaの有限性を分母払いで別途証明する。この組合せの包括的優先権調査は未了であり、得られたfullな部分問題を全ncモジュライ内の開部分と同定していない。
+`thm:zero-neighborhood-full-dm` は、同じ有限型nc族の全同値スキームに、低次数のweighted-linear認識とCasimir Jacobianによる全source持上げを加えて上記の商原理を適用する。`thm:generic-full-dm-stack` はその非零開部分、`cor:generic-finite-inertia-coarse` はさらにinertiaをfinite化した開の粗空間である。一般平坦性だけから零切断を残すとはせず、方向解消上の有限中心行列とJΩ|Z=Idを使う。この具体的組合せの包括的優先権調査は未了であり、Uを全ncモジュライ内の開部分と同定していない。
+
+[Stacks 02HM](https://stacks.math.columbia.edu/tag/02HM)、Lemma 37.8.10の有限表示かつ形式étaleの判定を、非零矢の(g,source)写像に使用する。[04YK](https://stacks.math.columbia.edu/tag/04YK) §100.9の不変開と商の対応により、対象開のfull restrictionはUの開部分スタックとなる。[04YY](https://stacks.math.columbia.edu/tag/04YY)、Lemma 101.6.2の相対inertia核によるrepresentability判定と、[04XB](https://stacks.math.columbia.edu/tag/04XB) §100.3の表示上の判定は、可換点の実際の有限型étale sliceに用いる。これらも一般原理として引用し、既存の形式商から未確認の大域商を推論しない。
+
 
 ## 4. Compact持上げ、Serre、鎖formality、降下
 
@@ -214,7 +217,7 @@ BWB消滅で規格化中心のtorsorを自明化する。局所中心が存在�
 1. **全方向中心構成の比較と明示化。** 同じambient上の全方向中心と有限中心商、同じ族のArtin完成を既存の形式中心持上げ・filtered楕円代数・全Abel変形理論と比較する。追加の主開条件の明示、中心元の選択の違い、既知の公式との関係を調べる。
 2. **全方向有限族と既存理論の比較。** 全topの退化曲線、強・積Noether性の零方向への降下、同じ族の相対tails・Serre・smooth proper開近傍を、既存のTHCR・filtered変形・圏の変形理論と比較する。Keelerのmultiple divisors論文の本文と正確な仮定を確認し、体上・相対基底上の適用範囲を整理する。同じ有限族の全Artin普遍性と、全O同値による有限型atlasを区別する。
 3. **滑らかな開集合の明示。** 得られた有限部分対角解消とHom複体から、具体的な係数の非消滅条件を計算する。開近傍の存在証明と、その判別式の明示は異なる状態である。
-4. **全O同値と大域モジュライ。** 一般点のfullなDM部分問題と粗空間は構成した。次は零切断を保った全sourceの平坦性、全Mに対するversalityの開性、被覆範囲と可換locusに接しない成分を調べる。Toën–Vaquiéの固定dg圏の対象モジュライを、可変な全O-marked圏のモジュライと同一視しない。
+4. **全O同値と大域モジュライ。** 一般点のfullなDM部分問題と粗空間は構成した。零切断を保った全sourceのsmoothnessとfullな有限型DM部分問題Uも構成した。次は全Mに対するversalityの開性、Uの被覆範囲と可換locusに接しない成分、零切断を含む粗空間を調べる。Toën–Vaquiéの固定dg圏の対象モジュライを、可変な全O-marked圏のモジュライと同一視しない。
 5. **退化曲線を含む構成と新規性。** 解消point curve、次数1の尖点と次数2のribbonを含む相対THCR、二重切断環による積Noether性、smoothnessの有限開近傍を、既存の楕円代数・非可換del Pezzo・変形圏の構成と比較する。中心増大層を含む適用範囲と、各主張の優先権を確認する。
 
 一般nでの全Abel形式群oid、nc多様体条件のArtin持上げ、形式粗商、具体量子化の完全性、任意指数Veronese復元、有限型族のCasimir・普遍中心・相対双対、全topの退化曲線を含む相対THCRと積Noether性、全方向の同時中心商・相対tails・smooth proper開近傍・全Artin比較という組合せについて、包括的な優先権調査は未了。変形・compact持上げ・formality・CY potentialの中心存在・Sklyanin中心元・Borel–Weil–Bott・σ-ampleness・THCRのtensor積に関する一般結果は既知の研究として区別する。非可換del Pezzo曲面の各定義、AS Z-代数、marked quiver、非可換吹上げとの比較も継続する。講演概要にある未公表の一般次数の主張は確立済み定理として引用しない。

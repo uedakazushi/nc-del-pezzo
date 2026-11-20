@@ -241,6 +241,139 @@ $A$ は左右noetherianであり，その商 $B$ も同様である．
 局所化したのはtop係数だけであり，lower多項式の選択に新たな制限は課していない．
 \end{proof}
 
+\subsection{二つの楕円型代数の積のNoether性}
+
+片側の強Noether性は，可換係数環への変更を述べる性質であり，
+非可換な二つの代数のtensor積のNoether性をそのまま意味しない．
+対角をcoherentに扱うため，ここで必要な積の性質を別に証明する．
+
+\begin{lemma}\label{lem:elliptic-bisection-noetherian}
+$R$ をnoetherianな可換環とする．$i=1,2$ について
+$f_i:E_i\to\Spec R$ を滑らかで射影的，幾何学的に整な種数1曲線族，
+$L_i$ を相対次数2の線束，$\sigma_i$ を基底上の自己同型とする．
+対応するtwisted homogeneous coordinate ringを $D_i$ と書くと，
+$D_1\otimes_R D_2$ は左右noetherianである．
+この主張は任意のnoetherian係数変更後にも成り立つ．
+\end{lemma}
+\begin{proof}
+各 $D_i$ は既に左右noetherianである．実際，$\sigma_i$ は曲線ファイバーの次数を保ち，
+$L_i$ は相対的に豊富なので，KeelerのTheorems 7.13--7.14を適用できる．
+$X=E_1\times_R E_2$ とし，二つの射影を $p_i$ と書く．
+$L_{i,m}=L_i\otimes\sigma_i^*L_i\otimes\cdots\otimes(\sigma_i^{m-1})^*L_i$，
+$L_{i,0}=\mathcal O$ と置き，
+\[
+ \mathcal L_{m,n}=p_1^*L_{1,m}\otimes p_2^*L_{2,n},\qquad
+ \tau_{m,n}=\sigma_1^m\times\sigma_2^n
+\]
+と書く．相対K\"unneth公式と正次数線束の $H^1$ 消滅により，
+\[
+ (D_1)_m\otimes_R(D_2)_n\simeq H^0(X,\mathcal L_{m,n}).
+\]
+次数0では $f_{i*}\mathcal O=\mathcal O$ とその基底変更を使う．
+各成分は有限射影 $R$-加群であり，積は
+$s\cdot t=s\otimes\tau_{m,n}^*t$ である．
+全ての $\mathcal L_{m,n}$ は相対的に大域生成される．
+これは種数1曲線上の次数2以上の線束の大域生成と任意基底変更から従い，
+添字0の因子は自明線束である．
+
+この二重次数付き環の二重斉次右イデアル $I$ を取る．
+各成分 $I_{m,n}$ は有限 $R$-加群である．評価像を
+\[
+ J_{m,n}=\operatorname{im}
+   \bigl(I_{m,n}\otimes_R\mathcal L_{m,n}^{-1}
+           \longrightarrow\mathcal O_X\bigr)
+\]
+と置くと，$J_{m,n}$ はcoherentなイデアル層である．
+$\tau_{m,n}^*\mathcal L_{p,q}$ が大域生成されることと右イデアル条件から
+\[
+ J_{m,n}\subset J_{m+p,n+q}\qquad(p,q\ge0)
+\]
+である．twistは積の右側の線束にだけ掛かるため，ここで $J_{m,n}$ 自体を引き戻す必要はない．
+$X$ はnoetherianなので，これらの有向和はcoherentなイデアル層 $J$ であり，
+ある有限な $N\ge1$ に対して $J=J_{N,N}$ となる．
+従って $m,n\ge N$ なら $J_{m,n}=J$ である．
+
+この一つの評価写像から完全列
+\[
+ 0\longrightarrow K\longrightarrow I_{N,N}\otimes_R\mathcal O_X
+   \longrightarrow J\otimes\mathcal L_{N,N}\longrightarrow0
+\]
+を得る．$K$ はcoherentである．この列を
+$\tau_{N,N}^*\mathcal L_{p,q}$ でtensorする．
+その核の $H^1$ は $p,q$ がともに十分大きければ零であることを確認する．
+$H=p_1^*L_1\otimes p_2^*L_2$ は相対的に豊富である．
+固定した $k$ に対して
+\[
+ N_{p,q}=\tau_{N,N}^*\mathcal L_{p,q}\otimes H^{-k}
+\]
+は $p,q\ge k$ なら相対的にnefである．実際，これは二つの曲線から引き戻した
+線束の積であり，各ファイバー上の次数はそれぞれ $2(p-k)$ と $2(q-k)$ である．
+Keelerの相対Fujita消滅\cite[Theorem 1.5, Erratum Theorem E2.5]{Keeler2003}を
+$K,H$ に適用し，その消滅限界以上の $k$ を固定する．すると
+\[
+ H^1(X,K\otimes\tau_{N,N}^*\mathcal L_{p,q})=0
+ \qquad(p,q\ge k)
+\]
+を得る．$p,q>0$ では
+$R\Gamma(X,\tau_{N,N}^*\mathcal L_{p,q})$ は有限射影加群で次数0に集中する．
+また $X$ は $R$-flatなので，導来projection formulaから，
+$I_{N,N}$ が $R$-flatでなくても
+\[
+ H^0(X,I_{N,N}\otimes_R\tau_{N,N}^*\mathcal L_{p,q})
+       =I_{N,N}\otimes_R H^0(X,\mathcal L_{p,q})
+\]
+である．上の $H^1$ 消滅により，積の像は
+\[
+ I_{N,N}\cdot(D_1)_p(D_2)_q
+       =H^0(X,J\otimes\mathcal L_{N+p,N+q})
+       =I_{N+p,N+q}\qquad(p,q\gg0)
+\]
+となる．最後の等号は，右辺のイデアル成分が評価像の定義により中央の切断群に含まれ，
+逆に左辺の積を含むことから従う．
+従って一つの成分 $I_{N,N}$ の有限個の $R$-生成元で，十分大きい象限の全成分を生成できる．
+
+残る成分は有限幅の行と列に含まれる．固定した $m$ の行は
+$(D_1)_m\otimes_R D_2$ の右 $D_2$-部分加群であり，
+$(D_1)_m$ は有限射影，$D_2$ はnoetherianなので有限生成である．
+固定した $n$ の列にも同じ議論を適用する．有限本の行・列から有限個の斉次生成元を選べば，
+$I$ 全体の有限生成性を得る．
+一般の右イデアルは，二重次数を総次数，次いで辞書式に順序づけて最高成分を取り，
+同じ有限生成性と次数下降を用いれば有限生成となる．
+反対環も，$\sigma_i^{-1}$ と $(\sigma_i^{-1})^*L_i$ による同じ型の
+twisted homogeneous coordinate ringなので，左側も同様である．
+全ての仮定は任意のnoetherian基底変更で保たれるため，最後の主張も従う．
+\end{proof}
+
+\begin{corollary}\label{cor:elliptic-product-noetherian}
+系\ref{cor:elliptic-strong-noetherian}の楕円型族では，
+任意のnoetherian係数環 $\Lambda$ 上で
+\[
+ A^{\mathrm{op}}\otimes_\Lambda A,\qquad
+ B^{\mathrm{op}}\otimes_\Lambda B
+\]
+は左右noetherianである．これは全 $n\ge2$ と，任意の許されるnoetherian係数変更に成立する．
+\end{corollary}
+\begin{proof}
+まず最高次ambientの二つのコピーを考える．
+前補題と定理\ref{thm:elliptic-relative-thcr}により，
+二つの中心元を割った商 $D^{\mathrm{op}}\otimes_\Lambda D$ は左右noetherianである．
+二つの中心元はそれぞれ内部二重次数 $(4,0)$，$(0,4)$ を持ち，
+順に割っても正則である．ambientと中心商の各次数はともに基底上平坦なので，
+一方の中心元の完全列を他方のambientまたは中心商とtensorしても完全性を保つ．
+これにより，この正則性は任意係数変更後にも成立する．
+総内部次数を使い，定理\ref{thm:elliptic-relative-thcr}の中央元についての
+有限な最高記号の消去を二度適用すると，
+$(A^{\mathrm{top}})^{\mathrm{op}}\otimes_\Lambda A^{\mathrm{top}}$ も左右noetherianとなる．
+
+全次元とlower項については，二つのコピーの中央変数を $s_i,t_i$ と区別する．
+係数環 $\Lambda[s,t]$ 上で二つの活性filtrationをtensorしたfiltrationを取る．
+各随伴次数部分は係数環上射影で，filtrationの短完全列は分裂するので，
+その随伴次数環は最高次ambientの二つのコピーのtensor積である．
+前段をnoetherianな係数環 $\Lambda[s,t]$ に適用すれば，この随伴次数環はnoetherianである．
+filtered--gradedの帰納法により $A^{\mathrm{op}}\otimes_\Lambda A$ もnoetherianであり，
+その商である $B^{\mathrm{op}}\otimes_\Lambda B$ にも同じ結論が成り立つ．
+\end{proof}
+
 \subsection{相対tailsと有限生成元}
 
 \begin{theorem}\label{thm:elliptic-relative-tails}
@@ -344,4 +477,10 @@ $\Lambda$ と $\Lambda(-4)$ だけであり，いずれもtorsionである．
 compact圏の対角のperfect性としてのsmoothness，
 全 $\mathcal O$ 保存同値の認識，および全モジュライの有限型atlasは，
 相対proper性とSerre公式から自動的に従うものではない．
+smoothnessについては，第\ref{sec:finite-smoothness}節で積のNoether性と
+有限部分対角解消を用いて追加の開性を証明する．
+従って全斉次式が滑らかな可換del Pezzo模型を与える点のまわりでは，
+係数空間をさらに有限回縮小するとsmooth properな族を得る．
+これは本節のtop開集合上の全てのlower係数・全ての有限 $h$ に
+smoothnessを主張するものではない．
 \end{remark}

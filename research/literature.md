@@ -1,6 +1,6 @@
 # 文献・依存関係・新規性の範囲
 
-2026-11-20（JST） / v0.5。完全な書誌は [references.bib](../references.bib)。以下は使用する一次資料の具体的な箇所を示す。外部論文のPDFは収録しない。
+2026-11-20（JST） / v0.6。完全な書誌は [references.bib](../references.bib)。以下は使用する一次資料の具体的な箇所を示す。外部論文のPDFは収録しない。
 
 ## 1. 他研究からの数学的入力
 
@@ -85,9 +85,9 @@ Plücker座標環の正規性・Cohen–Macaulay性にはSvanes (1973) とDe Con
 
 `papers/sections/elliptic_top.tex` の定理 `thm:elliptic-finite-central-family` は、これらの体上の結果をそのまま相対定理と呼び替えたものではない。最高次代数の各次数の有限局所自由性、全lowerに対する普遍PBW性、22未知数・活性次数6以下の中心方程式、低次係数を戻した際の三角行列、中心商の普遍正則性を証明している。局所化の分母が最高次係数だけに依存するため、lower係数にn−1個の中央一次変数の任意の斉次多項式を代入できる。
 
-Sklyanin代数、四次中心元、固定CY topのfiltered変形の存在は既知である。本稿で区別している内容は、可換楕円型点を含む有限な開近傍、任意中央係数・任意基底変更、全nの重み付き超曲面への適用である。この組合せの包括的な新規性確認は未了。中心全体の生成、有限非零hでのtailsの全条件、全O-markedモジュライの有限型atlasはこの節からは従わない。
+Sklyanin代数、四次中心元、固定CY topのfiltered変形の存在は既知である。本稿で区別している内容は、可換楕円型点を含む有限な開近傍、任意中央係数・任意基底変更、全nの重み付き超曲面への適用である。この組合せの包括的な新規性確認は未了。有限hの相対tailsと、滑らかな可換点を含むsmooth properな開近傍には、以下の相対曲線表示・積のNoether性・有限部分対角解消を用いる。中心全体の生成や全O-markedモジュライの有限型atlasを最高次構成だけから結論しない。
 
-### 5.3. 分離型有限族の双対性とsmoothnessの境界
+### 5.3. 有限族の相対双対とsmoothnessの入力
 
 | 一次資料 | 確認箇所・本稿での役割と限定 |
 |---|---|
@@ -95,20 +95,31 @@ Sklyanin代数、四次中心元、固定CY topのfiltered変形の存在は既�
 | Yekutieli–Zhang, *Serre duality for noncommutative projective schemes*, Proc. AMS 125 (1997), 697–707、DOI 10.1090/S0002-9939-97-03782-9、[著者掲載出版版](https://www.math.bgu.ac.il/~amyekut/publications/nc-serre/paper.pdf) | Lemma 4.1はQGrの導来Homを切断加群の極限で記述。Theorem 4.2は体上の連結次数付き左右Noether環とbalanced dualizing complexを仮定し、局所双対・projective双対・χ等を与える。Corollary 4.3はAS–Gorensteinの場合のχ、cohomological dimension、dualizing sheaf、classical Cohen–Macaulay性。一般には双対bimoduleのNakayama捻りが残る。本稿の非正則基底上の無捩れ相対Serre式は、この絶対定理の直接適用ではなく、相対CYからの局所コホモロジーと局所化bimoduleの計算による |
 | Toën–Vaquié, *Moduli of objects in dg-categories*, Ann. Sci. ENS (4) 40 (2007), 387–444、DOI 10.1016/j.ansens.2007.05.001、[出版版](https://www.numdam.org/article/ASENS_2007_4_40_3_387_0.pdf) | Lemma 2.8(1)はlocally perfectならperfect加群が相対pseudo-perfect、(2)はsmoothなら逆方向、(3)は両条件の下での同値。Theorem 3.6はDefinition 2.4の意味でfinite typeなdg圏の対象モジュライの局所幾何性・局所有限表示性。finite typeはhomotopically finitely presentedなdg代数によるMorita模型を要求し、通常代数の有限表示と異なる。Corollary 2.13はsmooth properからこの有限性を導く。proper性とSerre自己同値だけで対角のperfect性を代用しない。また固定dg圏の対象モジュライの定理を、可変な全O-marked圏のモジュライの代数性と同一視しない |
 
-上記三論文の指定箇所を2026-11-20に一次資料で確認した。分離型有限族について本文が証明する飽和性、有向ACM、χ、compact生成、相対proper性、perfect圏のSerre双対と、対角のperfect性としてのsmoothnessを区別する。Serre双対が存在することから全coherent対象のperfect性や有限ホモロジー次元を推論しない。
+上記三論文の指定箇所を2026-11-20に一次資料で確認した。飽和性、有向ACM、χ、compact生成、相対proper性、perfect圏のSerre双対は `finite_tails.tex` と `elliptic_relative.tex` に記述する。対角のperfect性としてのsmoothnessは、それらを入力とする `finite_smoothness.tex` の別証明による。滑らかな開近傍の幾何学的ファイバーでは、smooth性によりcoherent対象がcompactとなり、Serre公式によりホモロジー次元がちょうどnであることを得る。Serre公式だけでsmoothnessや全coherent対象のperfect性を推論したものではない。
 
 ### 5.4. 相対楕円曲線と強Noether性
 
-- Keeler, *Ample filters of invertible sheaves*, J. Algebra 259 (2003), no.1, 243–283、DOI 10.1016/S0021-8693(02)00557-4；Corrigendum, J. Algebra 507 (2018), 592–598、DOI 10.1016/j.jalgebra.2018.03.024。[訂正を含むarXiv:math/0108068v5](https://arxiv.org/abs/math/0108068v5) のTheorems 7.13–7.14と末尾Erratumを一次資料で確認した。可換noetherian環上のproper schemeについて、数値的quasi-unipotenceとあるL_mの豊富性からσ-amplenessを判定し、左右Noetherなtwisted homogeneous coordinate ringを得る。体上だけの定理ではない。
+- Keeler, *Ample filters of invertible sheaves*, J. Algebra 259 (2003), no.1, 243–283、DOI 10.1016/S0021-8693(02)00557-4；Corrigendum, J. Algebra 507 (2018), 592–598、DOI 10.1016/j.jalgebra.2018.03.024。[訂正を含むarXiv:math/0108068v5](https://arxiv.org/abs/math/0108068v5) のTheorems 1.5, 7.13–7.14とErratum Theorem E2.5を一次資料で確認した。Theorems 7.13–7.14は、可換noetherian環上のproper schemeについて、数値的quasi-unipotenceとあるL_mの豊富性からσ-amplenessを判定し、左右Noetherなtwisted homogeneous coordinate ringを与える。Theorem 1.5はprojective scheme上のcoherent層について、豊富線束の冪に任意のnef線束をtensorしたときの一様な高次コホモロジー消滅である。Erratum Theorem E2.5はその証明の基底変更による還元を修正し、結論を維持する。いずれも基底を体や被約環に限定しない。
 - 本稿では、点曲線の二重対角線を理想(h,δ)で解消し、σ₀=idの滑らかな相対種数1曲線を構成する。最高次中心商の相対THCR同定を先に証明し、任意noetherian基底変更後に上の定理を適用する。σは基底上で各曲線の次数を保ち、相対数値同値類に恒等に作用する。中心正則拡大とfiltered PBWにより全lower・全nに拡張する。
-- 上記のσ-ampleness/Noether原理や体上のSklyanin表示自体は既知である。本稿の可換極限を含む有限な開近傍、任意基底変更、中央多項式係数、全nの相対tailsへの適用という組合せの優先権は未確認。曲線表示は活性最高次商のものであり、n次元tails全体が曲線のcoherent圏になるとは主張しない。
+- 積のNoether性は `lem:elliptic-bisection-noetherian` で別に証明する。二曲線の積上の二重切断環について、右イデアルの評価像を高い象限で安定させ、上の一様消滅で有限生成を得る。残る有限幅の行・列は各因子のNoether性で扱う。評価元の係数加群のflat性やイデアルのsaturationは仮定せず、導来projection formulaと両包含を使う。二つの普遍的に正則な中心元とfiltered PBWを経て、全n・全noetherian基底変更で `A^op⊗A` と `B^op⊗B` のNoether性を得る（`cor:elliptic-product-noetherian`）。片側の強Noether性だけから非可換tensor積のNoether性を推論しない。
+- 上記のσ-ampleness/Noether原理や体上のSklyanin表示自体は既知である。本稿の可換極限を含む有限な開近傍、任意基底変更、二重切断環、中央多項式係数、全nの相対tailsへの適用という組合せの優先権は未確認。曲線表示は活性最高次商のものであり、n次元tails全体が曲線のcoherent圏になるとは主張しない。
 
-## 6. 公表前に残る文献上の課題
+### 5.5. 滑らかな有限開近傍とatlasの接空間障害
 
-優先順位の高い比較・調査は次の三点である。
+`finite_smoothness.tex` の `thm:finite-family-smooth-open` は、次数1・2の分離型族と次数2の一般楕円型族の全n≥2を扱う。各構成族の中で全斉次式が滑らかな可換del Pezzo模型を与える任意の点について、smooth properな有限型Zariski開近傍を証明する。楕円型では各古典楕円型topの有限開近傍が前提であり、任意の非零hや任意のlower係数でsmoothであるとは主張しない。
+
+証明は、Noetherな二重次数付き積上の平坦な対角、その有限部分解消、相対Serre双対による逆向きのHom複体のperfect性を用いる。特殊ファイバーの `HH¹(X)=0` と `X×X` の有限ホモロジー次元から得る射を、有限自由複体の消去によって開近傍へ持ち上げ、対角をcompact対象の直和因子にする。properなdg代数一般についてsmoothnessの開性を引用したものではない。反標準列の豊富性の開条件と交わらせると、任意の許されるnoetherian基底変更で非可換del Pezzo条件が成り立つ。幾何学的ファイバーのcoherent圏のホモロジー次元はnで、その有界導来圏はcompact圏と一致する（`cor:finite-family-ncdp-open`）。非正則基底上の全有界coherent導来圏までこの一致を拡張しない。
+
+一方、`prop:one-parameter-atlas-obstruction` は、現在の表示族のPoisson成分のKodaira–Spencer階数がh=0で高々1であることを示す。全変形のPoisson接空間次元は次数1でn、次数2でbinom(n+1,2)なので、全n≥2で接写像が不足する。係数や座標枠を動かしても共通因子hのため一次のPoisson方向は増えず、これらの族は可換点で形式的にsmoothではない。半古典方向を稠密に実現することとsmooth atlasを与えることを区別する。
+
+## 6. 公表前に残る研究・文献上の課題
+
+優先順位の高い比較・調査は次の五点である。
 
 1. **次数1の一般楕円型top。** x⁶・y³・z²を同時に含む重み(1,2,3)の模型について、Etingof–GinzburgとRainsの結果から固定topの存在以上に何が従うかを確認し、有限な開条件と中央多項式係数に依存しない分母を検証する。次数2の三次Sklyanin計算を次数1に移したとは扱わない。
-2. **次数2楕円型族の相対表示の位置づけ。** 得られた解消point curve・相対THCR・強Noether性の構成を、既存の楕円代数とfiltered変形の相対理論に比較する。一般lower項のtailsを最高次の曲線表示と混同せず、中心増大層と非可換tensor積のNoether性を調べる。
-3. **有限パラメータtailsのsmoothnessとモジュライ。** 分離型で得られた相対proper性・Serre双対と、対角のperfect性、coherent圏の有限ホモロジー次元を区別し、追加の有限性・開性を検証する。Toën–Vaquiéのfinite type仮定を満たす前に対象モジュライの代数性を使用しない。全O-marked圏のatlasと可換locusに接しない成分はさらに別の課題である。
+2. **独立Poisson方向の同時有限代数化。** 一つの共通因子hを持つ表示の接空間障害を解消する有限型模型を構成する。全Artin形式環の同定と、固定Poisson方向の有限族の存在だけではこの模型は得られない。
+3. **滑らかな開集合の明示。** 得られた有限部分対角解消とHom複体から、具体的な係数の非消滅条件を計算する。開近傍の存在証明と、その判別式の明示は異なる状態である。
+4. **全O同値と大域モジュライ。** 有限表示族から一般nc点の全同値の商、全モジュライの有限型atlas、可換locusに接しない成分へ進む。Toën–Vaquiéの固定dg圏の対象モジュライを、可変な全O-marked圏のモジュライと同一視しない。
+5. **相対楕円構成と新規性。** 解消point curve、相対THCR、二重切断環による積Noether性、smoothnessの有限開近傍を、既存の楕円代数・filtered変形・変形圏の相対理論に比較する。中心増大層を含む適用範囲と、各主張の優先権を確認する。
 
-一般nでの全Abel形式群oid、nc多様体条件のArtin持上げ、形式粗商、具体量子化の完全性、任意指数Veronese復元、有限型族のCasimir・普遍中心・相対双対、および一般楕円型topの有限基底への適用という組合せについて、包括的な優先権調査は未了。変形・compact持上げ・formality・Sklyanin中心元の一般結果は既知と明記する。非可換del Pezzo曲面の各定義、AS Z-代数、marked quiver、非可換吹上げとの比較も継続する。講演概要にある未公表の一般次数の主張は確立済み定理として引用しない。
+一般nでの全Abel形式群oid、nc多様体条件のArtin持上げ、形式粗商、具体量子化の完全性、任意指数Veronese復元、有限型族のCasimir・普遍中心・相対双対、一般楕円型topの相対曲線表示・積Noether性、およびsmooth properな有限開近傍という組合せについて、包括的な優先権調査は未了。変形・compact持上げ・formality・Sklyanin中心元・σ-amplenessの一般結果は既知と明記する。非可換del Pezzo曲面の各定義、AS Z-代数、marked quiver、非可換吹上げとの比較も継続する。講演概要にある未公表の一般次数の主張は確立済み定理として引用しない。

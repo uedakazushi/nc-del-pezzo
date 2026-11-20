@@ -1,0 +1,357 @@
+% !TeX root = ../nc-del-pezzo.tex
+\section{有限パラメータ族の滑らかな開近傍}
+\label{sec:finite-smoothness}
+
+本節では両次数の分離型族と，次数2の一般楕円型族について，
+滑らかな可換点を含む有限型開集合上で対角のperfect性を証明する．
+properなdg代数一般についてsmoothnessの開性を仮定するのではなく，
+二重次数付き対角の有限部分解消と，既に得た相対Serre双対を使う．
+対角への射の持上げに必要な消滅は，特殊ファイバーの
+$HH^1(X)=0$ と $X\times X$ の有限ホモロジー次元から得る．
+
+以下，$S$ は有限型可換 $\C$-代数とし，$B$ は次のいずれかの全次元の斉次族を
+$S$ へ係数変更したものとする：第\ref{sec:finite-tails}節の次数1・2の分離型族，
+または定理\ref{thm:elliptic-relative-tails}の次数2の楕円型族．
+後者では，各古典楕円型最高次点について同節で構成した有限開近傍上で作業する．
+lower係数は任意であり，その中央変数への斉次多項式代入も許す．
+$\mathcal Q=\QGr B$ と書き，$S$ の被約性・正則性は仮定しない．
+$r=n-1$，$l=n+5$（次数1），$l=n+3$（次数2）とする．
+\[
+ E=\bigoplus_{i=0}^{l-1}\mathcal O(i),\qquad
+ C=R\!\End_{\mathcal Q}(E),\qquad
+ D=C^{\mathrm{op}}\otimes_S^L C
+\]
+と置く．$C$ は $S$-perfectであり，$C^*=R\!\Hom_S(C,S)$ は
+定理\ref{thm:finite-tails-relative-serre}または
+定理\ref{thm:elliptic-relative-tails}のSerre関手を表す可逆bimoduleである．
+
+\subsection{Serre双対を使った逆向きのHomの有限性}
+
+\begin{lemma}\label{lem:serre-pseudoperfect-to-perfect}
+$D$ を $S$-perfectなdg代数とし，
+$U=R\!\Hom_S(D,S)$ が可逆 $D$-bimoduleであるとする．
+$M$ を $S$ 上perfectな右 $D$-加群，$P$ をperfectな右 $D$-加群とする．
+このとき $R\!\Hom_D(M,P)$ は $S$ 上perfectで，任意の係数変更と可換する．
+ここでは $M$ が $D$ 上perfectであることを仮定しない．
+\end{lemma}
+\begin{proof}
+$Q=P\otimes_D^L U^{-1}$ と置くと $Q$ はperfectである．
+coinductionの随伴から
+\[
+ R\!\Hom_D(M,U)\simeq R\!\Hom_S(M,S)
+\]
+を得る．この式を $Q=D$ から有限coneと直和因子に拡張すると
+\begin{equation}
+ R\!\Hom_D(M,P)
+ \simeq R\!\Hom_S\bigl(R\!\Hom_D(Q,M),S\bigr).
+ \label{eq:serre-pseudoperfect-hom}
+\end{equation}
+$Q$ のperfect性と $M$ の $S$-perfect性により，右辺の内側のHomは
+$S$-perfectであり，任意の係数変更に両立する．
+その双対にも同じ性質がある．可逆bimoduleとその逆の係数変更も可逆であるため，
+この同型自体が基底変更と両立する．
+\end{proof}
+
+この補題は上の $D=C^{\mathrm{op}}\otimes_S^LC$ に適用できる．
+実際，$D$ の $S$-双対は $C^{\mathrm{op}}$ と $C$ のSerre bimoduleの外積であり，
+両因子が可逆だから可逆である．
+
+\subsection{二重次数付き積とcoherentな対角}
+
+$R=B^{\mathrm{op}}\otimes_S B$ に，両因子の内部次数による
+$\mathbb Z^2$-次数を与える．$\Gr_2 R$ から，いずれか一方の次数について
+torsionな加群で生成される局所化部分圏を割ったAbel圏を $\mathcal Q_2$ と書く．
+商関手を $\pi_2$，自由加群の像を
+$\mathcal O(a,b)=\pi_2 R(a,b)$ と書く．
+この構成は二つのirrelevant idealの商を順に取るものであり，
+総次数だけによる通常の $\QGr R$ とは区別する．
+
+\begin{lemma}\label{lem:finite-family-product-diagonal}
+次の性質が成り立つ．
+\begin{enumerate}
+\item $R$ は左右noetherianであり，この性質は任意のnoetherian係数変更で保たれる．
+\item $\mathcal Q_2$ の導来圏は，外積twist $\mathcal O(a,b)$ でcompact生成される．
+特に
+\[
+ G=\bigoplus_{0\le i,j<l}\mathcal O(-i,j)
+\]
+はcompact生成元で，$R\!\End_{\mathcal Q_2}(G)\simeq D$ である．
+\item 二重次数付き右 $R$-加群
+\[
+ \Delta_{a,b}=\begin{cases}B_{a+b}&a,b\ge0,\\0&\text{それ以外}\end{cases},
+ \qquad \xi\cdot(u^{\mathrm{op}}\otimes v)=u\xi v
+\]
+は有限生成かつ $S$-flatである．
+$\mathcal D=\pi_2\Delta$ のMorita像
+\[
+ M=R\!\Hom_{\mathcal Q_2}(G,\mathcal D)
+\]
+は標準の対角 $C$-$C$-bimoduleであり，$S$-perfectである．
+これらのHom，対角の同定およびMorita模型は任意の許される係数変更と両立する．
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+まずnoetherian性を確認する．分離型の場合，ambient $A$ の中央変数の補助次数を1，
+活性変数の補助次数を次数2では $(6,8,12)$，次数1では $(12,20,30)$ とする．
+命題\ref{prop:finite-window-proper}の証明により，
+$\operatorname{gr}_{\mathrm{aux}}A$ は全生成元を持つ可換多項式環であり，
+PBW基底によってこのfiltrationは $S$ 上分裂する．
+従って積filtrationについて
+\[
+ \operatorname{gr}_{\mathrm{aux}}(A^{\mathrm{op}}\otimes_S A)
+   =\operatorname{gr}_{\mathrm{aux}}A^{\mathrm{op}}
+       \otimes_S\operatorname{gr}_{\mathrm{aux}}A
+\]
+も可換多項式環である．filtered--gradedのnoetherian判定により
+$A^{\mathrm{op}}\otimes_S A$ は左右noetherianであり，その商 $R$ も同じである．
+任意のnoetherian係数変更後に同じPBW基底と補助次数を使えるので，分離型について(1)を得る．
+この議論では，この補助次数に関する $\Omega$ の最高記号の形は使っていない．
+楕円型の場合は系\ref{cor:elliptic-product-noetherian}を適用する．
+これは相対曲線の二重切断環と中央正則元から積代数のnoetherian性を証明する結果であり，
+一般には成り立たない「二つのNoether代数のtensor積もNoether」という推論をしていない．
+
+次に，定理\ref{thm:finite-tails-relative-serre}の証明で用い，
+定理\ref{thm:elliptic-relative-tails}でも確認した
+左右共通の局所化bimodule $L$ を使う．
+$B$ は $S$-flatなので，$R$ は各因子上flatである．
+従って各因子からのinductionは完全で，その右随伴であるrestrictionはinjectiveを保つ．
+このため，一方の次数についてのtorsionの導来関手を，残りの次数と可換する作用を保持したまま，
+その因子上の既存の計算で求められる．まず下に有界な複体でこの比較を行い，
+各torsion関手の有限cohomological dimensionによって非有界導来圏へ延長する．
+第一因子と第二因子のsmashing局所化は可換し，その合成は
+$L^{\mathrm{op}}\otimes_S^L L$ との導来tensorである．
+各局所化の核は対応するirrelevant torsionであり，有限cohomological dimensionを持つ．
+したがって二つの商を順に取った導来圏は，この合成局所化の像である．
+具体的に，局所化された自由twist間のHomは
+\begin{equation}
+ R\!\Hom_{\mathcal Q_2}
+       (\mathcal O(a,b),\mathcal O(c,e))
+   \simeq L^{\mathrm{op}}_{c-a}\otimes_S^L L_{e-b}.
+ \label{eq:product-twist-hom}
+\end{equation}
+局所化は直和を保つので，全外積twistはcompactであり，
+それらからのHomが全て零なら局所化された加群自身が零となる．
+有限windowの完全複体を第一因子と第二因子でそれぞれ使うと，
+任意の外積twistが $G$ のthick閉包に入る．
+反対側のtwistの符号を逆に選んだため，
+第一因子のHom複体と合成は $C^{\mathrm{op}}$ のものになり，第二因子は $C$ のものになる．
+上のHom公式と合成の外積性から(2)が従う．
+
+$B$ の斉次生成元の重みの最大値を $w$ とする．
+重み付き単語を内部次数 $a$ の境界で二つに切ると，
+境界をまたぐ生成元が存在する場合でもその両側の残りの重みは $w$ 未満である．
+従って $\Delta$ は有限個の成分
+\[
+ \Delta_{a,b}=B_{a+b}\qquad(0\le a,b<w)
+\]
+で $R$-加群として生成される．これらの成分は有限 $S$-加群であるから有限生成性を得る．
+各成分が有限射影なので $S$-flatでもある．
+
+対角の局所化を明示する．$\Delta$ を全二重次数に延長した
+$\widetilde\Delta_{a,b}=B_{a+b}$ を用いてよい．
+実際，$\Delta\subset\widetilde\Delta_{\{a\ge0\}}\subset\widetilde\Delta$ の
+二つの商はそれぞれ第二・第一方向でtorsionであり，二重商では消える．
+一方の次数を固定すると，もう一方の次数については $B$ のtwistである．
+従って一方を局所化した成分は $L_{a+b}$ である．
+残りの因子による局所化は $L\otimes_B^LL\simeq L$ により既に恒等となる．
+したがって
+\[
+ R\!\Hom_{\mathcal Q_2}
+       (\mathcal O(-i,j),\mathcal D)\simeq L_{i-j}.
+\]
+これは右 $C^{\mathrm{op}}\otimes C$-加群としての標準対角の $(i,j)$ 成分，
+すなわち $R\!\Hom_{\mathcal Q}(\mathcal O(j),\mathcal O(i))$ である．
+左右の作用も $u\xi v$ の式から通常の合成に一致する．
+定理\ref{thm:finite-tails-cohomology}とその楕円型族への拡張により，この有限個の成分は
+$S$-perfectで，任意の係数変更に両立する．
+外積twist間のHomにも同じ性質があるから，(3)と全ての基底変更の主張を得る．
+\end{proof}
+
+\subsection{対角の有限部分解消からsmoothnessを得る}
+
+\begin{theorem}[有限族のsmoothnessの有限開近傍]
+\label{thm:finite-family-smooth-open}
+$s\in\Spec S$ を複素閉点とし，$B_s$ が滑らかな可換del Pezzo多様体
+$X$ の切断環であるとする．
+このとき $s$ のZariski開近傍 $V$ 上で $C$ の対角は
+$C^{\mathrm{op}}\otimes_S^LC$ 上perfectである．
+従って $D(\QGr B)^c$ は $V$ 上smooth properであり，
+任意の許されたnoetherian基底変更後にもsmooth properである．
+\end{theorem}
+\begin{proof}
+補題\ref{lem:finite-family-product-diagonal}のnoetherian性により，
+$\Delta$ の二重次数付き有限生成自由加群による解消
+\[
+ \cdots\longrightarrow F_2\longrightarrow F_1
+ \longrightarrow F_0\longrightarrow\Delta\longrightarrow0
+\]
+を取れる．$R$ と $\Delta$ は $S$-flatなので，短完全列を順に使うと
+全てのsyzygyが $S$-flatである．従ってこの解消は任意の係数変更後も完全である．
+$q>2n$ を一つ固定し，次数 $-q,\ldots,0$ に置いた有限複体
+\[
+ P_q=[\pi_2F_q\longrightarrow\cdots\longrightarrow\pi_2F_0]
+\]
+を取る．$K_q$ をその左端の核とすると，$\mathcal Q_2$ の導来圏に三角
+\begin{equation}
+ K_q[q]\longrightarrow P_q\xrightarrow{f}\mathcal D
+      \longrightarrow K_q[q+1]
+ \label{eq:finite-diagonal-truncation}
+\end{equation}
+を得る．$K_q$ はcoherentであり，$P_q$ は外積twistの有限複体だからcompactである．
+以後，Morita同値の下で同じ記号 $P_q,f$ を使い，$\mathcal D$ の像を $M$ と書く．
+
+特殊ファイバーでは，補題\ref{lem:weighted-free-locus}により
+$\mathcal Q_{2,s}=\Qcoh(X\times X)$ であり，
+$\mathcal D_s=\mathcal O_{\Delta_X}$ となる．
+滑らかで固有な $2n$ 次元多様体 $X\times X$ では，coherent層間の
+$\Ext^j$ は $j>2n$ で零である．
+三角\eqref{eq:finite-diagonal-truncation}に
+$R\!\Hom(\mathcal O_{\Delta_X},-)$ を適用すると，$q>2n$ により
+\[
+ \Hom(\mathcal D_s,P_{q,s})\xrightarrow{\sim}
+       \Hom(\mathcal D_s,\mathcal D_s),\qquad
+ \Ext^1(\mathcal D_s,P_{q,s})\xrightarrow{\sim}
+       \Ext^1(\mathcal D_s,\mathcal D_s)
+\]
+となる．右側の第一の群は恒等射を含み，第二の群は
+\[
+ HH^1(X)=H^0(X,T_X)\oplus H^1(X,\mathcal O_X)=0
+\]
+である．ここではHKRとKodaira消滅，および次数1・2の全滑らか可換模型についての
+$H^0(T_X)=0$ \cite[補題8.7]{PoissonDP}を適用した．
+従って $f_s$ の右逆 $i_s:M_s\to P_{q,s}$ があり，
+$\Ext^1_{D_s}(M_s,P_{q,s})=0$ である．
+
+次が有限型開近傍へ移る際の要点である．
+補題\ref{lem:serre-pseudoperfect-to-perfect}により
+\[
+ K=R\!\Hom_D(M,P_q)
+\]
+は $S$-perfectで，$K\otimes_S^L\C(s)$ は特殊ファイバーの同じHom複体に一致する．
+従って $H^1(K\otimes_S^L\C(s))=0$．
+$s$ の近傍で $K$ を有界有限自由複体で表す．
+特殊ファイバーで非零な微分の小行列式を有限個反転し，
+単元を持つ微分をcontractibleな二項直和因子として消去すると，
+特殊ファイバーの微分が全て零の模型を取れる．
+その次数1の項は $H^1(K_s)=0$ により零である．
+従ってこの模型の次数0の元は全てcycleであり，
+$i_s\in H^0(K_s)$ は近傍を縮めた後に $i\in H^0(K)$ へ持ち上がる．
+この段階では単にcycleを係数ごとに持ち上げたのではなく，
+次数1の項の消滅によって微分条件も満たしている．
+
+合成 $g=fi:M\to M$ は特殊ファイバーで恒等である．
+$M$ は $S$-perfectなので $\operatorname{Cone}(g)$ も $S$-perfectであり，
+特殊ファイバーで零である．有限自由複体の支持を除くことにより，
+さらに $s$ の開近傍を縮めればこのconeは零になる．
+従って $g$ は $D$-加群として同型である．
+$ig^{-1}$ は $f$ の右逆となり，$M$ はperfectな $D$-加群 $P_q$ の直和因子である．
+これが対角のperfect性である．
+
+ここで行った局所化は，有界有限自由複体の消去と支持の除去という有限個の操作だけである．
+従って得られた $V$ は有限型基底のZariski開集合であり，形式近傍に限定されない．
+対角の有限cone・直和因子による表示は導来基底変更で保たれ，
+proper性とMorita模型の基底変更は既に証明済みなので最後の主張も従う．
+\end{proof}
+
+\begin{corollary}[有限型族が非可換del Pezzo条件を満たす開集合]
+\label{cor:finite-family-ncdp-open}
+定理\ref{thm:finite-family-smooth-open}の開近傍を，
+系\ref{cor:finite-periodic-ampleness}または
+定理\ref{thm:elliptic-relative-tails}の反標準豊富性の開近傍と交わらせる．
+この開集合上の族は
+$\mathfrak M^{\OO,\mathrm{hyp}}_{n,d}$ の族を定める．
+特に，各幾何学的ファイバーのcoherent圏のホモロジー次元はちょうど $n$ で，
+その有界導来圏はcompact圏と一致する．
+\end{corollary}
+\begin{proof}
+任意の点 $t\in V$ に対し $k=\overline{\kappa(t)}$ を選び，
+対応する幾何学的ファイバー上のcoherent対象 $F$ を取る．
+命題\ref{prop:finite-full-shift-ample}とその楕円型族への拡張，
+および有限cohomological dimensionにより，
+$R\!\Hom(E,F)$ は $k$ 上の有界有限次元複体である．
+smoothなdg代数では，基底上perfectな加群はperfectである：
+有限projective対角分解をその加群とtensorすればよい．
+従って $F$ はcompactであり，coherentな有界複体もcompactである．
+逆にcompact対象はtwistの有限coneと直和因子から作られるので，coherentな有界複体である．
+Serre公式から
+\[
+ \Ext^i(F,F')\cong
+       \Ext^{n-i}(F',F(-r))^*
+\]
+を得る．右辺は $i>n$ で零であり，
+$\Ext^n(\mathcal O,\mathcal O(-r))\cong k$ によりホモロジー次元は $n$ である．
+
+相対proper性・基底変更・Serre公式・有向ACMは
+第\ref{sec:finite-tails}節および定理\ref{thm:elliptic-relative-tails}，
+反標準豊富性は上記の開集合の選択により成り立つ．
+基本シフトとその $r$ 乗による周期も同じ表示から得られる．
+分離型の幾何学的ファイバーのambient AS正則性は
+系\ref{cor:finite-relative-augmentation-ext}で確認した．
+楕円型では定理\ref{thm:elliptic-relative-tails}の相対CY式と
+\cite[Lemma 1.2]{RRZ2014}を幾何学的体ファイバーに適用すれば，同じambient AS正則性を得る．
+中心元の普遍的正則性は，各族の構成で証明済みである．
+従って定義\ref{def:nc-dp-stack}および重み付き超曲面部分問題の全条件が成立する．
+\end{proof}
+
+\begin{remark}[この開近傍定理の範囲]
+構成した族の全ての有限パラメータでsmoothnessを主張したわけではない．
+本節は滑らかな可換点を含むZariski開集合を構成し，
+それが定義した非可換多様体の条件を満たすことを示す．
+また非正則基底上でcoherentな有界導来圏全体を相対perfect圏と同一視しない．
+有限型の表示族を得たことから，全ての非可換点を被覆するatlasや
+全モジュライの成分数が従うわけでもない．
+次数2の楕円型族で用いたのは，片側の強Noether性だけでなく，
+$B^{\mathrm{op}}\otimes_S B$ のnoetherian性である．
+開集合は有限個の行列と有限自由複体から得られるが，その判別式の明示公式はここでは計算していない．
+\end{remark}
+
+\subsection{現在の表示族をatlasにする際の接空間の障害}
+
+\begin{proposition}[一つの量子化パラメータによる表示の限界]
+\label{prop:one-parameter-atlas-obstruction}
+本稿の分離型族または楕円型族の量子化パラメータを $h$ と書く．
+$h=0$ の滑らかな可換点 $s$ の像を $X$ とし，
+$h$ に関する一次交換子が定めるPoisson構造を $\pi_s$ とする．
+この表示族のKodaira--Spencer写像の像を，通常の可換変形の接空間で割ると，
+その像は $\C\pi_s$ に含まれ，次元は高々1である．
+従って，これらの表示族から
+$\mathfrak M^{\OO}_{n,d}$ への射は $s$ で形式的にsmoothではない．
+係数や座標枠を動かした同種の族を並べても，そのまま可換点を含むsmooth atlasにはならない．
+\end{proposition}
+\begin{proof}
+活性生成元の関係式は $[u,v]=hJ_{uv}$ の形であり，中央変数の交換子は零である．
+双対数上で $h=\epsilon a$，他のパラメータを
+$\lambda=\lambda(s)+\epsilon\nu$ と置くと，
+\[
+ [u,v]=\epsilon a\,J_{uv}(\lambda(s)),\qquad \epsilon^2=0.
+\]
+従って，係数や座標枠の変化は $h=0$ の一次交換子に寄与せず，
+Poisson成分は $a\pi_s$ である．
+この成分は一次量子化比較で保たれるので
+（命題\ref{prop:abel-poisson-formal-comparison}），
+tailsのAbel変形に移っても同じ結論となる．
+
+一方，定理\ref{thm:abel-formal-ring}と
+定理\ref{thm:all-artin-are-nc-dp}により，
+特殊ファイバーを固定した全変形の接空間を通常の可換変形で割った空間は
+\[
+ H^0(X,\wedge^2T_X),\qquad
+ \dim H^0(X,\wedge^2T_X)
+ =\begin{cases}
+   n&d=1,\\
+   \binom{n+1}{2}&d=2
+  \end{cases}
+\]
+である．いずれも $n\ge2$ では1より大きい．
+$HH^1(X)=0$ により，この不足を微小自己同値で補うこともできない．
+smoothな射なら，指定した原像を通る任意の双対数変形が持ち上がるため，
+この接空間への写像は全射でなければならない．上の次元評価はそれに反する．
+\end{proof}
+
+この障害は，個々の有限族が非可換多様体を与えることとは両立する．
+また，様々な $\pi_s$ を選んで半古典的なPoisson方向を稠密に被覆できることと，
+固定した $h=0$ の原像で全一次変形を持ち上げることも異なる．
+atlas構成には，一つの共通因子 $h$ を通じて全交換子を作る表示を越えて，
+独立な一次Poisson方向を同時に含む有限型模型を構成する課題が残る．
+
+

@@ -43,7 +43,7 @@
 \newcommand{\Perf}{\operatorname{Perf}}
 \newcommand{\rank}{\operatorname{rank}}
 \newcommand{\HH}{\operatorname{HH}}
-\newcommand{\Version}{0.5}
+\newcommand{\Version}{0.6}
 \title{次数1・2の非可換del Pezzo多様体\texorpdfstring{\\}{ }構造対象付き変形とモジュライの局所構造}
 \author{}
 \date{2026年11月20日\quad v\Version\quad 公表用研究稿}
@@ -81,6 +81,9 @@ proper性と相対Serre関手 $(-(n-1))[n]$ を全有限パラメータで証明
 この構成は全次元で稠密開集合の古典Poisson対を半古典極限に持つ。
 最高次point curveの二重対角線を解消し，相対twisted homogeneous coordinate ringと比較することで，
 一般楕円型族の強Noether性と，その全次元の相対tails・有限compact生成元も得る。
+さらに二重次数付き対角の有限部分解消と $HH^1(X)=0$ を用い，
+両次数の分離型族と次数2の一般楕円型族は，滑らかな可換点を含む有限型開近傍で
+smooth properとなり，定義した非可換del Pezzoの条件を満たすことを証明する。
 形式的構成、代数的な族、全モジュライの代数性を区別して述べる。
 \end{abstract}
 \tableofcontents
@@ -232,7 +235,8 @@ $(-r)[n]$ となる。これは体上のAS--Gorenstein双対性
 \cite[Theorem~4.2, Corollary~4.3]{YZ1997}と整合するが，
 非正則係数基底への主張は本文で直接証明する。
 有限個の次数の余核を用い，正周期の豊富性を滑らかな可換点の開近傍まで拡張する。
-perfect圏のsmoothnessとcoherent圏の有限ホモロジー次元は，これらの結論とは区別する。
+perfect圏のsmoothnessとcoherent圏の有限ホモロジー次元は，
+第\ref{sec:finite-smoothness}節で別の対角の議論により得る。
 
 第\ref{sec:elliptic-degree-two-finite}節は，負の補助次数では扱えなかった
 次数2の一般楕円型最高次項を扱う。
@@ -253,7 +257,31 @@ Keeler\cite[Theorems~7.13--7.14]{Keeler2003}の相対Noether性を任意のnoeth
 有限compact生成元を一般楕円型族へ拡張する。
 既知の $\sigma$-ampleness原理そのものは新規結果ではなく，
 ここでの有限開近傍・可換極限・普遍係数との比較が本稿の構成である。
-tailsのsmoothness，全ncモジュライのatlas，およびこの構成の包括的な優先権確認は残る。
+さらに曲線の積上の評価イデアルと相対Fujita消滅を使い，
+$B^{\mathrm{op}}\otimes B$ のNoether性を独立に証明する。
+
+\subsection{有限型開集合上の非可換del Pezzo族}
+第\ref{sec:finite-smoothness}節の定理\ref{thm:finite-family-smooth-open}は，
+両次数の分離型族と，次数2の一般楕円型族のそれぞれについて，
+滑らかな可換模型を与える点 $s$ の有限型Zariski開近傍 $V$ を構成し，
+\[
+ \operatorname{Perf}(\QGr B_V)\quad\text{が相対smooth properである}
+\]
+ことを示す。任意の許されるnoetherian基底変更にも両立する。
+証明では，二重次数付き対角の自由解消を $q>2n$ で切り，
+相対Serre双対により対角からこの有限複体へのHomを係数上perfectにする。
+可換ファイバーの $X\times X$ の有限ホモロジー次元と $HH^1(X)=0$ によって
+対角への写像の右逆を有限開近傍へ持ち上げ，対角をperfect対象の直和因子として得る。
+一般のproper dg代数に対する未確認の開性定理は使わない。
+反標準豊富性の開集合と交わらせると，
+系\ref{cor:finite-family-ncdp-open}により実際の
+$\mathfrak M^{\OO,\mathrm{hyp}}_{n,d}$ の族となり，
+幾何学的ファイバーのcoherent圏のホモロジー次元は $n$ となる。
+開集合は有限な局所化による存在証明であり，具体的な判別式はまだ計算していない。
+命題\ref{prop:one-parameter-atlas-obstruction}は，現在の共通パラメータ $h$ による族の
+Poisson Kodaira--Spencer像が高々1次元であり，可換点でsmooth atlasにはならないことを示す。
+全ncモジュライのatlasには独立なPoisson方向の同時有限代数化が必要であり，
+これらの構成の包括的な優先権確認も残る。
 
 \input{sections/definitions}
 \input{sections/formal_moduli}
@@ -268,6 +296,7 @@ tailsのsmoothness，全ncモジュライのatlas，およびこの構成の包�
 \input{sections/finite_tails}
 \input{sections/elliptic_top}
 \input{sections/elliptic_relative}
+\input{sections/finite_smoothness}
 
 \section{大域的なモジュライへ進むための問題}
 \label{sec:questions}
@@ -278,10 +307,14 @@ tailsのsmoothness，全ncモジュライのatlas，およびこの構成の包�
 第\ref{sec:finite-auxiliary-quantization}節の分離型族では，
 第\ref{sec:finite-tails}節によりtailsの飽和性，proper性，相対Serre公式まで得られた。
 滑らかな可換点の開近傍では反標準列も豊富になる。
-次の課題は有限compact生成元のdg自己準同型代数の対角がperfectであることを確認し，
-有限パラメータでのsmooth性を証明することである。
 第\ref{sec:elliptic-relative}節により，一般楕円型族でも
-係数基底上の強Noether性と相対tailsの同じ条件が得られたが，smooth性は別途必要である。
+係数基底上の強Noether性，相対tailsと積のNoether性が得られる。
+両方の族について，第\ref{sec:finite-smoothness}節は滑らかな可換点を含む
+有限開近傍上のsmoothnessと非可換del Pezzo条件を証明した。
+次の課題は，この開集合を具体的な有限行列で記述し，
+より大きい表示族の局所完全性と全 $\OO$ 保存同値による商を調べることである。
+特に命題\ref{prop:one-parameter-atlas-obstruction}の接空間の障害により，
+共通因子 $h$ による表示を越えて独立なPoisson方向を同時に含める必要がある。
 次数1の一般楕円型最高次項についても，有限開集合上の同様の構成が必要である。
 半古典極限で稠密なPoisson対を実現することと，全非可換対象を被覆することは異なる。
 有限パラメータの非可換対象から古典Poisson多様体を自然に復元する射も構成していない。

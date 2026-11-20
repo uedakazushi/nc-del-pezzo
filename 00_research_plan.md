@@ -1,6 +1,6 @@
 # 研究方針：次数1・2の非可換del Pezzo n-fold
 
-**2026-11-20（JST） / v0.5。再開時に最初に読む。**
+**2026-11-20（JST） / v0.6。再開時に最初に読む。**
 
 正本は [uedakazushi/nc-del-pezzo](https://github.com/uedakazushi/nc-del-pezzo) のmain。研究全体の入口は [research-hub](https://github.com/uedakazushi/research-hub)。続いて [研究ノート](research/research_notes.md)、[主原稿](papers/nc-del-pezzo.tex)、[再現手順](docs/reproduction.md) を読む。
 
@@ -23,7 +23,9 @@
 
 主原稿 `def:ample-model` はHilbert関数を持つ豊富列型の問題A、`def:nc-dp-stack` は標準compact圏の相対Serre・反標準豊富性・Serre周期n−1・有向ACM条件を備えたnc多様体の問題Mを定義する。重み付きAS超曲面の表示を持つ部分問題は別に記号化する。fppf stack化によるモジュライ問題の定義と、代数スタック・有限型atlasの構成は別である。
 
-元の成分数決定という目標のうち、可換点における全Abel変形群oid、有限自己同型群による形式商、全Artin変形の中心超曲面表示とnc多様体条件、形式分枝数は解決した。有限パラメータでは、両次数の分離型族の普遍PBW・Casimir・中心・ambient CYに加え、tailsの飽和性、ACM、compact生成、proper性、相対Serre公式を得た。反標準豊富性も滑らかな可換点の有限型開近傍で成立する。さらに次数2の一般楕円型最高次項は、三次Sklyanin代数の有限正則開集合と有限中心行列により代数化でき、任意低次係数・全次元への展開が可能になった。負の補助次数の方法に固有の障害は残るが、次数2の一般topの存在問題は別の方法で解決した。一般楕円型族では、最高次point curveを解消し相対twisted homogeneous coordinate ringと同定して、全lower係数・全nで強Noether性と相対tailsも証明した。現在の重点は有限hでの圏のsmooth性、および次数1の一般topである。有限型atlasと可換locusに接しない成分の検討はなお残る。
+元の成分数決定という目標のうち、可換点における全Abel変形群oid、有限自己同型群による形式商、全Artin変形の中心超曲面表示とnc多様体条件、形式分枝数は解決した。有限パラメータでは、両次数の分離型族と次数2の一般楕円型族について、普遍PBW・ambient CY・正則な中心商・強Noether性・相対tails・Serre公式を得た。一般楕円型では最高次point curveの解消と相対twisted homogeneous coordinate ringを使い、さらに曲線の積の評価イデアルから積代数のNoether性も証明した。この入力と相対Serre双対により、対角の有限部分解消を可換ファイバーで分裂させ、その分裂を有限開近傍へ持ち上げた。従って両族とも、全n≥2で滑らかな全可換模型の有限型開近傍に実際のsmooth properなnc del Pezzo族を与える。
+
+一方、現在の族は一つの共通量子化パラメータhを持つため、可換点でのPoisson Kodaira–Spencer像が高々1次元となり、全変形に対するsmooth atlasではない。この具体的障害を踏まえ、現在の重点を、次数1の一般topの有限代数化と、独立なPoisson方向を同時に含む有限型模型へ移す。元の全体の成分数決定には、全O同値による商、可換locusに接しない成分の検討がなお必要である。smoothnessの開集合は存在を証明した段階であり、具体的な判別式や全有限hのsmoothnessは得ていない。
 
 ## C. 主要到達点と確実性
 
@@ -56,15 +58,19 @@
 | 次数2の一般楕円型topと任意lower項を持つ普遍PBW・ambient CY・中心商族 | 各古典楕円型点の有限型開近傍。中心元の分母はtop係数だけに依存。任意非被約基底変更でも平坦・中心元正則 | `lem:elliptic-universal-lower-pbw`, `thm:elliptic-finite-central-family` |
 | 上記次数2族は全nで稠密開の古典Poisson対を半古典極限に持つ | lower係数へn−1個の中央変数の斉次多項式を代入。全nc点のatlasではない | `cor:elliptic-general-dimension`, `prop:elliptic-semiclassical-coverage` |
 | 次数2の一般楕円型族の強Noether性、相対tails、有限compact生成元 | 各古典楕円型topの有限開近傍。二重対角線の解消・相対THCR・Keelerの定理・中心/filtered持上げにより任意noetherian基底変更で証明 | `thm:elliptic-relative-thcr`, `cor:elliptic-strong-noetherian`, `thm:elliptic-relative-tails` |
+| 一般楕円型族の積代数 `Bᵒᵖ⊗B` の左右Noether性 | 二重切断環の評価イデアルと相対Fujita消滅、二つの中央正則元、filtered持上げから証明。任意noetherian基底変更 | `lem:elliptic-bisection-noetherian`, `cor:elliptic-product-noetherian` |
+| 両次数の分離型族と次数2一般楕円型族は、滑らかな可換点の有限開近傍でsmooth proper | 全n≥2。有限部分対角解消・相対Serre双対・HH¹(X)=0を使う。全有限hへの主張ではなく、具体的な開条件の計算も未了 | `lem:serre-pseudoperfect-to-perfect`, `thm:finite-family-smooth-open` |
+| 上記開近傍を縮めれば実際の重み付き超曲面型nc del Pezzo族、幾何学的coherent次元はn | 反標準豊富性の開集合と交わらせる。任意の許されるnoetherian基底変更。非正則基底上の全Db(coh)と相対perfect圏の同一視はしない | `cor:finite-family-ncdp-open` |
+| 現在の一つのhを持つ表示族は可換点でsmooth atlasにならない | Poisson Kodaira–Spencer像は高々1次元、全変形の通常の可換変形による接空間商はnまたはbinom(n+1,2)次元 | `prop:one-parameter-atlas-obstruction` |
 
 一般原理のLowen–Van den Bergh・Lowen・De Deken–Lowen・Yekutieli・Kontsevichと、入力となるPoisson構造定理は既知・既存の入力である。曲面の接空間次元10・9も先行研究で既知。一般nの適用・復元・降下の新規性について包括的な優先権確認は未了。
 
 ## D. 未解決の核心と次の一手
 
-1. **有限hでのsmooth性。** 分離型族の有限compact生成元E=⊕_{j=0}^{W−1}O(j)、W=n+3またはn+5、を用い、C=REnd(E)の対角を有限完全分解する。Cは基底上perfectで基底変更に両立するが、対角のC^e-perfect性は未証明。Artin smooth性やSerre公式だけで有限型開性を結論しない。coherent圏の有限ホモロジー次元も別に確認する。
-2. **一般楕円型族のsmooth性と次数1。** 次数2では強Noether性・相対tails・有限生成元を得たので、その対角のperfect性へ進む。強Noether性は可換係数の変更についての条件であり、二つの非可換代数のtensor積のNoether性を自動的に与えない。全体の中心は有限位数パラメータで増大し得るため、分離型の普遍中心定理を転用しない。次数1では活性重み(1,2,3)の一般topの有限開条件と正規化中心元を構成する。
-3. **一般nc点・全体の既約成分。** 前二項から許容な表示族と全O同値の商を構成し、有限型atlas、一般点での復元、可換locusに接しない成分を調べる。半古典Poisson方向の稠密被覆と全nc点の被覆を区別し、形式一分枝性から全成分数を推論しない。
-4. **公表範囲と先行研究。** 全Artin群oid、分離型の相対tails、一般楕円型の有限量子化を現在の論理順序で統合した。既存のfiltered CY・楕円量子化・AS Z-代数との比較を進める。Sklyanin中心元や固定topのPBW性は既知であり、普遍係数・有限分母・一般nへの適用の優先権は未確認。大域分類は未解決として明記する。
+1. **次数1の一般最高次項。** 活性重み(1,2,3)の一般topについて、有限なAS正則開条件と規格化中心元を構成する。まず既存の楕円型量子化・重み付きAS代数の一次資料と具体的potentialを照合し、任意lower係数に依存しない有限分母を得る。続いて相対曲線模型、強Noether性と積Noether性を確認すれば、本稿の対角分裂の方法を適用できる。
+2. **独立なPoisson方向の同時有限代数化。** 共通hによる表示の接空間の不足を解消するため、次数1のn方向、次数2のPlücker錐の座標を直接変形パラメータに含める。一次関係式の全射性と二次Plücker障害から始め、冪零基底上の既存形式量子化と両立する有限表示・中心元を探す。方向ごとの半古典被覆ではsmooth atlasの不足は補えない。
+3. **有限開集合の明示と大域的な復元。** 有限生成元から作る対角の部分解消・持上げ射を低次元で具体化し、smoothnessを保証する有限個の行列条件を求める。一般楕円型の中心は有限位数パラメータで増大し得るため、分離型の普遍中心定理を転用しない。全O同値による商、一般nc点の被覆、可換locusに接しない成分を別々に調べる。形式一分枝性から全成分数を推論しない。
+4. **公表範囲と先行研究。** 全Artin群oid、相対楕円曲線、積Noether性、有限開近傍のsmoothnessを現在の論理順序で統合した。既存のfiltered CY・楕円量子化・AS Z-代数との比較を進める。Sklyanin中心元、固定topのPBW性、σ-amplenessとFujita消滅は既知であり、普遍係数の比較・一般nへの適用・対角分裂の組合せの優先権は未確認。大域分類は未解決として明記する。
 
 ## E. 依存・再開・検証
 

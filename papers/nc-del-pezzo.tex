@@ -4,9 +4,8 @@
 \usepackage[margin=25mm]{geometry}
 \usepackage{booktabs,longtable,array}
 \usepackage[unicode,colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
-\usepackage{luatexja-fontspec}
-\setmainjfont{Noto Serif CJK JP}
-\setsansjfont{Noto Sans CJK JP}
+% Use the Japanese fonts bundled with TeX Live; no system Noto fonts required.
+\usepackage[haranoaji]{luatexja-preset}
 \numberwithin{equation}{section}
 \theoremstyle{plain}
 \newtheorem{theorem}{定理}[section]

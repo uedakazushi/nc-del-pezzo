@@ -42,7 +42,7 @@
 \newcommand{\Perf}{\operatorname{Perf}}
 \newcommand{\rank}{\operatorname{rank}}
 \newcommand{\HH}{\operatorname{HH}}
-\newcommand{\Version}{0.17}
+\newcommand{\Version}{0.18}
 \title{次数1・2の非可換del Pezzo多様体\texorpdfstring{\\}{ }構造対象付き変形とモジュライの局所構造}
 \author{}
 \date{2026年11月20日\quad v\Version\quad 公表用研究稿}
@@ -92,6 +92,12 @@ Galois閉包の次数は120，24となる。符号二次体も明示する。
 零切断上の四枚が構成近傍から欠ける。
 次数2では接線判別因子の符号捩れにより，零切断の各点上に欠落分岐点がある。
 構成近傍の外側の対象と全既約成分数は未解決である。
+
+曲面では構造対象の右直交を相対的に構成し，その通常Artin変形を古典曲面の変形で復元する。
+可換零切断の開近傍で\'{e}tale局所的な古典曲面族と残余圏のMorita同値を得る。
+古典Torelliを入力として，残余圏から定まる古典粗モジュライへの射を構成する。
+既存のshadowとの高次比較は未解決だが，対称群モノドロミーにより一般の五枚・四枚の残余圏は，
+全て同値か全て相互に非同値かのいずれかに限られる。
 \end{abstract}
 \clearpage
 \tableofcontents
@@ -401,6 +407,54 @@ $\Theta$ は開埋込みでなく，非空Zariski開へ縮めても開埋込み�
 第\ref{sec:shadow-monodromy}節では，四次逆方程式の種数1の切断と，
 五次逆方程式の六つの単純有限分岐から対称群モノドロミーを得る。
 次数2の符号二次体では，normalizerの符号による捩れも追う。
+
+\subsection{曲面のKuznetsov成分と古典曲面の復元}
+曲面では $\operatorname{Ku}(X)=\OO_X^\perp$ とする。
+構造対象の相対右直交は全 $\OO$ 保存同値に降下する。
+次の結果は，Poisson模型との比較にカテゴリー的な射を加える。
+\begin{theorem}[曲面の残余圏の幾何化]
+\label{thm:main-surface-ku}
+$d=1,2$，$n=2$ とする。
+\begin{enumerate}
+\item 任意の滑らかな古典曲面 $X$ で，
+ $\HH^2(X)\to\HH^2(\operatorname{Ku}(X))$ の核は $H^0(X,-K_X)$，
+ 終域は $H^1(X,T_X)$ である。
+ 特殊ファイバーの枠を固定した通常Artin変形の同値類関手は
+ $\Def_X\simeq\Def^{\mathrm{Mor}}_{\operatorname{Ku}(X)}$ となる。
+\item 可換零切断全体を含む開近傍 $\mathfrak U^{\mathrm{geom}}_{2,d}$ 上で，
+ \'{e}tale局所的に古典曲面族 $Y\to T$ と
+ $\operatorname{Ku}(\mathcal Q_T)\simeq\operatorname{Ku}(Y/T)$ が存在する。
+ この局所的な古典モジュライへの射は滑らかで，相対次元は $d+1$ である。
+\item Lin--Rampazzo--Zhangの古典Torelli定理を入力とすると，
+ 対応する曲面の同型類は一意であり，標準的な粗射
+ $\overline\rho_{\mathrm{Ku}}:M^{\mathrm{nc,geom}}_{2,d}\to M^{\mathrm{cl}}_{2,d}$
+ が得られる。
+\item 同じ古典Torelliの入力の下で，Poisson比較の一般ファイバーに属する五つまたは四つの対象について，
+ 適当な非空開集合上で，残余圏は全て相互に同値であるか，
+ 全て相互に非同値であるかのいずれかとなる。
+ どちらが成立するかは未決定である。
+\end{enumerate}
+\end{theorem}
+\begin{proof}
+定理\ref{thm:surface-ku-hochschild}，\ref{thm:surface-ku-formal}，
+\ref{thm:surface-ku-etale-companion}，
+系\ref{cor:surface-ku-coarse-companion}，
+命題\ref{prop:surface-ku-generic-dichotomy}による。
+\end{proof}
+第1項のHochschild公式はKuznetsov\cite[Theorem~8.5]{KuznetsovHH2009}の既知結果である。
+形式変形の同定には，$\PP^2$ の $9-d$ 点でのblow-upから作るtilting対象を使う。
+そのEnd代数の積は点での評価写像に一致し，Artin変形も点配置へ戻る。
+局所的な代数化ではTo\"en--Vaqui\'e\cite{ToenVaquie2007}の
+perfect対象と同値bimoduleのモジュライを用い，
+曲面の一意性には\cite[Theorem~1.2]{LinRampazzoZhang2026}を用いる。
+二者択一は既存の対称群モノドロミーの二重推移性による。
+これらの一般原理や古典Torelliを本研究の新結果とは扱わない。
+
+残余圏から定まる局所射 $\rho_{\mathrm{Ku}}$ と具体的なshadow射は
+可換点で同じ微分 $(\xi,\pi)\mapsto\xi$ を持つが，
+高次での一致は未証明である。
+特に，古典曲面が\emph{存在する}という幾何化と，それが
+$\Sym^{-1}(\Omega)$ で定めた曲面に\emph{一致する}ことを区別する。
 
 \subsection{有限正規化と零切断に向かう分枝}
 一般次数が1でないことと，可換点での形式同型の関係を，有限正規化によって記述する。
@@ -786,6 +840,8 @@ $(-(n-1))[n]$ と長さ $n+5$（次数1），$n+3$（次数2）のcompact生成�
 \input{sections/open_full_moduli}
 \input{sections/separated_coarse_moduli}
 \input{sections/poisson_shadow_comparison}
+\input{sections/kuznetsov_surface}
+\input{sections/kuznetsov_relative}
 \input{sections/shadow_top_inverse}
 \input{sections/degree_two_shadow_degree}
 \input{sections/degree_one_shadow_degree}
@@ -838,9 +894,12 @@ affine有限表示であることも与える。
       全方向族・全同値・全点Artin比較・Poisson比較を組み合わせた本稿の成果との関係を詰める。
       包括的な新規性確認は未了であり，公表時には主結果のまとまりに応じて構成を整理する。
 \end{enumerate}
-三次三様体の残余圏による幾何化を次数1・2へ移すには，
-例外部分と残余圏の相対構成および古典多様体との比較を別に証明する必要がある。
-接空間や形式環の一致だけで残余圏の同値を結論しない。
+曲面の残余圏については，第\ref{sec:kuznetsov-surface}・\ref{sec:kuznetsov-relative}節で
+相対構成，通常Artin変形の古典的復元，\'{e}tale局所幾何化と粗射を得た。
+次の核心は，この射と具体的なshadowの高次比較である。
+非可換tilting代数の評価写像，または内在的なHochschild--Serre積の低次数関係を計算し，
+対称化中心のJacobian関係と比較する。一般ファイバーの二者択一のどちらかは未決定であり，
+高次元の通常の例外blockに対する同じ幾何化も別課題である。
 
 \begingroup
 \small

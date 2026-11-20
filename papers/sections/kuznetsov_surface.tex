@@ -1,0 +1,465 @@
+% !TeX root = ../nc-del-pezzo.tex
+\section{曲面の残余圏と古典的な形式変形}
+\label{sec:kuznetsov-surface}
+
+本節では $n=2$，$d\in\{1,2\}$ とし，滑らかな複素del Pezzo曲面 $X$ に対して
+\[
+ \mathcal K_X:=\OO_X^\perp
+ =\{F\in\Perf(X)\mid R\Hom_X(\OO_X,F)=0\}
+\]
+を標準dg enhancement付きで考える。
+この場合の残余圏は一つの例外対象を除いた圏である。
+Kuznetsovの既知の計算を適用すると，Poisson方向は
+$\HH^2(X)\to\HH^2(\mathcal K_X)$ の核に一致する。
+さらに，blow-up表示から得る有限次元代数を用いて，
+$\mathcal K_X$ の特殊ファイバーを固定した通常のArtin変形が
+$X$ の古典的変形と一致することを示す。
+これは本稿の具体的なPoisson shadowと残余圏が高次まで両立することを
+まだ主張しない。
+
+\subsection{Hochschild制限写像とPoisson方向}
+
+\begin{theorem}[Kuznetsovの計算の曲面への適用]
+\label{thm:surface-ku-hochschild}
+自然な制限写像を $r_X:\HH^\bullet(X)\to\HH^\bullet(\mathcal K_X)$ とする。
+HKR分解の下で
+\begin{equation}\label{eq:surface-ku-hh-projection}
+ \HH^j(\mathcal K_X)
+ \simeq H^j(X,\OO_X)\oplus H^{j-1}(X,T_X),
+ \qquad
+ r_X:\bigoplus_{p=0}^{2}H^{j-p}(X,\wedge^pT_X)
+       \longrightarrow\bigoplus_{p=0}^{1}H^{j-p}(X,\wedge^pT_X)
+\end{equation}
+は最上段のpolyvector成分を除く射影である。
+特に
+\begin{equation}\label{eq:surface-ku-hh2-exact}
+ 0\longrightarrow H^0(X,-K_X)
+ \longrightarrow\HH^2(X)
+ \xrightarrow{\ r_X\ }\HH^2(\mathcal K_X)
+ \longrightarrow0,
+ \qquad \HH^2(\mathcal K_X)\simeq H^1(X,T_X).
+\end{equation}
+$b_d:=10-2d$ とおくと
+\begin{equation}\label{eq:surface-ku-hh-dimensions}
+ \HH^j(\mathcal K_X)=
+ \begin{cases}
+ \C,&j=0,\\
+ \C^{b_d},&j=2,\\
+ 0,&j\ne0,2.
+ \end{cases}
+\end{equation}
+従って $b_1=8$，$b_2=6$ であり，制限写像の核の次元はそれぞれ2，3である。
+\end{theorem}
+
+\begin{proof}
+式\eqref{eq:surface-ku-hh-projection}は
+\cite[Theorem~8.5]{KuznetsovHH2009}の特殊化である。
+制限写像自体を確認するため，$\Delta:X\to X\times X$ を対角とし，
+$P$ を $\mathcal K_X$ への左射影のFourier--Mukai核とする。
+左変異の定義から
+\[
+ \OO_X\boxtimes\OO_X\longrightarrow\Delta_*\OO_X\longrightarrow P
+\]
+が完全三角となる。同論文Proposition~8.1により
+$\HH^\bullet(\mathcal K_X)=\mathbb H^\bullet(X,\Delta^!P)$ である。
+上の三角に $\Delta^!$ を施し，HKR同型を使うと
+\[
+ \omega_X^{-1}[-2]\longrightarrow
+ \OO_X\oplus T_X[-1]\oplus\omega_X^{-1}[-2]
+ \longrightarrow\Delta^!P
+\]
+を得る。$\OO_X$ のAtiyah類が零なので，第一射は最後の直和因子への
+恒等写像である。従って第二射は残る二因子への射影であり，
+単なる次元一致でなく式\eqref{eq:surface-ku-hh-projection}を得る。
+
+del Pezzo曲面では $H^{>0}(X,\OO_X)=0$ である。
+また $H^2(X,T_X)=0$ は
+$T_X\simeq\Omega_X^1\otimes(-K_X)$ とKodaira--Akizuki--Nakano消滅から従う。
+次数1・2では $H^0(X,T_X)=0$ であり，
+Riemann--Roch公式 $\chi(T_X)=2d-10$ より
+$h^1(T_X)=10-2d$ となる。
+$h^0(-K_X)=d+1$ と $H^{>0}(-K_X)=0$ もKodaira消滅と
+Riemann--Rochから従う。これらを代入すればよい。
+\end{proof}
+
+\begin{remark}[既知結果と今回の帰結]
+定理\ref{thm:surface-ku-hochschild}の基本公式は既知の結果であり，
+本研究の新定理として扱わない。
+ここでの役割は，Poisson方向を残余圏の一次変形が検出するという可能性を除き，
+高次比較を正しい接写像から始めることである。
+またHochschildホモロジーの加法性から
+\[
+ \HH_j(\mathcal K_X)=0\ (j\ne0),\qquad
+ \dim\HH_0(\mathcal K_X)=11-d
+\]
+となる。この圏が自明であることや，固定された一つの圏と全ての $X$ で同値であることは
+意味しない。
+\end{remark}
+
+\subsection{blow-up表示によるtilting模型}
+
+$r=9-d$ とし，互いに異なる一般位置の点 $p_1,\ldots,p_r\in\PP^2$ における
+blow-up表示
+\[
+ \pi:X=\operatorname{Bl}_{p_1,\ldots,p_r}\PP^2\longrightarrow\PP^2
+\]
+を一つ選ぶ。$L=\pi^*\OO_{\PP^2}(1)$，$j_i:E_i\hookrightarrow X$ とし，
+$J_i=j_{i*}\OO_{E_i}(-1)$ と書く。
+以下の選択は証明用の補助データであり，非可換対象の標識には加えない。
+
+\begin{proposition}[点配置代数による残余圏の表示]
+\label{prop:surface-ku-tilting}
+\begin{equation}\label{eq:surface-ku-tilting-object}
+ G_X=\bigoplus_{i=1}^{r}J_i[-1]\ \oplus\ \OO_X(-2L)\ \oplus\ \OO_X(-L)
+\end{equation}
+は $\mathcal K_X$ のtilting生成対象である。
+最後の二頂点を $a,b$ と書くと，
+$B_X=\End_X(G_X)$ は頂点 $1,\ldots,r,a,b$ と矢
+\[
+ \alpha_i:i\longrightarrow a\quad(1\le i\le r),
+ \qquad v:a\longrightarrow b\quad(v\in V:=H^0(\PP^2,\OO(1)))
+\]
+を持つquiverの関係付き代数である。
+各 $i$ で長さ2の経路の関係空間は
+\begin{equation}\label{eq:surface-ku-quiver-relations}
+ \{v\alpha_i\mid v\in\ker(\operatorname{ev}_{p_i}:V\to\OO(1)|_{p_i})\}.
+\end{equation}
+従って $\dim B_X=3r+5$，$\operatorname{gldim}B_X\le2$ であり，
+$\mathcal K_X\simeq\Perf(B_X)$ である。
+\end{proposition}
+
+\begin{proof}
+Orlovのblow-up公式\cite[Theorem~4.3]{OrlovBlowup1993}と $\PP^2$ の例外列から
+\[
+ \Perf(X)=
+ \langle J_1,\ldots,J_r,\OO_X(-2L),\OO_X(-L),\OO_X\rangle
+\]
+を得る。前の $r+2$ 個の対象は全て $\OO_X^\perp$ に属するので，それらが
+$\mathcal K_X$ を生成する。
+$E_i$ は互いに交わらず，$J_i$ は例外対象である。
+$m=1,2$ に対し，正則閉埋込みの双対性から
+\begin{align*}
+ R\Hom_X(J_i,\OO_X(-mL))
+ &\simeq R\Hom_{E_i}
+  (\OO_{E_i}(-1),\OO_{E_i}(-1)[-1])\simeq\C[-1],\\
+ R\Hom_X(\OO_X(-mL),J_i)
+ &\simeq R\Gamma(E_i,\OO_{E_i}(-1))=0.
+\end{align*}
+ここでは $j_i^!\OO_X(-mL)=\OO_{E_i}(-1)[-1]$ を使った。
+第一式の源を $J_i[-1]$ に置き換えるとHomは次数0に集中する。
+さらに
+\[
+ R\Hom_X(\OO_X(-2L),\OO_X(-L))=V[0],\qquad
+ R\Hom_X(\OO_X(-L),\OO_X(-2L))=0.
+\]
+従って式\eqref{eq:surface-ku-tilting-object}は強い例外列の直和であり，
+その自己Extは次数0以外で消える。
+
+合成
+\[
+ \Hom(\OO(-2L),\OO(-L))\otimes\Hom(J_i[-1],\OO(-2L))
+ \longrightarrow\Hom(J_i[-1],\OO(-L))
+\]
+は，線型形式を $E_i$ に制限する写像である。
+$\pi(E_i)=p_i$ なので，両側の一次元空間の基底を選べば
+この積は $\operatorname{ev}_{p_i}$ で与えられる。
+評価は全射であるため，$i\to b$ の独立な矢を追加する必要はない。
+長さ3の経路はなく，式\eqref{eq:surface-ku-quiver-relations}が全ての関係である。
+対角の次元 $r+2$，矢の次元 $r+3$，関係を課した長さ2の経路の次元 $r$ を足すと
+$3r+5$ となる。
+単純加群の射影解消は，頂点 $b$ で長さ0，$a$ で長さ1，各 $i$ で長さ2以下である。
+従って大域次元は2以下であり，tilting Morita同値が従う。
+\end{proof}
+
+\begin{remark}[有限代数からの独立なHochschild計算]
+\label{rem:surface-ku-relative-bar}
+対角冪等元の代数を $E=\C^{r+2}\subset B_X$ とし，radicalを $J$ とする。
+$E$ はseparableなので，$E$ に関する規格化bar複体でHochschild cohomologyを計算できる。
+非対角経路の長さは2以下であり，この複体は
+\[
+ C^0=\C^{r+2},\qquad C^1=\C^{2r+9},\qquad
+ C^2=\C^{3r},\qquad C^{\ge3}=0
+\]
+となる。評価を非零の行ベクトル $p_i$ で表示し，
+$C^1$ の要素を $(\lambda_i,\nu_i,M)$，$M\in\End(\C^3)$ と書けば，
+符号をこの順序に取った微分は
+\[
+ (d^1(\lambda,\nu,M))_i=(\lambda_i-\nu_i)p_i+p_iM.
+\]
+$d^0$ は頂点スカラー $(c_1,\ldots,c_r,c_a,c_b)$ を
+\[
+ \lambda_i=c_i-c_a,\qquad \nu_i=c_i-c_b,\qquad
+ M=(c_a-c_b)I_3
+\]
+へ送る。従って $\ker d^0$ は共通スカラーだけである。
+さらに $\ker d^1$ では全ての $p_i$ が $M$ の固有行ベクトルとなる。
+最初の四点を射影frameとすれば，最初の三点から $M$ は対角となり，
+第四点からその三つの対角成分が等しくなる。
+従って $\dim\ker d^1=r+1=\rank d^0$ であり，
+\[
+ \HH^1(B_X)=0,\qquad
+ \dim\HH^2(B_X)=3r-(r+8)=2r-8=10-2d,
+ \qquad \HH^{\ge3}(B_X)=0.
+\]
+これは式\eqref{eq:surface-ku-hh-dimensions}の独立な有限代数による確認である。
+ただしPoisson成分が核に\emph{一致する}という制限写像の同定には，
+先の射影核とHKRの議論を使う。
+\end{remark}
+
+\subsection{通常Artin基底上の形式的な古典的復元}
+
+$\operatorname{Art}_{\C}$ を剰余体 $\C$ を持つ可換局所Artin環の圏とする。
+$\Def_X(R)$ は特殊ファイバーと $X$ の同型を固定した滑らかなproper変形の同型類とする。
+$\Def^{\mathrm{Mor}}_{\mathcal K_X}(R)$ は，$R$ 上smooth properな
+冪等完備dg圏と，その導来特殊ファイバーから $\mathcal K_X$ への
+Morita同値を固定したものの，枠を保つMorita同値類とする。
+ここでは通常のArtin基底上の同値類を扱い，未切断の高次群oidを
+集合と同一視しない。
+
+\begin{lemma}[tilting対象の持上げによる通常代数への還元]
+\label{lem:surface-ku-artin-tilting}
+任意の $R\in\operatorname{Art}_{\C}$ と
+$\mathcal K_R\in\Def^{\mathrm{Mor}}_{\mathcal K_X}(R)$ に対し，
+命題\ref{prop:surface-ku-tilting}の各直和因子は $\mathcal K_R$ に
+同型類として一意に持ち上がる。それらの直和 $G_R$ は相対tilting生成対象であり，
+\[
+ B_R:=H^0R\Hom_{\mathcal K_R}(G_R,G_R)
+\]
+は $R$ 上有限自由な通常の結合代数で，$B_R\otimes_R\C\simeq B_X$ かつ
+$\mathcal K_R\simeq\Perf(B_R)$ となる。
+\end{lemma}
+
+\begin{proof}
+$R$ を小拡大の列で構成する。
+smooth proper dg圏の対象の変形障害は自己Extの次数2に，
+持上げの同型類の差は次数1に属する。
+これは対象のモジュライの接複体
+$R\Hom(E,E)[1]$ による障害理論
+\cite[Corollaries~3.15, 3.17]{ToenVaquie2007}を各小拡大に適用したものである。
+本稿のAbel変形から来る場合には，
+\cite[Theorem~B, Theorem~6.10]{LowenObstruction2005}の導来対象の持上げ定理を
+用いてもよい。
+各因子は例外対象なので両群が零となり，帰納的に持上げが存在し，
+同型類として一意である。
+
+任意の二つの持上げの間のHom複体は $R$ 上perfectであり，
+特殊ファイバーでは次数0に集中する。
+局所Artin環上のperfect複体に対するderived Nakayamaにより，
+このHom複体自体が次数0の有限自由加群である。
+従って持上げた列は相対的にも強い例外列であり，$B_R$ は通常の有限自由代数となる。
+
+生成性も確認する。この相対例外列の右端から順に左変異を繰り返し，任意の
+$F\in\mathcal K_R$ から全ての因子に右直交する対象 $Q$ を作る。
+全ての評価と変異は基底変更に両立し，特殊ファイバーの列は充満なので
+$Q\otimes_R^{\mathbf L}\C=0$ である。
+$R\Hom(Q,Q)$ は $R$ 上perfectで特殊ファイバーが零だから，
+derived Nakayamaにより零である。恒等射も零となり $Q=0$ を得る。
+従って持上げた列は充満であり，dg Morita同値が従う。
+ここでは一般のdg圏の変形をHochschild複体だけで自動的に分類していない。
+tilting対象の実際の持上げにより，curvatureの問題を通常代数の変形へ還元した。
+\end{proof}
+
+\begin{lemma}[点配置代数のArtin変形]
+\label{lem:surface-ku-algebra-points}
+$B_X$ の有限自由な通常 $R$-代数変形は，特殊ファイバーの枠を固定した同型類として，
+点配置 $(p_1,\ldots,p_r)$ の $\PP^2_R$ 内の変形を
+特殊ファイバーで恒等となる射影線型変換で割ったものと一致する。
+\end{lemma}
+
+\begin{proof}
+頂点の直交冪等元の組を $B_R$ に持ち上げる。
+nilpotent核を持つ環の冪等元の持上げと共役一意性により，この選択は同型類を変えない。
+各cornerは有限自由加群の直和因子である。
+特殊ファイバーの次元から，対角cornerは階数1，
+\[
+ e_aB_Re_i,\quad e_bB_Re_i
+\]
+は階数1，$e_bB_Re_a$ は階数3であり，それ以外の非対角cornerは零である。
+各対角cornerは単位元により $R$ と同一視される。
+非自明な積の全データは
+\[
+ \mu_i:(e_bB_Re_a)\otimes_R(e_aB_Re_i)\longrightarrow e_bB_Re_i
+ \qquad(1\le i\le r)
+\]
+である。三つの非対角因子の積は存在しないため，このデータに追加の結合律方程式はない。
+各 $\mu_i$ は剰余体上で全射なので，$R$ 上も全射である。
+従って階数3の共通空間 $V_R=e_bB_Re_a$ の一次元商として
+$p_i(R)\in\PP(V_R^\vee)$ が得られる。
+二つの階数1のcornerの基底変更は評価写像を単元倍するだけであり，
+$V_R$ の基底変更は点配置全体の射影線型変換である。
+この記述は逆に代数を構成するので，主張した同型類の対応を得る。
+一般位置の条件は開条件であり，Artin基底では特殊ファイバーの条件から保たれる。
+\end{proof}
+
+\begin{theorem}[残余圏の形式的な古典的復元]
+\label{thm:surface-ku-formal}
+相対構造層の右直交を取る自然な変換
+\begin{equation}\label{eq:surface-ku-formal-equivalence}
+ \Def_X\longrightarrow\Def^{\mathrm{Mor}}_{\mathcal K_X},
+ \qquad X_R\longmapsto\OO_{X_R}^{\perp}
+\end{equation}
+は $\operatorname{Art}_{\C}$ 上の同型類関手の同型である。
+従って右辺は $\C[[t_1,\ldots,t_{b_d}]]$ で表される。
+特に任意の特殊ファイバー付き非可換del Pezzo曲面のArtin変形
+$(\mathcal Q_R,\OO_R)$ に対し，
+\begin{equation}\label{eq:surface-ku-formal-companion}
+ \Perf(\mathcal Q_R/R)\cap\OO_R^\perp
+ \simeq \mathcal K_{X_R^{\mathrm{cat}}}
+\end{equation}
+を満たす古典的変形 $X_R^{\mathrm{cat}}$ が，特殊ファイバーの枠を保つ同型類として
+一意に存在する。これらはArtin基底変更に両立する。
+\end{theorem}
+
+\begin{proof}
+まず，選んだblow-up表示は任意の古典的Artin変形に同型類として一意に延びる。
+実際，$H^1(X,\OO_X)=H^2(X,\OO_X)=0$ より，$L,E_1,\ldots,E_r$ の線束は
+各小拡大に同型類として一意に持ち上がる。
+各 $E_i$ は $h^0(\OO(E_i))=1$，$H^{>0}(\OO(E_i))=0$ を満たすので，
+持上げた線束の切断は単元倍を除いて一意であり，その零点は相対有効Cartier因子となる。
+異なる因子は特殊ファイバーで交わらないから相対的にも交わらない。
+$L$ の切断空間は階数3で，評価は全射のままなので
+$\pi_R:X_R\to\PP^2_R$ を定める。
+各 $E_{i,R}$ は $\PP^1_R$ の変形であり，$L$ の制限は自明であるから，
+$\pi_R$ はこれを一つのsection $p_i(R)$ に写す。
+これらのsectionのidealの引戻しは $\OO(-E_{i,R})$ に全射し，
+blow-upの普遍性により $\pi_R$ は
+$\operatorname{Bl}_{p_1(R),\ldots,p_r(R)}\PP^2_R$ を経由する。
+この射はproperで，特殊ファイバーで同型だから準有限，従って有限である。
+有限射の構造層の写像は還元後に同型で，両側が $R$-flatである。
+核と余核にNakayamaを適用して，元の射も同型であることを得る。
+従って古典的変形は点配置の変形により記述される。
+
+一方，補題\ref{lem:surface-ku-artin-tilting}と
+補題\ref{lem:surface-ku-algebra-points}により，任意の残余圏のMorita変形も
+同じ点配置の変形により記述される。
+この対応が自然な変換\eqref{eq:surface-ku-formal-equivalence}そのものであることは，
+相対blow-upに式\eqref{eq:surface-ku-tilting-object}を適用し，
+合成が相対評価写像となることから分かる。
+
+同型類の単射性にも注意する。特殊ファイバーの枠を保つMorita同値は，
+各tilting因子の持上げの一意性から，持上げた $G_R$ を相手の $G_R$ に送る。
+従って通常代数 $B_R$ の同型を与え，頂点冪等元を共役で揃えた後は，
+補題\ref{lem:surface-ku-algebra-points}により点配置の射影同値を与える。
+これはblow-up曲面の枠を保つ同型に対応する。
+逆にそのような曲面の同型は残余圏の同値を与える。
+このように得た同型類の全単射は基底変更に自然である。
+補助的なblow-downの選択は，自然な変換の全単射性を証明するためだけに用いた。
+
+$H^2(T_X)=H^0(T_X)=0$ より $\Def_X$ は次元 $b_d$ の滑らかな形式スキームで表される。
+また構造対象が相対例外的である非可換変形では，その右直交は相対smooth properである。
+従ってその残余圏に式\eqref{eq:surface-ku-formal-equivalence}の逆を適用すれば
+式\eqref{eq:surface-ku-formal-companion}を得る。
+\end{proof}
+
+\begin{remark}[枠と高次自己同型]
+定理\ref{thm:surface-ku-formal}は，特殊ファイバーのMorita枠を固定した
+\emph{同値類関手}の主張である。
+残余圏には構造対象 $\OO$ の標識は残らず，恒等関手の自然自己同型として
+中心の単元が存在する。
+点配置代数の中心は $R$ なので，この2自己同型は $R^\times$ であり，
+特殊ファイバー上でも恒等と要求すれば核 $1+\mathfrak m_R$ となる。
+$\HH^1(\mathcal K_X)=0$ は微小な外自己同値の消滅であって，
+このスカラー2自己同型を消す主張ではない。
+従って定理を未切断の高次変形群oidの同一視へ拡張しない。
+一般のdg圏ではHochschild二次類と非曲率Morita変形の間に問題がある
+\cite{KellerLowen2009}が，本節では補題\ref{lem:surface-ku-artin-tilting}の
+実際のtilting持上げによってその点を処理した。
+\end{remark}
+
+\subsection{具体的なPoisson shadowとの比較範囲}
+
+非可換Abel変形から定理\ref{thm:surface-ku-formal}の古典的変形を取る形式射を
+$\widehat\rho_X$ と書く。
+本稿の可換模型への射 $\mathrm{sh}$ の形式完成を
+$\widehat{\mathrm{sh}}_X$ と書くと，
+定理\ref{thm:surface-ku-hochschild}および
+命題\ref{prop:poisson-shadow-formal-comparison}から
+\begin{equation}\label{eq:surface-ku-shadow-first-order}
+ d\widehat\rho_X=d\widehat{\mathrm{sh}}_X:
+ H^1(T_X)\oplus H^0(-K_X)\longrightarrow H^1(T_X),
+ \qquad (\xi,\pi)\longmapsto\xi
+\end{equation}
+である。
+従って $\widehat\rho_X$ は形式的に滑らかで，相対次元は $d+1$，
+すなわち次数1では2，次数2では3となる。
+例えば $\widehat\rho_X$ に適合する非標準的な形式座標を選べば，
+非可換Abel変形の形式基底は
+\[
+ \Spf\C[[t_1,\ldots,t_{b_d},u_1,\ldots,u_{d+1}]]
+ \longrightarrow\Spf\C[[t_1,\ldots,t_{b_d}]]
+\]
+という射影で表される。この $u$ 座標が本稿で先に固定したPoisson shadowの座標と
+一致することは，形式的な滑らかさからは従わない。
+
+\begin{proposition}[被覆対合とPoisson方向の二次差]
+\label{prop:surface-ku-parity}
+固定した古典点 $X$ のBertini対合 ($d=1$) またはGeiser対合 ($d=2$) を $\sigma$ とする。
+古典形式環を $S$，非可換Abel形式環を $R$，可換零切断のidealを $I\subset R$ とする。
+$\widehat{\mathrm{sh}}_X$ に適合する形式座標を選んで
+\[
+ R=S[[p_1,\ldots,p_{d+1}]],\qquad
+ \widehat{\mathrm{sh}}_X(t,p)=t,\qquad \sigma(t,p)=(t,-p)
+\]
+とできる。この座標で
+\begin{equation}\label{eq:surface-ku-even-comparison}
+ \widehat\rho_X(t,p)
+ =t+\sum_{\substack{|\alpha|\ge2\\|\alpha|\ {\rm even}}}
+       c_\alpha(t)p^\alpha .
+\end{equation}
+従って両射は $I^2$ を法として一致し，最初の比較対象は標準的な二次差
+\begin{equation}\label{eq:surface-ku-quadratic-discrepancy}
+ \delta_{2,X}\in H^1(X,T_X)\otimes
+            \Sym^2 H^0(X,-K_X)^*
+\end{equation}
+である。その値は本稿ではまだ計算していない。
+\end{proposition}
+\begin{proof}
+古典変形は重み付き標準形の係数変形で表され，その全てに
+$z\mapsto-z$ が延長する。従って $\sigma$ は $\Def_X$ に自明に作用する。
+Jacobian Poisson構造は $\partial_z$ を一つ含むので，Poisson接方向には $-1$ で作用する。
+これは $\wedge^2T_X$ の自然な線型化に関する作用であり，
+反標準環の重み1生成元の表示だけから作用を判定していない。
+定理\ref{thm:surface-ku-formal}の自然性により $\widehat\rho_X$ は自己同型に関して同変であり，
+shadowも同変である。
+
+形式的な滑らかさと零切断から，相対パラメータ $u_i\in I$ を選べる。
+$\sigma$ は $S$ を固定するから
+$p_i=(u_i-\sigma(u_i))/2$ は $I$ に属し，$\sigma(p_i)=-p_i$ である。
+閉点での相対一次部分は変わらないため，形式逆関数定理により
+$S[[p_1,\ldots,p_{d+1}]]\simeq R$ を得る。
+$\widehat\rho_X(t,0)=t$ と
+$\widehat\rho_X(t,-p)=\widehat\rho_X(t,p)$ から式\eqref{eq:surface-ku-even-comparison}が従う。
+
+二つの環準同型 $\widehat\rho_X^*,\widehat{\mathrm{sh}}_X^*:S\to R$ は
+$I^2$ を法として一致するので，その差を $I^3$ で割ったものは
+$S$-derivationである。従って
+\[
+ \widehat\Omega^1_S\longrightarrow I^2/I^3
+   \simeq\Sym^2_S(I/I^2)
+\]
+を得る。閉点で評価し，接空間と法空間を同定すると
+式\eqref{eq:surface-ku-quadratic-discrepancy}となる。
+\end{proof}
+
+\begin{remark}[二次比較の限界]
+二次差の候補空間の次元は $d=1$ で24，$d=2$ で36である。
+追加の自己同型があれば $\delta_{2,X}$ はその不変部分に属する。
+非零の二次差が見つかれば当該点でのshadowの形式的な保存性を否定できる。
+一方，一点での二次差の消滅は高次一致や近傍全体の一致を意味しない。
+固定した $t$ では次にPoisson次数4が現れ得るが，$t$ も動かすと
+二次係数 $c_\alpha(t)$ 自体の変化も残る。
+\end{remark}
+
+\begin{remark}[未解決の比較]
+現時点で証明したのは，残余圏の形式的な古典的復元と，
+その古典的復元射が具体的な $\mathrm{sh}$ と一次で一致することである。
+両射は可換零切断でも一致するが，二次以後の差の消滅は未証明である。
+局所座標での差は極大idealの二乗に属するが，これを零と置いてはならない。
+特に，一般のPoisson shadowの同じファイバーに属する五つまたは四つの非可換対象が
+相互に同値な残余圏を持つことも，それらの残余圏が当該shadow曲面の残余圏と
+同値であることも，定理\ref{thm:surface-ku-formal}だけでは結論しない。
+次の具体的な比較対象は，非可換族のtilting因子を持ち上げて得る
+積 $\mu_i$，そこから復元する点配置，および対称化中心方程式から得る曲面である。
+本節の形式的復元の独立した新規性は未確認であり，
+既知のblow-up公式・対象持上げ・tilting変形の具体的帰結として提示する。
+\end{remark}

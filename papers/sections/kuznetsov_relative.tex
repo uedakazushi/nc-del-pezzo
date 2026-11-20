@@ -1,0 +1,366 @@
+% !TeX root = ../nc-del-pezzo.tex
+\section{構造対象の相対直交圏と曲面の古典的復元}
+\label{sec:kuznetsov-relative}
+
+本節では，既に構成した有限型近傍 $\mathfrak U_{n,d}$ 上のcompact dg圏から，
+構造対象の右直交圏を作る。半直交分解と基底変更の一般論は既知の入力である。
+本稿での役割は，この構成を表示を忘れた全 $\OO$ 保存Abel同値に降下させ，
+曲面では古典del Pezzo曲面の直交圏との比較を実際の\'{e}tale近傍へ移すことである。
+この古典的復元と，中心関係の対称化から定義したshadowの一致は別の問題である。
+
+\subsection{一対象の右直交圏}
+
+局所noetherianなaffine基底 $T=\Spec R$ 上の対象
+$(\mathcal Q,\OO)\in\mathfrak U_{n,d}(T)$ に対し，
+\[
+ \mathcal C_T=\Perf(\mathcal Q/R),\qquad
+ \mathcal K_T^{\OO}
+ =\{F\in\mathcal C_T\mid R\Hom(\OO,F)=0\}
+\]
+と置く。いずれも標準enhancementのfull dg部分圏を冪等完備化したものとし，
+以下の同値はdg Morita同値の意味で読む。
+
+\begin{theorem}[相対直交圏，有限生成元，降下]
+\label{thm:relative-structure-orthogonal}
+全 $n\ge2$，$d=1,2$ について次が成り立つ。
+\begin{enumerate}
+ \item $\OO$ は相対exceptionalであり，$\mathcal C_T$ には
+       $R$-線形の許容半直交分解
+       \begin{equation}\label{eq:relative-structure-sod}
+        \mathcal C_T=\langle\mathcal K_T^{\OO},\OO\otimes_R\Perf(R)\rangle
+       \end{equation}
+       がある。右直交圏への左射影は
+       \begin{equation}\label{eq:relative-structure-projector}
+        P_T(F)=\operatorname{Cone}\bigl(
+            R\Hom(\OO,F)\otimes_R^L\OO\longrightarrow F\bigr)
+       \end{equation}
+       であり，$\mathcal K_T^{\OO}$ は $R$ 上smooth properである。
+ \item 中心商表示を持つ局所chart上で
+       $l=n+5$ ($d=1$)，$l=n+3$ ($d=2$) と置くと，
+       \begin{equation}\label{eq:relative-structure-generator}
+        G_T^{\OO}=\bigoplus_{j=1}^{l-1}
+        \operatorname{Cone}\bigl((B_R)_j\otimes_R\OO
+                                  \longrightarrow\OO(j)\bigr)
+       \end{equation}
+       は $\mathcal K_T^{\OO}$ の生成元である。
+       $\Lambda_T^{\OO}=R\End(G_T^{\OO})$ は $R$ 上smooth properなdg代数であり，
+       $\mathcal K_T^{\OO}\simeq\Perf(\Lambda_T^{\OO})$ となる。
+ \item 任意の導来可換 $R$-代数 $R'$ に対し，圏のtensor積による基底変更について
+       \begin{equation}\label{eq:relative-structure-base-change}
+        \mathcal K_T^{\OO}\otimes_{\Perf(R)}\Perf(R')
+        \simeq (\OO_{R'})^\perp
+        \subset\mathcal C_T\otimes_{\Perf(R)}\Perf(R')
+       \end{equation}
+       が成り立ち，射影と生成元も基底変更する。
+       $R'$ が本稿で許される通常のnoetherian係数環なら，右辺のambientは
+       $\Perf(\mathcal Q_{R'}/R')$ と一致する。
+ \item 全ての構造対象を保つ完全Abel同値は式\eqref{eq:relative-structure-sod}と
+       射影を保つdg同値を誘導する。従ってこの構成は $\mathfrak U_{n,d}$ 上に降下し，
+       smooth proper dg圏とMorita同値のfppf高次stackへの射
+       \[
+        \kappa^{\OO}:\mathfrak U_{n,d}
+          \longrightarrow\mathfrak{Cat}_{\mathrm{Mor}}^{\mathrm{sp}}
+       \]
+       を与える。終域の代数スタック性や有限型性はここでは主張しない。
+\end{enumerate}
+\end{theorem}
+\begin{proof}
+定義\ref{def:nc-dp-stack}の有向ACM条件を $i=j=0$ に適用すると
+$R\Hom(\OO,\OO)=R$ である。従って
+$j:\Perf(R)\to\mathcal C_T$，$M\mapsto M\otimes_R\OO$ は完全忠実である。
+相対proper性により
+\[
+ j^!(F)=R\Hom(\OO,F),\qquad
+ j^*(F)=R\Hom(F,\OO)^\vee
+\]
+はともにperfectで，それぞれ右随伴と左随伴を与える。
+評価写像のconeに $R\Hom(\OO,-)$ を施すと零になるので，
+式\eqref{eq:relative-structure-projector}は $\mathcal K_T^{\OO}$ に値を取り，
+その制限は恒等である。評価三角は式\eqref{eq:relative-structure-sod}を与える。
+ambientのsmooth proper性は定理\ref{thm:simultaneous-smooth-ncdp-open}による。
+smooth properな線形圏の半直交成分は許容かつsmooth properである
+\cite[補題4.15(4)]{Perry2019HPD}。
+なおconeはenhancementで取るので，三角圏におけるconeの非一意性を
+関手の定義に持ち込まない。
+
+補題\ref{lem:simultaneous-finite-window}の生成元
+$E=\bigoplus_{j=0}^{l-1}\OO(j)$ に $P_T$ を施すと，
+$P_T(E)$ は直交圏を生成する。実際，任意の直交圏の対象は
+$E$ からの有限coneと直和因子による表示に $P_T$ を施して得られる。
+$P_T(\OO)=0$ であり，定理\ref{thm:simultaneous-relative-tails}のHom公式から
+$R\Hom(\OO,\OO(j))=(B_R)_j$ ($j\ge0$) となるので，
+$P_T(E)$ は式\eqref{eq:relative-structure-generator}である。
+Morita同値とsmooth proper性から $\Lambda_T^{\OO}$ の主張が従う。
+
+通常の許された基底変更では，有限窓のHom複体はperfectで，
+定理\ref{thm:simultaneous-relative-tails}により導来基底変更と可換する。
+生成元 $E_{R'}$ は変更後にも生成元であるから，
+$R\End(E)\otimes_R^LR'\simeq R\End(E_{R'})$ は
+ambient自体のtensor基底変更を同定する。
+一般の導来係数環についてはこのtensor積を基底変更の定義に用いる。
+評価写像とconeの基底変更により $P_T\otimes_R^LR'=P_{R'}$ となる。
+また $\OO$ のexceptional性は基底変更後も保たれる。
+式\eqref{eq:relative-structure-sod}をtensorして得られる半直交分解の第一成分は，
+従って厳密に $\OO_{R'}$ の右直交圏である。
+これは変更前の対象の像だけを比較する主張より強く，
+式\eqref{eq:relative-structure-base-change}を与える。
+同じ有限coneの表示から $\Lambda_T^{\OO}$ の導来基底変更も従う。
+一般の導来係数環上にAbel圏 $\mathcal Q_{R'}$ を定義した，という主張ではない。
+
+最後に完全Grothendieck圏同値は全余極限を保ち，複体への項別適用は
+非輪状複体を保つ。このため定義\ref{def:nc-dp-stack}の標準dg enhancementに
+同値を誘導し，compact対象も保つ。
+$F(\OO)\simeq\OO'$ の標識は評価写像を同一視し，
+$F P_T\simeq P'_T F$ を与える。
+これは合成と標識を保つ自然同型に両立する。
+従ってatlasの重なり上の同値とその整合性が直交圏にも制限され，fppf降下が成立する。
+\end{proof}
+
+\begin{remark}[曲面と高次元での名称]
+\label{rem:structure-orthogonal-surface}
+$n=2$ では指数が1なので，本稿で扱うKuznetsov成分を
+$\operatorname{Ku}(\mathcal Q)=\mathcal K_T^{\OO}$ と定める。
+可換点では $\operatorname{Ku}(X)=\OO_X^\perp$ である。
+生成元\eqref{eq:relative-structure-generator}の範囲は，次数1では $1\le j\le6$，
+次数2では $1\le j\le4$ となる。
+$n\ge3$ の一対象直交圏と，通常の指数 $n-1$ の例外block
+$\langle\OO,\OO(1),\ldots,\OO(n-2)\rangle$ の右直交圏は区別する。
+後者を扱うときには基本シフトとblockの降下を別に確認する必要があり，
+Serre関手の根が無条件に一意であるとは仮定しない。
+\end{remark}
+
+\subsection{同値bimoduleの空間による\'{e}tale局所幾何化}
+
+以下は $n=2$ に限る。$b_d=b_{2,d}$，$q_d=h^0(X,-K_X)=d+1$ とおく。
+従って $(b_1,q_1)=(8,2)$，$(b_2,q_2)=(6,3)$ である。
+古典モジュライを $\mathcal D_{2,d}$ と書く。
+
+\begin{theorem}[曲面の\'{e}tale局所古典的復元]
+\label{thm:surface-ku-etale-companion}
+任意の可換点 $x=[X]\in\mathfrak U_{2,d}(\C)$ に対し，
+次のデータを取れる。
+\begin{enumerate}
+ \item $x$ を持ち上げる点 $t$ を持つ\'{e}tale射
+       $T\to\mathfrak U_{2,d}$。
+ \item $[X]$ を持ち上げる滑らかなスキームからの\'{e}tale chart $V\to\mathcal D_{2,d}$ と
+       射 $\rho_T:T\to V$。$\rho_T$ は滑らかで相対次元 $q_d$ である。
+ \item $V$ 上の古典曲面族を $Y_V\to V$ とすると，$T$ 上の相対Morita同値
+       \begin{equation}\label{eq:surface-ku-relative-companion}
+        \operatorname{Ku}(\mathcal Q_T)
+          \simeq\operatorname{Ku}(Y_V\times_VT/T).
+       \end{equation}
+       点 $t$ での同値は $\operatorname{Ku}(X)$ の恒等に選べる。
+\end{enumerate}
+この点での微分は，HKR分解によって
+\begin{equation}\label{eq:surface-ku-companion-differential}
+ d\rho_T:
+ H^1(X,T_X)\oplus H^0(X,-K_X)\longrightarrow H^1(X,T_X),
+ \qquad (a,\pi)\longmapsto a
+\end{equation}
+となる。ここでsourceの接空間は $T\to\mathfrak U_{2,d}$ の\'{e}tale性により同定した。
+\end{theorem}
+\begin{proof}
+$x$ の\'{e}tale chart $W\to\mathfrak U_{2,d}$ と
+古典点の\'{e}tale chart $V\to\mathcal D_{2,d}$ を取り，指定点を $w,v$ とする。
+両者をaffineに縮め，必要ならさらに\'{e}tale局所化する。
+定理\ref{thm:relative-structure-orthogonal}により，$W$ と $V$ 上の直交圏は
+有限生成元を持つsmooth proper dg圏である。
+その $W\times V$ への引戻しを $\mathcal A_W,\mathcal A_V$ と書く。
+$\mathcal A_W^{\mathrm{op}}\otimes\mathcal A_V$ のperfect bimoduleのモジュライを考える。
+有限生成元によりこれは基底環上のsmooth proper dg代数の加群の問題であり，
+To\"en--Vaqui\'eの定理3.6と系3.15\cite{ToenVaquie2007}が適用される。
+
+Morita同値を与えるbimoduleはこのモジュライの開部分をなす。
+実際，右随伴bimoduleと作る単位・余単位のconeを有限生成元で検査すればよい。
+これらは係数上perfectな複体であり，その消滅は開条件である。
+これは\cite[補題3.25，系3.24の証明]{ToenVaquie2007}の議論を
+二つの異なるsmooth proper dg代数に適用したものである。
+
+点 $(w,v)$ における恒等同値のbimoduleを $K$ とする。
+その自己Extは $\HH^*(\operatorname{Ku}(X))$ であり，
+定理\ref{thm:surface-ku-hochschild}により
+\[
+ \Ext^{<0}(K,K)=0,\qquad\End(K)=\C,
+ \qquad\Ext^1(K,K)=0,
+ \qquad\Ext^2(K,K)=H^1(X,T_X).
+\]
+負のExtの消滅と単純性が成り立つ開近傍に制限する。
+\cite[系3.21--3.22]{ToenVaquie2007}によって，この同値bimoduleのstackは
+局所有限表示のArtin stackであり，その\'{e}tale同型類層 $E$ は代数空間である。
+stackから $E$ への射は\'{e}tale局所的に自明な $\Gm$-gerbeである。
+恒等同値が定める点を $e\in E$ とする。
+
+射 $E\to W$ が $e$ の近傍で\'{e}taleであることを，微小持上げで確認する。
+剰余体 $\C$ の局所Artin環の小拡大 $A'\twoheadrightarrow A$ を取り，
+核を $I$ とする。$I\mathfrak m_{A'}=0$ としてよい。
+$E(A)$ の点，その $W$-成分の持上げ，および指定された還元上の同値を固定する。
+剰余体が $\C$ の局所Artin環はstrictly henselianであるため，\'{e}tale局所的に自明な
+$\Gm$-gerbeはその上で中立化し，実際のbimoduleを代表として選べる。
+$V$ は滑らかなので，$V$-成分にはまず任意の持上げを取れる。
+このとき同値bimoduleの持上げ障害は
+\[
+ \Ext^2(K,K)\otimes_\C I
+   =\HH^2(\operatorname{Ku}(X))\otimes_\C I
+\]
+にあり，障害が零なら持上げの同型類は
+$\Ext^1(K,K)\otimes I$ のtorsorとなる。
+これはperfect dg加群の変形理論であり，接複体の表示は
+\cite[系3.17]{ToenVaquie2007}で与えられる。
+
+$V$-成分の持上げを $a\in T_vV\otimes I$ だけ変更すると，
+bimoduleの障害は古典族のKodaira--Spencer写像
+\[
+ T_vV=H^1(X,T_X)\longrightarrow
+       \HH^2(\operatorname{Ku}(X))
+\]
+による $a$ の像だけ変わる。ここではsourceとtargetの差として符号を選ぶ。
+この自然性はbar解消でも直接見える：targetの積の二次cocycleを変更すると，
+同じcocycleの $K$ への作用が持上げた微分の平方の誤差に加わる。
+恒等bimoduleではこの作用はHochschild類そのものである。
+定理\ref{thm:surface-ku-hochschild}により上の写像は同型であるから，
+障害を消す修正 $a$ は一意に存在する。
+また $\Ext^1(K,K)=0$ なので，その後のbimoduleの持上げも同型類として一意である。
+残る自己同型はスカラーであり，既に $E$ で割っている。
+Artin局所環上の基底線束の捻りも同型類を変えない。
+持上げたbimoduleが同値であることは単位・余単位のconeへの導来Nakayamaから従う。
+
+従って $e,w$ における完備局所変形関手は同型である。
+射は局所有限表示で，両点の剰余体も $\C$ に一致するから，
+$E\to W$ は $e$ で\'{e}taleであり，$e$ の開近傍でもそうなる。
+さらに\'{e}tale局所化して $\Gm$-gerbeを自明化し，普遍同値bimoduleを取る。
+この近傍をscheme $T$ で覆えば，$T\to W$ は\'{e}taleで，
+$E\to V$ の合成が $\rho_T$ と式\eqref{eq:surface-ku-relative-companion}を与える。
+この議論は同値bimoduleの代数性だけを用いており，
+全dg圏のモジュライの代数性も，形式級数の大域的収束も必要としない。
+
+最後に，定理\ref{thm:abel-formal-ring}と
+定理\ref{thm:surface-ku-hochschild}による制限写像を比較すると，
+$d\rho_T$ は式\eqref{eq:surface-ku-companion-differential}である。
+これは全射で，核の次元は $q_d$ である。
+$T$ と $V$ はともに滑らかであるから，$t$ の近傍に縮めれば
+$\rho_T$ は相対次元 $q_d$ の滑らかな射となる。
+特殊ファイバーの恒等を固定した形式完成は
+定理\ref{thm:surface-ku-formal}の古典的復元と一致する。
+\end{proof}
+
+\begin{corollary}[幾何化の開近傍]
+\label{cor:surface-ku-geometric-open}
+$\mathfrak U_{2,d}$ には可換零切断全体を含む開部分
+$\mathfrak U^{\mathrm{geom}}_{2,d}$ があり，
+その任意の複素点 $[\mathcal Q]$ に対して，ある滑らかな次数 $d$ のdel Pezzo曲面 $Y$ と
+$\operatorname{Ku}(\mathcal Q)\simeq\operatorname{Ku}(Y)$ が存在する。
+比較は\'{e}tale局所的には相対Morita同値として取れる。
+\end{corollary}
+\begin{proof}
+前定理の $T\to\mathfrak U_{2,d}$ の開像を，全可換点について合わせればよい。
+必要なら可換零切断の準コンパクト性により有限個の像を選べる。
+\end{proof}
+
+\subsection{カテゴリー的Torelliを入力とする粗モジュライへの復元}
+
+\begin{corollary}[古典粗モジュライへの残余圏から定まる射]
+\label{cor:surface-ku-coarse-companion}
+Lin--Rampazzo--Zhang\cite[定理1.2]{LinRampazzoZhang2026}を入力として，
+系\ref{cor:surface-ku-geometric-open}の各複素点に対する曲面 $Y$ の同型類は一意である。
+さらに，局所的な $\rho_T$ は古典粗モジュライへの射として貼り合わさり，
+標準的な射
+\begin{equation}\label{eq:surface-ku-coarse-companion}
+ \overline\rho_{\mathrm{Ku}}:
+ M^{\mathrm{nc,geom}}_{2,d}\longrightarrow M^{\mathrm{cl}}_{2,d}
+\end{equation}
+を与える。ここで $M^{\mathrm{nc,geom}}_{2,d}$ は
+$\mathfrak U^{\mathrm{geom}}_{2,d}$ の粗空間である。
+可換零切断上でこの射は恒等である。
+\end{corollary}
+\begin{proof}
+引用した定理は，次数が高々4の滑らかな複素del Pezzo曲面について，
+標準enhancementを備えた $\OO^\perp$ の複素線形Morita同値から
+曲面の同型を結論する。従って本稿の次数1・2と同値の意味はその仮定を満たす。
+これは曲面の一意性を与える既知の外部入力であり，本稿でTorelli定理を証明したものではない。
+
+局所chart $T_i,T_j$ の重なり上では，二つの古典族の直交圏はともに
+同じ相対非可換直交圏に同値である。
+従ってその全ての複素閉点で，古典粗モジュライへの二つの射は一致する。
+$\mathfrak U_{2,d}$ は滑らかで，$T_i,T_j$ はその\'{e}tale chartなので，
+重なりは被約な有限型代数空間である。
+$M^{\mathrm{cl}}_{2,d}$ は分離的であるから，二つの射の等化子は閉である。
+被約性と複素閉点の稠密性により，この等化子は重なり全体とschemeとして一致する。
+代数空間上でも\'{e}tale scheme被覆で同じことを検査できる。
+従って射は $\mathfrak U^{\mathrm{geom}}_{2,d}$ 上へ降下し，
+粗空間の普遍性から式\eqref{eq:surface-ku-coarse-companion}を得る。
+可換点の復元曲面はその曲面自身であり，同じ被約性の議論から零切断上の恒等性が従う。
+\end{proof}
+
+\subsection{一般Poissonファイバーの残余圏の二者択一}
+
+\begin{proposition}[全同値または全て相互に非同値]
+\label{prop:surface-ku-generic-dichotomy}
+$d=1,2$ とし，$\delta_1=5,\delta_2=4$ と置く。
+系\ref{cor:surface-ku-coarse-companion}と同じ古典Torelliの入力の下で，
+Poisson粗モジュライ $N_{2,d}$ のある非空開集合 $V$ 上で，
+比較射は $\mathfrak U^{\mathrm{geom}}_{2,d}$ に属する
+$\delta_d$ 個の相異なる非可換対象をファイバーに持ち，次のいずれかが成立する。
+\begin{enumerate}
+ \item 全ての複素閉ファイバーで，$\delta_d$ 個の残余圏は相互にMorita同値である。
+       この場合，$\overline\rho_{\mathrm{Ku}}$ は $V$ 上でPoisson比較を通じて降下する。
+ \item 全ての複素閉ファイバーで，$\delta_d$ 個の残余圏は全て相互にMorita非同値である。
+\end{enumerate}
+ここではどちらの選択肢が実際に起こるかを決定しない。
+第1項から相対同値bimoduleの大域的貼合せや，
+降下した射とPoisson構造の忘却射の一致は結論しない。
+\end{proposition}
+\begin{proof}
+命題\ref{prop:normalization-boundary-locus}の有限locusへ制限し，
+必要なら有限正規化からの閉像をさらに除くことで，
+全逆像が $M^{\mathrm{nc,geom}}_{2,d}$ に入る非空開 $V$ を取る。
+一般安定化群が自明な開にも制限できる。
+$V$ は正規整で，$f:X=M^{\mathrm{nc}}_{2,d}\times_N V\to V$ は
+次数 $\delta_d$ の有限\'{e}tale被覆となる。
+
+系\ref{cor:shadow-symmetric-field-consequences}によるモノドロミーは
+$\mathfrak S_{\delta_d}$ である。
+この置換作用は順序付き相異なる二点の集合に推移的だから，
+\[
+ Z=(X\times_V X)\setminus\Delta_X
+\]
+は連結である。正規基底上の有限\'{e}tale空間は正規であり，
+連結な正規noetherian空間の既約成分は互いに交わらないので，$Z$ は整である。
+
+$g=\overline\rho_{\mathrm{Ku}}|_X$ とし，
+$g\circ p_1,g\circ p_2:Z\to M^{\mathrm{cl}}_{2,d}$ の等化子を $E$ とする。
+標的が分離的なので $E$ は閉部分空間である。
+$E=Z$ なら，対角上の自明な一致と合わせて
+$g\circ p_1=g\circ p_2$ が $X\times_VX$ 上で成り立つ。
+有限\'{e}tale全射のfppf降下により $g$ は $V$ へ降下する。
+各複素閉点で対応する古典曲面が同型となり，幾何化の相対同値から
+元の残余圏も相互に同値である。
+
+$E\ne Z$ なら，$Z$ の整性から $E$ は一般点を含まない。
+$Z\to V$ は有限で，$Z$ の一般点が $V$ の一般点上の唯一の点だから，
+$E$ の有限像は $V$ の真の閉部分集合である。
+これを除くと，全ての相異なる二点で古典粗モジュライの値が異なる。
+二つの残余圏がMorita同値なら，幾何化と古典Torelliから対応する曲面は同型となるため矛盾する。
+従って第2項が成り立つ。
+複素閉点で論じているので，ここではTorelli定理を一般の拡大体へ無説明で拡張していない。
+\end{proof}
+
+\begin{remark}[shadowとの比較に残ること]
+\label{rem:surface-ku-shadow-unresolved}
+定理\ref{thm:surface-ku-etale-companion}は\'{e}tale局所的な古典曲面族と相対同値を与え，
+系\ref{cor:surface-ku-coarse-companion}は大域的な\emph{粗}モジュライへの射を与える。
+古典スタック $\mathcal D_{2,d}$ への大域的な持上げと，
+局所同値bimoduleの大域的な貼合せは，これらの主張には含まれない。
+また局所射 $\rho_T$ の滑らかさから粗射の全点での滑らかさや平坦性を結論しない。
+
+中心関係の対称化が与える $\operatorname{sh}$ とこの復元は，
+可換点での一次微分については同じPoisson方向を消す。
+しかし，一次微分の一致だけでは高次の一致は従わない。
+幾何化の開近傍における点ごとの保存性
+$\operatorname{Ku}(\mathcal Q)\simeq
+ \operatorname{Ku}(X_{\operatorname{sh}(\mathcal Q)})$
+を証明するには，なお
+$\overline\rho_{\mathrm{Ku}}=\overline{\operatorname{sh}}$
+を示す必要がある。
+また $\Theta$ の一般ファイバーの五つまたは四つのAbel同型類が
+同じ直交圏を持つという主張も，この節だけからは従わない。
+\end{remark}

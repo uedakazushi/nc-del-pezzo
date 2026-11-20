@@ -1,6 +1,6 @@
 # 文献・依存関係・新規性の範囲
 
-2026-11-20（JST） / v0.17。完全な書誌は [references.bib](../references.bib)。以下は使用する一次資料の具体的な箇所、現行論文での適用とその限界を示す。外部論文のPDFは収録しない。
+2026-11-20（JST） / v0.18。完全な書誌は [references.bib](../references.bib)。以下は使用する一次資料の具体的な箇所、現行論文での適用とその限界を示す。外部論文のPDFは収録しない。
 
 ## 1. 他研究からの数学的入力
 
@@ -56,6 +56,24 @@
 - Okawa–Ueda, *Marked Artin–Schelter surfaces of del Pezzo types*, [arXiv:2508.04986v1](https://arxiv.org/abs/2508.04986v1) (2025)。Definitions 1.1・6.1、Theorem 6.4とその直前の構成・証明を一次本文で確認。markingはvery strong helixを含み、曲面のquiver potentialのモジュライと、種数1曲線・次数3の二線束・次数1の線束の組のモジュライを双有理に比較する。本稿のOのみを標識する全Abel同値、任意nの中心商族、指定Poisson shadowの次数5・4とS₅・S₄モノドロミーとは定義と射が異なる。helixを忘れる射と幾何的データの対応は未比較であり、この既存双有理性を本稿のδの値へ読み替えない。
 
 Plücker座標環の正規性・Cohen–Macaulay性にはSvanes (1973) とDe Concini–Procesi (1981) の標準単項式理論を用いる。具体的書誌と一次資料URLはBibTeXに保持する。
+
+### Kuznetsov成分：曲面の変形、局所幾何化、古典Torelli
+
+2026-11-20に以下の一次本文と適用条件を確認した。主証明はkuznetsov_surface.texとkuznetsov_relative.tex。
+
+| 一次資料と参照箇所 | この研究で使う内容と限界 |
+|---|---|
+| Kuznetsov, *Hochschild homology and semiorthogonal decompositions*, [arXiv:0904.4330v1](https://arxiv.org/abs/0904.4330), Proposition 8.1・Theorem 8.5、PDF p.23 | Oの右直交のHHは最高polyvectorを除く。証明のAt(O)=0から制限写像そのものを同定する。未確認の刊行先を付けない。Theorem 8.9の三様体の数値と曲面の計算は分ける |
+| Orlov, *Projective bundles, monoidal transformations, and derived categories of coherent sheaves*, Izv. Math. 41 (1993), 133–141, DOI 10.1070/IM1993v041n01ABEH002182、[著者掲載PDF](https://homepage.mi-ras.ru/~orlov/papers/1992_Izv_Math.pdf)、§4 | 点blow-upの例外対象O_E(−1)と平面の引戻しによるSOD。J_i[−1]とO(−2L),O(−L)のHom・積は本稿で直接計算。Lは平面の直線で、基本偏極Hと区別する |
+| Toën–Vaquié, *Moduli of objects in dg-categories*, Ann. Sci. ENS 40 (2007), 387–444, [著者稿](https://www.math.univ-toulouse.fr/~btoen/ttt.pdf), Theorem 3.6、Corollaries 3.15・3.17・3.21–3.24、Lemma 3.25 | smooth proper dg圏のperfect対象のモジュライ、接複体RHom(E,E)[1]、simple対象のGm-gerbeと同型類の代数空間。同値が開条件であることは二圏の単位・余単位coneを使って記述する。全dg圏のモジュライの代数性の定理ではない |
+| Lowen, *Obstruction theory for objects in abelian and derived categories*, Comm. Algebra 33 (2005), 3195–3223, [math/0407019v1](https://arxiv.org/abs/math/0407019), Theorem B・Theorem 6.10 | Abel変形での導来対象の持上げ。有限coflat次元の定式化と有限Tor次元の双対を区別し、perfect対象に用いる。自己Ext²の障害とExt¹のtorsor |
+| Keller–Lowen, *On Hochschild cohomology and Morita deformations*, IMRN 2009(17), 3221–3235, DOI [10.1093/imrn/rnp050](https://doi.org/10.1093/imrn/rnp050), [著者掲載本文](https://win.uantwerpen.be/~wlowen/pdf%20papers/KellerLowenHochDefo.pdf) | 一般のHH²は非曲率Morita変形だけでは捉えられないという制約。今回はtilting対象を実際に持ち上げ、通常代数へ還元する |
+| Perry, *Noncommutative homological projective duality*, Adv. Math. 350 (2019), 877–972, DOI 10.1016/j.aim.2019.04.052, [1804.00132v2](https://arxiv.org/abs/1804.00132), Lemmas 4.10・4.15(4) | 線形圏のsmooth proper性の基底変更と許容半直交成分への保存。全対象の有限Extだけでsmoothnessを結論していない |
+| Lin–Rampazzo–Zhang, *Categorical reconstruction of del Pezzo surfaces: Hochschild–Serre algebras and spinor modifications*, [2609.10344v1](https://arxiv.org/abs/2609.10344), 2026-09-09、Theorem 1.2・§2.3・Propositions 3.4–3.5 | 次数≤4の滑らかな複素古典del Pezzo曲面はenhanced O^perpから復元される。古典曲面の一意性の入力であり、非可換族の幾何化の存在は別に証明。可換weighted MFのHS積からJacobian関係を復元する公式は、次の計算目標に用いる |
+
+基本公式、blow-up、tilting変形、perfect対象のモジュライ、古典Torelliは先行研究の結果である。本稿では、全O同値を含む既存の非可換族で相対直交圏を構成し、点配置代数で全通常Artin変形を復元し、同値bimoduleの空間からétale局所的な古典族・粗射を得る。その独立した新規性は未確認である。一般ファイバーの全同値／全相異の二者択一は、既存のS₅・S₄モノドロミーとこの粗射の等化子を組み合わせた帰結である。
+
+LRZの低次数HS積は**可換**重み付き多項式環上のgraded matrix factorizationsとdiagonalに依存する。非可換AS環上の積やPBW完全対称化との乗法互換性は同論文に含まれない。従ってρ_Ku=shと同じPoissonファイバー上の残余圏のconstancyは未証明である。二次差テンソル・具体的な関係空間・三様体の未完了候補は研究ノートの該当項目に保持する。
 
 ### 逆被覆の分岐とモノドロミー
 

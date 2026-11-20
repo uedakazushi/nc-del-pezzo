@@ -1,6 +1,6 @@
 # 研究方針：次数1・2の非可換del Pezzo n-fold
 
-**2026-11-20（JST） / v0.17。再開時に最初に読む。**
+**2026-11-20（JST） / v0.18。再開時に最初に読む。**
 
 正本は [uedakazushi/nc-del-pezzo](https://github.com/uedakazushi/nc-del-pezzo) のmain。研究全体の入口は [research-hub](https://github.com/uedakazushi/research-hub)。続いて [研究ノート](research/research_notes.md)、[主原稿](papers/nc-del-pezzo.tex)、[再現手順](docs/reproduction.md) を読む。
 
@@ -39,10 +39,19 @@ Uの全幾何学的点で全Abel Artin変形を同じ族が実現する。Abel H
 
 両次数で全n≥2のPoisson比較の一般次数を決定し、δ_(n,1)=5、δ_(n,2)=4を得た。規格化中心torsorと全同値群oidに、次数2のbinary quartic正規形、次数1のy二次平行移動による正規化、両次数の全lower復元を組み合わせる。一般モノドロミーはS₅・S₄、Galois閉包の次数は120・24である。次数1では内在的α=A₄(D)が原始元となり一般逆像は根号で選べず、両次数で中間体と非自明なdeck変換はない。符号二次体も明示した。有限正規化への開埋込みと、境界Bの像を除いた最大有限locus N\ν(B)を得た。次数1では逆係数を全零切断近傍へ正則に降下し、全零切断上の五枚の有限étale正規化と実際の一枚・欠落四枚、形式五分裂を証明した。次数2では接線因子Hのord_H(Δ)=1から符号二次体の分岐を得て、全零切断の各点上にΩ¹_{Z/N}の茎が非零となる欠落点が存在することを証明した。研究の重点は具体的な開像・境界B全体、次数2の全ファイバーの長さ・局所模型、構成近傍外の成分にある。全Mの被覆・代数性・成分数は未解決である。
 
+曲面の場合の新しい研究軸はKuznetsov成分 `Ku=O^perp` と古典曲面の復元である。Kuznetsovの既知の公式により `HH²(Ku)=H¹(T_X)`、制限の核は全Poisson方向 `H⁰(−K_X)` となる。blow-upのtilting点配置代数から、特殊ファイバーを固定した通常Artin変形の同値類関手 `Def_X ≅ Def_Ku^Mor` を証明した。相対直交圏の全O同値への降下と、同値bimoduleの代数空間を用いて、全可換零切断を含む開近傍でétale局所的な古典曲面族・相対Morita同値を得る。その局所射は相対次元2・3で滑らか。Lin–Rampazzo–Zhang (2026) の古典Torelliを入力として、古典粗モジュライへの標準的な射 `rho_Ku` が得られる。一般のPoissonファイバーの残余圏は、S₅・S₄の二重推移性により全て同値か全て相互に非同値かに限られる。どちらが起こるか、また `rho_Ku=sh` の高次一致は未証明である。境界・全成分の課題を保持しつつ、現在はこの高次比較を優先する。既知のHochschild公式・blow-up・tilting変形・古典Torelliと、本件の非可換族への適用を区別し、独立した新規性は未確認とする。
+
 ## C. 主要到達点と確実性
 
 | 主張 | 状態・仮定 | 証明の所在 |
 |---|---|---|
+| 全nの構造対象の相対右直交はsmooth properで全O同値に降下 | 相対exceptional性、有限窓・基底変更で証明。n≥3の通常の長い例外blockとは区別 | `thm:relative-structure-orthogonal` |
+| 曲面のHH²制限はPoisson方向を全て消し、終域は8・6次元 | Kuznetsov Theorem 8.5の既知結果の適用。射影核で制限写像を点検、点配置代数でも独立に計算 | `thm:surface-ku-hochschild`、`rem:surface-ku-relative-bar` |
+| 曲面の残余圏の全通常Artin Morita変形は古典曲面で一意に復元 | 特殊ファイバー付き同値類関手。tilting因子の持上げ、corner階数、点配置の復元で証明。スカラー2自己同型を残す | `thm:surface-ku-formal` |
+| 既存shadowとの形式的な差はPoisson変数の偶数次数だけを持つ | 被覆対合と同変形式座標で証明。二次差δ₂の候補空間は24・36次元だが値は未計算 | `prop:surface-ku-parity` |
+| 全古典零切断の開近傍でétale局所的な古典曲面族と相対残余圏同値 | Toën–Vaquiéの対象・同値bimodule空間と全小拡大の持上げで証明。局所射は滑らか相対次元2・3 | `thm:surface-ku-etale-companion` |
+| 残余圏から定まる古典粗モジュライへの標準射 | Lin–Rampazzo–Zhang 2609.10344v1 Theorem 1.2を入力。被約な重なりでの下降を証明。古典stackへの大域的持上げは別 | `cor:surface-ku-coarse-companion` |
+| 一般Poissonファイバーの残余圏は全同値または全て相互に非同値 | S₅・S₄モノドロミーの二重推移性と粗射の等化子から証明。どちらかの判定は未完了 | `prop:surface-ku-generic-dichotomy` |
 | framed全Abel Artin形式環は、d1で滑らかな形式円板、d2で通常の形式円板×Plücker錐の完備化 | 証明を記述し、一次比較定理の適用条件を点検。通常の局所Artin環全体 | `thm:abel-formal-ring` |
 | 各可換点は一形式分枝、d2・n≥3で特異、二次障害Q∧Q | 上の形式環から証明。全ncスタックの成分定理ではない | `cor:abel-quadratic-obstruction` |
 | 任意の冪零係数上の中心商は次数ごとに自由、任意基底変更と両立 | monic分裂で証明、DVRのtorsion-free判定を一般化していない | `thm:nilpotent-universal-quantization` |
@@ -131,6 +140,8 @@ Uの全幾何学的点で全Abel Artin変形を同じ族が実現する。Abel H
 
 両次数の一般次数5・4と一般モノドロミーS₅・S₄は、全lower、規格化中心torsor、全同値商を経た結果である。有限族のCasimir係数に余分な分枝があっても全同値群oidで同一視される。次数1のy正規化と全座標商の比較も完了し、係数次数だけからの推測ではない。自由語中心証明書、逆式、S₃同変性、Sylvester判別式と有限体Bézout証明書を再現資産として保持する。
 
+0. **優先：残余圏からの復元とshadowの高次比較。** 曲面では形式・étale局所幾何化と粗射まで得た。次に、被覆対合の偶奇性から得た二次差δ₂を求める。tilting因子の評価写像かHochschild–Serre積の低次数関係から計算する。次数2は3次関係の核、次数1は重み4・5の関係の核を対称化中心のJacobian関係と比較する。`rho_Ku=sh` と、一般5・4点のファイバー上のconstancyは別々に判定する。
+
 1. **具体的な開像と境界全体。** 有限正規化Zと最大有限locus N\ν(B)、次数1の全零切断上の欠落四枚、次数2の各零点上の欠落分岐点は得た。次は正規化上で中心分母・smooth proper開・Casimir Jacobianの消滅条件を比較し、選んだ構成近傍M^ncの像とB全体を同定する。次数1の明示的monic五次式と正則I,J,αを具体的な着手点とする。境界自身の形式完備化を四つの形式近傍と同一視せず、係数判別式だけで全境界を決めない。
 2. **次数2の零切断上の局所模型。** 接線因子Hに沿う符号分岐は証明済みだが、高余次元の零切断上の分岐指数、全ファイバーの長さ、欠落点の個数、正規化の平坦性は未決定である。最高活性逆写像の1+3型を出発点に、全lower係数の復元行列と全座標商を含む整閉包・付値を計算する。最高活性部分の模型を全モジュライの局所模型とするには追加の証明が必要である。
 3. **全域被覆と残る成分。** Uの全M内での開性は証明した。Uの外にあるM対象を、反標準環と許容豊富列から調べる。全可換locusがUに入ることと、可換locusに接しない成分の不存在は別である。中心超曲面表示の存在条件、他のHilbert一定な族、特殊化の可能性を具体的に調べ、全Mの代数性・被覆・成分数を段階的に判定する。
@@ -142,6 +153,7 @@ Uの全幾何学的点で全Abel Artin変形を同じ族が実現する。Abel H
 
 - 相対Poisson錐・商・自己同型：`poisson-del-pezzo` main `4834ea4f3e13bff4d6c5793cec9b169d8f1ad56f`、主原稿v1.4の定理7.3・8.8・9.2、補題8.7、注意8.5、命題9.4。古典対角の有限性には定理9.2とLunaのaffine作用の結果を使用する。粗shadowの厳密な平坦点集合は定理9.6、各固定古典模型上の一般Poisson自己同型の自明性は命題9.5に依存する。錐の局所完全交叉判定・零切断解消・discrepancyは補題10.1・定理10.3・命題10.4を使用し、固定commitの本文と証明を確認した。
 - O-marked枠組み：`nc-cubic-threefold-moduli` main `6c35d2c84671c2538e61836a6bf3a511392eacce`、主原稿v22。三次三様体固有の次数一生成・指数2・残余圏の結論を無条件に輸入しない。
+- 曲面の残余圏：Kuznetsov 0904.4330 Theorem 8.5、Orlovのblow-up公式、Toën–Vaquié Theorem 3.6 / Corollaries 3.15・3.17・3.21–3.24、Perry Lemma 4.15(4)。古典Torelliは Lin–Rampazzo–Zhang 2609.10344v1 Theorem 1.2。主証明は `kuznetsov_surface.tex` と `kuznetsov_relative.tex`。これらの曲面結果を高次元へ自動的に移さない。
 - 一次資料・具体的な適用条件・優先権未確認点は [文献と依存](research/literature.md)。証明の重複は研究ノートへ置かない。
 - 有限正規化と零切断上の分枝の主証明は `papers/sections/finite_normalization_boundary.tex`。有限性・開埋込み・DVR特殊化はStacksの03GR・02LR・054F、形式分裂は0ALJ・09ZLの一次本文で仮定を確認した。次数1の正則不変量には上記PoissonDP固定commitの全群作用とaffine粗商を用いる。
 - `make verify` はn=2,…,8のHilbert/monic基底・Euler差分・二次障害・符号粗商の接空間次元と、分離型の全係数PBW overlap・中心交換子・内部次数・補助次数を検査する。さらに三次Sklyanin中心元の自由代数内の九項証明書、パラメータ置換と可換極限を厳密計算する。分離型とSklyanin中心の検算はhの有限jetではない。`verify_elliptic_curve.py` はpoint curveの行列式、blowup、分母を払ったshiftの恒等式を厳密検算し、σ⁴の非自明性だけは明示したmod h²計算で確認する。`verify_degree_one_top.py` はWeierstrassからStephensonへの変数変換、関係式のイデアル、AS開多項式、cyclic syzygyを有理係数の自由代数で厳密に検算する。`verify_degree_one_curve.py` は解消曲線の両chart・無限遠因子・shiftと関係式を全係数の恒等式で検算し、σ⁶の非自明性だけmod h²を使う。一般の証明を有限次元の数値例で代替していない。

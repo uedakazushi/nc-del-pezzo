@@ -1,6 +1,6 @@
 # 文献・依存関係・新規性の範囲
 
-2026-11-20（JST） / v0.10。完全な書誌は [references.bib](../references.bib)。以下は使用する一次資料の具体的な箇所、現行論文での適用とその限界を示す。外部論文のPDFは収録しない。
+2026-11-20（JST） / v0.11。完全な書誌は [references.bib](../references.bib)。以下は使用する一次資料の具体的な箇所、現行論文での適用とその限界を示す。外部論文のPDFは収録しない。
 
 ## 1. 他研究からの数学的入力
 
@@ -61,7 +61,24 @@ Plücker座標環の正規性・Cohen–Macaulay性にはSvanes (1973) とDe Con
 
 `thm:finite-anticanonical-isom` は既存の相対Serre・反標準豊富性を、構成した有限型Vの全基底変更上で使う。Veronese環の有限斉次表示、具体的なVeronese/tensor関手によるtails同値、有限高切断によるfppf降下は本文で証明する。同型関手とトーラス商の一般原理自体は標準的であり、相対非可換族へのこの適用について包括的優先権は未確認である。
 
-`thm:finite-low-center-open` は既存の `lem:classical-casimir-center` と活性PBW filtrationを用いる。全次数の中心が最小であるというgeneric条件を、一つのZariski開へ読み替えない。固定qの有限行列だけを使い、δ_q/hの古典還元から各smooth f・各非零方向のray上で非空性を証明する。
+`thm:finite-low-center-open` は既存の `lem:classical-casimir-center` と活性PBW filtrationを用いる。全次数の中心が最小であるというgeneric条件を、一つのZariski開へ読み替えない。固定qの有限行列だけを使う。`thm:low-center-zero-neighborhood` は方向解消上のδ_q/τを使い、全smooth係数・全射影方向の例外因子で単射性を確認する。properな悪条件像を除き、零切断近傍の非零部分全体で中心条件を得る。H→Eの開性と組み合わせた `cor:zero-neighborhood-full-graded-recognition` は、零方向・冪零基底を含めて通常Bからの全同値認識を与える。
+
+### 有限群oid・粗モジュライ・Artinの条件
+
+以下は一次本文を確認した一般原理であり、それ自体を本研究の新規結果とはしない。
+
+| 一次資料 | 適用箇所と範囲 |
+|---|---|
+| [Stacks 07VH](https://stacks.math.columbia.edu/tag/07VH)、Lemma 15.39.6；[039M](https://stacks.math.columbia.edu/tag/039M)、Lemma 41.11.3 | Noether有限型射の形式的smoothness、完成局所環によるétale判定。全Artin比較からsource完成を計算して実際のsmoothnessへ移す |
+| [Stacks 052A](https://stacks.math.columbia.edu/tag/052A)、Proposition 29.28.1；[01V8](https://stacks.math.columbia.edu/tag/01V8)、Lemma 29.35.3 | generic flatnessとflat・有限表示・smooth fiberの判定。単位のfiberを群oid平行移動で全矢へ移す前に全sourceをflatにする。開集合が零切断を含むとはしない |
+| [Stacks 06FI](https://stacks.math.columbia.edu/tag/06FI)、Theorem 97.17.2；[04YW](https://stacks.math.columbia.edu/tag/04YW) | flat有限表示群oidの商の代数性とunramified diagonalによるDM性。本稿はsmoothなfull群oidを先に構成する |
+| [Stacks 0DUT](https://stacks.math.columbia.edu/tag/0DUT)、Theorem 106.13.9；[0DUW](https://stacks.math.columbia.edu/tag/0DUW)、Lemma 106.14.1 | finite inertiaによるKeel–Mori粗モジュライ代数空間と有限型性。各幾何安定化群が有限であるだけでは適用せず、inertia射自体をgenericにfinite化する |
+| [Stacks 06QJ](https://stacks.math.columbia.edu/tag/06QJ)、Proposition 101.28.9 | flat locally finitely presented inertiaの代数stackは代数空間上のgerbe。さらにfinite étale inertiaなら、smooth DM部分問題の粗空間もsmoothと分かる。分離性は別に必要 |
+| [Stacks 02HY](https://stacks.math.columbia.edu/tag/02HY)、Lemma 37.12.2；[025G](https://stacks.math.columbia.edu/tag/025G)、Theorem 41.14.1 | Artin持上げ判定とétale monomorphismの開埋込み。HH¹剛性により通常graded矢H→Eに適用する |
+| [Stacks 06PL](https://stacks.math.columbia.edu/tag/06PL)、Lemma 97.18.3 | 自明作用のclassifying stackが代数的となるには群がflat lfpであることが必要十分。V=A²、D={x=0,y≠0}、G=V⊔Dの反例に適用し、可換形式近傍だけからの大域化を否定する |
+| [Stacks 07T0](https://stacks.math.columbia.edu/tag/07T0)、§98.1；[07XP](https://stacks.math.columbia.edu/tag/07XP)、§98.13、Example 98.13.2 | limit preservation、RS、effective formal objects、openness of versalityを分ける。本稿のeffectivityは可換特殊fiberと構成族の模型間に限定。全MのArtin基準を確認済みとはしない |
+
+`thm:generic-full-dm-stack` は、同じ有限型nc族の全同値スキームと全Artin普遍性を上記の群oid原理へ適用する。`cor:generic-finite-inertia-coarse` ではinertiaの有限性を分母払いで別途証明する。この組合せの包括的優先権調査は未了であり、得られたfullな部分問題を全ncモジュライ内の開部分と同定していない。
 
 ## 4. Compact持上げ、Serre、鎖formality、降下
 
@@ -197,7 +214,7 @@ BWB消滅で規格化中心のtorsorを自明化する。局所中心が存在�
 1. **全方向中心構成の比較と明示化。** 同じambient上の全方向中心と有限中心商、同じ族のArtin完成を既存の形式中心持上げ・filtered楕円代数・全Abel変形理論と比較する。追加の主開条件の明示、中心元の選択の違い、既知の公式との関係を調べる。
 2. **全方向有限族と既存理論の比較。** 全topの退化曲線、強・積Noether性の零方向への降下、同じ族の相対tails・Serre・smooth proper開近傍を、既存のTHCR・filtered変形・圏の変形理論と比較する。Keelerのmultiple divisors論文の本文と正確な仮定を確認し、体上・相対基底上の適用範囲を整理する。同じ有限族の全Artin普遍性と、全O同値による有限型atlasを区別する。
 3. **滑らかな開集合の明示。** 得られた有限部分対角解消とHom複体から、具体的な係数の非消滅条件を計算する。開近傍の存在証明と、その判別式の明示は異なる状態である。
-4. **全O同値と大域モジュライ。** 得られたアフィン有限表示の全同値群oidのsource・targetの滑らかさ、全モジュライの有限型atlas、可換locusに接しない成分を調べる。Toën–Vaquiéの固定dg圏の対象モジュライを、可変な全O-marked圏のモジュライと同一視しない。
+4. **全O同値と大域モジュライ。** 一般点のfullなDM部分問題と粗空間は構成した。次は零切断を保った全sourceの平坦性、全Mに対するversalityの開性、被覆範囲と可換locusに接しない成分を調べる。Toën–Vaquiéの固定dg圏の対象モジュライを、可変な全O-marked圏のモジュライと同一視しない。
 5. **退化曲線を含む構成と新規性。** 解消point curve、次数1の尖点と次数2のribbonを含む相対THCR、二重切断環による積Noether性、smoothnessの有限開近傍を、既存の楕円代数・非可換del Pezzo・変形圏の構成と比較する。中心増大層を含む適用範囲と、各主張の優先権を確認する。
 
 一般nでの全Abel形式群oid、nc多様体条件のArtin持上げ、形式粗商、具体量子化の完全性、任意指数Veronese復元、有限型族のCasimir・普遍中心・相対双対、全topの退化曲線を含む相対THCRと積Noether性、全方向の同時中心商・相対tails・smooth proper開近傍・全Artin比較という組合せについて、包括的な優先権調査は未了。変形・compact持上げ・formality・CY potentialの中心存在・Sklyanin中心元・Borel–Weil–Bott・σ-ampleness・THCRのtensor積に関する一般結果は既知の研究として区別する。非可換del Pezzo曲面の各定義、AS Z-代数、marked quiver、非可換吹上げとの比較も継続する。講演概要にある未公表の一般次数の主張は確立済み定理として引用しない。

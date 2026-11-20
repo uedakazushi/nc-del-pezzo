@@ -1,6 +1,6 @@
 # 研究ノート：次数1・2のnc del Pezzo n-fold
 
-2026-11-20（JST） / v0.10。証明本文は主原稿、一次資料の位置は [文献と依存](literature.md)。この文書は現在有効な知識と障害を整理する。
+2026-11-20（JST） / v0.11。証明本文は主原稿、一次資料の位置は [文献と依存](literature.md)。この文書は現在有効な知識と障害を整理する。
 
 ## 1. 形式局所環と数値
 
@@ -86,6 +86,30 @@ Isomの座標環Aにおいて、次数1の同型行列と逆行列の成分は�
 
 安定化群Gの単位切断eに沿う `e*Ω_(G/V)` は有限加群であり、可換点では既存のArtin剛性により零となる。その支持を除き、幾何ファイバー上の群平行移動を使うと、全同値スキームはquasi-finite unramifiedになる（`cor:finite-equivalence-unramified`）。幾何学的自己同値群は有限だが、基底上の射自体の有限性・flatness・étalenessは別である。例えばS=Spec k[t]上の群S⊔D(t)は、D(t)だけでZ/2の非自明元を加えるとaffine有限表示quasi-finite étaleだが有限でない。
 
+### 全同値群oidの完成と一般点のDM表示
+
+全係数表示では `g₁=n²`, `g₂=(n+1)²` 個の座標自由度がある。可換点xで、全Artin classifying mapに沿って `Ĉ_V,x≅R_X[[u₁,…,u_g]]` となる。係数空間の横断sliceへの制限はR_X上同型であるため、環だけの積表示を三角な自己準同型で修正し、`lem:formal-endomorphism-inverse` を使う。次数2のPlücker特異性を接空間だけで無視していない。
+
+固定した可換矢α:x→yの持上げは、同じframed変形を与える二つのパラメータと一意なframed矢である。従って完成は `R_X[[u_g,v_g]]`、sourceとtargetは各部分変数環の包含で、相対次元gのsmooth射になる（`thm:equivalence-source-formal-smooth`）。有限Aut(X)の別の元は固定αの完成へ混ざらない。座標作用群oidからの射もこの点でétaleである。
+
+可換零切断Zは全同値でschemeとして保存される。幾何学的には、非零方向の中央一次非零因子uと `B^(r)` の可換性から `u^(i+j)[a,b]=0` を得てB自体を可換にし、`[x_i,y]=D_i z` または `[x_i,x_j]=p_ij z` と矛盾させる。非被約基底についてはArtin graded認識とzの自由直和因子で方向イデアルを検出し、完成環のKrull交叉から `s*J_Z=t*J_Z` へ戻す。一般のZhang twistについての可換tails判定ではなく、この族の中央regular元と低次数表示を使う。
+
+単位でsがsmoothかつ相対次元gとなる開 `V^unit` はZ全体を含む。Vは整なので、generic flatnessで非空稠密開W上の全sourceをflatにできる。幾何矢α:x→yによる右合成は `s⁻¹(y)→s⁻¹(x)` の同型で単位をαへ移す。従って全source fiberがsmoothとなり、flat・有限表示・smooth fiberの判定により `E_W⇒W` はsmooth群oidとなる。Wを非零方向・低中心開へ制限すると、`N=[W/E_W]` は全O同値によるsmooth irreducible有限型DMスタックであり、次元はb(n,1)+nまたはb(n,2)+2n−1である（`thm:generic-full-dm-stack`）。上の数値表の形式次元が、この一般DM部分問題の実際の次元としても実現される。
+
+慣性はaffine有限表示quasi-finiteで、generic fiberの座標環は有限次元である。有限代数生成元のmonic関係と誤差の分母を払うと、さらに非空開でfiniteにでき、generic flatnessとunramified性からfinite étaleとなる。flat inertiaのgerbe判定とKeel–Moriにより、粗空間Mはsmooth irreducibleな有限型代数空間であり、Nと同次元である（`cor:generic-finite-inertia-coarse`）。分離性、一般安定化群の同定、全M内での開性は別問題。
+
+### 基本シフトの開条件と形式対象
+
+通常のgraded同型をスカラーで割った `H→E` はmonomorphismである。全シフト上の自然同型の成分λ_iと忠実な隣接Homから `λ_(i+1)/λ_i=c` が一定となり、核が次数スカラーに一致する。HH¹=0開上では、EのArtin矢Fに対する `s₂⁻¹Fs₁F⁻¹` をperfect可逆bimoduleで表し、対角剛性で恒等化する。指定した還元比較との差はHH⁰=Rの単元なので持ち上げて調整できる。従って `H→E` はétale monomorphism、すなわち開埋込みである（`thm:ordinary-graded-arrows-open`）。この矢の開性だけでは、一つの対象開W上の全矢がHに入るとは言えない。
+
+抽象商 `[V/E]` は有限fppf被覆上のV点・E矢と有限cocycleで記述でき、limit preservingでaffine有限表示対角を持つ。これはsourceのflatnessなしで成立する。可換特殊ファイバーを持つ完備Noether局所R上の形式対象は、一意なslice写像の両立系 `C_X→R/m^a` を逆極限して同じ有限族B_Rで実現できる。構成族の二模型間の形式同値もaffine同型スキームにより一意に実現される。任意M(R)の対象・形式同値に対するformal GAGAは未証明である。
+
+### 零切断近傍への大域化の障害
+
+sourceの非smooth locus N⊂EがZに接しなくても、s(N)の閉包がZと交わる可能性がある。sourceはproperとは分からないため、像を閉集合として除くことはできない。generic flatnessで取ったWがZを含むことも保証されない。
+
+この不足を示す一般反例は `V=A²_(x,y)`, `D={x=0,y≠0}`, `G=V⊔D`。D上だけZ/2の非自明元を加え、Vに自明に作用させる。G→Vはaffine有限表示quasi-finite unramifiedで単位上étale。原点を特殊点とする全Artin基底ではDが空となり、変形はVの形式環で完全に表される。しかし原点の任意の開近傍はDと交わり、Gはそこでは非flatで、`[V/G]` は代数スタックにならない（Stacks 06PL）。従って有限表示対角・全Artin普遍性・単位smoothnessだけでは零切断近傍のatlasを導けない。詳細な群構造と証明は `ex:formal-versality-not-open`。
+
 ## 5. Veronese持上げの有効範囲
 
 `P=Sym E⊂Z(B)`、`rank E≥2`、`B`がP平坦、かつ普遍的に `Z(B)_r=P_r` なら、`Isom_gr(B,B′)→Isom_gr(B^(r),B′^(r))` は `μ_r`-torsor。証明は次数1中心による `P^(r)` の認識、射影空間束の偏極付き復元、中心変数u,vでの局所化と
@@ -96,7 +120,7 @@ B=B[u^{-1}]\cap B[v^{-1}]
 
 による貼合せを使う。次数1生成は要求しない。`n≥3`では `rank E=r=n−1≥2`、`n=2`ではr=1なので持上げ問題自体がない。
 
-**適用できない領域。** 可換点では中心がB全体であるため普遍中心条件は成立しない。Artin量子化でも、`h²=0`なら多くの `h b` が中心になり、形式generic fiberでの中心計算を零切断近傍へ移せない。全方向有限族では、以下の証明により固定低次数中心条件の非空性まで得た。第11項の規格化族では全非零hで中心を直接証明し、次数ごとの最大小行列式から任意基底変更を得た。
+**適用できない領域。** 可換点では中心がB全体であるため普遍中心条件は成立しない。Artin量子化でも、`h²=0`なら多くの `h b` が中心になり、形式generic fiberでの中心計算を零切断近傍へ移せない。全方向有限族では、以下の証明により固定低次数中心条件を零切断近傍の非零部分全体で確保した。第11項の規格化族では全非零hで中心を直接証明し、次数ごとの最大小行列式から任意基底変更を得た。
 
 ### 全方向有限族の稠密開への適用
 
@@ -105,6 +129,13 @@ B=B[u^{-1}]\cap B[v^{-1}]
 固定qに対し、生成元との交換子 `δ_q:B_q/P_q→⊕_w Hom(V_w,B_(q+w))` の最大階数開U_qは普遍的に `Z(B)_q=P_q` を満たす。任意の滑らかな可換係数fと非零方向ξで `(f,hξ)` をC[[h]]へ引戻すと、δ_q/hの還元は古典Poisson交換子であり、`lem:classical-casimir-center` から商上単射。従って有限型行列のある最大小行列式はこの直線上の非零正則関数となり、U_qは全てのこのようなrayと非空開で交わる（`thm:finite-low-center-open`）。形式級数へ有限hを代入する議論ではない。
 
 n≥3では一つのq=r=n−1を固定するだけで、二中心変数によるVeronese持上げと第4項の認識を組み合わせられる。したがって稠密開U_r上で `Eq^O=Isom_gr(B,B′)/G_m`（`cor:finite-full-graded-recognition`）。n=2はr=1なのでV全体で成立する。全中心の最小性を示す無限個の開条件の交叉は不要である。重み付きgraded同型には高重み変数への同次数多項式の加算も含め、線型変数変換だけに狭めない。
+
+### 零切断全体を保つ一様化
+
+方向解消ν:Y→Vを、d1ではO_(P(E*))(−1)、d2ではO_(Gr(2,E*))(−1)の全空間から作る。νはproperで零外同型であり、例外因子は全smooth係数×全射影方向である。KはY上の束となり、Sym^q K→ν*B_qは例外因子上ではmonic z除法、零外では中央P分裂により全ファイバーで単射となる。従って商Q_qは全Yで束である。交換子をtautological sectionτで割った写像Q_q→M_q⊗O(1)は、例外因子の全点で古典Poisson中心=Pにより単射となる。悪い階数locusのproper像を除けばZ⊂V°かつV°\Z⊂U_qを得る（`thm:low-center-zero-neighborhood`）。νを平坦とは仮定しない。
+
+q=n−1に取り、第4項のH→Eの開性と可換零切断の幾何学的saturationを使う。V°上の全閉矢は両端が可換か両端がU_qに入るためHに属す。従って開埋込みH→Eは全射、すなわち同型である（`cor:zero-neighborhood-full-graded-recognition`）。これにより冪零方向と零への特殊化を含む任意基底上の全同値が通常Bから復元され、未商化のVeronese制限もμ_(n−1)-torsorとなる。sourceの平坦性は別の問題である。
+
 
 ## 6. 次数の内在性
 
@@ -430,7 +461,7 @@ smooth properな有限窓dg代数Cでは、`HH=RHom_(C^e)(C,C)` が係数perfect
 
 ## 19. 優先する未解決点
 
-1. **全同値群oidのsourceとatlas。** 第4項の有限表示群oidについて、可換零切断上の矢の形式局所環を全Artin比較から計算する。source・targetのsmooth locusが対象側の開集合への制限で確保できるかを調べる。有限表示・unramifiedな対角とsmooth atlasは異なる。
+1. **零切断を保つfullなsmooth表示。** 可換矢の完成と相対smoothness、非零稠密開でのfull DM商は得た。さらに通常Bによる全同値認識は零切断近傍全体で成立する。次は重み付き生成元変換と中心Casimir係数のJacobianを使い、全sourceの平坦性を零切断を含む開で確保する。一般群oidの反例により、全Artin普遍性だけからこの結論を出せない。
 2. **被覆と大域成分。** 構成族へfppf局所的に入る対象の部分問題と全Mを区別する。一般nc点の変形と可換locusに接しない成分の有無を調べ、全既約成分数を決める。
-3. **低次数中心が増える境界。** n≥3のU_(n−1)の補集合でも反標準環による同値認識は有効である。基本シフトの根と追加の同値を調べ、交換子行列・中心元の追加分母・smoothness等の有限開条件を明示する。
+3. **低次数中心が増える境界。** 得た零切断近傍の外側でも反標準環による同値認識は有効である。基本シフトの根と追加の同値を調べ、交換子行列・中心元の追加分母・smoothness等の有限開条件を明示する。
 4. **公表と文献比較。** 全方向有限族・全Artin普遍性・全同値の表現可能性を軸に主張を整理する。AMU2025の多項式Veronese結果と相対非可換復元を区別し、Keelerのmultiple divisors論文の本文と包括的優先権を確認する。

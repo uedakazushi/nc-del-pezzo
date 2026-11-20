@@ -1,11 +1,13 @@
 % !TeX root = ../nc-del-pezzo.tex
-% 2026-11-20 JST / v0.10
+% 2026-11-20 JST / v0.11
 \section{全方向有限族の低次数中心と通常次数付き表示の認識}
 \label{sec:simultaneous-low-center}
 
 固定次数の中心条件だけを用いることで，形式一般例にとどまらず，
 全方向有限族の非空稠密な開集合に
 定理\ref{thm:ncdp-veronese-lift}を適用できる。
+さらに方向解消のproper性により，この低次数中心条件は
+可換零切断全体を含む一つの開近傍の非零部分で確保できる。
 本節では全次数の中心が最小となる一つのZariski開集合の存在を主張しない。
 
 定理\ref{thm:simultaneous-degree-one-central-family}または
@@ -184,65 +186,263 @@ $\mathcal K$ と交換子写像の構成は座標変換に自然なので，こ�
 任意の非被約基底変更後も単射であり，
 式\eqref{eq:simultaneous-universal-low-center}を得る。
 
-\emph{各滑らかな可換点からの全非零方向。}
-$f$ と $\xi\ne0$ を固定する。
-次数2では $\xi$ はrank2のPl\"ucker方向であり，
-次数1では非零線型方向である。
-$h=0$ は有限族と $V_d$ の定義域に入るので，この直線の逆像は
-$\mathbb A^1$ の $0$ を含むZariski開集合である。
-$R=\mathbb C[[h]]$ へ引き戻し，$\mathcal B=B\otimes R$ とする。
-$\ker\xi$ に適合する固定された複素線型座標を選べば，
-$P_R=R[s_1,\ldots,s_k]$ の元は $h=0$ も含めて厳密に中央である。
-$\mathcal B_m$ は有限自由 $R$-加群である。
-また $P_{R,q}\to\mathcal B_q$ の $h=0$ での還元は単射である。
-実際，可換方程式は $z$ に関してmonicであり，
-その切断環は活性変数の単項式と $z$ の指数0または1を基底とする
-$\mathbb C[s_1,\ldots,s_k]$-自由加群である。
-有限行列の小行列式，または $R$ が局所環であることによるNakayamaの補題により，
-$P_{R,q}\to\mathcal B_q$ は分裂単射であり，その余核 $Q_q$ は有限自由である。
-
-ここで固定した中央部分 $P_R$ を用いて，$h=0$ も含む交換子写像を定める。
-$h\ne0$ ではこれは式\eqref{eq:simultaneous-low-center-matrix}の引戻しに一致する。
-$\mathcal B/h\mathcal B$ は可換なので，この交換子写像は $h$ で一意的に割れる。
-有限自由加群の写像
-\[
- \overline\delta_q=h^{-1}\delta_q:
-  Q_q\longrightarrow\bigoplus_w\operatorname{Hom}_R
-          (\mathcal V_w\otimes R,\mathcal B_{q+w})
-\]
-の $h=0$ における還元は，古典Poisson括弧による交換子写像である。
-これは表示関係式および
-命題\ref{prop:simultaneous-first-order-center}から直接従う。
-量子化の一次括弧の確認には，異なる形式量子化との同型や
-形式パラメータの有限値への代入を用いていない。
-
-補題\ref{lem:classical-casimir-center}により，古典切断環のPoisson中心は
-ちょうど $\mathbb C[s_1,\ldots,s_k]$ である。
-従って $\overline\delta_q\bmod h$ は $Q_q/hQ_q$ 上単射である。
-ここで同補題が全方向へ適用できることを確認しておく。
-次数1では $y^3$ の係数が非零であるため，
-活性二変数の多項式は $\overline{\mathbb C(s)}[u,y]$ において平方でない。
-次数2では，平方であれば $f$ は活性変数に依存する因子を重複して持つか，
-中央変数だけに依存することになる。
-前者は滑らかな分岐四次超曲面の平方因子を，後者は活性射影直線上の特異点を与える。
-どちらも滑らかさに反する。
-従って活性二重被覆は $\mathbb C(s)$ 上幾何学的整であり，
-Jacobian括弧のgeneric rankは2，その体の中心は $\mathbb C(s)$ である。
-monicな $z$ 除法による自由基底から環の中心は $\mathbb C[s]$ となる。
-この確認は，活性最高次の楕円曲線が滑らかであることを必要としない。
-
-従って $\overline\delta_q$ には可逆な最大小行列式があり，
-$\delta_q$ は $\mathbb C((h))$ 上単射である。
-元の $\delta_q$ は有限型族上の有限行列であるから，
-その直線への引戻しのある最大小行列式は零でない正則関数となる。
-よって $h\ne0$ の直線上で所要の開集合は非空である。
-実際，既に定義されているこの直線内では例外となる複素数は有限個である。
-$V_d$ の逆像も $0$ を含む開集合なので，これとの交叉も非空となる。
-
-最後に，$V_d^\times$ はaffine空間（次数1）または
-affine空間と既約Pl\"ucker錐の積（次数2）の非空開である。
-従って既約であり，得られた非空開集合は稠密である。
+非零方向ごとの非空性には，直後の定理\ref{thm:low-center-zero-neighborhood}を用いる。
+その証明は，ここで定義した交換子行列と普遍平坦性だけに依存し，
+本定理の非空性の結論を使わない。
+同定理が与える零切断を含む開近傍 $W_{d,q}$ の
+直線 $(f,h\xi)$ への逆像は $h=0$ を含むZariski開集合である。
+従ってその非零部分は非空であり，その全体が $U_{d,q}$ に含まれる。
+$V_d$ の逆像との交叉についても同じである。
+最後に $V_d^\times$ はaffine空間，またはaffine空間と
+既約Pl\"ucker錐の積の非空開であるから既約であり，
+得られた非空開集合は稠密である。
 \end{proof}
+
+\subsection{方向解消による零切断近傍での低次数中心条件}
+
+以下では，全方向有限族の基底 $V_d$ を，必要なら可換方程式の滑らかな
+係数開集合 $\mathcal T_d$ の逆像へ制限する。
+この操作は滑らかな可換模型の零切断全体
+\[
+ Z_d=\mathcal T_d\times\{0\}
+\]
+を保つ。
+従って $V_d$ は $\mathcal T_d\times\mathcal C_d$ の開部分であり，
+$\mathcal C_1=E^*$，$\dim E=n$，
+$\mathcal C_2\subset\bigwedge^2E^*$ はrankが高々2のPl\"ucker錐，
+$\dim E=n+1$ である。
+$B$ は既存の同時中心商で，各 $B_m$ は有限局所自由である。
+$V_d^\times=V_d\setminus Z_d$ と置く。
+
+\begin{theorem}[零切断全体を保つ低次数中心の一様化]
+\label{thm:low-center-zero-neighborhood}
+正整数 $q$ を固定する。
+$Z_d$ 全体を含むZariski開集合 $W_{d,q}\subset V_d$ が存在し，
+\[
+ W_{d,q}\setminus Z_d\subset U_{d,q}
+\]
+となる。ここで $U_{d,q}$ は
+定理\ref{thm:finite-low-center-open}の有限行列で定義した開集合である。
+特に任意の可換基底変更 $T\to W_{d,q}\setminus Z_d$ に対して
+\begin{equation}\label{eq:zero-neighborhood-low-center}
+ Z(B_T)_q=\operatorname{Sym}^q_{\mathcal O_T}\mathcal K_T
+\end{equation}
+が成り立ち，$B_T$ は
+$\operatorname{Sym}_{\mathcal O_T}\mathcal K_T$ 上平坦である。
+$V_d$ を座標変換に不変に選べば，$W_{d,q}$ も不変に選べる。
+
+この結論は一つの固定次数 $q$ についてのものである。
+零切断そのものでは $B$ は可換であり，
+式\eqref{eq:zero-neighborhood-low-center}を $W_{d,q}$ 全体へ延長してはいない。
+\end{theorem}
+\begin{proof}
+\emph{全係数を保ったproperな方向解消。}
+方向の射影化とそのtautological lineを
+\[
+ \Gamma_d=
+ \begin{cases}
+  \mathbb P(E^*),&d=1,\\
+  \operatorname{Gr}(2,E^*),&d=2,
+ \end{cases}
+ \qquad \mathcal L=\mathcal O_{\Gamma_d}(-1)
+\]
+とする。
+次数1では標準評価列
+\[
+ 0\longrightarrow\mathcal K\longrightarrow
+ E\otimes\mathcal O_{\Gamma_1}\longrightarrow\mathcal L^\vee
+ \longrightarrow0
+\]
+を，次数2では標準商束 $Q$ の列
+\[
+ 0\longrightarrow\mathcal K\longrightarrow
+ E\otimes\mathcal O_{\Gamma_2}\longrightarrow Q\longrightarrow0,
+ \qquad \operatorname{rank}Q=2,
+ \quad\mathcal L=\det Q^*
+\]
+を使う。いずれも $\mathcal K$ の階数は $n-1$ である。
+閉incidence表示から，方向の射
+\[
+ \operatorname{Tot}(\mathcal L)\longrightarrow\mathcal C_d
+\]
+はproperで，頂点外では同型である。
+これを係数空間と積にし，$V_d$ へ基底変更して
+\[
+ \nu:\widetilde V_d=
+  (\mathcal T_d\times\operatorname{Tot}(\mathcal L))
+       \times_{\mathcal T_d\times\mathcal C_d}V_d
+       \longrightarrow V_d
+\]
+を得る。
+例外因子は
+\[
+ D_d=\nu^{-1}(Z_d)=\mathcal T_d\times\Gamma_d
+\]
+である。$Z_d$ 全体が $V_d$ に入るため，例外因子から方向や係数が失われない。
+
+以下，$\mathcal L,\mathcal K$ の引戻しも同じ記号で書く。
+線束全空間のtautological sectionを $\tau$ とすると，
+$D_d=(\tau=0)$ は有効Cartier因子で，
+$\mathcal I_{D_d}\simeq\mathcal L^\vee$ である。
+局所フレーム $\ell$ を選んで $\tau=h\ell$ と書けば，
+普遍方向は $D=hD_0$ または $P=hP_0$ と書ける。
+ここで $D_0$ は非零線型形式，$P_0$ はrank2の交代形式であり，
+それぞれ $\mathcal K$ を核に持つ。
+$\widetilde B=\nu^*B$ の各次数は有限局所自由なので，
+$h$ の掛算は各次数で単射である。
+方向解消の射 $\nu$ 自体の平坦性は用いない。
+
+\emph{中央部分の商が全解消上でベクトル束になること。}
+関係式\eqref{eq:simultaneous-degree-one-relations}と
+\eqref{eq:simultaneous-ambient-relations}から，
+$\mathcal K$ の切断は $h=0$ も含めて厳密に中央である。
+従って積による写像
+\[
+ \iota_q:\operatorname{Sym}^q\mathcal K\longrightarrow\widetilde B_q
+\]
+がある。
+例外因子の点 $(f,[\xi])$ では，$\mathcal K$ に適合する座標を選ぶと
+可換切断環は $P=\mathbb C[s_1,\ldots,s_{n-1}]$ 上，
+活性二変数の単項式と $z$ の指数0または1を基底とする自由加群である。
+これは方程式が $z$ に関してmonicであることによる。
+この基底は $1$ を含むので，$\iota_q$ のファイバーは単射である。
+例外因子外では，命題\ref{lem:simultaneous-central-flatness}の
+普遍的な中央多項式加群の分裂により同じ単射性が成立する。
+従って $\iota_q$ は $\widetilde V_d$ の全ファイバーで単射である。
+
+有限局所自由加群の間の写像が全ファイバーで単射なら，
+適切な最大サイズの小行列式を可逆化して局所的な左逆を取れる。
+従って $\iota_q$ は局所分裂単射であり，
+\begin{equation}\label{eq:resolved-low-degree-bundle}
+ 0\longrightarrow\operatorname{Sym}^q\mathcal K
+  \xrightarrow{\iota_q}\widetilde B_q
+  \longrightarrow\mathcal Q_q\longrightarrow0
+\end{equation}
+の商 $\mathcal Q_q$ は $\widetilde V_d$ 全体で有限局所自由である。
+この完全列と商の形成は任意の基底変更に両立する。
+この箇所ではファイバー次元だけから非被約基底上の平坦性を推論せず，
+有限束の写像の最大階数による局所分裂を用いている。
+
+\emph{除した交換子と任意基底変更。}
+重み $w$ の固定された生成空間を $V_w$ とし，
+\[
+ \mathcal M_q=
+ \bigoplus_w\operatorname{Hom}_{\mathcal O_{\widetilde V_d}}
+ (V_w\otimes\mathcal O_{\widetilde V_d},\widetilde B_{q+w})
+\]
+と置く。
+生成元全てとの交換子の写像
+$\delta_q:\widetilde B_q\to\mathcal M_q$ は，
+$D_d$ 上の代数が可換なので $D_d$ への制限で零となる。
+従って
+\[
+ 0\longrightarrow\mathcal M_q\otimes\mathcal L^\vee
+   \xrightarrow{\ \tau\ }\mathcal M_q
+   \longrightarrow\mathcal M_q|_{D_d}\longrightarrow0
+\]
+を用いて，一意的な写像
+\[
+ \mathcal D_q:\widetilde B_q\longrightarrow
+                    \mathcal M_q\otimes\mathcal L^\vee,
+ \qquad \tau\mathcal D_q=\delta_q
+\]
+を得る。局所的には $\mathcal D_q=h^{-1}\delta_q$ である。
+フレームを $\ell'=a\ell$ に替えると $h'=a^{-1}h$ なので，
+局所式は $h'^{-1}\delta_q=a h^{-1}\delta_q$ と変化し，
+表示した $\mathcal L^\vee$ の捩れと一致する。
+$\operatorname{Sym}^q\mathcal K$ は厳密に中央であり，
+$\tau$ の掛算は単射なので，$\mathcal D_q$ はこれを零に送る。
+従って商束上の有限行列
+\begin{equation}\label{eq:resolved-divided-commutator}
+ \overline{\mathcal D}_q:\mathcal Q_q
+    \longrightarrow\mathcal M_q\otimes\mathcal L^\vee
+\end{equation}
+が得られる。
+
+\emph{例外因子の全点における核。}
+任意の $(f,[\xi])\in\mathcal T_d\times\Gamma_d$ を取る。
+関係式から，$\mathcal D_q$ のこの点でのファイバーは
+方向 $\xi$ の古典Poisson括弧による写像
+\[
+ (B_f)_q\longrightarrow
+       \bigoplus_w\operatorname{Hom}(V_w,(B_f)_{q+w}),
+ \qquad b\longmapsto\bigl(v\longmapsto\{b,v\}_\xi\bigr)
+\]
+である。ただし $\xi$ の非零スカラー倍による変更は
+値域の一次元因子を変えるだけなので，核に影響しない。
+これは同じ有限表示族の一次交換子の計算であり，
+別の量子化との形式的同型からの推論ではない。
+また $\Omega|_{D_d}=F_f$ なので，括弧はまさに可換切断環 $B_f$ 上の括弧である。
+
+補題\ref{lem:classical-casimir-center}は，
+\emph{任意の滑らかな係数 $f$ と任意の非零方向 $\xi$} に対して
+\[
+ Z_{\mathrm{Pois}}(B_f)=\operatorname{Sym}\mathcal K_{[\xi]}
+\]
+を与える。
+その適用範囲をここで再確認する。
+$P=\mathbb C[s_1,\ldots,s_{n-1}]$，$K=\operatorname{Frac}P$ とする。
+次数1では，活性変数が $(u,y,z)$ であり，$z$ の二次式の定数項は
+$y$ について次数3を持つので，$\overline K[u,y]$ の平方にはならない。
+従って $B_f\otimes_PK$ は幾何学的整である。
+次数2で活性四次式が $\overline K[u,v]$ の平方なら，
+平方根の非零係数を1に正規化してGalois降下することにより
+$f_4=a g^2$，$a\in K^\times$，$g\in K[u,v]$ と書ける。
+$g$ が活性変数に関して非定数なら，Gaussの補題から
+$P[u,v]$ における活性変数を含む因子が重複し，
+分岐四次超曲面の滑らかさに反する。
+$g$ が定数なら $f_4\in P$ であり，
+$s_1=\cdots=s_{n-1}=0$ で定まる活性射影直線上で
+$f_4$ と全偏微分が消えるので，やはり滑らかでない。
+よって次数2でも同じ幾何学的整性を得る。
+
+両次数で活性な最初の二変数の括弧は $z$ の非零定数倍であり，
+$\operatorname{Frac}(B_f)/K$ は超越次数2のPoisson体でgeneric rank2を持つ。
+従って体のPoisson中心は $K$ 上代数的な元からなり，
+上の幾何学的整性からちょうど $K$ に等しい。
+monicな $z$ 除法の $P$-自由基底が $1$ を含むため，
+$B_f\cap K=P$ であり，環のPoisson中心は $P$ となる。
+この議論には活性最高次曲線の滑らかさも，係数 $f$ の一般性も不要である。
+代数閉拡大体上でも同じ証明が成立する。
+
+したがって式\eqref{eq:resolved-divided-commutator}は
+例外因子の全幾何学的点で単射である。
+この写像がファイバー上単射となる開集合を
+$\widetilde W_{d,q}\subset\widetilde V_d$ とすれば，
+\[
+ D_d\subset\widetilde W_{d,q}
+\]
+である。
+この開集合上では $\overline{\mathcal D}_q$ は局所分裂単射なので，
+式\eqref{eq:resolved-low-degree-bundle}と合わせて
+\[
+ \ker(\mathcal D_{q,T})=\operatorname{Sym}^q\mathcal K_T
+\]
+が任意の基底変更 $T\to\widetilde W_{d,q}$ の後も成立する。
+ここで $\mathcal D_{q,T}$ は，元の基底で定義した除した交換子の引戻しである。
+$\tau_T$ が零因子となる基底上で新たに割算をしているのではない。
+
+\emph{proper性による対象側の開近傍。}
+悪い集合 $C_{d,q}=\widetilde V_d\setminus\widetilde W_{d,q}$ は閉であり，
+$\nu$ がproperなので $\nu(C_{d,q})$ も $V_d$ の閉集合である。
+さらに $C_{d,q}\cap\nu^{-1}(Z_d)=\varnothing$ なので，
+\[
+ W_{d,q}=V_d\setminus\nu(C_{d,q})
+\]
+は $Z_d$ 全体を含む開集合である。
+この構成は全係数空間 $\mathcal T_d$ の上で行っており，
+固定した一つの $f$ ごとに得た開集合の交叉を取ってはいない。
+
+$\nu^{-1}(W_{d,q})\subset\widetilde W_{d,q}$ であり，
+頂点外では $\nu$ は同型，$\tau$ は可逆である。
+従って $W_{d,q}\setminus Z_d$ 上では通常の交換子写像
+$\delta_q$ の商束上の写像も局所分裂単射となる。
+これは $W_{d,q}\setminus Z_d\subset U_{d,q}$ を意味し，
+任意基底変更後の中心の式を与える。
+中央多項式環上の平坦性は命題\ref{lem:simultaneous-central-flatness}による。
+全構成は座標変換に自然なので，不変性も従う。
+\end{proof}
+
 
 \begin{corollary}\label{cor:finite-full-graded-recognition}
 $n\ge3$，$r=n-1$ とし，$U=U_{d,r}\cap V_d^\times$ と置く。

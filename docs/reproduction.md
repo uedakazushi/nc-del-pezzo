@@ -1,6 +1,6 @@
 # 再現手順と検証範囲
 
-2026-11-20（JST） / v0.6
+2026-11-20（JST） / v0.7
 
 ## 組版
 
@@ -12,7 +12,7 @@ latexmk
 
 または `make pdf`。主原稿は `papers/nc-del-pezzo.tex`、出力は `build/nc-del-pezzo.pdf`、SyncTeXも同じ場所。`.latexmkrc` はmainを基準に入力と文献の相対パスを解決する。
 
-必要な環境：LuaLaTeX、latexmk、BibTeX、luatexja、luatexja-fontspec、amsmath/amsfonts/amsthm、mathtools、geometry、booktabs、longtable、hyperref、Noto Serif CJK JPおよびNoto Sans CJK JP。TeX Live相当の環境を想定する。TeXは外部PDFや非公開データを読み込まない。
+必要な環境：LuaLaTeX、latexmk、BibTeX、luatexja、luatexja-preset、amsmath/amsfonts/amsthm、mathtools、geometry、booktabs、longtable、hyperref、原ノ味明朝・原ノ味角ゴシック（HaranoAji）。TeX Live相当の環境を想定する。主原稿は `\usepackage[haranoaji]{luatexja-preset}` を使い、システム側のNotoフォントを要求しない。TeXは外部PDFや非公開データを読み込まない。
 
 VS Codeでは推奨拡張LaTeX Workshopを入れる。recipeはworkspace rootを作業ディレクトリとして `.latexmkrc` を明示指定する。実質的に同じCLIは次の通り。
 
@@ -29,6 +29,7 @@ python3 computations/verify_formal_geometry.py
 python3 computations/verify_finite_families.py
 python3 computations/verify_cubic_top.py
 python3 computations/verify_elliptic_curve.py
+python3 computations/verify_degree_one_top.py
 ```
 
 Python 3の標準ライブラリのみを使用する。`n=2,...,8` と両次数について、重み付き単項式の独立な計数、monic中心商の基底、簡約Hilbert級数、反標準部分列の第n差分を照合する。次数2の全四添字に対して `P=εQ+ε²R` の二次Plücker係数を記号的に展開し、具体的な障害方向を確認する。さらに二次標準Plücker単項式を独立に数え、符号粗商の接空間次元の閉公式と照合し、両次数の特異性を確認する。
@@ -38,6 +39,8 @@ Python 3の標準ライブラリのみを使用する。`n=2,...,8` と両次数
 `verify_cubic_top.py` は `Q[a,b,c,alpha,beta,t]`、t=h²、上の自由代数で、四次Sklyanin中心元の九項交換子証明書を両生成元について確認する。type-Aパラメータ置換、zの消去関係、C0恒等式、多項式として正規化した中心元のh=0極限も照合する。SymPyなど追加依存はない。
 
 `verify_elliptic_curve.py` はpoint curveの行列式、blowup後の式、分母を払ったshiftの曲線保存とその正則性を有理係数多項式として確認する。最後のσ⁴の検査だけはmod h²と明示した一次計算で、一般点での非自明性を検出する。
+
+`verify_degree_one_top.py` は `Q[h,k,rho]` 上の自由代数で、Weierstrass型からStephenson型への巡回potentialと二つの関係式の変換、有限被覆でのρの可逆性、明示的AS開条件、重み付きcyclic syzygyを厳密に検算する。数値特殊化や有限jetではない。
 
 最初のスクリプトは有限範囲の数式確認、分離型とSklyanin中心の二つは指定した有限な関係式と中心公式の厳密な恒等式検証である。全Abel変形比較、一般nでの証明、モジュライの代数性、グラフ量子化の全高次積を機械的に証明するものではない。
 
@@ -56,9 +59,10 @@ Python 3の標準ライブラリのみを使用する。`n=2,...,8` と両次数
 - 分離型の次数1・2と一般楕円型の次数2について、全n≥2で、各構成族内の任意の滑らかな可換点の有限型開近傍にsmooth proper性を証明した。二重tailsのMorita模型と対角、平坦syzygyを持つ有限部分解消、相対Serre双対による逆向きHomのperfect性、HH¹消滅による右逆の持上げと有限支持の除去を点検した。反標準豊富性の開条件との共通部分ではnc del Pezzo条件が成り立ち、幾何学的coherent圏のホモロジー次元はnである。任意の有限hでsmoothであるという主張ではない。
 - 現在の一つのhを持つ表示族のPoisson Kodaira–Spencer階数がh=0で高々1となる命題を点検した。全Poisson接空間の次元nまたはbinom(n+1,2)との比較により、これらの族自体は可換点のsmooth atlasではない。これは有限族の存在・smooth proper性と両立する。
 - 上記四つのPython計算は2026-11-20に実行して全件成功。分離型族の計算では167種類の単語簡約を使用した。Sklyanin中心元は全係数の自由代数恒等式として検証した。
-- 現行稿はLuaLaTeXで81頁に組版した。未解決参照・文献警告・欠落文字・overfull/underfullがないことを確認した。全81頁の縮小一覧と、表紙・定義・相対曲線・積Noether性・smooth開近傍・atlas障害の主要9頁を拡大表示して確認した。最終PDFより新しいTeXソースがないことも確認した。
+- 新しい次数1の有限開・相対CY・普遍PBW・23未知数の中心構成を独立に点検し、変数変換の全係数恒等式の計算を実行した。
+- 組版済みの既存部分はLuaLaTeXで81頁に組版した。未解決参照・文献警告・欠落文字・overfull/underfullがないことを確認した。全81頁の縮小一覧と、表紙・定義・相対曲線・積Noether性・smooth開近傍・atlas障害の主要9頁を拡大表示して確認した。最終PDFより新しいTeXソースがないことも確認した。
 - 使用したエンジンはLuaHBTeX 1.18.0。必要なluatexjaと和文フォントを備える環境で組版した。VS Code設定の検査とrecipe相当CLIは確認済みだが、VS Code UIのビルド操作とSyncTeXのクリック動作は実行していない。
-- 形式証明器は使っていない。次数1の一般楕円型top、独立Poisson方向の同時有限代数化、smoothな開集合の非消滅条件の明示、一般nc点の全O同値認識、全ncモジュライの有限型atlas・成分数、および包括的な優先権調査は未完了。
+- 形式証明器は使っていない。次数1の一般楕円型族の相対曲線・強Noether性、独立Poisson方向の同時有限代数化、smoothな開集合の非消滅条件の明示、一般nc点の全O同値認識、全ncモジュライの有限型atlas・成分数、および包括的な優先権調査は未完了。
 
 ## 保存と外部依存
 

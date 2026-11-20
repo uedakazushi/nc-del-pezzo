@@ -42,7 +42,7 @@
 \newcommand{\Perf}{\operatorname{Perf}}
 \newcommand{\rank}{\operatorname{rank}}
 \newcommand{\HH}{\operatorname{HH}}
-\newcommand{\Version}{0.6}
+\newcommand{\Version}{0.7}
 \title{次数1・2の非可換del Pezzo多様体\texorpdfstring{\\}{ }構造対象付き変形とモジュライの局所構造}
 \author{}
 \date{2026年11月20日\quad v\Version\quad 公表用研究稿}
@@ -80,6 +80,10 @@ proper性と相対Serre関手 $(-(n-1))[n]$ を全有限パラメータで証明
 この構成は全次元で稠密開集合の古典Poisson対を半古典極限に持つ。
 最高次point curveの二重対角線を解消し，相対twisted homogeneous coordinate ringと比較することで，
 一般楕円型族の強Noether性と，その全次元の相対tails・有限compact生成元も得る。
+次数1についても，Weierstrass型potentialをStephensonの重み付き正則代数に移すことで，
+可換楕円型点を含む明示的なAS正則開条件を得る。
+23未知数の中心方程式から，任意lower係数と任意基底変更を許す中心超曲面族を構成し，
+全次元の稠密開の古典Poisson対を半古典極限として実現する。
 さらに二重次数付き対角の有限部分解消と $HH^1(X)=0$ を用い，
 両次数の分離型族と次数2の一般楕円型族は，滑らかな可換点を含む有限型開近傍で
 smooth properとなり，定義した非可換del Pezzoの条件を満たすことを証明する。
@@ -259,6 +263,18 @@ Keeler\cite[Theorems~7.13--7.14]{Keeler2003}の相対Noether性を任意のnoeth
 さらに曲線の積上の評価イデアルと相対Fujita消滅を使い，
 $B^{\mathrm{op}}\otimes B$ のNoether性を独立に証明する。
 
+第\ref{sec:elliptic-degree-one-finite}節では，重み $(1,2,3)$ の
+Weierstrass型potentialを，有限忠実平坦被覆と重みを保つ変数変換によって
+Stephensonの楕円代数へ移す。
+同氏のTheorem~1.1\cite{Stephenson1997}による11個の例外点を避ける条件は，
+本稿の係数で $(1+\alpha h^4)(5+\alpha h^4)\ne0$ と具体化できる。
+正則代数の分類自体は先行結果である。
+本稿では，この有限開条件から普遍係数上の相対CY性と全lower項のPBW性を得て，
+活性次数9以下・23未知数の中心方程式を解く。
+定理\ref{thm:degree-one-finite-central-family}は，分母が最高次係数だけに依存する
+普遍的に正則な中心商を与え，系\ref{cor:degree-one-elliptic-general-dimension}により
+任意の $n\ge2$ へ拡張する。
+
 \subsection{有限型開集合上の非可換del Pezzo族}
 第\ref{sec:finite-smoothness}節の定理\ref{thm:finite-family-smooth-open}は，
 両次数の分離型族と，次数2の一般楕円型族のそれぞれについて，
@@ -295,6 +311,8 @@ Poisson Kodaira--Spencer像が高々1次元であり，可換点でsmooth atlas�
 \input{sections/finite_tails}
 \input{sections/elliptic_top}
 \input{sections/elliptic_relative}
+\input{sections/elliptic_degree_one}
+\input{sections/elliptic_degree_one_center}
 \input{sections/finite_smoothness}
 
 \section{大域的なモジュライへ進むための問題}
@@ -314,7 +332,9 @@ Poisson Kodaira--Spencer像が高々1次元であり，可換点でsmooth atlas�
 より大きい表示族の局所完全性と全 $\OO$ 保存同値による商を調べることである。
 特に命題\ref{prop:one-parameter-atlas-obstruction}の接空間の障害により，
 共通因子 $h$ による表示を越えて独立なPoisson方向を同時に含める必要がある。
-次数1の一般楕円型最高次項についても，有限開集合上の同様の構成が必要である。
+次数1の一般楕円型最高次項については，
+第\ref{sec:elliptic-degree-one-finite}節で有限開集合上のambientと中心商を得た。
+相対曲線表示を構成し，強Noether性と積のNoether性を確認することが次の段階である。
 半古典極限で稠密なPoisson対を実現することと，全非可換対象を被覆することは異なる。
 有限パラメータの非可換対象から古典Poisson多様体を自然に復元する射も構成していない。
 

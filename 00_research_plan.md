@@ -1,6 +1,6 @@
 # 研究方針：次数1・2の非可換del Pezzo n-fold
 
-**2026-11-20（JST） / v0.6。再開時に最初に読む。**
+**2026-11-20（JST） / v0.7。再開時に最初に読む。**
 
 正本は [uedakazushi/nc-del-pezzo](https://github.com/uedakazushi/nc-del-pezzo) のmain。研究全体の入口は [research-hub](https://github.com/uedakazushi/research-hub)。続いて [研究ノート](research/research_notes.md)、[主原稿](papers/nc-del-pezzo.tex)、[再現手順](docs/reproduction.md) を読む。
 
@@ -25,7 +25,7 @@
 
 元の成分数決定という目標のうち、可換点における全Abel変形群oid、有限自己同型群による形式商、全Artin変形の中心超曲面表示とnc多様体条件、形式分枝数は解決した。有限パラメータでは、両次数の分離型族と次数2の一般楕円型族について、普遍PBW・ambient CY・正則な中心商・強Noether性・相対tails・Serre公式を得た。一般楕円型では最高次point curveの解消と相対twisted homogeneous coordinate ringを使い、さらに曲線の積の評価イデアルから積代数のNoether性も証明した。この入力と相対Serre双対により、対角の有限部分解消を可換ファイバーで分裂させ、その分裂を有限開近傍へ持ち上げた。従って両族とも、全n≥2で滑らかな全可換模型の有限型開近傍に実際のsmooth properなnc del Pezzo族を与える。
 
-一方、現在の族は一つの共通量子化パラメータhを持つため、可換点でのPoisson Kodaira–Spencer像が高々1次元となり、全変形に対するsmooth atlasではない。この具体的障害を踏まえ、現在の重点を、次数1の一般topの有限代数化と、独立なPoisson方向を同時に含む有限型模型へ移す。元の全体の成分数決定には、全O同値による商、可換locusに接しない成分の検討がなお必要である。smoothnessの開集合は存在を証明した段階であり、具体的な判別式や全有限hのsmoothnessは得ていない。
+一方、現在の族は一つの共通量子化パラメータhを持つため、可換点でのPoisson Kodaira–Spencer像が高々1次元となり、全変形に対するsmooth atlasではない。この具体的障害を踏まえ、次数1の一般topについても、Stephensonの分類から明示的な有限AS開条件を得て、23未知数の中心構成と全nの普遍的平坦族まで進んだ。現在の重点は、その相対曲線表示・tailsと、独立なPoisson方向を同時に含む有限型模型である。元の全体の成分数決定には、全O同値による商、可換locusに接しない成分の検討がなお必要である。smoothnessの開集合は存在を証明した段階であり、具体的な判別式や全有限hのsmoothnessは得ていない。
 
 ## C. 主要到達点と確実性
 
@@ -61,13 +61,14 @@
 | 一般楕円型族の積代数 `Bᵒᵖ⊗B` の左右Noether性 | 二重切断環の評価イデアルと相対Fujita消滅、二つの中央正則元、filtered持上げから証明。任意noetherian基底変更 | `lem:elliptic-bisection-noetherian`, `cor:elliptic-product-noetherian` |
 | 両次数の分離型族と次数2一般楕円型族は、滑らかな可換点の有限開近傍でsmooth proper | 全n≥2。有限部分対角解消・相対Serre双対・HH¹(X)=0を使う。全有限hへの主張ではなく、具体的な開条件の計算も未了 | `lem:serre-pseudoperfect-to-perfect`, `thm:finite-family-smooth-open` |
 | 上記開近傍を縮めれば実際の重み付き超曲面型nc del Pezzo族、幾何学的coherent次元はn | 反標準豊富性の開集合と交わらせる。任意の許されるnoetherian基底変更。非正則基底上の全Db(coh)と相対perfect圏の同一視はしない | `cor:finite-family-ncdp-open` |
+| 次数1の一般楕円型top・任意lower係数の普遍PBW・ambient CY・正則中心商 | Stephensonの分類から `Δ(1+αh⁴)(5+αh⁴)≠0` の有限AS開を具体化。中心は次数9以下・23未知数、追加分母はtopだけに依存。任意基底変更・全nの中央係数代入を許す | `lem:degree-one-elliptic-top-as-open`, `thm:degree-one-finite-central-family`, `cor:degree-one-elliptic-general-dimension` |
 | 現在の一つのhを持つ表示族は可換点でsmooth atlasにならない | Poisson Kodaira–Spencer像は高々1次元、全変形の通常の可換変形による接空間商はnまたはbinom(n+1,2)次元 | `prop:one-parameter-atlas-obstruction` |
 
 一般原理のLowen–Van den Bergh・Lowen・De Deken–Lowen・Yekutieli・Kontsevichと、入力となるPoisson構造定理は既知・既存の入力である。曲面の接空間次元10・9も先行研究で既知。一般nの適用・復元・降下の新規性について包括的な優先権確認は未了。
 
 ## D. 未解決の核心と次の一手
 
-1. **次数1の一般最高次項。** 活性重み(1,2,3)の一般topについて、有限なAS正則開条件と規格化中心元を構成する。まず既存の楕円型量子化・重み付きAS代数の一次資料と具体的potentialを照合し、任意lower係数に依存しない有限分母を得る。続いて相対曲線模型、強Noether性と積Noether性を確認すれば、本稿の対角分裂の方法を適用できる。
+1. **次数1の相対曲線とtails。** 活性重み(1,2,3)の一般topについて、有限AS開・相対CY・全lower PBW・規格化中心商は得た。次はStephensonのpoint curveを可換極限まで解消し、次数1線束の相対切断環との同定を証明する。強Noether性と積Noether性を確認すれば、既存の相対tailsと対角分裂の方法を適用できる。
 2. **独立なPoisson方向の同時有限代数化。** 共通hによる表示の接空間の不足を解消するため、次数1のn方向、次数2のPlücker錐の座標を直接変形パラメータに含める。一次関係式の全射性と二次Plücker障害から始め、冪零基底上の既存形式量子化と両立する有限表示・中心元を探す。方向ごとの半古典被覆ではsmooth atlasの不足は補えない。
 3. **有限開集合の明示と大域的な復元。** 有限生成元から作る対角の部分解消・持上げ射を低次元で具体化し、smoothnessを保証する有限個の行列条件を求める。一般楕円型の中心は有限位数パラメータで増大し得るため、分離型の普遍中心定理を転用しない。全O同値による商、一般nc点の被覆、可換locusに接しない成分を別々に調べる。形式一分枝性から全成分数を推論しない。
 4. **公表範囲と先行研究。** 全Artin群oid、相対楕円曲線、積Noether性、有限開近傍のsmoothnessを現在の論理順序で統合した。既存のfiltered CY・楕円量子化・AS Z-代数との比較を進める。Sklyanin中心元、固定topのPBW性、σ-amplenessとFujita消滅は既知であり、普遍係数の比較・一般nへの適用・対角分裂の組合せの優先権は未確認。大域分類は未解決として明記する。
@@ -77,5 +78,5 @@
 - 相対Poisson錐・商・自己同型：`poisson-del-pezzo` main `4834ea4f3e13bff4d6c5793cec9b169d8f1ad56f`、主原稿v1.4の定理7.3・8.8、補題8.7、注意8.5、命題9.4。
 - O-marked枠組み：`nc-cubic-threefold-moduli` main `6c35d2c84671c2538e61836a6bf3a511392eacce`、主原稿v22。三次三様体固有の次数一生成・指数2・残余圏の結論を無条件に輸入しない。
 - 一次資料・具体的な適用条件・優先権未確認点は [文献と依存](research/literature.md)。証明の重複は研究ノートへ置かない。
-- `make verify` はn=2,…,8のHilbert/monic基底・Euler差分・二次障害・符号粗商の接空間次元と、分離型の全係数PBW overlap・中心交換子・内部次数・補助次数を検査する。さらに三次Sklyanin中心元の自由代数内の九項証明書、パラメータ置換と可換極限を厳密計算する。分離型とSklyanin中心の検算はhの有限jetではない。`verify_elliptic_curve.py` はpoint curveの行列式、blowup、分母を払ったshiftの恒等式を厳密検算し、σ⁴の非自明性だけは明示したmod h²計算で確認する。一般の証明を有限次元の数値例で代替していない。
+- `make verify` はn=2,…,8のHilbert/monic基底・Euler差分・二次障害・符号粗商の接空間次元と、分離型の全係数PBW overlap・中心交換子・内部次数・補助次数を検査する。さらに三次Sklyanin中心元の自由代数内の九項証明書、パラメータ置換と可換極限を厳密計算する。分離型とSklyanin中心の検算はhの有限jetではない。`verify_elliptic_curve.py` はpoint curveの行列式、blowup、分母を払ったshiftの恒等式を厳密検算し、σ⁴の非自明性だけは明示したmod h²計算で確認する。`verify_degree_one_top.py` はWeierstrassからStephensonへの変数変換、関係式のイデアル、AS開多項式、cyclic syzygyを有理係数の自由代数で厳密に検算する。一般の証明を有限次元の数値例で代替していない。
 - 組版・PDF確認の実施状況と環境は [再現手順](docs/reproduction.md)。生成・証明点検・計算・組版・GitHub反映・hub更新はそれぞれ確認する。

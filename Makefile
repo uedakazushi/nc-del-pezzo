@@ -7,6 +7,7 @@ verify:
 	python3 computations/verify_finite_families.py
 	python3 computations/verify_cubic_top.py
 	python3 computations/verify_elliptic_curve.py
+	python3 computations/verify_degree_one_top.py
 
 clean:
 	latexmk -C

@@ -1,0 +1,251 @@
+% !TeX root = ../nc-del-pezzo.tex
+\section{次数1の一般楕円型最高次項を持つ有限型量子化}
+\label{sec:elliptic-degree-one-finite}
+
+本節では活性重みを $(1,2,3)$ とし，Weierstrass型最高次項から始める。
+Stephensonの重み付き楕円代数の分類を用いると，
+最高次potentialがCYとなる有限開集合を明示できる。
+その上で固定CY topに対するfiltered PBW定理を適用し，
+全低次係数と任意の係数変更を許す族を得る。
+
+\subsection{Weierstrass型potentialと明示的なAS正則開集合}
+
+巡回語の空間で
+\[
+ U_6=\frac13y^3+\alpha x^4y+\beta x^6,\qquad
+ U=U_6+\sum_{i+2j<6}c_{ij}\operatorname{Sym}(x^iy^j),
+ \qquad \deg(x,y,z)=(1,2,3)
+\]
+と置く。ここで $\operatorname{Sym}$ は完全対称化の巡回類であり，
+和には定数項を含めて12個の係数がある。
+可換化を $U^{\mathrm{ab}}$ と書き，
+\begin{equation}\label{eq:degree-one-elliptic-potential}
+ \Phi=xyz-yxz-h\left(\frac12z^2+U\right),\qquad
+ A=R\langle x,y,z\rangle/
+ \bigl([x,y]-hz,\ [y,z]-h\partial_xU,\ [z,x]-h\partial_yU\bigr)
+\end{equation}
+と定める。全係数は中央である。全 $c_{ij}=0$ とした代数を
+$A^{\mathrm{top}}$ と書く。
+古典最高次方程式
+\[
+ F_6=\frac12z^2+\frac13y^3+\alpha x^4y+\beta x^6=0
+ \quad\text{in }\mathbb P(1,2,3)
+\]
+が滑らかな楕円曲線を定める条件は
+$\Delta=4\alpha^3+9\beta^2\ne0$ である。
+
+\begin{lemma}\label{lem:degree-one-stephenson-normal-form}
+次の係数環と有限被覆を考える。
+\[
+ T_0=\mathbb C[\alpha,\beta,h,\Delta^{-1}],\qquad
+ T'_0=T_0[k,\rho]/(k^2+\alpha,\ \rho^3-6\beta+4k^3).
+\]
+$T'_0$ は $T_0$ 上階数6の有限自由かつ忠実平坦な代数であり，
+$\rho$ は可逆である。
+$h\ne0$ において $z$ を消去し，$y=\rho Y+kx^2$ と変数変換すると，
+$A^{\mathrm{top}}$ は二生成元代数
+\begin{equation}\label{eq:degree-one-stephenson-relations}
+ \begin{gathered}
+ S(a,b,c)=T'_0[h^{-1}]\langle x,Y\rangle/(f_5,f_4),\\
+ \begin{aligned}
+ f_5&=a(Y^2x+xY^2)+cYxY+bx^5,\\
+ f_4&=a(x^2Y+Yx^2)+cxYx+bY^2.
+ \end{aligned}
+ \end{gathered}
+\end{equation}
+と同型になる。ここで
+\[
+ a=1+kh^2,\qquad b=\rho h^2,\qquad c=-2.
+\]
+これらの関係式は巡回potential
+\[
+ W_{a,b,c}=a x^2Y^2+\frac c2xYxY+
+             b\left(\frac13Y^3+\frac16x^6\right)
+\]
+の巡回微分である。
+\end{lemma}
+\begin{proof}
+二つの定義方程式は順に $k$ と $\rho$ についてmonicである。
+従って $k^\epsilon\rho^j$，$0\le\epsilon\le1$，$0\le j\le2$ が
+$T_0$-基底を与え，有限自由性と忠実平坦性が従う。
+$k$ を可逆化する必要はなく，$\alpha=0$ 上の $k=0$ も含まれる。
+また
+\begin{equation}\label{eq:degree-one-cover-unit}
+ (6\beta-4k^3)(6\beta+4k^3)
+   =36\beta^2+16\alpha^3=4\Delta
+\end{equation}
+なので $\rho^3=6\beta-4k^3$，従って $\rho$ は可逆である。
+
+$h\ne0$ では $z=h^{-1}[x,y]$ を消去できる。
+得られる二関係式は
+\[
+ W=-\frac12[x,y]^2+h^2U_6
+   =x^2y^2-xyxy+h^2U_6
+\]
+の巡回微分である。最後の等号は巡回語の空間での等号である。
+変数変換 $y=\rho Y+kx^2$ は重みを保つ自由代数の自己同型である。
+$[x,y]=\rho[x,Y]$ および $k^2+\alpha=0$ を用いると，巡回語の空間で
+\[
+ U_6(x,\rho Y+kx^2)
+  =\frac{\rho^3}{3}Y^3+k\rho^2x^2Y^2+
+       \left(\beta-\frac23k^3\right)x^6.
+\]
+$\rho^3=6\beta-4k^3$ より
+\begin{equation}\label{eq:degree-one-potential-normal-form}
+ W(x,\rho Y+kx^2)=\rho^2W_{a,b,c}(x,Y).
+\end{equation}
+関係式のイデアルについても，$R_4=\partial_yW$，
+$R_5=\partial_xW$ と置けば，自由代数内で
+\[
+ \begin{split}
+ R_4(x,\rho Y+kx^2)&=\rho f_4,\\
+ R_5(x,\rho Y+kx^2)+k\rho(xf_4+f_4x)&=\rho^2f_5
+ \end{split}
+\]
+である。$\rho$ の可逆性から主張の同型を得る。
+\end{proof}
+
+\begin{lemma}\label{lem:degree-one-elliptic-top-as-open}
+\[
+ D_1=(1+\alpha h^4)(5+\alpha h^4),\qquad
+ T=\mathbb C[\alpha,\beta,h,(\Delta D_1)^{-1}]
+\]
+と置く。$T$ 上の $A^{\mathrm{top}}$ は次数ごとに有限局所自由で，
+任意の係数変更後もHilbert級数
+\[
+ H_{A^{\mathrm{top}}}(t)=\frac1{(1-t)(1-t^2)(1-t^3)}
+\]
+を持つ。全幾何学的ファイバーは大域次元3のAS正則Noether整域である。
+この開集合は $\Delta\ne0$ の全ての $h=0$ 点を含む。
+\end{lemma}
+\begin{proof}
+StephensonのTheorem 1.1\cite[p.~2318]{Stephenson1997}は，
+代数閉体・標数0の下で，\eqref{eq:degree-one-stephenson-relations}の代数が
+次の11点を除いた全パラメータでAS正則Noether整域となり，
+上記のHilbert級数を持つことを示す。
+\[
+ \begin{split}
+ \mathcal S={}&\{(0:0:1),(0:1:0)\}
+    \cup\{(1:b:-1)\mid b^3=-1\}\\
+   &\cup\left\{(1:b:c)\ \middle|\
+          c^2-c-1=0,\ b^3=-c^{-2}\right\}.
+ \end{split}
+\]
+従って $a(a+c)(c^2-ac-a^2)\ne0$ は正則性の十分条件である。
+補題\ref{lem:degree-one-stephenson-normal-form}のパラメータでは
+\begin{equation}\label{eq:degree-one-as-discriminant}
+ a(a+c)(c^2-ac-a^2)
+  =-(1+\alpha h^4)(5+\alpha h^4)=-D_1.
+\end{equation}
+実際 $a(a+c)=k^2h^4-1=-1-\alpha h^4$，
+$c^2-ac-a^2=5-k^2h^4=5+\alpha h^4$ である。
+有限忠実平坦被覆上の同型から，$h\ne0$ の全幾何学的ファイバーに
+Stephensonの定理を適用できる。
+$h=0$ では三生成元表示\eqref{eq:degree-one-elliptic-potential}を用い，
+直接 $A^{\mathrm{top}}=\mathbb C[x,y,z]$ を得る。
+ここで $D_1|_{h=0}=5$ である。
+
+各次数の普遍代数は有限個の単語と斉次関係式による有限表示 $T$-加群である。
+上のファイバー計算から，その関係行列は全閉点で一定の階数を持つ。
+$T$ は被約な有限型 $\mathbb C$-代数なので，
+その階数を超える小行列式は恒等的に零である。
+所要階数の小行列式による開被覆上では余核が自由となり，
+各次数の有限局所自由性が従う。
+表示とその余核は任意の係数変更に両立するので，
+非被約係数への基底変更後も同じ階数を持つ。
+\end{proof}
+
+\subsection{相対CY性と全低次係数の普遍PBW性}
+
+\begin{lemma}\label{lem:degree-one-elliptic-top-relative-cy}
+$A^{\mathrm{top}}$ のpotential対角複体は $T$ 上完全であり，
+任意の係数変更後も完全である。内部次数を含む相対双対は
+\[
+ R\!\operatorname{Hom}_{(A^{\mathrm{top}})^e_T}
+       (A^{\mathrm{top}},(A^{\mathrm{top}})^e_T)
+       \simeq A^{\mathrm{top}}(6)[-3]
+\]
+となる。従って $A^{\mathrm{top}}$ は相対3-Calabi--Yau代数である。
+\end{lemma}
+\begin{proof}
+まず複素ファイバーで完全性を示す。
+$h=0$ ではpotential対角複体は重み $(1,2,3)$ の対角Koszul複体である。
+$h\ne0$ では，$z$ の消去に対応する係数 $-h$ の可縮対を除くことで，
+二生成元potential $W=-[x,y]^2/2+h^2U_6$ の対角複体を得る。
+この二生成元代数を $S$ と書く。
+補題\ref{lem:degree-one-stephenson-normal-form}と
+StephensonのTheorem 5.7，(5.5)\cite[pp.~2336--2338]{Stephenson1997}より，
+$S$ のaugmentationは極小解消
+\[
+ 0\longrightarrow S(-6)\longrightarrow S(-5)\oplus S(-4)
+  \longrightarrow S(-1)\oplus S(-2)\longrightarrow S
+  \longrightarrow\mathbb C\longrightarrow0
+\]
+を持つ。重みを保つ変数変換の下でもこの次数列は変わらない。
+次数6の極小syzygyは1次元であり，巡回恒等式
+\[
+ [x,\partial_xW]+[y,\partial_yW]=0
+\]
+がその非零生成元を与える。
+従ってpotential対角複体を片側のaugmentationでテンソルした複体は，
+この極小解消である。
+内部次数が下に有界な自由複体に対するgraded Nakayamaにより，
+対角複体自体も完全となる。
+巡回Hessianのtensor flip対称性が無捩れな自己双対性を与える
+\cite[Proposition 5.1.9, Theorem 5.3.1, Proposition 8.1.3(ii)]{Ginzburg2007}。
+potentialの重みが6であるため，内部次数のずれは6である。
+
+普遍複体の各内部次数は有限射影 $T$-加群の有界複体であり，
+augmentation項も補題\ref{lem:degree-one-elliptic-top-as-open}により有限射影である。
+全閉点で完全であるから，これらは局所的に分裂完全である。
+従って任意の係数変更後も完全である。
+Hessianの自己双対性は係数環上の恒等式なので，
+相対CY同型も任意の係数変更に両立する。
+\end{proof}
+
+\begin{lemma}\label{lem:degree-one-elliptic-universal-lower-pbw}
+$S=T[c_{ij}:i+2j<6]$ とし，$A_S$ を
+\eqref{eq:degree-one-elliptic-potential}で定める。
+係数の活性filtration次数を0とすれば
+\[
+ \operatorname{gr}_{\mathrm{act}}A_S
+       \simeq A^{\mathrm{top}}\otimes_T S.
+\]
+各filtration部分と各随伴次数部分は有限射影 $S$-加群であり，
+この同型は任意の可換 $S$-代数への係数変更に両立する。
+また $A_S$ は $S$ 上相対3-Calabi--Yauである。
+$\deg c_{ij}=6-i-2j$，$\deg(\alpha,\beta,h)=0$ として全内部次数を付ければ，
+相対CY同型の内部次数のずれは6である。
+\end{lemma}
+\begin{proof}
+複素数値の最高次パラメータを固定する。
+補題\ref{lem:degree-one-elliptic-top-relative-cy}で最高次potentialのCY性が
+確立しているので，Etingof--GinzburgのProposition 7.3.1(ii)から，
+全ての低次potentialに対するPBW性とCY性が従う\cite{EG2010}。
+この適用は具体的な有限開集合上の各CY topに対するものである。
+同論文のgeneric potentialの主張を有限開条件と読み替える必要はない。
+
+普遍係数への移行は次のように行う。
+活性次数の上限 $N$ を固定し，最高次代数の次数 $0,\ldots,N$ の部分を
+局所的に自由化する。その基底を単語の線型結合で $A_S$ に持ち上げる。
+最高次関係式による次数降下から，これらは $F_NA_S$ を生成する。
+持上げた元の間に $S$-線型関係があれば，任意の複素最高次パラメータと
+任意の複素低次係数へ特殊化する。
+固定topに対するPBW性により全係数が零になり，
+被約有限型の普遍係数環上で元の係数も零となる。
+従って局所的に基底が得られ，随伴次数同型と有限射影性が従う。
+filtrationの短完全列は射影加群の列として分裂するので，
+任意の非被約係数への基底変更にも両立する。
+
+相対CY性には\eqref{eq:degree-one-elliptic-potential}のpotential対角複体を使う。
+活性filtrationを入れた随伴次数複体は，完全なtopの対角複体の係数変更である。
+filtrationは下に有界で各元は有限次数を持つため，
+最高次数のcycleを境界として持ち上げる次数降下により元の複体も完全である。
+自己双対性とこの完全性は任意の係数変更に両立する。
+\end{proof}
+
+\begin{remark}\label{rem:degree-one-general-cyclic-lower}
+同じ証明は，$-h\sum c_{ij}\operatorname{Sym}(x^iy^j)$ の代わりに
+重み6未満の任意の巡回potentialを加えた場合にも適用できる。
+上の12係数の表示は，古典Weierstrass方程式と中心商の規格化に合わせたものである。
+\end{remark}

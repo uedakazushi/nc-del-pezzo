@@ -1,0 +1,191 @@
+% !TeX root = ../nc-del-pezzo.tex
+\subsection{23未知数の中心方程式と普遍的な中心超曲面}
+
+以下では前項の最高次係数環を $T$ と書く。
+すなわち，$\Delta=4\alpha^3+9\beta^2$ と
+$D_{\mathrm{AS},1}=(1+\alpha h^4)(5+\alpha h^4)$ を可逆化した
+$\mathbb C[\alpha,\beta,h]$ である。
+低次係数を加えた環と可換多項式を
+\[
+ S=T[c_{ij}:i+2j<6],\qquad
+ F=\frac12z^2+\frac13y^3+\alpha x^4y+\beta x^6
+       +\sum_{i+2j<6}c_{ij}x^iy^j
+\]
+と置く。添字集合は12個の元を持ち，定数項 $c_{00}$ も含む。
+$A$ は前項のpotential代数である。
+
+\begin{theorem}\label{thm:degree-one-finite-central-family}
+$\Delta(\alpha_0,\beta_0)\ne0$ とし，
+$p=(\alpha_0,\beta_0,0)$ とする。
+$p$ の主開近傍 $V\subset\operatorname{Spec}T$ を適切に選ぶと，
+$S_V=\mathcal O(V)[c_{ij}:i+2j<6]$ 上で次が成り立つ。
+\begin{enumerate}
+ \item $A$ は有限表示で，各活性filtration部分は有限射影である。
+       任意の可換係数変更に対してPBW同型と相対3-CY性が保たれる。
+ \item 活性filtration次数6の中心元 $\Omega$ があり，
+       $\Omega\bmod h=F$ である。
+       $\Omega$ を構成する局所化の分母は $\alpha,\beta,h$ だけに依存し，
+       全ての低次係数は任意に動かせる。
+ \item $\Omega$ は任意の係数変更後も左右の非零因子である。
+       $B=A/(\Omega)$ は普遍的に平坦であり，
+       \[
+        \operatorname{gr}_{\mathrm{act}}B
+         \simeq\bigl(A^{\mathrm{top}}/(\Omega^{\mathrm{top}})\bigr)
+                 \otimes_{\mathcal O(V)}S_V,
+        \qquad
+        H_{A^{\mathrm{top}}/(\Omega^{\mathrm{top}})}(t)
+          =\frac{1-t^6}{(1-t)(1-t^2)(1-t^3)}.
+       \]
+       各随伴次数部分は有限射影である。
+ \item $\deg c_{ij}=6-i-2j$ とすると，$\Omega$ は全内部次数6の斉次元に選べる。
+\end{enumerate}
+\end{theorem}
+\begin{proof}
+PBW性と相対CY性は前項による。中心元の構成には
+定理\ref{thm:elliptic-finite-central-family}の有限行列法を使うが，
+ここでは必要な次数，核の計算，規格化を明記する。
+
+まず最高次代数の次数9以下だけで整列語 $x^iy^jz^k$ を基底にする。
+非整列語の隣接交換による関係列は，$h=0$ で
+$w-\operatorname{ord}(w)$ となる。
+非整列語成分の行列式は $\det(I+hK_d)$ の形で，$h=0$ で1である。
+有限個のこれらの行列式を可逆化すれば，各次数で整列語が生成系となり，
+既に得たHilbert級数と局所自由性から基底となる。
+低次係数を戻したときの行列は活性次数に関して三角であり，
+その対角ブロックは最高次の場合と同じである。
+従って同じ，最高次係数だけに依存する局所化で $F_9A$ の基底を得る。
+
+$A/hA$ が可換で，$A$ に $h$-捩れがないことから，
+\[
+ D:F_6A\longrightarrow F_7A\oplus F_8A\oplus F_9A,
+ \qquad v\longmapsto h^{-1}([v,x],[v,y],[v,z])
+\]
+は正則な行列で表せる。
+ここでも $h^{-1}$ は係数環の局所化ではなく，$hA$ 内の一意的な割算である。
+重み $(1,2,3)$ の次数 $0,1,\ldots,6$ の単項式数は
+\[
+ 1,\ 1,\ 2,\ 3,\ 4,\ 5,\ 7
+\]
+なので，$F_6A$ の階数は23である。
+
+$h=0$ の任意の複素特殊化において
+\begin{equation}\label{eq:degree-one-low-poisson-center}
+ \ker D=\mathbb C\cdot1\oplus\mathbb C\cdot F
+\end{equation}
+である。実際，$U^{\mathrm{ab}}=F-z^2/2$ と置き，
+$v=g_0(x,y)+zg_1(x,y)+kz^2$ と書く。
+ここで $k\in\mathbb C$ であり，重みからこの形で尽くされる。
+$\{v,x\}=0$ の $z^0$ 係数は
+$ (\partial_yU^{\mathrm{ab}})g_1=0$ である。
+$\partial_yU^{\mathrm{ab}}$ の最高 $y$ 次数の項は $y^2$ なので非零であり，
+$g_1=0$ を得る。
+残りの $\{v,x\}=\{v,y\}=0$ は
+\[
+ \partial_yg_0=2k\partial_yU^{\mathrm{ab}},\qquad
+ \partial_xg_0=2k\partial_xU^{\mathrm{ab}}
+\]
+を与える。従って $v=2kF+\text{constant}$ である。
+
+低次係数を零とし，出力の次数から対応する生成元の重みを引くと，
+$D$ は活性次数ごとのブロックに分かれる。
+$p$ における階数は，次数 $1,\ldots,6$ でそれぞれ
+$1,2,3,4,5,6$ である。
+各ブロックからこの本数の独立な行を選び，
+定数項と整列基底における $z^2$ 係数を読む二つの行を加える。
+得られる23次正方行列 $M_1$ は $p$ で可逆である。
+分母を払った $\det M_1$ の非零開集合へ縮める。
+全低次係数を戻しても，同じ行選択による行列は活性次数に関して三角で，
+対角ブロックは変わらない。その行列式に低次係数は現れない。
+
+選んだ21本の交換子方程式を零，定数項を $c_{00}$，
+$z^2$ 係数を $1/2$ とした23本の線型方程式の唯一の解を $\Omega$ とする。
+任意の $h\ne0$ の複素特殊化で，
+Etingof--GinzburgのTheorem 3.3.2(ii)は $F_6A$ 内の非定数中心元を与える。
+これは既に確認したCY最高次potentialに適用する全lower項の定理であり，
+genericパラメータだけの中心定理ではない。
+従って $\dim\ker D\ge2$ である。
+$M_1$ の可逆性から，定数項と $z^2$ 係数を読む
+$\ker D\to\mathbb C^2$ は単射だから同型であり，
+規格化した解は未選択の交換子方程式も満たす。
+$h=0$ では\eqref{eq:degree-one-low-poisson-center}により解は $F$ となる。
+普遍係数環は被約で有限型なので，全複素点で零となる残りの方程式は
+係数環上でも恒等的に零である。
+こうして中心性と $\Omega\bmod h=F$ を得る。
+
+最高活性部分は低次係数に依存せず，$z^2$ 係数が $1/2$ なので非零である。
+最高次代数の全複素ファイバーは整域だから，
+次数別の乗法写像 $A^{\mathrm{top}}_{m-6}\to A^{\mathrm{top}}_m$ は
+全ファイバーで単射である。
+有限局所自由加群の小行列式の判定により，これは局所分裂単射で余核も有限局所自由である。
+従って中心元は任意基底変更後も正則である。
+活性最高項の次数降下により低次項を含む乗法もstrictな単射となり，
+表示した随伴次数商と普遍的平坦性を得る。
+最後に低次係数へ重み $6-i-2j$ を与えたスカラー作用を使う。
+全方程式と規格化は同変であり，解の一意性から $\Omega$ は内部斉次次数6である。
+\end{proof}
+
+\begin{remark}
+$D_{\mathrm{AS},1}\ne0$ はambient正則性の明示的な十分条件である。
+中心元の規格化には，さらに次数9以下の有限行列の非消滅条件を使う。
+両者を混同して，全中心構成の基底を
+$\Delta D_{\mathrm{AS},1}\ne0$ だけで尽くしたとは主張しない。
+また，全次数を同時に整列語基底で自由化する一つの主開集合や，
+有限開集合全体での等式 $Z(A)=S_V[\Omega]$ も主張しない。
+\end{remark}
+
+\subsection{全次元への拡張と古典Poisson対の範囲}
+
+\begin{corollary}\label{cor:degree-one-elliptic-general-dimension}
+$n\ge2$ とし，$n-1$ 個の中心一次変数 $s_1,\ldots,s_{n-1}$ を加える。
+各 $c_{ij}$ に $s$ の次数 $6-i-2j$ の任意の斉次多項式を代入し，
+その有限個の係数を独立なパラメータとする。
+このとき，有限型係数環 $K$ 上で，有限表示かつ普遍的に次数別平坦な中心商族を得る。
+全幾何ファイバーは左右Noetherであり，
+\[
+ H_{B_\xi}(t)=\frac{1-t^6}{(1-t)^n(1-t^2)(1-t^3)},\qquad
+ B/(h)\simeq(K/(h))[s,x,y,z]/(F).
+\]
+最初の交換子は $s_i$ を中心とするJacobian括弧
+\[
+ \{x,y\}=z,\qquad \{y,z\}=\partial_xF,
+ \qquad \{z,x\}=\partial_yF
+\]
+である。
+\end{corollary}
+\begin{proof}
+局所化が最高次係数だけに依存し，定理が任意の係数変更と両立するので，
+全ての表示した代入が許される。
+内部次数ごとの平坦性とHilbert級数は，活性随伴次数による計算から従う。
+体ファイバーの最高次ambientはNoether代数の中央多項式拡大であり，
+filtered持上げと中心商もNoetherである。
+第一交換子はpotential関係式の $h$ の一次項である。
+ここではまだ，普遍係数環上の強Noether性を体ファイバーのNoether性から推論していない。
+\end{proof}
+
+\begin{proposition}\label{prop:degree-one-elliptic-semiclassical-coverage}
+次数1の可換Jacobian模型を
+\[
+ F=\frac12z^2+\frac13y^3+g_4(s,x)y+g_6(s,x)
+\]
+と正規化し，選んだ非零Poisson方向に適合する $s$ を中心座標とする。
+$g_4(0,x)=\alpha x^4$，$g_6(0,x)=\beta x^6$ が
+$4\alpha^3+9\beta^2\ne0$ を満たすとき，この模型とPoisson方向は，
+必要なら $h$ を非零スカラー倍して，上の族の半古典極限として実現される。
+この条件は，古典Poisson対のパラメータ空間の非空な稠密開条件である。
+\end{proposition}
+\begin{proof}
+全ての最高次以外の項を $c_{ij}(s)$ に代入すればよい。
+重み6の一般式にある $z$ の一次項は平方完成で，$y^2$ 項は
+$y$ の重み2の多項式による平行移動で除ける。
+これらの三角変換は活性体積形式を保ち，残る定数倍は $h$ に吸収できる。
+曲線 $z^2/2+y^3/3+\alpha x^4y+\beta x^6=0$ の滑らかさは
+$\Delta\ne0$ と同値である。
+非空性は，全 $n\ge2$ で
+\[
+ F=\frac12z^2+\frac13y^3+x^6+\sum_{i=1}^{n-1}s_i^6
+\]
+から分かる。このaffine coneは原点以外で滑らかであり，
+重み付き射影空間の $y$ 軸・$z$ 軸上の安定化群が非自明な点を避ける。
+従って滑らかな次数1 del Pezzo多様体を与える。
+判別式非零は係数チャートで非空な主開条件なので稠密である。
+\end{proof}

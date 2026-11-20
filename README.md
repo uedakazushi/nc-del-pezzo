@@ -145,4 +145,4 @@ Veronese環の有限表示は右Noether性とaugmentationの有限syzygyから�
 
 ## 研究間の関係
 
-[poisson-del-pezzo](https://github.com/uedakazushi/poisson-del-pezzo) の相対Jacobi錐・Poisson商スタックを入力とし、[nc-cubic-threefold-moduli](https://github.com/uedakazushi/nc-cubic-threefold-moduli) のO-marked Abel圏の枠組みを重み付きの次数1・2へ展開する。研究全体の入口は [research-hub](https://github.com/uedakazushi/research-hub)。
+[poisson-del-pezzo](https://github.com/uedakazushi/poisson-del-pezzo) の相対Jacobi錐・Poisson商スタックを入力とし、[nc-cubic-threefold](https://github.com/uedakazushi/nc-cubic-threefold) のO-marked Abel圏の枠組みを重み付きの次数1・2へ展開する。研究全体の入口は [research-hub](https://github.com/uedakazushi/research-hub)。

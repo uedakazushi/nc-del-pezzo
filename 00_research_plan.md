@@ -177,7 +177,7 @@ Uの全幾何学的点で全Abel Artin変形を同じ族が実現する。Abel H
 ## E. 依存・再開・検証
 
 - 相対Poisson錐・商・自己同型：`poisson-del-pezzo` main `4834ea4f3e13bff4d6c5793cec9b169d8f1ad56f`、主原稿v1.4の定理7.3・8.8・9.2、補題8.7、注意8.5、命題9.4。古典対角の有限性には定理9.2とLunaのaffine作用の結果を使用する。粗shadowの厳密な平坦点集合は定理9.6、各固定古典模型上の一般Poisson自己同型の自明性は命題9.5に依存する。錐の局所完全交叉判定・零切断解消・discrepancyは補題10.1・定理10.3・命題10.4を使用し、固定commitの本文と証明を確認した。
-- O-marked枠組み：`nc-cubic-threefold-moduli` main `6c35d2c84671c2538e61836a6bf3a511392eacce`、主原稿v22。三次三様体固有の次数一生成・指数2・残余圏の結論を無条件に輸入しない。
+- O-marked枠組み：`nc-cubic-threefold` の固定入力commit `6c35d2c84671c2538e61836a6bf3a511392eacce`（旧主原稿v22）。現行の主原稿は `papers/nc-cubic-threefold.tex`（v23）。三次三様体固有の次数一生成・指数2・残余圏の結論を無条件に輸入しない。
 - 曲面の残余圏：Kuznetsov 0904.4330 Theorem 8.5、Orlovのblow-up公式、Toën–Vaquié Theorem 3.6 / Corollaries 3.15・3.17・3.21–3.24、Perry Lemma 4.15(4)。古典Torelliは Lin–Rampazzo–Zhang 2609.10344v1 Theorem 1.2、内在的対合と分岐曲線の同変周期は同論文Proposition 4.1・Theorem 4.2、周期微分はLandesman 1911.02187v1 Theorem 4.3。主証明は `kuznetsov_surface.tex`、`kuznetsov_relative.tex`、`kuznetsov_shadow_obstruction.tex`、`kuznetsov_cyclic_fibres.tex`、`kuznetsov_intrinsic_period.tex`。相対同変周期にはKeller、Elagin、Sheridan、Tuを用いる。これらの曲面結果を高次元へ自動的に移さない。
 - 普遍Jacobian加群とHessian候補：`kuznetsov_hessian_rigidity.tex` と `kuznetsov_hessian_counterexample.tex`。Dimca–Sticlaru (2015) の式(1.2)・Remark 3.3(iii) はHessian minorsとJacobian商の既知の枠組み、Gurevich–Howe 2105.11520 Proposition 3.2.1 は複素GLのPieri則に用いる。これらを実際のカテゴリー的二次差の一般Hessian公式の出典とはしない。
 - 有限Poisson群の周期限界：`kuznetsov_poisson_symmetry_obstruction.tex`。Baranovsky math/0206256v2 Theorem 1・Proposition 4、Tabuada–Van den Bergh (2018) Theorem 1.1・Corollary 1.5(ii)・Example 1.11を用い、相対traceと導来Nakayamaで相対化する。接続にはSheridan・Tuを使い、代数曲線上の族の形式完成に限定する。

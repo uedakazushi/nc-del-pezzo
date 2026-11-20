@@ -21,11 +21,11 @@
 
 使用仮定は、複素数体、滑らかで射影的、n≥2、−K=(n−1)H、H ample、H^n=1または2。非滑らかな境界に結果を拡張していない。
 
-### nc-cubic-threefold-moduli
+### nc-cubic-threefold（現行研究の入口。下記は過去に確認した固定入力）
 
 確認した正本はmain commit **6c35d2c84671c2538e61836a6bf3a511392eacce**、主原稿v22。
 
-[固定した研究一式](https://github.com/uedakazushi/nc-cubic-threefold-moduli/tree/6c35d2c84671c2538e61836a6bf3a511392eacce)
+[固定した研究一式](https://github.com/uedakazushi/nc-cubic-threefold/tree/6c35d2c84671c2538e61836a6bf3a511392eacce)
 
 `abel_marked_moduli.tex` のO-marked全Abel同値、反標準軌道、豊富列の選択を忘れる規約と、`abel_cubic_deformations.tex`・`abel_formal_descent.tex` の全Artin変形を比較した。三次三様体固有の次数一生成、二次包絡、指数2、残余圏の比較は本件の定理として輸入しない。本稿のVeronese復元は指数r=n−1を扱い、中心の一次変数を二つ以上使う一般命題として証明する。
 

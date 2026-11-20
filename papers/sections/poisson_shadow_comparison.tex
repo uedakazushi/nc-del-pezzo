@@ -1,0 +1,568 @@
+% !TeX root = ../nc-del-pezzo.tex
+\section{Poisson模型への代数的比較と相対幾何}
+\label{sec:poisson-shadow-comparison}
+
+定理\ref{thm:zero-neighborhood-finite-diagonal}の全可換零切断を含む近傍を用いる。
+本節では，対称化した中心方程式に最低次数の交換子を組み合わせ，
+可換模型上のPoisson構造を構成する。
+その射を零切断での全形式比較によって調べ，
+Poissonモジュライの既知の相対幾何を非可換モジュライへ移す。
+全ての縮小は，滑らかな可換模型の全体を保つ。
+
+\subsection{中心方程式とJacobian括弧}
+
+$W$ 上のambientと中心商を $A$，$B=A/(\Omega)$ とし，
+$F=F^{\mathrm{sh}}=\operatorname{Sym}^{-1}(\Omega)$ と書く。
+中心関係の次数は $e_1=6,e_2=4$，$F$ の $z^2$ 係数は $1/2$ である。
+次数1の生成元を $x_0,\ldots,x_{n-1},y,z$，次数2では
+$x_0,\ldots,x_n,z$ とする。
+最低次数の交換子によって方向を
+\[
+ [x_i,y]=D_i z,\quad D=\sum_iD_i\partial_{x_i}\quad(d=1),
+ \qquad
+ [x_i,x_j]=p_{ij}z,\quad
+ P=\sum_{i<j}p_{ij}\partial_{x_i}\wedge\partial_{x_j}\quad(d=2)
+\]
+と表す。$D_i,p_{ij}$ は基底の係数であり，相対導分では微分しない。
+次数2のrank条件は，係数環の中のPl\"ucker方程式
+\[
+ Q_{ijk\ell}=p_{ij}p_{k\ell}-p_{ik}p_{j\ell}
+                         +p_{i\ell}p_{jk}=0
+\]
+を意味する。幾何学的ファイバーだけのrank条件には置き換えない。
+
+\begin{lemma}[任意基底上のJacobian Poisson構造]
+\label{lem:shadow-jacobian-poisson}
+任意の可換 $\mathbb C$-代数 $R$ 上の重み $e_d$ の多項式 $F$ に対し，
+\begin{equation}\label{eq:poisson-shadow-bivectors}
+ \Pi_{F,D}=\iota_{dF}(D\wedge\partial_y\wedge\partial_z)
+ \quad(d=1),\qquad
+ \Pi_{F,P}=\iota_{dF}(P\wedge\partial_z)\quad(d=2)
+\end{equation}
+は重み0の相対Poisson二重導分であり，$F$ はCasimirである。
+従って可換超曲面環とその相対ProjにPoisson構造を誘導する。
+構成は任意の基底変更に可換し，$R$ の被約性を要求しない。
+\end{lemma}
+\begin{proof}
+縮約は
+$\iota_\alpha(D_1\wedge D_2\wedge D_3)
+=\alpha(D_1)D_2\wedge D_3-\alpha(D_2)D_1\wedge D_3
++\alpha(D_3)D_1\wedge D_2$ と定める。
+次数1の生成元の括弧は
+\begin{equation}\label{eq:degree-one-poisson-shadow-brackets}
+ \{x_i,x_j\}=0,\quad \{x_i,y\}=D_iF_z,\quad
+ \{z,x_i\}=D_iF_y,\quad \{y,z\}=D(F).
+\end{equation}
+$D,\partial_y,\partial_z$ は互いに可換する。
+$D_0$ が可逆なら $u=x_0/D_0$，$s_i=x_i-(D_i/D_0)x_0$ により
+$D=\partial_u$ とでき，中央係数 $R[s_i]$ 上の三変数Jacobian括弧となる。
+Jacobi恒等式は二階偏微分の対ごとの相殺で従う。
+$D_i$ と $F$ の全係数を独立にした普遍多項式環は $D_0$ の局所化に単射なので，
+Jacobiatorの各係数は普遍的に零である。
+任意の $R$ への基底変更により，零・冪零方向も含めて結論を得る。
+
+次数2の括弧は
+\begin{equation}\label{eq:degree-two-poisson-shadow-brackets}
+ \{x_i,x_j\}=p_{ij}F_z,\qquad
+ \{x_i,z\}=-\sum_jp_{ij}F_{x_j}.
+\end{equation}
+$F_i=F_{x_i}$，$a=F_z$ と置き，
+$J(f,g,h)=\{f,\{g,h\}\}+\{g,\{h,f\}\}+\{h,\{f,g\}\}$ とする。
+Leibniz則と二階偏微分の対称性から
+\begin{align}
+ J(x_i,x_j,x_k)&=\sum_\ell Q_{ijk\ell}
+       (aF_{zx_\ell}-F_\ell F_{zz}),
+       \label{eq:poisson-shadow-jacobi-xxx}\\
+ J(x_i,x_j,z)&=-\sum_{\ell,m}Q_{ij\ell m}F_\ell F_{zx_m}
+       \label{eq:poisson-shadow-jacobi-xxz}
+\end{align}
+を得る。第一式では各 $\ell$ の係数が
+$p_{jk}p_{i\ell}+p_{ki}p_{j\ell}+p_{ij}p_{k\ell}=Q_{ijk\ell}$ となり，
+第二式では $aF_{x_\ell x_m}$ の項が相殺する。
+従ってPl\"ucker方程式から全生成元のJacobiatorは零であり，
+各変数に関する導分性によって全多項式について成立する。
+
+両次数で $\{F,-\}=0$ は三重交代積に $dF$ を二度代入することから従う。
+重みは次数1で $6-1-2-3=0$，次数2で $4-1-1-2=0$ である。
+従って $(F)$ はPoissonイデアルで，斉次局所化の次数零部分も括弧で閉じる。
+その標準開上の括弧を貼り合わせればProjに降下する。
+全ては多項式恒等式と局所化によるので，任意の基底変更と両立する。
+\end{proof}
+
+\begin{lemma}[対称化した中心方程式の偶性]
+\label{lem:shadow-even-z}
+現在の $W$ 上では
+\[
+ F^{\mathrm{sh}}=z^2/2+f(x,y)\quad(d=1),\qquad
+ F^{\mathrm{sh}}=z^2/2+f(x)\quad(d=2)
+\]
+と書ける。従って最低次数のPoisson括弧は，
+それぞれ $\{x_i,y\}=D_i z$，$\{x_i,x_j\}=p_{ij}z$ である。
+\end{lemma}
+\begin{proof}
+両ambientの表示関係式
+\eqref{eq:simultaneous-degree-one-relations}，
+\eqref{eq:simultaneous-ambient-relations}は，
+$x_i$ と $y$ を固定し $z\mapsto-z$ とする基底線型の反自己同型 $\rho$ を持つ。
+最低交換子の関係式はその負へ移り，$z$ を含む残りの交換子の関係式は自身へ移る。
+完全対称化された語の順序反転は置換の集合を保つ。
+非零方向上では補題\ref{lem:normalized-ambient-center-near-zero}から
+\[
+ Z(A)_{e_d}=\operatorname{Sym}^{e_d}K\oplus\mathcal O_W\Omega
+\]
+である。$\rho\Omega$ の $z^2$ 係数も $1/2$ なので，
+$\rho\Omega-\Omega=p\in\operatorname{Sym}^{e_d}K$ となる。
+$\rho$ は $p$ を固定するから，$\rho^2=1$ より $2p=0$，従って $p=0$ である。
+$W$ は被約，非零方向は稠密，$A_{e_d}$ は局所自由なので，
+$\rho\Omega=\Omega$ は $W$ 全体で成立し，任意基底変更後にも保たれる。
+重みと $z^2$ の係数から結論を得る。
+\end{proof}
+
+\subsection{全同値への降下と零切断の検出}
+
+\begin{proposition}[Poisson模型への表現可能な射]
+\label{prop:poisson-shadow-morphism}
+$\mathcal P_{n,d}$ を滑らかな次数 $d$ のdel Pezzo族と相対Poisson構造の
+モジュライとする。式\eqref{eq:poisson-shadow-bivectors}は
+\[
+ \Theta:\mathfrak U_{n,d}\longrightarrow\mathcal P_{n,d},
+ \qquad [B]\longmapsto(X^{\mathrm{sh}},\Pi^{\mathrm{sh}})
+\]
+を定める。Poisson構造を忘れた合成は既存の $\operatorname{sh}$ であり，
+$\Theta$ は代数空間で表現可能である。
+Poisson零切断の逆像は，可換零切断 $\mathcal D_{n,d}$ とschemeとして一致し，
+その制限は恒等である。
+\end{proposition}
+\begin{proof}
+まず全同値に対する自然性を確認する。
+fppf局所的に同値を通常の次数付き同型 $\phi:B_a\to B_b$ として表す。
+補題\ref{lem:all-graded-isom-weighted-linear}により，次数1では
+\[
+ \phi(x)=Mx',\quad\phi(y)=\beta y',\quad\phi(z)=\gamma z',
+ \qquad \beta M D_b=\gamma D_a,
+\]
+次数2では
+\[
+ \phi(x)=Mx',\quad\phi(z)=cz',\qquad MP_bM^{\mathsf t}=cP_a
+\]
+となる。方向の等式は最低交換子と $z'$ の自由直和因子から得られ，
+方向座標を消去する操作は使わない。
+同型はambientへ持ち上がり，中心関係を単元倍へ送る。
+完全対称化と $z^2$ 係数の比較から，正確に
+\[
+ \phi(F_a)=\gamma^2F_b\quad(d=1),\qquad
+ \phi(F_a)=c^2F_b\quad(d=2)
+\]
+である。
+
+導分の移送を $\phi_*\delta=\phi\delta\phi^{-1}$ とすると
+\[
+ \phi_*(D_a\wedge\partial_y\wedge\partial_z)
+   =\gamma^{-2}D_b\wedge\partial_{y'}\wedge\partial_{z'},
+ \qquad
+ \phi_*(P_a\wedge\partial_z)=c^{-2}P_b\wedge\partial_{z'}.
+\]
+これらの係数と方程式の係数が相殺し，
+$\phi_*\Pi_a^{\mathrm{sh}}=\Pi_b^{\mathrm{sh}}$ となる。
+相対微分では基底の単元を微分しない。
+従ってPoisson構造は単元倍まででなく厳密に保たれる。
+次数スカラーはProj上恒等であり，全ての式は合成・逆射・基底変更と両立する。
+全同値群oidに沿う忠実平坦降下から $\Theta$ を得る。
+その相対自己同型の核は $\operatorname{sh}$ の相対自己同型の核に含まれるため自明であり，
+命題\ref{prop:representable-commutative-shadow}と同じ判定から表現可能性を得る。
+
+零切断のscheme構造を確認するため，任意の係数環 $R$ 上で考える。
+次数1の $D_+(x_0)$ 上で $u_i=x_i/x_0$，$v=y/x_0^2$，$w=z/x_0^3$ と置くと
+\[
+ \{u_i,v\}=(D_i-D_0u_i)w.
+\]
+このchartの環はmonicな $w^2$ 関係により $R[u_i,v]$ 上で基底 $1,w$ を持つ。
+従って括弧が零なら $D_i-D_0u_i=0$ であり，$n\ge2$ から全ての $D_i=0$ を得る。
+次数2で $u_i=x_i/x_0$，$v=z/x_0^2$ と置くと
+\[
+ \{u_i,u_j\}=v(p_{ij}-p_{i0}u_j-p_{0j}u_i).
+\]
+同じmonic分裂と $n\ge2$ より，全ての $p_{ij}=0$ を得る。
+逆は構成式から明らかである。
+この同値は任意の非被約 $R$ でも成立するため，零部分関手が一致し，
+$W$ 上の方向イデアルそのものが検出される。
+零切断では $\Omega=F$ が元の可換方程式なので，その上の射は恒等である。
+\end{proof}
+
+\begin{remark}[規格化と中心選択]
+同じ中心イデアルの生成元を単元倍しても，その対称化 $F$ を
+$F/(2[z^2]F)$ と規格化すれば上のPoisson構造は変わらない。
+非零方向で異なる規格化中心元の差が
+$p\in\operatorname{Sym}^{e_d}K$ なら，$p$ は三重導分の各因子で消えるので
+$\Pi_{F+p}=\Pi_F$ はambient上で成立する。
+ただし $F=0$ と $F+p=0$ は一般に異なる中心商である。
+ここで構成した射は固定した有限中心商族に付随し，
+異なる大域的中心選択の比較や既存のformality量子化との全次数での一致は主張しない。
+\end{remark}
+
+\begin{proposition}[可換点での全形式比較]
+\label{prop:poisson-shadow-formal-comparison}
+任意の滑らかな可換点 $X$ で，$\Theta$ はframed形式変形群oidの同値を誘導する。
+接写像は，通常変形と一次交換子によるPoisson方向の同定の下で恒等である。
+\end{proposition}
+\begin{proof}
+方向イデアルを $J$ とする。
+定理\ref{thm:simultaneous-degree-one-central-family}，
+\ref{thm:simultaneous-degree-two-central-family}の規格化から，
+両次数で $F^{\mathrm{sh}}\equiv F\pmod{J^2}$ である。
+式\eqref{eq:poisson-shadow-bivectors}は方向に線型なので，
+$\Pi^{\mathrm{sh}}-\Pi_F\in J^3$ となる。
+従って可換係数の方向では元の可換変形を返し，
+Poisson方向では有限中心商の一次交換子と同じ括弧を返す。
+商と局所化のLeibniz則も一致するから，これはtailsの初交換子にも一致する
+（定理\ref{thm:simultaneous-central-all-artin}の証明参照）。
+標準方程式を $2F$ に直す規約ではJacobianパラメータを半分にすればよく，
+この一定の規格化を双方に施して比較する。
+
+可換係数の横断sliceを選ぶと，sourceとtargetのframed形式関手は
+定理\ref{thm:abel-formal-ring}，\ref{thm:simultaneous-central-all-artin}および
+Poisson構造定理によって同じ完備Noether局所環 $R_X$ で表される。
+したがって $\Theta$ は余接空間上可逆な $R_X$ の自己準同型に対応し，
+補題\ref{lem:formal-endomorphism-inverse}から同型である。
+次数2のPl\"ucker特異性も含めて全形式環を比較している。
+framed自己同型は両側で自明なので，同型類の自然な全単射は群oid同値を与える。
+\end{proof}
+
+\subsection{Poisson shadowの\'{e}tale性と平坦な可換模型}
+
+以下では，命題\ref{prop:poisson-shadow-morphism}で構成した
+全同値と任意基底変更に両立する射
+\[
+ \Theta:\mathfrak U_{n,d}\longrightarrow\mathcal P_{n,d},
+ \qquad p\Theta=\operatorname{sh}
+\]
+を用いる。可換零切断を $j:\mathcal D_{n,d}\hookrightarrow\mathfrak U_{n,d}$，
+Poisson零切断を $s:\mathcal D_{n,d}\hookrightarrow\mathcal P_{n,d}$ と書く。
+入力は $\Theta j=s$ と，命題\ref{prop:poisson-shadow-formal-comparison}の
+可換点でのframed完成同型，および
+命題\ref{prop:poisson-shadow-morphism}のスキーム論的な零切断の一致である。
+
+\begin{theorem}[零切断を保つPoissonモジュライへの\'{e}tale射]
+\label{thm:poisson-shadow-etale}
+全可換零切断を保って $\mathfrak U_{n,d}$ をさらに開部分へ制限すると，
+$\Theta$ はrepresentable，separated，有限表示かつ\'{e}taleとなり，
+全点でstabilizer preservingである。さらに
+\[
+ \mathfrak U_{n,d}\times_{\mathcal P_{n,d}}\mathcal D_{n,d}
+ \simeq\mathcal D_{n,d}
+\]
+であり，この同型は零切断を与える。
+$\Theta$ の像はPoisson零切断全体を含む開部分スタックである。
+\end{theorem}
+\begin{proof}
+\emph{表現可能性。}
+$\Theta$ のrepresentabilityは命題\ref{prop:poisson-shadow-morphism}による。
+始域・終域は有限型の複素代数スタックで，終域の対角は有限であるため，
+$\Theta$ は有限表示である。
+また始域は分離的で，終域の対角は分離的なので $\Theta$ はseparatedである。
+
+\emph{可換点での形式同型。}
+命題\ref{prop:poisson-shadow-formal-comparison}により，
+可換模型 $X$ における $\Theta$ のframed完成は同型である。
+可換点の自己同型群への写像も，元の可換模型を保つ恒等写像である。
+
+終域の\'{e}tale表示で基底変更し，始域も\'{e}tale局所的にスキームで表す。
+選んだ複素点での完備局所環写像は上のframed形式同型となるから，
+\cite[Lemma 41.11.3, Tag 039M]{StacksProject}によりそこで\'{e}taleである。
+よって $\Theta$ の\'{e}tale locusは全可換零切断を含む開部分スタックである。
+有限型複素表示上では，零切断の全閉点を含むことから零切断全体を含むと分かる。
+この開集合へ制限する。
+
+\emph{全点での安定化群。}
+$\mathcal P_{n,d}$ の対角は
+\cite[定理9.2]{PoissonDP}により有限なので，その慣性はproperである。
+\cite[Lemma 101.45.4, Tag 0DUA]{StacksProject}によって
+$\Theta$ のstabilizer preserving locusは開である。
+零切断では既に全自己同型群に同型を誘導するから，
+この開部分への制限も全零切断を保つ。
+
+前項の零イデアルの計算から，零切断の逆像は既に所望のものに等しい。
+最後に\'{e}tale射は開射であり，像は $\Theta j=s$ により全Poisson零切断を含む。
+\end{proof}
+
+\begin{corollary}[可換模型への平坦射と相対特異性]
+\label{cor:shadow-flat-cone-fibers}
+定理\ref{thm:poisson-shadow-etale}の近傍では
+\[
+ \operatorname{sh}:\mathfrak U_{n,d}\longrightarrow\mathcal D_{n,d}
+\]
+はquasi-affine，有限表示，平坦かつ全射である。
+純相対次元は $c_{n,1}=n$，$c_{n,2}=2n-1$ である。
+任意の幾何学的点 $[X]:\operatorname{Spec}K\to\mathcal D_{n,d}$ に沿うファイバーは，
+相対的な自己同型も取り除いたスキームであり，Jacobi錐
+\[
+ C_{n,1,K}=\mathbb A_K^n,\qquad
+ C_{n,2,K}=\operatorname{Cone}_K\operatorname{Gr}(2,n+1)
+\]
+へのseparatedな\'{e}tale射を持つ。その像は頂点を含む開部分であり，
+頂点の逆像は可換模型を表す一点である。
+各幾何学的ファイバーは正規，Cohen--MacaulayかつGorensteinである。
+
+次数1と次数2の $n=2$ では $\operatorname{sh}$ は滑らかである。
+次数2の $n\ge3$ では，その相対非smooth locusの台はちょうど可換零切断である。
+零点での相対特異性は $n=3$ なら五次元の非退化二次錐，
+$n\ge4$ なら非局所完全交叉であり，相対接空間の次元超過は
+\[
+ \binom{n+1}{2}-(2n-1)=\frac{(n-1)(n-2)}2
+\]
+である。
+\end{corollary}
+\begin{proof}
+入力文献\cite[定理8.8]{PoissonDP}によれば，
+$p:\mathcal P_{n,d}\to\mathcal D_{n,d}$ はaffine，有限表示かつ平坦であり，
+幾何学的ファイバーは表示した錐である。
+その前に\'{e}tale射 $\Theta$ を合成すれば，平坦性・有限表示性を得る。
+合成は零切断 $j$ を持つので全射である。
+
+$\Theta$ はseparatedで有限表示の\'{e}tale射なのでquasi-finiteである。
+代数空間版Zariski主定理\cite[Tag 082J]{StacksProject}によりquasi-affineであり，
+affine射 $p$ との合成もquasi-affineである。
+したがってスキームで表される各古典族に沿う基底変更もスキームとなる。
+上記の幾何学的ファイバーについては
+\[
+ \Theta_X:(\mathfrak U_{n,d})_X\longrightarrow C_{n,d,K}
+\]
+が\'{e}taleであり，零切断の逆像に関する前定理を基底変更できる。
+次元，正規性，Cohen--Macaulay性，Gorenstein性は
+この\'{e}tale写像と錐の対応する性質から従う。
+Pl\"ucker錐のGorenstein性は
+\cite[命題10.4，\texttt{prop:plucker-terminal}]{PoissonDP}で
+標準加群 $\omega_{\mathbb C[C]}\simeq\mathbb C[C](-(n+1))$ として計算されている。
+$n=2$ では錐は単に三次元affine空間である。
+各非空成分は純次元 $c_{n,d}$ の錐の開部分へ\'{e}taleに写るので同じ純次元を持つ。
+
+滑らかさと非smooth locusの台は $p$ についての対応する性質を
+\'{e}taleに引き戻せばよい。
+零切断の逆像の一致により，零点の余分な分枝は生じない。
+局所完全交叉性，二次錐の形，接空間次元は
+\cite[補題10.1，\texttt{lemma:cone-lci}]{PoissonDP}と
+\'{e}tale局所環の性質から従う。
+\end{proof}
+
+\begin{remark}[ファイバーの範囲]
+上のファイバーは，$X$ との同型を記憶する
+$\operatorname{Spec}K\to\mathcal D_{n,d}$ に沿うファイバーである。
+それを $C_{n,d,K}$ 全体やその一つの開部分と同一視したのではなく，
+その開部分への\'{e}tale射を得ている。
+ファイバー全体の既約性・連結性や，$\Theta_X$ の次数1は結論しない。
+また，自己同型も割る粗shadowのファイバーとは異なる。
+\end{remark}
+
+\subsection{粗Poisson空間との比較と粗shadowの平坦領域}
+
+古典・Poisson・非可換モジュライの粗空間をそれぞれ
+$M^{\mathrm{cl}}_{n,d}$，$N_{n,d}$，
+$M^{\mathrm{nc}}_{n,d}$ と書く。
+前二者は入力文献\cite[定理9.2]{PoissonDP}の $M_{n,d},N_{n,d}$ である。
+
+\begin{theorem}[粗shadowの\'{e}tale表示と平坦領域]
+\label{thm:coarse-shadow-etale-flat-locus}
+定理\ref{thm:poisson-shadow-etale}の近傍では，Cartesian図式
+\[
+\begin{array}{ccc}
+\mathfrak U_{n,d}&\xrightarrow{\ \Theta\ }&\mathcal P_{n,d}\\
+\downarrow&&\downarrow\\
+M^{\mathrm{nc}}_{n,d}&\xrightarrow{\ \overline\Theta\ }&N_{n,d}
+\end{array}
+\]
+があり，$\overline\Theta$ はseparated，有限表示かつ\'{e}taleである。
+$M^{\mathrm{nc}}_{n,d}$ は正規Cohen--Macaulayな整quasi-affineスキームである。
+粗shadow
+\[
+ \overline{\operatorname{sh}}:
+ M^{\mathrm{nc}}_{n,d}\longrightarrow M^{\mathrm{cl}}_{n,d}
+\]
+は全射であり，その平坦領域は厳密に
+\[
+ \operatorname{Flat}(\overline{\operatorname{sh}})
+ =
+ \overline{\operatorname{sh}}^{-1}
+ \bigl((M^{\mathrm{cl}}_{n,d})^{\mathrm{sm}}\bigr)
+\]
+となる。
+したがって古典粗空間の特異点上では，
+構成近傍に属するファイバーのどの点でも粗shadowは平坦でない。
+\end{theorem}
+\begin{proof}
+$\Theta$ はseparated，\'{e}taleかつstabilizer preservingである。
+系\ref{cor:algebraic-coarse-local-model}の証明と同じく，
+\cite[Tags 0DUS, 0DUE]{StacksProject}を
+well-nigh affineな\'{e}tale被覆上で適用して降下すれば，
+粗空間上のCartesian図式と $\overline\Theta$ の\'{e}tale性を得る。
+分離性と有限表示性も成立する。
+$N_{n,d}$ は
+\cite[定理9.2]{PoissonDP}によってaffineスキームなので，
+quasi-finiteかつseparatedな $\overline\Theta$ に
+\cite[Tag 082J]{StacksProject}を適用すると，始域はquasi-affineスキームである。
+Poisson粗空間の正規性は正規な座標環の不変部分環から，
+Cohen--Macaulay性は\cite[定理9.6]{PoissonDP}から従う。
+これらは\'{e}taleに引き戻せる。
+整性は既存の $M^{\mathrm{nc}}_{n,d}$ の整性である。
+粗shadowの全射性は全可換模型の包含から従う。
+
+Poisson粗忘却射を $\overline p:N_{n,d}\to M^{\mathrm{cl}}_{n,d}$ とする。
+固定commitの\cite[定理9.6，\texttt{thm:coarse-flat-locus}]{PoissonDP}は
+\[
+ \operatorname{Flat}(\overline p)
+ =\overline p^{-1}\bigl((M^{\mathrm{cl}}_{n,d})^{\mathrm{sm}}\bigr)
+\]
+を与える。点 $u\mapsto v\mapsto x$ における局所環で，
+$\mathcal O_{N,v}\to\mathcal O_{M^{\mathrm{nc}},u}$ は
+\'{e}taleな局所準同型，従って忠実平坦である。
+平坦性の合成と忠実平坦降下により，
+$\overline p$ が $v$ で平坦であることと，
+$\overline{\operatorname{sh}}=\overline p\,\overline\Theta$ が $u$ で平坦であることは同値である。
+これで記載した平坦領域の等式を得る。
+\end{proof}
+
+\begin{remark}[粗ファイバーに残る冪零構造]
+スタックのshadowの幾何学的ファイバーは正規Gorensteinであるが，
+粗shadowの幾何学的ファイバーには冪零構造が生じ得る。
+入力文献\cite[定理9.6]{PoissonDP}が与える
+$(\overline p^{-1}([X]))_{\mathrm{red}}\simeq
+C_{n,d}/\operatorname{Aut}(X)$ は被約化についての等式である。
+本稿の粗ファイバーはこのPoisson粗ファイバーへの\'{e}tale射を持つ。
+したがってその被約化は上記の有限群商への\'{e}tale射を持つが，
+ファイバー自体の被約性や全体の既約性は主張しない。
+\end{remark}
+
+\subsection{零切断のblow-upと相対Pl\"ucker特異性}
+
+\begin{corollary}[零切断を中心とする滑らかな解消]
+\label{cor:nc-shadow-zero-blowup-resolution}
+次数2において
+\[
+ \rho:\widetilde{\mathfrak U}_{n,2}
+ =\operatorname{Bl}_{\mathcal D_{n,2}}\mathfrak U_{n,2}
+ \longrightarrow\mathfrak U_{n,2}
+\]
+と置く。この射はrepresentable，射影的かつ固有で，零切断の外では同型である。
+$\widetilde{\mathfrak U}_{n,2}$ は滑らかなDMスタックであり，
+$\widetilde{\mathfrak U}_{n,2}\to\mathcal D_{n,2}$ も滑らかである。
+従って $n\ge3$ では $\rho$ は特異性の解消である。
+
+例外因子 $E$ はPoisson側の相対Grassmann族と標準的に同型であり，
+各古典模型上のファイバーは $\operatorname{Gr}(2,n+1)$ である。
+その法線束は，相対Poissonベクトル束の射影化の中の
+tautological line bundle $\mathcal O(-1)$ である。
+さらに $\mathfrak U_{n,2}$ はGorensteinで，滑らかなatlasの意味でterminalであり，
+\[
+ K_{\widetilde{\mathfrak U}_{n,2}}
+ =\rho^*K_{\mathfrak U_{n,2}}+nE
+\]
+が成り立つ。これは粗空間のGorenstein性・terminal性の主張ではない。
+次数1の $\mathfrak U_{n,1}$ は滑らかである。
+\end{corollary}
+\begin{proof}
+$\Theta$ は平坦で，零切断のスキーム論的逆像は可換零切断に等しい。
+blow-upと平坦基底変更の可換性\cite[Tag 0805]{StacksProject}により
+\[
+ \widetilde{\mathfrak U}_{n,2}
+ \simeq
+ \mathfrak U_{n,2}\times_{\mathcal P_{n,2}}
+ \operatorname{Bl}_{\mathcal D_{n,2}}\mathcal P_{n,2}.
+\]
+右辺からPoisson側のblow-upへの射は\'{e}taleである。
+\cite[定理10.3，\texttt{thm:poisson-resolution}]{PoissonDP}によって
+後者は相対Grassmann族上の $\mathcal O(-1)$ の全空間であり，
+古典スタック上滑らかである。
+これで絶対・相対の滑らかさ，射影性と零切断外の同型性を得る。
+
+Poisson側の例外因子は零切断を経由して写るので，
+その基底変更には
+$\mathfrak U_{n,2}\times_{\mathcal P_{n,2}}\mathcal D_{n,2}
+=\mathcal D_{n,2}$ を使える。
+したがって例外因子はPoisson側のもの自体に同型であり，法線束も引き戻される。
+錐のGorenstein terminal性とdiscrepancy $n$ は
+\cite[命題10.4，\texttt{prop:plucker-terminal}]{PoissonDP}による。
+滑らかな古典係数方向との積，および\'{e}tale写像でこれらの性質を移せる。
+$n=2$ の場合は三次元affine空間の原点のblow-upであり，
+同じdiscrepancy $2=n$ を持つ。
+次数1についてはPoisson側が滑らかであることを用いる。
+\end{proof}
+
+\subsection{開埋込みへの残る障害}
+
+\begin{example}[形式恒等な\'{e}tale射が持つ別の分枝]
+\label{ex:etale-shadow-not-open-immersion}
+$k=\mathbb C$，
+\[
+ V=\operatorname{Spec}k[t,(1+t^2)^{-1},(1+3t^2)^{-1}]
+\]
+とし，$\mu_2$ は $t$ に符号で作用する。
+$h(t)=t+t^3$ は符号作用と両立し，
+\[
+ H:[V/\mu_2]\longrightarrow[\mathbb A^1_s/\mu_2]
+\]
+を与える。両辺は有限対角を持つ整な滑らかな有限型DMスタックであり，
+$H$ はrepresentable，separatedかつ\'{e}taleで，全点でstabilizer preservingである。
+零gerbe $B\mu_2$ 上では恒等であり，そのスキーム論的逆像も同じ零gerbeである。
+零点の形式環の射 $s\mapsto t+t^3$ は同型で，接写像は恒等である。
+それでも，零gerbeを含む始域のどのZariski開部分へ制限しても，
+$H$ は開埋込みにならない。
+\end{example}
+\begin{proof}
+$h'(t)=1+3t^2$ は $V$ 上可逆なので $h$ は\'{e}taleである。
+同じ群による同変射であり，標的のatlas $\mathbb A^1_s$ による基底変更は
+$h:V\to\mathbb A^1_s$ だから，商の射もrepresentableかつ\'{e}taleである。
+$1+t^2$ を可逆化したので $h^{-1}(0)$ はスキーム論的にも $t=0$ だけである。
+非零点では両側の安定化群は自明，零点ではどちらも $\mu_2$ である。
+形式同型は線型係数が $1$ であることから従う。
+
+粗空間の座標を $a=t^2$，$b=s^2$ とすると，
+粗射は
+\[
+ b=a(1+a)^2
+\]
+であり，関数体拡大の次数は $3$ である。
+非空開部分への制限では関数体は変わらないので，
+どの零保持開制限も開埋込みとはならない。
+実際，schemeの関係 $V\times_{\mathbb A^1}V$ の対角以外の部分は
+$1+t^2+tu+u^2=0$ で与えられる。
+そのsource像は零点を含まないが，稠密であり閉包は零点を含む。
+対角が開閉であることや形式近傍が一つであることだけでは，
+この像を零保持開集合から除去できない。
+\end{proof}
+
+\begin{proposition}[大域比較を決める一般次数]
+\label{prop:poisson-shadow-degree-one-criterion}
+定理\ref{thm:coarse-shadow-etale-flat-locus}の射に対して，
+\[
+ \delta_{n,d}
+ =
+ [\,K(M^{\mathrm{nc}}_{n,d}):K(N_{n,d})\,]
+\]
+は有限の正整数である。次の条件は同値である。
+\begin{enumerate}
+\item $\delta_{n,d}=1$。
+\item $\overline\Theta$ は開埋込みである。
+\item $\Theta$ は開埋込みである。
+\end{enumerate}
+この一般次数は非空開部分への縮小で変わらない。
+本節の形式比較と\'{e}tale性だけでは $\delta_{n,d}=1$ は結論できない。
+\end{proposition}
+\begin{proof}
+両粗空間は整であり，$\overline\Theta$ は非空な開像を持つのでdominantである。
+有限型かつquasi-finiteであることから，関数体拡大は有限である。
+次数が1なら，正規な $N_{n,d}$ への
+birational，quasi-finiteかつseparatedな射となる。
+\cite[Tag 082J]{StacksProject}のZariski主定理で，
+終域のその関数体内での正規化は終域自身だから，$\overline\Theta$ は開埋込みである。
+Cartesian図式によりこれは $\Theta$ の開埋込みを与える。
+逆に $\Theta$ が開埋込みなら，粗空間の開部分への制限の性質によって
+$\overline\Theta$ も開埋込みであり，関数体は等しい。
+非空開制限で関数体は不変である。
+前例では全ての局所条件が成立する一方で $\delta=3$ である。
+\end{proof}
+
+\begin{remark}
+全零切断での形式同型は，対角の近傍にある一意な枝を同定する。
+大域の開埋込みには，それに加えて離れた同一Poisson模型の枝を排除する必要がある。
+本稿の具体的な $\Theta$ についての一般次数 $\delta_{n,d}$，
+その像と補集合，および逆量子化の代数的構成はこの先の大域比較の課題である。
+\end{remark}

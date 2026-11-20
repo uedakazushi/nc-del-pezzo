@@ -42,7 +42,7 @@
 \newcommand{\Perf}{\operatorname{Perf}}
 \newcommand{\rank}{\operatorname{rank}}
 \newcommand{\HH}{\operatorname{HH}}
-\newcommand{\Version}{0.13}
+\newcommand{\Version}{0.14}
 \title{次数1・2の非可換del Pezzo多様体\texorpdfstring{\\}{ }構造対象付き変形とモジュライの局所構造}
 \author{}
 \date{2026年11月20日\quad v\Version\quad 公表用研究稿}
@@ -62,41 +62,28 @@ $[\operatorname{Spf}R_X/\operatorname{Aut}(X)]$ である。
 有限Ore被覆と対角のcompact持上げにより，全Artin変形の飽和性，豊富性，
 smooth proper性と相対Serre公式 $(-(n-1))[n]$ を証明する。
 
-有限パラメータについては，両次数・全次元で独立な全Poisson方向を含む
-有限表示ambient族を明示的な主開集合上に構成する。
-同じ代数の中心を中央多項式係数上で持ち上げ，方向空間上で貼り合わせることにより，
-全可換係数の零切断全体を含む有限型開近傍上で
-普遍的に正則な中心元と次数別平坦な中心超曲面族を得る。
-方向空間上の中心持上げとコホモロジー消滅，有限線型方程式によって代数化する。
-この一つの有限型中心商族のArtin基底変更が，
-可換sliceを選んだ後の全framed Abel変形を実現することを証明する。
+両次数・全次元で独立な全Poisson方向を含む有限表示ambient族を構成し，
+方向空間上の中心持上げと有限線型方程式により，
+全可換零切断を含む有限型開近傍上で普遍的に正則な中心商を得る。
+活性最高次曲線の特異・可約・非被約な退化も含む相対切断環と，
+方向頂点での忠実平坦降下から，強Noether性と積代数のNoether性を証明する。
+同じambientの無捩れ相対CY同型，有限compact生成窓と対角解消により，
+この族は滑らかな全可換模型を含む一つの開近傍でsmooth properな非可換del Pezzo族となる。
 
-さらに，活性最高次曲線の特異・可約・非被約な退化を含む相対切断環を構成する。
-次数別のKrull交叉と，方向頂点の完成および頂点外の忠実平坦被覆を組み合わせ，
-この全方向族の強Noether性と積代数のNoether性を証明する。
-同じambientの無捩れな相対CY同型から，相対tails・Serre公式と有限compact生成窓を得る。
-対角の有限部分解消により，滑らかな全可換模型の零切断を含む有限型開近傍で，
-同じ族が実際のsmooth properな非可換del Pezzo族となる。
-この有限開上では，全 $\mathcal O$ 保存同値の層を反標準Veronese環の
-次数付き同型のスカラー商として同定し，有限表示のアフィンスキームで表す。
-さらに零切断を保って縮小すれば，この同値スキームはquasi-finiteかつunramifiedである。
-方向解消と一つの低次数中心条件，基本シフトを保つ矢の開性を組み合わせ，
-可換零切断全体を含む一つの開近傍で，通常の次数付き環から全同値を復元する。
-全同値群oidの可換点上の完成を計算し，非零方向では重み付き生成元変換と
-Casimir係数の可逆なJacobianによって矢の持上げを解く。
-これにより，滑らかな可換零切断全体を含む一つの開近傍で，
-全同値による有限型で整なDeligne--Mumfordスタックを構成する。
-次数1，および次数2の $n=2$ では滑らかであり，
-次数2の $n\ge3$ では可換部分にPl\"ucker錐の特異性が残る。
-全非可換ファイバーのAbel Hochschild比較と二次Pl\"ucker障害から，
-零切断を含む一つの開近傍の全点で全Abel Artin普遍性を証明する。
-任意の許容族の反標準環を有限表示として復元し，混合同値層の表現可能性と合わせて，
-このDM部分問題が全モジュライ内の開部分スタックであることを示す。
-対称化した中心方程式から可換模型を作り，全同値層を古典同型層へ閉埋込みすることで，
-同じ零切断近傍の対角の有限性と，分離的な有限型粗モジュライの存在を得る。
-一般安定化群は自明で，可換点の粗局所環は上記の有限群不変環によって記述される。
-次元は次数1で $b_{n,1}+n$，次数2で $b_{n,2}+2n-1$ である。
-この近傍の外側の対象の被覆，全既約成分数，追加開条件の明示公式は未解決である。
+反標準環と低次数中心から全 $\mathcal O$ 保存同値を認識し，
+Casimir係数のJacobianによって全同値群oidの滑らかさを示す。
+全非可換点でのAbel Artin比較と混合同値層の表現可能性を合わせ，
+全モジュライ内に有限対角を持つ整な有限型DM開部分 $\mathfrak U_{n,d}$ を得る。
+対称化した中心方程式と低次数交換子は，可換模型上の実際のPoisson構造を定める。
+この構成は全同値と任意基底変更に両立し，零切断を保つ縮小の後，
+Poissonモジュライへの表現可能でstabilizer preservingな\'{e}tale射となる。
+可換模型への射は平坦で，相対次元は次数1で $n$，次数2で $2n-1$ である。
+粗空間は正規Cohen--Macaulayな準アフィンスキームとなり，
+古典粗モジュライへの射の平坦locusは，その滑らかなlocusの逆像に一致する。
+次数2では可換零切断のblow-upが滑らかなスタックを与え，例外因子は相対Grassmann多様体，
+discrepancyは $n$ である。
+最高活性部分では，規格化した係数写像の一般次数を次数1で5，次数2で4と計算する。
+Poisson比較射の大域的次数，構成近傍の外側の被覆，全既約成分数は未解決である。
 \end{abstract}
 \clearpage
 \tableofcontents
@@ -315,6 +302,72 @@ $\operatorname{sh}:\mathfrak U_{n,d}\to\mathcal D_{n,d}$ も与える。
 全モジュライの代数性，全対象の被覆，可換部分に接しない成分の不存在は，
 これらの近傍の結果からは結論しない。
 
+\subsection{Poisson模型との\'{e}tale比較と相対幾何}
+可換模型 $F^{\mathrm{sh}}=\operatorname{Sym}^{-1}(\Omega)$ に，
+非可換代数の低次数交換子から取り出した方向を組み合わせる。
+次数1では $[x_i,y]=D_i z$，次数2では $[x_i,x_j]=p_{ij}z$ と書き，
+$D=\sum_iD_i\partial_{x_i}$，$P=\sum_{i<j}p_{ij}\partial_{x_i}\wedge\partial_{x_j}$ とおく。
+得られる二重ベクトルは
+\[
+ \Pi^{\mathrm{sh}}=
+ \begin{cases}
+ \iota_{dF^{\mathrm{sh}}}(D\wedge\partial_y\wedge\partial_z),&d=1,\\
+ \iota_{dF^{\mathrm{sh}}}(P\wedge\partial_z),&d=2.
+ \end{cases}
+\]
+次数2ではPl\"ucker関係からJacobi恒等式が従う。
+この恒等式と全同値による変換則を非被約係数上でも証明する。
+以下で $\mathcal P_{n,d}\to\mathcal D_{n,d}$ は
+\cite{PoissonDP}の内在的Poissonモジュライである。
+
+\begin{theorem}[Poisson比較と平坦性]\label{thm:main-poisson-shadow-comparison}
+定理\ref{thm:main-open-coarse-moduli}の開部分を全可換零切断を保って縮めると，
+次が成立する。
+\begin{enumerate}
+\item 上の構成は，表現可能，分離的，有限表示，stabilizer preservingな\'{e}tale射
+ $\Theta:\mathfrak U_{n,d}\to\mathcal P_{n,d}$ を与える。
+ 零Poisson構造の逆像は可換零切断であり，その上の射は恒等である。
+\item 粗空間の射 $\overline\Theta:M^{\mathrm{nc}}_{n,d}\to N_{n,d}$ も
+ 分離的\'{e}taleで，スタックと粗空間の正方形はCartesianである。
+ $M^{\mathrm{nc}}_{n,d}$ は正規Cohen--Macaulayな整な準アフィンスキームである。
+\item $\operatorname{sh}:\mathfrak U_{n,d}\to\mathcal D_{n,d}$ は
+ 準アフィン，有限表示，平坦かつ全射で，相対次元は $n$ または $2n-1$ である。
+ 一方，古典粗空間を $M^{\mathrm{cl}}_{n,d}$ とすると
+ \[
+  \operatorname{Flat}(\overline{\operatorname{sh}})
+  =\overline{\operatorname{sh}}^{-1}((M^{\mathrm{cl}}_{n,d})_{\mathrm{sm}}).
+ \]
+\end{enumerate}
+\end{theorem}
+\begin{proof}
+Poisson構造とその全同値降下は命題\ref{prop:poisson-shadow-morphism}，
+可換点の形式比較は命題\ref{prop:poisson-shadow-formal-comparison}，
+\'{e}tale化は定理\ref{thm:poisson-shadow-etale}による。
+相対幾何と粗空間は系\ref{cor:shadow-flat-cone-fibers}と
+定理\ref{thm:coarse-shadow-etale-flat-locus}で証明する。
+\end{proof}
+
+次数2では $\operatorname{Bl}_{\mathcal D_{n,2}}\mathfrak U_{n,2}$ が滑らかなDMスタックとなる。
+例外因子は相対 $\Gr(2,n+1)$ で，法束は $\mathcal O(-1)$，
+$K_{\widetilde{\mathfrak U}}=\rho^*K_{\mathfrak U}+nE$ である
+（系\ref{cor:nc-shadow-zero-blowup-resolution}）。
+$n\ge3$ ではこれは特異点解消である。
+Gorenstein性とterminal性は\'{e}tale atlas上の主張であり，粗空間には移さない。
+
+この比較は，有限パラメータに対する実際の射である。
+一方，その関数体次数 $\delta=[K(M^{\mathrm{nc}}_{n,d}):K(N_{n,d})]$ は未決定である。
+$\delta=1$ は $\Theta$ が開埋込みであることと同値だが，
+可換点の形式同型や零切断上の恒等性だけでは導けない
+（命題\ref{prop:poisson-shadow-degree-one-criterion}，
+例\ref{ex:etale-shadow-not-open-immersion}）。
+第\ref{sec:shadow-top-inverse}節では，最高活性部分の二係数写像を厳密に計算する。
+次数1ではPoisson側の $y$ 二次平行移動による正規化後に一般次数5，
+次数2の対称binary quartic族では同じ座標のshadow係数への写像が一般次数4となる
+（命題\ref{prop:degree-one-shadow-top-degree-five}，
+\ref{prop:binary-shadow-generic-degree-four}）。
+これらは指定した係数写像の次数であり，下位係数と全同値の商を含む
+$\delta_{n,d}$ の値や下界を与えたものではない。
+
 \subsection{先行研究と本稿の範囲}
 Lowenのalgebroidによる全Abel変形の比較\cite[Theorems 3.14, 3.26]{Lowen2008}と、
 Yekutieliのtwisted quantization\cite[Corollaries 7.5, 11.2]{Yekutieli2015}を用いる。
@@ -338,6 +391,15 @@ Pl\"ucker二次障害の階数とproperな方向解消を合わせて非可換�
 非可換対角への移行には，対称化した中心元と全同値の閉条件を別に証明する。
 Keel--Moriによる粗空間とstabilizer preservingな\'{e}tale降下は既知の一般定理
 \cite[Tags 0DUT, 0DUS, 0DUE]{StacksProject}である。
+
+三変数のJacobian Poisson括弧そのものは既知である
+（例えば\cite[Introduction, 式(3)]{Pichereau2006}）。
+本稿で別に証明するのは，低次数交換子と同じ中心元を用いた全方向の式，
+非被約基底上の全 $\mathcal O$ 保存同値に関する降下，および実際の\'{e}tale比較である。
+相対錐，粗空間の平坦locusとGrassmann錐の解消は
+\cite[定理7.3, 9.6, 10.3, 命題10.4]{PoissonDP}の結果を入力とし，
+\'{e}tale比較と平坦基底変更を通じて本モジュライへ移す。
+これらのPoisson側の幾何を本稿で新たに証明した結果とは扱わない。
 
 
 Lowen--Van den BerghのAbel変形とinjective線型圏の比較
@@ -631,14 +693,16 @@ $(-(n-1))[n]$ と長さ $n+5$（次数1），$n+3$（次数2）のcompact生成�
 \input{sections/noncommutative_abel_versality}
 \input{sections/open_full_moduli}
 \input{sections/separated_coarse_moduli}
+\input{sections/poisson_shadow_comparison}
+\input{sections/shadow_top_inverse}
 
 \section{残る大域的なモジュライの問題}
 \label{sec:questions}
 全滑らかな可換模型を含む有限型DM開部分スタック
 $\mathfrak U_{n,d}\subset\mathfrak M^{\mathcal O}_{n,d}$ を構成し，
 その全点で全Abel Artin普遍性を得た。
-同じ近傍は有限対角を持ち，分離的で整な粗モジュライが存在する。
-一般安定化群は自明であり，可換点では有限群による実際の\'{e}tale局所商を得る。
+同じ近傍は有限対角を持ち，粗空間は正規Cohen--Macaulayな整な準アフィンスキームとなる。
+一般安定化群は自明であり，Poissonモジュライへのstabilizer preservingな\'{e}tale比較を持つ。
 任意の許容族の反標準環による復元は，全モジュライ問題の対角が
 affine有限表示であることも与える。
 これらを出発点として，次を今後の問題とする。
@@ -651,12 +715,13 @@ affine有限表示であることも与える。
       近傍の開性と形式一分枝性だけで，全成分数を結論しない。
       具体的には，反標準環の有限表示を出発点として，
       全対象の有界性と通常の重み付き超曲面表示の存在条件を調べる。
-\item \emph{可換模型への射とPoisson構造の復元。}
-      $\operatorname{sh}:\mathfrak U_{n,d}\to\mathcal D_{n,d}$ は構成できた。
-      そのファイバー，平坦性，中心元の選択への依存と，
-      初交換子から得るPoisson方向との関係を調べる。
-      この可換模型上のPoisson構造の大域的復元や，
-      Poissonモジュライとの同値は未証明である。
+\item \emph{Poisson比較の次数と像。}
+      実際のPoisson構造の復元と\'{e}tale比較 $\Theta$ は構成できた。
+      次はその関数体次数 $\delta$ と開像を決定する。
+      最高活性係数とCasimir係数の逆復元を分け，
+      座標を固定した一意性をPoisson同型類の一意性と混同しない。
+      零切断を含む非空開への縮小は関数体次数を変えない。
+      中心元の別の構成に対する比較射の依存性も調べる。
 \item \emph{粗空間の特異性と安定化群の増大。}
       可換点の局所環の完成は $R_X^{\operatorname{Aut}(X)}$ である。
       一般可換点では符号商として明示できるが，
@@ -671,7 +736,7 @@ affine有限表示であることも与える。
       尖点・可約曲線・非被約ribbonを含む境界で各条件を照合する。
 \item \emph{先行研究との比較と公表範囲。}
       既知の変形・量子化・復元理論と，
-      全方向族・全同値・全点Artin比較・有限対角を組み合わせた本稿の成果との関係を詰める。
+      全方向族・全同値・全点Artin比較・Poisson比較を組み合わせた本稿の成果との関係を詰める。
       包括的な新規性確認は未了であり，公表時には主結果のまとまりに応じて構成を整理する。
 \end{enumerate}
 三次三様体の残余圏による幾何化を次数1・2へ移すには，

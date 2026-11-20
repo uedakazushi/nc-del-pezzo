@@ -1,6 +1,6 @@
 # 文献・依存関係・新規性の範囲
 
-2026-11-20（JST） / v0.13。完全な書誌は [references.bib](../references.bib)。以下は使用する一次資料の具体的な箇所、現行論文での適用とその限界を示す。外部論文のPDFは収録しない。
+2026-11-20（JST） / v0.14。完全な書誌は [references.bib](../references.bib)。以下は使用する一次資料の具体的な箇所、現行論文での適用とその限界を示す。外部論文のPDFは収録しない。
 
 ## 1. 他研究からの数学的入力
 
@@ -13,6 +13,8 @@
 - 定理7.3、label `thm:relative-poisson`：任意基底変更と両立する二重ベクトル束とJacobi錐。次数1はA^n、次数2はGr(2,n+1)のPlücker錐。商で割る前のambient Jacobi/Casimir公式を含む。
 - 定理8.8、label `thm:poisson-moduli`：正規形の係数開集合と有効座標変換群による全族の商表示。
 - 定理9.2、label `thm:affine-coarse-moduli`：古典del PezzoおよびPoissonモジュライの有限対角・分離的アフィン粗空間。`coarse.tex` を上記固定commitで確認。判別式主開のaffine性、還元群と全有限stabilizer、Luna I §4 p.90が入力。本研究では対称化した中心方程式のshadowに適用し、全非可換Isomの閉埋込みから有限対角を得る。
+- 定理9.6、label `thm:coarse-flat-locus`：Poisson粗空間のCohen–Macaulay性と、粗忘却射の平坦locusが古典粗空間のsmooth locusの逆像に等しいこと。上記commitの `papers/sections/coarse.tex` の証明を確認。Luna slice上の有限群不変環と被約ファイバー `C_X/Aut(X)`、fiber内の滑らかな稠密開、正則性の忠実平坦降下を用いる。本研究ではΘ̄のétale局所環が忠実平坦であることを介して移す。
+- 補題10.1 `lemma:cone-lci`、定理10.3 `thm:poisson-resolution`、命題10.4 `prop:plucker-terminal`：上記commitの `papers/sections/singularities.tex` を確認。Plücker錐のlci判定、相対零切断blow-upのGrassmann線束表示、Gorenstein terminal性とdiscrepancy n。Θがétaleで零切断の逆像をschemeとして保つことから本研究へ移す。粗空間のterminal性やその解消には適用しない。
 - 補題8.7：全ての対象XでH⁰(T_X)=0。注意8.5、label `rem:deck-action`：被覆対合はPoissonパラメータに−1で作用。命題9.4、label `prop:generic-deck-stabilizer`：両次数・全n≥2でAut(X)=μ₂となる稠密開。形式群oidと一般点の粗符号商の入力。命題9.4の非空性・開性の証明を確認した。
 - 定理8.13・命題8.14：古典Poissonモジュライの次数ごとの既約性と次数の区別。これは全ncモジュライの成分定理ではない。
 - `quantization.tex`：固定Poisson方向の形式量子化と重み付き次数の保存。今回の任意冪零基底でのmonic分裂、同変な圏の降下をこのrepoで進める。
@@ -97,6 +99,14 @@ Plücker座標環の正規性・Cohen–Macaulay性にはSvanes (1973) とDe Con
 
 これらの一般比較・商定理は既知である。本研究では、全方向の有限中心商について全点のAbel接空間を制御し、全同値を保った開埋込みと有限対角へ結び付ける。優先権は未確認である。
 
+
+### 実際のPoisson比較とその幾何
+
+- Anne Pichereau, *Poisson (co)homology and isolated singularities*, Journal of Algebra **299** (2006), no. 2, 747–777, DOI [10.1016/j.jalgebra.2005.10.029](https://doi.org/10.1016/j.jalgebra.2005.10.029)、[arXiv:math/0511201v2](https://arxiv.org/pdf/math/0511201v2)、Introductionの式(3)、PDF p.3を確認。三変数のJacobian Poisson括弧とCasimir超曲面への降下は既知である。本稿の新しい証明対象は、同じ中心元と全低次数交換子からの相対式、非被約係数上のPlücker恒等式、全O保存同値と基底変更に関する降下である。Pichereauの孤立特異点を仮定したPoissonコホモロジーの結論は本稿へ輸入しない。
+- [Stacks 039M](https://stacks.math.columbia.edu/tag/039M) のNoether局所環と完成によるétale判定、[02GH](https://stacks.math.columbia.edu/tag/02GH) のétale locusの開性・étale射の平坦性と開写像性を、全可換点の形式比較へ適用する。
+- [0DUA](https://stacks.math.columbia.edu/tag/0DUA) により零切断を保ってstabilizer preservingへ縮小し、[0DUS](https://stacks.math.columbia.edu/tag/0DUS) と [0DUE](https://stacks.math.columbia.edu/tag/0DUE) によって粗空間のCartesian正方形とétale射を得る。一般のétale射がstabilizer preservingであるとは仮定しない。
+- [082J](https://stacks.math.columbia.edu/tag/082J) の代数空間版Zariski Main TheoremでΘ・shの準アフィン性と粗空間のスキーム性を得る。[0805](https://stacks.math.columbia.edu/tag/0805) はblow-upの平坦基底変更。これらは既知の一般定理であり、本稿ではPoisson側の既存幾何を移す。
+- 原稿 `sec:poisson-shadow-comparison` の証明と上の入力を分けて点検した。大域比較の次数δは未決定で、形式同型から開埋込みを推論しない。最高活性部分の逆係数写像は独立の有限計算として扱い、全モジュライの次数と同一視しない。全同値降下・étale比較の組合せについて包括的な優先権確認は未了である。
 
 ## 4. Compact持上げ、Serre、鎖formality、降下
 
@@ -232,7 +242,7 @@ BWB消滅で規格化中心のtorsorを自明化する。局所中心が存在�
 1. **全方向中心構成の比較と明示化。** 同じambient上の全方向中心と有限中心商、同じ族のArtin完成を既存の形式中心持上げ・filtered楕円代数・全Abel変形理論と比較する。追加の主開条件の明示、中心元の選択の違い、既知の公式との関係を調べる。
 2. **全方向有限族と既存理論の比較。** 全topの退化曲線、強・積Noether性の零方向への降下、同じ族の相対tails・Serre・smooth proper開近傍を、既存のTHCR・filtered変形・圏の変形理論と比較する。Keelerのmultiple divisors論文の本文と正確な仮定を確認し、体上・相対基底上の適用範囲を整理する。同じ有限族の全Artin普遍性と、全O同値による有限型atlasを区別する。
 3. **滑らかな開集合の明示。** 得られた有限部分対角解消とHom複体から、具体的な係数の非消滅条件を計算する。開近傍の存在証明と、その判別式の明示は異なる状態である。
-4. **全O同値と大域モジュライ。** 零切断を含む有限型DM開部分Uの全点Artin普遍性、有限対角、分離粗空間、一般自明安定化群、可換点の粗étale局所模型を得た。次はUの被覆範囲と可換locusに接しない成分、特殊安定化群の不変式、shadowのファイバーとPoisson構造の復元を調べる。Toën–Vaquiéの固定dg圏の対象モジュライを、可変な全O-marked圏のモジュライと同一視しない。
+4. **全O同値と大域モジュライ。** 零切断を含む有限型DM開部分Uの全点Artin普遍性、有限対角、Poissonモジュライへのétale比較、正規CM準アフィン粗空間、shadowの平坦性と粗射の正確な平坦locusを得た。次は比較射の次数・開像、Uの被覆範囲と可換locusに接しない成分、特殊安定化群の不変式を調べる。Toën–Vaquiéの固定dg圏の対象モジュライを、可変な全O-marked圏のモジュライと同一視しない。
 5. **退化曲線を含む構成と新規性。** 解消point curve、次数1の尖点と次数2のribbonを含む相対THCR、二重切断環による積Noether性、smoothnessの有限開近傍を、既存の楕円代数・非可換del Pezzo・変形圏の構成と比較する。中心増大層を含む適用範囲と、各主張の優先権を確認する。
 
 一般nでの全Abel形式群oid、nc多様体条件のArtin持上げ、形式粗商、具体量子化の完全性、任意指数Veronese復元、有限型族のCasimir・普遍中心・相対双対、全topの退化曲線を含む相対THCRと積Noether性、全方向の同時中心商・相対tails・smooth proper開近傍・全Artin比較という組合せについて、包括的な優先権調査は未了。変形・compact持上げ・formality・CY potentialの中心存在・Sklyanin中心元・Borel–Weil–Bott・σ-ampleness・THCRのtensor積に関する一般結果は既知の研究として区別する。非可換del Pezzo曲面の各定義、AS Z-代数、marked quiver、非可換吹上げとの比較も継続する。講演概要にある未公表の一般次数の主張は確立済み定理として引用しない。

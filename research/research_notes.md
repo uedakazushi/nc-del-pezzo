@@ -1,6 +1,6 @@
 # 研究ノート：次数1・2のnc del Pezzo n-fold
 
-2026-11-20（JST） / v0.13。証明本文は主原稿、一次資料の位置は [文献と依存](literature.md)。この文書は現在有効な知識と障害を整理する。
+2026-11-20（JST） / v0.14。証明本文は主原稿、一次資料の位置は [文献と依存](literature.md)。この文書は現在有効な知識と障害を整理する。
 
 ## 1. 形式局所環と数値
 
@@ -132,13 +132,43 @@ d2・n≥3では古典点の `m=dim HH²=b(n,2)+binom(n+1,2)` はD₂より大�
 
 ### 有限対角・分離粗空間・一般安定化群
 
-主原稿 `sec:separated-coarse-moduli`。全sourceがsmoothでWが被約であることから全同値スキームも被約であり、非零方向で成り立つ重み付き線型化の係数恒等式が零方向まで延長される（`lem:all-graded-isom-weighted-linear`）。従って `F^sh=Sym⁻¹(Ω)` による可換超曲面は全同値に関して自然である。全零切断を保って滑らかな可換族へ縮め、可換模型への射 `sh:U→D_(n,d)` を得る（`lem:commutative-central-shadow`, `prop:representable-commutative-shadow`）。この射は代数空間で表現可能で、零切断上では元の可換模型を返す。Poisson構造の復元やPoissonモジュライとの同値はまだ結論していない。
+主原稿 `sec:separated-coarse-moduli`。全sourceがsmoothでWが被約であることから全同値スキームも被約であり、非零方向で成り立つ重み付き線型化の係数恒等式が零方向まで延長される（`lem:all-graded-isom-weighted-linear`）。従って `F^sh=Sym⁻¹(Ω)` による可換超曲面は全同値に関して自然である。全零切断を保って滑らかな可換族へ縮め、可換模型への射 `sh:U→D_(n,d)` を得る（`lem:commutative-central-shadow`, `prop:representable-commutative-shadow`）。この射は代数空間で表現可能で、零切断上では元の可換模型を返す。次項のPoisson構造とétale比較は、低次数交換子による追加の構成である。
 
 全同値スキームEは、二つの可換模型間の同型スキームJの閉部分スキームである。閉条件は、生成元の非線型加算の消滅と、正逆変換が有限個の非可換関係式を保つ条件である。入力 `poisson-del-pezzo` v1.4・定理9.2の可換モジュライの有限対角からJは有限であり、Eも有限となる（`thm:zero-neighborhood-finite-diagonal`）。従って**全可換locusを含むUは有限対角を持つ分離的な有限型DMスタック**であり、Keel–Moriにより分離的・整・同次元の有限型粗代数空間 `M^nc_(n,d)` を持つ（`cor:zero-neighborhood-separated-coarse`）。慣性の平坦性を零切断まで要求していない。
 
 有限慣性によって、可換点のétale slice `[T/Γ_X]→U` は縮小後に全点でstabilizer preservingとなる。一般の可換模型のΓ_X=μ₂は係数方向に自明、Poisson方向に符号で作用するので、非零方向のstabilizerは自明となる。よってUの一般安定化群は自明であり、非零部分に滑らかな代数空間の稠密開が存在する（`cor:stabilizer-preserving-slice-generic-trivial`）。一般論としては、affine quasi-finite慣性のgeneric有限性をmonic関係の分母払いで有限化し、generic flatnessからfinite étale慣性と滑らかな粗空間を得る方法も有効である（`cor:generic-finite-inertia-coarse`）。本族では上の有限対角と符号作用によって、零切断近傍と一般安定化群まで確定する。
 
-粗空間上でも `T/Γ_X→M^nc_(n,d)` はétaleで、スタックと粗空間の正方形はCartesianとなる。従って実際の粗空間の可換点での完備局所環は `R_X^(Γ_X)` であり、その局所環は正規・Cohen–Macaulay・解析的に一分枝である（`cor:algebraic-coarse-local-model`）。Γ_X=μ₂ならétale局所模型は `A^b×Spec(C[C_(n,d)]^(2))` の原点近傍で、既存の符号商の接空間次元と特異性は実際の粗空間にも適用できる。特殊なΓ_Xの不変式の明示、可換点から離れた粗空間の特異性、shのファイバーと像は次の問題である。
+粗空間上でも `T/Γ_X→M^nc_(n,d)` はétaleで、スタックと粗空間の正方形はCartesianとなる。従って実際の粗空間の可換点での完備局所環は `R_X^(Γ_X)` であり、その局所環は正規・Cohen–Macaulay・解析的に一分枝である（`cor:algebraic-coarse-local-model`）。Γ_X=μ₂ならétale局所模型は `A^b×Spec(C[C_(n,d)]^(2))` の原点近傍で、既存の符号商の接空間次元と特異性は実際の粗空間にも適用できる。特殊なΓ_Xの不変式と非可換点の安定化群増大の具体的分類は残る。
+
+### 実際のPoisson shadowとétale比較
+
+証明は主原稿 `sec:poisson-shadow-comparison`。低次数交換子をd1では `[x_i,y]=D_i z`、d2では `[x_i,x_j]=p_ij z` と書く。対称化中心Fに対し `Π=ι_dF(D∧∂y∧∂z)` または `ι_dF(P∧∂z)` と置くと、FはCasimirとなり、Jacobi恒等式はd1で可換な三導分、d2でPlücker関係の多項式恒等式から従う（`lem:shadow-jacobian-poisson`）。d2では非被約環上でPを局所的に分解可能と仮定しない。`verify_poisson_shadow.py` は独立な1・2階jet上で全JacobiatorとそのPlücker倍表示を厳密に照合する。
+
+ambientの反自己同型 `ρ(x)=x, ρ(y)=y, ρ(z)=−z` と、中心の規格化・中央多項式部分から `ρΩ=Ω` を得る（`lem:shadow-even-z`）。従ってFはzについて偶で、z²係数1/2の規格化により `F=z²/2+f`。これで低次数Poisson括弧は元の交換子に正確に一致する。重み付き線型な全同値では、中心式の尺度と3-vectorの逆尺度が相殺し、Poissonテンソルそのものを保存する。任意基底変更と合成にも両立するため、表現可能な `Θ:U→P_(n,d)` を得る（`prop:poisson-shadow-morphism`）。中心元の単元倍は規格化で消える。中央Casimir多項式の加算はambientのPoissonテンソルを変えないが超曲面を変えるため、異なる中心構成の無条件な同一視はしない。
+
+Projのx₀-chartでzのmonic二次式の基底を使うと、Poissonテンソルが零である条件は方向係数が全て零である条件と一致する。この議論はn=2と非被約係数を含み、零Poisson構造の逆像が可換零切断Dであることをschemeとして与える。方向イデアルJについて `F^sh≡F mod J²`、Poissonテンソルの差はJ³に入り、古典・Poisson両接写像は恒等になる。同じ形式環R_Xの自己写像とHH¹剛性を用いて可換点の群oid完成が同型となる（`prop:poisson-shadow-formal-comparison`）。高次で形式写像自体が恒等とは主張しない。
+
+有限表示の完成判定とétale locusの開性により、全可換零切断を含む一つの開へ縮めてΘを分離的étaleにできる。標的の有限慣性を使ってさらにstabilizer preservingにする（`thm:poisson-shadow-etale`）。開像は零切断を含む。Θはquasi-finite separatedなので準アフィンである。
+
+### Shadowの平坦性・粗空間・零切断の解消
+
+PoissonDP v1.4の相対Jacobi錐を通じて、`sh=pΘ` は準アフィン・有限表示・平坦・全射、相対次元d1でn、d2で2n−1となる（`cor:shadow-flat-cone-fibers`）。固定古典模型X上のファイバーはJacobi錐C_Xへのétale射を持つスキームで、像は頂点を含む開、頂点の逆像は一点。正規CM Gorensteinで純次元だが、ファイバー全体の連結性・既約性やC_Xへの開埋込みは未証明である。d1とd2・n=2でshはsmooth、d2・n≥3の非smooth locusの台はD。n=3は5次元quadric錐、n≥4はnon-lciである。
+
+粗空間の正方形はCartesianで、`Θ̄:M^nc→N` は分離的étale。Poisson粗空間Nのaffine性と正規CM性、Zariski Main TheoremによりM^ncは正規CMな整な準アフィンスキームとなる。PoissonDP定理9.6と忠実平坦降下から `Flat(sh̄)=sh̄⁻¹((M^cl)_sm)`（`thm:coarse-shadow-etale-flat-locus`）。したがって古典粗空間の特異点上では全点で非flatである。粗ファイバーは非被約になり得るため、被約化の `C_X/Aut(X)` へのétale比較と区別する。
+
+d2では平坦基底変更により `Bl_D U=U×_P Bl_D P`。PoissonDP定理10.3・命題10.4から、これはD上滑らかなDMスタックで、射は表現可能projective、零切断外で同型、例外因子は相対Gr(2,n+1)、法束O(−1)となる。`K_tildeU=ρ*K_U+nE` で、Uはatlas上Gorenstein terminal（`cor:nc-shadow-zero-blowup-resolution`）。n=2では元から滑らかな相対A³の零切断blow-up、n≥3では特異点解消である。粗空間のGorenstein性・terminal性・解消を主張しない。
+
+### 形式同型から大域的一意性を導けない障害
+
+`δ=[K(M^nc):K(N)]` は正整数で、δ=1、Θ̄が開埋込み、Θが開埋込みは同値（`prop:poisson-shadow-degree-one-criterion`）。非空開へ縮めてもδは変わらない。反例 `V=Spec C[t,(1+t²)⁻¹,(1+3t²)⁻¹]` に符号作用を入れた `h:[V/μ₂]→[A¹/μ₂], h(t)=t+t³` は、表現可能分離的étaleかつstabilizer preserving、零gerbeで恒等、零の逆像一つ、形式近傍同型である。それでも粗射 `b=a(1+a)²` は次数3である（`ex:etale-shadow-not-open-immersion`）。非対角の同値関係のsource像が零を避けつつ零へ集積するため、単純な悪条件像の除去では単射化できない。
+
+### 最高活性部分の逆係数写像
+
+最高活性部分の逆係数写像は主原稿 `sec:shadow-top-inverse` に整理した。h=1・中央変数なしのd1二係数族 `A₄=αx⁴, A₆=βx⁶` では、規格化中心のshadowは `z²/2+y³/3−2αx²y²+c x⁴y+d x⁶` である。c,dの厳密有理式と12項・22項の自由語中心証明書を `prop:degree-one-shadow-top-center` に記載した。同じ座標ならαはx²y²係数から、βはcから復元できる。一方、Poisson側で `y=Y+2αx²` と正規化した `I=c−4α², J=d+2αc−16α³/3` の係数写像は一般次数5（`prop:degree-one-shadow-top-degree-five`）。C(α,β)=C(α,I)と、Jのαに関する互いに素な次数5/2の有理式を用いる。
+
+d2のh=1・対称binary quartic `U=α(x⁴+y⁴)/4+βx²y²` では、同じ座標のshadow `z²/2+A(x⁴+y⁴)/4+Bx²y²` への係数写像が一般次数4（`prop:binary-shadow-generic-degree-four`）。De Laet中心式の完全対称化変換と、b=−2+2β/3,c=αについてのc²=R(b,B), A=cL(b,B)から体の塔を計算する。両次数とも自由語恒等式・有理関係式・互いに素性を標準ライブラリだけの新規証明書で検証した。これらの最高活性計算だけでは、下位係数への各分枝の延長、構成開への所属、全同値での非同一視までは証明したことにならない。次数2の下位係数は次の三角復元で別に扱う。全Θの次数やその下界はこの二つの数値からは結論しない。
+
+次数2ではさらに、既存の22変数中心方程式のうち「整列基底の定数項=U₀、z²係数=1/2」という規格化を固定し、Sym座標で再規格化すると、全lower写像が `V_j=L_j(U₄,h)U_j+Q_j(U₃,...,U_(j+1))` という三角形になる（`cor:binary-shadow-lower-triangular`）。分母がtopだけに依存し、各lower係数の重みが4−jであることが入力。h=0でL_j=1という事実に加え、`z′=hz, U′=h²U` と中心の一意性から `L_j(h²U₄,1)=L_j(U₄,h)` を得るので、h=1でも各L_jの行列式は非零有理関数である。したがってこの選択した係数族では全lowerが各top分枝に一意に持ち上がり、固定座標の全係数写像も次数4。中央一次変数Kを加えた斉次族でも、線型ブロックは `L_j⊗id_(Sym^(4−j)K)` となる。全Θへ進むには、全方向族の中心とのCasimir差、共通のnc開への所属、正規形の補助選択と全座標群・全同値の商を比較する必要がある。次数1の全lower復元はまだ行っていない。
 
 ### 基本シフトの開条件と形式対象
 
@@ -506,6 +536,6 @@ smooth properな有限窓dg代数Cでは、`HH=RHom_(C^e)(C,C)` が係数perfect
 ## 19. 優先する未解決点
 
 1. **全Mの被覆と大域成分。** 全可換locusを含む整な有限型開Uと、全Mのaffine有限表示対角は得た。Uの閉包と補集合、可換locusに接しない対象・成分の有無を調べ、全Mの代数性と全成分数へ進む。Uの開性と一分枝性から全Mの既約性を推論しない。
-2. **粗空間の特異性と可換模型への射。** Uの有限対角・分離粗空間・一般安定化群の自明性、および可換点のétale粗模型は確定した。特殊自己同型群Γ_Xに対する不変式環の明示、非可換点の局所商と特異性、`sh:U→D_(n,d)` のファイバー・像・平坦性を調べる。shが与える可換模型上のPoisson構造を内在的に復元できるかも未解決である。
+2. **Poisson比較の次数・像と粗空間の詳細。** Θのétale性、shの平坦性、粗空間の正規CM準アフィン性と粗射の正確な平坦locusは確定した。Θの関数体次数δと開像、中心構成への依存、特殊自己同型群Γ_Xに対する不変式を調べる。最高活性係数の逆復元と下位Casimir係数を分け、座標付きの係数写像の次数を全モジュライの次数と同一視しない。
 3. **低次数中心が増える境界と明示条件。** 得た零切断近傍の外側でも反標準環による同値認識は有効である。基本シフトの根と追加の同値を調べ、交換子行列・中心元の追加分母・smoothness・Casimir Jacobian・HH²階数・可換模型の判別式による有限開条件を具体化する。全次数の中心最小性を一つの有限条件で保証したとはみなさない。
-4. **公表と文献比較。** 全可換locusを含む分離的な有限型開DMモジュライ、全点Abel Artin比較、有限対角と粗空間を主軸に成果をまとめる。一般変形理論・既存Poisson結果・THCR・Keel–Mori等の入力と本稿の適用を区別する。AMU2025の多項式Veronese結果、Keelerのmultiple divisors論文の本文と適用範囲、および組合せの包括的優先権の確認は継続する。
+4. **公表と文献比較。** 全可換locusを含む有限型開DMモジュライ、全点Abel Artin比較、実際のPoisson比較とその相対幾何を主軸に成果をまとめる。一般変形理論・Jacobian Poisson構造・既存Poisson幾何・THCR・Keel–Mori等の入力と本稿の適用を区別する。AMU2025の多項式Veronese結果、Keelerのmultiple divisors論文の本文と適用範囲、および組合せの包括的優先権の確認は継続する。

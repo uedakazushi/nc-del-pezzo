@@ -1,0 +1,430 @@
+% !TeX root = ../nc-del-pezzo.tex
+\section{最高活性部分の逆係数写像}
+\label{sec:shadow-top-inverse}
+
+本節では，Poisson比較の大域的一意性を調べるために，
+中央Casimir変数を除いた最高活性部分の係数写像を厳密に計算する。
+座標付きの有理写像と，座標変換を含む全モジュライの比較を区別する。
+以下の次数は指定した二係数族の次数であり，
+命題\ref{prop:poisson-shadow-degree-one-criterion}の
+$\delta_{n,d}$ を計算したものではない。
+
+\subsection{次数1の最高活性部分における五価な比較}
+\label{sec:degree-one-shadow-top-inverse}
+
+本項では非零方向の活性変数を $x$ とし，方向の係数を $h=1$ に固定する。
+中央変数と下位係数を加えず，最高活性部分の二つの係数だけを動かす。
+対象となる代数は
+\begin{equation}
+\label{eq:degree-one-shadow-top-algebra}
+ \begin{gathered}
+ A_{\alpha,\beta}=
+ \mathbb C\langle x,y,z\rangle/
+ \left([x,y]-z,\ [z,x]-y^2-\alpha x^4,
+       [y,z]-4\alpha\operatorname{Sym}(x^3y)-6\beta x^5\right),\\
+ \deg(x,y,z)=(1,2,3)
+ \end{gathered}
+\end{equation}
+である。$\alpha+1$ と $\alpha+5$ を可逆化する。
+以下の次数5は，この係数平面から，三変数の次数付きJacobian Poisson表示を
+$\partial_x\wedge\partial_y\wedge\partial_z$ を保つ二次の $y$ 平行移動によって正規化した係数平面への
+\emph{有理写像の関数体次数}である。
+活性曲線の $\operatorname{Proj}$ 上のPoisson構造を分類する次数ではなく，
+下位係数を含む $\Theta_1$ 全体の次数とも現段階では同一視しない。
+
+\begin{proposition}[最高活性中心の明示式]
+\label{prop:degree-one-shadow-top-center}
+代数\eqref{eq:degree-one-shadow-top-algebra}の規格化した次数6の中心元は，
+一般点で一意であり，次式で与えられる。
+\begin{align}
+ \Omega_{\alpha,\beta}
+   &={z^2\over2}+{y^3\over3}
+       -2\alpha\operatorname{Sym}(x^2y^2)
+       +c\operatorname{Sym}(x^4y)+d x^6,\label{eq:degree-one-shadow-top-center}\\
+ c&={5(5\alpha^2-6\alpha\beta+3\alpha-15\beta)
+                \over3(\alpha+5)},\label{eq:degree-one-shadow-top-c}\\
+ d&=-{2\alpha^4+6\alpha^3-36\alpha^2\beta-20\alpha^2
+          +36\alpha\beta^2-51\alpha\beta+90\beta^2-15\beta
+                \over3(\alpha+1)(\alpha+5)}.
+       \label{eq:degree-one-shadow-top-d}
+\end{align}
+中心性そのものは表示した分母が可逆な全係数で成立する。
+\end{proposition}
+\begin{proof}
+$z=[x,y]$ を消去すると，二生成元自由代数の関係式は
+\begin{align*}
+ R_4&=2xyx-yx^2-x^2y-y^2-\alpha x^4,\\
+ R_5&=2yxy-y^2x-xy^2
+       -\alpha(x^3y+x^2yx+xyx^2+yx^3)-6\beta x^5
+\end{align*}
+となる。$Q=6(\alpha+1)(\alpha+5)$，$C=Q\Omega_{\alpha,\beta}$ と置き，
+$C$ では $z=[x,y]$ と解釈する。
+これは分母のない自由非可換多項式である。
+その中心性を与える自由代数内の恒等式は
+\begin{align}
+[C,x]={}&9\alpha(\alpha+1)(R_4x^3-x^3R_4)\notag\\
+ &+3(\alpha+1)(2\alpha+5)(R_4xy-yxR_4)
+       -15(\alpha+1)(R_4yx-xyR_4)\notag\\
+ &+3\alpha(\alpha+1)(xR_4x^2-x^2R_4x)
+       +4\alpha(\alpha+1)(xR_4y-yR_4x)\notag\\
+ &-(\alpha+1)(2\alpha+5)(R_5y-yR_5)
+       \label{eq:degree-one-shadow-top-x-certificate}
+\end{align}
+であり，第二の恒等式には次の係数を使う。
+\begin{align*}
+ p&=4\alpha^3+13\alpha^2-24\alpha\beta-15\alpha-60\beta,\\
+ q&=-2\alpha^3+\alpha^2-24\alpha\beta+9\alpha-60\beta+30,\\
+ r&=-8\alpha^2+12\alpha\beta-11\alpha+30\beta-15,\\
+ s&=8\alpha^3+20\alpha^2-12\alpha\beta-30\beta,\\
+ t&=2\alpha^3+11\alpha^2-12\alpha\beta-3\alpha-30\beta,\\
+ u&=2\alpha^3-\alpha^2-12\alpha\beta-15\alpha-30\beta,\\
+ v&=2\alpha^3+8\alpha^2-12\alpha\beta-6\alpha-30\beta.
+\end{align*}
+このとき
+\begin{align}
+[C,y]={}&p(R_4x^4-x^4R_4)
+       -3(\alpha+1)(\alpha+5)(R_4x^2y-yx^2R_4)\notag\\
+ &+q(R_4xyx-xyxR_4)
+       -3(\alpha+1)(4\alpha+5)(R_4yx^2-x^2yR_4)\notag\\
+ &+r(R_4y^2-yR_4y)+s(xR_4x^3-x^3R_4x)\notag\\
+ &+t(xR_4xy-yxR_4x)+u(xR_4yx-xyR_4x)\notag\\
+ &+v(x^2R_4y-yR_4x^2)+r(R_5xy-yR_5x)\notag\\
+ &+3(\alpha+1)(2\alpha+5)(R_5yx-xyR_5)
+       \label{eq:degree-one-shadow-top-y-certificate}
+\end{align}
+が成立する。いずれも自由語の係数を比較する多項式恒等式であり，
+右辺はそれぞれ12項，22項の関係式の倍からなる。
+従って $Q$ が可逆なら $\Omega_{\alpha,\beta}$ は $x,y$ と可換し，
+$z=[x,y]$ とも可換する。
+
+一般点での一意性も確認する。
+$\alpha=\beta=0$ の代数は
+\[
+ \mathbb C[y,z][x;\delta],\qquad
+             \delta(y)=z,\quad\delta(z)=-y^2
+\]
+である。中央な元に正の $x$ 次数の項 $f_m(y,z)x^m$ があれば，
+$y$ との交換子の最高 $x$ 次数係数は $m f_mz\ne0$ となる。
+従って中心は $\mathbb C[y,z]$ に含まれる。
+重み6の部分は $ay^3+bz^2$ であり，$\delta$ による微分が零となる条件は
+$3a=2b$ である。その中心の次元は1である。
+既存の最高活性族の次数別局所自由性により，次数6から次数7・8への
+交換子写像の核の次元は上半連続である。
+上の中心元は一般点でも非零なので，一般点の中心はちょうど一次元となる。
+
+\texttt{computations/verify\_degree\_one\_shadow\_top.py}は
+二つの自由代数恒等式を全係数上で厳密に検証する。
+さらに重み6の七つの対称化単項式の独立性と，
+$\alpha=\beta=0$ での交換子写像の階数6を有理数演算で照合する。
+後者の特殊化は一意性のための階数の証人であり，中心性を数値例で代替していない。
+\end{proof}
+
+\begin{proposition}[Poisson正規化後の関数体次数]
+\label{prop:degree-one-shadow-top-degree-five}
+$D=\partial_x$ を固定し，前命題の中心方程式の完全対称化逆像に
+$y=Y+2\alpha x^2$ を代入する。
+得られる正規形と係数は
+\begin{align}
+ F^{\mathrm{sh}}&=z^2/2+Y^3/3+I x^4Y+Jx^6,\\
+ I&=c-4\alpha^2,\qquad
+ J=d+2\alpha c-\frac{16}{3}\alpha^3.
+       \label{eq:degree-one-shadow-top-depressed}
+\end{align}
+この変換は次数付きJacobian Poisson表示の同型である。
+有理写像
+\[
+                (\alpha,\beta)\dashrightarrow(I,J)
+\]
+は優勢であり，関数体拡大の次数は5である。
+\end{proposition}
+\begin{proof}
+$y$ の平行移動は $D\wedge\partial_y\wedge\partial_z$ を保つので，
+方程式の変換と同時にJacobian Poisson構造も運ぶ。
+式\eqref{eq:degree-one-shadow-top-depressed}は三次式を展開して得る。
+$I$ の式は $\beta$ について一次で，
+\begin{equation}
+\label{eq:degree-one-shadow-top-beta-inverse}
+ \beta=-{12\alpha^3+35\alpha^2+3\alpha I-15\alpha+15I
+                    \over15(2\alpha+5)}.
+\end{equation}
+従って $\mathbb C(\alpha,\beta)=\mathbb C(\alpha,I)$ である。
+これを $J$ の式へ代入すると
+\begin{align}
+ J&={N(\alpha,I)\over75(\alpha+1)(2\alpha+5)},
+       \label{eq:degree-one-shadow-top-rational-map}\\
+ N(\alpha,I)
+  &={112\alpha^5+340\alpha^4+156\alpha^3I+900\alpha^3}
+       \notag\\
+  &\quad+450\alpha^2I+475\alpha^2-18\alpha I^2
+         +675\alpha I+75\alpha-90I^2-75I.
+       \label{eq:degree-one-shadow-top-numerator}
+\end{align}
+分子と分母が $\mathbb C(I)[\alpha]$ で互いに素であることは
+\begin{align*}
+ N(-1,I)&=-8(3I+2)(3I+17),\\
+ N(-5/2,I)&=-\frac52(3I+65)(6I+55)
+\end{align*}
+から従う。いずれも $\mathbb C(I)$ の非零元である。
+分子の $\alpha$ 次数は5で，最高係数は112，分母の次数は2である。
+従って $\alpha$ を変数とする有理関数の次数は5となる。
+
+体論的には，$k=\mathbb C(I)$ と書けば
+\[
+             N(T,I)-75J(T+1)(2T+5)\in k[J,T]
+\]
+は $J$ に関して一次で，その二つの係数は $k[T]$ で互いに素である。
+Gaussの補題によって既約であり，$T$ の最高係数が定数112なので
+$k(J)[T]$ でも既約である。
+ゆえに $[\mathbb C(\alpha,\beta):\mathbb C(I,J)]=5$ を得る。
+これらの有理式と互いに素性の二つの証人も，上記コードが
+分母を払った全係数の多項式恒等式として検証する。
+\end{proof}
+
+\begin{remark}[座標を固定した復元との違い]
+\label{rem:degree-one-shadow-top-coordinate-inverse}
+二次項を除く前の $F^{\mathrm{sh}}$ と $D=\partial_x$ を
+\emph{同じ重み付き座標のまま}与えるなら，$x^2y^2$ 係数 $b=-2\alpha$ から
+$\alpha=-b/2$ を読み，さらに
+\[
+ \beta={25\alpha^2+15\alpha-3(\alpha+5)c\over15(2\alpha+5)}
+\]
+により $2\alpha+5\ne0$ 上で元の係数を一意に復元できる。
+しかし $y$ の二次平行移動を許してPoisson正規形を取ると，
+この $b$ の情報を独立には保持しない。
+最高活性部分だけでも五次の方程式が残ることは，
+座標付き復元からPoisson同型類の一意復元へ移る際の具体的な障害である。
+
+全下位係数を加えると，最高活性部分の異なる持上げが
+それぞれ同じ全Poisson方程式へ持ち上がるかは別に証明する必要がある。
+また，構成した零切断近傍への包含と，全Abel同値による異なる持上げの非同値性も
+そのまま最高活性計算からは従わない。
+従ってこの次数5を $\Theta_1$ 全体の次数，または
+その開埋込み性の反例としては主張しない。
+\end{remark}
+
+\subsection{次数2の最高活性部分における逆復元の四価性}
+\label{subsec:degree-two-shadow-inverse-obstruction}
+
+本項の計算は，Poisson shadow射全体の一般次数を決めるものではない。
+ただし，中心方程式の最高活性部分とPoisson方向から
+ambientの最高活性potentialを一意に線型復元する方法には，具体的な障害を与える。
+
+非零活性方向を $h=1$ に固定し，
+\[
+ U=\frac{\alpha}{4}(x^4+y^4)+\beta x^2y^2,
+ \qquad [x,y]=z
+\]
+を考える。定義関係で $z$ を消去すると
+\[
+ r_1=a(y^2x+xy^2)+byxy+cx^3,\qquad
+ r_2=a(x^2y+yx^2)+bxyx+cy^3
+\]
+であり，
+\[
+ a=1+\frac23\beta,
+ \qquad b=-2+\frac23\beta,
+ \qquad c=\alpha,
+ \qquad a-b=3.
+\]
+以下，完全対称化が所要次数で同型となり，規格化中心が一意となる稠密開上で計算する。
+最高活性次数4の中心元は，既存の第\ref{sec:elliptic-degree-two-finite}節の
+De Laetの中心式\cite[Section 5.2, Theorem 5.3]{DeLaet2017}から得る。
+
+\begin{lemma}[中心式の完全対称化座標]
+\label{lem:binary-shadow-explicit-coordinates}
+\[
+ D=x^4+y^4,\qquad S=\operatorname{Sym}(x^2y^2)
+\]
+とする。規格化中心元とそのshadowを
+\[
+ \Omega=\frac12z^2+\frac A4D+BS,
+ \qquad F^{\mathrm{sh}}=\frac12z^2+\frac A4(x^4+y^4)+Bx^2y^2
+\]
+と書くと，$A,B$ は $b,c$ の有理関数であり，次を満たす：
+\begin{align}
+ c^2&=\frac{b(3b^2+bB+15b+18)}{3b+B+3},
+ \label{eq:binary-shadow-inverse-square}\\
+ \frac Ac&=\frac{2(bB+6b+3B+9)}{3b(b+3)}.
+ \label{eq:binary-shadow-inverse-linear-c}
+\end{align}
+\end{lemma}
+\begin{proof}
+自由語の和を
+\[
+ W_1=xyxy+yxyx,\qquad
+ W_2=yx^2y+xy^2x,\qquad
+ W_3=x^2y^2+y^2x^2
+\]
+とする。すると
+\[
+ S=(W_1+W_2+W_3)/6,\qquad z^2=W_1-W_2.
+\]
+また
+\[
+ \frac12(r_1x+xr_1+r_2y+yr_2)
+              =bW_1+aW_2+aW_3+cD
+\]
+は零となる。
+既存の中心元は
+\[
+ C=b(a^2-c^2)W_1+a(b^2-a^2)W_2
+                  +a(c^2-a^2)W_3+c(a^2-b^2)D.
+\]
+直前の一つの関係式だけを用いて係数を比較すれば，
+\[
+ C=k_z z^2+k_DD+k_SS
+\]
+となり，
+\begin{align*}
+ k_z&=-a(b^2-c^2),\\
+ k_D&=\frac{c(2a^3-2ac^2+b^3-bc^2)}{a-b},\\
+ k_S&=\frac{6a(2a^2b+ab^2-ac^2-2bc^2)}{a-b}.
+\end{align*}
+$k_z\ne0$ の開上で $\Omega=C/(2k_z)$ だから，
+\[
+ A=2k_D/k_z,\qquad B=k_S/(2k_z).
+\]
+$a=b+3$ を代入すると
+\[
+ B=\frac{3\bigl((b+1)c^2-b(b+2)(b+3)\bigr)}{b^2-c^2}.
+\]
+これを $c^2$ について解けば\eqref{eq:binary-shadow-inverse-square}を得る。
+この式を $A/c$ に代入して整理すると\eqref{eq:binary-shadow-inverse-linear-c}となる。
+計算は関係式での係数比較による有理恒等式であり，数値的観察ではない。
+\end{proof}
+
+\begin{proposition}[最高活性係数の写像の一般次数]
+\label{prop:binary-shadow-generic-degree-four}
+前補題の有理写像
+\[
+                 (\alpha,\beta)\dashrightarrow(A,B)
+\]
+の一般次数は4である。
+従って，この最高活性二係数族の $U$ を，$V=A(x^4+y^4)/4+Bx^2y^2$ と
+固定した $h=1$ から有理的に一意復元することはできない。
+\end{proposition}
+\begin{proof}
+$B$ は $c^2$ の非定数M\"obius関数であり，その係数行列の行列式は
+$-6b(2b+3)\ne0$ である。
+従って $\mathbb C(b,B)=\mathbb C(b,c^2)$ であり，$b,B$ は代数的に独立である。
+$K=\mathbb C(B)$ とし，$b$ をその上の超越元とする。
+前補題から
+\[
+ c^2=R(b):=\frac{b(3b^2+bB+15b+18)}{3b+B+3},\qquad
+ A=cL(b),\quad
+ L(b):=\frac{2(bB+6b+3B+9)}{3b(b+3)}.
+\]
+$R$ の $b=0$ における位数は1なので，$R$ は $K(b)$ 内の平方ではなく，
+$[K(b,c):K(b)]=2$ である。
+一方，
+\[
+ A^2=R(b)L(b)^2
+ =\frac{4(3b^2+bB+15b+18)(bB+6b+3B+9)^2}
+        {9b(b+3)^2(3b+B+3)}.
+\]
+分子・分母は $K[b]$ 内で互いに素な次数4の多項式である。
+例えば分母の三つの相異なる零点
+$0,-3,-(B+3)/3$ において分子は零でない。
+従って $b$ の有理関数 $A^2$ は次数4を持ち，
+\[
+                   [K(b):K(A^2)]=4.
+\]
+$A$ は $K$ 上超越的で $[K(A):K(A^2)]=2$ だから，体の塔から
+\[
+ [K(b,c):K(A)]
+ =\frac{[K(b,c):K(b)]\,[K(b):K(A^2)]}
+        {[K(A):K(A^2)]}
+ =\frac{2\cdot4}{2}=4.
+\]
+$K(b,c)=\mathbb C(b,c)$，$K(A)=\mathbb C(A,B)$ なので結論を得る。
+標数0であるため，一般ファイバーは相異なる四点からなる。
+\end{proof}
+
+\begin{corollary}[規格化した係数族における下位項の三角復元]
+\label{cor:binary-shadow-lower-triangular}
+定理\ref{thm:elliptic-finite-central-family}の中心元を，
+整列基底での定数項が $U_0$，$z^2$ 係数が $1/2$ となるように選ぶ。
+さらに完全対称化座標での $z^2$ 係数を $1/2$ に再規格化する。
+最高活性項を前命題の対称二係数形に固定し，
+\[
+ U=U_4+U_3+U_2+U_1+U_0,
+ \qquad \deg_{x,y}U_j=j
+\]
+の全下位係数を許す。この選択した中心のshadowを
+$z^2/2+V$，$V=\sum_{j=0}^4V_j$ と書く。
+最高活性パラメータの非空開上で，各 $h=1$ の最高活性逆像に対し，
+$V_3,V_2,V_1,V_0$ から $U_3,U_2,U_1,U_0$ を一意に有理復元できる。
+従って，この座標と中心の規格化を固定した全係数写像の一般次数も4である。
+
+同じ主張は，固定した中央一次変数空間 $K$ に対し
+$U_j\in\operatorname{Sym}^j\langle x,y\rangle
+\otimes\operatorname{Sym}^{4-j}K$ とする斉次係数族にも成立する。
+これは全同値による商を取る前の係数写像の主張である。
+\end{corollary}
+\begin{proof}
+まず整列基底で規格化した中心を $\Omega^{\mathrm{ord}}$ とする。
+定理\ref{thm:elliptic-finite-central-family}の22次中心行列の証明により，
+この中心は一意で，必要な分母は $U_4,h$ のみの関数である。
+下位係数に重み $\deg U_j=4-j$ を与えると全内部次数4の斉次性を持つ。
+完全対称化の基底変更も活性次数に関して三角で，対角は最高活性項だけに依存する。
+従って完全対称化座標での $z^2$ 係数は
+$\kappa(U_4,h)/2$ と書け，$\kappa(U_4,0)=1$ である。
+これを反転し，$\Omega=\kappa^{-1}\Omega^{\mathrm{ord}}$ とおく。
+補題\ref{lem:shadow-even-z}と同じ反自己同型の議論により，
+そのshadowは $z^2/2+V(x,y)$ である。
+
+下位係数に多項式的で上記の重みを持つため，
+\begin{equation}\label{eq:binary-shadow-lower-triangular}
+ V_j=L_j(U_4,h)U_j+
+ Q_j(U_4,h;U_3,\ldots,U_{j+1}),\qquad j=3,2,1,0
+\end{equation}
+となる。$L_j$ は二変数の次数 $j$ の斉次形式空間の線型自己写像で，
+$Q_3=0$ とする。
+正の重みのため，$U_j$ の二次以上の項や，$U_j$ にさらに下位係数を掛けた項は
+$V_j$ に現れない。$L_j$ の係数は最高活性パラメータだけの有理関数である。
+可換極限では $V=U$ なので $L_j(U_4,0)=1$。
+特にambientは $U_0$ に依存せず，定数項の規格化から
+$L_0=\kappa^{-1}$ となる。
+
+固定した $h=1$ での非消滅には尺度変更を使う。
+$h\ne0$ で $z'=hz$，$U'=h^2U$ とすると，
+定義関係は $A(U,h)\simeq A(h^2U,1)$ を与える。
+$h^2\Omega^{\mathrm{ord}}(U,h)$ は $z'$ 座標で
+$z'^2$ 係数 $1/2$，定数項 $h^2U_0=U'_0$ を持つ。
+一意性により
+\[
+ \Omega^{\mathrm{ord}}(h^2U,1)=h^2\Omega^{\mathrm{ord}}(U,h).
+\]
+完全対称化はこの線型変更に両立するので
+\[
+ \kappa(h^2U_4,1)=\kappa(U_4,h),\qquad
+ V(h^2U,1)=h^2V(U,h),\qquad
+ L_j(h^2U_4,1)=L_j(U_4,h)
+\]
+を得る。これらは関数体上の恒等式であり，選んだ開集合自体の尺度不変性は不要である。
+もし $\det L_j(U_4,1)$ が零有理関数なら，最後の式によって
+$\det L_j(U_4,h)$ も零となり，$h=0$ で1となることに反する。
+従って最高活性パラメータの非空開で全 $L_j(U_4,1)$ は可逆である。
+
+式\eqref{eq:binary-shadow-lower-triangular}を $j=3,2,1,0$ の順に解けば，
+下位係数を有理的に一意復元できる。
+ゆえに下位変数の超越拡大は前命題の関数体次数4を変えない。
+中央変数を加える場合，線型ブロックは
+$L_j\otimes1_{\operatorname{Sym}^{4-j}K}$ となる。
+既存中心族の任意中央係数への基底変更と斉次性から同じ証明が適用される。
+\end{proof}
+
+\begin{remark}[全モジュライの次数との区別]
+最高活性部分の次数4と，直前の選択した中心族の三角復元から，
+その固定座標の係数族では全下位項を加えても四つの一般分枝が残る。
+しかし全モジュライのPoisson shadow射の一般次数を4とするためには，
+この中心と全方向族で選んだ中心の中央Casimir差の比較，
+同じnc開近傍への所属，および
+全同値とPoisson同型による座標商の比較をさらに扱う必要がある。
+座標正規形に含まれる有限の補助選択の次数も揃えなければならない。
+
+それでも，$V$ の係数に依存する可逆な有限線型作用素だけから
+$U$ の最高活性係数を一意に得る提案は，前命題と両立しない。
+零切断に沿う形式逆が存在することは，離れた逆像候補を除く
+Zariski開近傍があることを意味しない。
+\end{remark}
